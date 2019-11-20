@@ -1,0 +1,96 @@
+---
+version: 2.1
+executors:
+  python_executor:
+    docker:
+      - image: circleci/python:3.7.4
+  node_executor:
+    docker:
+      - image: circleci/node:12.9.0-stretch
+jobs:
+  build:
+    executor: python_executor
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "requirements.txt" }}
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+      - save_cache:
+          paths:
+            - ./venv
+          key: deps-{{ checksum "requirements.txt" }}
+      - run:
+          name: Run MkDocs
+          command: |
+            . venv/bin/activate
+            mkdocs build -s
+
+  vale:
+    executor: python_executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v1.7.1
+      - run:
+          name: Run Vale
+          command: |
+            ./bin/vale --config .circleci/vale/.vale.ini --glob='*.{md}' --output=line . | tee vale.out
+      - store_artifacts:
+          path: ./vale.out
+          destination: vale.out
+
+  linkchecker:
+    executor: node_executor
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "./package.json" }}
+      - run:
+          name: Install dependencies
+          command: |
+            npm install
+      - run:
+          name: Run markdown link checker
+          command: |
+            npm run test:links
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: deps-{{ checksum "./package.json" }}
+      - store_artifacts:
+          path: ./linkchecker.out
+          destination: linkchecker.out
+
+  markdownlint:
+    executor: node_executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            npm install
+      - run:
+          name: Run Markdownlint
+          command: |
+            ./node_modules/markdownlint-cli/markdownlint.js --config .circleci/markdownlint/markdownlint.yml *.md | tee markdownlint.out
+      - store_artifacts:
+          path: ./markdownlint.out
+          destination: markdownlint.out
+
+workflows:
+  version: 2
+  default:
+    jobs:
+      - build
+      - vale
+      - markdownlint
+      - linkchecker
