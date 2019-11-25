@@ -3,7 +3,8 @@ description: Configuration options
 
 # Configuration File Properties 
 
-Update the `config.toml` file in the `config` directory for your requirements. 
+Copy the `config.toml` file in the `config` directory and update your copy to your requirements. Use the
+`--config` option to specify your configuration file when starting Hikari. 
 
 ## Node 
 
