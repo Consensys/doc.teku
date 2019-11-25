@@ -1,1 +1,8 @@
 .DS_Store
+.idea
+site/
+env/
+*.out
+*.iml
+node_modules/
+.circleci/process.yml
