@@ -27,7 +27,7 @@ The properties in the `interop` section are used for local testing.
 | `genesisTime`             | `0`. When `genesisTime` is set to 0, the genesis time is `currentTime` + 5 seconds
 | `ownedValidatorStartIndex`| Index from which to use owned validators for the node                                                  
 | `ownedValidatorCount`     | Number of owned validators to use for the node                                                  
-| `startState`              | `""` Precomputed genesis                            
+| `startState`              | `""` File to load a SSZ encoded precomputed genesis state from                            
 | `privateKey`              | Node private key        
 
 ## Validator 
