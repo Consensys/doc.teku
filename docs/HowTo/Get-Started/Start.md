@@ -15,7 +15,7 @@ tmux
 In the `hikari/scripts` directory: 
 
 ```bash
-sh run.sh -n=<number> [-v=<validators>]
+./run.sh -n=<number> [-v=<validators>]
 ```
 
 Where:
@@ -34,4 +34,3 @@ Use the optional `--config` and `--logging` options to configure the Hikari node
  
 !!! tip
     Use the `-h` option to display the `run.sh` help. 
-
