@@ -12,8 +12,6 @@ description: Building Hyperledger Besu from source code
 
 * [Git](https://git-scm.com/downloads)
 
-* [Gradle](https://gradle.org/)
-
 ## Installation on Linux / Unix / Mac OS X
 
 ###Clone the Besu Repository
@@ -42,13 +40,8 @@ cd build/install/artemis
 ```
 
 Display the Artemis help to confirm installation: 
-````bash
+```bash
 bin/artemis --help
-````
-
-!!! note "Linux Open File Limit"
-    If synchronizing to a network with large data requirements, increase the 
-    maximum number of open files allowed using `ulimit`. If the open files limit is not high enough,
-    a `Too many open files` RocksDB exception occurs. 
+```
 
 Continue with [Starting Artemis](Starting-node.md).

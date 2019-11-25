@@ -53,6 +53,6 @@ Default is `INFO`.
   -V, --version
 ``` 
 
-
+Displays the version and exits. 
 
 
