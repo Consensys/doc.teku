@@ -10,30 +10,28 @@
 # specific language governing permissions and limitations under the License.
 
 # Project information
-site_name: Hikari
-site_url: https://docs.hikari.pegasys.tech/en/latest/
-site_description: Hikari Ethereum 2 client documentation.
-site_author: Hikari community
-copyright: Hikari and its documentation are licensed under Apache 2.0 license /
+site_name: Teku
+site_url: https://docs.teku.pegasys.tech/en/latest/
+site_description: Teku Ethereum 2 client documentation.
+site_author: Teku community
+copyright: Teku and its documentation are licensed under Apache 2.0 license /
   This <a href="https://readthedocs.org/">Readthedocs.org</a> documentation is maintained with love by <a href="https://pegasys.tech/">PegaSys</a>.
 
 #extra project info and template customisation
 extra:
-  doc_site_edit_url: https://github.com/PegaSysEng/doc.hikari/
-  versions:
-    stable: '0.1.1'
+  doc_site_edit_url: https://github.com/PegaSysEng/doc.teku/
   latest_version_warning:
     url_contains: /latest/
-    text: 'You are reading Hikari development version documentation and
+    text: 'You are reading Teku development version documentation and
     some displayed features may not be available in the stable release.
     You can switch to stable version using the version box at screen bottom.'
   support:
-    gitter: https://gitter.im/PegaSysEng/Hikari
+    gitter: https://gitter.im/PegaSysEng/Teku
     email: support@pegasys.tech
     pegasys_website: https://pegasys.tech/
-    issues: https://pegasys1.atlassian.net/secure/Dashboard.jspa?selectPageId=10000
+    issues: https://github.com/PegaSysEng/doc.teku/issues
   google:
-    site_verification: 'za1cLzyS6LXDGO-pMzvfQdYTZ0Zc67uZtY0asA4YXZ0'
+    site_verification: '<TO BE DEFINED>'
     tag_manager: 'GTM-5SNB3FJ'
   search:
     language: 'en'
@@ -41,18 +39,18 @@ extra:
 
 
 # Software Repository
-repo_name: PegaSysEng/Hikari
-repo_url: https://github.com/PegaSysEng/hikari
+repo_name: PegaSysEng/Teku
+repo_url: https://github.com/PegaSysEng/teku
 
 theme:
   name: material
-  custom_dir: docs/custom_theme
+  custom_dir: common/custom_theme
   palette:
     primary: deep-orange
     accent: amber
   favicon: favicon.ico
   logo:
-    icon: 光
+    icon: テク
 nav:
 
 markdown_extensions:
@@ -85,3 +83,10 @@ markdown_extensions:
 plugins:
   - search
   - markdownextradata
+  - redirects:
+      redirect_maps:
+        # Configure redirects using key:value pairs:
+        # old_path.md: new_path.md
+        # you can't use an already redirected path as an old_path.
+        # new_path can be a file inside the docs/ folder or any URL (http://...)
+        # Reference/Teku-CLI.md: Reference/CLI/CLI-Syntax.md

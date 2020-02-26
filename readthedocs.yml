@@ -8,8 +8,13 @@ build:
 python:
   version: 3.7
   install:
-    - requirements: requirements.txt
+    - requirements: common/build_tools/requirements.txt
 
 mkdocs:
   configuration: mkdocs.yml
   fail_on_warning: false
+
+submodules:
+  include:
+    - common
+  recursive: true
