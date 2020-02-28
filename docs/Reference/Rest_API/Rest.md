@@ -10,5 +10,5 @@ information. The API is logically divided into multiple endpoints.
 | Endpoint                       | Description                              |
 |--------------------------------|------------------------------------------|
 | **/beacon**                    | General information about the beacon chain. |
-| **/Network**                   | Information about the network.            |
-| **/Node**                      | Information about the beacon node.         |
+| **/network**                   | Information about the network.            |
+| **/node**                      | Information about the beacon node.         |
