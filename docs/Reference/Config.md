@@ -4,7 +4,7 @@ description: Configuration options
 # Configuration File Properties 
 
 Copy the `config.toml` file in the `config` directory and update your copy to your requirements. Use the
-`--config` option to specify your configuration file when starting Hikari. 
+`--config` option to specify your configuration file when starting Teku. 
 
 ## Node 
 
@@ -56,8 +56,8 @@ The properties in the `interop` section are used for local testing.
 | Property                  | Description                                                                          
 |-------------------------- |---------------------------------------------------------------------------
 | `enabled`                 | Specifies if the metrics exporter is enabled. `true` or `false`        
-| `port`                    | Port on which Prometheus accesses Hikari metrics          
-| `metricsNetworkInterface` | Host on which Prometheus accesses Hikari metrics        
+| `port`                    | Port on which Prometheus accesses Teku metrics          
+| `metricsNetworkInterface` | Host on which Prometheus accesses Teku metrics        
 | `metricsCategories`       | Array of categories for which to track metrics. Options are `BEACONCHAIN`, `JVM`, `PROCESS`, `NETWORK`  
 
 ## Database 
@@ -71,3 +71,4 @@ The properties in the `interop` section are used for local testing.
 | Property                  | Description                                                             
 |-------------------------- |-------------------------------------------------------------------------
 | `portNumber`              | REST API listening port       
+| `enableSwagger`           | Enables or disables [Swagger UI](https://swagger.io/tools/swagger-ui/). Defaults to `false`
