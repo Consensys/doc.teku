@@ -52,7 +52,12 @@ theme:
   logo:
     icon: テク
 nav:
-
+    - How to:
+        - Get started with Teku:
+            - Run Teku: HowTo/Get-Started/Start.md
+    - Reference:
+        - RESTful APIs: Reference/Rest_API/Rest.md
+        - Configuration File Properties: Reference/Config.md
 markdown_extensions:
   - toc:
       permalink: 
