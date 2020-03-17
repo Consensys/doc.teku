@@ -36,6 +36,7 @@ The command produces an  expanded distribution, ready to run
 in `build/install/teku`.
 
 !!! tip
-    Run `./gradlew tasks` to view the list of available Gradle tasks.
+    To build a `.tar` or `.zip` distribution, use the `./gradlew distTar` or `./gradlew distZip`
+    command. Run `./gradlew tasks` to view the list of available Gradle tasks.
 
 
