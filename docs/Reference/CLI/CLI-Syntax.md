@@ -440,3 +440,33 @@ est-api-port="3435"
 
 Specifies REST API listening port (TCP).
 The default is 9000.
+
+### help
+
+```bash tab="Syntax"
+-h, --help
+```
+
+Show the help message and exit.
+
+### logging
+
+```bash tab="Syntax"
+-l, --logging=<LEVEL>
+```
+
+```bash tab="Example"
+--logging=DEBUG
+```
+
+Sets the logging verbosity.
+Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
+Default is `INFO`.
+
+### version
+
+```bash tab="Syntax"
+  -V, --version
+``` 
+
+Displays the version and exits. 
