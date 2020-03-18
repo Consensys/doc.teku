@@ -1,0 +1,442 @@
+description: Teku command line interface reference
+<!--- END of page meta data -->
+
+# Teku Command Line
+
+This reference describes the syntax of the Hyperledger Besu Command Line Interface (CLI) options and subcommands.
+
+## Specifying Options
+
+Teku options can be specified: 
+
+* On the command line 
+* As an [environment variable](#teku-environment-variables) 
+* In a configuration file.
+
+If an option is specified in multiple places, the order of priority is command line, environment variable, 
+configuration file. 
+
+### Teku Environment Variables
+
+For each command line option, the equivalent environment variable is: 
+
+* Upper-case
+* `-` is replaced by `_` 
+* Has a `TEKU_` prefix
+
+For example, set `--p2p-port` using the `TEKU_P2P_PORT` environment variable.
+
+## Options
+
+To start a Teku node run:
+
+```bash
+Teku [OPTIONS] [COMMAND]
+```
+
+### config-file
+
+```bash tab="Syntax"
+--config-file=<FILE>
+```
+
+```bash tab="Command Line"
+--config-file=/home/me/me_node/config.toml
+```
+
+```bash tab="Environment Variable"
+TEKU_CONFIG_FILE=/home/me/me_node/config.toml
+```
+
+The path to the TOML configuration file.
+The default is `none`.
+        
+### data-path
+
+```bash tab="Syntax"
+--data-path=<PATH>
+```
+
+```bash tab="Command Line"
+--data-path=/home/me/me_node
+```
+
+```bash tab="Environment Variable"
+TEKU_DATA_PATH=/home/me/me_node
+```
+
+```bash tab="Configuration File"
+data-path="/home/me/me_node"
+```
+
+The path to the Teku data directory. The default is the directory in which Teku is installed
+or `/opt/teku/database` if using the Teku Docker image.
+
+### eth1-deposit-contract-address
+
+```bash tab="Syntax"
+--eth1-deposit-contract-address=<ADDRESS>
+```
+
+```bash tab="Command Line"
+--eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
+```
+
+```bash tab="Environment Variable"
+TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
+```
+
+```bash tab="Configuration File"
+eth1-deposit-contract-address="0x77f7bED277449F51505a4C54550B074030d989bC"
+```
+
+Eth1 address of deposit contract.
+
+### eth1-endpoint
+
+```bash tab="Syntax"
+--eth1-endpoint=<URL>
+```
+
+```bash tab="Command Line"
+--eth1-endpoint=http://localhost:8545
+```
+
+```bash tab="Environment Variable"
+TEKU_ETH1_ENDPOINT=http://localhost:8545
+```
+
+```bash tab="Configuration File"
+eth1-endpoint="http://localhost:8545"
+```
+
+JSON-RPC URL of Eth1 node.
+
+### metrics-enabled
+
+```bash tab="Syntax"
+--metrics-enabled
+```
+
+```bash tab="Environment Variable"
+TEKU_METRICS_ENABLED=true
+```
+
+```bash tab="Configuration File"
+metrics-enabled=true
+```
+
+Set to `true` to enable the metrics exporter.
+The default is `false`.
+
+### metrics-categories
+
+```bash tab="Syntax"
+--metrics-categories
+```
+
+```bash tab="Command Line"
+--metrics-categories=BEACONCHAIN,JVM,PROCESS
+```
+
+```bash tab="Environment Variable"
+TEKU_METRICS_CATEGORIES=BEACONCHAIN,JVM,PROCESS
+```
+
+```bash tab="Configuration File"
+metrics-categories=["BEACONCHAIN", "JVM", "PROCESS"]
+```
+
+Categories for which to track metrics. Options are `BEACONCHAIN`, `JVM`, `PROCESS`, `NETWORK`
+
+### metrics-interface
+
+```bash tab="Syntax"
+--metrics-interface=<HOST>
+```
+
+```bash tab="Command Line"
+--metrics-interface=127.0.0.1
+```
+
+```bash tab="Environment Variable"
+TEKU_METRICS_INTERFACE=127.0.0.1
+```
+
+```bash tab="Configuration File"
+metrics-interface="127.0.0.1"
+```
+
+Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
+
+### metrics-port
+
+```bash tab="Syntax"
+--metrics-port=<PORT>
+```
+
+```bash tab="Command Line"
+--metrics-port=6174
+```
+
+```bash tab="Environment Variable"
+TEKU_METRICS_PORT=6174
+```
+
+```bash tab="Configuration File"
+metrics-port="6174"
+```
+
+Specifies the port (TCP) on which [Prometheus](https://prometheus.io/) accesses Teku metrics.
+The default is `8008`.
+
+### network
+
+```bash tab="Syntax"
+--network=<NETWORK>
+```
+
+```bash tab="Command Line"
+--network=saphire
+```
+
+```bash tab="Environment Variable"
+BESU_NETWORK=saphire
+```
+
+```bash tab="Configuration File"
+network="saphire"
+```
+
+Predefined network configuration.
+The default is `minimal`.
+
+### p2p-enabled
+
+```bash tab="Syntax"
+--p2p-enabled=<true|false>
+```
+
+```bash tab="Command line"
+--p2p-enabled=false
+```
+
+```bash tab="Environment Variable"
+TEKU_P2P_ENABLED=false
+```
+
+```bash tab="Configuration File"
+p2p-enabled=false
+```
+
+Enables or disables all p2p communication.
+The default is true.
+
+### p2p-interface
+
+```bash tab="Syntax"
+--p2p-interface=<HOST>
+```
+
+```bash tab="Command Line"
+--p2p-interface=192.168.1.132
+```
+
+```bash tab="Environment Variable"
+TEKU_P2P_INTERFACE=192.168.1.132
+```
+
+```bash tab="Configuration File"
+p2p-interface="192.168.1.132"
+```
+
+Specifies the network interface on which the node listens for P2P communication.
+The default is 0.0.0.0 (all interfaces).
+
+### p2p-port
+
+```bash tab="Syntax"
+--p2p-port=<PORT>
+```
+
+```bash tab="Command Line"
+# to listen on port 1789
+--p2p-port=1789
+```
+
+```bash tab="Environment Variable"
+# to listen on port 1789
+TEKU_P2P_PORT=1789
+```
+
+```bash tab="Configuration File"
+p2p-port="1789"
+```
+
+Specifies the P2P listening ports (UDP and TCP).
+The default is 30303.
+
+### p2p-discovery-enabled
+
+```bash tab="Syntax"
+--p2p-discovery-enabled=<true|false>
+```
+
+```bash tab="Command line"
+--p2p-discovery-enabled=false
+```
+
+```bash tab="Environment Variable"
+TEKU_P2P_DISCOVERY_ENABLED=false
+```
+
+```bash tab="Configuration File"
+p2p-discovery-enabled=false
+```
+
+Enables or disables all p2p communication.
+The default is true.
+<!--- Confirm difference between this CLI option and p2p-enabled -->
+
+### p2p-discovery-bootnodes
+
+```bash tab="Syntax"
+--p2p-discovery-bootnodes=<ENR_ADDRESS>
+```
+
+```bash tab="Command line"
+--p2p-discovery-bootnodes=<ENR_ADDRESS>
+```
+
+```bash tab="Environment Variable"
+TEKU_P2P_DISCOVERY_BOOTNODES=<ENR_ADDRESS>
+```
+
+```bash tab="Configuration File"
+p2p-discovery-bootnodes=<ENR_ADDRESS>
+```
+
+List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
+
+### p2p-advertised-port
+
+```bash tab="Syntax"
+--p2p-advertised-port=<PORT>
+```
+
+```bash tab="Command Line"
+--p2p-advertised-port=1789
+```
+
+```bash tab="Environment Variable"
+TEKU_P2P_ADVERTISED_PORT=1789
+```
+
+```bash tab="Configuration File"
+p2p-port="1789"
+```
+
+The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2p-port)
+
+### p2p-private-key
+
+```bash tab="Syntax"
+--p2p-private-key=<PATH_TO_FILE>
+```
+
+```bash tab="Command Line"
+--p2p-private-key=/home/me/me_node/key
+```
+
+```bash tab="Environment Variable"
+TEKU_P2P_PRIVATE_PORT=/home/me/me_node/key
+```
+
+```bash tab="Configuration File"
+p2p-private-key="/home/me/me_node/key"
+```
+
+File containing the node's private key.
+
+### rest-api-enabled
+
+```bash tab="Syntax"
+--rest-api-enabled
+```
+
+```bash tab="Environement Variable"
+TEKU_REST_API_ENABLED=true
+```
+
+```bash tab="Configuration File"
+--rest-api-enabled=true
+```
+
+Set to `true` to enable the REST API service.
+The default is `false`.
+
+### rest-api-docs-enabled
+
+```bash tab="Syntax"
+--rest-api-docs-enabled
+```
+
+```bash tab="Environement Variable"
+TEKU_REST_API_DOCS_ENABLED=true
+```
+
+```bash tab="Configuration File"
+--rest-api-docs-enabled=true
+```
+
+Set to `true` to enable the REST API documentation.
+The default is `false`.
+
+The documentation can be accessed at `http:<interface>:<port>/swagger-ui` where:
+
+* `interface` is specified using [`--rest-api-interface`](#rest-api-interface)
+* `port` is specified using [`--p2p-port`](#p2p-port)
+
+### rest-api-interface
+
+```bash tab="Syntax"
+--rest-api-interface=<HOST>
+```
+
+```bash tab="Command Line"
+# to listen on all interfaces
+--rest-api-interface=0.0.0.0
+```
+
+```bash tab="Environment Variable"
+TEKU_REST_API_INTERFACE=0.0.0.0
+```
+
+```bash tab="Configuration File"
+rest-api-interface="0.0.0.0"
+```
+
+Specifies the interface on which the REST API listens.
+The default is 127.0.0.1.
+
+### rpc-http-port
+
+```bash tab="Syntax"
+--rest-api-port=<PORT>
+```
+
+```bash tab="Command Line"
+# to listen on port 3435
+--rest-api-port=3435
+```
+
+```bash tab="Environment Variable"
+TEKU_REST_API_PORT=3435
+```
+
+```bash tab="Configuration File"
+est-api-port="3435"
+```
+
+Specifies REST API listening port (TCP).
+The default is 9000.

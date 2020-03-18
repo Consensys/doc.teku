@@ -56,6 +56,9 @@ nav:
         - Get started with Teku:
             - Run Teku: HowTo/Get-Started/Start.md
     - Reference:
+        - Teku Command Line:
+          - Options: Reference/CLI/CLI-Syntax.md
+          - Subcommands: Reference/CLI/CLI-Subcommands.md
         - RESTful APIs: Reference/Rest_API/Rest.md
         - Configuration File Properties: Reference/Config.md
 markdown_extensions:
