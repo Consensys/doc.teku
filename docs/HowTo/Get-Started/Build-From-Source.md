@@ -29,14 +29,26 @@ After cloning, go to the `teku` directory.
 Build teku with the Gradle wrapper `gradlew`, as follows:
 
 ```bash
-./gradlew installDist
+./gradlew distTar installDist
 ```
 
-The command produces an  expanded distribution, ready to run
-in `build/install/teku`.
+!!! note 
+    The command produces an expanded distribution, ready to run
+    in `build/install/teku`, and a `.tar` distribution in `build/distribution`.
+
+Go to the `teku` directory:
+
+```bash
+cd build/install/teku
+```
+
+Display the Artemis help to confirm installation: 
+
+````bash
+bin/teku --help
+````
 
 !!! tip
-    To build a `.tar` or `.zip` distribution, use the `./gradlew distTar` or `./gradlew distZip`
-    command. Run `./gradlew tasks` to view the list of available Gradle tasks.
+    To view the list of available Gradle tasks, run `./gradlew tasks`
 
-
+Continue with [Starting Teku](Start.md).

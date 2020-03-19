@@ -10,14 +10,6 @@ description: Starting Teku
 * [Teku installed](Build-From-Source.md)
 * [tmux](https://github.com/tmux/tmux/wiki) 
 
-### Create `.tar` distribution
-
-In the `teku` directory:
-
-```bash
-./gradlew distTar
-```
-
 ### Start nodes 
 
 In the `teku/scripts` directory: 
