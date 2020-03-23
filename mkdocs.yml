@@ -54,6 +54,7 @@ theme:
 nav:
     - How to:
         - Get started with Teku:
+            - Install binary distribution: HowTo/Get-Started/Install-Binaries.md
             - Run Teku: HowTo/Get-Started/Start.md
     - Reference:
         - RESTful APIs: Reference/Rest_API/Rest.md
