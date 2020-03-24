@@ -1,18 +1,18 @@
-description: Starting Hikari     
+description: Starting Teku     
 <!--- END of page meta data -->
 
-# Starting Hikari 
+# Starting Teku 
 
-## Run Multiple Hikari Nodes 
+## Run multiple Teku nodes 
 
 ### Prerequsites 
 
-[Hikari installed](Build-From-Source.md)
-tmux 
+* [Teku installed](Build-From-Source.md)
+* [tmux](https://github.com/tmux/tmux/wiki) 
 
-### Start Nodes 
+### Start nodes 
 
-In the `hikari/scripts` directory: 
+In the `teku/scripts` directory: 
 
 ```bash
 ./run.sh [-n=<number>] [-v=<validators>]
@@ -20,12 +20,12 @@ In the `hikari/scripts` directory:
 
 Where:
 
-* `<number>` is the number of Hikari nodes to start. The default is 4. 
+* `<number>` is the number of Teku nodes to start. The default is 4. 
 * `<validators>` is the number of validators. At least 8 validators are required. 
 
-### Configure Nodes 
+### Configure nodes 
 
-Use the optional `--config` and `--logging` options to configure the Hikari nodes.  
+Use the optional `--config` and `--logging` options to configure the Teku nodes.  
 
 !!! example 
     ```bash  
