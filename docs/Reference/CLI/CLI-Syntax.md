@@ -6,7 +6,7 @@ description: Teku command line interface reference
 This reference describes the syntax of the Teku Command Line Interface (CLI) options and subcommands.
 
 !!! important
-    The command line interface options are currently under development and my change.
+    The command line interface options are currently under development and may change.
 
 ## Specifying Options
 
