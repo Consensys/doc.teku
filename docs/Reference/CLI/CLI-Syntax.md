@@ -3,7 +3,10 @@ description: Teku command line interface reference
 
 # Teku Command Line
 
-This reference describes the syntax of the Hyperledger Besu Command Line Interface (CLI) options and subcommands.
+This reference describes the syntax of the Teku Command Line Interface (CLI) options and subcommands.
+
+!!! important
+    The command line interface options are currently under development and my change.
 
 ## Specifying Options
 
@@ -41,14 +44,14 @@ Teku [OPTIONS] [COMMAND]
 ```
 
 ```bash tab="Command Line"
---config-file=/home/me/me_node/config.toml
+--config-file=/home/me/me_node/config.yaml
 ```
 
 ```bash tab="Environment Variable"
-TEKU_CONFIG_FILE=/home/me/me_node/config.toml
+TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
 ```
 
-The path to the TOML configuration file.
+The path to the YAML configuration file.
 The default is `none`.
         
 ### data-path
@@ -132,7 +135,7 @@ The default is `false`.
 ### metrics-categories
 
 ```bash tab="Syntax"
---metrics-categories
+--metrics-categories=<CATEGORIES>
 ```
 
 ```bash tab="Command Line"
@@ -147,7 +150,8 @@ TEKU_METRICS_CATEGORIES=BEACONCHAIN,JVM,PROCESS
 metrics-categories=["BEACONCHAIN", "JVM", "PROCESS"]
 ```
 
-Categories for which to track metrics. Options are `BEACONCHAIN`, `JVM`, `PROCESS`, `NETWORK`
+Categories for which to track metrics. Options are `BEACONCHAIN`, `JVM`, `PROCESS`, `NETWORK`.
+All categories are enabled by default.
 
 ### metrics-interface
 
@@ -156,15 +160,15 @@ Categories for which to track metrics. Options are `BEACONCHAIN`, `JVM`, `PROCES
 ```
 
 ```bash tab="Command Line"
---metrics-interface=127.0.0.1
+--metrics-interface=192.168.10.101
 ```
 
 ```bash tab="Environment Variable"
-TEKU_METRICS_INTERFACE=127.0.0.1
+TEKU_METRICS_INTERFACE=192.168.10.101
 ```
 
 ```bash tab="Configuration File"
-metrics-interface="127.0.0.1"
+metrics-interface="192.168.10.101"
 ```
 
 Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
@@ -197,15 +201,15 @@ The default is `8008`.
 ```
 
 ```bash tab="Command Line"
---network=saphire
+--network=mainnet
 ```
 
 ```bash tab="Environment Variable"
-BESU_NETWORK=saphire
+BESU_NETWORK=mainnet
 ```
 
 ```bash tab="Configuration File"
-network="saphire"
+network="mainnet"
 ```
 
 Predefined network configuration.
@@ -301,19 +305,20 @@ The default is true.
 ### p2p-discovery-bootnodes
 
 ```bash tab="Syntax"
---p2p-discovery-bootnodes=<ENR_ADDRESS>
+--p2p-discovery-bootnodes=<ENR_ADDRESSES>
 ```
 
 ```bash tab="Command line"
---p2p-discovery-bootnodes=<ENR_ADDRESS>
+--p2p-discovery-bootnodes=enr:-Iu4QGuiaVXBEoi4kcLbsoPYX7GTK9ExOODTuqYBp9CyHN_PSDtnLMCIL91ydxUDRPZ-jem-o0WotK6JoZjPQWhTfEsTgmlkgnY0gmlwhDbOLfeJc2VjcDI1NmsxoQLVqNEoCVTC74VmUx25USyFe7lL0TgpXHaCX9CDy9H6boN0Y3CCIyiDdWRwgiMo,enr:-Iu4QLNTiVhgyDyvCBnewNcn9Wb7fjPoKYD2NPe-jDZ3_TqaGFK8CcWr7ai7w9X8Im_ZjQYyeoBP_luLLBB4wy39gQ4JgmlkgnY0gmlwhCOhiGqJc2VjcDI1NmsxoQMrmBYg_yR_ZKZKoLiChvlpNqdwXwodXmgw_TRow7RVwYN0Y3CCIyiDdWRwgiMo
 ```
 
 ```bash tab="Environment Variable"
-TEKU_P2P_DISCOVERY_BOOTNODES=<ENR_ADDRESS>
+TEKU_P2P_DISCOVERY_BOOTNODES=enr:-Iu4QGuiaVXBEoi4kcLbsoPYX7GTK9ExOODTuqYBp9CyHN_PSDtnLMCIL91ydxUDRPZ-jem-o0WotK6JoZjPQWhTfEsTgmlkgnY0gmlwhDbOLfeJc2VjcDI1NmsxoQLVqNEoCVTC74VmUx25USyFe7lL0TgpXHaCX9CDy9H6boN0Y3CCIyiDdWRwgiMo,enr:-Iu4QLNTiVhgyDyvCBnewNcn9Wb7fjPoKYD2NPe-jDZ3_TqaGFK8CcWr7ai7w9X8Im_ZjQYyeoBP_luLLBB4wy39gQ4JgmlkgnY0gmlwhCOhiGqJc2VjcDI1NmsxoQMrmBYg_yR_ZKZKoLiChvlpNqdwXwodXmgw_TRow7RVwYN0Y3CCIyiDdWRwgiMo
 ```
 
 ```bash tab="Configuration File"
-p2p-discovery-bootnodes=<ENR_ADDRESS>
+p2p-discovery-bootnodes=["enr:-Iu4QGuiaVXBEoi4kcLbsoPYX7GTK9ExOODTuqYBp9CyHN_PSDtnLMCIL91ydxUDRPZ-jem-o0WotK6JoZjPQWhTfEsTgmlkgnY0gmlwhDbOLfeJc2VjcDI1NmsxoQLVqNEoCVTC74VmUx25USyFe7lL0TgpXHaCX9CDy9H6boN0Y3CCIyiDdWRwgiMo",
+                         "enr:-Iu4QLNTiVhgyDyvCBnewNcn9Wb7fjPoKYD2NPe-jDZ3_TqaGFK8CcWr7ai7w9X8Im_ZjQYyeoBP_luLLBB4wy39gQ4JgmlkgnY0gmlwhCOhiGqJc2VjcDI1NmsxoQMrmBYg_yR_ZKZKoLiChvlpNqdwXwodXmgw_TRow7RVwYN0Y3CCIyiDdWRwgiMo"]
 ```
 
 List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
