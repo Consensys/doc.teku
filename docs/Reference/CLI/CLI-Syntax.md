@@ -298,7 +298,7 @@ TEKU_P2P_DISCOVERY_ENABLED=false
 p2p-discovery-enabled=false
 ```
 
-Enables or disables all p2p communication.
+Enables or disables P2P peer discovery.
 The default is true.
 <!--- Confirm difference between this CLI option and p2p-enabled -->
 
@@ -377,7 +377,7 @@ TEKU_REST_API_ENABLED=true
 --rest-api-enabled=true
 ```
 
-Set to `true` to enable the REST API service.
+Set to `true` to enable the [REST API service](../Rest_API/Rest.md).
 The default is `false`.
 
 ### rest-api-docs-enabled
