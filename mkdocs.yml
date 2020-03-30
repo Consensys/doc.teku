@@ -58,6 +58,9 @@ nav:
             - Build from source: HowTo/Get-Started/Build-From-Source.md
             - Start Teku: HowTo/Get-Started/Start.md
     - Reference:
+        - Teku Command Line:
+          - Options: Reference/CLI/CLI-Syntax.md
+          - Subcommands: Reference/CLI/CLI-Subcommands.md
         - RESTful APIs: Reference/Rest_API/Rest.md
         - Configuration File Properties: Reference/Config.md
 markdown_extensions:
