@@ -75,6 +75,27 @@ data-path="/home/me/me_node"
 The path to the Teku data directory. The default is the directory in which Teku is installed
 or `/opt/teku/database` if using the Teku Docker image.
 
+### data-storage-mode
+
+```bash tab="Syntax"
+--data-storage-mode=<STORAGE_MODE>
+```
+
+```bash tab="Command Line"
+--data-storage-mode=archive
+```
+
+```bash tab="Environment Variable"
+TEKU_DATA_STORAGE_MODE=archive
+```
+
+```bash tab="Configuration File"
+data-storage-mode="archive"
+```
+
+Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
+Defaults to `prune`.
+
 ### eth1-deposit-contract-address
 
 ```bash tab="Syntax"
@@ -114,6 +135,136 @@ eth1-endpoint="http://localhost:8545"
 ```
 
 JSON-RPC URL of Eth1 node.
+
+### help
+
+```bash tab="Syntax"
+-h, --help
+```
+
+Show the help message and exit.
+
+### logging
+
+```bash tab="Syntax"
+-l, --logging=<LEVEL>
+```
+
+```bash tab="Example"
+--logging=DEBUG
+```
+
+Sets the logging verbosity.
+Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
+Default is `INFO`.
+
+### log-colour-enabled
+
+```bash tab="Syntax"
+--log-colour-enabled=<BOOLEAN>
+```
+
+```bash tab="Command Line"
+--log-colour-enabled=false
+```
+
+```bash tab="Environment Variable"
+TEKU_LOG_COLOUR_ENABLED=false
+```
+
+```bash tab="Configuration File"
+log-colour-enabled=false
+```
+
+Specify whether status and event log messages include a console color display code.
+Defaults to `true`.
+
+### log-destination
+
+```bash tab="Syntax"
+--log-destination=<LOG_DESTINATION>
+```
+
+```bash tab="Command Line"
+--log-destination=consoleOnly
+```
+
+```bash tab="Environment Variable"
+TEKU_LOG_DESTINATION=consoleOnly
+```
+
+```bash tab="Configuration File"
+log-destination="consoleOnly"
+```
+
+Specify where to output log information. Valid options are:
+
+* `consoleOnly`
+* `fileOnly`
+* `both`
+
+Defaults to `both`.
+
+### log-file
+
+```bash tab="Syntax"
+--log-file=<FILENAME>
+```
+
+```bash tab="Command Line"
+--log-file=teku_2020-01-01.log
+```
+
+```bash tab="Environment Variable"
+TEKU_LOG_FILE=teku_2020-01-01.log
+```
+
+```bash tab="Configuration File"
+log-file="teku_2020-01-01.log"
+```
+
+Relative or absolute location, and filename of the log file.
+
+### log-file-name-pattern
+
+```bash tab="Syntax"
+--log-file-name-pattern=<REGEX>
+```
+
+```bash tab="Command Line"
+--log-file-name-pattern=tekuL_%d{yyyy-MM-dd}.log
+```
+
+```bash tab="Environment Variable"
+TEKU_LOG_FILE_NAME_PATTERN=tekuL_%d{yyyy-MM-dd}.log
+```
+
+```bash tab="Configuration File"
+log-file-name-pattern="tekuL_%d{yyyy-MM-dd}.log"
+```
+
+Filename pattern to apply when creating log files.
+
+### log-include-events-enabled
+
+```bash tab="Syntax"
+--log-include-events-enabled=<BOOLEAN>
+```
+
+```bash tab="Command Line"
+--log-include-events-enabled=false
+```
+
+```bash tab="Environment Variable"
+TEKU_LOG_INCLUDE_EVENTS_ENABLED=false
+```
+
+```bash tab="Configuration File"
+log-include-events-enabled=false
+```
+
+Specify whether to log frequent update events. For example every slot event with
+validators and attestations. Defaults to `true`.
 
 ### metrics-enabled
 
@@ -215,6 +366,26 @@ network="mainnet"
 Predefined network configuration.
 The default is `minimal`.
 
+### p2p-advertised-ip
+
+```bash tab="Syntax"
+--p2p-advertised-ip=<IP_ADDRESS>
+```
+
+```bash tab="Command Line"
+--p2p-advertised-ip=192.168.1.132
+```
+
+```bash tab="Environment Variable"
+TEKU_P2P_ADVERTISED_IP=192.168.1.132
+```
+
+```bash tab="Configuration File"
+p2p-advertised-ip="192.168.1.132"
+```
+
+Advertised peer-to-peer IP address. Default is 127.0.0.1.
+
 ### p2p-enabled
 
 ```bash tab="Syntax"
@@ -256,6 +427,46 @@ p2p-interface="192.168.1.132"
 
 Specifies the network interface on which the node listens for P2P communication.
 The default is 0.0.0.0 (all interfaces).
+
+### p2p-peer-lower-bound
+
+```bash tab="Syntax"
+--p2p-peer-lower-bound=<INTEGER>
+```
+
+```bash tab="Command Line"
+--p2p-peer-lower-bound=25
+```
+
+```bash tab="Environment Variable"
+TEKU_P2P_PEER_LOWER_BOUND=25
+```
+
+```bash tab="Configuration File"
+p2p-peer-lower-bound=25
+```
+
+Lower bound on the target number of peers. Defaults to 20.
+
+### p2p-peer-upper-bound
+
+```bash tab="Syntax"
+--p2p-peer-upper-bound=<INTEGER>
+```
+
+```bash tab="Command Line"
+--p2p-peer-upper-bound=40
+```
+
+```bash tab="Environment Variable"
+TEKU_P2P_PEER_UPPER_BOUND=40
+```
+
+```bash tab="Configuration File"
+p2p-peer-upper-bound=40
+```
+
+Upper bound on the target number of peers. Defaults to 30.
 
 ### p2p-port
 
@@ -343,25 +554,46 @@ p2p-port="1789"
 
 The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2p-port)
 
-### p2p-private-key
+### p2p-private-key-file
 
 ```bash tab="Syntax"
---p2p-private-key=<PATH_TO_FILE>
+--p2p-private-key-file=<PATH_TO_FILE>
 ```
 
 ```bash tab="Command Line"
---p2p-private-key=/home/me/me_node/key
+--p2p-private-key-file=/home/me/me_node/key
 ```
 
 ```bash tab="Environment Variable"
-TEKU_P2P_PRIVATE_PORT=/home/me/me_node/key
+TEKU_P2P_PRIVATE_KEY_FILE=/home/me/me_node/key
 ```
 
 ```bash tab="Configuration File"
-p2p-private-key="/home/me/me_node/key"
+p2p-private-key-file="/home/me/me_node/key"
 ```
 
 File containing the node's private key.
+
+### p2p-static-peers
+
+```bash tab="Syntax"
+--p2p-static-peers=<ADDRESSES>
+```
+
+```bash tab="Command line"
+--p2p-static-peers=/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAm7qrY2oodyds7msWm33pHAi1W4Co53ZJmZsjp3pqEaXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAmVjXWDfhXaapVpop72r58ctKSDyT7k3Wy2AciwCbxq6f1
+```
+
+```bash tab="Environment Variable"
+TEKU_P2P_STATIC-PEERS=/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAm7qrY2oodyds7msWm33pHAi1W4Co53ZJmZsjp3pqEaXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAmVjXWDfhXaapVpop72r58ctKSDyT7k3Wy2AciwCbxq6f1
+```
+
+```bash tab="Configuration File"
+p2p-static-peers=["/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAm7qrY2oodyds7msWm33pHAi1W4Co53ZJmZsjp3pqEaXRz",
+                  "/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAmVjXWDfhXaapVpop72r58ctKSDyT7k3Wy2AciwCbxq6f1"]
+```
+
+List of comma-separated [multiaddresses](https://docs.libp2p.io/reference/glossary/#multiaddr) of static peers. 
 
 ### rest-api-enabled
 
@@ -424,7 +656,7 @@ rest-api-interface="0.0.0.0"
 Specifies the interface on which the REST API listens.
 The default is 127.0.0.1.
 
-### rpc-http-port
+### rest-api-port
 
 ```bash tab="Syntax"
 --rest-api-port=<PORT>
@@ -440,33 +672,11 @@ TEKU_REST_API_PORT=3435
 ```
 
 ```bash tab="Configuration File"
-est-api-port="3435"
+rest-api-port="3435"
 ```
 
 Specifies REST API listening port (TCP).
 The default is 9000.
-
-### help
-
-```bash tab="Syntax"
--h, --help
-```
-
-Show the help message and exit.
-
-### logging
-
-```bash tab="Syntax"
--l, --logging=<LEVEL>
-```
-
-```bash tab="Example"
---logging=DEBUG
-```
-
-Sets the logging verbosity.
-Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
-Default is `INFO`.
 
 ### version
 
