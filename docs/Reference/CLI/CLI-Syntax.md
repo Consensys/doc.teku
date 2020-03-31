@@ -186,21 +186,21 @@ Defaults to `true`.
 ```
 
 ```bash tab="Command Line"
---log-destination=consoleOnly
+--log-destination=console
 ```
 
 ```bash tab="Environment Variable"
-TEKU_LOG_DESTINATION=consoleOnly
+TEKU_LOG_DESTINATION=console
 ```
 
 ```bash tab="Configuration File"
-log-destination="consoleOnly"
+log-destination="console"
 ```
 
 Specify where to output log information. Valid options are:
 
-* `consoleOnly`
-* `fileOnly`
+* `console`
+* `file`
 * `both`
 
 Defaults to `both`.
