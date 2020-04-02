@@ -66,7 +66,7 @@ nav:
 markdown_extensions:
   - toc:
       permalink: 
-      toc_depth: 3
+      toc_depth: 4
   - codehilite
   - markdown_include.include:
       base_path: docs
