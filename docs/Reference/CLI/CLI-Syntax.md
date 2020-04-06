@@ -815,7 +815,7 @@ validators-key-password-files=[
   "home/me/me_node/password2.txt"]
 ```
 
-List of plain text files containing the password to decrypt the encrypted BLS12-381 keystore files.
+List of plain text files containing the password to decrypt the BLS12-381 keystore files.
 
 Each keystore file requires its own password file. The password file must match
 the list position of the keystore file listed using [`--validators-key-files`](#validators-key-files).
