@@ -1,5 +1,6 @@
-description: Build Teku from source     
-<!--- END of page meta data -->
+---
+description: Build Teku from source
+---
 
 # Build from source
 
@@ -32,7 +33,7 @@ Build teku with the Gradle wrapper `gradlew`, as follows:
 ./gradlew distTar installDist
 ```
 
-!!! note 
+!!! note
     The command produces an expanded distribution, ready to run
     in `build/install/teku`, and a `.tar` distribution in `build/distribution`.
 
@@ -42,7 +43,7 @@ Go to the `teku` directory:
 cd build/install/teku
 ```
 
-Display the Artemis help to confirm installation: 
+Display the Artemis help to confirm installation:
 
 ````bash
 bin/teku --help
