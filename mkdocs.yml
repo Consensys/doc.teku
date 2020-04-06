@@ -57,6 +57,7 @@ nav:
             - Install binary distribution: HowTo/Get-Started/Install-Binaries.md
             - Build from source: HowTo/Get-Started/Build-From-Source.md
             - Start Teku: HowTo/Get-Started/Start.md
+            - Register validators: HowTo/Get-Started/Register-Validators.md
     - Reference:
         - Teku Command Line:
           - Options: Reference/CLI/CLI-Syntax.md
