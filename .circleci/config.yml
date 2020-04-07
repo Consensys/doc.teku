@@ -31,6 +31,8 @@ commands:
           only_for_branches: 'master'
 
 jobs:
+  # Build the doc with MkDocs. This is just to test the build works. No artifact is published from
+  # this job as Readthedocs.com performs this task itself when triggered by Github webhook.
   build:
     executor: python_executor
     steps:
