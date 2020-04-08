@@ -64,7 +64,7 @@ The command line:
 * Specifies the private key that sends the transaction to the deposit contract using
 [`--eth1-private-key`](../../Reference/CLI/CLI-Subcommands.md#eth1-private-key)
 * Specify the number of validator keys and deposits to create using
-[`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators)
+[`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators).
 
 ### Register an existing validator key
 
@@ -94,7 +94,34 @@ The command line:
 [`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint_1)
 * Specifies the private key that sends the transaction to the deposit contract using
 [`--eth1-private-key`](../../Reference/CLI/CLI-Subcommands.md#eth1-private-key_1)
-* Specifies the public key used to withdraw funds using [`--withdrawal-public-key`](../../Reference/CLI/CLI-Subcommands.md#withdrawal-public-key)
+* Specifies the public key used to withdraw funds using [`--withdrawal-public-key`](../../Reference/CLI/CLI-Subcommands.md#withdrawal-public-key).
+
+
+## Start Teku
+
+You need at least 64 validators to start a private Teku network.
+
+```bash
+teku --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd \
+--eth1-endpoint=http://localhost:8545 --validators-key-file=validator_keys \
+--p2p-port=9000 --rest-api-enabled=true --rest-api-docs-enabled=true
+```
+
+The command line:
+
+* Specifies the address of the deposit contract using 
+[`--eth1-deposit-contract-address`](../../Reference/CLI/CLI-Syntax.md#eth1-deposit-contract-address)
+* Specifies the JSON-RPC URL endpoint of the Ethereum 1.0 client (Besu) using
+[`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint)
+* Specifies the validator private [keys created earlier](#generate-new-validator-keys) using
+[`--validators-key-file`](../../Reference/CLI/CLI-Syntax.md#validators-key-file)
+* Specifies the the P2P listening ports using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port)
+* Enables the [REST API service](../../Reference/Rest_API/Rest.md) using
+[`--rest-api-enabled`](../../Reference/CLI/CLI-Syntax.md#rest-api-enabled)
+* Enables the Swagger-UI documentation using [`--rest-api-docs-enabled`](../../Reference/CLI/CLI-Syntax.md#rest-api-docs-enabled)
+
+!!! note
+    The default Swagger-UI documentation location is `http://localhost:5051/swagger-ui`.
 
 <!-- Links -->
 [Install Hyperledger Besu]: https://besu.hyperledger.org/en/latest/HowTo/Get-Started/Install-Binaries/
