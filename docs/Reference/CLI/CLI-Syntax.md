@@ -270,7 +270,11 @@ validators and attestations. Defaults to `true`.
 ### metrics-enabled
 
 ```bash tab="Syntax"
---metrics-enabled
+--metrics-enabled=<BOOLEAN>
+```
+
+```bash tab="Command Line"
+--metrics-enabled=true
 ```
 
 ```bash tab="Environment Variable"
@@ -385,12 +389,12 @@ TEKU_P2P_ADVERTISED_IP=192.168.1.132
 p2p-advertised-ip="192.168.1.132"
 ```
 
-Advertised peer-to-peer IP address. Default is 127.0.0.1.
+Advertised peer-to-peer IP address. Default is `127.0.0.1`.
 
 ### p2p-enabled
 
 ```bash tab="Syntax"
---p2p-enabled=<true|false>
+--p2p-enabled=<BOOLEAN>
 ```
 
 ```bash tab="Command line"
@@ -406,7 +410,7 @@ p2p-enabled=false
 ```
 
 Enables or disables all p2p communication.
-The default is true.
+The default is `true`.
 
 ### p2p-interface
 
@@ -427,7 +431,7 @@ p2p-interface="192.168.1.132"
 ```
 
 Specifies the network interface on which the node listens for P2P communication.
-The default is 0.0.0.0 (all interfaces).
+The default is `0.0.0.0` (all interfaces).
 
 ### p2p-peer-lower-bound
 
@@ -447,7 +451,7 @@ TEKU_P2P_PEER_LOWER_BOUND=25
 p2p-peer-lower-bound=25
 ```
 
-Lower bound on the target number of peers. Defaults to 20.
+Lower bound on the target number of peers. Defaults to `20`.
 
 ### p2p-peer-upper-bound
 
@@ -467,7 +471,7 @@ TEKU_P2P_PEER_UPPER_BOUND=40
 p2p-peer-upper-bound=40
 ```
 
-Upper bound on the target number of peers. Defaults to 30.
+Upper bound on the target number of peers. Defaults to `30`.
 
 ### p2p-port
 
@@ -490,7 +494,7 @@ p2p-port="1789"
 ```
 
 Specifies the P2P listening ports (UDP and TCP).
-The default is 30303.
+The default is `30303`.
 
 ### p2p-discovery-enabled
 
@@ -511,8 +515,7 @@ p2p-discovery-enabled=false
 ```
 
 Enables or disables P2P peer discovery.
-The default is true.
-<!--- Confirm difference between this CLI option and p2p-enabled -->
+The default is `true`.
 
 ### p2p-discovery-bootnodes
 
@@ -600,15 +603,19 @@ of static peers.
 ### rest-api-enabled
 
 ```bash tab="Syntax"
---rest-api-enabled
+--rest-api-enabled=<BOOLEAN>
 ```
 
-```bash tab="Environement Variable"
+```bash tab="Command Line"
+--rest-api-enabled=true
+```
+
+```bash tab="Environment Variable"
 TEKU_REST_API_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
---rest-api-enabled=true
+rest-api-enabled=true
 ```
 
 Set to `true` to enable the [REST API service](../Rest_API/Rest.md).
@@ -617,15 +624,19 @@ The default is `false`.
 ### rest-api-docs-enabled
 
 ```bash tab="Syntax"
---rest-api-docs-enabled
+--rest-api-docs-enabled=<BOOLEAN>
 ```
 
-```bash tab="Environement Variable"
+```bash tab="Command Line"
+--rest-api-docs-enabled=true
+```
+
+```bash tab="Environment Variable"
 TEKU_REST_API_DOCS_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
---rest-api-docs-enabled=true
+rest-api-docs-enabled=true
 ```
 
 Set to `true` to enable the REST API documentation.
@@ -656,7 +667,7 @@ rest-api-interface="0.0.0.0"
 ```
 
 Specifies the interface on which the REST API listens.
-The default is 127.0.0.1.
+The default is `127.0.0.1`.
 
 ### rest-api-port
 
@@ -678,7 +689,7 @@ rest-api-port="3435"
 ```
 
 Specifies REST API listening port (TCP).
-The default is 9000.
+The default is `9000`.
 
 ### version
 
