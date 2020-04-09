@@ -698,7 +698,7 @@ Displays the version and exits.
 ```
 
 ```bash tab="Environment Variable"
-TEKU_VALIDATORS-EXTERNAL-SIGNER-PUBLIC-KEYS=0xa99a...e44c,0xb89b...4a0b
+TEKU_VALIDATORS_EXTERNAL_SIGNER_PUBLIC_KEYS=0xa99a...e44c,0xb89b...4a0b
 ```
 
 ```bash tab="Configuration File"
@@ -707,7 +707,7 @@ validators-external-signer-public-keys=[
   "0xb89b...4a0b"]
 ```
 
-List of validator public keys used by an external signer (for example Eth2Signer).
+List of validator public keys used by an external signer (for example, Eth2Signer).
 
 ### validators-external-signer-timeout
 
@@ -720,7 +720,7 @@ List of validator public keys used by an external signer (for example Eth2Signer
 ```
 
 ```bash tab="Environment Variable"
-TEKU_VALIDATORS-EXTERNAL-SIGNER-TIMEOUT=2000
+TEKU_VALIDATORS_EXTERNAL_SIGNER_TIMEOUT=2000
 ```
 
 ```bash tab="Configuration File"
@@ -740,14 +740,14 @@ Timeout in milliseconds for requests to the external signer. Default is 1000.
 ```
 
 ```bash tab="Environment Variable"
-TEKU_VALIDATORS-EXTERNAL-SIGNER-URL=http://localhost:9000
+TEKU_VALIDATORS_EXTERNAL_SIGNER_URL=http://localhost:9000
 ```
 
 ```bash tab="Configuration File"
 validators-external-signer-url="http://localhost:9000"
 ```
 
-URL on which the external signer (for example Eth2Signer) is running.
+URL on which the external signer (for example, Eth2Signer) is running.
 
 ### validators-key-file
 
@@ -767,9 +767,10 @@ TEKU_VALIDATORS_KEY_FILE=/home/me/me_node/key.yaml
 validators-key-file="/home/me/me_node/key.yaml"
 ```
 
-YAML formatted file to load unencrypted validator keys from.
+Path to the YAML formatted file to load unencrypted validator keys from.
 
-The file can be created when generating validators using the `teku validator generate --keys-output-path` option.
+A YAML-formatted file that stores unencrypted validator keys can be generated using 
+the `teku validator generate --keys-output-path` option.
 
 ### validators-key-files
 
@@ -793,7 +794,8 @@ validators-key-files=[
 
 List of encrypted BLS12-381 keystore files to load the validator keys from.
 
-The files can be created when generating validators using the `teku validator generate --keys-output-path` option.
+The keystore files can be created when generating validators using the 
+`teku validator generate --keys-output-path` option.
 
 ### validators-key-password-files
 
