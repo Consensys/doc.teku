@@ -180,11 +180,10 @@ keys are written to standard out, and encrypted BLS12-381 keystores are created 
 
 Use this option to specify:
 
-* The path to the output file when using unencrypted keys. That is, [`--encrypted-keystore-enabled`](#encrypted-keystore-enabled)
-set to `false`.
-* The path to the output directory for the auto-generated keystore files. That is,
-[`encrypted-keystore-enabled`](#encrypted-keystore-enabled) set to `true`.
-
+* The path to the output file when using unencrypted keys. That is,
+  [`--encrypted-keystore-enabled`](#encrypted-keystore-enabled) set to `false`.
+* The path to the output directory for the generated keystore files. That is,
+  [`encrypted-keystore-enabled`](#encrypted-keystore-enabled) set to `true`.
 
 #### encrypted-keystore-validator-password-env
 
