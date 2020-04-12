@@ -1,5 +1,6 @@
+---
 description: Teku command line interface reference
-<!--- END of page meta data -->
+---
 
 # Teku Command Line
 
@@ -10,21 +11,21 @@ This reference describes the syntax of the Teku Command Line Interface (CLI) opt
 
 ## Specifying Options
 
-Teku options can be specified: 
+Teku options can be specified:
 
-* On the command line 
-* As an [environment variable](#teku-environment-variables) 
+* On the command line
+* As an [environment variable](#teku-environment-variables)
 * In a configuration file.
 
-If an option is specified in multiple places, the order of priority is command line, environment variable, 
-configuration file. 
+If an option is specified in multiple places, the order of priority is command line, environment variable,
+configuration file.
 
 ### Teku Environment Variables
 
-For each command line option, the equivalent environment variable is: 
+For each command line option, the equivalent environment variable is:
 
 * Upper-case
-* `-` is replaced by `_` 
+* `-` is replaced by `_`
 * Has a `TEKU_` prefix
 
 For example, set `--p2p-port` using the `TEKU_P2P_PORT` environment variable.
@@ -53,7 +54,7 @@ TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
 
 The path to the YAML configuration file.
 The default is `none`.
-        
+
 ### data-path
 
 ```bash tab="Syntax"
@@ -176,7 +177,7 @@ TEKU_LOG_COLOUR_ENABLED=false
 log-colour-enabled=false
 ```
 
-Specify whether status and event log messages include a console color display code.
+Specify whether status and event log messages include a console colour display code.
 Defaults to `true`.
 
 ### log-destination
@@ -593,7 +594,8 @@ p2p-static-peers=["/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAm7qrY2oodyds7msWm33p
                   "/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAmVjXWDfhXaapVpop72r58ctKSDyT7k3Wy2AciwCbxq6f1"]
 ```
 
-List of comma-separated [multiaddresses](https://docs.libp2p.io/reference/glossary/#multiaddr) of static peers. 
+List of comma-separated [multiaddresses](https://docs.libp2p.io/reference/glossary/#multiaddr)
+of static peers.
 
 ### rest-api-enabled
 
@@ -682,6 +684,6 @@ The default is 5051.
 
 ```bash tab="Syntax"
   -V, --version
-``` 
+```
 
-Displays the version and exits. 
+Displays the version and exits.
