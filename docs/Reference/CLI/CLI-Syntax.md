@@ -151,8 +151,16 @@ Show the help message and exit.
 -l, --logging=<LEVEL>
 ```
 
-```bash tab="Example"
+```bash tab="Command Line"
 --logging=DEBUG
+```
+
+```bash tab="Environment Variable"
+TEKU_LOGGING=DEBUG
+```
+
+```bash tab="Configuration File"
+logging: "DEBUG"
 ```
 
 Sets the logging verbosity.
@@ -405,7 +413,7 @@ TEKU_P2P_ENABLED=false
 p2p-enabled: False
 ```
 
-Enables or disables all p2p communication.
+Enables or disables all P2P communication.
 The default is `true`.
 
 ### p2p-interface
@@ -510,9 +518,8 @@ TEKU_P2P_DISCOVERY_ENABLED=false
 p2p-discovery-enabled: False
 ```
 
-Enables or disables P2P peer discovery.
-The default is true.
-<!--- Confirm difference between this CLI option and p2p-enabled -->
+Enables or disables P2P peer discovery. If disabled, [`p2p-static-peers`](#p2p-static-peers) defines 
+the peer connections. The default is `true`.
 
 ### p2p-discovery-bootnodes
 
