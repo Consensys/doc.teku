@@ -15,7 +15,7 @@ Teku options can be specified:
 
 * On the command line
 * As an [environment variable](#teku-environment-variables)
-* In a configuration file.
+* In a YAML configuration file.
 
 If an option is specified in multiple places, the order of priority is command line, environment variable,
 configuration file.
@@ -70,7 +70,7 @@ TEKU_DATA_PATH=/home/me/me_node
 ```
 
 ```bash tab="Configuration File"
-data-path="/home/me/me_node"
+data-path: "/home/me/me_node"
 ```
 
 The path to the Teku data directory. The default is the directory in which Teku is installed
@@ -91,7 +91,7 @@ TEKU_DATA_STORAGE_MODE=archive
 ```
 
 ```bash tab="Configuration File"
-data-storage-mode="archive"
+data-storage-mode: "archive"
 ```
 
 Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
@@ -112,7 +112,7 @@ TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
 ```
 
 ```bash tab="Configuration File"
-eth1-deposit-contract-address="0x77f7bED277449F51505a4C54550B074030d989bC"
+eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
 ```
 
 Eth1 address of deposit contract.
@@ -132,7 +132,7 @@ TEKU_ETH1_ENDPOINT=http://localhost:8545
 ```
 
 ```bash tab="Configuration File"
-eth1-endpoint="http://localhost:8545"
+eth1-endpoint: "http://localhost:8545"
 ```
 
 JSON-RPC URL of Eth1 node.
@@ -174,7 +174,7 @@ TEKU_LOG_COLOUR_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
-log-colour-enabled=false
+log-colour-enabled: False
 ```
 
 Specify whether status and event log messages include a console colour display code.
@@ -195,7 +195,7 @@ TEKU_LOG_DESTINATION=console
 ```
 
 ```bash tab="Configuration File"
-log-destination="console"
+log-destination: "console"
 ```
 
 Specify where to output log information. Valid options are:
@@ -221,7 +221,7 @@ TEKU_LOG_FILE=teku_2020-01-01.log
 ```
 
 ```bash tab="Configuration File"
-log-file="teku_2020-01-01.log"
+log-file: "teku_2020-01-01.log"
 ```
 
 Relative or absolute location, and filename of the log file.
@@ -241,7 +241,7 @@ TEKU_LOG_FILE_NAME_PATTERN=tekuL_%d{yyyy-MM-dd}.log
 ```
 
 ```bash tab="Configuration File"
-log-file-name-pattern="tekuL_%d{yyyy-MM-dd}.log"
+log-file-name-pattern: "tekuL_%d{yyyy-MM-dd}.log"
 ```
 
 Filename pattern to apply when creating log files.
@@ -261,7 +261,7 @@ TEKU_LOG_INCLUDE_EVENTS_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
-log-include-events-enabled=false
+log-include-events-enabled: False
 ```
 
 Specify whether to log frequent update events. For example every slot event with
@@ -278,7 +278,7 @@ TEKU_METRICS_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
-metrics-enabled=true
+metrics-enabled: True
 ```
 
 Set to `true` to enable the metrics exporter.
@@ -291,18 +291,18 @@ The default is `false`.
 ```
 
 ```bash tab="Command Line"
---metrics-categories=BEACONCHAIN,JVM,PROCESS
+--metrics-categories=BEACON,JVM,PROCESS
 ```
 
 ```bash tab="Environment Variable"
-TEKU_METRICS_CATEGORIES=BEACONCHAIN,JVM,PROCESS
+TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
 ```
 
 ```bash tab="Configuration File"
-metrics-categories=["BEACONCHAIN", "JVM", "PROCESS"]
+metrics-categories: ["BEACON", "JVM", "PROCESS"]
 ```
 
-Categories for which to track metrics. Options are `BEACONCHAIN`, `JVM`, `PROCESS`, `NETWORK`.
+Categories for which to track metrics. Options are `BEACON`, `JVM`, `PROCESS`, `NETWORK`.
 All categories are enabled by default.
 
 ### metrics-interface
@@ -320,7 +320,7 @@ TEKU_METRICS_INTERFACE=192.168.10.101
 ```
 
 ```bash tab="Configuration File"
-metrics-interface="192.168.10.101"
+metrics-interface: "192.168.10.101"
 ```
 
 Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
@@ -340,7 +340,7 @@ TEKU_METRICS_PORT=6174
 ```
 
 ```bash tab="Configuration File"
-metrics-port="6174"
+metrics-port: 6174
 ```
 
 Specifies the port (TCP) on which [Prometheus](https://prometheus.io/) accesses Teku metrics.
@@ -361,7 +361,7 @@ BESU_NETWORK=mainnet
 ```
 
 ```bash tab="Configuration File"
-network="mainnet"
+network: "mainnet"
 ```
 
 Predefined network configuration.
@@ -382,10 +382,10 @@ TEKU_P2P_ADVERTISED_IP=192.168.1.132
 ```
 
 ```bash tab="Configuration File"
-p2p-advertised-ip="192.168.1.132"
+p2p-advertised-ip: "192.168.1.132"
 ```
 
-Advertised peer-to-peer IP address. Default is 127.0.0.1.
+Advertised peer-to-peer IP address. Default is `127.0.0.1`.
 
 ### p2p-enabled
 
@@ -402,11 +402,11 @@ TEKU_P2P_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
-p2p-enabled=false
+p2p-enabled: False
 ```
 
 Enables or disables all p2p communication.
-The default is true.
+The default is `true`.
 
 ### p2p-interface
 
@@ -423,11 +423,11 @@ TEKU_P2P_INTERFACE=192.168.1.132
 ```
 
 ```bash tab="Configuration File"
-p2p-interface="192.168.1.132"
+p2p-interface: "192.168.1.132"
 ```
 
 Specifies the network interface on which the node listens for P2P communication.
-The default is 0.0.0.0 (all interfaces).
+The default is `0.0.0.0` (all interfaces).
 
 ### p2p-peer-lower-bound
 
@@ -444,10 +444,10 @@ TEKU_P2P_PEER_LOWER_BOUND=25
 ```
 
 ```bash tab="Configuration File"
-p2p-peer-lower-bound=25
+p2p-peer-lower-bound: 25
 ```
 
-Lower bound on the target number of peers. Defaults to 20.
+Lower bound on the target number of peers. The default is `20`.
 
 ### p2p-peer-upper-bound
 
@@ -464,10 +464,10 @@ TEKU_P2P_PEER_UPPER_BOUND=40
 ```
 
 ```bash tab="Configuration File"
-p2p-peer-upper-bound=40
+p2p-peer-upper-bound: 40
 ```
 
-Upper bound on the target number of peers. Defaults to 30.
+Upper bound on the target number of peers. The default is `30`.
 
 ### p2p-port
 
@@ -486,11 +486,11 @@ TEKU_P2P_PORT=1789
 ```
 
 ```bash tab="Configuration File"
-p2p-port="1789"
+p2p-port: 1789
 ```
 
 Specifies the P2P listening ports (UDP and TCP).
-The default is 30303.
+The default is `30303`.
 
 ### p2p-discovery-enabled
 
@@ -507,7 +507,7 @@ TEKU_P2P_DISCOVERY_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
-p2p-discovery-enabled=false
+p2p-discovery-enabled: False
 ```
 
 Enables or disables P2P peer discovery.
@@ -529,7 +529,7 @@ TEKU_P2P_DISCOVERY_BOOTNODES=enr:-Iu4QGuiaVXBEoi4kcLbsoPYX7GTK9ExOODTuqYBp9CyHN_
 ```
 
 ```bash tab="Configuration File"
-p2p-discovery-bootnodes=["enr:-Iu4QGuiaVXBEoi4kcLbsoPYX7GTK9ExOODTuqYBp9CyHN_PSDtnLMCIL91ydxUDRPZ-jem-o0WotK6JoZjPQWhTfEsTgmlkgnY0gmlwhDbOLfeJc2VjcDI1NmsxoQLVqNEoCVTC74VmUx25USyFe7lL0TgpXHaCX9CDy9H6boN0Y3CCIyiDdWRwgiMo",
+p2p-discovery-bootnodes: ["enr:-Iu4QGuiaVXBEoi4kcLbsoPYX7GTK9ExOODTuqYBp9CyHN_PSDtnLMCIL91ydxUDRPZ-jem-o0WotK6JoZjPQWhTfEsTgmlkgnY0gmlwhDbOLfeJc2VjcDI1NmsxoQLVqNEoCVTC74VmUx25USyFe7lL0TgpXHaCX9CDy9H6boN0Y3CCIyiDdWRwgiMo",
                          "enr:-Iu4QLNTiVhgyDyvCBnewNcn9Wb7fjPoKYD2NPe-jDZ3_TqaGFK8CcWr7ai7w9X8Im_ZjQYyeoBP_luLLBB4wy39gQ4JgmlkgnY0gmlwhCOhiGqJc2VjcDI1NmsxoQMrmBYg_yR_ZKZKoLiChvlpNqdwXwodXmgw_TRow7RVwYN0Y3CCIyiDdWRwgiMo"]
 ```
 
@@ -550,7 +550,7 @@ TEKU_P2P_ADVERTISED_PORT=1789
 ```
 
 ```bash tab="Configuration File"
-p2p-port="1789"
+p2p-advertised-port: 1789
 ```
 
 The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2p-port)
@@ -570,7 +570,7 @@ TEKU_P2P_PRIVATE_KEY_FILE=/home/me/me_node/key
 ```
 
 ```bash tab="Configuration File"
-p2p-private-key-file="/home/me/me_node/key"
+p2p-private-key-file: "/home/me/me_node/key"
 ```
 
 File containing the node's private key.
@@ -590,7 +590,7 @@ TEKU_P2P_STATIC-PEERS=/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAm7qrY2oodyds7msWm
 ```
 
 ```bash tab="Configuration File"
-p2p-static-peers=["/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAm7qrY2oodyds7msWm33pHAi1W4Co53ZJmZsjp3pqEaXRz",
+p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAm7qrY2oodyds7msWm33pHAi1W4Co53ZJmZsjp3pqEaXRz",
                   "/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAmVjXWDfhXaapVpop72r58ctKSDyT7k3Wy2AciwCbxq6f1"]
 ```
 
@@ -608,7 +608,7 @@ TEKU_REST_API_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
---rest-api-enabled=true
+rest-api-enabled: True
 ```
 
 Set to `true` to enable the [REST API service](../Rest_API/Rest.md).
@@ -625,7 +625,7 @@ TEKU_REST_API_DOCS_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
---rest-api-docs-enabled=true
+rest-api-docs-enabled: True
 ```
 
 Set to `true` to enable the REST API documentation.
@@ -652,11 +652,11 @@ TEKU_REST_API_INTERFACE=0.0.0.0
 ```
 
 ```bash tab="Configuration File"
-rest-api-interface="0.0.0.0"
+rest-api-interface: "0.0.0.0"
 ```
 
 Specifies the interface on which the REST API listens.
-The default is 127.0.0.1.
+The default is `127.0.0.1`.
 
 ### rest-api-port
 
@@ -674,7 +674,7 @@ TEKU_REST_API_PORT=3435
 ```
 
 ```bash tab="Configuration File"
-rest-api-port="3435"
+rest-api-port: 3435
 ```
 
 Specifies REST API listening port (TCP).
