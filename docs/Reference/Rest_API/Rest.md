@@ -14,7 +14,7 @@ the API documentation endpoint to interact with APIs using Swagger UI.
 Enable the REST API service by setting the [`--rest-api-enabled`](../CLI/CLI-Syntax.md#rest-api-enabled)
 command line option to `true`.
 
-You can interact with Teku APIs using the web browser by setting the
+Interact with Teku APIs using the web browser by setting the
 [`--rest-api-docs-enabled`](../CLI/CLI-Syntax.md#rest-api-docs-enabled) command line option to `true`.
 
 Access the APIs at `http:<interface>:<port>/swagger-ui` where:
