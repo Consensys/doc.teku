@@ -645,7 +645,7 @@ The default is `false`.
 The documentation can be accessed at `http:<interface>:<port>/swagger-ui` where:
 
 * `interface` is specified using [`--rest-api-interface`](#rest-api-interface)
-* `port` is specified using [`--p2p-port`](#p2p-port)
+* `port` is specified using [`--rest-api-port`](#rest-api-port)
 
 ### rest-api-interface
 
@@ -689,7 +689,7 @@ rest-api-port="3435"
 ```
 
 Specifies REST API listening port (TCP).
-The default is `9000`.
+The default is 5051.
 
 ### version
 
