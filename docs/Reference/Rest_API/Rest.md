@@ -38,7 +38,6 @@ The REST API is logically divided into multiple endpoints.
 | [**/node**]      | Information about the beacon node.          |
 | [**/validator**] | Provide information and functionality for validator clients. |
 
-
 <!-- Links -->
 [Teku REST API documentation]:https://pegasyseng.github.io/teku/latest/
 [**/admin**]:https://pegasyseng.github.io/teku/latest/#tag/Admin
