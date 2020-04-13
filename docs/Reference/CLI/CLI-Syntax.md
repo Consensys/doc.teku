@@ -702,9 +702,7 @@ TEKU_VALIDATORS_EXTERNAL_SIGNER_PUBLIC_KEYS=0xa99a...e44c,0xb89b...4a0b
 ```
 
 ```bash tab="Configuration File"
-validators-external-signer-public-keys=[
-  "0xa99a...e44c",
-  "0xb89b...4a0b"]
+validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
 ```
 
 List of validator public keys used by an external signer (for example, Eth2Signer).
@@ -724,7 +722,7 @@ TEKU_VALIDATORS_EXTERNAL_SIGNER_TIMEOUT=2000
 ```
 
 ```bash tab="Configuration File"
-validators-external-signer-timeout=2000
+validators-external-signer-timeout: 2000
 ```
 
 Timeout in milliseconds for requests to the external signer. Default is 1000.
@@ -744,7 +742,7 @@ TEKU_VALIDATORS_EXTERNAL_SIGNER_URL=http://localhost:9000
 ```
 
 ```bash tab="Configuration File"
-validators-external-signer-url="http://localhost:9000"
+validators-external-signer-url: "http://localhost:9000"
 ```
 
 URL on which the external signer (for example, Eth2Signer) is running.
@@ -764,7 +762,7 @@ TEKU_VALIDATORS_KEY_FILE=/home/me/me_node/key.yaml
 ```
 
 ```bash tab="Configuration File"
-validators-key-file="/home/me/me_node/key.yaml"
+validators-key-file: "/home/me/me_node/key.yaml"
 ```
 
 Path to the YAML formatted file to load unencrypted validator keys from.
@@ -787,9 +785,7 @@ TEKU_VALIDATORS_KEY_FILES=validator_0xa245...58cf.json,validator_0xb880...1f09.j
 ```
 
 ```bash tab="Configuration File"
-validators-key-files=[
-  "validator_0xa245...58cf.json",
-  "validator_0xb880...1f09.json"]
+validators-key-files: ["validator_0xa245...58cf.json","validator_0xb880...1f09.json"]
 ```
 
 List of encrypted BLS12-381 keystore files to load the validator keys from.
@@ -812,9 +808,7 @@ TEKU_VALIDATORS_KEY_PASSWORD_FILES=/home/me/me_node/password1.txt,/home/me/me_no
 ```
 
 ```bash tab="Configuration File"
-validators-key-password-files=[
-  "home/me/me_node/password1.txt",
-  "home/me/me_node/password2.txt"]
+validators-key-password-files: ["home/me/me_node/password1.txt","home/me/me_node/password2.txt"]
 ```
 
 List of plain text files containing the password to decrypt the BLS12-381 keystore files.
