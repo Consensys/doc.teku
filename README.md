@@ -1,4 +1,7 @@
-# Pegasys Teku [![Documentation Status](https://readthedocs.org/projects/ethsigner/badge/?version=stable)](https://docs.ethsigner.pegasys.tech/en/stable/?badge=stable)
+# Pegasys Teku
+ 
+ Latest: [![Documentation Status](https://readthedocs.com/projects/pegasys-teku/badge/?version=latest)](https://docs.teku.pegasys.tech/en/latest/?badge=latest)
+ Stable: [![Documentation Status](https://readthedocs.com/projects/pegasys-teku/badge/?version=stable)](https://docs.teku.pegasys.tech/en/latest/?badge=stable)
 
 [Teku] is Pegasys Ethereum 2.0 client.
 
