@@ -56,8 +56,9 @@ nav:
         - Get started with Teku:
             - Install binary distribution: HowTo/Get-Started/Install-Binaries.md
             - Build from source: HowTo/Get-Started/Build-From-Source.md
+            - Run Teku from Docker image: HowTo/Get-Started/Run-Docker-Image.md
             - Register validators: HowTo/Get-Started/Register-Validators.md
-            - Start Teku: HowTo/Get-Started/Start.md
+            - Run multiple Teku test nodes: HowTo/Get-Started/Start.md
     - Reference:
         - Teku Command Line:
           - Options: Reference/CLI/CLI-Syntax.md
