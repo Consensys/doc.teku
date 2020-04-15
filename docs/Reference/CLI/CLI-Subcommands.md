@@ -135,10 +135,12 @@ teku validator generate --eth1-keystore-file=<FILE>
 teku validator generate --eth1-keystore-file=/home/me/me_node/keystore
 ```
 
-Path to the encrypted V3 keystore file containing the Ethereum 1.0 private key used to
-sign the deposit transaction.
+Path to the encrypted V3 keystore file containing the private key of the 
+Ethereum 1.0 account from which to send the deposit transaction. Ensure the 
+account has enough ether to cover the amount specified using
+[`--deposit-amount-gwei`](#deposit-amount-gwei).
 
-Cannot be used with `--eth1-private-key`
+Cannot be used with [`--eth1-private-key`](#eth1-private-key)
 
 #### eth1-keystore-password-file
 
@@ -162,8 +164,11 @@ teku validator generate --eth1-private-key=<KEY>
 teku validator generate --eth1-private-key=8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63
 ```
 
-Ethereum 1.0 private key to send the deposit transaction. Cannot be used with
-`teku validator generate --eth1-keystore-file`.
+Private key of the Ethereum 1.0 account from which to send the deposit transaction. Ensure the 
+account has enough ether to cover the amount specified using
+[`--deposit-amount-gwei`](#deposit-amount-gwei).
+
+Cannot be used with [`--eth1-keystore-file`](#eth1-keystore-file).
 
 #### keys-output-path
 
@@ -244,6 +249,20 @@ The file that stores the password to decrypt the validator's withdrawal key.
 
 If you do not specify a password, then you need to manually enter a password at
 the command line when prompted.
+
+#### number-of-validators
+
+```bash tab="Syntax"
+teku validator generate --number-of-validators=<NUMBER>
+```
+
+```bash tab="Command Line"
+teku validator generate --number-of-validators=64 
+```
+
+Specify the number of validators to create keys for and register.
+
+A minimum of 64 validators are required in a network. 
 
 ### register
 
@@ -332,10 +351,12 @@ teku validator register --eth1-keystore-file=<FILE>
 teku validator register --eth1-keystore-file=/home/me/me_node/keystore
 ```
 
-Path to the encrypted V3 keystore file containing the Ethereum 1.0 private key used to
-sign the deposit transaction.
+Path to the encrypted V3 keystore file containing the private key of the 
+Ethereum 1.0 account from which to send the deposit transaction. Ensure the 
+account has enough ether to cover the amount specified using
+[`--deposit-amount-gwei`](#deposit-amount-gwei).
 
-Cannot be used with `teku validator register --eth1-private-key`
+Cannot be used with [`--eth1-private-key`](#eth1-private-key_1)
 
 #### eth1-keystore-password-file
 
@@ -359,8 +380,11 @@ teku validator register --eth1-private-key=<KEY>
 teku validator register --eth1-private-key=8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63
 ```
 
-Ethereum 1.0 private key to send the deposit transaction. Cannot be used with
-`teku validator register --eth1-keystore-file`.
+Private key of the Ethereum 1.0 account from which to send the deposit transaction. Ensure the 
+account has enough ether to cover the amount specified using
+[`--deposit-amount-gwei`](#deposit-amount-gwei).
+
+Cannot be used with [`--eth1-keystore-file`](#eth1-keystore-file_1).
 
 #### validator-private-key
 
@@ -372,8 +396,8 @@ teku validator register --validator-private-key=<KEY>
 teku validator register --validator-private-key=2a4055949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692cb87
 ```
 
-Validator's signing key. Cannot be used with
-[`teku validator register --encrypted-keystore-validator-file`](#encrypted-keystore-validator-file)
+Validator's private signing key. Cannot be used with
+[`--encrypted-keystore-validator-file`](#encrypted-keystore-validator-file)
 
 #### withdrawal-public-key
 

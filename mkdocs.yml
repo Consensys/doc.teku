@@ -56,6 +56,7 @@ nav:
         - Get started with Teku:
             - Install binary distribution: HowTo/Get-Started/Install-Binaries.md
             - Build from source: HowTo/Get-Started/Build-From-Source.md
+            - Register validators: HowTo/Get-Started/Register-Validators.md
             - Start Teku: HowTo/Get-Started/Start.md
     - Reference:
         - Teku Command Line:
@@ -66,7 +67,7 @@ nav:
 markdown_extensions:
   - toc:
       permalink: 
-      toc_depth: 3
+      toc_depth: 4
   - codehilite
   - markdown_include.include:
       base_path: docs
@@ -97,6 +98,8 @@ markdown_extensions:
 plugins:
   - search
   - markdownextradata
+  - git-revision-date-localized:
+      locale: en
   - redirects:
       redirect_maps:
         # Configure redirects using key:value pairs:

@@ -8,8 +8,8 @@ description: Starting Teku
 
 ### Prerequsites
 
-* [Teku installed](Build-From-Source.md)
-* [tmux](https://github.com/tmux/tmux/wiki)
+* [Teku installed from source](Build-From-Source.md)
+* [tmux](https://github.com/tmux/tmux/wiki) 
 
 ### Start nodes
 

@@ -278,7 +278,11 @@ validators and attestations. Defaults to `true`.
 ### metrics-enabled
 
 ```bash tab="Syntax"
---metrics-enabled
+--metrics-enabled=<BOOLEAN>
+```
+
+```bash tab="Command Line"
+--metrics-enabled=true
 ```
 
 ```bash tab="Environment Variable"
@@ -295,7 +299,7 @@ The default is `false`.
 ### metrics-categories
 
 ```bash tab="Syntax"
---metrics-categories=<CATEGORIES>
+--metrics-categories=<CATEGORY>[,<CATEGORY>...]...
 ```
 
 ```bash tab="Command Line"
@@ -398,7 +402,7 @@ Advertised peer-to-peer IP address. Default is `127.0.0.1`.
 ### p2p-enabled
 
 ```bash tab="Syntax"
---p2p-enabled=<true|false>
+--p2p-enabled=<BOOLEAN>
 ```
 
 ```bash tab="Command line"
@@ -524,20 +528,20 @@ the peer connections. The default is `true`.
 ### p2p-discovery-bootnodes
 
 ```bash tab="Syntax"
---p2p-discovery-bootnodes=<ENR_ADDRESSES>
+--p2p-discovery-bootnodes=<ENR_ADDRESS>[,<ENR_ADDRESS>...]...
 ```
 
 ```bash tab="Command line"
---p2p-discovery-bootnodes=enr:-Iu4QGuiaVXBEoi4kcLbsoPYX7GTK9ExOODTuqYBp9CyHN_PSDtnLMCIL91ydxUDRPZ-jem-o0WotK6JoZjPQWhTfEsTgmlkgnY0gmlwhDbOLfeJc2VjcDI1NmsxoQLVqNEoCVTC74VmUx25USyFe7lL0TgpXHaCX9CDy9H6boN0Y3CCIyiDdWRwgiMo,enr:-Iu4QLNTiVhgyDyvCBnewNcn9Wb7fjPoKYD2NPe-jDZ3_TqaGFK8CcWr7ai7w9X8Im_ZjQYyeoBP_luLLBB4wy39gQ4JgmlkgnY0gmlwhCOhiGqJc2VjcDI1NmsxoQMrmBYg_yR_ZKZKoLiChvlpNqdwXwodXmgw_TRow7RVwYN0Y3CCIyiDdWRwgiMo
+--p2p-discovery-bootnodes=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
 ```
 
 ```bash tab="Environment Variable"
-TEKU_P2P_DISCOVERY_BOOTNODES=enr:-Iu4QGuiaVXBEoi4kcLbsoPYX7GTK9ExOODTuqYBp9CyHN_PSDtnLMCIL91ydxUDRPZ-jem-o0WotK6JoZjPQWhTfEsTgmlkgnY0gmlwhDbOLfeJc2VjcDI1NmsxoQLVqNEoCVTC74VmUx25USyFe7lL0TgpXHaCX9CDy9H6boN0Y3CCIyiDdWRwgiMo,enr:-Iu4QLNTiVhgyDyvCBnewNcn9Wb7fjPoKYD2NPe-jDZ3_TqaGFK8CcWr7ai7w9X8Im_ZjQYyeoBP_luLLBB4wy39gQ4JgmlkgnY0gmlwhCOhiGqJc2VjcDI1NmsxoQMrmBYg_yR_ZKZKoLiChvlpNqdwXwodXmgw_TRow7RVwYN0Y3CCIyiDdWRwgiMo
+TEKU_P2P_DISCOVERY_BOOTNODES=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
 ```
 
 ```bash tab="Configuration File"
-p2p-discovery-bootnodes: ["enr:-Iu4QGuiaVXBEoi4kcLbsoPYX7GTK9ExOODTuqYBp9CyHN_PSDtnLMCIL91ydxUDRPZ-jem-o0WotK6JoZjPQWhTfEsTgmlkgnY0gmlwhDbOLfeJc2VjcDI1NmsxoQLVqNEoCVTC74VmUx25USyFe7lL0TgpXHaCX9CDy9H6boN0Y3CCIyiDdWRwgiMo",
-                         "enr:-Iu4QLNTiVhgyDyvCBnewNcn9Wb7fjPoKYD2NPe-jDZ3_TqaGFK8CcWr7ai7w9X8Im_ZjQYyeoBP_luLLBB4wy39gQ4JgmlkgnY0gmlwhCOhiGqJc2VjcDI1NmsxoQMrmBYg_yR_ZKZKoLiChvlpNqdwXwodXmgw_TRow7RVwYN0Y3CCIyiDdWRwgiMo"]
+p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
+                          "enr:-Iu4QL...wgiMo"]
 ```
 
 List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
@@ -585,20 +589,20 @@ File containing the node's private key.
 ### p2p-static-peers
 
 ```bash tab="Syntax"
---p2p-static-peers=<ADDRESSES>
+--p2p-static-peers=<ADDRESS>[,<ADDRESS>...]...
 ```
 
 ```bash tab="Command line"
---p2p-static-peers=/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAm7qrY2oodyds7msWm33pHAi1W4Co53ZJmZsjp3pqEaXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAmVjXWDfhXaapVpop72r58ctKSDyT7k3Wy2AciwCbxq6f1
+--p2p-static-peers=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
 ```
 
 ```bash tab="Environment Variable"
-TEKU_P2P_STATIC-PEERS=/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAm7qrY2oodyds7msWm33pHAi1W4Co53ZJmZsjp3pqEaXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAmVjXWDfhXaapVpop72r58ctKSDyT7k3Wy2AciwCbxq6f1
+TEKU_P2P_STATIC-PEERS=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
 ```
 
 ```bash tab="Configuration File"
-p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAm7qrY2oodyds7msWm33pHAi1W4Co53ZJmZsjp3pqEaXRz",
-                  "/ip4/151.150.191.80/tcp/9000/p2p/16Uiu2HAmVjXWDfhXaapVpop72r58ctKSDyT7k3Wy2AciwCbxq6f1"]
+p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
+                   "/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1"]
 ```
 
 List of comma-separated [multiaddresses](https://docs.libp2p.io/reference/glossary/#multiaddr)
@@ -607,10 +611,14 @@ of static peers.
 ### rest-api-enabled
 
 ```bash tab="Syntax"
---rest-api-enabled
+--rest-api-enabled=<BOOLEAN>
 ```
 
-```bash tab="Environement Variable"
+```bash tab="Command Line"
+--rest-api-enabled=true
+```
+
+```bash tab="Environment Variable"
 TEKU_REST_API_ENABLED=true
 ```
 
@@ -624,10 +632,14 @@ The default is `false`.
 ### rest-api-docs-enabled
 
 ```bash tab="Syntax"
---rest-api-docs-enabled
+--rest-api-docs-enabled=<BOOLEAN>
 ```
 
-```bash tab="Environement Variable"
+```bash tab="Command Line"
+--rest-api-docs-enabled=true
+```
+
+```bash tab="Environment Variable"
 TEKU_REST_API_DOCS_ENABLED=true
 ```
 
@@ -641,7 +653,7 @@ The default is `false`.
 The documentation can be accessed at `http:<interface>:<port>/swagger-ui` where:
 
 * `interface` is specified using [`--rest-api-interface`](#rest-api-interface)
-* `port` is specified using [`--p2p-port`](#p2p-port)
+* `port` is specified using [`--rest-api-port`](#rest-api-port)
 
 ### rest-api-interface
 
@@ -685,7 +697,7 @@ rest-api-port: 3435
 ```
 
 Specifies REST API listening port (TCP).
-The default is 9000.
+The default is 5051.
 
 ### version
 
@@ -694,3 +706,133 @@ The default is 9000.
 ```
 
 Displays the version and exits.
+
+### validators-external-signer-public-keys
+
+```bash tab="Syntax"
+--validators-external-signer-public-keys=<KEY>[,<KEY>...]
+```
+
+```bash tab="Command Line"
+
+--validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b
+```
+
+```bash tab="Environment Variable"
+TEKU_VALIDATORS_EXTERNAL_SIGNER_PUBLIC_KEYS=0xa99a...e44c,0xb89b...4a0b
+```
+
+```bash tab="Configuration File"
+validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
+```
+
+List of validator public keys used by an external signer (for example, Eth2Signer).
+
+### validators-external-signer-timeout
+
+```bash tab="Syntax"
+--validators-external-signer-timeout=<INTEGER>
+```
+
+```bash tab="Command Line"
+--validators-external-signer-timeout=2000
+```
+
+```bash tab="Environment Variable"
+TEKU_VALIDATORS_EXTERNAL_SIGNER_TIMEOUT=2000
+```
+
+```bash tab="Configuration File"
+validators-external-signer-timeout: 2000
+```
+
+Timeout in milliseconds for requests to the external signer. Default is 1000.
+
+### validators-external-signer-url
+
+```bash tab="Syntax"
+--validators-external-signer-url=<URL>
+```
+
+```bash tab="Command Line"
+--validators-external-signer-url=http://localhost:9000
+```
+
+```bash tab="Environment Variable"
+TEKU_VALIDATORS_EXTERNAL_SIGNER_URL=http://localhost:9000
+```
+
+```bash tab="Configuration File"
+validators-external-signer-url: "http://localhost:9000"
+```
+
+URL on which the external signer (for example, Eth2Signer) is running.
+
+### validators-key-file
+
+```bash tab="Syntax"
+--validators-key-file=<PATH_TO_FILE>
+```
+
+```bash tab="Command Line"
+--validators-key-file=/home/me/me_node/key.
+```
+
+```bash tab="Environment Variable"
+TEKU_VALIDATORS_KEY_FILE=/home/me/me_node/key.yaml
+```
+
+```bash tab="Configuration File"
+validators-key-file: "/home/me/me_node/key.yaml"
+```
+
+Path to the YAML formatted file to load unencrypted validator keys from.
+
+A YAML-formatted file that stores unencrypted validator keys can be generated using 
+the `teku validator generate --keys-output-path` option.
+
+### validators-key-files
+
+```bash tab="Syntax"
+--validators-key-files=<FILENAME>[,<FILENAME>...]...
+```
+
+```bash tab="Command Line"
+--validators-key-files=validator_0xa245...58cf.json,validator_0xb880...1f09.json
+```
+
+```bash tab="Environment Variable"
+TEKU_VALIDATORS_KEY_FILES=validator_0xa245...58cf.json,validator_0xb880...1f09.json
+```
+
+```bash tab="Configuration File"
+validators-key-files: ["validator_0xa245...58cf.json","validator_0xb880...1f09.json"]
+```
+
+List of encrypted BLS12-381 keystore files to load the validator keys from.
+
+The keystore files can be created when generating validators using the 
+`teku validator generate --keys-output-path` option.
+
+### validators-key-password-files
+
+```bash tab="Syntax"
+--validators-key-password-files=<PASSWORDFILE>[,<PASSWORDFILE...]...
+```
+
+```bash tab="Command Line"
+validators-key-password-files=/home/me/me_node/password1.txt,/home/me/me_node/password2.txt
+```
+
+```bash tab="Environment Variable"
+TEKU_VALIDATORS_KEY_PASSWORD_FILES=/home/me/me_node/password1.txt,/home/me/me_node/password2.txt
+```
+
+```bash tab="Configuration File"
+validators-key-password-files: ["home/me/me_node/password1.txt","home/me/me_node/password2.txt"]
+```
+
+List of plain text files containing the password to decrypt the BLS12-381 keystore files.
+
+Each keystore file requires its own password file. The password file must match
+the list position of the keystore file listed using [`--validators-key-files`](#validators-key-files).
