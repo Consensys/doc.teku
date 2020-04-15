@@ -1,4 +1,4 @@
-description: Register validators     
+description: Register validators
 <!--- END of page meta data -->
 
 # Register validators
@@ -26,7 +26,7 @@ besu --genesis-file=depositContractGenesis.json \
 --min-gas-price=0 --rpc-http-enabled=true \
 --rpc-http-port=8545 \
 --rpc-http-api=ETH,IBFT,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3
-``` 
+```
 
 ## Submit deposits
 
@@ -52,19 +52,19 @@ teku validator generate --deposit-amount-gwei=32000000000 \
 The command line:
 
 * Specifies the amount of ether to deposit in Gwei using
-[`--deposit-amount-gwei`](../../Reference/CLI/CLI-Subcommands.md#deposit-amount-gwei) 
-* Specifies the address of the deposit contract using 
-[`--eth1-deposit-contract-address`](../../Reference/CLI/CLI-Subcommands.md#eth1-deposit-contract-address)
+  [`--deposit-amount-gwei`](../../Reference/CLI/CLI-Subcommands.md#deposit-amount-gwei)
+* Specifies the address of the deposit contract using
+  [`--eth1-deposit-contract-address`](../../Reference/CLI/CLI-Subcommands.md#eth1-deposit-contract-address)
 * Specifies the JSON-RPC URL endpoint of the Ethereum 1.0 client (Besu) using
-[`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint)
-* Enables encrypting the validator keys using 
-[`--encrypted-keystore-enabled`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-enabled)
+  [`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint)
+* Enables encrypting the validator keys using
+  [`--encrypted-keystore-enabled`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-enabled)
 * Specifies the output location of the validator keys using
-[`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path)
+  [`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path)
 * Specifies the private key that sends the transaction to the deposit contract using
-[`--eth1-private-key`](../../Reference/CLI/CLI-Subcommands.md#eth1-private-key)
+  [`--eth1-private-key`](../../Reference/CLI/CLI-Subcommands.md#eth1-private-key)
 * Specify the number of validator keys and deposits to create using
-[`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators).
+  [`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators).
 
 ### Register an existing validator key
 
@@ -83,19 +83,18 @@ teku validator register --deposit-amount-gwei=32000000000 \
 The command line:
 
 * Specifies the amount of ether to deposit in Gwei using
-[`--deposit-amount-gwei`](../../Reference/CLI/CLI-Subcommands.md#deposit-amount-gwei_1) 
+  [`--deposit-amount-gwei`](../../Reference/CLI/CLI-Subcommands.md#deposit-amount-gwei_1)
 * Specifies the location of the validator's BLS12-381 keystore using
-[`--encrypted-keystore-validator-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-validator-file)
+  [`--encrypted-keystore-validator-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-validator-file)
 * Specifies the password to decrypt the BLS12-381 keystore using
-[`--encrypted-keystore-validator-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-validator-password-file_1)
-* Specifies the address of the deposit contract using 
-[`--eth1-deposit-contract-address`](../../Reference/CLI/CLI-Subcommands.md#eth1-deposit-contract-address_1)
+  [`--encrypted-keystore-validator-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-validator-password-file_1)
+* Specifies the address of the deposit contract using
+  [`--eth1-deposit-contract-address`](../../Reference/CLI/CLI-Subcommands.md#eth1-deposit-contract-address_1)
 * Specifies the JSON-RPC URL endpoint of the Ethereum 1.0 client (Besu) using
-[`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint_1)
+  [`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint_1)
 * Specifies the private key that sends the transaction to the deposit contract using
-[`--eth1-private-key`](../../Reference/CLI/CLI-Subcommands.md#eth1-private-key_1)
+  [`--eth1-private-key`](../../Reference/CLI/CLI-Subcommands.md#eth1-private-key_1)
 * Specifies the public key used to withdraw funds using [`--withdrawal-public-key`](../../Reference/CLI/CLI-Subcommands.md#withdrawal-public-key).
-
 
 ## Start Teku
 
@@ -109,16 +108,17 @@ teku --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd \
 
 The command line:
 
-* Specifies the address of the deposit contract using 
-[`--eth1-deposit-contract-address`](../../Reference/CLI/CLI-Syntax.md#eth1-deposit-contract-address)
+* Specifies the address of the deposit contract using
+  [`--eth1-deposit-contract-address`](../../Reference/CLI/CLI-Syntax.md#eth1-deposit-contract-address)
 * Specifies the JSON-RPC URL endpoint of the Ethereum 1.0 client (Besu) using
-[`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint)
+  [`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint)
 * Specifies the validator private [keys created earlier](#generate-new-validator-keys) using
-[`--validators-key-file`](../../Reference/CLI/CLI-Syntax.md#validators-key-file)
-* Specifies the the P2P listening ports using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port)
+  [`--validators-key-file`](../../Reference/CLI/CLI-Syntax.md#validators-key-file)
+* Specifies the P2P listening ports using [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port)
 * Enables the [REST API service](../../Reference/Rest_API/Rest.md) using
-[`--rest-api-enabled`](../../Reference/CLI/CLI-Syntax.md#rest-api-enabled)
-* Enables the Swagger-UI documentation using [`--rest-api-docs-enabled`](../../Reference/CLI/CLI-Syntax.md#rest-api-docs-enabled)
+  [`--rest-api-enabled`](../../Reference/CLI/CLI-Syntax.md#rest-api-enabled)
+* Enables the Swagger-UI documentation using
+  [`--rest-api-docs-enabled`](../../Reference/CLI/CLI-Syntax.md#rest-api-docs-enabled)
 
 !!! note
     The default Swagger-UI documentation location is `http://localhost:5051/swagger-ui`.
