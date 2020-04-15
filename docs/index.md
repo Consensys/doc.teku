@@ -1,4 +1,4 @@
-# PegasSys Teku
+# PegaSys Teku
 
 ## What is Teku? 
 
