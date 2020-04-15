@@ -98,6 +98,8 @@ markdown_extensions:
 plugins:
   - search
   - markdownextradata
+  - git-revision-date-localized:
+      locale: en
   - redirects:
       redirect_maps:
         # Configure redirects using key:value pairs:
