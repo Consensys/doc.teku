@@ -11,6 +11,6 @@ Teku:
 
 * Runs the Beacon node synchronization and consensus. 
 * Proposes and attests blocks. 
-* Provides enterprise focused metrices with Prometheus. 
+* Provides enterprise focused metrics with Prometheus. 
 * Has REST APIs for managing Eth 2.0 node operations . 
 * Has external key management to manage your validator signing keys. 
