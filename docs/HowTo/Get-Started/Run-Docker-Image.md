@@ -20,6 +20,17 @@ Display the Teku command line help using the Docker image
 docker run pegasyseng/teku:develop --help
 ```
 
+You can specify
+[Teku environment variables](../../Reference/CLI/CLI-Syntax.md#teku-environment-variables) with the
+docker image instead of the command line options.
+
+!!! example
+
+    ```bash
+    docker run -p 9000:9000 -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 -e TEKU_LOG_FILE=/var/lib/teku/LOG --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd --eth1-endpoint=http://102.10.10.1:8545 --validators-key-file=var/lib/teku/validator_keys.yaml
+    ```
+
+
 ## Exposing ports
 
 Expose ports for P2P peer discovery, metrics, and REST APIs. You need
@@ -42,15 +53,15 @@ docker run -p <localportP2P>:30303 -p <localportREST>:5051 pegasyseng/teku:devel
 
 ## Run Teku using Docker Compose
 
+**Prerequisites**:
+
+* [Docker Compose](https://docs.docker.com/compose/)
+
 The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku node.  
 
 !!! note
     The example assumes the validators specified in [`--validators-key-file`](../../Reference/CLI/CLI-Syntax.md#validators-key-file) has already been
     [registered](Register-Validators.md) in the Ethereum 1.0 deposit contract.
-
-**Prerequisites**:
-
-* [Docker Compose](https://docs.docker.com/compose/)
 
 ```yaml
 ---
@@ -88,6 +99,9 @@ services:
       - "9000:9000"
       - "5051:5051"
 ```
+
+Run `docker-compose up` in the directory containing the `docker-compose.yml` file
+to start the container.
 
 <!-- Links -->
 [Hyperledger Besu]: https://besu.hyperledger.org/en/stable/
