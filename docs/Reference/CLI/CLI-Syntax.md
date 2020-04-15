@@ -167,25 +167,25 @@ Sets the logging verbosity.
 Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
 Default is `INFO`.
 
-### log-colour-enabled
+### log-color-enabled
 
 ```bash tab="Syntax"
---log-colour-enabled=<BOOLEAN>
+--log-color-enabled=<BOOLEAN>
 ```
 
 ```bash tab="Command Line"
---log-colour-enabled=false
+--log-color-enabled=false
 ```
 
 ```bash tab="Environment Variable"
-TEKU_LOG_COLOUR_ENABLED=false
+TEKU_LOG_COLOR_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
-log-colour-enabled: False
+log-color-enabled: False
 ```
 
-Specify whether status and event log messages include a console colour display code.
+Specify whether status and event log messages include a console color display code.
 Defaults to `true`.
 
 ### log-destination
@@ -310,8 +310,8 @@ TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
 metrics-categories: ["BEACON", "JVM", "PROCESS"]
 ```
 
-Categories for which to track metrics. Options are `BEACON`, `JVM`, `PROCESS`, `NETWORK`.
-All categories are enabled by default.
+Categories for which to track metrics. Options are `BEACON`, `JVM`, `LIBP2P`, `NETWORK`, and 
+`PROCESS`. All categories are enabled by default.
 
 ### metrics-interface
 
