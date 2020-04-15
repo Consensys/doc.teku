@@ -43,7 +43,7 @@ Go to the `teku` directory:
 cd build/install/teku
 ```
 
-Display the Artemis help to confirm installation:
+Display the Teku help to confirm installation:
 
 ````bash
 bin/teku --help
