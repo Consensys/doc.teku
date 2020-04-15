@@ -13,4 +13,4 @@ Teku:
 * Proposes and attests blocks. 
 * Provides enterprise focused metrics with Prometheus. 
 * Has REST APIs for managing Eth 2.0 node operations. 
-* Has external key management to manage your validator signing keys. 
+* Has external key management to manage validator signing keys. 
