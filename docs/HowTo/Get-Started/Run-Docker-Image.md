@@ -32,8 +32,8 @@ docker image instead of the command line options.
 
 ## Exposing ports
 
-Expose ports for P2P peer discovery, metrics, and REST APIs. Expose the default ports or
-the ports specified using:
+Expose ports for P2P peer discovery, metrics, and REST APIs. Expose the default ports or the ports
+specified using:
 
 * [`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port)
 * [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port)
