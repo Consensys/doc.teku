@@ -650,7 +650,7 @@ rest-api-docs-enabled: True
 Set to `true` to enable the REST API documentation.
 The default is `false`.
 
-The documentation can be accessed at `http:<interface>:<port>/swagger-ui` where:
+The documentation can be accessed at `http://<interface>:<port>/swagger-ui` where:
 
 * `interface` is specified using [`--rest-api-interface`](#rest-api-interface)
 * `port` is specified using [`--rest-api-port`](#rest-api-port)
@@ -696,7 +696,7 @@ TEKU_REST_API_PORT=3435
 rest-api-port: 3435
 ```
 
-Specifies REST API listening port (TCP).
+Specifies REST API listening port (HTTP).
 The default is 5051.
 
 ### version
