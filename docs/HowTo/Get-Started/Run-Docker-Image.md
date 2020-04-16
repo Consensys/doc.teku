@@ -80,7 +80,7 @@ services:
               "--miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
               "--min-gas-price=0"]
     volumes:
-      - ./:/opt/besu/data
+      - ./besu:/opt/besu/data
     ports:
       - "8545:8545"
       - "30303:30303"
