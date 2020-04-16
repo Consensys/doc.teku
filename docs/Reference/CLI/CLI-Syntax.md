@@ -314,7 +314,7 @@ TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
 metrics-categories: ["BEACON", "JVM", "PROCESS"]
 ```
 
-Categories for which to track metrics. Options are `BEACON`, `JVM`, `LIBP2P`, `NETWORK`, and 
+Categories for which to track metrics. Options are `BEACON`, `JVM`, `LIBP2P`, `NETWORK`, and
 `PROCESS`. All categories are enabled by default.
 
 ### metrics-interface
@@ -522,7 +522,7 @@ TEKU_P2P_DISCOVERY_ENABLED=false
 p2p-discovery-enabled: False
 ```
 
-Enables or disables P2P peer discovery. If disabled, [`p2p-static-peers`](#p2p-static-peers) defines 
+Enables or disables P2P peer discovery. If disabled, [`p2p-static-peers`](#p2p-static-peers) defines
 the peer connections. The default is `true`.
 
 ### p2p-discovery-bootnodes
@@ -650,7 +650,7 @@ rest-api-docs-enabled: True
 Set to `true` to enable the REST API documentation.
 The default is `false`.
 
-The documentation can be accessed at `http:<interface>:<port>/swagger-ui` where:
+The documentation can be accessed at `http://<interface>:<port>/swagger-ui` where:
 
 * `interface` is specified using [`--rest-api-interface`](#rest-api-interface)
 * `port` is specified using [`--rest-api-port`](#rest-api-port)
@@ -696,7 +696,7 @@ TEKU_REST_API_PORT=3435
 rest-api-port: 3435
 ```
 
-Specifies REST API listening port (TCP).
+Specifies REST API listening port (HTTP).
 The default is 5051.
 
 ### version
@@ -788,7 +788,7 @@ validators-key-file: "/home/me/me_node/key.yaml"
 
 Path to the YAML formatted file to load unencrypted validator keys from.
 
-A YAML-formatted file that stores unencrypted validator keys can be generated using 
+A YAML-formatted file that stores unencrypted validator keys can be generated using
 the `teku validator generate --keys-output-path` option.
 
 ### validators-key-files
@@ -811,7 +811,7 @@ validators-key-files: ["validator_0xa245...58cf.json","validator_0xb880...1f09.j
 
 List of encrypted BLS12-381 keystore files to load the validator keys from.
 
-The keystore files can be created when generating validators using the 
+The keystore files can be created when generating validators using the
 `teku validator generate --keys-output-path` option.
 
 ### validators-key-password-files

@@ -135,8 +135,8 @@ teku validator generate --eth1-keystore-file=<FILE>
 teku validator generate --eth1-keystore-file=/home/me/me_node/keystore
 ```
 
-Path to the encrypted V3 keystore file containing the private key of the 
-Ethereum 1.0 account from which to send the deposit transaction. Ensure the 
+Path to the encrypted V3 keystore file containing the private key of the
+Ethereum 1.0 account from which to send the deposit transaction. Ensure the
 account has enough ether to cover the amount specified using
 [`--deposit-amount-gwei`](#deposit-amount-gwei).
 
@@ -164,7 +164,7 @@ teku validator generate --eth1-private-key=<KEY>
 teku validator generate --eth1-private-key=8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63
 ```
 
-Private key of the Ethereum 1.0 account from which to send the deposit transaction. Ensure the 
+Private key of the Ethereum 1.0 account from which to send the deposit transaction. Ensure the
 account has enough ether to cover the amount specified using
 [`--deposit-amount-gwei`](#deposit-amount-gwei).
 
@@ -257,12 +257,12 @@ teku validator generate --number-of-validators=<NUMBER>
 ```
 
 ```bash tab="Command Line"
-teku validator generate --number-of-validators=64 
+teku validator generate --number-of-validators=64
 ```
 
 Specify the number of validators to create keys for and register.
 
-A minimum of 64 validators are required in a network. 
+A minimum of 64 validators are required in a network.
 
 ### register
 
@@ -351,8 +351,8 @@ teku validator register --eth1-keystore-file=<FILE>
 teku validator register --eth1-keystore-file=/home/me/me_node/keystore
 ```
 
-Path to the encrypted V3 keystore file containing the private key of the 
-Ethereum 1.0 account from which to send the deposit transaction. Ensure the 
+Path to the encrypted V3 keystore file containing the private key of the
+Ethereum 1.0 account from which to send the deposit transaction. Ensure the
 account has enough ether to cover the amount specified using
 [`--deposit-amount-gwei`](#deposit-amount-gwei).
 
@@ -380,7 +380,7 @@ teku validator register --eth1-private-key=<KEY>
 teku validator register --eth1-private-key=8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63
 ```
 
-Private key of the Ethereum 1.0 account from which to send the deposit transaction. Ensure the 
+Private key of the Ethereum 1.0 account from which to send the deposit transaction. Ensure the
 account has enough ether to cover the amount specified using
 [`--deposit-amount-gwei`](#deposit-amount-gwei).
 
