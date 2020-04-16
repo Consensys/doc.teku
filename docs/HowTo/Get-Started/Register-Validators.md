@@ -1,5 +1,6 @@
+---
 description: Register validators
-<!--- END of page meta data -->
+---
 
 # Register validators
 
