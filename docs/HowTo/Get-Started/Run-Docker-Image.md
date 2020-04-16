@@ -94,7 +94,7 @@ services:
               "--rest-api-enabled=true",
               "--rest-api-docs-enabled=true"]
     volumes:
-      - ./:/opt/teku/data
+      - ./teku:/opt/teku/data
     ports:
       - "9000:9000"
       - "5051:5051"
