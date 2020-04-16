@@ -88,7 +88,7 @@ services:
     ports:
       - "8545:8545"
       - "30303:30303"
-      
+
   teku_node:
     image: pegasyseng/teku:develop
     command: ["--eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd",
