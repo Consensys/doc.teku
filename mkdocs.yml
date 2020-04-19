@@ -59,6 +59,8 @@ nav:
             - Run Teku from Docker image: HowTo/Get-Started/Run-Docker-Image.md
             - Register validators: HowTo/Get-Started/Register-Validators.md
             - Run multiple Teku test nodes: HowTo/Get-Started/Start.md
+        - Monitor Nodes:
+          - Use Metrics: HowTo/Monitor/Metrics.md
     - Reference:
         - Teku Command Line:
           - Options: Reference/CLI/CLI-Syntax.md
