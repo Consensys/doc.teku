@@ -20,8 +20,7 @@ To use Prometheus with Teku, install the
 
     You can also install:
 
-    * Exporters and send system metrics to Prometheus to monitor non-Teku specific items such as
-      disk usage and CPU usage.
+    * [Exporters] to monitor non-Teku specific items such as disk usage and CPU usage.
     * Other Prometheus components, such as the Alert Manager. Additional configuration is not
       required for these components because Prometheus handles and analyzes data directly from the
       feed.
@@ -49,8 +48,7 @@ To configure Prometheus and run with Teku:
     ```
 
 1. Start Teku with the
-   [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) and
-   [`--metrics-categories`](../../Reference/CLI/CLI-Syntax.md#metrics-categories) options. To start a
+   [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option. To start a
    node for testing with metrics enabled:
 
      ```bash
@@ -68,7 +66,7 @@ To configure Prometheus and run with Teku:
 1. In another terminal, run Prometheus specifying the `prometheus.yml` file:
 
     ```bash tab="Example"
-    prometheus prometheus.yml
+    prometheus --config-file=prometheus.yml
     ```
 
 1. View the [Prometheus graphical interface](#view-prometheus-graphical-interface).
@@ -89,7 +87,14 @@ To configure Prometheus and run with Teku:
 
     !!! note
         The available metrics are prefixed with the category type specified using
-        [`--metrics-categories`](../../Reference/CLI/CLI-Syntax.md#metrics-categories)
+        [`--metrics-categories`](../../Reference/CLI/CLI-Syntax.md#metrics-categories).
+        
+        The [Ethereum 2.0 specification] lists the minimum set of metrics implemented by
+        beacon chain clients.
 
 Click the **Graph** tab to view the data as a time-based graph. The query string displays below
 the graph.
+
+<!-- Links -->
+[Exporters]: https://prometheus.io/docs/instrumenting/exporters/
+[Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-metrics/blob/master/metrics.md
