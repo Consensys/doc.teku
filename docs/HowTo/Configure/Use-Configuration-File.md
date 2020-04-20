@@ -6,8 +6,8 @@ description: Use Teku configuration file
 
 To specify command line options in a file, use a YAML configuration file.
 
-Save the configuration file and reuse it across node startups. To specify the configuration file,
-use the [`--config-file`](../../Reference/CLI/CLI-Syntax.md#config-file) option.
+To specify the configuration file, use the
+[`--config-file`](../../Reference/CLI/CLI-Syntax.md#config-file) option.
 
 To override an option specified in the configuration file, either specify the same option on the
 command line or as an
@@ -17,14 +17,15 @@ configuration file.
 
 ## YAML specification
 
-The configuration file must be a valid YAML file composed of key/value pairs. Each key is the same
-as the corresponding command line option name without the leading dashes (`--`).
+The configuration file must be a valid YAML file composed of key/value pairs. Each key is the
+corresponding command line option name without the leading dashes (`--`).
 
-Values must conform to YAML specifications for string, numbers, arrays, and booleans. Specific
-differences between the command line and the TOML file format are:
+Values must conform to YAML specifications for strings, numbers, arrays, and booleans. Specific
+differences between the command line and the YAML file format are:
 
 * Comma-separated lists on the command line are string arrays in the YAML file.
-* Enclose file paths, hexadecimal numbers, URLs, and &lt;host:port&gt; values in quotes.
+* Enclose all string values (including but not limited to file paths, hexadecimal numbers,
+    URLs) in quotes.
 
 !!!tip
 
