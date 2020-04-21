@@ -16,15 +16,6 @@ To use Prometheus with Teku, install the
  brew install prometheus
 ```
 
-!!! tip
-
-    You can also install:
-
-    * [Exporters] to monitor non-Teku specific items such as disk usage and CPU usage.
-    * Other Prometheus components, such as the Alert Manager. Additional configuration is not
-      required for these components because Prometheus handles and analyzes data directly from the
-      feed.
-
 ## Setting up and running Prometheus with Teku
 
 To configure Prometheus and run with Teku:
@@ -96,5 +87,4 @@ Click the **Graph** tab to view the data as a time-based graph. The query string
 the graph.
 
 <!-- Links -->
-[Exporters]: https://prometheus.io/docs/instrumenting/exporters/
 [Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-metrics/blob/master/metrics.md
