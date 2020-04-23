@@ -79,6 +79,8 @@ The path to the Teku data directory. The default directory is OS dependant:
 * Unix/Linux: `~/.teku/data`
 * Windows: `%localappdata%\teku\data`
 
+The default Docker image location is `/root/.local/share/teku/data`.
+
 ### data-storage-mode
 
 ```bash tab="Syntax"
@@ -242,6 +244,8 @@ The default directory is OS dependant:
 * macOS: `~/Library/teku/log`
 * Unix/Linux: `~/.teku/log`
 * Windows: `%localappdata%\teku\log`
+
+The default Docker image location is `/root/.local/share/teku/log`.
 
 ### log-file-name-pattern
 
