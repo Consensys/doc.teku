@@ -75,11 +75,11 @@ data-path: "/home/me/me_node"
 
 The path to the Teku data directory. The default directory is OS dependant:
 
-* macOS: `~/Library/teku/data`
-* Unix/Linux: `~/.teku/data`
-* Windows: `%localappdata%\teku\data`
+* macOS: `~/Library/teku`
+* Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
+* Windows: `%localappdata%\teku`.
 
-The default Docker image location is `/root/.local/share/teku/data`.
+The default Docker image location is `/root/.local/share/teku`.
 
 ### data-storage-mode
 
@@ -241,11 +241,11 @@ Relative or absolute location, and filename of the log file.
 
 The default directory is OS dependant:
 
-* macOS: `~/Library/teku/log`
-* Unix/Linux: `~/.teku/log`
-* Windows: `%localappdata%\teku\log`
+* macOS: `~/Library/teku/logs`
+* Unix/Linux: `~/.teku/logs`
+* Windows: `%localappdata%\teku\logs`
 
-The default Docker image location is `/root/.local/share/teku/log`.
+The default Docker image location is `/root/.local/share/teku/logs`.
 
 ### log-file-name-pattern
 
