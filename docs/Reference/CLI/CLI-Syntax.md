@@ -73,8 +73,11 @@ TEKU_DATA_PATH=/home/me/me_node
 data-path: "/home/me/me_node"
 ```
 
-The path to the Teku data directory. The default is the directory in which Teku is installed
-or `/opt/teku/database` if using the Teku Docker image.
+The path to the Teku data directory. The default directory is OS dependant:
+
+* macOS: `~/Library/teku/data`
+* Unix/Linux: `~/.teku/data`
+* Windows: `%localappdata%\teku\data`
 
 ### data-storage-mode
 
@@ -233,6 +236,12 @@ log-file: "teku_2020-01-01.log"
 ```
 
 Relative or absolute location, and filename of the log file.
+
+The default directory is OS dependant:
+
+* macOS: `~/Library/teku/log`
+* Unix/Linux: `~/.teku/log`
+* Windows: `%localappdata%\teku\log`
 
 ### log-file-name-pattern
 
