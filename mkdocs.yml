@@ -61,6 +61,8 @@ nav:
             - Run multiple Teku test nodes: HowTo/Get-Started/Start.md
         - Monitor Nodes:
           - Use Metrics: HowTo/Monitor/Metrics.md
+        - Configure:
+            - Specify Options in a Configuration File: HowTo/Configure/Use-Configuration-File.md
     - Reference:
         - Teku Command Line:
           - Options: Reference/CLI/CLI-Syntax.md
