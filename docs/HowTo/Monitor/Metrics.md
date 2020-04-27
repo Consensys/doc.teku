@@ -2,6 +2,8 @@
 description: Monitoring and metrics
 ---
 
+# Use metrics to monitor performance
+
 Enable the [Prometheus](https://prometheus.io/) monitoring and alerting service for
 Teku metrics using the [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled)
 option.
@@ -79,7 +81,7 @@ To configure Prometheus and run with Teku:
     !!! note
         The available metrics are prefixed with the category type specified using
         [`--metrics-categories`](../../Reference/CLI/CLI-Syntax.md#metrics-categories).
-        
+
         The [Ethereum 2.0 specification] lists the minimum set of metrics implemented by
         beacon chain clients.
 
