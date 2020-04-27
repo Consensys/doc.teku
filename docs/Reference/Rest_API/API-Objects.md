@@ -1,0 +1,92 @@
+description: Teku API objects reference
+<!--- END of page meta data -->
+
+# Teku API Objects
+
+The following objects are returned by TEKU API Methods.
+
+## Block
+
+Returned by `beacon/block`.
+
+| Field                | Type                | Description                                         |
+|----------------------|:-------------------:|-----------------------------------------------------|
+| **slot**             | uint32              | Block creation slot.                                |
+| **parent_root**      | Bytes32             | Block root of the parent block.                     |
+| **state_root**       | Bytes32             | The hash root of the post state of running the state transition through this block. |
+| **body**             | Object              | [Action of the block](#beacon-block-body) on the current state. |
+
+### Beacon block body
+
+The object contains information about the actions on the current state.
+
+| Field                  | Type                | Description                                         |
+|------------------------|:-------------------:|-----------------------------------------------------|
+| **randao_reveal**      | Bytes96             | BLSSignature of the current epoch.                  |
+| **eth1_data**          | Object              | A vote on recent ETH1 chain data.                   |
+| **graffiti**           | Data, 32 bytes      | Vanity data populated by validators.                |
+| **proposer_slashings** | Object              | Proposer slashing details.                         |
+| **attester_slashings** | Object              | Attester slashing details.                         |
+| **attestations**       | Object              | Objects containing attestation information.        |
+| **deposits**           | Array               | Sequence of deposits, ordered chronologically.      |
+| **voluntary_exits**    | Array               | Lists of voluntary exits of validators.             |
+
+### ETH1 data
+
+The object contains ETH1 chain data information.
+
+| Field                | Type                | Description                                         |
+|----------------------|:-------------------:|-----------------------------------------------------|
+| **deposit_root**     | Bytes32             | Hash tree root of all deposits in a deposit contract. |
+| **deposit_count**    | uint64              | Number of successful validator deposits into the contract.|
+| **block_hash**       | Bytes32             | ETH1 block hash that contains the deposit root. |
+
+## Attestation
+
+Attestation information for a slot and committee index.
+
+!!! note
+    Produces a blank signature field for `/validator/attestation` endpoint, which the validator
+    later signs.
+
+| Field                | Type                | Description                                         |
+|----------------------|:-------------------:|-----------------------------------------------------|
+| **aggregation_bits** | Bitlist             | List of bits containing a single bit for each member of the committee. |
+| **data**             | Object              | [Attestation data](#attestation-data) signed by the validator (or collection of validators). |
+| **signature**        | Bytes96             | BLS signature of the attestation.                   |
+
+### Attestation Data
+
+| Field                | Type                | Description                                         |
+|----------------------|:-------------------:|-----------------------------------------------------|
+| **slot**             | uint32              | Slot that the validator or committee is assigned to attest. |
+| **index**            | uint32              | Index of the committee making  the attestation.     |
+| **beacon_block_root** | Bytes32            | Block root of the beacon block for the assigned slot. |
+| **source**           | Object              | Checkpoint (`epoch` and `root`) during the assigned slot. |
+| **target**           | Object              | The checkpoint (`epoch` and `root`) attesters are attempting to justify. |
+
+## Validators
+
+A list of validator information returned by `/beacon/validators`.
+
+| Field                | Type                | Description                                         |
+|----------------------|:-------------------:|-----------------------------------------------------|
+| **pubkey**           | Bytes48             | Validator's public key.                             |
+| **validator_index**  | uint32              | Validator index within the beacon state.            |
+| **balance**          | uint32              | Account balance in Gwei.                            |
+| **validator**        | Object              | Object containing validator information.            |
+| **total_size**       | uint32              | Total number of validators.                         |
+| **next_page_token**  | uint32              | Next page number of results.                        |
+
+### Validator
+
+| Field                      | Type                | Description                                         |
+|----------------------------|:-------------------:|-----------------------------------------------------|
+| **pubkey**                 | Bytes48             | Validator's public key.                             |
+| **withdrawal_credentials** | Bytes32             | Validator index within the beacon state.            |
+| **effective_balance**      | uint32              | Account balance in Gwei.                            |
+| **slashed**                | Boolean             | `true` if the validator has been slashed, otherwise `false`.|
+| **activation_eligibility_epoch** | uint32        | Epoch when the activation criteria was met.         |
+| **activation_epoch**       | uint32              | Epoch when the validator was activated.             |
+| **exit_epoch**             | uint32              |                             |
+| **withdrawable_epoch**     | Object              |             |
