@@ -314,8 +314,8 @@ TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
 metrics-categories: ["BEACON", "JVM", "PROCESS"]
 ```
 
-Categories for which to track metrics. Options are `BEACON`, `JVM`, `LIBP2P`, `NETWORK`, and
-`PROCESS`. All categories are enabled by default.
+Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `EVENTBUS`,
+`LIBP2P`, `NETWORK`. All categories are enabled by default.
 
 ### metrics-interface
 
