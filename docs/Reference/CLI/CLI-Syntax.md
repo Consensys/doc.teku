@@ -242,7 +242,7 @@ Relative or absolute location, and filename of the log file.
 The default directory is OS dependant:
 
 * macOS: `~/Library/teku/logs`
-* Unix/Linux: `~/.teku/logs`
+* Unix/Linux: `$XDG_DATA_HOME/teku/logs` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku/logs`
 * Windows: `%localappdata%\teku\logs`
 
 The default Docker image location is `/root/.local/share/teku/logs`.
