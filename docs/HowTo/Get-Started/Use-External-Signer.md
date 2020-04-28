@@ -9,7 +9,7 @@ Teku supports the [Eth2Signer] external signing client.
 **Prerequisites**:
 
 * Eth2Signer installed and running
-* Signing key configuration files.
+* [Signing key configuration files].
 
 ## Start Teku
 
@@ -35,3 +35,4 @@ The command line:
 
 <!--links-->
 [Eth2Signer]: https://doc.eth2signer.pegasys.tech/en/latest/
+[Signing key configuration files]: https://doc.eth2signer.pegasys.tech/en/latest/HowTo/Use-Signing-Keys/
