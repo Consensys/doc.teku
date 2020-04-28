@@ -3,31 +3,31 @@ description: Teku API objects reference
 
 # Teku API Objects
 
-The following objects are returned by TEKU API Methods.
+The following objects are returned by Teku REST API methods.
 
-## Block
+## Beacon block
 
-Returned by `beacon/block`.
+Returned by [`beacon/block`](https://pegasyseng.github.io/teku/stable/#operation/getBeaconBlock).
 
 | Field                | Type                | Description                                         |
 |----------------------|:-------------------:|-----------------------------------------------------|
 | **slot**             | uint32              | Block creation slot.                                |
-| **parent_root**      | Bytes32             | Block root of the parent block.                     |
-| **state_root**       | Bytes32             | The hash root of the post state of running the state transition through this block. |
-| **body**             | Object              | [Action of the block](#beacon-block-body) on the current state. |
+| **parent_root**      | Bytes32             | Root of the parent block.                           |
+| **state_root**       | Bytes32             | Hash root of the state.                            |
+| **body**             | Object              | [Fields for the various beacon operations](#beacon-block-body). |
 
 ### Beacon block body
 
-The object contains information about the actions on the current state.
+The object contains information about operations on the current state.
 
 | Field                  | Type                | Description                                         |
 |------------------------|:-------------------:|-----------------------------------------------------|
 | **randao_reveal**      | Bytes96             | BLSSignature of the current epoch.                  |
-| **eth1_data**          | Object              | A vote on recent ETH1 chain data.                   |
+| **eth1_data**          | Object              | [A vote on recent ETH1 chain data](#eth1-data).    |
 | **graffiti**           | Data, 32 bytes      | Vanity data populated by validators.                |
 | **proposer_slashings** | Object              | Proposer slashing details.                         |
 | **attester_slashings** | Object              | Attester slashing details.                         |
-| **attestations**       | Object              | Objects containing attestation information.        |
+| **attestations**       | Object              | [Objects containing attestation information](#attestation). |
 | **deposits**           | Array               | Sequence of deposits, ordered chronologically.      |
 | **voluntary_exits**    | Array               | Lists of voluntary exits of validators.             |
 
@@ -43,11 +43,12 @@ The object contains ETH1 chain data information.
 
 ## Attestation
 
-Attestation information for a slot and committee index.
+Attestation information for the block.
 
 !!! note
-    Produces a blank signature field for `/validator/attestation` endpoint, which the validator
-    later signs.
+    Produces a blank `signature` field for the 
+    [`/validator/attestation`](https://pegasyseng.github.io/teku/stable/#operation/getValidatorAttestation)
+    endpoint, which the validator later signs.
 
 | Field                | Type                | Description                                         |
 |----------------------|:-------------------:|-----------------------------------------------------|
@@ -67,14 +68,15 @@ Attestation information for a slot and committee index.
 
 ## Validators
 
-A list of validator information returned by `/beacon/validators`.
+A list of validator information returned by
+[`/beacon/validators`](https://pegasyseng.github.io/teku/stable/#operation/getBeaconValidators).
 
 | Field                | Type                | Description                                         |
 |----------------------|:-------------------:|-----------------------------------------------------|
 | **pubkey**           | Bytes48             | Validator's public key.                             |
 | **validator_index**  | uint32              | Validator index within the beacon state.            |
 | **balance**          | uint32              | Account balance in Gwei.                            |
-| **validator**        | Object              | Object containing validator information.            |
+| **validator**        | Object              | [Object containing validator information](#validator). |
 | **total_size**       | uint32              | Total number of validators.                         |
 | **next_page_token**  | uint32              | Next page number of results.                        |
 
@@ -88,5 +90,5 @@ A list of validator information returned by `/beacon/validators`.
 | **slashed**                | Boolean             | `true` if the validator has been slashed, otherwise `false`.|
 | **activation_eligibility_epoch** | uint32        | Epoch when the activation criteria was met.         |
 | **activation_epoch**       | uint32              | Epoch when the validator was activated.             |
-| **exit_epoch**             | uint32              |                             |
-| **withdrawable_epoch**     | Object              |             |
+| **exit_epoch**             | uint32              | Epoch at which the validator exits the blockchain. |
+| **withdrawable_epoch**     | Object              | Epoch at which the exited validator can withdraw funds. |
