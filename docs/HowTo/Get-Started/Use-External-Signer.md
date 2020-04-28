@@ -9,7 +9,7 @@ Teku supports the [Eth2Signer] external signing client.
 **Prerequisites**:
 
 * Eth2Signer installed and running
-* Configured signing key configuration files
+* Signing key configuration files.
 
 ## Start Teku
 
@@ -17,7 +17,7 @@ Start Teku and specify the external signer options.
 
 ```bash
 teku --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd \
---eth1-endpoint=http://localhost:8545 --validators-key-file=validator_keys \
+--eth1-endpoint=http://localhost:8545 \
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
 --validators-external-signer-url=http://localhost:9000
 ```
