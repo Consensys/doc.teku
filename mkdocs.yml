@@ -60,6 +60,8 @@ nav:
             - Register validators: HowTo/Get-Started/Register-Validators.md
             - Run multiple Teku test nodes: HowTo/Get-Started/Start.md
             - Use an external signer: HowTo/Get-Started/Use-External-Signer.md
+        - Monitor Nodes:
+          - Use Metrics: HowTo/Monitor/Metrics.md
         - Configure:
             - Specify Options in a Configuration File: HowTo/Configure/Use-Configuration-File.md
     - Reference:
