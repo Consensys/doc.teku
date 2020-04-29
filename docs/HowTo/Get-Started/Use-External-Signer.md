@@ -8,7 +8,7 @@ Teku supports the [Eth2Signer] external signing client.
 
 **Prerequisites**:
 
-* Eth2Signer installed and running
+* Eth2Signer installed and running.
 * [Signing key configuration files].
 
 ## Start Teku
@@ -30,9 +30,10 @@ The command line:
     [`--validators-external-signer-url`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-url).
 
 !!! note
-    Create a signing key configuration file for each public key specified using
+    You need a [signing key configuration file] for each public key specified using
     [`--validators-external-signer-public-keys`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-public-keys).
 
 <!--links-->
 [Eth2Signer]: https://doc.eth2signer.pegasys.tech/en/latest/
 [Signing key configuration files]: https://doc.eth2signer.pegasys.tech/en/latest/HowTo/Use-Signing-Keys/
+[signing key configuration file]: https://doc.eth2signer.pegasys.tech/en/latest/HowTo/Use-Signing-Keys/
