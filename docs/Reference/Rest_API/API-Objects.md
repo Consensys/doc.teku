@@ -11,7 +11,7 @@ Returned by [`beacon/block`](https://pegasyseng.github.io/teku/stable/#operation
 
 | Field                | Type                | Description                                         |
 |----------------------|:-------------------:|-----------------------------------------------------|
-| **slot**             | uint32              | Block creation slot.                                |
+| **slot**             | uint64              | Block creation slot.                                |
 | **parent_root**      | Bytes32             | Root of the parent block.                           |
 | **state_root**       | Bytes32             | Hash root of the state.                            |
 | **body**             | Object              | [Fields for the various beacon operations](#beacon-block-body). |
@@ -60,8 +60,8 @@ Attestation information for the block.
 
 | Field                | Type                | Description                                         |
 |----------------------|:-------------------:|-----------------------------------------------------|
-| **slot**             | uint32              | Slot that the validator or committee is assigned to attest. |
-| **index**            | uint32              | Index of the committee making  the attestation.     |
+| **slot**             | uint64              | Slot that the validator or committee is assigned to attest. |
+| **index**            | uint64              | Index of the committee making  the attestation.     |
 | **beacon_block_root** | Bytes32            | Block root of the beacon block for the assigned slot. |
 | **source**           | Object              | Checkpoint (`epoch` and `root`) during the assigned slot. |
 | **target**           | Object              | The checkpoint (`epoch` and `root`) attesters are attempting to justify. |
@@ -74,11 +74,11 @@ A list of validator information returned by
 | Field                | Type                | Description                                         |
 |----------------------|:-------------------:|-----------------------------------------------------|
 | **pubkey**           | Bytes48             | Validator's public key.                             |
-| **validator_index**  | uint32              | Validator index within the beacon state.            |
-| **balance**          | uint32              | Account balance in Gwei.                            |
+| **validator_index**  | integer             | Validator index within the beacon state.            |
+| **balance**          | uint64              | Account balance in Gwei.                            |
 | **validator**        | Object              | [Object containing validator information](#validator). |
-| **total_size**       | uint32              | Total number of validators.                         |
-| **next_page_token**  | uint32              | Next page number of results.                        |
+| **total_size**       | uint64              | Total number of validators.                         |
+| **next_page_token**  | uint64              | Next page number of results.                        |
 
 ### Validator
 
@@ -86,9 +86,9 @@ A list of validator information returned by
 |----------------------------|:-------------------:|-----------------------------------------------------|
 | **pubkey**                 | Bytes48             | Validator's public key.                             |
 | **withdrawal_credentials** | Bytes32             | Validator index within the beacon state.            |
-| **effective_balance**      | uint32              | Account balance in Gwei.                            |
+| **effective_balance**      | uint64              | Account balance in Gwei.                            |
 | **slashed**                | Boolean             | `true` if the validator has been slashed, otherwise `false`.|
-| **activation_eligibility_epoch** | uint32        | Epoch when the activation criteria was met.         |
-| **activation_epoch**       | uint32              | Epoch when the validator was activated.             |
-| **exit_epoch**             | uint32              | Epoch at which the validator exits the blockchain. |
+| **activation_eligibility_epoch** | uint64        | Epoch when the activation criteria was met.         |
+| **activation_epoch**       | uint64              | Epoch when the validator was activated.             |
+| **exit_epoch**             | uint64              | Epoch at which the validator exits the blockchain. |
 | **withdrawable_epoch**     | Object              | Epoch at which the exited validator can withdraw funds. |
