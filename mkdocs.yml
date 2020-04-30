@@ -68,7 +68,9 @@ nav:
         - Teku Command Line:
           - Options: Reference/CLI/CLI-Syntax.md
           - Subcommands: Reference/CLI/CLI-Subcommands.md
-        - RESTful APIs: Reference/Rest_API/Rest.md
+        - RESTful APIs:
+          - Teku REST API methods: Reference/Rest_API/Rest.md
+          - Teku API objects: Reference/Rest_API/API-Objects.md
 
 markdown_extensions:
   - toc:
