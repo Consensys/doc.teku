@@ -46,7 +46,7 @@ The object contains ETH1 chain data information.
 Attestation information for the block.
 
 !!! note
-    Produces a blank `signature` field for the 
+    Produces a blank `signature` field for the
     [`/validator/attestation`](https://pegasyseng.github.io/teku/stable/#operation/getValidatorAttestation)
     endpoint, which the validator later signs.
 
