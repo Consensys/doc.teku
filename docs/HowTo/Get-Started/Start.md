@@ -2,7 +2,7 @@
 description: Starting Teku
 ---
 
-# Run multiple Teku nodes
+# Run a local testnet
 
 **Prerequsites**:
 
