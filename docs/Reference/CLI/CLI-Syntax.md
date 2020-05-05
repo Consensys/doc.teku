@@ -141,8 +141,6 @@ If `false`, then provide an initial state using the [`--initial-state`](#initial
 start teku from an existing database using [`--data-path`](#data-path), which provides the initial
 state to work from.
 
-Must be `true` if you intend to run validators.
-
 ### eth1-endpoint
 
 ```bash tab="Syntax"
