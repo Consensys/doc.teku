@@ -135,13 +135,13 @@ TEKU_ETH1_ENABLED=false
 eth1-enabled: false
 ```
 
-Specify whether to connect to an Ethereum 1.0 chain. Defaults to `true`.
-
-Allows syncing to an existing network without running validators.
+Specify whether to connect to an Ethereum 1.0 chain to load data. Defaults to `true`.
 
 If `false`, then provide an initial state using the [`--initial-state`](#initial-state) option, or
 start teku from an existing database using [`--data-path`](#data-path), which provides the initial
 state to work from.
+
+Must be `true` if you intend to run validators.
 
 ### eth1-endpoint
 
