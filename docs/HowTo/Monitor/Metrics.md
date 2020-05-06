@@ -59,7 +59,7 @@ To configure Prometheus and run with Teku:
 1. In another terminal, run Prometheus specifying the `prometheus.yml` file:
 
     ```bash tab="Example"
-    prometheus --config-file=prometheus.yml
+    prometheus --config.file=prometheus.yml
     ```
 
 1. View the [Prometheus graphical interface](#view-prometheus-graphical-interface).
@@ -88,5 +88,12 @@ To configure Prometheus and run with Teku:
 Click the **Graph** tab to view the data as a time-based graph. The query string displays below
 the graph.
 
+## Visualize collected data
+
+Use
+[Grafana] to visualize the collected data. See the sample
+[Teku Grafana dashboard](https://grafana.com/grafana/dashboards/12199).
+
 <!-- Links -->
 [Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-metrics/blob/master/metrics.md
+[Grafana]: https://grafana.com/docs/grafana/latest/guides/getting_started/
