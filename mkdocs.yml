@@ -57,8 +57,9 @@ nav:
             - Install binary distribution: HowTo/Get-Started/Install-Binaries.md
             - Build from source: HowTo/Get-Started/Build-From-Source.md
             - Run Teku from Docker image: HowTo/Get-Started/Run-Docker-Image.md
-            - Register validators: HowTo/Get-Started/Register-Validators.md
             - Run multiple Teku test nodes: HowTo/Get-Started/Start.md
+            - Connect to a Testnet: HowTo/Get-Started/Connect-To-Testnet.md
+            - Register validators: HowTo/Get-Started/Register-Validators.md
             - Use an external signer: HowTo/Get-Started/Use-External-Signer.md
         - Monitor Nodes:
           - Use Metrics: HowTo/Monitor/Metrics.md
@@ -95,8 +96,8 @@ markdown_extensions:
   # pymdownx.superfences is deprecated.
   # It must be replaced with pymdownx.tabbed but it requires new CSS
   # TODO with material 5 update
-  - pymdownx.superfences:
-      legacy_tab_classes: true
+  ### - pymdownx.superfences:
+  ###    legacy_tab_classes: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
