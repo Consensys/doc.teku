@@ -153,9 +153,7 @@ The deposit contract is a deployed instance of the [`validator_registration.vy`]
 
     See also: [How to run your own Beacon Chain](https://dev.to/q9/how-to-run-your-own-beacon-chain-e70)
 
-Note, that reading the deposit contract requires an enabled ETH1 connection, for example:
-
-`--eth1-enabled --eth1-endpoint="localhost:8545"`
+Note, that reading the deposit contract requires an enabled ETH1 connection which can be achieved with `--eth1-enabled`.
 
 !!! example
 
