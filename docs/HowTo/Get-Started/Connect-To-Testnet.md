@@ -40,7 +40,7 @@ Available options are: `minimal`, `mainnet`, `topaz`, and `schlesi`:
 
 !!! tip
 
-    If you don't know which network to pick, choose `--network=schlesi`.
+    If you don't know which network to pick, choose `--network=schlesi` because it's well supported by Teku currently and allows to connect and synchronize with other ETH2 clients.
 
 ## Connect to Schlesi Testnet
 
