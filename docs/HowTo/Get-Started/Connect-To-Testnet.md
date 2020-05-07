@@ -6,7 +6,7 @@ description: How to choose and connect to a testnet
 
 The PegaSys Teku client allows you to connect a beacon-chain node to a public testnet and run validators on these networks. There are different ETH2 testnets to choose from.
 
-!!! note
+!!! important
 
     Due to the fast pace of client and testnet development, this guide recommends connecting to the [Schlesi Testnet](https://github.com/goerli/schlesi). However, networks can experience stability issues and are prone to regular resets. It's recommended to regularly check the network's and client's documentation for updates.
 
@@ -16,10 +16,20 @@ The PegaSys Teku client allows you to connect a beacon-chain node to a public te
 
 Teku allows to select preconfigured networks with the `--network` flag:
 
-```bash
-  -n, --network=<NETWORK>    Represents which network to use.
-                               Default: minimal
+```bash tab="Syntax"
+-n, --network=<NETWORK>
 ```
+
+```bash tab="Command Line"
+--network=mainnet
+```
+
+```bash tab="Environment Variable"
+TEKU_network=mainnet
+```
+
+Represents which network to use.
+The default is `minimal`.
 
 Available options are: `minimal`, `mainnet`, `topaz`, and `schlesi`:
 
