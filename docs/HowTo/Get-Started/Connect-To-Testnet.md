@@ -57,7 +57,7 @@ Teku can connect a beacon-chain node to the Schlesi Testnet and synchronize the 
 
     Building from `master` might come with certain instability and features may break without prior warning.
 
-Simply pass the `--network=schlesi` command-line flag to Teku.
+Pass the `--network=schlesi` command-line flag to Teku.
 
 !!! example
 
