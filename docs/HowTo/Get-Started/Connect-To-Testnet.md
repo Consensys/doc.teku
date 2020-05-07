@@ -163,7 +163,7 @@ Note, that reading the deposit contract requires an enabled ETH1 connection whic
 
 **Genesis state**:
 
-In case the genesis state is already known and available, instead of passing an deposit contract, the initial state can be provided:
+In case the genesis state is already known and available, instead of passing a deposit contract, the initial state can be provided:
 
 * `--initial-state="./path/to/genesis.ssz"`
 * `--initial-state="https://github.com/goerli/schlesi/raw/master/teku/genesis.ssz"`
@@ -183,7 +183,7 @@ To allow other developers and users to connect to your custom testnet, you can p
 * `--p2p-discovery-bootnodes="enr:-LK4QFO0gKFieMiNrUystSk5Xt7DmIgusloLudv-gH8Krjw9SsUDZRk---H-3hwvL9rMfsMcZwU6L5ezK2d1_dG0UgECh2F0dG5ldHOIAAAAAAAAAACEZXRoMpCZJe_WAAAAAP__________gmlkgnY0gmlwhDMPd52Jc2VjcDI1NmsxoQPNb3TG-iN0aGTagN4peO0SEkWKklJOvloWL0He8pnB_4N0Y3CCJRyDdWRwgiUc"`
 * `--p2p-static-peers="/ip4/51.15.119.157/tcp/9000/p2p/16Uiu2HAkvLCWwVEfF365ZWXB6siDL1mUpcd1XQ1nSXAHmvM5W7wn"`
 
-If the number of command-line arguments becomes confusing, it's recommended to [Use a Configuration File](HowTo/Configure/Use-Configuration-File.md).
+If the number of command-line arguments becomes confusing, it's recommended to [use a configuration file](/HowTo/Configure/Use-Configuration-File.md).
 
 !!! example
 
