@@ -2,13 +2,13 @@
 description: How to choose and connect to a testnet
 ---
 
-# Connect to a Testnet
+# Connect to a testnet
 
 The PegaSys Teku client allows you to connect a beacon-chain node to a public testnet and run validators on these networks. There are different ETH2 testnets to choose from.
 
 !!! important
 
-    Due to the fast pace of client and testnet development, this guide recommends connecting to the [Schlesi Testnet](https://github.com/goerli/schlesi). However, networks can experience stability issues and are prone to regular resets. It's recommended to regularly check the network's and client's documentation for updates.
+    Due to the fast pace of client and testnet development, this guide recommends connecting to the [Schlesi testnet](https://github.com/goerli/schlesi). However, networks can experience stability issues and are prone to regular resets. It's recommended to regularly check the network's and client's documentation for updates.
 
 **Prerequisites**:
 
@@ -36,22 +36,22 @@ Available options are: `minimal`, `mainnet`, `topaz`, and `schlesi`:
 * `minimal` is an ETH2 network configuration preset used for local testing and dev-nets.
 * `mainnet` is an ETH2 network configuration preset used for more dedicated test network setups targeting a future mainnet config.
 * `topaz` is a pre-configured single-client testnet maintained by the Prysmatic Labs team.
-* `schlesi` is a pre-configured multi-client testnet maintained by the Goerli Testnet Initiative.
+* `schlesi` is a pre-configured multi-client testnet maintained by the Goerli testnet initiative.
 
 !!! tip
 
     If you don't know which network to pick, choose `--network=schlesi` because it's well supported by Teku currently and allows to connect and synchronize with other ETH2 clients.
 
-## Connect to Schlesi Testnet
+## Connect to Schlesi testnet
 
 * Name: `schlesi-v0-11`
 * Scope: multi-client testnet
 * ETH2 Spec version: `v0.11.2`
 * Teku version: `master`
 
-The Schlesi Testnet is a multi-client testnet used by developers and users of many different ETH2 clients. It implements version `v0.11.2` of the ETH2 specification and tries to be compatible with all ETH2 clients including Teku.
+The Schlesi testnet is a multi-client testnet used by developers and users of many different ETH2 clients. It implements version `v0.11.2` of the ETH2 specification and tries to be compatible with all ETH2 clients including Teku.
 
-Teku can connect a beacon-chain node to the Schlesi Testnet and synchronize the chain. Connecting Teku to Schlesi requires the latest `master` version of Teku.
+Teku can connect a beacon-chain node to the Schlesi testnet and synchronize the chain. Connecting Teku to Schlesi requires the latest `master` version of Teku.
 
 !!! note
 
@@ -65,33 +65,33 @@ Pass the `--network=schlesi` command-line flag to Teku.
     teku --network=schlesi
     ```
 
-## Connect to other Testnets
+## Connect to other testnets
 
 Besides Schlesi, there are other public testnets available. Their configuration differs and connecting a Teku node is more involved.
 
-### Prysm Topaz Testnet
+### Prysm Topaz testnet
 
 * Name: `topaz`
 * Scope: single-client testnet (Prysm)
 * ETH2 Spec version: `v0.11.1`
 * Teku version: _N/A_
 
-Prysm is an ETH2 client written in Go. The _Topaz Testnet_ is the public single-client testnet mainly used by Prysm developers and users. It implements version `v0.11.1` of the ETH2 specification.
+Prysm is an ETH2 client written in Go. The _Topaz testnet_ is the public single-client testnet mainly used by Prysm developers and users. It implements version `v0.11.1` of the ETH2 specification.
 
-Due to a slight diversion from the ETH2 specification in attestation rewards and penalty calculations, it's currently _not_ possible to connect a Teku node to the Topaz Testnet. However, Teku includes a pre-configuration `--network=topaz` for testing purposes.
+Due to a slight diversion from the ETH2 specification in attestation rewards and penalty calculations, it's currently _not_ possible to connect a Teku node to the Topaz testnet. However, Teku includes a pre-configuration `--network=topaz` for testing purposes.
 
-### Lighthouse Testnet 5
+### Lighthouse testnet 5
 
 * Name: `testnet5`
 * Scope: single-client testnet (Lighthouse)
 * Spec version: `v0.10.1`
 * Teku version: [`v0.10.0`](https://github.com/PegaSysEng/teku/releases/tag/0.10.0)
 
-Lighthouse is an ETH2 client written in Rust. The _Testnet 5_ is the public single-client testnet mainly used by Lighthouse developers and users. It implements version `v0.10.1` of the ETH2 specification.
+Lighthouse is an ETH2 client written in Rust. The _testnet 5_ is the public single-client testnet mainly used by Lighthouse developers and users. It implements version `v0.10.1` of the ETH2 specification.
 
-It's possible to connect a Teku beacon-chain node to the Testnet 5 and synchronize the chain. Connecting Teku to Testnet 5 requires the pinned version [`v0.10.0`](https://github.com/PegaSysEng/teku/releases/tag/0.10.0) of Teku. Any version after the `v0.10.0` tag targets an updated version of the ETH2 spec and won't be able to connect to the Testnet 5.
+It's possible to connect a Teku beacon-chain node to the testnet 5 and synchronize the chain. Connecting Teku to testnet 5 requires the pinned version [`v0.10.0`](https://github.com/PegaSysEng/teku/releases/tag/0.10.0) of Teku. Any version after the `v0.10.0` tag targets an updated version of the ETH2 spec and won't be able to connect to the testnet 5.
 
-Teku does not contain a preset for Testnet 5. The necessary configuration can be found in the [eth2-testnets repository on Github](https://github.com/eth2-clients/eth2-testnets/tree/master/lighthouse/testnet5).
+Teku does not contain a preset for testnet 5. The necessary configuration can be found in the [eth2-testnets repository on Github](https://github.com/eth2-clients/eth2-testnets/tree/master/lighthouse/testnet5).
 
 ## Enable an ETH1 Connection
 
@@ -120,7 +120,7 @@ Once you have a local Goerli node running with an activated RPC-HTTP API, you ca
 
     See also: [Hyperledger Besu - Run a node on Goerli testnet](https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet)
 
-## Boostrap a new Testnet
+## Boostrap a new testnet
 
 If you already have created a custom testnet or plan to do so, Teku allows you to pass different configurations to the beacon-chain node. A custom network requires a couple of things:
 
