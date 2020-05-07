@@ -12,7 +12,7 @@ The PegaSys Teku client allows you to connect a beacon-chain node to a public te
 
 **Prerequisites**:
 
-* [Install Teku](/HowTo/Get-Started/Install-Binaries.md) Ethereum 2.0 client or [Build Teku from Source](/HowTo/Get-Started/Build-From-Source.md).
+* [Install Teku](/HowTo/Get-Started/Install-Binaries.md) Ethereum 2.0 client or [build Teku from source](/HowTo/Get-Started/Build-From-Source.md).
 
 Teku allows to select pre-configured networks with the `--network` flag:
 
@@ -40,7 +40,7 @@ Available options are: `minimal`, `mainnet`, `topaz`, and `schlesi`:
 
 !!! tip
 
-    If you don't know which network to pick, choose `--network=schlesi` because it's well supported by Teku currently and allows to connect and synchronize with other ETH2 clients.
+    If you don't know which network to pick, choose `--network=schlesi` because it's well supported by Teku currently and allows to easily connect and synchronize with other ETH2 clients.
 
 ## Connect to Schlesi testnet
 
@@ -188,5 +188,5 @@ If the number of command-line arguments becomes confusing, it's recommended to [
 !!! example
 
     ```
-    teku --config-file my-new-testnet.yaml --p2p-static-peers="/ip4/51.15.119.157/tcp/9000/p2p/16Uiu2HAkvLCWwVEfF365ZWXB6siDL1mUpcd1XQ1nSXAHmvM5W7wn" --p2p-discovery-bootnodes="enr:-LK4QFO0gKFieMiNrUystSk5Xt7DmIgusloLudv-gH8Krjw9SsUDZRk---H-3hwvL9rMfsMcZwU6L5ezK2d1_dG0UgECh2F0dG5ldHOIAAAAAAAAAACEZXRoMpCZJe_WAAAAAP__________gmlkgnY0gmlwhDMPd52Jc2VjcDI1NmsxoQPNb3TG-iN0aGTagN4peO0SEkWKklJOvloWL0He8pnB_4N0Y3CCJRyDdWRwgiUc"
+    teku --config-file ./my-new-testnet.yaml --p2p-static-peers="/ip4/51.15.119.157/tcp/9000/p2p/16Uiu2HAkvLCWwVEfF365ZWXB6siDL1mUpcd1XQ1nSXAHmvM5W7wn" --p2p-discovery-bootnodes="enr:-LK4QFO0gKFieMiNrUystSk5Xt7DmIgusloLudv-gH8Krjw9SsUDZRk---H-3hwvL9rMfsMcZwU6L5ezK2d1_dG0UgECh2F0dG5ldHOIAAAAAAAAAACEZXRoMpCZJe_WAAAAAP__________gmlkgnY0gmlwhDMPd52Jc2VjcDI1NmsxoQPNb3TG-iN0aGTagN4peO0SEkWKklJOvloWL0He8pnB_4N0Y3CCJRyDdWRwgiUc"
     ```
