@@ -14,7 +14,7 @@ The PegaSys Teku client allows you to connect a beacon-chain node to a public te
 
 * [Install Teku](/HowTo/Get-Started/Install-Binaries.md) Ethereum 2.0 client or [Build Teku from Source](/HowTo/Get-Started/Build-From-Source.md).
 
-Teku allows to select preconfigured networks with the `--network` flag:
+Teku allows to select pre-configured networks with the `--network` flag:
 
 ```bash tab="Syntax"
 -n, --network=<NETWORK>
@@ -130,7 +130,7 @@ If you already have created a custom testnet or plan to do so, Teku allows you t
 
 **Network configuration**:
 
-The network configuration can be either of the presets `minimal` and `mainnet` or a `yaml` file. The custome configuration file can be passed as local file or remote config fetched via HTTP, for example:
+The network configuration can be either of the presets `minimal` and `mainnet` or a `yaml` file. The custom configuration file can be passed as local file or remote config fetched via HTTP, for example:
 
 * `--network="minimal"`
 * `--network="mainnet"`
