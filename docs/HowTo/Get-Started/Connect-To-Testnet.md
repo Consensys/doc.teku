@@ -12,7 +12,7 @@ The PegaSys Teku client allows you to connect a beacon-chain node to a public te
 
 **Prerequisites**:
 
-* [Install Teku](/HowTo/Get-Started/Install-Binaries) Ethereum 2.0 client or [Build Teku from Source](/HowTo/Get-Started/Build-From-Source).
+* [Install Teku](/HowTo/Get-Started/Install-Binaries.md) Ethereum 2.0 client or [Build Teku from Source](/HowTo/Get-Started/Build-From-Source.md).
 
 Teku allows to select preconfigured networks with the `--network` flag:
 
