@@ -67,7 +67,7 @@ Pass the `--network=schlesi` command-line flag to Teku.
 
 ## Connect to other Testnets
 
-Under certain circumstances it's possible to connect to other public testnets.
+Besides Schlesi, there are other public testnets available. Their configuration differs and connecting a Teku node is more involved.
 
 ### Prysm Topaz Testnet
 
