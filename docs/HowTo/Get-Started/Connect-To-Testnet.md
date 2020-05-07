@@ -130,7 +130,7 @@ If you already have created a custom testnet or plan to do so, Teku allows you t
 
 **Network configuration**:
 
-The network configuration can be either of the presets `minimal` and `mainnet` or a `yaml` file. The custome configuration file can be passed as local file or remote config fetched via HTTP, e.g.:
+The network configuration can be either of the presets `minimal` and `mainnet` or a `yaml` file. The custome configuration file can be passed as local file or remote config fetched via HTTP, for example:
 
 * `--network="minimal"`
 * `--network="mainnet"`
@@ -153,7 +153,7 @@ The deposit contract is a deployed instance of the [`validator_registration.vy`]
 
     See also: [How to run your own Beacon Chain](https://dev.to/q9/how-to-run-your-own-beacon-chain-e70)
 
-Note, that reading the deposit contract requires an enabled ETH1 connection, e.g.:
+Note, that reading the deposit contract requires an enabled ETH1 connection, for example:
 
 `--eth1-enabled --eth1-endpoint="localhost:8545"`
 
