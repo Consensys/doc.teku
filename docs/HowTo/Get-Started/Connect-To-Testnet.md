@@ -143,7 +143,7 @@ The network configuration can be either of the presets `minimal` and `mainnet` o
     teku --network="https://github.com/goerli/schlesi/raw/master/teku/chain.yaml"
     ```
 
-**Deposit Contract**:
+**Deposit contract**:
 
 The deposit contract is a deployed instance of the [`validator_registration.vy`](https://github.com/ethereum/eth2.0-specs/blob/dev/deposit_contract/contracts/validator_registration.vy) on an ETH1 network of your choice.
 
@@ -163,7 +163,7 @@ Note, that reading the deposit contract requires an enabled ETH1 connection, for
     teku --network="minimal" --eth1-deposit-contract-address="0xaa888248144bc5d584a7f400839d0d912f21c39a" --eth1-enabled --eth1-endpoint="localhost:8545"
     ```
 
-**Genesis State**:
+**Genesis state**:
 
 In case the genesis state is already known and available, instead of passing an deposit contract, the initial state can be provided:
 
@@ -178,7 +178,7 @@ No ETH1 connection is required in case the genesis state is available.
     teku --network="minimal" --initial-state="https://github.com/goerli/schlesi/raw/master/teku/genesis.ssz"`
     ```
 
-**Bootstrap Nodes**:
+**Bootstrap nodes**:
 
 To allow other developers and users to connect to your custom testnet, you can provide bootstrap nodes and static peers.
 
