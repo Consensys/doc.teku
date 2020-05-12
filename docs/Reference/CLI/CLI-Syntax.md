@@ -117,6 +117,30 @@ eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
 
 Eth1 address of deposit contract.
 
+### eth1-enabled
+
+```bash tab="Syntax"
+--eth1-enabled[=<BOOLEAN>]
+```
+
+```bash tab="Command Line"
+--eth1-enabled=false
+```
+
+```bash tab="Environment Variable"
+TEKU_ETH1_ENABLED=false
+```
+
+```bash tab="Configuration File"
+eth1-enabled: false
+```
+
+Specify whether to connect to an Ethereum 1.0 chain to load data. Defaults to `true`.
+
+If `false`, then provide an initial state using the [`--initial-state`](#initial-state) option, or
+start teku from an existing database using [`--data-path`](#data-path), which provides the initial
+state to work from.
+
 ### eth1-endpoint
 
 ```bash tab="Syntax"
@@ -144,6 +168,26 @@ JSON-RPC URL of Eth1 node.
 ```
 
 Show the help message and exit.
+
+### initial-state
+
+```bash tab="Syntax"
+--initial-state=<FILE>
+```
+
+```bash tab="Command Line"
+--initial-state=/home/me/genesis.ssz
+```
+
+```bash tab="Environment Variable"
+TEKU_INITIAL_STATE=/home/me/genesis.ssz
+```
+
+```bash tab="Configuration File"
+initial-state: "/home/me/genesis.ssz"
+```
+
+Path or URL to the network genesis file.
 
 ### logging
 
