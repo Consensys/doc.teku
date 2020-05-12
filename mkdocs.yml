@@ -59,6 +59,7 @@ nav:
             - Run Teku from Docker image: HowTo/Get-Started/Run-Docker-Image.md
             - Register validators: HowTo/Get-Started/Register-Validators.md
             - Run a local testnet: HowTo/Get-Started/Start.md
+            - Connect to a Testnet: HowTo/Get-Started/Connect-To-Testnet.md
         - External signing:
               - Use an external signer: HowTo/Get-Started/External-Signer/Use-External-Signer.md
         - Monitor Nodes:

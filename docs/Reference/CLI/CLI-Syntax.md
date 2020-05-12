@@ -35,7 +35,7 @@ For example, set `--p2p-port` using the `TEKU_P2P_PORT` environment variable.
 To start a Teku node run:
 
 ```bash
-Teku [OPTIONS] [COMMAND]
+teku [OPTIONS] [COMMAND]
 ```
 
 ### config-file

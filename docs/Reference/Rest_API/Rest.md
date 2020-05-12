@@ -26,6 +26,12 @@ The default location is `http://localhost:5051/swagger-ui`.
 
 You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
 
+!!! example
+
+    ```bash
+    curl -X GET "http://localhost:5051/beacon/committees?epoch=2"
+    ```
+
 ## REST API endpoints
 
 The REST API is logically divided into multiple endpoints.
@@ -39,11 +45,11 @@ The REST API is logically divided into multiple endpoints.
 | [**/validator**] | Provide information and functionality for validator clients. |
 
 <!-- Links -->
-[Teku REST API documentation]:https://pegasyseng.github.io/teku/latest/
-[**/admin**]:https://pegasyseng.github.io/teku/latest/#tag/Admin
-[**/beacon**]:https://pegasyseng.github.io/teku/latest/#tag/Beacon
-[**/network**]:https://pegasyseng.github.io/teku/latest/#tag/Network
-[**/node**]:https://pegasyseng.github.io/teku/latest/#tag/Node
-[**/validator**]:https://pegasyseng.github.io/teku/latest/#tag/Validator
+[Teku REST API documentation]:https://pegasyseng.github.io/teku/#stable/
+[**/admin**]:https://pegasyseng.github.io/teku/#tag/Admin
+[**/beacon**]:https://pegasyseng.github.io/teku/#tag/Beacon
+[**/network**]:https://pegasyseng.github.io/teku/#tag/Network
+[**/node**]:https://pegasyseng.github.io/teku/#tag/Node
+[**/validator**]:https://pegasyseng.github.io/teku/#tag/Validator
 [Postman]: https://www.postman.com/
 [cURL]: https://curl.haxx.se/
