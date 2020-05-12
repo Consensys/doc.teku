@@ -61,7 +61,7 @@ nav:
             - Run a local testnet: HowTo/Get-Started/Start.md
             - Connect to a Testnet: HowTo/Get-Started/Connect-To-Testnet.md
         - External signing:
-              - Use an external signer: HowTo/Get-Started/External-Signer/Use-External-Signer.md
+              - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
         - Monitor Nodes:
           - Use Metrics: HowTo/Monitor/Metrics.md
         - Configure:
