@@ -117,6 +117,9 @@ eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
 
 Eth1 address of deposit contract.
 
+The genesis file specified using [`--initial-state`](#initial state) can be used instead
+to specify the deposit contract address.
+
 ### eth1-enabled
 
 ```bash tab="Syntax"
@@ -187,7 +190,10 @@ TEKU_INITIAL_STATE=/home/me/genesis.ssz
 initial-state: "/home/me/genesis.ssz"
 ```
 
-Path or URL to the network genesis file.
+Path or URL to the network genesis file. 
+
+This option does not need to be specified if the initial state is provided by the network specified
+using the [`--network`](#network) option.
 
 ### logging
 
@@ -420,8 +426,17 @@ BESU_NETWORK=mainnet
 network: "mainnet"
 ```
 
-Predefined network configuration.
-The default is `minimal`.
+Predefined network configuration. Accepts a predefined network name, or file path or URL
+to a YAML configuration file. The default is `minimal`.
+
+Possible values are:
+
+| Network   | Chain   | Type        | Description                                                         |
+|-----------|---------|-------------|---------------------------------------------------------------------|
+| `mainnet` | Eth 2.0 | Production  | Intended main network that targets future mainnet configuration.    |
+| `minimal` | Eth 2.0 | Test        | Used for local testing and development networks.                    |
+| `schlesi` | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
+| `topaz`   | Eth 2.0 | Test        | Single-client testnet maintained by the Prysmatic Labs.             |
 
 ### p2p-advertised-ip
 

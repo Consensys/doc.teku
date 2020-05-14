@@ -4,189 +4,127 @@ description: How to choose and connect to a testnet
 
 # Connect to a testnet
 
-The PegaSys Teku client allows you to connect a beacon-chain node to a public testnet and run validators on these networks. There are different ETH2 testnets to choose from.
+**Prerequisites**:
+
+* Install the latest version of Teku using a [binary distribution](Install-Binaries.md)
+    or [from source](Build-From-Source.md).
+* If running validators, [install Hyperledger Besu] to connect to an Ethereum 1.0 network.
+
+Teku allows you run a [beacon chain client only], or you can [run the beacon chain client
+with validators] on a public testnet.
 
 !!! important
 
-    Due to the fast pace of client and testnet development, this guide recommends connecting to the [Schlesi testnet](https://github.com/goerli/schlesi). However, networks can experience stability issues and are prone to regular resets. It's recommended to regularly check the network's and client's documentation for updates.
+    This example connects to the [Schlesi testnet](https://github.com/goerli/schlesi). Networks can
+    experience stability issues and are prone to regular resets. We recommend you regularly
+    check network and client documentation for updates.
 
-**Prerequisites**:
 
-* [Install Teku](/HowTo/Get-Started/Install-Binaries.md) Ethereum 2.0 client or [build Teku from source](/HowTo/Get-Started/Build-From-Source.md).
+## Select a network
 
-Teku allows to select pre-configured networks with the `--network` flag:
+Teku allows you to select predefined networks with the
+[`--network`](../../Reference/CLI/CLI-Syntax.md#network) CLI option.
 
-```bash tab="Syntax"
--n, --network=<NETWORK>
-```
+Predefined networks can provide defaults such the initial state of the network,
+bootnodes, and the address of the Ethereum 1.0 deposit contract.
 
-```bash tab="Command Line"
---network=mainnet
-```
+## Run a validator on a testnet
 
-```bash tab="Environment Variable"
-TEKU_network=mainnet
-```
+The steps to run an Ethereum 2.0 validator on a testnet are:
 
-Represents which network to use.
-The default is `minimal`.
+1. [Sync Besu to the Ethereum 1.0 network containing
+    the deposit contract](#sync-besu-to-the-ethereum-10-network).
 
-Available options are: `minimal`, `mainnet`, `topaz`, and `schlesi`:
+1. [Load the validator deposit amount (plus gas) into
+    your Ethereum 1.0  deposit account](#load-the-deposit-account-with-eth).
 
-* `minimal` is an ETH2 network configuration preset used for local testing and dev-nets.
-* `mainnet` is an ETH2 network configuration preset used for more dedicated test network setups targeting a future mainnet config.
-* `topaz` is a pre-configured single-client testnet maintained by the Prysmatic Labs team.
-* `schlesi` is a pre-configured multi-client testnet maintained by the Goerli testnet initiative.
+1. [Generate the validator key and send the deposit to the deposit
+    contract](#send-the-validator-deposit).
 
-!!! tip
+1. [Start Teku with the validator key](#start-the-validator).
 
-    If you don't know which network to pick, choose `--network=schlesi` because it's well supported by Teku currently and allows to easily connect and synchronize with other ETH2 clients.
+### Sync Besu to the Ethereum 1.0 network
 
-## Connect to Schlesi testnet
+The deposit contract for the `schlesi` and `topaz` testnets is located in the
+Goerli Ethereum 1.0 testnet. Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
 
-* Name: `schlesi-v0-11`
-* Scope: multi-client testnet
-* ETH2 Spec version: `v0.11.2`
-* Teku version: `master`
+!!! example
 
-The Schlesi testnet is a multi-client testnet used by developers and users of many different ETH2 clients. It implements version `v0.11.2` of the ETH2 specification and tries to be compatible with all ETH2 clients including Teku.
-
-Teku can connect a beacon-chain node to the Schlesi testnet and synchronize the chain. Connecting Teku to Schlesi requires the latest `master` version of Teku.
+    ```bash
+    besu --network=goerli --data-path=./goerli --rpc-http-enabled=true --rpc-http-port=8545 \
+    --p2p-port=30404 --rpc-http-api=ETH,NET,WEB3 --sync-mode=FAST --fast-sync-min-peers=2
+    ```
 
 !!! note
+    Teku and Besu currently share the same default P2P port number (30303). Update the Besu
+    `--p2p-port` option accordingly.
+    
+### Load the deposit account with ETH
 
-    Building from `master` might come with certain instability and features may break without prior warning.
-
-Pass the `--network=schlesi` command-line flag to Teku.
-
-!!! example
-
-    ```
-    teku --network=schlesi
-    ```
-
-## Connect to other testnets
-
-Besides Schlesi, there are other public testnets available. Their configuration differs and connecting a Teku node is more involved.
-
-### Prysm Topaz testnet
-
-* Name: `topaz`
-* Scope: single-client testnet (Prysm)
-* ETH2 Spec version: `v0.11.1`
-* Teku version: _N/A_
-
-Prysm is an ETH2 client written in Go. The _Topaz testnet_ is the public single-client testnet mainly used by Prysm developers and users. It implements version `v0.11.1` of the ETH2 specification.
-
-Due to a slight diversion from the ETH2 specification in attestation rewards and penalty calculations, it's currently _not_ possible to connect a Teku node to the Topaz testnet. However, Teku includes a pre-configuration `--network=topaz` for testing purposes.
-
-### Lighthouse testnet 5
-
-* Name: `testnet5`
-* Scope: single-client testnet (Lighthouse)
-* Spec version: `v0.10.1`
-* Teku version: [`v0.10.0`](https://github.com/PegaSysEng/teku/releases/tag/0.10.0)
-
-Lighthouse is an ETH2 client written in Rust. The _testnet 5_ is the public single-client testnet mainly used by Lighthouse developers and users. It implements version `v0.10.1` of the ETH2 specification.
-
-It's possible to connect a Teku beacon-chain node to the testnet 5 and synchronize the chain. Connecting Teku to testnet 5 requires the pinned version [`v0.10.0`](https://github.com/PegaSysEng/teku/releases/tag/0.10.0) of Teku. Any version after the `v0.10.0` tag targets an updated version of the ETH2 spec and won't be able to connect to the testnet 5.
-
-Teku does not contain a preset for testnet 5. The necessary configuration can be found in the [eth2-testnets repository on Github](https://github.com/eth2-clients/eth2-testnets/tree/master/lighthouse/testnet5).
-
-## Enable an ETH1 Connection
-
-**Prerequisites**:
-
-* [Install Hyperledger Besu](https://besu.hyperledger.org/en/latest/HowTo/Get-Started/Install-Binaries) Ethereum 1.0 client in addition to the Teku Ethereum 2.0 client.
-
-The deposit contract for Schlesi and Topaz are deployed to the _Goerli_ ETH1 testing network. To enable an ETH1 connection on Teku, configure Hyperledger Besu to connect to the Goerli testnet and expose the RPC-HTTP APIs:
-
-```bash
-besu --network=goerli \
---rpc-http-enabled=true \
---rpc-http-port=8545 \
---rpc-http-api=ETH,NET,WEB3
-```
-
-Once you have a local Goerli node running with an activated RPC-HTTP API, you can connect Teku to it by enabling `--eth1-enabled`.
-
-!!! example
-
-    ```
-    teku --network=schlesi --eth1-enabled --eth1-endpoint=localhost:8545
-    ```
+You need an Ethereum 1.0 account that contains at least 32 ETH (plus gas). For the
+`schlesi` testnet you need an account on Goerli.
 
 !!! tip
+    
+    You can create an account on Goerli using [Metamask], and use a [faucet] to fund the account.
 
-    See also: [Hyperledger Besu - Run a node on Goerli testnet](https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet)
 
-## Boostrap a new testnet
+### Send the validator deposit
 
-If you already have created a custom testnet or plan to do so, Teku allows you to pass different configurations to the beacon-chain node. A custom network requires a couple of things:
-
-* A network configuration that can be either one of the `minimal` or `mainnet` presets, or a custom `yaml` file containing the network specification.
-* An `ssz` genesis state or information about the ETH1 deposit contract.
-* Eventually bootnodes to allow other users to connect to your network.
-
-**Network configuration**:
-
-The network configuration can be either of the presets `minimal` and `mainnet` or a `yaml` file. The custom configuration file can be passed as local file or remote config fetched via HTTP, for example:
-
-* `--network="minimal"`
-* `--network="mainnet"`
-* `--network="./path/to/chain.yaml"`
-* `--network="https://github.com/goerli/schlesi/raw/master/teku/chain.yaml"`
+Teku allows you to [generate validator keys and send deposits] to the deposit contract.
 
 !!! example
 
+    ```bash
+    teku validator generate --network=schlesi \
+    --eth1-endpoint=http://localhost:8545 --encrypted-keystore-enabled=false \
+    --keys-output-path=validator_key \
+    --eth1-private-key=c645f4fde391ef45f26c877787c14c0557a9d83446280b957f7f9f12441c4af6 \
+    --number-of-validators=1
     ```
-    teku --network="https://github.com/goerli/schlesi/raw/master/teku/chain.yaml"
-    ```
+It may take more than 8 hours for a deposit to become active.
 
-**Deposit contract**:
+### Start the validator 
 
-The deposit contract is a deployed instance of the [`validator_registration.vy`](https://github.com/ethereum/eth2.0-specs/blob/dev/deposit_contract/contracts/validator_registration.vy) on an ETH1 network of your choice.
-
-`--eth1-deposit-contract-address="0xaa888248144bc5d584a7f400839d0d912f21c39a"`
-
-!!! tip
-
-    See also: [How to run your own Beacon Chain](https://dev.to/q9/how-to-run-your-own-beacon-chain-e70)
-
-Note, that reading the deposit contract requires an enabled ETH1 connection which can be achieved with `--eth1-enabled`.
+Run Teku and specify the validator key
 
 !!! example
 
+    ```bash
+    teku --network=schlesi --eth1-endpoint=http://localhost:8545 \
+    --validators-key-file=validator_key \
+    --rest-api-enabled=true --rest-api-docs-enabled=true \
+    --metrics-enabled
     ```
-    teku --network="minimal" --eth1-deposit-contract-address="0xaa888248144bc5d584a7f400839d0d912f21c39a" --eth1-enabled --eth1-endpoint="localhost:8545"
-    ```
 
-**Genesis state**:
+## Run a beacon chain client only
 
-In case the genesis state is already known and available, instead of passing a deposit contract, the initial state can be provided:
-
-* `--initial-state="./path/to/genesis.ssz"`
-* `--initial-state="https://github.com/goerli/schlesi/raw/master/teku/genesis.ssz"`
-
-No ETH1 connection is required in case the genesis state is available.
+You can run a Teku beacon chain node on a network without any validators.
 
 !!! example
 
+    ```bash
+    teku --eth1-enabled=false --network=schlesi \
+    --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
-    teku --network="minimal" --initial-state="https://github.com/goerli/schlesi/raw/master/teku/genesis.ssz"`
-    ```
 
-**Bootstrap nodes**:
+If you do not need to load data from the Ethereum 1.0 network set the
+[`--eth1-enabled`](../../Reference/CLI/CLI-Syntax.md#eth1-enabled) CLI option to
+`false`.
 
-To allow other developers and users to connect to your custom testnet, you can provide bootstrap nodes and static peers.
+## Add a beacon chain client to Eth2stats
 
-* `--p2p-discovery-bootnodes="enr:-LK4QFO0gKFieMiNrUystSk5Xt7DmIgusloLudv-gH8Krjw9SsUDZRk---H-3hwvL9rMfsMcZwU6L5ezK2d1_dG0UgECh2F0dG5ldHOIAAAAAAAAAACEZXRoMpCZJe_WAAAAAP__________gmlkgnY0gmlwhDMPd52Jc2VjcDI1NmsxoQPNb3TG-iN0aGTagN4peO0SEkWKklJOvloWL0He8pnB_4N0Y3CCJRyDdWRwgiUc"`
-* `--p2p-static-peers="/ip4/51.15.119.157/tcp/9000/p2p/16Uiu2HAkvLCWwVEfF365ZWXB6siDL1mUpcd1XQ1nSXAHmvM5W7wn"`
+You can add the beacon chain node to [Eth2stats](https://eth2stats.io/add-node) for monitoring.
 
-If the number of command-line arguments becomes confusing, it's recommended to [use a configuration file](/HowTo/Configure/Use-Configuration-File.md).
+Ensure you enable metrics using the
+[`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option when
+starting Teku.
 
-!!! example
-
-    ```
-    teku --config-file ./my-new-testnet.yaml --p2p-static-peers="/ip4/51.15.119.157/tcp/9000/p2p/16Uiu2HAkvLCWwVEfF365ZWXB6siDL1mUpcd1XQ1nSXAHmvM5W7wn" --p2p-discovery-bootnodes="enr:-LK4QFO0gKFieMiNrUystSk5Xt7DmIgusloLudv-gH8Krjw9SsUDZRk---H-3hwvL9rMfsMcZwU6L5ezK2d1_dG0UgECh2F0dG5ldHOIAAAAAAAAAACEZXRoMpCZJe_WAAAAAP__________gmlkgnY0gmlwhDMPd52Jc2VjcDI1NmsxoQPNb3TG-iN0aGTagN4peO0SEkWKklJOvloWL0He8pnB_4N0Y3CCJRyDdWRwgiUc"
-    ```
+<!-- links -->
+[install Hyperledger Besu]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Install-Binaries/
+[beacon chain client only]: #connect-a-beacon-chain-client-only
+[run the beacon chain client with validators]: #connect-and-run-validators
+[Metamask]: https://metamask.io/
+[faucet]: https://faucet.goerli.mudit.blog/
+[generate validator keys and send deposits]: https://docs.teku.pegasys.tech/en/latest/HowTo/Get-Started/Register-Validators/#submit-deposits
+[connect to Goerli]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet
