@@ -35,7 +35,7 @@ For example, set `--p2p-port` using the `TEKU_P2P_PORT` environment variable.
 To start a Teku node run:
 
 ```bash
-Teku [OPTIONS] [COMMAND]
+teku [OPTIONS] [COMMAND]
 ```
 
 ### config-file
@@ -122,6 +122,30 @@ eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
 
 Eth1 address of deposit contract.
 
+### eth1-enabled
+
+```bash tab="Syntax"
+--eth1-enabled[=<BOOLEAN>]
+```
+
+```bash tab="Command Line"
+--eth1-enabled=false
+```
+
+```bash tab="Environment Variable"
+TEKU_ETH1_ENABLED=false
+```
+
+```bash tab="Configuration File"
+eth1-enabled: false
+```
+
+Specify whether to connect to an Ethereum 1.0 chain to load data. Defaults to `true`.
+
+If `false`, then provide an initial state using the [`--initial-state`](#initial-state) option, or
+start teku from an existing database using [`--data-path`](#data-path), which provides the initial
+state to work from.
+
 ### eth1-endpoint
 
 ```bash tab="Syntax"
@@ -150,6 +174,26 @@ JSON-RPC URL of Eth1 node.
 
 Show the help message and exit.
 
+### initial-state
+
+```bash tab="Syntax"
+--initial-state=<FILE>
+```
+
+```bash tab="Command Line"
+--initial-state=/home/me/genesis.ssz
+```
+
+```bash tab="Environment Variable"
+TEKU_INITIAL_STATE=/home/me/genesis.ssz
+```
+
+```bash tab="Configuration File"
+initial-state: "/home/me/genesis.ssz"
+```
+
+Path or URL to the network genesis file.
+
 ### logging
 
 ```bash tab="Syntax"
@@ -175,7 +219,7 @@ Default is `INFO`.
 ### log-color-enabled
 
 ```bash tab="Syntax"
---log-color-enabled=<BOOLEAN>
+--log-color-enabled[=<BOOLEAN>]
 ```
 
 ```bash tab="Command Line"
@@ -187,7 +231,7 @@ TEKU_LOG_COLOR_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
-log-color-enabled: False
+log-color-enabled: false
 ```
 
 Specify whether status and event log messages include a console color display code.
@@ -270,7 +314,7 @@ Filename pattern to apply when creating log files.
 ### log-include-events-enabled
 
 ```bash tab="Syntax"
---log-include-events-enabled=<BOOLEAN>
+--log-include-events-enabled[=<BOOLEAN>]
 ```
 
 ```bash tab="Command Line"
@@ -282,7 +326,7 @@ TEKU_LOG_INCLUDE_EVENTS_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
-log-include-events-enabled: False
+log-include-events-enabled: false
 ```
 
 Specify whether to log frequent update events. For example every slot event with
@@ -291,7 +335,7 @@ validators and attestations. Defaults to `true`.
 ### metrics-enabled
 
 ```bash tab="Syntax"
---metrics-enabled=<BOOLEAN>
+--metrics-enabled[=<BOOLEAN>]
 ```
 
 ```bash tab="Command Line"
@@ -303,7 +347,7 @@ TEKU_METRICS_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
-metrics-enabled: True
+metrics-enabled: true
 ```
 
 Set to `true` to enable the metrics exporter.
@@ -327,8 +371,8 @@ TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
 metrics-categories: ["BEACON", "JVM", "PROCESS"]
 ```
 
-Categories for which to track metrics. Options are `BEACON`, `JVM`, `LIBP2P`, `NETWORK`, and
-`PROCESS`. All categories are enabled by default.
+Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `EVENTBUS`,
+`LIBP2P`, `NETWORK`. All categories are enabled by default.
 
 ### metrics-interface
 
@@ -415,7 +459,7 @@ Advertised peer-to-peer IP address. Default is `127.0.0.1`.
 ### p2p-enabled
 
 ```bash tab="Syntax"
---p2p-enabled=<BOOLEAN>
+--p2p-enabled[=<BOOLEAN>]
 ```
 
 ```bash tab="Command line"
@@ -427,7 +471,7 @@ TEKU_P2P_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
-p2p-enabled: False
+p2p-enabled: false
 ```
 
 Enables or disables all P2P communication.
@@ -520,7 +564,7 @@ The default is `30303`.
 ### p2p-discovery-enabled
 
 ```bash tab="Syntax"
---p2p-discovery-enabled=<true|false>
+--p2p-discovery-enabled[=<BOOLEAN>]
 ```
 
 ```bash tab="Command line"
@@ -532,7 +576,7 @@ TEKU_P2P_DISCOVERY_ENABLED=false
 ```
 
 ```bash tab="Configuration File"
-p2p-discovery-enabled: False
+p2p-discovery-enabled: false
 ```
 
 Enables or disables P2P peer discovery. If disabled, [`p2p-static-peers`](#p2p-static-peers) defines
@@ -624,7 +668,7 @@ of static peers.
 ### rest-api-enabled
 
 ```bash tab="Syntax"
---rest-api-enabled=<BOOLEAN>
+--rest-api-enabled[=<BOOLEAN>]
 ```
 
 ```bash tab="Command Line"
@@ -636,7 +680,7 @@ TEKU_REST_API_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
-rest-api-enabled: True
+rest-api-enabled: true
 ```
 
 Set to `true` to enable the [REST API service](../Rest_API/Rest.md).
@@ -645,7 +689,7 @@ The default is `false`.
 ### rest-api-docs-enabled
 
 ```bash tab="Syntax"
---rest-api-docs-enabled=<BOOLEAN>
+--rest-api-docs-enabled[=<BOOLEAN>]
 ```
 
 ```bash tab="Command Line"
@@ -657,7 +701,7 @@ TEKU_REST_API_DOCS_ENABLED=true
 ```
 
 ```bash tab="Configuration File"
-rest-api-docs-enabled: True
+rest-api-docs-enabled: true
 ```
 
 Set to `true` to enable the REST API documentation.

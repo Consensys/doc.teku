@@ -58,14 +58,21 @@ nav:
             - Build from source: HowTo/Get-Started/Build-From-Source.md
             - Run Teku from Docker image: HowTo/Get-Started/Run-Docker-Image.md
             - Register validators: HowTo/Get-Started/Register-Validators.md
-            - Run multiple Teku test nodes: HowTo/Get-Started/Start.md
+            - Run a local testnet: HowTo/Get-Started/Start.md
+            - Connect to a Testnet: HowTo/Get-Started/Connect-To-Testnet.md
+        - External signing:
+              - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
+        - Monitor Nodes:
+          - Use Metrics: HowTo/Monitor/Metrics.md
         - Configure:
             - Specify Options in a Configuration File: HowTo/Configure/Use-Configuration-File.md
     - Reference:
         - Teku Command Line:
           - Options: Reference/CLI/CLI-Syntax.md
           - Subcommands: Reference/CLI/CLI-Subcommands.md
-        - RESTful APIs: Reference/Rest_API/Rest.md
+        - RESTful APIs:
+          - Teku REST API methods: Reference/Rest_API/Rest.md
+          - Teku API objects: Reference/Rest_API/API-Objects.md
 
 markdown_extensions:
   - toc:
