@@ -10,6 +10,10 @@ description: How to choose and connect to a testnet
     or [from source](Build-From-Source.md).
 * If running validators, [install Hyperledger Besu] to connect to an Ethereum 1.0 network.
 
+!!! note
+    Any Ethereum 1.0 client can be installed to connect to the Ethereum 1.0 network, but this
+    example uses Besu.
+
 Teku allows you run a [beacon chain client only], or you can [run the beacon chain client
 with validators] on a public testnet.
 
@@ -29,6 +33,10 @@ Predefined networks can provide defaults such the initial state of the network,
 bootnodes, and the address of the Ethereum 1.0 deposit contract.
 
 ## Run a validator on a testnet
+
+Each Ethereum 2.0 validator needs access an Ethereum 1.0 client to onboard new validators.
+Validators make deposits into Ethereum 1.0, and existing Ethereum 2.0 validators must see these
+deposits and process them to enable the validators to join Ethereum 2.0.
 
 The steps to run an Ethereum 2.0 validator on a testnet are:
 
@@ -104,7 +112,7 @@ In the command line:
     and [`--encrypted-keystore-withdrawal-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-withdrawal-password-file).
     If not set, then manually enter a password at the command line when prompted.
     
-* Specify the location of the encrypted Ethereum 1.0 deposit account private key
+* Specify the encrypted Ethereum 1.0 deposit account private key
     using [`--eth1-keystore-file`](../../Reference/CLI/CLI-Subcommands.md#eth1-keystore-file).
     
     !!! note
@@ -116,7 +124,7 @@ In the command line:
     [`--eth1-keystore-password-file`](../../Reference/CLI/CLI-Subcommands.md#eth1-keystore-password-file).
     
 * Specify the number of validators to create using
-    [`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators)
+    [`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators).
 
 It may take more than 8 hours for a deposit to become active.
 
@@ -134,6 +142,8 @@ Run Teku and specify the [validator key created earlier](#generate-the-validator
     --metrics-enabled
     ```
 
+Once the validator is activated, view it on the beacon chain explorer at
+`https://schlesi.beaconcha.in/validator/<validator_public_key>`.
 
 ## Run a beacon chain client only
 
