@@ -45,19 +45,15 @@ The steps to run an Ethereum 2.0 validator on a testnet are:
 
 ### Sync Besu to the Ethereum 1.0 network
 
-The deposit contract for the `schlesi` and `topaz` testnets is located in the
-Goerli Ethereum 1.0 testnet. Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
+The deposit contract for the testnets is located in the Goerli Ethereum 1.0 testnet.
+Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
 
 !!! example
 
     ```bash
     besu --network=goerli --data-path=./goerli --rpc-http-enabled=true --rpc-http-port=8545 \
-    --p2p-port=30404 --rpc-http-api=ETH,NET,WEB3 --sync-mode=FAST --fast-sync-min-peers=2
+    --rpc-http-api=ETH,NET,WEB3 --sync-mode=FAST --fast-sync-min-peers=2
     ```
-
-!!! note
-    Teku and Besu currently share the same default P2P port number (30303). Update the Besu
-    `--p2p-port` option accordingly.
     
 ### Load the deposit account with ETH
 
@@ -69,33 +65,75 @@ You need an Ethereum 1.0 account that contains at least 32 ETH (plus gas). For t
     You can create an account on Goerli using [Metamask], and use a [faucet] to fund the account.
 
 
-### Send the validator deposit
+### Generate the validator and send the deposit
 
-Teku allows you to [generate validator keys and send deposits] to the deposit contract.
+Teku allows you to [generate validator keys and send deposits] to the deposit contract. 
+Teku deposits 32 ETH by default, use the
+[`--deposit-amount-gwei`](../../Reference/CLI/CLI-Subcommands.md#deposit-amount-gwei) option
+to send an alternate amount.
 
 !!! example
 
     ```bash
     teku validator generate --network=schlesi \
-    --eth1-endpoint=http://localhost:8545 --encrypted-keystore-enabled=false \
-    --keys-output-path=validator_key \
-    --eth1-private-key=c645f4fde391ef45f26c877787c14c0557a9d83446280b957f7f9f12441c4af6 \
+    --eth1-endpoint=http://localhost:8545 --keys-output-path=validator_key \
+    --encrypted-keystore-validator-password-file=./schlesi/password.txt \
+    --encrypted-keystore-withdrawal-password-file=./schlesi/password.txt \
+    --eth1-keystore-file=./schlesi/walletKey --eth1-keystore-password-file=./schlesi/password.txt \
     --number-of-validators=1
     ```
+
+In the command line:
+
+* Specify the network on which to generate the validator using 
+    [`--network`](../../Reference/CLI/CLI-Subcommands.md#network).
+    
+* Specify the endpoint for you Ethereum 1.0 network using
+    [`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint).
+    
+* Specify the location in which to create the encrypted validator and withdrawal key files using
+    [`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path). 
+
+    !!! note
+        To create an unencryped file, set
+        [`--encrypted-keystore-enabled`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-enabled)
+        to `false`. However, this is not recommended in production.
+
+* Specify the password of the encrypted validator and withdrawal key files using 
+    [`--encrypted-keystore-validator-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-validator-password-file)
+    and [`--encrypted-keystore-withdrawal-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-withdrawal-password-file).
+    If not set, then manually enter a password at the command line when prompted.
+    
+* Specify the location of the encrypted Ethereum 1.0 deposit account private key
+    using [`--eth1-keystore-file`](../../Reference/CLI/CLI-Subcommands.md#eth1-keystore-file).
+    
+    !!! note
+        Use [`--eth1-private-key`](../../Reference/CLI/CLI-Subcommands.md#eth1-private-key) to specify
+        the private key on the command line instead. However, this is insecure and therefore not
+        recommended.
+    
+* Specify the file containing the password of the V3 keystore using
+    [`--eth1-keystore-password-file`](../../Reference/CLI/CLI-Subcommands.md#eth1-keystore-password-file).
+    
+* Specify the number of validators to create using
+    [`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators)
+
 It may take more than 8 hours for a deposit to become active.
 
 ### Start the validator 
 
-Run Teku and specify the validator key
+Run Teku and specify the [validator key created earlier](#generate-the-validator-and-send-the-deposit).
 
 !!! example
 
     ```bash
     teku --network=schlesi --eth1-endpoint=http://localhost:8545 \
-    --validators-key-file=validator_key \
+    --validators-key-files=validator_key/validator_888eeef/validator_888eeef.json \
+    --validators-key-password-files=password.txt \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
     ```
+
 
 ## Run a beacon chain client only
 
@@ -108,7 +146,7 @@ You can run a Teku beacon chain node on a network without any validators.
     --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
 
-If you do not need to load data from the Ethereum 1.0 network set the
+Since you do not need to load data from the Ethereum 1.0 network set the
 [`--eth1-enabled`](../../Reference/CLI/CLI-Syntax.md#eth1-enabled) CLI option to
 `false`.
 
