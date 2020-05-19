@@ -239,24 +239,31 @@ Defaults to `true`.
 ```
 
 ```bash tab="Command Line"
---log-destination=console
+--log-destination=CONSOLE
 ```
 
 ```bash tab="Environment Variable"
-TEKU_LOG_DESTINATION=console
+TEKU_LOG_DESTINATION=CONSOLE
 ```
 
 ```bash tab="Configuration File"
-log-destination: "console"
+log-destination: "CONSOLE"
 ```
 
 Specify where to output log information. Valid options are:
 
-* `console`
-* `file`
-* `both`
+* `BOTH`
+* `CONSOLE`
+* `DEFAULT_BOTH`
+* `FILE`
 
-Defaults to `both`.
+Defaults to `DEFAULT_BOTH`.
+
+!!! note
+    `DEFAULT_BOTH` and `BOTH` behave the same, except when using a custom Log4J2 configuration
+    file. `DEFAULT_BOTH` will not apply logging changes, whereas `BOTH` will
+    apply logging changes.
+
 
 ### log-file
 
