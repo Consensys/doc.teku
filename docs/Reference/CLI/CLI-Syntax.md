@@ -260,8 +260,8 @@ Specify where to output log information. Valid options are:
 Defaults to `DEFAULT_BOTH`.
 
 !!! note
-    `DEFAULT_BOTH` and `BOTH` behave the same, except when using a custom Log4J2 configuration
-    file. `DEFAULT_BOTH` will not apply logging changes, whereas `BOTH` will
+    `DEFAULT_BOTH` and `BOTH` have the same behavior, except when using a custom Log4J2 configuration
+    file. When using a custom file, `DEFAULT_BOTH` will not apply logging changes, whereas `BOTH` will
     apply logging changes.
 
 
