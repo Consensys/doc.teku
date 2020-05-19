@@ -264,7 +264,6 @@ Defaults to `DEFAULT_BOTH`.
     file. When using a custom file, `DEFAULT_BOTH` will not apply logging changes, whereas `BOTH` will
     apply logging changes.
 
-
 ### log-file
 
 ```bash tab="Syntax"
