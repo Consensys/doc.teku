@@ -96,7 +96,7 @@ In the command line:
 * Specify the network on which to generate the validator using 
     [`--network`](../../Reference/CLI/CLI-Subcommands.md#network).
     
-* Specify the endpoint for you Ethereum 1.0 network using
+* Specify the endpoint for the Ethereum 1.0 network using
     [`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint).
     
 * Specify the location in which to create the encrypted validator and withdrawal key files using
