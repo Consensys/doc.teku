@@ -120,7 +120,7 @@ TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
 eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
 ```
 
-Eth1 address of deposit contract.
+Eth1 address of deposit contract. Required if Eth1 endpoint is specified.
 
 ### eth1-enabled
 
@@ -143,7 +143,7 @@ eth1-enabled: false
 Specify whether to connect to an Ethereum 1.0 chain to load data. Defaults to `true`.
 
 If `false`, then provide an initial state using the [`--initial-state`](#initial-state) option, or
-start teku from an existing database using [`--data-path`](#data-path), which provides the initial
+start Teku from an existing database using [`--data-path`](#data-path), which provides the initial
 state to work from.
 
 ### eth1-endpoint
