@@ -30,6 +30,21 @@ docker image instead of the command line options.
     docker run -p 9000:9000 -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 -e TEKU_LOG_FILE=/var/lib/teku/LOG --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd --eth1-endpoint=http://102.10.10.1:8545 --validators-key-file=var/lib/teku/validator_keys.yaml
     ```
 
+## Allow multiple users to run the Docker image
+
+If using a local volume  to mount data, ensure the permissions on the directory allow other
+users and groups to read/write.
+
+Use the Docker [`--user`](https://docs.docker.com/engine/reference/commandline/run/) option to run
+the container for the specified user. Use the UID because the username may not exist inside the
+docker container.
+
+!!! example
+
+    ```bash
+    docker run -p 9000:9000 --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd --eth1-endpoint=http://102.10.10.1:8545 --validators-key-file=var/lib/teku/validator_keys.yaml
+    ```
+
 ## Exposing ports
 
 Expose ports for P2P peer discovery, metrics, and REST APIs. Expose the default ports or the ports
