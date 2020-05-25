@@ -5,7 +5,7 @@ description: Teku API objects reference
 
 The following objects are returned by Teku REST API methods.
 
-## Beacon
+## Beacon block
 
 Returned by [`beacon/block`](https://pegasyseng.github.io/teku/#operation/getBeaconBlock).
 
