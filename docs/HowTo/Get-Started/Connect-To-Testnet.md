@@ -19,7 +19,7 @@ with validators] on a public testnet.
 
 !!! important
 
-    This example connects to the [Schlesi testnet](https://github.com/goerli/schlesi). Networks can
+    This example connects to the [Witti testnet](https://github.com/goerli/Witti). Networks can
     experience stability issues and are prone to regular resets. We recommend you regularly
     check network and client documentation for updates.
 
@@ -61,17 +61,19 @@ Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
     ```bash
     besu --network=goerli --data-path=./goerli --rpc-http-enabled=true --rpc-http-port=8545 \
     --rpc-http-api=ETH,NET,WEB3 --sync-mode=FAST --fast-sync-min-peers=2
-    ```
-    
+   ```
+  
 ### Load the deposit account with ETH
 
 You need an Ethereum 1.0 account that contains at least 32 ETH (plus gas). For the
-`schlesi` testnet you need an account on Goerli.
+`witti` testnet, the account must be on Goerli.
 
 !!! tip
     
     You can create an account on Goerli using [Metamask], and use a [faucet] to fund the account.
 
+You will need the private key of the Ethereum 1.0 account when sending the deposit to the
+deposit contract. The private key can be stored in a [password protected V3 Keystore file].
 
 ### Generate the validator and send the deposit
 
@@ -83,11 +85,11 @@ to send an alternate amount.
 !!! example
 
     ```bash
-    teku validator generate --network=schlesi \
+    teku validator generate --network=witti \
     --eth1-endpoint=http://localhost:8545 --keys-output-path=validator_key \
-    --encrypted-keystore-validator-password-file=./schlesi/password.txt \
-    --encrypted-keystore-withdrawal-password-file=./schlesi/password.txt \
-    --eth1-keystore-file=./schlesi/walletKey --eth1-keystore-password-file=./schlesi/password.txt \
+    --encrypted-keystore-validator-password-file=./witti/password.txt \
+    --encrypted-keystore-withdrawal-password-file=./witti/password.txt \
+    --eth1-keystore-file=./witti/walletKey --eth1-keystore-password-file=./witti/password.txt \
     --number-of-validators=1
     ```
 
@@ -128,6 +130,10 @@ In the command line:
 
 It may take more than 8 hours for a deposit to become active.
 
+!!! tip
+
+    View the deposit details on Etherscan by visiting `https://goerli.etherscan.io/address/<accountPublicKey>`.
+
 ### Start the validator 
 
 Run Teku and specify the [validator key created earlier](#generate-the-validator-and-send-the-deposit).
@@ -135,15 +141,15 @@ Run Teku and specify the [validator key created earlier](#generate-the-validator
 !!! example
 
     ```bash
-    teku --network=schlesi --eth1-endpoint=http://localhost:8545 \
+    teku --network=witti --eth1-endpoint=http://localhost:8545 \
     --validators-key-files=validator_key/validator_888eeef/validator_888eeef.json \
-    --validators-key-password-files=password.txt \
+    --validators-key-password-files=./witti/password.txt \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
     ```
 
 Once the validator is activated, view it on the beacon chain explorer at
-`https://schlesi.beaconcha.in/validator/<validator_public_key>`.
+`https://witti.beaconcha.in/validator/<validatorPublicKey>`.
 
 ## Run a beacon chain client only
 
@@ -152,7 +158,7 @@ You can run a Teku beacon chain node on a network without any validators.
 !!! example
 
     ```bash
-    teku --eth1-enabled=false --network=schlesi \
+    teku --eth1-enabled=false --network=witti \
     --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
 
@@ -176,3 +182,4 @@ starting Teku.
 [faucet]: https://faucet.goerli.mudit.blog/
 [generate validator keys and send deposits]: https://docs.teku.pegasys.tech/en/latest/HowTo/Get-Started/Register-Validators/#submit-deposits
 [connect to Goerli]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet
+[password protected V3 Keystore file]: https://docs.ethsigner.pegasys.tech/en/latest/Tutorials/Start-EthSigner/#create-password-and-key-files
