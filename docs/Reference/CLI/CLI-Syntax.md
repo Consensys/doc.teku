@@ -190,7 +190,7 @@ TEKU_INITIAL_STATE=/home/me/genesis.ssz
 initial-state: "/home/me/genesis.ssz"
 ```
 
-Path or URL to the network genesis file. 
+Path or URL to the network genesis file.
 
 This option does not need to be specified if the initial state is provided by the network specified
 using the [`--network`](#network) option.

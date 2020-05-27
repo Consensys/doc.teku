@@ -23,7 +23,6 @@ with validators] on a public testnet.
     experience stability issues and are prone to regular resets. We recommend you regularly
     check network and client documentation for updates.
 
-
 ## Select a network
 
 Teku allows you to select predefined networks with the
@@ -61,8 +60,8 @@ Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
     ```bash
     besu --network=goerli --data-path=./goerli --rpc-http-enabled=true --rpc-http-port=8545 \
     --rpc-http-api=ETH,NET,WEB3 --sync-mode=FAST --fast-sync-min-peers=2
-   ```
-  
+    ```
+
 ### Load the deposit account with ETH
 
 You need an Ethereum 1.0 account that contains the amount of ETH (plus gas) required to activate
@@ -71,7 +70,7 @@ the validator. The `witti` testnet requires 32 ETH, and the account must be on G
 The `minimal` network requires 3.2 ETH.
 
 !!! tip
-    
+
     You can create an account on Goerli using [Metamask], and use a [faucet] to fund the account.
 
 You will need the private key of the Ethereum 1.0 account when sending the deposit to the
@@ -79,7 +78,7 @@ deposit contract. The private key can be stored in a [password protected V3 Keys
 
 ### Generate the validator and send the deposit
 
-Teku allows you to [generate validator keys and send deposits] to the deposit contract. 
+Teku allows you to [generate validator keys and send deposits] to the deposit contract.
 Teku deposits 32 ETH by default, use the
 [`--deposit-amount-gwei`](../../Reference/CLI/CLI-Subcommands.md#deposit-amount-gwei) option
 to send an alternate amount.
@@ -97,36 +96,36 @@ to send an alternate amount.
 
 On the command line:
 
-* Specify the network on which to generate the validator using 
+* Specify the network on which to generate the validator using
     [`--network`](../../Reference/CLI/CLI-Subcommands.md#network).
-    
+
 * Specify the endpoint for the Ethereum 1.0 network using
     [`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint).
-    
+
 * Specify the location in which to create the encrypted validator and withdrawal key files using
-    [`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path). 
+    [`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path).
 
     !!! note
         To create an unencryped file, set
         [`--encrypted-keystore-enabled`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-enabled)
         to `false`. However, this is not recommended in production.
 
-* Specify the password of the encrypted validator and withdrawal key files using 
+* Specify the password of the encrypted validator and withdrawal key files using
     [`--encrypted-keystore-validator-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-validator-password-file)
     and [`--encrypted-keystore-withdrawal-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-withdrawal-password-file).
     If not set, then manually enter a password at the command line when prompted.
-    
+
 * Specify the encrypted Ethereum 1.0 deposit account private key
     using [`--eth1-keystore-file`](../../Reference/CLI/CLI-Subcommands.md#eth1-keystore-file).
-    
+
     !!! note
         Use [`--eth1-private-key`](../../Reference/CLI/CLI-Subcommands.md#eth1-private-key) to specify
         the private key on the command line instead. However, this is insecure and therefore not
         recommended.
-    
+
 * Specify the file containing the password of the V3 keystore using
     [`--eth1-keystore-password-file`](../../Reference/CLI/CLI-Subcommands.md#eth1-keystore-password-file).
-    
+
 * Specify the number of validators to create using
     [`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators).
 
@@ -136,7 +135,7 @@ It may take more than 8 hours for a deposit to become active.
 
     View the deposit details on Etherscan by visiting `https://goerli.etherscan.io/address/<accountPublicKey>`.
 
-### Start the validator 
+### Start the validator
 
 Run Teku and specify the [validator key created earlier](#generate-the-validator-and-send-the-deposit).
 
