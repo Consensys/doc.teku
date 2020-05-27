@@ -65,8 +65,10 @@ Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
   
 ### Load the deposit account with ETH
 
-You need an Ethereum 1.0 account that contains at least 32 ETH (plus gas). For the
-`witti` testnet, the account must be on Goerli.
+You need an Ethereum 1.0 account that contains the amount of ETH (plus gas) required to activate
+the validator. The `witti` testnet requires 32 ETH, and the account must be on Goerli.
+
+The `minimal` network requires 3.2 ETH.
 
 !!! tip
     
@@ -93,7 +95,7 @@ to send an alternate amount.
     --number-of-validators=1
     ```
 
-In the command line:
+On the command line:
 
 * Specify the network on which to generate the validator using 
     [`--network`](../../Reference/CLI/CLI-Subcommands.md#network).

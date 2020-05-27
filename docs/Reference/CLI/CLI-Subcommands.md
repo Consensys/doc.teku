@@ -80,7 +80,8 @@ teku validator generate --deposit-amount-gwei=<GWEI>
 teku validator generate --deposit-amount-gwei=32000000000
 ```
 
-Amount to deposit in the Ethereum 1.0 deposit contract. Defaults to 32 ETH.
+Amount to deposit in the Ethereum 1.0 deposit contract. Defaults to the minimum ETH required to
+activate a validator on the specified network.
 
 #### encrypted-keystore-enabled
 
