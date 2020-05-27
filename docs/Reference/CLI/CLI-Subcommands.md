@@ -80,7 +80,8 @@ teku validator generate --deposit-amount-gwei=<GWEI>
 teku validator generate --deposit-amount-gwei=32000000000
 ```
 
-Amount to deposit in the Ethereum 1.0 deposit contract.
+Amount to deposit in the Ethereum 1.0 deposit contract. Defaults to the minimum ETH required to
+activate a validator on the specified network.
 
 #### encrypted-keystore-enabled
 
@@ -250,6 +251,18 @@ The file that stores the password to decrypt the validator's withdrawal key.
 If you do not specify a password, then you need to manually enter a password at
 the command line when prompted.
 
+#### network
+
+```bash tab="Syntax"
+teku validator generate --network=<NETWORK>
+```
+
+```bash tab="Command Line"
+teku validator generate --network=mainnet
+```
+
+[Network to use](CLI-Syntax.md#network). This option must be supplied.
+
 #### number-of-validators
 
 ```bash tab="Syntax"
@@ -385,6 +398,18 @@ account has enough ether to cover the amount specified using
 [`--deposit-amount-gwei`](#deposit-amount-gwei).
 
 Cannot be used with [`--eth1-keystore-file`](#eth1-keystore-file_1).
+
+#### network
+
+```bash tab="Syntax"
+teku validator register --network=<NETWORK>
+```
+
+```bash tab="Command Line"
+teku validator register --network=mainnet
+```
+
+[Network to use](CLI-Syntax.md#network). This option must be supplied.
 
 #### validator-private-key
 

@@ -42,7 +42,7 @@ or [`--eth1-keystore-file`](../../Reference/CLI/CLI-Subcommands.md#eth1-keystore
 Generate the keys for the validators and send deposits to the deposit contract.
 
 ```bash
-teku validator generate --deposit-amount-gwei=32000000000 \
+teku validator generate --network=minimal --deposit-amount-gwei=32000000000 \
 --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd \
 --eth1-endpoint=http://localhost:8545 --encrypted-keystore-enabled=false \
 --keys-output-path=validator_keys \
@@ -58,7 +58,7 @@ The command line:
   [`--eth1-deposit-contract-address`](../../Reference/CLI/CLI-Subcommands.md#eth1-deposit-contract-address)
 * Specifies the JSON-RPC URL endpoint of the Ethereum 1.0 client (Besu) using
   [`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint)
-* Enables encrypting the validator keys using
+* Disables encrypting the validator keys using
   [`--encrypted-keystore-enabled`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-enabled)
 * Specifies the output location of the validator keys using
   [`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path)
@@ -72,7 +72,7 @@ The command line:
 You can register an existing validator key and send deposits to the deposit contract.
 
 ```bash
-teku validator register --deposit-amount-gwei=32000000000 \
+teku validator register --network=minimal --deposit-amount-gwei=32000000000 \
 --encrypted-keystore-validator-file=validator_0xa245bd5162e944efac2546bcadbba5fa2c8929ec6b03380d46fb0e8a6f49b176fecaf1939ed31532711375f873da58cf.json \
 --encrypted-keystore-validator-password-file=password.txt \
 --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd \
