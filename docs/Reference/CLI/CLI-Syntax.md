@@ -73,8 +73,13 @@ TEKU_DATA_PATH=/home/me/me_node
 data-path: "/home/me/me_node"
 ```
 
-The path to the Teku data directory. The default is the directory in which Teku is installed
-or `/opt/teku/database` if using the Teku Docker image.
+The path to the Teku data directory. The default directory is OS dependant:
+
+* macOS: `~/Library/teku`
+* Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
+* Windows: `%localappdata%\teku`.
+
+The default Docker image location is `/root/.local/share/teku`.
 
 ### data-storage-mode
 
@@ -115,7 +120,7 @@ TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
 eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
 ```
 
-Eth1 address of deposit contract.
+Eth1 address of deposit contract. Required if Eth1 endpoint is specified.
 
 The genesis file specified using [`--initial-state`](#initial state) can be used instead
 to specify the deposit contract address.
@@ -141,7 +146,7 @@ eth1-enabled: false
 Specify whether to connect to an Ethereum 1.0 chain to load data. Defaults to `true`.
 
 If `false`, then provide an initial state using the [`--initial-state`](#initial-state) option, or
-start teku from an existing database using [`--data-path`](#data-path), which provides the initial
+start Teku from an existing database using [`--data-path`](#data-path), which provides the initial
 state to work from.
 
 ### eth1-endpoint
@@ -245,24 +250,30 @@ Defaults to `true`.
 ```
 
 ```bash tab="Command Line"
---log-destination=console
+--log-destination=CONSOLE
 ```
 
 ```bash tab="Environment Variable"
-TEKU_LOG_DESTINATION=console
+TEKU_LOG_DESTINATION=CONSOLE
 ```
 
 ```bash tab="Configuration File"
-log-destination: "console"
+log-destination: "CONSOLE"
 ```
 
 Specify where to output log information. Valid options are:
 
-* `console`
-* `file`
-* `both`
+* `BOTH`
+* `CONSOLE`
+* `DEFAULT_BOTH`
+* `FILE`
 
-Defaults to `both`.
+Defaults to `DEFAULT_BOTH`.
+
+!!! note
+    `DEFAULT_BOTH` and `BOTH` have the same behavior, except when using a custom Log4J2 configuration
+    file. When using a custom file, `DEFAULT_BOTH` will not apply logging changes, whereas `BOTH` will
+    apply logging changes.
 
 ### log-file
 
@@ -283,6 +294,14 @@ log-file: "teku_2020-01-01.log"
 ```
 
 Relative or absolute location, and filename of the log file.
+
+The default directory is OS dependant:
+
+* macOS: `~/Library/teku/logs`
+* Unix/Linux: `$XDG_DATA_HOME/teku/logs` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku/logs`
+* Windows: `%localappdata%\teku\logs`
+
+The default Docker image location is `/root/.local/share/teku/logs`.
 
 ### log-file-name-pattern
 
