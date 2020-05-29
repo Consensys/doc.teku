@@ -457,6 +457,9 @@ Possible values are:
 | `topaz`   | Eth 2.0 | Test        | Single-client testnet maintained by the Prysmatic Labs.             |
 | `witti`   | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
 
+Predefined networks can provide defaults such the initial state of the network,
+bootnodes, and the address of the Ethereum 1.0 deposit contract.
+
 ### p2p-advertised-ip
 
 ```bash tab="Syntax"
