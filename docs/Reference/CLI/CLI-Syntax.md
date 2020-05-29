@@ -73,7 +73,7 @@ TEKU_DATA_PATH=/home/me/me_node
 data-path: "/home/me/me_node"
 ```
 
-The path to the Teku data directory. The default directory is OS dependant:
+The path to the Teku data directory. The default directory is OS dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -295,7 +295,7 @@ log-file: "teku_2020-01-01.log"
 
 Relative or absolute location, and filename of the log file.
 
-The default directory is OS dependant:
+The default directory is OS dependent:
 
 * macOS: `~/Library/teku/logs`
 * Unix/Linux: `$XDG_DATA_HOME/teku/logs` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku/logs`
