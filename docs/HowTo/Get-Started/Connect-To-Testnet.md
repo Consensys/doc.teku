@@ -11,7 +11,7 @@ The following instructions describe the process to connect Teku to an Ethereum 2
     This example connects to the [Witti testnet](https://github.com/goerli/Witti). Networks can
     experience stability issues and are prone to regular resets. We recommend you regularly
     check network and client documentation for updates.
- 
+
 **Prerequisites**:
 
 * Install the latest version of Teku using a [binary distribution](Install-Binaries.md)
@@ -21,11 +21,11 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 
 Teku allows you run a [beacon chain client only], or you can [run the beacon chain client
 with validators] on a public testnet.
-    
+
 ## Run a validator on a testnet
 
 Each Ethereum 2.0 validator needs access an Ethereum 1.0 client to onboard new validators.
-Validators make deposits into Ethereum 1.0, and existing Ethereum 2.0 validators must 
+Validators make deposits into Ethereum 1.0, and existing Ethereum 2.0 validators must
 process the deposits to allow the validators to join Ethereum 2.0.
 
 Deposits are made into a deposit contract on the Goerli Ethereum 1.0 testnet.
@@ -34,10 +34,10 @@ The steps to run an Ethereum 2.0 validator on a testnet are:
 
 1. If using a local Ethereum 1.0 client, [sync the Ethereum 1.0 network containing
     the deposit contract](#sync-the-ethereum-10-network).
-    
+
     !!! note
         This step is only required if using a local Ethereum 1.0 client such as Besu.
-        If using a cloud-based service such as Infura then proceed to 
+        If using a cloud-based service such as Infura then proceed to
         [fund your deposit account](#load-the-deposit-account-with-eth).
 
 1. [Fund the Ethereum 1.0 deposit account](#load-the-deposit-account-with-eth).
@@ -49,7 +49,7 @@ The steps to run an Ethereum 2.0 validator on a testnet are:
 
 ### Sync the Ethereum 1.0 network
 
-This step is only required if using a local Ethereum 1.0 client. 
+This step is only required if using a local Ethereum 1.0 client.
 
 This example uses Besu to connect to Ethereum 1.0, but any client can be used.
 Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
