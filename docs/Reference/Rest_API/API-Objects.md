@@ -28,7 +28,8 @@ details.
 
 ### Beacon block body
 
-The object contains information about operations on the current state.
+The `body` field in the `beacon_block` object contains information about operations on the current
+state.
 
 | Field                  | Type                | Description                                         |
 |------------------------|:-------------------:|-----------------------------------------------------|
