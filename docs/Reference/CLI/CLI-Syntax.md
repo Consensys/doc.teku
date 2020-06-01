@@ -120,34 +120,13 @@ TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
 eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
 ```
 
-Eth1 address of deposit contract. Required if Eth1 endpoint is specified.
+Ethereum 1.0 address of the deposit contract. A deposit contract address must be defined
+if [`--eth1-endpoint`](#eth1-endpoint) is specified.
 
-The genesis file specified using [`--initial-state`](#initial state) can be used instead
-to specify the deposit contract address.
+The deposit contract address can also be defined in:
 
-### eth1-enabled
-
-```bash tab="Syntax"
---eth1-enabled[=<BOOLEAN>]
-```
-
-```bash tab="Command Line"
---eth1-enabled=false
-```
-
-```bash tab="Environment Variable"
-TEKU_ETH1_ENABLED=false
-```
-
-```bash tab="Configuration File"
-eth1-enabled: false
-```
-
-Specify whether to connect to an Ethereum 1.0 chain to load data. Defaults to `true`.
-
-If `false`, then provide an initial state using the [`--initial-state`](#initial-state) option, or
-start Teku from an existing database using [`--data-path`](#data-path), which provides the initial
-state to work from.
+* The genesis file specified using [`--initial-state`](#initial state)
+* The predefined network supplied using [`--network`](#network).
 
 ### eth1-endpoint
 
@@ -167,7 +146,14 @@ TEKU_ETH1_ENDPOINT=http://localhost:8545
 eth1-endpoint: "http://localhost:8545"
 ```
 
-JSON-RPC URL of Eth1 node.
+The JSON-RPC URL of Ethereum 1.0 node.
+
+If not specified, then provide an initial state using the [`--initial-state`](#initial-state) option, or
+start Teku from an existing database using [`--data-path`](#data-path), which provides the initial
+state to work from.
+
+If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL. For
+example, `https://goerli.infura.io/v3/<Project_ID>`
 
 ### help
 
@@ -686,27 +672,6 @@ p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
 List of comma-separated [multiaddresses](https://docs.libp2p.io/reference/glossary/#multiaddr)
 of static peers.
 
-### rest-api-enabled
-
-```bash tab="Syntax"
---rest-api-enabled[=<BOOLEAN>]
-```
-
-```bash tab="Command Line"
---rest-api-enabled=true
-```
-
-```bash tab="Environment Variable"
-TEKU_REST_API_ENABLED=true
-```
-
-```bash tab="Configuration File"
-rest-api-enabled: true
-```
-
-Set to `true` to enable the [REST API service](../Rest_API/Rest.md).
-The default is `false`.
-
 ### rest-api-docs-enabled
 
 ```bash tab="Syntax"
@@ -732,6 +697,53 @@ The documentation can be accessed at `http://<interface>:<port>/swagger-ui` wher
 
 * `interface` is specified using [`--rest-api-interface`](#rest-api-interface)
 * `port` is specified using [`--rest-api-port`](#rest-api-port)
+
+### rest-api-enabled
+
+```bash tab="Syntax"
+--rest-api-enabled[=<BOOLEAN>]
+```
+
+```bash tab="Command Line"
+--rest-api-enabled=true
+```
+
+```bash tab="Environment Variable"
+TEKU_REST_API_ENABLED=true
+```
+
+```bash tab="Configuration File"
+rest-api-enabled: true
+```
+
+Set to `true` to enable the [REST API service](../Rest_API/Rest.md).
+The default is `false`.
+
+### rest-api-host-whitelist
+
+```bash tab="Syntax"
+--rest-api-host-whitelist=<hostname>[,<hostname>...]... or "*"
+```
+
+```bash tab="Command Line"
+--rest-api-host-whitelist=medomain.com,meotherdomain.com
+```
+
+```bash tab="Environment Variable"
+TEKU_REST_API_HOST_WHITELIST=medomain.com,meotherdomain.com
+```
+
+```bash tab="Configuration File"
+rest-api-host-whitelist: ["medomain.com", "meotherdomain.com"]
+```
+
+A comma-separated list of hostnames to allow access to the REST API. By
+default, Teku accepts access from `localhost` and `127.0.0.1`.
+
+!!! tip
+
+    To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production
+    environments.
 
 ### rest-api-interface
 
@@ -846,29 +858,6 @@ validators-external-signer-url: "http://localhost:9000"
 
 URL on which the external signer (for example, Eth2Signer) is running.
 
-### validators-key-file
-
-```bash tab="Syntax"
---validators-key-file=<PATH_TO_FILE>
-```
-
-```bash tab="Command Line"
---validators-key-file=/home/me/me_node/key.
-```
-
-```bash tab="Environment Variable"
-TEKU_VALIDATORS_KEY_FILE=/home/me/me_node/key.yaml
-```
-
-```bash tab="Configuration File"
-validators-key-file: "/home/me/me_node/key.yaml"
-```
-
-Path to the YAML formatted file to load unencrypted validator keys from.
-
-A YAML-formatted file that stores unencrypted validator keys can be generated using
-the `teku validator generate --keys-output-path` option.
-
 ### validators-key-files
 
 ```bash tab="Syntax"
@@ -914,3 +903,26 @@ List of plain text files containing the password to decrypt the BLS12-381 keysto
 
 Each keystore file requires its own password file. The password file must match
 the list position of the keystore file listed using [`--validators-key-files`](#validators-key-files).
+
+### validators-unencrypted-key-file
+
+```bash tab="Syntax"
+--validators-unencrypted-key-file=<PATH_TO_FILE>
+```
+
+```bash tab="Command Line"
+--validators-unencrypted-key-file=/home/me/me_node/key.
+```
+
+```bash tab="Environment Variable"
+TEKU_VALIDATORS_UNENCRYPTED_KEY_FILE=/home/me/me_node/key.yaml
+```
+
+```bash tab="Configuration File"
+validators-unencrypted-key-file: "/home/me/me_node/key.yaml"
+```
+
+Path to the YAML-formatted file to load unencrypted validator keys from.
+
+A YAML-formatted file that stores unencrypted validator keys can be generated using
+the `teku validator generate --keys-output-path` option.
