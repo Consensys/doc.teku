@@ -922,7 +922,7 @@ TEKU_VALIDATORS_UNENCRYPTED_KEY_FILE=/home/me/me_node/key.yaml
 validators-unencrypted-key-file: "/home/me/me_node/key.yaml"
 ```
 
-Path to the YAML formatted file to load unencrypted validator keys from.
+Path to the YAML-formatted file to load unencrypted validator keys from.
 
 A YAML-formatted file that stores unencrypted validator keys can be generated using
 the `teku validator generate --keys-output-path` option.
