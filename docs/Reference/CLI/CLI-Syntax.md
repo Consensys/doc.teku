@@ -738,7 +738,7 @@ rest-api-host-whitelist: ["medomain.com", "meotherdomain.com"]
 ```
 
 A comma-separated list of hostnames to allow access to the REST API. By
-default, TEKU accepts access from `localhost` and `127.0.0.1`.
+default, Teku accepts access from `localhost` and `127.0.0.1`.
 
 !!! tip
 
