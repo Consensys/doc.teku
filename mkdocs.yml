@@ -23,7 +23,7 @@ extra:
   latest_version_warning:
     url_contains: /latest/
     text: 'Teku is under heavy development. If something isn''t working as documented,
-    check <a href="https://github.com/PegaSysEng/teku/blob/master/CHANGELOG.md" title="Teku changelog on master branch">the changelog</a> or get in touch on our <a href="https://gitter.im/PegaSysEng/Teku" title="Pegasys Teku Gitter channel">Gitter channel</a>.
+    check <a href="https://github.com/PegaSysEng/teku/blob/master/CHANGELOG.md" title="Teku changelog on master branch" style="text-decoration: underline;">the changelog</a> or get in touch on our <a href="https://gitter.im/PegaSysEng/Teku" title="Pegasys Teku Gitter channel" style="text-decoration: underline;">Gitter channel</a>.
     There may be updates that haven''t yet made it to the documentation.'
   support:
     gitter: https://gitter.im/PegaSysEng/Teku
