@@ -355,6 +355,32 @@ metrics-enabled: true
 Set to `true` to enable the metrics exporter.
 The default is `false`.
 
+### metrics-host-whitelist
+
+```bash tab="Syntax"
+--metrics-host-whitelist=<hostname>[,<hostname>...]... or "*"
+```
+
+```bash tab="Command Line"
+--metrics-host-whitelist=medomain.com,meotherdomain.com
+```
+
+```bash tab="Environment Variable"
+TEKU_METRICS_HOST_WHITELIST=medomain.com,meotherdomain.com
+```
+
+```bash tab="Configuration File"
+metrics-host-whitelist: ["medomain.com", "meotherdomain.com"]
+```
+
+A comma-separated list of hostnames to allow access to the [Teku metrics]. By
+default, Teku accepts access from `localhost` and `127.0.0.1`.
+
+!!! tip
+
+    To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production
+    environments.
+
 ### metrics-categories
 
 ```bash tab="Syntax"
@@ -933,4 +959,5 @@ the `teku validator generate --keys-output-path` option.
 
 <!-- links -->
 [Infura]: https://infura.io/
+[Teku metrics]: ../../HowTo/Monitor/Metrics.md
 
