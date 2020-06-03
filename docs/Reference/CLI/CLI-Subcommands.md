@@ -47,19 +47,32 @@ Commands for LibP2P PeerID.
 
 ### generate
 
+Generate a list of peer IDs, including the private key, public key, and peer ID
+
+#### output-file
+
 ```bash tab="Syntax"
-teku peer generate [--outputFile=<FILENAME>] <number>
+teku peer generate --output-file=<FILENAME>
 ```
 
 ```bash tab="Example"
-teku peer generate --outputFile=./peerIDs 3
+teku peer generate --output-file=./peerIDs
 ```
 
-Generate a list of peer IDs including the private key, public key, and peer ID where:
+Path and filename of the file to which the keys are written. If not specified, the peer IDs
+are written to the `./config/peer-ids.dat` file.
 
-* `--outputFile` is the path and filename of the file to which the keys are written.
-  If not specified, the peer IDs are written to the `./config/peer-ids.dat` file.
-* `<number` is the number of peer IDs to generate.
+#### number
+
+```bash tab="Syntax"
+teku peer generate --number=<NUMBER>
+```
+
+```bash tab="Example"
+teku peer generate --number=3
+```
+
+Number of peer IDs to generate. The default is 0.
 
 ## validator
 
@@ -435,3 +448,47 @@ teku validator register --withdrawal-public-key=b65c2a1dc6a8eaadae03d5849dd6ac61
 ```
 
 Validators public withdrawal key.
+
+## genesis
+
+Generate a genesis state for a network.
+
+### mock
+
+Generate a mock genesis state.
+
+#### output-file
+
+```bash tab="Syntax"
+teku genesis mock --output-file=<FILENAME>
+```
+
+```bash tab="Example"
+teku genesis mock --output-file=./genesis.ssz
+```
+
+Path and filename of the mock genesis file.
+
+#### genesis-time
+
+```bash tab="Syntax"
+teku genesis mock --genesis-time=<TIME>
+```
+
+```bash tab="Example"
+teku genesis mock --genesis-time=1591072722
+```
+
+Genesis time. The default is the current time.
+
+#### validator-count
+
+```bash tab="Syntax"
+teku genesis mock --validator-count=<NUMBER>
+```
+
+```bash tab="Example"
+teku genesis mock --validator-count=72
+```
+
+The number of validators to include. The default is 64.
