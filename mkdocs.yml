@@ -22,9 +22,9 @@ extra:
   doc_site_edit_url: https://github.com/PegaSysEng/doc.teku/
   latest_version_warning:
     url_contains: /latest/
-    text: 'You are reading Teku development version documentation and
-    some displayed features may not be available in the stable release.
-    You can switch to stable version using the version box at screen bottom.'
+    text: 'Teku is under heavy development. If something isn''t working as documented,
+    check the changelog or get in touch on our <a href="https://gitter.im/PegaSysEng/Teku" title="Pegasys Teku Gitter channel">Gitter channel</a>.
+    There may be updates that haven''t yet made it to the documentation.'
   support:
     gitter: https://gitter.im/PegaSysEng/Teku
     email: support@pegasys.tech
