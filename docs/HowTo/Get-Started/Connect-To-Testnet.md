@@ -12,7 +12,7 @@ The following instructions describe the process to connect Teku to an Ethereum 2
     experience stability issues and are prone to regular resets. We recommend you regularly
     check network and client documentation for updates.
 
-**Prerequisites**:
+**Prerequisites**
 
 * Install the latest version of Teku using a [binary distribution](Install-Binaries.md)
     or [from source](Build-From-Source.md).
@@ -37,7 +37,7 @@ The steps to run an Ethereum 2.0 validator on a testnet are:
 
     !!! note
         This step is only required if using a local Ethereum 1.0 client such as Besu.
-        If using a cloud-based service such as Infura then proceed to
+        If using a cloud-based service such as Infura, proceed to
         [fund your deposit account](#load-the-deposit-account-with-eth).
 
 1. [Fund the Ethereum 1.0 deposit account](#load-the-deposit-account-with-eth).
