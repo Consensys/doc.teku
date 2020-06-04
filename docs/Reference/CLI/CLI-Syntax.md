@@ -334,6 +334,29 @@ log-include-events-enabled: false
 Specify whether to log frequent update events. For example every slot event with
 validators and attestations. Defaults to `true`.
 
+### log-include-validator-duties-enabled
+
+```bash tab="Syntax"
+--log-include-validator-duties-enabled[=<BOOLEAN>]
+```
+
+```bash tab="Command Line"
+--log-include-validator-duties-enabled=true
+```
+
+```bash tab="Environment Variable"
+TEKU_LOG_INCLUDE_VALIDATOR_DUTIES_ENABLED=true
+```
+
+```bash tab="Configuration File"
+log-include-validator-duties-enabled: true
+```
+
+Specify whether to log details of validator event duties. Defaults to `false`.
+
+!!! note
+    Logs could become noisy when running many validators.
+
 ### metrics-enabled
 
 ```bash tab="Syntax"
