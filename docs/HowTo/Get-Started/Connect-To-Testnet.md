@@ -12,7 +12,7 @@ The following instructions describe the process to connect Teku to an Ethereum 2
     experience stability issues and are prone to regular resets. We recommend you regularly
     check network and client documentation for updates.
 
-**Prerequisites**
+**Prerequisites**:
 
 * Install the latest version of Teku using a [binary distribution](Install-Binaries.md)
     or [from source](Build-From-Source.md).
