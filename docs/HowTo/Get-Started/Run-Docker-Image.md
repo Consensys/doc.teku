@@ -76,8 +76,7 @@ docker run -p <localportP2P>:30303 -p <localportREST>:5051 pegasyseng/teku:devel
 The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku node.
 
 !!! note
-    The example assumes the validators specified in [`--validators-key-file`](../../Reference/CLI/CLI-Syntax.md#validators-key-file) has already been
-    [registered](Register-Validators.md) in the Ethereum 1.0 deposit contract.
+    The example assumes the validators specified in [`--validators-unencrypted-key-file`](../../Reference/CLI/CLI-Syntax.md#validators-unencrypted-key-file) has already been registered in the Ethereum 1.0 deposit contract.
 
 Run `docker-compose up` in the directory containing the `docker-compose.yml` file
 to start the container.

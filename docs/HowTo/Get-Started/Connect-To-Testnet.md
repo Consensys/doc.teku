@@ -78,7 +78,7 @@ deposit contract. The private key can be stored in a [password protected V3 Keys
 
 ### Generate the validator and send the deposit
 
-Teku allows you to [generate validator keys and send deposits] to the deposit contract.
+Teku allows you to generate validator keys and send deposits to the deposit contract.
 Teku deposits 32 ETH by default, use the
 [`--deposit-amount-gwei`](../../Reference/CLI/CLI-Subcommands.md#deposit-amount-gwei) option
 to send an alternate amount.
