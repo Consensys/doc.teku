@@ -7,18 +7,29 @@ The following objects are returned by Teku REST API methods.
 
 ## Beacon block
 
-Returned by [`beacon/block`](https://pegasyseng.github.io/teku/stable/#operation/getBeaconBlock).
+Returned by [`beacon/block`](https://pegasyseng.github.io/teku/#operation/getBeaconBlock).
+
+| Field                | Type                | Description                                         |
+|----------------------|:-------------------:|-----------------------------------------------------|
+| **root**             | Byte32              | Block root of the beacon block.                     |
+| **beacon_block**     | Object              | Object containing the block details.                |
+
+The `beacon_block` object contains a `message` object with the following signed beacon block
+details.
 
 | Field                | Type                | Description                                         |
 |----------------------|:-------------------:|-----------------------------------------------------|
 | **slot**             | uint64              | Block creation slot.                                |
+| **proposer_index**   | uint64              | Index of the validator that proposed the block.     |
 | **parent_root**      | Bytes32             | Root of the parent block.                           |
 | **state_root**       | Bytes32             | Hash root of the state.                            |
 | **body**             | Object              | [Fields for the various beacon operations](#beacon-block-body). |
+| **signature**        | Bytes96             | Signature of the beacon block.                      |
 
 ### Beacon block body
 
-The object contains information about operations on the current state.
+The `body` field in the `beacon_block` object contains information about operations on the current
+state.
 
 | Field                  | Type                | Description                                         |
 |------------------------|:-------------------:|-----------------------------------------------------|
@@ -47,7 +58,7 @@ Attestation information for the block.
 
 !!! note
     Produces a blank `signature` field for the
-    [`/validator/attestation`](https://pegasyseng.github.io/teku/stable/#operation/getValidatorAttestation)
+    [`/validator/attestation`](https://pegasyseng.github.io/teku/#operation/getValidatorAttestation)
     endpoint, which the validator later signs.
 
 | Field                | Type                | Description                                         |
@@ -69,7 +80,7 @@ Attestation information for the block.
 ## Validators
 
 A list of validator information returned by
-[`/beacon/validators`](https://pegasyseng.github.io/teku/stable/#operation/getBeaconValidators).
+[`/beacon/validators`](https://pegasyseng.github.io/teku/#operation/getBeaconValidators).
 
 | Field                | Type                | Description                                         |
 |----------------------|:-------------------:|-----------------------------------------------------|
