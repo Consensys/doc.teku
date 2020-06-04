@@ -27,7 +27,7 @@ git clone https://github.com/PegaSysEng/teku.git
 
 After cloning, go to the `teku` directory.
 
-Build teku with the Gradle wrapper `gradlew`, as follows:
+Build Teku with the Gradle wrapper `gradlew`, as follows:
 
 ```bash
 ./gradlew distTar installDist
