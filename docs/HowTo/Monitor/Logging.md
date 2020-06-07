@@ -11,19 +11,28 @@ Teku uses Log4J2 for logging, and provides multiple methods to configure logging
 * [Custom logging](#advanced-custom-logging) - custom logging to configure the output and format
     of the logs.
 
-## Basic log level setting
+## Basic log level settings
 
 Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option to specify
 logging verbosity. The [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) option changes the
 volume of events displayed in the log. Valid log levels are `OFF`, `FATAL`, `ERROR`, `WARN`,
 `INFO`, `DEBUG`, `TRACE`, `ALL`. The default level is `INFO`.
 
-For most use-cases, the basic method provides enough configurability.
+By default most logging output is sent to the log file, and limited content shown on the console.
 
 !!! tip
 
     Use the [`log_level`](https://pegasyseng.github.io/teku/#operation/putAdminLog_level) API
     method to change the log level while Teku is running.
+
+Additional logging options include:
+
+* [`--log-color-enabled`](../../Reference/CLI/CLI-Syntax.md#log-color-enabled)
+    displays status and event log messages in different colors on the console
+* [`--log-include-events-enabled`](../../Reference/CLI/CLI-Syntax.md#log-include-events-enabled)
+    logs frequent update events. For example every slot event with validators and attestations.
+* [`--log-include-validator-duties-enabled`](../../Reference/CLI/CLI-Syntax.md#log-include-validator-duties-enabled)
+    logs details of validator event duties.
 
 ## Configure log destination
 
@@ -36,15 +45,13 @@ are displayed on the console, and errors and other information are logged to a f
 location can be specified with the [`--log-file`](../../Reference/CLI/CLI-Syntax.md#log-file)
 command-line option.
 
+Use `DEFAULT_BOTH` when using a [custom Log4J2 configuration file](#advanced-custom-logging). Any
+other option applies the custom logging changes on top of its default settings.
+
 !!! note
 
     For production systems we recommend using the `CONSOLE` or `FILE` options to ensure all log
     information is available in one place.
-
-`DEFAULT_BOTH` and `BOTH` have the same behavior, except when using a [custom Log4J2 configuration
-file](#advanced-custom-logging). When using a custom file, `DEFAULT_BOTH` will not apply logging
-changes, whereas `BOTH` will apply logging changes.
-
 
 ## Advanced custom logging
 
@@ -73,7 +80,7 @@ You can provide your own logging configuration using the standard Log4J2 configu
     ```
 
 To use your custom configuration, set the environment variable `LOG4J_CONFIGURATION_FILE` to the
-location of your configuration file, and ensure 
+location of your configuration file, and ensure
 [`--log-destination`](../../Reference/CLI/CLI-Syntax.md#log-destination) is not set to `DEFAULT_BOTH`.
 
 If you have more specific requirements, you can create your own
