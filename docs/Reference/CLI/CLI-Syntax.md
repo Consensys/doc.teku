@@ -934,6 +934,8 @@ validators-graffiti: "Teku validator"
 
 Graffiti to add when creating a block. Gets converted to bytes and padded to Bytes32.
 
+The same graffiti is used for all validators started with this beacon node.
+
 ### validators-key-files
 
 ```bash tab="Syntax"
