@@ -1,21 +1,10 @@
 ---
-description: How to choose and connect to a testnet
+description: How to connect to a testnet
 ---
 
 # Connect to a testnet
 
-**Prerequisites**:
-
-* Install the latest version of Teku using a [binary distribution](Install-Binaries.md)
-    or [from source](Build-From-Source.md).
-* If running validators, [install Hyperledger Besu] to connect to an Ethereum 1.0 network.
-
-!!! note
-    Any Ethereum 1.0 client can be installed to connect to the Ethereum 1.0 network, but this
-    example uses Besu.
-
-Teku allows you run a [beacon chain client only], or you can [run the beacon chain client
-with validators] on a public testnet.
+The following instructions describe the process to connect Teku to an Ethereum 2.0 testnet.
 
 !!! important
 
@@ -23,36 +12,56 @@ with validators] on a public testnet.
     experience stability issues and are prone to regular resets. We recommend you regularly
     check network and client documentation for updates.
 
-## Select a network
+**Prerequisites**:
 
-Teku allows you to select predefined networks with the
-[`--network`](../../Reference/CLI/CLI-Syntax.md#network) CLI option.
+* Install the latest version of Teku using a [binary distribution](Install-Binaries.md)
+    or [from source](Build-From-Source.md).
+* If running validators, install any Ethereum 1.0 client (for example [Hyperledger Besu]), or access a
+    cloud-based service such as [Infura].
 
-Predefined networks can provide defaults such the initial state of the network,
-bootnodes, and the address of the Ethereum 1.0 deposit contract.
+Teku allows you run a [beacon chain client only], or you can [run the beacon chain client
+with validators] on a public testnet.
+
+!!! important
+
+    Teku `master` branch and v0.11.x Teku builds are compatible with the [v0.11.3
+    specification], including the Witti multi-client testnet.
+
+    Teku `0.12.1-integration` branch and v0.12.x Teku builds are compatible with the
+    [v0.12.1 specification], including the Prysmatic Labs Onyx testnet.
+
+    Use the v0.11.x Teku builds to connect to Witti.
 
 ## Run a validator on a testnet
 
 Each Ethereum 2.0 validator needs access an Ethereum 1.0 client to onboard new validators.
-Validators make deposits into Ethereum 1.0, and existing Ethereum 2.0 validators must see these
-deposits and process them to enable the validators to join Ethereum 2.0.
+Validators make deposits into Ethereum 1.0, and existing Ethereum 2.0 validators must
+process the deposits to allow the validators to join Ethereum 2.0.
+
+Deposits are made into a deposit contract on the Goerli Ethereum 1.0 testnet.
 
 The steps to run an Ethereum 2.0 validator on a testnet are:
 
-1. [Sync Besu to the Ethereum 1.0 network containing
-    the deposit contract](#sync-besu-to-the-ethereum-10-network).
+1. If using a local Ethereum 1.0 client, [sync the Ethereum 1.0 network containing
+    the deposit contract](#sync-the-ethereum-10-network).
 
-1. [Load the validator deposit amount (plus gas) into
-    your Ethereum 1.0  deposit account](#load-the-deposit-account-with-eth).
+    !!! note
+        This step is only required if using a local Ethereum 1.0 client such as Besu.
+        If using a cloud-based service such as Infura, proceed to
+        [fund your deposit account](#load-the-deposit-account-with-eth).
+
+1. [Fund the Ethereum 1.0 deposit account](#load-the-deposit-account-with-eth).
 
 1. [Generate the validator key and send the deposit to the deposit
     contract](#send-the-validator-deposit).
 
 1. [Start Teku with the validator key](#start-the-validator).
 
-### Sync Besu to the Ethereum 1.0 network
+### Sync the Ethereum 1.0 network
 
-The deposit contract for the testnets is located in the Goerli Ethereum 1.0 testnet.
+This step is only required if using a local Ethereum 1.0 client.
+
+This example uses Besu to connect to Ethereum 1.0, but any client can be used.
 Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
 
 !!! example
@@ -67,8 +76,6 @@ Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
 You need an Ethereum 1.0 account that contains the amount of ETH (plus gas) required to activate
 the validator. The `witti` testnet requires 32 ETH, and the account must be on Goerli.
 
-The `minimal` network requires 3.2 ETH.
-
 !!! tip
 
     You can create an account on Goerli using [Metamask], and use a [faucet] to fund the account.
@@ -78,10 +85,7 @@ deposit contract. The private key can be stored in a [password protected V3 Keys
 
 ### Generate the validator and send the deposit
 
-Teku allows you to [generate validator keys and send deposits] to the deposit contract.
-Teku deposits 32 ETH by default, use the
-[`--deposit-amount-gwei`](../../Reference/CLI/CLI-Subcommands.md#deposit-amount-gwei) option
-to send an alternate amount.
+Teku allows you to generate validator keys and send deposits to the deposit contract.
 
 !!! example
 
@@ -100,7 +104,9 @@ On the command line:
     [`--network`](../../Reference/CLI/CLI-Subcommands.md#network).
 
 * Specify the endpoint for the Ethereum 1.0 network using
-    [`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint).
+    [`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint). If using a
+    cloud-based service like [Infura], then set the endpoint to the supplied URL. For example.
+    `https://goerli.infura.io/v3/<Project_ID>`
 
 * Specify the location in which to create the encrypted validator and withdrawal key files using
     [`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path).
@@ -176,11 +182,13 @@ Ensure you enable metrics using the
 starting Teku.
 
 <!-- links -->
-[install Hyperledger Besu]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Install-Binaries/
+[Hyperledger Besu]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Install-Binaries/
 [beacon chain client only]: #connect-a-beacon-chain-client-only
 [run the beacon chain client with validators]: #connect-and-run-validators
 [Metamask]: https://metamask.io/
 [faucet]: https://faucet.goerli.mudit.blog/
-[generate validator keys and send deposits]: https://docs.teku.pegasys.tech/en/latest/HowTo/Get-Started/Register-Validators/#submit-deposits
 [connect to Goerli]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet
 [password protected V3 Keystore file]: https://docs.ethsigner.pegasys.tech/en/latest/Tutorials/Start-EthSigner/#create-password-and-key-files
+[Infura]: https://infura.io/
+[v0.11.3 specification]: https://github.com/ethereum/eth2.0-specs/releases/tag/v0.11.3
+[v0.12.1 specification]: https://github.com/ethereum/eth2.0-specs/releases/tag/v0.12.1

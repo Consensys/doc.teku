@@ -254,7 +254,11 @@ Specify where to output log information. Valid options are:
 * `DEFAULT_BOTH`
 * `FILE`
 
-Defaults to `DEFAULT_BOTH`.
+Defaults to `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain events
+are displayed on the console, and errors and other information are logged to a file. The log file
+location can be specified with the [`--log-file`](#log-file) command-line option.
+
+For production systems we recommend using the `CONSOLE` or `FILE` options to ensure all log information is available in one place.
 
 !!! note
     `DEFAULT_BOTH` and `BOTH` have the same behavior, except when using a custom Log4J2 configuration
@@ -330,6 +334,29 @@ log-include-events-enabled: false
 Specify whether to log frequent update events. For example every slot event with
 validators and attestations. Defaults to `true`.
 
+### log-include-validator-duties-enabled
+
+```bash tab="Syntax"
+--log-include-validator-duties-enabled[=<BOOLEAN>]
+```
+
+```bash tab="Command Line"
+--log-include-validator-duties-enabled=true
+```
+
+```bash tab="Environment Variable"
+TEKU_LOG_INCLUDE_VALIDATOR_DUTIES_ENABLED=true
+```
+
+```bash tab="Configuration File"
+log-include-validator-duties-enabled: true
+```
+
+Specify whether to log details of validator event duties. Defaults to `false`.
+
+!!! note
+    Logs could become noisy when running many validators.
+
 ### metrics-enabled
 
 ```bash tab="Syntax"
@@ -350,6 +377,32 @@ metrics-enabled: true
 
 Set to `true` to enable the metrics exporter.
 The default is `false`.
+
+### metrics-host-whitelist
+
+```bash tab="Syntax"
+--metrics-host-whitelist=<hostname>[,<hostname>...]... or "*"
+```
+
+```bash tab="Command Line"
+--metrics-host-whitelist=medomain.com,meotherdomain.com
+```
+
+```bash tab="Environment Variable"
+TEKU_METRICS_HOST_WHITELIST=medomain.com,meotherdomain.com
+```
+
+```bash tab="Configuration File"
+metrics-host-whitelist: ["medomain.com", "meotherdomain.com"]
+```
+
+A comma-separated list of hostnames to allow access to the [Teku metrics]. By
+default, Teku accepts access from `localhost` and `127.0.0.1`.
+
+!!! tip
+
+    To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production
+    environments.
 
 ### metrics-categories
 
@@ -442,6 +495,9 @@ Possible values are:
 | `minimal` | Eth 2.0 | Test        | Used for local testing and development networks.                    |
 | `topaz`   | Eth 2.0 | Test        | Single-client testnet maintained by the Prysmatic Labs.             |
 | `witti`   | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
+
+Predefined networks can provide defaults such the initial state of the network,
+bootnodes, and the address of the Ethereum 1.0 deposit contract.
 
 ### p2p-advertised-ip
 
@@ -858,6 +914,28 @@ validators-external-signer-url: "http://localhost:9000"
 
 URL on which the external signer (for example, Eth2Signer) is running.
 
+### validators-graffiti
+
+```bash tab="Syntax"
+--validators-graffiti=<STRING>
+```
+
+```bash tab="Command Line"
+--validators-graffiti="Teku validator"
+```
+
+```bash tab="Environment Variable"
+TEKU_VALIDATORS_GRAFFITI="Teku validator"
+```
+
+```bash tab="Configuration File"
+validators-graffiti: "Teku validator"
+```
+
+Graffiti to add when creating a block. Gets converted to bytes and padded to Bytes32.
+
+The same graffiti is used for all validators started with this beacon node.
+
 ### validators-key-files
 
 ```bash tab="Syntax"
@@ -929,4 +1007,5 @@ the `teku validator generate --keys-output-path` option.
 
 <!-- links -->
 [Infura]: https://infura.io/
+[Teku metrics]: ../../HowTo/Monitor/Metrics.md
 
