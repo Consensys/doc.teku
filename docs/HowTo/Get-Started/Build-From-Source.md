@@ -23,7 +23,6 @@ description: Build Teku from source
     Teku `0.12.1-integration` branch builds are compatible with the [v0.12.1 specification],
     including the Prysmatic Labs Onyx testnet.
 
-
 ### Clone the Teku repository
 
 Clone the **PegaSysEng/teku** repository:
