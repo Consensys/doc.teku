@@ -7,7 +7,7 @@ description: Teku log level settings and log formatting
 Teku uses Log4J2 for logging, and provides multiple methods to configure logging behavior:
 
 * [Basic](#basic-log-level-setting) - changes the log level.
-* [Destination logging](#configure-log-destination) - configure the destination for log output.
+* [Destination logging](#configure-log-destination) - configures the destination for log output.
 * [Custom logging](#advanced-custom-logging) - custom logging to configure the output and format
     of the logs.
 
@@ -30,7 +30,7 @@ Additional logging options include:
 * [`--log-color-enabled`](../../Reference/CLI/CLI-Syntax.md#log-color-enabled)
     displays status and event log messages in different colors on the console
 * [`--log-include-events-enabled`](../../Reference/CLI/CLI-Syntax.md#log-include-events-enabled)
-    logs frequent update events. For example every slot event with validators and attestations.
+    logs frequent update events. For example, every slot event with validators and attestations.
 * [`--log-include-validator-duties-enabled`](../../Reference/CLI/CLI-Syntax.md#log-include-validator-duties-enabled)
     logs details of validator event duties.
 
@@ -41,9 +41,8 @@ option to specify where to output log information. Valid options are `BOTH`, `CO
 `DEFAULT_BOTH`, `FILE`. Defaults to `DEFAULT_BOTH`.
 
 When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain events
-are displayed on the console, and errors and other information are logged to a file. The log file
-location can be specified with the [`--log-file`](../../Reference/CLI/CLI-Syntax.md#log-file)
-command-line option.
+are displayed on the console, and errors and other information are logged to a file. Specify the log
+file with the [`--log-file`](../../Reference/CLI/CLI-Syntax.md#log-file) command-line option.
 
 Use `DEFAULT_BOTH` when using a [custom Log4J2 configuration file](#advanced-custom-logging). Any
 other option applies the custom logging changes on top of its default settings.

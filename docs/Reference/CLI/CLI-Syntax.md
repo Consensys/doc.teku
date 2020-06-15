@@ -255,8 +255,8 @@ Specify where to output log information. Valid options are:
 * `FILE`
 
 Defaults to `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain
-events are displayed on the console, and errors and other information are logged to a file. The
-log file location can be specified with the [`--log-file`](#log-file) command-line option.
+events are displayed on the console, and errors and other information are logged to a file. Specify
+the log file with the [`--log-file`](#log-file) command-line option.
 
 For production systems we recommend using the `CONSOLE` or `FILE` options to ensure all log
 information is available in one place.
