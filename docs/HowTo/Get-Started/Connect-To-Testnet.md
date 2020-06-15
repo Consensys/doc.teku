@@ -26,10 +26,10 @@ with validators] on a public testnet.
 
     Teku `master` branch and v0.11.x Teku builds are compatible with the [v0.11.3
     specification], including the Witti multi-client testnet.
-    
+
     Teku `0.12.1-integration` branch and v0.12.x Teku builds are compatible with the
     [v0.12.1 specification], including the Prysmatic Labs Onyx testnet.
-    
+
     Use the v0.11.x Teku builds to connect to Witti.
 
 ## Run a validator on a testnet

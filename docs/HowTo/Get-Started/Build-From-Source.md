@@ -19,7 +19,7 @@ description: Build Teku from source
 
     Teku `master` branch builds are compatible with the [v0.11.3 specification], including the
     Witti multi-client testnet.
-    
+
     Teku `0.12.1-integration` branch builds are compatible with the [v0.12.1 specification],
     including the Prysmatic Labs Onyx testnet.
 
