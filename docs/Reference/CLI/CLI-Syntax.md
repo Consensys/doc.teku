@@ -916,6 +916,28 @@ validators-external-signer-url: "http://localhost:9000"
 
 URL on which the external signer (for example, Eth2Signer) is running.
 
+### validators-graffiti
+
+```bash tab="Syntax"
+--validators-graffiti=<STRING>
+```
+
+```bash tab="Command Line"
+--validators-graffiti="Teku validator"
+```
+
+```bash tab="Environment Variable"
+TEKU_VALIDATORS_GRAFFITI="Teku validator"
+```
+
+```bash tab="Configuration File"
+validators-graffiti: "Teku validator"
+```
+
+Graffiti to add when creating a block. Gets converted to bytes and padded to Bytes32.
+
+The same graffiti is used for all validators started with this beacon node.
+
 ### validators-key-files
 
 ```bash tab="Syntax"

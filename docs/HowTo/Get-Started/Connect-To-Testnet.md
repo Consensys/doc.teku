@@ -22,6 +22,16 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 Teku allows you run a [beacon chain client only], or you can [run the beacon chain client
 with validators] on a public testnet.
 
+!!! important
+
+    Teku `master` branch and v0.11.x Teku builds are compatible with the [v0.11.3
+    specification], including the Witti multi-client testnet.
+
+    Teku `0.12.1-integration` branch and v0.12.x Teku builds are compatible with the
+    [v0.12.1 specification], including the Prysmatic Labs Onyx testnet.
+
+    Use the v0.11.x Teku builds to connect to Witti.
+
 ## Run a validator on a testnet
 
 Each Ethereum 2.0 validator needs access an Ethereum 1.0 client to onboard new validators.
@@ -155,13 +165,8 @@ You can run a Teku beacon chain node on a network without any validators.
 !!! example
 
     ```bash
-    teku --eth1-enabled=false --network=witti \
-    --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
+    teku --network=witti --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
-
-Since you do not need to load data from the Ethereum 1.0 network set the
-[`--eth1-enabled`](../../Reference/CLI/CLI-Syntax.md#eth1-enabled) CLI option to
-`false`.
 
 ## Add a beacon chain client to Eth2stats
 
@@ -180,3 +185,5 @@ starting Teku.
 [connect to Goerli]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet
 [password protected V3 Keystore file]: https://docs.ethsigner.pegasys.tech/en/latest/Tutorials/Start-EthSigner/#create-password-and-key-files
 [Infura]: https://infura.io/
+[v0.11.3 specification]: https://github.com/ethereum/eth2.0-specs/releases/tag/v0.11.3
+[v0.12.1 specification]: https://github.com/ethereum/eth2.0-specs/releases/tag/v0.12.1

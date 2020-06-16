@@ -18,6 +18,14 @@ description: Install Teku from binary distribution
 
 Download the [Teku packaged binaries](https://bintray.com/consensys/pegasys-repo/teku#files).
 
+!!! important
+
+    Teku v0.11.x builds are compatible with the [v0.11.3 specification], including the Witti
+    multi-client testnet.
+
+    Teku v0.12.x builds are compatible with the
+    [v0.12.1 specification], including the Prysmatic Labs Onyx testnet.
+
 Unpack the downloaded files and change into the `teku-<release>` directory.
 
 Display Teku command line help to confirm installation:
@@ -29,3 +37,7 @@ Display Teku command line help to confirm installation:
 ```bat tab="Windows"
 bin\teku --help
 ```
+
+<!-- links -->
+[v0.11.3 specification]: https://github.com/ethereum/eth2.0-specs/releases/tag/v0.11.3
+[v0.12.1 specification]: https://github.com/ethereum/eth2.0-specs/releases/tag/v0.12.1
