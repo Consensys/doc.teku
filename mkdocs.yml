@@ -62,11 +62,12 @@ nav:
         - External signing:
               - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
         - Monitor Nodes:
-          - Use Metrics: HowTo/Monitor/Metrics.md
+          - Use metrics: HowTo/Monitor/Metrics.md
+          - Configure logging: HowTo/Monitor/Logging.md
         - Configure:
-            - Specify Options in a Configuration File: HowTo/Configure/Use-Configuration-File.md
+            - Specify options in a configuration file: HowTo/Configure/Use-Configuration-File.md
     - Reference:
-        - Teku Command Line:
+        - Teku command line:
           - Options: Reference/CLI/CLI-Syntax.md
           - Subcommands: Reference/CLI/CLI-Subcommands.md
         - RESTful APIs:
