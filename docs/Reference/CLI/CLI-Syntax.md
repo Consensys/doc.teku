@@ -254,16 +254,18 @@ Specify where to output log information. Valid options are:
 * `DEFAULT_BOTH`
 * `FILE`
 
-Defaults to `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain events
-are displayed on the console, and errors and other information are logged to a file. The log file
-location can be specified with the [`--log-file`](#log-file) command-line option.
+Defaults to `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain
+events are displayed on the console, and errors and other information are logged to a file. Specify
+the log file with the [`--log-file`](#log-file) command-line option.
 
-For production systems we recommend using the `CONSOLE` or `FILE` options to ensure all log information is available in one place.
+For production systems we recommend using the `CONSOLE` or `FILE` options to ensure all log
+information is available in one place.
 
 !!! note
-    `DEFAULT_BOTH` and `BOTH` have the same behavior, except when using a custom Log4J2 configuration
-    file. When using a custom file, `DEFAULT_BOTH` will not apply logging changes, whereas `BOTH` will
-    apply logging changes.
+
+    Use `DEFAULT_BOTH` when using a
+    [custom Log4J2 configuration file](../../HowTo/Monitor/Logging.md#advanced-custom-logging). Any
+    other option applies the custom logging changes on top of its default settings.
 
 ### log-file
 

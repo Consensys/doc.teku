@@ -165,13 +165,8 @@ You can run a Teku beacon chain node on a network without any validators.
 !!! example
 
     ```bash
-    teku --eth1-enabled=false --network=witti \
-    --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
+    teku --network=witti --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
-
-Since you do not need to load data from the Ethereum 1.0 network set the
-[`--eth1-enabled`](../../Reference/CLI/CLI-Syntax.md#eth1-enabled) CLI option to
-`false`.
 
 ## Add a beacon chain client to Eth2stats
 
