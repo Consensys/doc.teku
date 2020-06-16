@@ -4,6 +4,18 @@ description: Teku command line interface subcommands
 
 # Subcommands
 
+## transition
+
+Manually run state transitions for blocks or slots for debugging.
+
+Used for development and testing purposes.
+
+## peer
+
+Commands to generate a list of peer IDs, including the private key, public key, and peer ID.
+
+Used for development and testing purposes.
+
 ## validator
 
 Register or generate validators, and send transactions to an Ethereum 1.0 node.
@@ -378,3 +390,9 @@ teku validator register --withdrawal-public-key=b65c2a1dc6a8eaadae03d5849dd6ac61
 ```
 
 Validators public withdrawal key.
+
+## genesis
+
+Generate a genesis state for a network.
+
+Used for development and testing purposes.
