@@ -18,25 +18,14 @@ Used for development and testing purposes.
 
 ## validator
 
-Register or generate validators, and send transactions to an Ethereum 1.0 node.
+Generate validator keys, and/or register validators by sending transactions to an Ethereum 1.0 node.
 
 ### generate
 
-Register a validator by generating new keys and sending deposit transactions to an Ethereum 1.0
-node.
+Generate validator keys. Keys can be registered using the [`register`](#register) subcommand.
 
-#### deposit-amount-gwei
-
-```bash tab="Syntax"
-teku validator generate --deposit-amount-gwei=<GWEI>
-```
-
-```bash tab="Example"
-teku validator generate --deposit-amount-gwei=32000000000
-```
-
-Amount to deposit in the Ethereum 1.0 deposit contract. Defaults to the minimum ETH required to
-activate a validator on the specified network.
+Alternatively, use the [`generate-and-register`](#generate-and-register) subcommand to generate and
+register the validators in the same command.
 
 #### encrypted-keystore-enabled
 
@@ -56,75 +45,6 @@ the encrypted or unencrypted keys.
 
 !!! important
     Unencrypted keys are displayed on the console if the output location is not specified.
-
-#### eth1-deposit-contract-address
-
-```bash tab="Syntax"
-teku validator generate --eth1-deposit-contract-address=<ADDRESS>
-```
-
-```bash tab="Command Line"
-teku validator generate --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
-```
-
-Ethereum 1.0 address of deposit contract.
-
-#### eth1-endpoint
-
-```bash tab="Syntax"
-teku validator generate --eth1-endpoint=<URL>
-```
-
-```bash tab="Command Line"
-teku validator generate --eth1-endpoint=http://localhost:8545
-```
-
-JSON-RPC URL of Ethereum 1.0 node.
-
-#### eth1-keystore-file
-
-```bash tab="Syntax"
-teku validator generate --eth1-keystore-file=<FILE>
-```
-
-```bash tab="Command Line"
-teku validator generate --eth1-keystore-file=/home/me/me_node/keystore
-```
-
-Path to the encrypted V3 keystore file containing the private key of the
-Ethereum 1.0 account from which to send the deposit transaction. Ensure the
-account has enough ether to cover the amount specified using
-[`--deposit-amount-gwei`](#deposit-amount-gwei).
-
-Cannot be used with [`--eth1-private-key`](#eth1-private-key)
-
-#### eth1-keystore-password-file
-
-```bash tab="Syntax"
-teku validator generate --eth1-keystore-password-file=<FILE>
-```
-
-```bash tab="Command Line"
-teku validator generate --eth1-keystore-password-file=/home/me/me_node/password
-```
-
-Path to the file containing the password to decrypt the V3 keystore.
-
-#### eth1-private-key
-
-```bash tab="Syntax"
-teku validator generate --eth1-private-key=<KEY>
-```
-
-```bash tab="Command Line"
-teku validator generate --eth1-private-key=8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63
-```
-
-Private key of the Ethereum 1.0 account from which to send the deposit transaction. Ensure the
-account has enough ether to cover the amount specified using
-[`--deposit-amount-gwei`](#deposit-amount-gwei).
-
-Cannot be used with [`--eth1-keystore-file`](#eth1-keystore-file).
 
 #### keys-output-path
 
@@ -206,18 +126,6 @@ The file that stores the password to decrypt the validator's withdrawal key.
 If you do not specify a password, then you need to manually enter a password at
 the command line when prompted.
 
-#### network
-
-```bash tab="Syntax"
-teku validator generate --network=<NETWORK>
-```
-
-```bash tab="Command Line"
-teku validator generate --network=mainnet
-```
-
-[Network to use](CLI-Syntax.md#network). This option must be supplied.
-
 #### number-of-validators
 
 ```bash tab="Syntax"
@@ -226,6 +134,218 @@ teku validator generate --number-of-validators=<NUMBER>
 
 ```bash tab="Command Line"
 teku validator generate --number-of-validators=64
+```
+
+Specify the number of validators to create keys for and register.
+
+A minimum of 64 validators are required in a network.
+
+### generate-and-register
+
+Register a validator by generating new keys and sending deposit transactions to an Ethereum 1.0
+node.
+
+#### deposit-amount-gwei
+
+```bash tab="Syntax"
+teku validator generate-and-register --deposit-amount-gwei=<GWEI>
+```
+
+```bash tab="Example"
+teku validator generate-and-register --deposit-amount-gwei=32000000000
+```
+
+Amount to deposit in the Ethereum 1.0 deposit contract. Defaults to the minimum ETH required to
+activate a validator on the specified network.
+
+#### encrypted-keystore-enabled
+
+```bash tab="Syntax"
+teku validator generate-and-register --encrypted-keystore-enabled=<BOOLEAN>
+```
+
+```bash tab="Example"
+teku validator generate-and-register --encrypted-keystore-enabled=false
+```
+
+Specify whether to create encrypted BLS12-381 keystore validator and withdrawal keys.
+Defaults to `true`.
+
+Use [`--keys-output-path`](#keys-output-path_1) to specify the output location of
+the encrypted or unencrypted keys.
+
+!!! important
+    Unencrypted keys are displayed on the console if the output location is not specified.
+
+#### eth1-deposit-contract-address
+
+```bash tab="Syntax"
+teku validator generate-and-register --eth1-deposit-contract-address=<ADDRESS>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
+```
+
+Ethereum 1.0 address of deposit contract.
+
+#### eth1-endpoint
+
+```bash tab="Syntax"
+teku validator generate-and-register --eth1-endpoint=<URL>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --eth1-endpoint=http://localhost:8545
+```
+
+JSON-RPC URL of Ethereum 1.0 node.
+
+#### eth1-keystore-file
+
+```bash tab="Syntax"
+teku validator generate-and-register --eth1-keystore-file=<FILE>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --eth1-keystore-file=/home/me/me_node/keystore
+```
+
+Path to the encrypted V3 keystore file containing the private key of the
+Ethereum 1.0 account from which to send the deposit transaction. Ensure the
+account has enough ether to cover the amount specified using
+[`--deposit-amount-gwei`](#deposit-amount-gwei).
+
+Cannot be used with [`--eth1-private-key`](#eth1-private-key)
+
+#### eth1-keystore-password-file
+
+```bash tab="Syntax"
+teku validator generate-and-register --eth1-keystore-password-file=<FILE>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --eth1-keystore-password-file=/home/me/me_node/password
+```
+
+Path to the file containing the password to decrypt the V3 keystore.
+
+#### eth1-private-key
+
+```bash tab="Syntax"
+teku validator generate-and-register --eth1-private-key=<KEY>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --eth1-private-key=8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63
+```
+
+Private key of the Ethereum 1.0 account from which to send the deposit transaction. Ensure the
+account has enough ether to cover the amount specified using
+[`--deposit-amount-gwei`](#deposit-amount-gwei).
+
+Cannot be used with [`--eth1-keystore-file`](#eth1-keystore-file).
+
+#### keys-output-path
+
+```bash tab="Syntax"
+teku validator generate-and-register --keys-output-path=<FILE|DIR>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --keys-output-path=/home/me/me_node/keys
+```
+
+Specify the output location for validator and withdrawal keys. If not set, unencrypted
+keys are written to standard out, and encrypted BLS12-381 keystores are created in current directory.
+
+Use this option to specify:
+
+* The path to the output file when using unencrypted keys. That is,
+  [`--encrypted-keystore-enabled`](#encrypted-keystore-enabled_1) set to `false`.
+* The path to the output directory for the generated keystore files. That is,
+  [`encrypted-keystore-enabled`](#encrypted-keystore-enabled_1) set to `true`.
+
+#### encrypted-keystore-validator-password-env
+
+```bash tab="Syntax"
+teku validator generate-and-register --encrypted-keystore-validator-password-env=<ENV>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --encrypted-keystore-validator-password-env=VALIDATOR_PASSWORD
+```
+
+The environment variable that stores the password to decrypt the validator's BLS12-381 keystore.
+
+If you do not specify a password, then you need to manually enter a password at
+the command line when prompted.
+
+#### encrypted-keystore-validator-password-file
+
+```bash tab="Syntax"
+teku validator generate-and-register --encrypted-keystore-validator-password-file=<FILE>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --encrypted-keystore-validator-password-file=/home/me/me_node/password
+```
+
+The file that stores the password to decrypt the validator's BLS12-381 keystore.
+
+If you do not specify a password, then you need to manually enter a password at
+the command line when prompted.
+
+#### encrypted-keystore-withdrawal-password-env
+
+```bash tab="Syntax"
+teku validator generate-and-register --encrypted-keystore-withdrawal-password-env=<ENV>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --encrypted-keystore-withdrawal-password-env=WITHDRAWAL_PASSWORD
+```
+
+The environment variable that stores the password to decrypt the validator's withdrawal key.
+
+If you do not specify a password, then you need to manually enter a password at
+the command line when prompted.
+
+#### encrypted-keystore-withdrawal-password-file
+
+```bash tab="Syntax"
+teku validator generate-and-register --encrypted-keystore-withdrawal-password-file=<FILE>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --encrypted-keystore-withdrawal-password-file=/home/me/me_node/password
+```
+
+The file that stores the password to decrypt the validator's withdrawal key.
+
+If you do not specify a password, then you need to manually enter a password at
+the command line when prompted.
+
+#### network
+
+```bash tab="Syntax"
+teku validator generate-and-register --network=<NETWORK>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --network=mainnet
+```
+
+[Network to use](CLI-Syntax.md#network). This option must be supplied.
+
+#### number-of-validators
+
+```bash tab="Syntax"
+teku validator generate-and-register --number-of-validators=<NUMBER>
+```
+
+```bash tab="Command Line"
+teku validator generate-and-register --number-of-validators=64
 ```
 
 Specify the number of validators to create keys for and register.

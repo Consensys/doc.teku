@@ -90,7 +90,7 @@ Teku allows you to generate validator keys and send deposits to the deposit cont
 !!! example
 
     ```bash
-    teku validator generate --network=witti \
+    teku validator generate-and-register --network=witti \
     --eth1-endpoint=http://localhost:8545 --keys-output-path=validator_key \
     --encrypted-keystore-validator-password-file=./witti/password.txt \
     --encrypted-keystore-withdrawal-password-file=./witti/password.txt \
@@ -109,16 +109,16 @@ On the command line:
     `https://goerli.infura.io/v3/<Project_ID>`
 
 * Specify the location in which to create the encrypted validator and withdrawal key files using
-    [`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path).
+    [`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path_1).
 
     !!! note
         To create an unencryped file, set
-        [`--encrypted-keystore-enabled`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-enabled)
+        [`--encrypted-keystore-enabled`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-enabled_1)
         to `false`. However, this is not recommended in production.
 
 * Specify the password of the encrypted validator and withdrawal key files using
-    [`--encrypted-keystore-validator-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-validator-password-file)
-    and [`--encrypted-keystore-withdrawal-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-withdrawal-password-file).
+    [`--encrypted-keystore-validator-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-validator-password-file_1)
+    and [`--encrypted-keystore-withdrawal-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-withdrawal-password-file_1).
     If not set, then manually enter a password at the command line when prompted.
 
 * Specify the encrypted Ethereum 1.0 deposit account private key
@@ -133,7 +133,7 @@ On the command line:
     [`--eth1-keystore-password-file`](../../Reference/CLI/CLI-Subcommands.md#eth1-keystore-password-file).
 
 * Specify the number of validators to create using
-    [`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators).
+    [`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators_1).
 
 It may take more than 8 hours for a deposit to become active.
 
