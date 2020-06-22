@@ -18,7 +18,7 @@ Used for development and testing purposes.
 
 ## validator
 
-Generate validator keys, and/or register validators by sending transactions to an Ethereum 1.0 node.
+Generate validator keys and register validators by sending transactions to an Ethereum 1.0 node.
 
 ### generate
 
