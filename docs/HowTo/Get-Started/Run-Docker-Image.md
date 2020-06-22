@@ -90,7 +90,7 @@ services:
     image: hyperledger/besu:latest
     command: ["--genesis-file=/opt/besu/data/depositContractGenesis.json",
               "--data-path=/opt/besu/data/data",
-              "--host-whitelist=*",
+              "--host-allowlist=*",
               "--rpc-http-enabled",
               "--rpc-http-cors-origins=*",
               "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3",
