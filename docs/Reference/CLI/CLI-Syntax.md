@@ -380,22 +380,22 @@ metrics-enabled: true
 Set to `true` to enable the metrics exporter.
 The default is `false`.
 
-### metrics-host-whitelist
+### metrics-host-allowlist
 
 ```bash tab="Syntax"
---metrics-host-whitelist=<hostname>[,<hostname>...]... or "*"
+--metrics-host-allowlist=<hostname>[,<hostname>...]... or "*"
 ```
 
 ```bash tab="Command Line"
---metrics-host-whitelist=medomain.com,meotherdomain.com
+--metrics-host-allowlist=medomain.com,meotherdomain.com
 ```
 
 ```bash tab="Environment Variable"
-TEKU_METRICS_HOST_WHITELIST=medomain.com,meotherdomain.com
+TEKU_METRICS_HOST_ALLOWLIST=medomain.com,meotherdomain.com
 ```
 
 ```bash tab="Configuration File"
-metrics-host-whitelist: ["medomain.com", "meotherdomain.com"]
+metrics-host-allowlist: ["medomain.com", "meotherdomain.com"]
 ```
 
 A comma-separated list of hostnames to allow access to the [Teku metrics]. By
@@ -777,22 +777,22 @@ rest-api-enabled: true
 Set to `true` to enable the [REST API service](../Rest_API/Rest.md).
 The default is `false`.
 
-### rest-api-host-whitelist
+### rest-api-host-allowlist
 
 ```bash tab="Syntax"
---rest-api-host-whitelist=<hostname>[,<hostname>...]... or "*"
+--rest-api-host-allowlist=<hostname>[,<hostname>...]... or "*"
 ```
 
 ```bash tab="Command Line"
---rest-api-host-whitelist=medomain.com,meotherdomain.com
+--rest-api-host-allowlist=medomain.com,meotherdomain.com
 ```
 
 ```bash tab="Environment Variable"
-TEKU_REST_API_HOST_WHITELIST=medomain.com,meotherdomain.com
+TEKU_REST_API_HOST_ALLOWLIST=medomain.com,meotherdomain.com
 ```
 
 ```bash tab="Configuration File"
-rest-api-host-whitelist: ["medomain.com", "meotherdomain.com"]
+rest-api-host-allowlist: ["medomain.com", "meotherdomain.com"]
 ```
 
 A comma-separated list of hostnames to allow access to the REST API. By
