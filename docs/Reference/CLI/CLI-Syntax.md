@@ -487,12 +487,13 @@ network: "mainnet"
 ```
 
 Predefined network configuration. Accepts a predefined network name, or file path or URL
-to a YAML configuration file. The default is `minimal`.
+to a YAML configuration file. The default is `altona`.
 
 Possible values are:
 
 | Network   | Chain   | Type        | Description                                                         |
 |-----------|---------|-------------|---------------------------------------------------------------------|
+| `altona`  | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
 | `mainnet` | Eth 2.0 | Production  | Intended main network that targets future mainnet configuration.    |
 | `minimal` | Eth 2.0 | Test        | Used for local testing and development networks.                    |
 | `topaz`   | Eth 2.0 | Test        | Single-client testnet maintained by the Prysmatic Labs.             |

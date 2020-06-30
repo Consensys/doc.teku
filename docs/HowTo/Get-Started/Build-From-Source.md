@@ -15,14 +15,6 @@ description: Build Teku from source
 
 ## Installation on Linux / Unix / MacOS X
 
-!!! important
-
-    Teku `master` branch builds are compatible with the [v0.11.3 specification], including the
-    Witti multi-client testnet.
-
-    Teku `0.12.1-integration` branch builds are compatible with the [v0.12.1 specification],
-    including the Prysmatic Labs Onyx testnet.
-
 ### Clone the Teku repository
 
 Clone the **PegaSysEng/teku** repository:
@@ -61,8 +53,4 @@ bin/teku --help
     To view the list of available Gradle tasks, run `./gradlew tasks`
 
 Continue with [Starting Teku](Start.md).
-
-<!-- links -->
-[v0.11.3 specification]: https://github.com/ethereum/eth2.0-specs/releases/tag/v0.11.3
-[v0.12.1 specification]: https://github.com/ethereum/eth2.0-specs/releases/tag/v0.12.1
 
