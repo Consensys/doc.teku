@@ -8,7 +8,7 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 
 !!! important
 
-    This example connects to the [Witti testnet](https://github.com/goerli/Witti). Networks can
+    This example connects to the [Altona testnet](https://github.com/goerli/altona). Networks can
     experience stability issues and are prone to regular resets. We recommend you regularly
     check network and client documentation for updates.
 
@@ -21,16 +21,6 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 
 Teku allows you run a [beacon chain client only], or you can [run the beacon chain client
 with validators] on a public testnet.
-
-!!! important
-
-    Teku `master` branch and v0.11.x Teku builds are compatible with the [v0.11.3
-    specification], including the Witti multi-client testnet.
-
-    Teku `0.12.1-integration` branch and v0.12.x Teku builds are compatible with the
-    [v0.12.1 specification], including the Prysmatic Labs Onyx testnet.
-
-    Use the v0.11.x Teku builds to connect to Witti.
 
 ## Run a validator on a testnet
 
@@ -74,7 +64,7 @@ Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
 ### Load the deposit account with ETH
 
 You need an Ethereum 1.0 account that contains the amount of ETH (plus gas) required to activate
-the validator. The `witti` testnet requires 32 ETH, and the account must be on Goerli.
+the validator. The `altona` testnet requires 32 ETH, and the account must be on Goerli.
 
 !!! tip
 
@@ -90,11 +80,11 @@ Teku allows you to generate validator keys and send deposits to the deposit cont
 !!! example
 
     ```bash
-    teku validator generate-and-register --network=witti \
+    teku validator generate-and-register --network=altona \
     --eth1-endpoint=http://localhost:8545 --keys-output-path=validator_key \
-    --encrypted-keystore-validator-password-file=./witti/password.txt \
-    --encrypted-keystore-withdrawal-password-file=./witti/password.txt \
-    --eth1-keystore-file=./witti/walletKey --eth1-keystore-password-file=./witti/password.txt \
+    --encrypted-keystore-validator-password-file=./altona/password.txt \
+    --encrypted-keystore-withdrawal-password-file=./altona/password.txt \
+    --eth1-keystore-file=./altona/walletKey --eth1-keystore-password-file=./altona/password.txt \
     --number-of-validators=1
     ```
 
@@ -148,15 +138,15 @@ Run Teku and specify the [validator key created earlier](#generate-the-validator
 !!! example
 
     ```bash
-    teku --network=witti --eth1-endpoint=http://localhost:8545 \
+    teku --network=altona --eth1-endpoint=http://localhost:8545 \
     --validators-key-files=validator_key/validator_888eeef/validator_888eeef.json \
-    --validators-key-password-files=./witti/password.txt \
+    --validators-key-password-files=./altona/password.txt \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
     ```
 
 Once the validator is activated, view it on the beacon chain explorer at
-`https://witti.beaconcha.in/validator/<validatorPublicKey>`.
+`https://altona.beaconcha.in/validator/<validatorPublicKey>`.
 
 ## Run a beacon chain client only
 
@@ -165,7 +155,7 @@ You can run a Teku beacon chain node on a network without any validators.
 !!! example
 
     ```bash
-    teku --network=witti --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
+    teku --network=altona --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
 
 ## Add a beacon chain client to Eth2stats
@@ -185,5 +175,3 @@ starting Teku.
 [connect to Goerli]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet
 [password protected V3 Keystore file]: https://docs.ethsigner.pegasys.tech/en/latest/Tutorials/Start-EthSigner/#create-password-and-key-files
 [Infura]: https://infura.io/
-[v0.11.3 specification]: https://github.com/ethereum/eth2.0-specs/releases/tag/v0.11.3
-[v0.12.1 specification]: https://github.com/ethereum/eth2.0-specs/releases/tag/v0.12.1
