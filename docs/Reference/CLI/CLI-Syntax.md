@@ -625,7 +625,7 @@ p2p-port: 1789
 ```
 
 Specifies the P2P listening ports (UDP and TCP).
-The default is `30303`.
+The default is `9000`.
 
 ### p2p-discovery-enabled
 
