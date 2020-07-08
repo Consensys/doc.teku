@@ -140,6 +140,18 @@ Specify the number of validators to create keys for and register.
 
 A minimum of 64 validators are required in a network.
 
+#### verbose-output-enabled
+
+```bash tab="Syntax"
+teku validator generate --verbose-output-enabled=<BOOLEAN>
+```
+
+```bash tab="Example"
+teku validator generate --verbose-output-enabled=false
+```
+
+Enables verbose output that includes details of the generated validator. Defaults to `true`.
+
 ### generate-and-register
 
 Register a validator by generating new keys and sending deposit transactions to an Ethereum 1.0
@@ -352,6 +364,19 @@ Specify the number of validators to create keys for and register.
 
 A minimum of 64 validators are required in a network.
 
+#### verbose-output-enabled
+
+```bash tab="Syntax"
+teku validator generate --verbose-output-enabled=<BOOLEAN>
+```
+
+```bash tab="Example"
+teku validator generate --verbose-output-enabled=false
+```
+
+Enables verbose output that includes details of the generated and registered validators. Defaults to
+`true`.
+
 ### register
 
 Register a validator using existing keys by sending a deposit transaction to an
@@ -498,6 +523,18 @@ teku validator register --validator-private-key=2a4055949038a9610f50fb23b5883af3
 
 Validator's private signing key. Cannot be used with
 [`--encrypted-keystore-validator-file`](#encrypted-keystore-validator-file)
+
+#### verbose-output-enabled
+
+```bash tab="Syntax"
+teku validator generate --verbose-output-enabled=<BOOLEAN>
+```
+
+```bash tab="Example"
+teku validator generate --verbose-output-enabled=false
+```
+
+Enables verbose output that includes details of the registered validator. Defaults to `true`.
 
 #### withdrawal-public-key
 
