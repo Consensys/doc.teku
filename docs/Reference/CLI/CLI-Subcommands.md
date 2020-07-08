@@ -371,7 +371,7 @@ teku validator generate --verbose-output-enabled=<BOOLEAN>
 ```
 
 ```bash tab="Example"
-teku validator generate --verbose-output-enabled=false
+teku validator generate-and-register --verbose-output-enabled=false
 ```
 
 Enables verbose output that includes details of the generated and registered validators. Defaults to
@@ -527,11 +527,11 @@ Validator's private signing key. Cannot be used with
 #### verbose-output-enabled
 
 ```bash tab="Syntax"
-teku validator generate --verbose-output-enabled=<BOOLEAN>
+teku validator register --verbose-output-enabled=<BOOLEAN>
 ```
 
 ```bash tab="Example"
-teku validator generate --verbose-output-enabled=false
+teku validator register --verbose-output-enabled=false
 ```
 
 Enables verbose output that includes details of the registered validator. Defaults to `true`.
