@@ -81,6 +81,28 @@ The path to the Teku data directory. The default directory is OS dependent:
 
 The default Docker image location is `/root/.local/share/teku`.
 
+### data-storage-archive-frequency
+
+```bash tab="Syntax"
+--data-storage-archive-frequency=<NUMBER>
+```
+
+```bash tab="Command Line"
+--data-storage-archive-frequency=1028
+```
+
+```bash tab="Environment Variable"
+TEKU_DATA_STORAGE_ARCHIVE_FREQUENCY=1028
+```
+
+```bash tab="Configuration File"
+data-storage-archive-frequency: 1028
+```
+
+Set the frequency (in slots) at which to store finalized states to disk. Defaults to 2048.
+
+This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
+
 ### data-storage-mode
 
 ```bash tab="Syntax"
