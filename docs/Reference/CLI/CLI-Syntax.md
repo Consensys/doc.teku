@@ -103,6 +103,9 @@ Set the frequency (in slots) at which to store finalized states to disk. Default
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
+!!! note
+    The lower the frequency of stored states, the higher the overhead of retrieving a state from disk.
+
 ### data-storage-mode
 
 ```bash tab="Syntax"
