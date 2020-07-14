@@ -104,10 +104,15 @@ Set the frequency (in slots) at which to store finalized states to disk. Default
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
 !!! note
-    Lower archive frequencies have a potentially higher overhead for retrieving finalized states
-    since more states may need to be regenerated to get to the requested state.
-    
-    Higher archive frequencies increase the disk space usage.
+    Lower archive frequencies (saved finalized states with a greater difference between slot counts)
+    have a potentially higher overhead for retrieving finalized states since more states may need to
+    be regenerated to get to the requested state. Higher archive frequencies increase the disk space
+    usage.
+
+    For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest
+    response time for retrieving a finalized state since each slot state is saved, whereas
+    `--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the
+    state because every 2048th slot state is saved.
 
 ### data-storage-mode
 
