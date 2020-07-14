@@ -104,7 +104,10 @@ Set the frequency (in slots) at which to store finalized states to disk. Default
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
 !!! note
-    The lower the frequency of stored states, the higher the overhead of retrieving a state from disk.
+    Lower archive frequencies have a potentially higher overhead for retrieving finalized states
+    since more states may need to be regenerated to get to the requested state.
+    
+    Higher archive frequencies increase the disk space usage.
 
 ### data-storage-mode
 
