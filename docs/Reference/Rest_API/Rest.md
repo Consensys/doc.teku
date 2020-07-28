@@ -1,5 +1,5 @@
 ---
-description: Teku RESTful APIa
+description: Teku RESTful API
 ---
 
 # REST API
