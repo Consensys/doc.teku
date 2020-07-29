@@ -43,7 +43,12 @@ The steps to run an Ethereum 2.0 validator on a testnet are:
 1. [Fund the Ethereum 1.0 deposit account](#load-the-deposit-account-with-eth).
 
 1. [Generate the validator key and send the deposit to the deposit
-    contract](#send-the-validator-deposit).
+    contract](#generate-the-validator-and-send-the-deposit).
+    
+    !!! note
+        You can use the Medalla [Launchpad] to generate your keys and send the deposits, or you can
+        use Teku. For convenience, we recommend using Teku if generating more than approximately 10
+        validators.
 
 1. [Start Teku with the validator key](#start-the-validator).
 
@@ -180,9 +185,10 @@ You can run a Teku beacon chain node on a network without any validators.
 
     If you plan to run only a beacon node for Medalla, it is best to wait until
     after the genesis event on August the 4th, 2020 at 1300 UTC. This is
-    because (a) nothing is happening on the network until then, and (b) you
-    will need access to an Ethereum 1.0 node. After Genesis, that requirement
-    no longer applies if you are not running validators.
+    because nothing happens on the network until then, and you require access to an Ethereum 1.0
+    node.
+
+    After Genesis, an Ethereum 1.0 node is no longer required if you are not running validators.
 
 ## Add a beacon chain client to Eth2stats
 
