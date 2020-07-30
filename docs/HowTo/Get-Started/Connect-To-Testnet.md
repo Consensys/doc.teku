@@ -44,7 +44,7 @@ The steps to run an Ethereum 2.0 validator on a testnet are:
 
 1. [Generate the validator key and send the deposit to the deposit
     contract](#generate-the-validator-and-send-the-deposit).
-    
+
     !!! note
         You can use the Medalla [Launchpad] to generate your keys and send the deposits, or you can
         use Teku. For convenience, we recommend using Teku if generating more than approximately 10
