@@ -12,6 +12,7 @@ description: Build Teku from source
     Teku requires Java 11+; earlier versions are not supported.
 
 * [Git](https://git-scm.com/downloads) or [GitHub Desktop](https://desktop.github.com/)
+* [Gradle build tool](https://gradle.org/)
 
 ## Installation on Linux / Unix / MacOS X
 
