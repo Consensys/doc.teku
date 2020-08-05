@@ -98,15 +98,15 @@ services:
     volumes:
       - ./besu:/opt/besu/data
     ports:
-      # Map the p2p port(30303) and RPC HTTP port(8545) 
+      # Map the p2p port(30303) and RPC HTTP port(8545)
       - "8545:8545"
       - "30303:30303"
 
   teku_node:
-    image: pegasyseng/teku:latest
+    image: pegasyseng/teku:develop
     command: ["--network=medalla",
               "--eth1-endpoint=http://besu_node:8545",
-              "--validators-key-files=/opt/teku/data/keystore2.json",
+              "--validators-key-files=/opt/teku/data/keystore.json",
               "--validators-key-password-files=/opt/teku/data/password.txt",
               "--rest-api-enabled=true",
               "--rest-api-docs-enabled=true"]
