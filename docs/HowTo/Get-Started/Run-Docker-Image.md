@@ -98,7 +98,7 @@ services:
     volumes:
       - ./besu:/opt/besu/data
     ports:
-      # Map the p2p port(30303) and RPC HTTP port (8545) 
+      # Map the p2p port(30303) and RPC HTTP port(8545) 
       - "8545:8545"
       - "30303:30303"
 
