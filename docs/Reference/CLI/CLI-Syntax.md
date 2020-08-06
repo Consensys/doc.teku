@@ -512,7 +512,7 @@ The default is `8008`.
 ```
 
 ```bash tab="Environment Variable"
-BESU_NETWORK=mainnet
+TEKU_NETWORK=mainnet
 ```
 
 ```bash tab="Configuration File"
