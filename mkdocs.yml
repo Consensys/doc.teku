@@ -14,22 +14,22 @@ site_name: Teku
 site_url: https://docs.teku.pegasys.tech/en/latest/
 site_description: Teku Ethereum 2 client documentation.
 site_author: Teku community
-copyright: Teku and its documentation are licensed under Apache 2.0 license /
-  This documentation is maintained with love by <a href="https://pegasys.tech/">PegaSys</a>.
+copyright: Teku and its documentation are licensed under Apache 2.0 license.
 
 #extra project info and template customisation
 extra:
-  doc_site_edit_url: https://github.com/PegaSysEng/doc.teku/
   latest_version_warning:
     url_contains: /latest/
     text: 'Teku is under heavy development. If something isn''t working as documented,
-    check <a href="https://github.com/PegaSysEng/teku/blob/master/CHANGELOG.md" title="Teku changelog on master branch" style="text-decoration: underline;">the changelog</a> or get in touch on our <a href="https://discord.gg/Ve9sQAX" title="ConsenSys #teku Discord channel" style="text-decoration: underline;">Teku Discord channel</a>.
+    check <a href="https://github.com/PegaSysEng/teku/blob/master/CHANGELOG.md" title="Teku changelog on master branch" style="text-decoration: underline;">the changelog</a> or get in touch on our <a href="https://discord.gg/9mCVSY6" title="ConsenSys #teku Discord channel" style="text-decoration: underline;">Teku Discord channel</a>.
     There may be updates that haven''t yet made it to the documentation.'
   support:
-    gitter: https://gitter.im/PegaSysEng/Teku
+    tool: Discord
+    channel: https://discord.gg/9mCVSY6
     email: support@pegasys.tech
-    pegasys_website: https://pegasys.tech/
-    issues: https://github.com/PegaSysEng/doc.teku/issues
+    website: https://pegasys.tech/
+    company: Pegasys
+    issues: https://github.com/PegaSysEng/teku/issues
   google:
     site_verification: 'za1cLzyS6LXDGO-pMzvfQdYTZ0Zc67uZtY0asA4YXZ0'
     tag_manager: 'GTM-5SNB3FJ'
