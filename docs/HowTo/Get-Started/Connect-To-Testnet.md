@@ -181,15 +181,6 @@ You can run a Teku beacon chain node on a network without any validators.
     teku --network=medalla --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
 
-!!! note
-
-    If you plan to run only a beacon node for Medalla, it is best to wait until
-    after the genesis event on August the 4th, 2020 at 1300 UTC. This is
-    because nothing happens on the network until then, and you require access to an Ethereum 1.0
-    node.
-
-    After Genesis, an Ethereum 1.0 node is no longer required if you are not running validators.
-
 ## Add a beacon chain client to Eth2stats
 
 You can add the beacon chain node to [Eth2stats](https://eth2stats.io/add-node) for monitoring.
@@ -197,11 +188,6 @@ You can add the beacon chain node to [Eth2stats](https://eth2stats.io/add-node) 
 Ensure you enable metrics using the
 [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option when
 starting Teku.
-
-!!! note
-
-    The Medalla testnet has not been added to Eth2Stats at the time of writing.
-    Keep an eye on it so you can add your node later.
 
 ## Finding help
 
