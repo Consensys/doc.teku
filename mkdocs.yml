@@ -66,6 +66,8 @@ nav:
           - Configure logging: HowTo/Monitor/Logging.md
         - Configure:
             - Specify options in a configuration file: HowTo/Configure/Use-Configuration-File.md
+    - Concepts:
+        - Slashing protection: Concepts/Slashing-Protection.md
     - Reference:
         - Teku command line:
           - Options: Reference/CLI/CLI-Syntax.md
