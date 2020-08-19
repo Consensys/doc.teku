@@ -11,7 +11,7 @@ based on what it has already signed.
 
     Teku's slashing protection does not provide protection if the same validator key is being used
     by multiple nodes.
-    
+
 To protect validators from slashable offenses, Teku stores a record of the most recently signed
 blocks for each validator in the `<data-path>/validators/slashprotection/` directory. One
 [YAML file is stored per validator] using in the format `<validator-pubkey>.yml` (with no 0x prefix).
@@ -46,20 +46,20 @@ The following rules apply to the file:
 
 ### Between Teku nodes
 
-If moving a validator from one Teku node to another, then you can migrate the slash protection file
+If moving a validator from one Teku node to another, you can migrate the slash protection file
 as well.
 
 For example to move the file from node A to node B:
 
 * Stop Teku node A and confirm the process has fully exited and won't be restarted.
-* Remove the the validator key from node A, for example from the 
+* Remove the the validator key from node A, for example from the
     [`--validators-key-files`](../Reference/CLI/CLI-Syntax.md#validators-key-file) option.
 * Copy the file from `<nodeA-data-path>/validators/slashprotection/` to
     `<nodeB-data-path>/validators/slashprotection/`.
 * Start node B with the migrated validator key.
 * Restart node A if required.
 
-### From a non-Teku node 
+### From a non-Teku node
 
 If moving a validator from a different client to Teku, [create a new slash protection file] by
 manually setting the values based on the validator's last signing details.
@@ -67,6 +67,8 @@ manually setting the values based on the validator's last signing details.
 For example, stop the other client to ensure it isn't signing, then set `lastSignedBlockSlot` to the
 current chain head slot + 1, `lastSignedAttestationSourceEpoch` to the current justified checkpoint,
 and set `lastSignedAttestationTargetEpoch` to the current epoch + 1.
+
+Start the Teku node with the validator key.
 
 <!-- links -->
 [YAML file is stored per validator]: #validator-slash-protection-file
