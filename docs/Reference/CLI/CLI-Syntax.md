@@ -847,6 +847,7 @@ Upper bound on the target number of peers. The default is `30`.
     ```
 
 === "Command Line"
+
     ```bash
     # to listen on port 1789
     --p2p-port=1789
@@ -1117,7 +1118,8 @@ default, Teku accepts access from `localhost` and `127.0.0.1`.
     --rest-api-interface=<HOST>
     ```
 
-=== s"Command Line"
+=== "Command Line"
+
     ```bash
     # to listen on all interfaces
     --rest-api-interface=0.0.0.0

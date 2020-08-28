@@ -26,7 +26,7 @@ To configure Prometheus and run with Teku:
    `scrape_configs` block of the `prometheus.yml` file:
 
     !!! example "Example configuration"
-    
+
         ```yml
         global:
           scrape_interval: 15s
