@@ -22,10 +22,14 @@ Unpack the downloaded files and change into the `teku-<release>` directory.
 
 Display Teku command line help to confirm installation:
 
-```bash tab="Linux/macOS"
-./bin/teku --help
-```
+=== "Linux/macOS"
 
-```bat tab="Windows"
-bin\teku --help
-```
+    ```bash
+    ./bin/teku --help
+    ```
+
+=== "Windows"
+
+    ```bat
+    bin\teku --help
+    ```
