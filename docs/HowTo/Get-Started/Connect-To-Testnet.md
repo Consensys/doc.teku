@@ -160,7 +160,9 @@ If you have multiple validator key files, place the key files and accompanying p
 more directories. Use [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) to
 specify the directory to load the keys and passwords from.
 
-When specifying a directory, ensure the key file and password file have identical names.
+When specifying a directory, ensure the key file and password file have identical names, with the
+appropriate extensions. For example, a key (`keys/validator1.json`) matches the password
+(`passwords/validator1.txt`).
 
 !!! example
 
