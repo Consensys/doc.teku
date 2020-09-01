@@ -14,24 +14,26 @@ site_name: Teku
 site_url: https://docs.teku.pegasys.tech/en/latest/
 site_description: Teku Ethereum 2 client documentation.
 site_author: Teku community
-copyright: Teku and its documentation are licensed under Apache 2.0 license /
-  This <a href="https://readthedocs.org/">Readthedocs.org</a> documentation is maintained with love by <a href="https://pegasys.tech/">PegaSys</a>.
+copyright: Teku and its documentation are licensed under Apache 2.0 license.
 
 #extra project info and template customisation
 extra:
-  doc_site_edit_url: https://github.com/PegaSysEng/doc.teku/
   latest_version_warning:
     url_contains: /latest/
-    text: 'Teku is under heavy development. If something isn''t working as documented,
-    check <a href="https://github.com/PegaSysEng/teku/blob/master/CHANGELOG.md" title="Teku changelog on master branch" style="text-decoration: underline;">the changelog</a> or get in touch on our <a href="https://discord.gg/Ve9sQAX" title="ConsenSys #teku Discord channel" style="text-decoration: underline;">Teku Discord channel</a>.
+    text: 'Teku is under heavy development. If something isn''t working as documented, check
+    <a href="https://github.com/PegaSysEng/teku/blob/master/CHANGELOG.md" title="Teku changelog on master branch" style="text-decoration: underline;"> the changelog </a>
+    or get in touch on our
+    <a href="https://discord.gg/9mCVSY6" title="ConsenSys #teku Discord channel" style="text-decoration: underline;"> Teku Discord channel</a>.
     There may be updates that haven''t yet made it to the documentation.'
   support:
-    gitter: https://gitter.im/PegaSysEng/Teku
+    tool: Discord
+    channel: https://discord.gg/9mCVSY6
     email: support@pegasys.tech
-    pegasys_website: https://pegasys.tech/
-    issues: https://github.com/PegaSysEng/doc.teku/issues
+    website: https://pegasys.tech/
+    company: Pegasys
+    issues: https://github.com/PegaSysEng/teku/issues
   google:
-    site_verification: '<TO BE DEFINED>'
+    site_verification: 'za1cLzyS6LXDGO-pMzvfQdYTZ0Zc67uZtY0asA4YXZ0'
     tag_manager: 'GTM-5SNB3FJ'
   search:
     language: 'en'
@@ -48,9 +50,8 @@ theme:
   palette:
     primary: deep-orange
     accent: amber
-  favicon: favicon.ico
-  logo:
-    icon: テク
+  logo: 'images/logo.svg'
+  favicon: 'images/favicon.svg'
 nav:
     - How to:
         - Get started with Teku:
@@ -79,6 +80,8 @@ markdown_extensions:
       permalink: 
       toc_depth: 4
   - codehilite
+  - pymdownx.tabbed
+  - pymdownx.superfences
   - markdown_include.include:
       base_path: docs
   - admonition
@@ -94,11 +97,6 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
-  # pymdownx.superfences is deprecated.
-  # It must be replaced with pymdownx.tabbed but it requires new CSS
-  # TODO with material 5 update
-  - pymdownx.superfences:
-      legacy_tab_classes: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
@@ -106,7 +104,9 @@ markdown_extensions:
   - smarty
 
 plugins:
-  - search
+  - search:
+      lang: 'en'
+      separator: '[\s]+'
   - markdownextradata
   - git-revision-date-localized:
       locale: en

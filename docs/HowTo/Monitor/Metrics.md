@@ -25,20 +25,22 @@ To configure Prometheus and run with Teku:
 1. Configure Prometheus to poll Teku. For example, add the following yaml fragment to the
    `scrape_configs` block of the `prometheus.yml` file:
 
-    ```yml tab="Example"
-    global:
-      scrape_interval: 15s
-    scrape_configs:
-      - job_name: "prometheus"
-        static_configs:
-        - targets: ["localhost:9090"]
-      - job_name: "teku-dev"
-        scrape_timeout: 10s
-        metrics_path: /metrics
-        scheme: http
-        static_configs:
-        - targets: ["localhost:8008"]
-    ```
+    !!! example "Example configuration"
+
+        ```yml
+        global:
+          scrape_interval: 15s
+        scrape_configs:
+          - job_name: "prometheus"
+            static_configs:
+            - targets: ["localhost:9090"]
+          - job_name: "teku-dev"
+            scrape_timeout: 10s
+            metrics_path: /metrics
+            scheme: http
+            static_configs:
+            - targets: ["localhost:8008"]
+        ```
 
 1. Start Teku with the
    [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option. To start a
@@ -58,7 +60,7 @@ To configure Prometheus and run with Teku:
 
 1. In another terminal, run Prometheus specifying the `prometheus.yml` file:
 
-    ```bash tab="Example"
+    ```bash
     prometheus --config.file=prometheus.yml
     ```
 

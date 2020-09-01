@@ -27,7 +27,7 @@ docker image instead of the command line options.
 !!! example
 
     ```bash
-    docker run -p 9000:9000 -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 -e TEKU_LOG_FILE=/var/lib/teku/LOG --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords
+    docker run -p 9000:9000 -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 -e TEKU_LOG_FILE=/var/lib/teku/LOG --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords
     ```
 
 ## Allow multiple users to run the Docker image
@@ -42,7 +42,7 @@ docker container.
 !!! example
 
     ```bash
-    docker run -p 9000:9000 --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords
+    docker run -p 9000:9000 --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords
     ```
 
 ## Exposing ports
@@ -58,13 +58,13 @@ specified using:
 To run Teku exposing local ports for access:
 
 ```bash
-docker run -p <localportP2P>:30303 -p <localportREST>:5051 pegasyseng/teku:develop --eth1-deposit-contract-address=<contractAddress> --eth1-endpoint=<URL> --validator-keys=<KEY_DIR>:<PASS_DIR> --rest-api-enabled=true
+docker run -p <localportP2P>:30303 -p <localportREST>:5051 pegasyseng/teku:develop --network=<NETWORK> --eth1-endpoint=<URL> --validator-keys=<KEY_DIR>:<PASS_DIR> --rest-api-enabled=true
 ```
 
 !!! example
 
     ```
-    docker run -p 30303:30303 -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords --rest-api-enabled=true
+    docker run -p 30303:30303 -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords --rest-api-enabled=true
     ```
 
 ## Run Teku using Docker Compose
@@ -76,6 +76,7 @@ docker run -p <localportP2P>:30303 -p <localportREST>:5051 pegasyseng/teku:devel
 The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku node.
 
 !!! note
+
     The example assumes the validators specified in [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) has already
     been registered in the Ethereum 1.0 deposit contract.
 
@@ -89,32 +90,34 @@ services:
 
   besu_node:
     image: hyperledger/besu:latest
-    command: ["--genesis-file=/opt/besu/data/depositContractGenesis.json",
+    command: ["--network=goerli",
               "--data-path=/opt/besu/data/data",
               "--host-allowlist=*",
+              "--sync-mode=FAST",
               "--rpc-http-enabled",
               "--rpc-http-cors-origins=*",
-              "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3",
-              "--miner-enabled=true",
-              "--miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73",
-              "--min-gas-price=0"]
+              "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
     volumes:
       - ./besu:/opt/besu/data
     ports:
+      # Map the p2p port(30303) and RPC HTTP port(8545)
       - "8545:8545"
       - "30303:30303"
 
   teku_node:
     image: pegasyseng/teku:develop
-    command: ["--eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd",
+    command: ["--network=medalla",
               "--eth1-endpoint=http://besu_node:8545",
               "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
               "--p2p-port=9000",
               "--rest-api-enabled=true",
               "--rest-api-docs-enabled=true"]
+    depends_on:
+      - besu_node
     volumes:
       - ./teku:/opt/teku/data
     ports:
+      # Map the p2p port(9000) and REST API port(5051)
       - "9000:9000"
       - "5051:5051"
 ```
