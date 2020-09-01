@@ -117,11 +117,6 @@ On the command line:
 * Specify the location in which to create the encrypted validator and withdrawal key files using
     [`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path_1).
 
-    !!! note
-        To create an unencryped file, set
-        [`--encrypted-keystore-enabled`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-enabled_1)
-        to `false`. However, this is not recommended in production.
-
 * Specify the password of the encrypted validator and withdrawal key files using
     [`--encrypted-keystore-validator-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-validator-password-file_1)
     and [`--encrypted-keystore-withdrawal-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-withdrawal-password-file_1).
@@ -149,24 +144,34 @@ It may take more than 8 hours for a deposit to become active.
 
 ### Start the validator
 
-Run Teku and specify the validator key file [created earlier](#generate-the-validator-and-send-the-deposit).
+Run Teku and specify the validator key file [created earlier](#generate-the-validator-and-send-the-deposit),
+and the text file containing the password to decrypt the validator key.
 
 !!! example
 
     ```bash
     teku --network=medalla --eth1-endpoint=http://localhost:8545 \
-    --validators-key-files=validator_key/validator_888eeef/validator_888eeef.json \
-    --validators-key-password-files=./medalla/password.txt \
+    --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
     ```
 
-!!! tip
+If you have multiple validator key files, place the key files and accompanying passwords in one or
+more directories. Use [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) to
+specify the directory to load the keys and passwords from.
 
-    If you have multiple validator key files, list them comma-separated. You
-    must also list one password file per validator key file even if it is the
-    same. Using a [configuration file](../Configure/Use-Configuration-File.md)
-    might be easier when managing many validators.
+When specifying a directory, ensure the key file and password file have identical names, with the
+appropriate extensions. For example, a key (`keys/validator1.json`) matches the password
+(`passwords/validator1.txt`).
+
+!!! example
+
+    ```bash
+    teku --network=medalla --eth1-endpoint=http://localhost:8545 \
+    --validator-keys=validator/keys:validator/passwords \
+    --rest-api-enabled=true --rest-api-docs-enabled=true \
+    --metrics-enabled
+    ```
 
 Once the validator is activated, view it on the beacon chain explorer at
 `https://medalla.beaconcha.in/validator/<validatorPublicKey>`.
@@ -181,15 +186,6 @@ You can run a Teku beacon chain node on a network without any validators.
     teku --network=medalla --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
 
-!!! note
-
-    If you plan to run only a beacon node for Medalla, it is best to wait until
-    after the genesis event on August the 4th, 2020 at 1300 UTC. This is
-    because nothing happens on the network until then, and you require access to an Ethereum 1.0
-    node.
-
-    After Genesis, an Ethereum 1.0 node is no longer required if you are not running validators.
-
 ## Add a beacon chain client to Eth2stats
 
 You can add the beacon chain node to [Eth2stats](https://eth2stats.io/add-node) for monitoring.
@@ -197,11 +193,6 @@ You can add the beacon chain node to [Eth2stats](https://eth2stats.io/add-node) 
 Ensure you enable metrics using the
 [`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option when
 starting Teku.
-
-!!! note
-
-    The Medalla testnet has not been added to Eth2Stats at the time of writing.
-    Keep an eye on it so you can add your node later.
 
 ## Finding help
 
