@@ -1180,6 +1180,51 @@ The default is 5051.
 
 Displays the version and exits.
 
+### validator-keys
+
+=== "Syntax"
+
+    ```bash
+    --validator-keys=<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>[,<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>...]...
+    ```
+
+=== "Command Line for Directory"
+
+    ```bash
+    --validator-keys=/home/validator/keys:home/validator/passwords
+    ```
+
+=== "Command Line for File"
+
+    ```bash
+    --validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATOR_KEYS=/home/validator/keys:home/validator/passwords
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validator-keys: "/home/validator/keys:home/validator/passwords"
+    ```
+
+Directory or file to load the encrypted keystore file(s) and associated password file(s) from.
+Keystore files must use the `.json` file extension, and password files must use the `.txt` file
+extension.
+
+When specifying directories, Teku expects to find identically named
+keystore and password files. For example `validator_217179e.json` and `validator_217179e.txt`.
+
+When specifying file names, Teku expects that the files exist.
+
+!!! note
+
+    The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
+
 ### validators-external-signer-public-keys
 
 === "Syntax"
@@ -1293,99 +1338,6 @@ URL on which the external signer (for example, Eth2Signer) is running.
 Graffiti to add when creating a block. Gets converted to bytes and padded to Bytes32.
 
 The same graffiti is used for all validators started with this beacon node.
-
-### validators-key-files
-
-=== "Syntax"
-
-    ```bash
-    --validators-key-files=<FILENAME>[,<FILENAME>...]...
-    ```
-
-=== "Command Line"
-
-    ```bash
-    --validators-key-files=validator_0xa245...58cf.json,validator_0xb880...1f09.json
-    ```
-
-=== "Environment Variable"
-
-    ```bash
-    TEKU_VALIDATORS_KEY_FILES=validator_0xa245...58cf.json,validator_0xb880...1f09.json
-    ```
-
-=== "Configuration File"
-
-    ```bash
-    validators-key-files: ["validator_0xa245...58cf.json","validator_0xb880...1f09.json"]
-    ```
-
-List of encrypted BLS12-381 keystore files to load the validator keys from.
-
-The keystore files can be created when generating validators using the
-`teku validator generate --keys-output-path` option.
-
-### validators-key-password-files
-
-=== "Syntax"
-
-    ```bash
-    --validators-key-password-files=<PASSWORDFILE>[,<PASSWORDFILE...]...
-    ```
-
-=== "Command Line"
-
-    ```bash
-    validators-key-password-files=/home/me/me_node/password1.txt,/home/me/me_node/password2.txt
-    ```
-
-=== "Environment Variable"
-
-    ```bash
-    TEKU_VALIDATORS_KEY_PASSWORD_FILES=/home/me/me_node/password1.txt,/home/me/me_node/password2.txt
-    ```
-
-=== "Configuration File"
-
-    ```bash
-    validators-key-password-files: ["home/me/me_node/password1.txt","home/me/me_node/password2.txt"]
-    ```
-
-List of plain text files containing the password to decrypt the BLS12-381 keystore files.
-
-Each keystore file requires its own password file. The password file must match
-the list position of the keystore file listed using [`--validators-key-files`](#validators-key-files).
-
-### validators-unencrypted-key-file
-
-=== "Syntax"
-
-    ```bash
-    --validators-unencrypted-key-file=<PATH_TO_FILE>
-    ```
-
-=== "Command Line"
-
-    ```bash
-    --validators-unencrypted-key-file=/home/me/me_node/key.
-    ```
-
-=== "Environment Variable"
-
-    ```bash
-    TEKU_VALIDATORS_UNENCRYPTED_KEY_FILE=/home/me/me_node/key.yaml
-    ```
-
-=== "Configuration File"
-
-    ```bash
-    validators-unencrypted-key-file: "/home/me/me_node/key.yaml"
-    ```
-
-Path to the YAML-formatted file to load unencrypted validator keys from.
-
-A YAML-formatted file that stores unencrypted validator keys can be generated using
-the `teku validator generate --keys-output-path` option.
 
 <!-- links -->
 [Infura]: https://infura.io/
