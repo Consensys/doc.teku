@@ -42,6 +42,8 @@ The following rules apply to the file:
     `lastSignedAttestationSourceEpoch`, and the attestation target epoch is greater than
     `lastSignedAttestationTargetEpoch`.
 
+These rules guarantee the validator does not sign anything that is slashable.
+
 ## Migrate the slash protection file
 
 ### Between Teku nodes
