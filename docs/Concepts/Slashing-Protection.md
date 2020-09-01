@@ -54,7 +54,7 @@ as well.
 For example to move the file from node A to node B:
 
 * Stop Teku node A and confirm the process has fully exited and won't be restarted.
-* Remove the the validator key from node A, for example from the
+* Remove the validator key from node A, for example from the
     [`--validators-key-files`](../Reference/CLI/CLI-Syntax.md#validators-key-file) option.
 * Copy the file from `<nodeA-data-path>/validators/slashprotection/` to
     `<nodeB-data-path>/validators/slashprotection/`.
