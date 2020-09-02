@@ -676,6 +676,24 @@ Validator's private signing key. Cannot be used with
 
 Enables verbose output that includes details of the registered validator. Defaults to `true`.
 
+#### withdrawal-keystore-file
+
+=== "Syntax"
+
+    ```bash
+    teku validator register --withdrawal-keystore-file=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    teku validator register --withdrawal-keystore-file=/home/validator/withdrawal/withdrawal_8804460.json
+    ```
+
+Path to the encrypted keystore file containing the validator's withdrawal key.
+
+The public withdrawal key is stored unencrypted in the keystore file.
+
 #### withdrawal-public-key
 
 === "Syntax"
