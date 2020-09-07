@@ -680,7 +680,7 @@ The default is `8008`.
     ```
 
 Predefined network configuration. Accepts a predefined network name, or file path or URL
-to a YAML configuration file. The default is `altona`.
+to a YAML configuration file. The default is `medalla`.
 
 Possible values are:
 
