@@ -84,5 +84,5 @@ Start the Teku node with the validator key.
 <!-- links -->
 [YAML file is stored per validator]: #validator-slash-protection-file
 [create a new slash protection file]: #validator-slash-protection-file
-[import]: ../Reference/CLI/CLI-Subcommands.md#import
-[export]: ../Reference/CLI/CLI-Subcommands.md#export
+[import]: ../HowTo/Prevent-Slashing.md#importing-a-slashing-protection-file
+[export]: ../HowTo/Prevent-Slashing.md#exporting-a-slashing-protection-file
