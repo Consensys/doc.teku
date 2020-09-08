@@ -66,7 +66,6 @@ For example, to manually move the file from node A to node B:
 * Start node B with the migrated validator key.
 * Restart node A if required.
 
-
 ### From a non-Teku node
 
 If moving a validator from a different client to Teku, you can either:

@@ -744,7 +744,7 @@ The path to the Teku data directory. The default directory is OS dependent:
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
 * Windows: `%localappdata%\teku`.
 
-####  from
+#### from
 
 === "Syntax"
 
@@ -760,11 +760,11 @@ The path to the Teku data directory. The default directory is OS dependent:
 
 The file to import the slashing protection database from.
 
-Teku imports the file to the `<data-path>/validators/slashprotection/` directory in the format 
+Teku imports the file to the `<data-path>/validators/slashprotection/` directory in the format
 `<validator-pubkey>.yml` (with no 0x prefix).
 
-`<data-path>` is defined using [`--data-path`](#data-path)
-    
+`<data-path>` is defined using [`--data-path`](#data-path).
+
 ### export
 
 Exports the slashing protection database in [Minimal] format.
