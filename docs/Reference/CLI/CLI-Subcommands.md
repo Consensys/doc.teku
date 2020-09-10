@@ -755,7 +755,7 @@ The path to the Teku data directory. The default directory is OS dependent:
 === "Command Line"
 
     ```bash
-    teku slashing-protection import --from=/home/slash/b845...23bed.yml
+    teku slashing-protection import --from=/home/slash/b845...23bed.json
     ```
 
 The file to import the slashing protection database from.
@@ -800,7 +800,7 @@ The path to the Teku data directory. The default directory is OS dependent:
 === "Command Line"
 
     ```bash
-    teku slashing-protection export --to=/home/slash/b845...23bed.yml
+    teku slashing-protection export --to=/home/slash/b845...23bed.json
     ```
 
 The file to export the slashing protection database to.

@@ -21,7 +21,7 @@ Teku supports files using the [Minimal] or [Complete] interchange format when im
 !!! example
 
     ```bash
-    teku slashing-protection import --data-path=/home/me/me_node --from=/home/slash/validatorNode1.yml
+    teku slashing-protection import --data-path=/home/me/me_node --from=/home/slash/slashing-interchange-format.json
     ```
 
 In the command line:
@@ -41,7 +41,7 @@ node. Teku exports the slashing protection file in the [Minimal] format.
 !!! example
 
     ```bash
-    teku slashing-protection export --data-path=/home/me/me_node --to=/home/slash/validatorNode1.yml
+    teku slashing-protection export --data-path=/home/me/me_node --to=/home/slash/slashing-interchange-format-minimal.json
     ```
 
 In the command line:
