@@ -4,7 +4,7 @@ title: Teku memory management
 
 # Managing memory
 
-Manage Teku's Java Virtual Machine (JVM) memory requirements by setting a maximum heap size
+Manage Teku's Java Virtual Machine (JVM) memory usage by setting a maximum heap size
 using the `JAVA_OPTS` environment variable.
 
 We recommend setting the maximum heap size to 2GB if you have less than 8GB of RAM. This results in
