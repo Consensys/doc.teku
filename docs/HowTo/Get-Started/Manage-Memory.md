@@ -8,15 +8,17 @@ Manage Teku's Java Virtual Machine (JVM) memory requirements by setting a maximu
 using the `JAVA_OPTS` environment variable.
 
 We recommend setting the maximum heap size to 2GB if you have less than 8GB of RAM. This results in
-an approximate process size of 3.5GB (on Linux)
+an approximate process size of 3.5GB (on Linux).
 
-=== "Use the environment variable"
+Set the heap size using the environment variable, or using the command line when starting Teku.
+
+=== "Environment variable"
 
     ```bash
     export JAVA_OPTS=-Xmx2g
     ```
 
-=== "Use the command line"
+=== "Command line"
 
     ```bash
     JAVA_OPTS=-Xmx2g ./teku [options]
