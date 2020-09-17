@@ -35,5 +35,5 @@ The command line:
 
 <!--links-->
 [Web3Signer]: https://docs.web3signer.consensys.net/
-[Signing key configuration files]: https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/
+[Signing key configuration files]: https://docs.web3signer.consensys.net/HowTo/Use-Signing-Keys/
 [signing key configuration file]: https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/
