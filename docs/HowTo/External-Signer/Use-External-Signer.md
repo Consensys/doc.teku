@@ -1,14 +1,14 @@
 ---
-description: Use Eth2Signer for signing
+description: Use Web3Signer for signing
 ---
 
 # Use an external signer
 
-Teku supports the [Eth2Signer] external signing client.
+Teku supports the [Web3Signer] external signing client.
 
 **Prerequisites**:
 
-* Eth2Signer installed and running.
+* Web3Signer installed and running.
 * [Signing key configuration files].
 
 ## Start Teku
@@ -24,9 +24,9 @@ teku --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd \
 
 The command line:
 
-* Specifies the validator public keys for which Eth2Signer signs attestations and blocks using
+* Specifies the validator public keys for which Web3Signer signs attestations and blocks using
     [`--validators-external-signer-public-keys`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-public-keys).
-* Specifies the url of the Eth2Signer client using
+* Specifies the url of the Web3Signer client using
     [`--validators-external-signer-url`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-url).
 
 !!! note
@@ -34,6 +34,6 @@ The command line:
     [`--validators-external-signer-public-keys`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-public-keys).
 
 <!--links-->
-[Eth2Signer]: https://doc.eth2signer.pegasys.tech/en/latest/
-[Signing key configuration files]: https://doc.eth2signer.pegasys.tech/en/latest/HowTo/Use-Signing-Keys/
-[signing key configuration file]: https://doc.eth2signer.pegasys.tech/en/latest/HowTo/Use-Signing-Keys/
+[Web3Signer]: https://docs.web3signer.consensys.net/
+[Signing key configuration files]: https://docs.web3signer.consensys.net/HowTo/Use-Signing-Keys/
+[signing key configuration file]: https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/
