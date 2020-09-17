@@ -34,6 +34,6 @@ The command line:
     [`--validators-external-signer-public-keys`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-public-keys).
 
 <!--links-->
-[Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
+[Web3Signer]: https://docs.web3signer.consensys.net/
 [Signing key configuration files]: https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/
 [signing key configuration file]: https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/
