@@ -31,7 +31,7 @@ In the command line:
 * [`--from`](../Reference/CLI/CLI-Subcommands.md#from) specifies the location of the
     slashing-protection file.
 
-Teku imports the file to the `/home/me/me_node/data/validators/slashprotection/` directory.
+In this example, Teku imports the file to the `/home/me/me_node/data/validators/slashprotection/` directory.
 
 ## Exporting a slashing-protection file
 

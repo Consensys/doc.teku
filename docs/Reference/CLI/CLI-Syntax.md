@@ -1251,7 +1251,7 @@ When specifying file names, Teku expects that the files exist.
     validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
     ```
 
-List of validator public keys used by an external signer (for example, Eth2Signer).
+List of validator public keys used by an external signer (for example, Web3Signer).
 
 ### validators-external-signer-timeout
 
@@ -1307,7 +1307,7 @@ Timeout in milliseconds for requests to the external signer. Default is 1000.
     validators-external-signer-url: "http://localhost:9000"
     ```
 
-URL on which the external signer (for example, Eth2Signer) is running.
+URL on which the external signer (for example, Web3Signer) is running.
 
 ### validators-graffiti
 
