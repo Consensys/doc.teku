@@ -1339,6 +1339,37 @@ Graffiti to add when creating a block. Gets converted to bytes and padded to Byt
 
 The same graffiti is used for all validators started with this beacon node.
 
+### validators-keystore-locking-enabled
+
+=== "Syntax"
+
+    ```bash
+    --validators-keystore-locking-enabled=<BOOLEAN>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-keystore-locking-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_KEYSTORE_LOCKING_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-keystore-locking-enabled: true
+    ```
+
+Locks the keystore files listed in [`--validator-keys`](#validator-keys). Defaults to `true`.
+
+Attempts to lock all keystores in a directory if a directory is specified in
+[`--validator-keys`](#validator-keys).
+
 <!-- links -->
 [Infura]: https://infura.io/
 [Teku metrics]: ../../HowTo/Monitor/Metrics.md
