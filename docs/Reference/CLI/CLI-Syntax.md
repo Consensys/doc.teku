@@ -1365,7 +1365,10 @@ The same graffiti is used for all validators started with this beacon node.
     validators-keystore-locking-enabled: true
     ```
 
-Locks the keystore files that were successfully loaded. Defaults to `true`.
+Locks the keystore files listed in [`--validator-keys`](#validator-keys). Defaults to `true`.
+
+Attempts to lock all keystores in a directory if a directory is specified in
+[`--validator-keys`](#validator-keys).
 
 <!-- links -->
 [Infura]: https://infura.io/
