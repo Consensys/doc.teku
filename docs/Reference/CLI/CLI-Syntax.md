@@ -690,6 +690,7 @@ Possible values are:
 | `mainnet` | Eth 2.0 | Production  | Intended main network that targets future mainnet configuration.    |
 | `medalla` | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
 | `minimal` | Eth 2.0 | Test        | Used for local testing and development networks.                    |
+| `spadina` | Eth 2.0 | Test        | Ephemeral multi-client testnet maintained by the Goerli testnet initiative.   |
 | `topaz`   | Eth 2.0 | Test        | Single-client testnet maintained by the Prysmatic Labs.             |
 | `witti`   | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
 
@@ -1373,4 +1374,3 @@ Attempts to lock all keystores in a directory if a directory is specified in
 <!-- links -->
 [Infura]: https://infura.io/
 [Teku metrics]: ../../HowTo/Monitor/Metrics.md
-

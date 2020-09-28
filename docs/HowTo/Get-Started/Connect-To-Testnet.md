@@ -8,9 +8,12 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 
 !!! important
 
-    This example connects to the [Medalla testnet](https://github.com/goerli/medalla). Networks can
-    experience stability issues and are prone to regular resets. We recommend you regularly
-    check network and client documentation for updates.
+    This example connects to the [Medalla testnet](https://github.com/goerli/medalla). If connecting
+    to a different testnet (for example Spedina), update the [`--network`](../../Reference/CLI/CLI-Syntax.md#network)
+    option in the examples accordingly.
+
+    Networks can experience stability issues and are prone to regular resets. We recommend you
+    regularly check network and client documentation for updates.
 
 **Prerequisites**:
 
