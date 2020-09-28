@@ -27,7 +27,7 @@ docker image instead of the command line options.
 !!! example
 
     ```bash
-    docker run -p 9000:9000 -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 -e TEKU_LOG_FILE=/var/lib/teku/LOG --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validators-key-files=var/lib/teku/validator_keys.yaml --validators-key-password-files=/var/lib/teku/password.txt
+    docker run -p 9000:9000 -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 -e TEKU_LOG_FILE=/var/lib/teku/LOG --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords
     ```
 
 ## Allow multiple users to run the Docker image
@@ -42,7 +42,7 @@ docker container.
 !!! example
 
     ```bash
-    docker run -p 9000:9000 --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validators-key-files=var/lib/teku/validator_keys.yaml --validators-key-password-files=/var/lib/teku/password.txt
+    docker run -p 9000:9000 --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords
     ```
 
 ## Exposing ports
@@ -58,13 +58,13 @@ specified using:
 To run Teku exposing local ports for access:
 
 ```bash
-docker run -p <localportP2P>:30303 -p <localportREST>:5051 pegasyseng/teku:develop --network=<NETWORK> --eth1-endpoint=<URL> --validators-key-files=<FILE> --validators-key-password-files=<FILE> --rest-api-enabled=true
+docker run -p <localportP2P>:30303 -p <localportREST>:5051 pegasyseng/teku:develop --network=<NETWORK> --eth1-endpoint=<URL> --validator-keys=<KEY_DIR>:<PASS_DIR> --rest-api-enabled=true
 ```
 
 !!! example
 
     ```
-    docker run -p 30303:30303 -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validators-key-files=/var/lib/teku/validator_keys.yaml --validators-key-password-files=/var/lib/teku/password.txt --rest-api-enabled=true
+    docker run -p 30303:30303 -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords --rest-api-enabled=true
     ```
 
 ## Run Teku using Docker Compose
@@ -76,7 +76,9 @@ docker run -p <localportP2P>:30303 -p <localportREST>:5051 pegasyseng/teku:devel
 The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku node.
 
 !!! note
-    The example assumes the validators specified in [`--validators-key-files`](../../Reference/CLI/CLI-Syntax.md#validators-key-files) has already been registered in the network's Ethereum 1.0 deposit contract.
+
+    The example assumes the validators specified in [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) has already
+    been registered in the Ethereum 1.0 deposit contract.
 
 Run `docker-compose up` in the directory containing the `docker-compose.yml` file
 to start the container.
@@ -106,8 +108,8 @@ services:
     image: pegasyseng/teku:develop
     command: ["--network=medalla",
               "--eth1-endpoint=http://besu_node:8545",
-              "--validators-key-files=/opt/teku/data/keystore.json",
-              "--validators-key-password-files=/opt/teku/data/password.txt",
+              "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
+              "--p2p-port=9000",
               "--rest-api-enabled=true",
               "--rest-api-docs-enabled=true"]
     depends_on:

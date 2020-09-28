@@ -11,7 +11,7 @@
 
 # Project information
 site_name: Teku
-site_url: https://docs.teku.pegasys.tech/en/latest/
+site_url: https://docs.eth2signer.consensys.net/
 site_description: Teku Ethereum 2 client documentation.
 site_author: Teku community
 copyright: Teku and its documentation are licensed under Apache 2.0 license.
@@ -58,6 +58,7 @@ nav:
             - Install binary distribution: HowTo/Get-Started/Install-Binaries.md
             - Build from source: HowTo/Get-Started/Build-From-Source.md
             - Run Teku from Docker image: HowTo/Get-Started/Run-Docker-Image.md
+            - Manage Memory: HowTo/Get-Started/Manage-Memory.md
             - Run a local testnet: HowTo/Get-Started/Start.md
             - Connect to a testnet: HowTo/Get-Started/Connect-To-Testnet.md
         - External signing:
@@ -67,6 +68,9 @@ nav:
           - Configure logging: HowTo/Monitor/Logging.md
         - Configure:
             - Specify options in a configuration file: HowTo/Configure/Use-Configuration-File.md
+        - Prevent slashing offences: HowTo/Prevent-Slashing.md
+    - Concepts:
+        - Slashing protection: Concepts/Slashing-Protection.md
     - Reference:
         - Teku command line:
           - Options: Reference/CLI/CLI-Syntax.md
