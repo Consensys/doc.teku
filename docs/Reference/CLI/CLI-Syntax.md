@@ -1390,4 +1390,3 @@ the `teku validator generate --keys-output-path` option.
 <!-- links -->
 [Infura]: https://infura.io/
 [Teku metrics]: ../../HowTo/Monitor/Metrics.md
-
