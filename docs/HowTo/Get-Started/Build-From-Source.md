@@ -54,4 +54,3 @@ bin/teku --help
     To view the list of available Gradle tasks, run `./gradlew tasks`
 
 Continue with [Starting Teku](Start.md).
-

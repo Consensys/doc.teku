@@ -11,9 +11,6 @@ executors:
   node_executor:
     docker:
       - image: circleci/node:12.9.0-stretch
-  ruby_executor:
-    docker:
-      - image: circleci/ruby:2-stretch
 
 commands:
   prepare:
@@ -45,7 +42,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip install -r ./common/build_tools/requirements.txt
+            pip install -q -r ./common/build_tools/requirements.txt
       - save_cache:
           paths:
             - ./venv
@@ -80,7 +77,7 @@ jobs:
       - prepare
       - restore_cache:
           keys:
-            - deps-{{ checksum "./common/build_tools/package.json" }}
+            - deps-{{ checksum "./common/build_tools/package-lock.json" }}
       - run:
           name: Install dependencies
           command: |
@@ -93,29 +90,36 @@ jobs:
       - save_cache:
           paths:
             - ./node_modules
-          key: deps-{{ checksum "./common/build_tools/package.json" }}
+          key: deps-{{ checksum "./common/build_tools/package-lock.json" }}
       - store_artifacts:
           path: ./linkchecker.out
           destination: ./linkchecker.out
 
   markdownlint:
-    executor: ruby_executor
+    executor: node_executor
     steps:
       - prepare
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "./common/build_tools/package-lock.json" }}
       - run:
           name: Install dependencies
           command: |
-            gem install mdl
+            npm ci
       - run:
           shell: /bin/bash #this is a non breaking command so it will always return success
           name: Run Markdownlint info checks
           command: |
-            mdl --ignore-front-matter --style ./common/build_tools/markdownlint/info_style.rb . | tee ./markdownlint_info.out
+            npm run test:markdown:info
       - run:
           name: Run Markdownlint
           command: |
-            mdl --ignore-front-matter --style ./common/build_tools/markdownlint/style.rb . | tee ./markdownlint.out
+            npm run test:markdown
       - notify
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: deps-{{ checksum "./common/build_tools/package-lock.json" }}
       - store_artifacts:
           path: ./markdownlint.out
           destination: ./markdownlint.out
