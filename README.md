@@ -9,7 +9,7 @@ description: README file.
 
 [Teku] is Pegasys Ethereum 2.0 client.
 
-The software sources are hosted in https://github.com/PegaSysEng/teku
+The software sources are hosted in <https://github.com/PegaSysEng/teku>
 
 This repository only contains the sources for [Teku documentation website hosted by ReadTheDocs].
 
