@@ -22,7 +22,7 @@ To use Prometheus with Teku, install the
 
 To configure Prometheus and run with Teku:
 
-1. Configure Prometheus to poll Teku. For example, add the following yaml fragment to the
+1. Configure Prometheus to poll Teku. For example, add the following YAML fragment to the
    `scrape_configs` block of the `prometheus.yml` file:
 
     !!! example "Example configuration"
