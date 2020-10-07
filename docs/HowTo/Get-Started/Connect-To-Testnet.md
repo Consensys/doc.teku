@@ -9,7 +9,7 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 !!! important
 
     This example connects to the [Medalla testnet](https://github.com/goerli/medalla). If connecting
-    to a different testnet (for example Spedina), update the [`--network`](../../Reference/CLI/CLI-Syntax.md#network)
+    to a different testnet (for example Zinken), update the [`--network`](../../Reference/CLI/CLI-Syntax.md#network)
     option in the examples accordingly.
 
     Networks can experience stability issues and are prone to regular resets. We recommend you
@@ -49,9 +49,11 @@ The steps to run an Ethereum 2.0 validator on a testnet are:
     contract](#generate-the-validator-and-send-the-deposit).
 
     !!! note
-        You can use the Medalla [Launchpad] to generate your keys and send the deposits, or you can
-        use Teku. For convenience, we recommend using Teku if generating more than approximately 10
-        validators.
+        For the Zinken testnet we recommend you use the [Zinken Launchpad] to generate the keys and
+        send deposits.
+
+        For the Medalla testnet you can use the [Medalla Launchpad] to generate your keys and send
+        the deposits, or you can use Teku.
 
 1. [Start Teku with the validator key](#start-the-validator).
 
@@ -90,9 +92,11 @@ in a [password protected V3 Keystore file].
 
 !!! tip
 
-    For small numbers of validators, we recommend using the Medalla [Launchpad]
+    For small numbers of validators, we recommend using the [Medalla Launchpad]
     to generate your keys and send the deposits. For more than around 10
     validators, the workflow below is more convenient.
+
+    For the Zinken testnet we recommend you use the [Zinken Launchpad] only.
 
 Teku allows you to generate validator keys and send deposits to the deposit contract.
 
@@ -215,3 +219,5 @@ starting Teku.
 [password protected V3 Keystore file]: https://docs.ethsigner.pegasys.tech/en/latest/Tutorials/Start-EthSigner/#create-password-and-key-files
 [Infura]: https://infura.io/
 [Launchpad]: https://medalla.launchpad.ethereum.org/
+[Medalla Launchpad]: https://medalla.launchpad.ethereum.org/
+[Zinken Launchpad]: https://zinken.launchpad.ethereum.org/
