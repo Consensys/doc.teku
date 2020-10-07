@@ -55,7 +55,6 @@ The steps to run an Ethereum 2.0 validator on a testnet are:
         For the Medalla testnet you can use the [Medalla Launchpad] to generate your keys and send
         the deposits, or you can use Teku.
 
-
 1. [Start Teku with the validator key](#start-the-validator).
 
 ### Sync the Ethereum 1.0 network
