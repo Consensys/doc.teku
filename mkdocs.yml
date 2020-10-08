@@ -11,7 +11,7 @@
 
 # Project information
 site_name: Teku
-site_url: https://docs.eth2signer.consensys.net/
+site_url: https://docs.teku.consensys.net/
 site_description: Teku Ethereum 2 client documentation.
 site_author: Teku community
 copyright: Teku and its documentation are licensed under Apache 2.0 license.
