@@ -45,17 +45,12 @@ The steps to run an Ethereum 2.0 validator on a testnet are:
 
 1. [Fund the Ethereum 1.0 deposit account](#load-the-deposit-account-with-eth).
 
-1. [Generate the validator key and send the deposit to the deposit
-    contract](#generate-the-validator-and-send-the-deposit).
+1. [Generate the validator keys and send the deposit to the deposit
+    contract](#generate-the-validators-and-send-the-deposits).
 
-    !!! note
-        For the Zinken testnet we recommend you use the [Zinken Launchpad] to generate the keys and
-        send deposits.
+1. [Create a password file for each validator key](#create-a-password-file-for-each-validator-key).
 
-        For the Medalla testnet you can use the [Medalla Launchpad] to generate your keys and send
-        the deposits, or you can use Teku.
-
-1. [Start Teku with the validator key](#start-the-validator).
+1. [Start Teku with the validator keys](#start-the-validator).
 
 ### Sync the Ethereum 1.0 network
 
@@ -83,76 +78,30 @@ requires 32 Goerli ETH per validator.
     fund the account. You can also request Goerli testnet ETH on the Medalla
     Discord channel.
 
-If you use the [Launchpad] in the next step, then Metamask can handle your
-Ethereum 1.0 account. Otherwise you will need the private key of the account
-when sending the deposit to the deposit contract. The private key can be stored
-in a [password protected V3 Keystore file].
+### Generate the validators and send the deposits
 
-### Generate the validator and send the deposit
+Use the [Medalla Launchpad] to guide you through a step-by-step process to generate your keys and
+send the deposits.
 
-!!! tip
+!!! note
+    Remember the passwords that you used to create the validator keys, because you need it to [create
+    the validator password files](#create-a-password-file-for-each-validator-key).
 
-    For small numbers of validators, we recommend using the [Medalla Launchpad]
-    to generate your keys and send the deposits. For more than around 10
-    validators, the workflow below is more convenient.
+### Create a password file for each validator key
 
-    For the Zinken testnet we recommend you use the [Zinken Launchpad] only.
-
-Teku allows you to generate validator keys and send deposits to the deposit contract.
+For each validator key that you create, you need to create a text file containing the password
+to decrypt the key. The password file must have the same name as the key, but use
+the `.txt` extension.
 
 !!! example
 
-    ```bash
-    teku validator generate-and-register --network=medalla \
-    --eth1-endpoint=http://localhost:8545 --keys-output-path=validator_key \
-    --encrypted-keystore-validator-password-file=./medalla/password.txt \
-    --encrypted-keystore-withdrawal-password-file=./medalla/password.txt \
-    --eth1-keystore-file=./medalla/walletKey --eth1-keystore-password-file=./medalla/password.txt \
-    --number-of-validators=1
-    ```
-
-On the command line:
-
-* Specify the network on which to generate the validator using
-    [`--network`](../../Reference/CLI/CLI-Subcommands.md#network).
-
-* Specify the endpoint for the Ethereum 1.0 network using
-    [`--eth1-endpoint`](../../Reference/CLI/CLI-Subcommands.md#eth1-endpoint). If using a
-    cloud-based service like [Infura], then set the endpoint to the supplied URL. For example.
-    `https://goerli.infura.io/v3/<Project_ID>`
-
-* Specify the location in which to create the encrypted validator and withdrawal key files using
-    [`--keys-output-path`](../../Reference/CLI/CLI-Subcommands.md#keys-output-path_1).
-
-* Specify the password of the encrypted validator and withdrawal key files using
-    [`--encrypted-keystore-validator-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-validator-password-file_1)
-    and [`--encrypted-keystore-withdrawal-password-file`](../../Reference/CLI/CLI-Subcommands.md#encrypted-keystore-withdrawal-password-file_1).
-    If not set, then manually enter a password at the command line when prompted.
-
-* Specify the encrypted Ethereum 1.0 deposit account private key
-    using [`--eth1-keystore-file`](../../Reference/CLI/CLI-Subcommands.md#eth1-keystore-file).
-
-    !!! note
-        Use [`--eth1-private-key`](../../Reference/CLI/CLI-Subcommands.md#eth1-private-key) to specify
-        the private key on the command line instead. However, this is insecure and therefore not
-        recommended.
-
-* Specify the file containing the password of the V3 keystore using
-    [`--eth1-keystore-password-file`](../../Reference/CLI/CLI-Subcommands.md#eth1-keystore-password-file).
-
-* Specify the number of validators to create using
-    [`--number-of-validators`](../../Reference/CLI/CLI-Subcommands.md#number-of-validators_1).
-
-It may take more than 8 hours for a deposit to become active.
-
-!!! tip
-
-    View the deposit details on Etherscan by visiting `https://goerli.etherscan.io/address/<accountPublicKey>`.
+    If the Launchpad creates a key named `keystore-m_12381_3600_0_0_0-1596485378.json`, then
+    the password must be named `keystore-m_12381_3600_0_0_0-1596485378.txt`.
 
 ### Start the validator
 
-Run Teku and specify the validator key file [created earlier](#generate-the-validator-and-send-the-deposit),
-and the text file containing the password to decrypt the validator key.
+Run Teku and specify the validator key files [created earlier](#generate-the-validators-and-send-the-deposits),
+and the text files containing the password to decrypt the validator key.
 
 !!! example
 
@@ -163,13 +112,8 @@ and the text file containing the password to decrypt the validator key.
     --metrics-enabled
     ```
 
-If you have multiple validator key files, place the key files and accompanying passwords in one or
-more directories. Use [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) to
-specify the directory to load the keys and passwords from.
-
-When specifying a directory, ensure the key file and password file have identical names, with the
-appropriate extensions. For example, a key (`keys/validator1.json`) matches the password
-(`passwords/validator1.txt`).
+Alternatively, use [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) to
+specify the directory to load multiple keys and passwords from.
 
 !!! example
 
