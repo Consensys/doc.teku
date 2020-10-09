@@ -1,0 +1,3 @@
+# these files are copied from the Vale style repositories
+common/build_tools/vale/vale_styles/*/*.md
+common/build_tools/vale/vale_styles/*.md

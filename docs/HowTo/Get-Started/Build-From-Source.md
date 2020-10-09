@@ -18,7 +18,7 @@ description: Build Teku from source
 
 ### Clone the Teku repository
 
-Clone the **PegaSysEng/teku** repository:
+Clone the `PegaSysEng/teku` repository:
 
 ```bash
 git clone https://github.com/PegaSysEng/teku.git

@@ -14,7 +14,7 @@ based on what it has already signed.
 
 To protect validators from slashable offenses, Teku stores a record of the most recently signed
 blocks for each validator in the `<data-path>/validators/slashprotection/` directory. One
-[YAML file is stored per validator] in the format `<validator-pubkey>.yml` (with no 0x prefix).
+[YAML file is stored per validator] in the format `<validator-pubkey>.yml` (with no `0x` prefix).
 
 !!! note
 
