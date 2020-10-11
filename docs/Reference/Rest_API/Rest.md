@@ -4,15 +4,21 @@ description: Teku RESTful API
 
 # REST API
 
-[Enable the REST API service](#enable-the-rest-api-service) from the command line, and enable
-the API documentation endpoint to interact with APIs using Swagger UI.
+[Enable the REST API service](#enable-the-rest-api-service) from the command line. You can also
+interact with APIs using Swagger UI by enabling the API documentation endpoint.
 
-[Teku REST API documentation] is also available.
+View the [REST API documentation] for more information about the available APIs.
 
 ## Enable the REST API service
 
 Enable the REST API service by setting the [`--rest-api-enabled`](../CLI/CLI-Syntax.md#rest-api-enabled)
 command line option to `true`.
+
+!!! warning
+
+    Only trusted parties should access the REST API. Do not directly expose these APIs publicly on
+    production nodes. Use [`--rest-api-host-allowlist`](../CLI/CLI-Syntax.md#rest-api-host-allowlist)
+    to limit access to trusted parties.
 
 Interact with Teku APIs using the web browser by setting the
 [`--rest-api-docs-enabled`](../CLI/CLI-Syntax.md#rest-api-docs-enabled) command line option to `true`.
@@ -45,7 +51,7 @@ The REST API is logically divided into multiple endpoints.
 | [**/validator**] | Provide information and functionality for validator clients. |
 
 <!-- Links -->
-[Teku REST API documentation]:https://pegasyseng.github.io/teku/#stable/
+[REST API documentation]:https://pegasyseng.github.io/teku/#stable/
 [**/admin**]:https://pegasyseng.github.io/teku/#tag/Admin
 [**/beacon**]:https://pegasyseng.github.io/teku/#tag/Beacon
 [**/network**]:https://pegasyseng.github.io/teku/#tag/Network
