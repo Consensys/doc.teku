@@ -1,15 +1,15 @@
 ---
-description: README file.
+description: PegaSys Teku documentation repository overview
 ---
 
-# Pegasys Teku
+# PegaSys Teku
 
  Latest: [![Documentation Status](https://readthedocs.com/projects/pegasys-teku/badge/?version=latest)](https://docs.teku.pegasys.tech/en/latest/?badge=latest)
  Stable: [![Documentation Status](https://readthedocs.com/projects/pegasys-teku/badge/?version=stable)](https://docs.teku.pegasys.tech/en/latest/?badge=stable)
 
-[Teku] is Pegasys Ethereum 2.0 client.
+[Teku] is PegaSys Ethereum 2.0 client.
 
-The software sources are hosted in https://github.com/PegaSysEng/teku
+The software sources are hosted in [`https://github.com/PegaSysEng/teku`](https://github.com/PegaSysEng/teku)
 
 This repository only contains the sources for [Teku documentation website hosted by ReadTheDocs].
 

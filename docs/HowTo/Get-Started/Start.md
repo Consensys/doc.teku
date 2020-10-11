@@ -4,7 +4,7 @@ description: Starting Teku
 
 # Run a local testnet
 
-**Prerequsites**:
+**Prerequisites**:
 
 * [Teku installed from source](Build-From-Source.md)
 * [tmux](https://github.com/tmux/tmux/wiki)

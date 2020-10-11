@@ -26,7 +26,7 @@ The command line:
 
 * Specifies the validator public keys for which Web3Signer signs attestations and blocks using
     [`--validators-external-signer-public-keys`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-public-keys).
-* Specifies the url of the Web3Signer client using
+* Specifies the URL of the Web3Signer client using
     [`--validators-external-signer-url`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-url).
 
 !!! note
