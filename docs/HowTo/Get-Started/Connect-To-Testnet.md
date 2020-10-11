@@ -81,11 +81,11 @@ requires 32 Goerli ETH per validator.
 ### Generate the validators and send the deposits
 
 Use the [Medalla Launchpad] to guide you through a step-by-step process to generate your keys and
-send the deposits.
+send the deposits. For the Zinken testnet use the [Zinken Launchpad] only.
 
 !!! note
-    Remember the passwords that you used to create the validator keys, because you need it to [create
-    the validator password files](#create-a-password-file-for-each-validator-key).
+    Remember the passwords that you used to create the validator keys, because you need it to
+    [create the validator password files](#create-a-password-file-for-each-validator-key).
 
 ### Create a password file for each validator key
 
