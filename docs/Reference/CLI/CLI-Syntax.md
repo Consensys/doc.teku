@@ -1078,6 +1078,9 @@ The documentation can be accessed at `http://<interface>:<port>/swagger-ui` wher
 Set to `true` to enable the [REST API service](../Rest_API/Rest.md).
 The default is `false`.
 
+If set to `true`, then use [`--rest-api-host-allowlist`](#rest-api-host-allowlist) to limit access
+to trusted parties.
+
 ### rest-api-host-allowlist
 
 === "Syntax"
@@ -1107,10 +1110,12 @@ The default is `false`.
 A comma-separated list of hostnames to allow access to the REST API. By
 default, Teku accepts access from `localhost` and `127.0.0.1`.
 
-!!! tip
+!!! warning
 
-    To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production
-    environments.
+    Only trusted parties should access the REST API. Do not directly expose these APIs publicly on
+    production nodes.
+
+    We don't recommend allowing all hostnames (`"*"`) for production environments.
 
 ### rest-api-interface
 
