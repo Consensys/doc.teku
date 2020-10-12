@@ -17,8 +17,7 @@ command line option to `true`.
 !!! warning
 
     Only trusted parties should access the REST API. Do not directly expose these APIs publicly on
-    production nodes. Use [`--rest-api-host-allowlist`](../CLI/CLI-Syntax.md#rest-api-host-allowlist)
-    to limit access to trusted parties.
+    production nodes.
 
 Interact with Teku APIs using the web browser by setting the
 [`--rest-api-docs-enabled`](../CLI/CLI-Syntax.md#rest-api-docs-enabled) command line option to `true`.
