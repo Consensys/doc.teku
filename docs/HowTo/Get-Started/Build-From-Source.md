@@ -53,4 +53,4 @@ bin/teku --help
 !!! tip
     To view the list of available Gradle tasks, run `./gradlew tasks`
 
-Continue with [Starting Teku](Start.md).
+Continue with [Starting Teku](Connect-To-Testnet.md).
