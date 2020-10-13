@@ -8,10 +8,15 @@ executors:
   python_executor:
     docker:
       - image: circleci/python:3.7.4
+        auth:
+          username: $DOCKER_USER_RO
+          password: $DOCKER_PASSWORD_RO      
   node_executor:
     docker:
       - image: circleci/node:12.9.0-stretch
-
+        auth:
+          username: $DOCKER_USER_RO
+          password: $DOCKER_PASSWORD_RO
 commands:
   prepare:
     description: "Prepare"
@@ -131,10 +136,18 @@ workflows:
   version: 2
   default:
     jobs:
-      - build
-      - vale
-      - markdownlint
-      - linkchecker
+      - build:
+          context:
+            - dockerhub-quorumengineering-ro      
+      - vale:
+          context:
+            - dockerhub-quorumengineering-ro      
+      - markdownlint:
+          context:
+            - dockerhub-quorumengineering-ro      
+      - linkchecker:
+          context:
+            - dockerhub-quorumengineering-ro      
   nightly:
     triggers:
       - schedule: # GMT
@@ -144,4 +157,6 @@ workflows:
               only:
                 - master
     jobs:
-      - linkchecker
+      - linkchecker:
+          context:
+            - dockerhub-quorumengineering-ro
