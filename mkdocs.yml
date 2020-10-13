@@ -59,7 +59,6 @@ nav:
             - Build from source: HowTo/Get-Started/Build-From-Source.md
             - Run Teku from Docker image: HowTo/Get-Started/Run-Docker-Image.md
             - Manage Memory: HowTo/Get-Started/Manage-Memory.md
-            - Run a local testnet: HowTo/Get-Started/Start.md
             - Connect to a testnet: HowTo/Get-Started/Connect-To-Testnet.md
         - External signing:
               - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
