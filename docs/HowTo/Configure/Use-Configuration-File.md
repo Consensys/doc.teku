@@ -36,17 +36,17 @@ differences between the command line and the YAML file format are:
 
     ```yaml
     # network
-    network: "minimal"
+    network: "medalla"
 
     # p2p
     p2p-enabled: true
     p2p-port: 9000
 
     # validators
-    validators-key-file: "validator_keys.yaml"
+    validator-keys: "/Users/me/node/medalla/validator/keys:/Users/me/node/medalla/validator/passwords"
+    validators-graffiti: "Teku validator"
 
-    # deposit
-    eth1-deposit-contract-address: "dddddddddddddddddddddddddddddddddddddddd"
+    # Eth 1
     eth1-endpoint: "http://localhost:8545"
 
     # metrics
@@ -57,8 +57,11 @@ differences between the command line and the YAML file format are:
     data-path: "~/tekudata"
     data-storage-mode: "archive"
 
-    # beacon rest api
+    # rest api
     rest-api-port: 5051
     rest-api-docs-enabled: true
     rest-api-enabled: true
+
+    # logging
+    log-include-validator-duties-enabled: true
     ```
