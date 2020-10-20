@@ -1,0 +1,132 @@
+---
+description: Frequently asked questions and answers for troubleshooting Teku
+---
+
+# Troubleshooting
+
+## P2P port conflicts
+
+If Teku fails to start with a `P2P Port 9000 (TCP/UDP) is already in use. Check for other processes
+using this port.` error, it means that Teku is trying to use a network port that is already in
+use.
+
+For example, Teku and Lighthouse both use port 9000 by default for P2P traffic. You can change
+Teku's default port number with the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port)
+option.
+
+## Unable to lock a keystore file
+
+If Teku fails to start with an `Unexpected error when trying to lock a keystore file` error, this
+could be because the directory containing the keystores is not writable by Teku.
+
+Teku uses a lockfile mechanism for the keystores to prevent two validator clients using the same
+keystores at the same time, similar to the Lighthouse client.
+
+To resolve this issue, try the one of the following:
+
+* Set the permissions of the directory holding the keystores so that it is writable by Teku.
+* Set [`--validators-keystore-locking-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-keystore-locking-enabled)
+    to `false` to disable the locking functionality.
+
+## Keystore file already in use
+
+If Teku fails to start with a `Keystore file <keystore_file>.lock already in use.` error, this
+could mean the keystore file is already being used by a validator client, or Teku has exited
+unexpectedly and did not removed the lock.
+
+Teku uses a lockfile mechanism for the keystores to prevent two validator clients using the same
+keystores at the same time, similar to the Lighthouse client.
+
+To resolve this issue, try the one of the following:
+
+* Manually remove the lock files that are created alongside your keystore files, with `.lock`
+    appended to the filename. Take care not to delete your keystores.
+* Set [`--validators-keystore-locking-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-keystore-locking-enabled)
+    to `false` to disable the locking functionality.
+
+## Unable to read YAML configuration
+
+If Teku fails to start with the following:
+
+```
+Unable to read yaml configuration. Invalid yaml file [config.yaml]:
+java.io.CharConversionException: Invalid UTF-8 start byte 0x93 (at char #11, byte #-1) at [Source: (File); line: 1, column: 1]
+```
+
+This could mean that the word processor has inserted smart quotes instead of straight quotes. Use
+straight quotes only.
+
+## Validators not making attestations
+
+Check whether your validator's attestations are being included in blocks at [`BeaconCha.in`](https://beaconcha.in/).
+
+!!! note
+
+    Occasional missed attestations are normal on a P2P network, but they should be a few percent.
+
+If all recent attestations are marked as missed, check the following:
+
+* **Did the validators load correctly?**
+
+    Check the logs when Teku started for the the line,
+    `teku-status-log | Loaded N Validators: <validator_pubkey>[, <validator_pubkey>]`, where `N` is
+    the number of expected validators. Each validator's truncated public key is also listed.
+
+    If the validator did not load, check for any errors loading the validator, and that the
+    [`--validators-keys`](../../Reference/CLI/CLI-Syntax.md#validators-keys) option is
+    correct.
+
+* **Is the beacon node syncing?**
+
+    Each validator that you run prints the message, `teku-validator-log | Validator   *** Published
+    attestation  Count: 1, Slot: 48539, Root: 5e1bf5..cee8` once each epoch. If you do not see this
+    for your validator then check that it loaded correctly.
+    
+    To see this message, ensure
+    [`log-include-validator-duties-enabled`](../../Reference/CLI/CLI-Syntax.md#log-include-validator-duties-enabled) is `true`.
+
+* **Do you have peers?**
+
+    The nodes's peer count is printed at the end of each slot event in the log.
+    [Ensure your local network is configured correctly] to allow the node to listen for incoming P2P
+    connections and discover peers.
+
+## UnsatisfiedLinkError when starting Teku
+
+If Teku fails to start with the following error:
+
+```
+Teku failed to start.
+java.util.concurrent.CompletionException: java.lang.UnsatisfiedLinkError: /tmp/librocksdbjni8697586722914603821.so...
+```
+
+This could be due to your `/tmp` directory being marked non-executable (`noexec`).
+
+To resolve this, try one of the following:
+
+* Remove `noexec` on the `/tmp` mount. This can be done permanently in the
+    fstab, or temporarily using the command `sudo mount /tmp -o remount,exec`
+
+* Create a new temporary folder for applications to use within the shell.
+
+    ```
+    mkdir tmp
+    export TMPDIR=`pwd`/tmp
+    ```
+
+## Command line options
+
+On Linux, shell processing of paths do not work when specified like this:
+
+```bash
+./teku --config-file=~/config.yaml
+```
+
+The shell does not see the "~" in the command. To fix this, omit the "=".
+
+```bash
+./teku --config-file ~/config.yaml
+```
+
+<!-- links -->
+[Ensure your local network is configured correctly]: ../Find-and-Connect/Improve-Connectivity.md
