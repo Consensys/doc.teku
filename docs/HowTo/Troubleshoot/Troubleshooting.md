@@ -44,6 +44,17 @@ To resolve this issue, try the one of the following:
 * Set [`--validators-keystore-locking-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-keystore-locking-enabled)
     to `false` to disable the locking functionality.
 
+## Keystore files are loading slowly
+
+Teku supports `scrypt` or `pbkdf2` formatted keystores. Both keystore formats are supported by
+[EIP-2335].
+
+The `scrypt` formatted keystores load slower and require more memory to load, whereas `pbkdf2`
+formatted keystores load instantly.
+
+The `scrypt` formatted keystores are more secure because they require more resources to crack. To
+improve the loading times of your keystores, you can convert them to the `pbkdf2` format.
+
 ## Unable to read YAML configuration
 
 If Teku fails to start with the following:
@@ -130,3 +141,4 @@ The shell does not see the "~" in the command. To fix this, omit the "=".
 
 <!-- links -->
 [Ensure your local network is configured correctly]: ../Find-and-Connect/Improve-Connectivity.md
+[EIP-2335]: https://eips.ethereum.org/EIPS/eip-2335
