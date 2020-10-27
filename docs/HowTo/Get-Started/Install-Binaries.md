@@ -43,7 +43,7 @@ Display Teku command line help to confirm installation:
 
 !!!important
 
-    Teku requires Java 11+ to compile. Earlier versions are not supported. You can install Java
+    Teku requires Java 11+ to run. Earlier versions are not supported. You can install Java
     using `brew cask install adoptopenjdk`. Alternatively, you can manually install the 
     [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
