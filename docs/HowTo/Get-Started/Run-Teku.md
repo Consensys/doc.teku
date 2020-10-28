@@ -61,9 +61,9 @@ Use the [`--rest-api-interface`](../../Reference/CLI/CLI-Syntax.md#rest-api-inte
 and [`--rest-api-port`](../../Reference/CLI/CLI-Syntax.md#rest-api-port) options to update the
 address.
 
-Additionally, you can specify
+You can specify
 [`--rest-api-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#rest-api-host-allowlist) to
-allow access from specific hostnames to the REST API.
+allow access to the REST API from specific hostnames.
 
 ### Start the validator
 
