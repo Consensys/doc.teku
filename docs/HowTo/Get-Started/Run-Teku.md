@@ -61,6 +61,10 @@ Use the [`--rest-api-interface`](../../Reference/CLI/CLI-Syntax.md#rest-api-inte
 and [`--rest-api-port`](../../Reference/CLI/CLI-Syntax.md#rest-api-port) options to update the
 address.
 
+Additionally, you can specify
+[`--rest-api-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#rest-api-host-allowlist) to
+allow access from specific hostnames to the REST API.
+
 ### Start the validator
 
 To run a validator, connect to a [running beacon node].
@@ -72,9 +76,11 @@ validator.
 !!! example
 
     ```
-    teku validator-client --network=medalla --beacon-node-api-endpoint=http://127.0.0.1:5051 \
-    --validator-keys=validator/keys:validator/passwords \
+    teku validator-client --network=medalla --beacon-node-api-endpoint=http://192.10.10.101:5051 \
+    --validator-keys=validator/keys:validator/passwords
     ```
+Use [`--rest-api-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#rest-api-host-allowlist) to
+allow access to the beacon node.
 
 !!! warning
     Ensure that the validator keys are only provided to the validator. Do not pass the validator
