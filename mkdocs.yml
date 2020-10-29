@@ -57,6 +57,7 @@ nav:
         - Get started with Teku:
             - Install binary distribution: HowTo/Get-Started/Install-Binaries.md
             - Build from source: HowTo/Get-Started/Build-From-Source.md
+            - Start Teku: HowTo/Get-Started/Run-Teku.md
             - Run Teku from Docker image: HowTo/Get-Started/Run-Docker-Image.md
             - Manage Memory: HowTo/Get-Started/Manage-Memory.md
             - Connect to a testnet: HowTo/Get-Started/Connect-To-Testnet.md
