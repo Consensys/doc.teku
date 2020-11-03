@@ -238,8 +238,8 @@ information is available in one place.
 !!! note
 
     Use `DEFAULT_BOTH` when using a
-    [custom Log4J2 configuration file](../../HowTo/Monitor/Logging.md#advanced-custom-logging). Any
-    other option applies the custom logging changes on top of its default settings.
+    [custom Log4J2 configuration file](../../../HowTo/Monitor/Logging.md#advanced-custom-logging).
+    Any other option applies the custom logging changes on top of its default settings.
 
 ### log-file
 
