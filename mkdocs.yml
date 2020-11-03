@@ -74,7 +74,11 @@ nav:
     - Reference:
         - Teku command line:
           - Options: Reference/CLI/CLI-Syntax.md
-          - Subcommands: Reference/CLI/CLI-Subcommands.md
+          - Subcommands:
+            - admin: Reference/CLI/Subcommands/Admin.md
+            - slashing-protection: Reference/CLI/Subcommands/Slashing-Protection.md
+            - validator-client, vc: Reference/CLI/Subcommands/Validator-Client.md
+            - Development and testing: Reference/CLI/Subcommands/Development.md
         - RESTful APIs:
           - Teku REST API methods: Reference/Rest_API/Rest.md
           - Teku API objects: Reference/Rest_API/API-Objects.md

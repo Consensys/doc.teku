@@ -69,9 +69,9 @@ allow access to the REST API from specific hostnames.
 
 To run a validator, connect to a [running beacon node].
 
-Use the [`validator-client`](../../Reference/CLI/CLI-Subcommands.md#validator-client-vc) or
-[`vc`](../../Reference/CLI/CLI-Subcommands.md#validator-client-vc) subcommand to run a Teku as a
-validator.
+Use the [`validator-client`](../../Reference/CLI/Subcommands/Validator-Client.md#validator-client-vc)
+or [`vc`](../../Reference/CLI/Subcommands/Validator-Client.md#validator-client-vc) subcommand to run
+a Teku as a validator.
 
 !!! example
 
@@ -79,8 +79,6 @@ validator.
     teku validator-client --network=medalla --beacon-node-api-endpoint=http://192.10.10.101:5051 \
     --validator-keys=validator/keys:validator/passwords
     ```
-Use [`--rest-api-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#rest-api-host-allowlist) to
-allow access to the beacon node.
 
 !!! warning
     Ensure that the validator keys are only provided to the validator. Do not pass the validator
@@ -88,7 +86,8 @@ allow access to the beacon node.
     cause a [slashable offence].
 
 Specify the beacon chain client using the
-[`--beacon-node-api-endpoint`](../../Reference/CLI/CLI-Subcommands.md#beacon-node-api-endpoint) option.
+[`--beacon-node-api-endpoint`](../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint)
+option.
 
 <!-- links -->
 [validator clients]: #start-the-validator
