@@ -1465,7 +1465,7 @@ A recent checkpoint within the weak subjectivity period.
 
 The weak subjectivity checkpoint is a recent finalized checkpoint on the correct chain. By
 supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long
-period follows the correct chain. It protects the node from long-range attacks by malicious actors.
+period follow the correct chain. It protects the node from long-range attacks by malicious actors.
 
 Use the [`admin weak-subjectivity`](Subcommands/Admin.md#weak-subjectivity) subcommand to display
 or clear your weak subjectivity settings.

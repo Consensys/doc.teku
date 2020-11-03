@@ -147,7 +147,7 @@ The file to export the slashing protection database to.
 Exports the database in the [Minimal] format.
 
 <!-- links -->
-[slashing protection data]: ../../Concepts/Slashing-Protection.md
+[slashing protection data]: ../../../Concepts/Slashing-Protection.md
 [Minimal]: https://hackmd.io/@sproul/Bk0Y0qdGD#Format-2-Minimal
 [Complete]: https://hackmd.io/@sproul/Bk0Y0qdGD#Format-1-Complete
 [environment variables or a configuration file]: ../CLI-Syntax.md#specifying-options

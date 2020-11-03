@@ -14,7 +14,7 @@ You can also supply the subcommand options using [environment variables or a con
 
 ## `weak-subjectivity`
 
-Display or clear weak subjectivity configuration. 
+Display or clear weak subjectivity configuration.
 
 ### `clear-state`
 
