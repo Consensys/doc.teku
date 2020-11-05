@@ -20,15 +20,15 @@ Teku supports files using the [Minimal] or [Complete] interchange format when im
 
 !!! example
 
-    ```bash
+    ```
     teku slashing-protection import --data-path=/home/me/me_node --from=/home/slash/slashing-interchange-format.json
     ```
 
 In the command line:
 
-* [`--data-path`](../Reference/CLI/CLI-Subcommands.md#data-path) specifies the location of the
-    Teku `data` directory.
-* [`--from`](../Reference/CLI/CLI-Subcommands.md#from) specifies the location of the
+* [`--data-path`](../Reference/CLI/Subcommands/Slashing-Protection.md#data-path) specifies the
+    location of the Teku `data` directory.
+* [`--from`](../Reference/CLI/Subcommands/Slashing-Protection.md#from) specifies the location of the
     slashing-protection file.
 
 In this example, Teku imports the file to the `/home/me/me_node/data/validators/slashprotection/` directory.
@@ -40,15 +40,15 @@ node. Teku exports the slashing protection file in the [Minimal] format.
 
 !!! example
 
-    ```bash
+    ```
     teku slashing-protection export --data-path=/home/me/me_node --to=/home/slash/slashing-interchange-format-minimal.json
     ```
 
 In the command line:
 
-* [`--data-path`](../Reference/CLI/CLI-Subcommands.md#data-path_1) specifies the location of the
+* [`--data-path`](../Reference/CLI/Subcommands/Slashing-Protection.md#data-path_1) specifies the location of the
     Teku `data` directory.
-* [`--to`](../Reference/CLI/CLI-Subcommands.md#to) specifies the file to export the
+* [`--to`](../Reference/CLI/Subcommands/Slashing-Protection.md#to) specifies the file to export the
     slashing-protection data to.
 
 You can now import the slashing-protection file in a Teku, or non-Teku node.

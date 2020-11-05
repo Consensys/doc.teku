@@ -57,6 +57,7 @@ nav:
         - Get started with Teku:
             - Install binary distribution: HowTo/Get-Started/Install-Binaries.md
             - Build from source: HowTo/Get-Started/Build-From-Source.md
+            - Start Teku: HowTo/Get-Started/Run-Teku.md
             - Run Teku from Docker image: HowTo/Get-Started/Run-Docker-Image.md
             - Manage Memory: HowTo/Get-Started/Manage-Memory.md
             - Connect to a testnet: HowTo/Get-Started/Connect-To-Testnet.md
@@ -77,7 +78,11 @@ nav:
     - Reference:
         - Teku command line:
           - Options: Reference/CLI/CLI-Syntax.md
-          - Subcommands: Reference/CLI/CLI-Subcommands.md
+          - Subcommands:
+            - admin: Reference/CLI/Subcommands/Admin.md
+            - slashing-protection: Reference/CLI/Subcommands/Slashing-Protection.md
+            - validator-client, vc: Reference/CLI/Subcommands/Validator-Client.md
+            - Development and testing: Reference/CLI/Subcommands/Development.md
         - RESTful APIs:
           - Teku REST API methods: Reference/Rest_API/Rest.md
           - Teku API objects: Reference/Rest_API/API-Objects.md

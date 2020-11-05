@@ -15,7 +15,7 @@ Teku options can be specified:
 
 * On the command line
 * As an [environment variable](#teku-environment-variables)
-* In a YAML configuration file.
+* In a [YAML configuration file](../../HowTo/Configure/Use-Configuration-File.md).
 
 If an option is specified in multiple places, the order of priority is command line, environment variable,
 configuration file.
@@ -32,7 +32,7 @@ For example, set `--p2p-port` using the `TEKU_P2P_PORT` environment variable.
 
 ## Options
 
-To start a Teku node run:
+To start a Teku beacon chain client and validator run:
 
 ```bash
 teku [OPTIONS] [COMMAND]
@@ -61,30 +61,30 @@ teku [OPTIONS] [COMMAND]
 The path to the YAML configuration file.
 The default is `none`.
 
-### data-path
+### data-base-path, data-path
 
 === "Syntax"
 
     ```bash
-    --data-path=<PATH>
+    --data-base-path=<PATH>
     ```
 
 === "Command Line"
 
     ```bash
-    --data-path=/home/me/me_node
+    --data-base-path=/home/me/me_node
     ```
 
 === "Environment Variable"
 
     ```bash
-    TEKU_DATA_PATH=/home/me/me_node
+    TEKU_DATA_BASE_PATH=/home/me/me_node
     ```
 
 === "Configuration File"
 
     ```bash
-    data-path: "/home/me/me_node"
+    data-base-path: "/home/me/me_node"
     ```
 
 The path to the Teku data directory. The default directory is OS dependent:
@@ -94,6 +94,35 @@ The path to the Teku data directory. The default directory is OS dependent:
 * Windows: `%localappdata%\teku`.
 
 The default Docker image location is `/root/.local/share/teku`.
+
+### data-beacon-path
+
+=== "Syntax"
+
+    ```bash
+    --data-beacon-path=<PATH>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --data-beacon-path=/home/me/me_beacon
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_DATA_BEACON_PATH=/home/me/me_beacon
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    data-beacon-path: "/home/me/me_beaon"
+    ```
+
+Path to the beacon chain client data. Defaults to `<data-base-path>/beacon` where `<data-base-path>`
+is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### data-storage-archive-frequency
 
@@ -164,6 +193,35 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
 
 Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
 Defaults to `prune`.
+
+### data-validator-path
+
+=== "Syntax"
+
+    ```bash
+    --data-validator-path=<PATH>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --data-validator-path=/home/me/me_validator
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    data-validator-path: "/home/me/me_validator"
+    ```
+
+Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
+is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### eth1-deposit-contract-address
 
@@ -1376,6 +1434,41 @@ Locks the keystore files listed in [`--validator-keys`](#validator-keys). Defaul
 
 Attempts to lock all keystores in a directory if a directory is specified in
 [`--validator-keys`](#validator-keys).
+
+### ws-checkpoint
+
+=== "Syntax"
+
+    ```bash
+    --ws-checkpoint=<BLOCK_ROOT>:<EPOCH_NUMBER>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --ws-checkpoint=0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_WS_CHECKPOINT=0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    ws-checkpoint: "0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600"
+    ```
+
+A recent checkpoint within the weak subjectivity period.
+
+The weak subjectivity checkpoint is a recent finalized checkpoint on the correct chain. By
+supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long
+period follow the correct chain. It protects the node from long-range attacks by malicious actors.
+
+Use the [`admin weak-subjectivity`](Subcommands/Admin.md#weak-subjectivity) subcommand to display
+or clear your weak subjectivity settings.
 
 <!-- links -->
 [Infura]: https://infura.io/
