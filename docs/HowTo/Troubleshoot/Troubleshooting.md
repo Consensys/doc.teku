@@ -20,7 +20,7 @@ If Teku fails to start with an `Unexpected error when trying to lock a keystore 
 could be because the directory containing the keystores is not writable by Teku.
 
 Teku uses a lockfile mechanism for the keystores to prevent two validator clients using the same
-keystores at the same time, similar to the Lighthouse client.
+keystores at the same time.
 
 To resolve this issue, try the one of the following:
 
@@ -28,14 +28,18 @@ To resolve this issue, try the one of the following:
 * Set [`--validators-keystore-locking-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-keystore-locking-enabled)
     to `false` to disable the locking functionality.
 
+!!! important
+
+    Ensure no other process or clients are using your keys. If they are, you could get [slashed].
+
 ## Keystore file already in use
 
 If Teku fails to start with a `Keystore file <keystore_file>.lock already in use.` error, this
 could mean the keystore file is already being used by a validator client, or Teku has exited
-unexpectedly and did not removed the lock.
+unexpectedly and did not remove the lock.
 
 Teku uses a lockfile mechanism for the keystores to prevent two validator clients using the same
-keystores at the same time, similar to the Lighthouse client.
+keystores at the same time.
 
 To resolve this issue, try the one of the following:
 
@@ -43,6 +47,10 @@ To resolve this issue, try the one of the following:
     appended to the filename. Take care not to delete your keystores.
 * Set [`--validators-keystore-locking-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-keystore-locking-enabled)
     to `false` to disable the locking functionality.
+
+!!! important
+
+    Ensure no other process or clients are using your keys. If they are, you could get [slashed].
 
 ## Keystore files are loading slowly
 
@@ -142,3 +150,4 @@ The shell does not see the "~" in the command. To fix this, omit the "=".
 <!-- links -->
 [Ensure your local network is configured correctly]: ../Find-and-Connect/Improve-Connectivity.md
 [EIP-2335]: https://eips.ethereum.org/EIPS/eip-2335
+[slashed]: ../../Concepts/Slashing-Protection.md
