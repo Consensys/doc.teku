@@ -32,4 +32,4 @@ number with the [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) optio
 Configure port forwarding on your router and firewall to allow incoming and outgoing connections on
 the listening port for the TCP and UDP protocols.
 
-View your router or firewall documentation to configure port fowarding.
+View your router or firewall documentation to configure port-fowarding.

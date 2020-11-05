@@ -19,7 +19,7 @@ option.
 If Teku fails to start with an `Unexpected error when trying to lock a keystore file` error, this
 could be because the directory containing the keystores is not writable by Teku.
 
-Teku uses a lockfile mechanism for the keystores to prevent two validator clients using the same
+Teku uses a file locking mechanism for the keystores to prevent two validator clients using the same
 keystores at the same time.
 
 To resolve this issue, try the one of the following:
@@ -38,7 +38,7 @@ If Teku fails to start with a `Keystore file <keystore_file>.lock already in use
 could mean the keystore file is already being used by a validator client, or Teku has exited
 unexpectedly and did not remove the lock.
 
-Teku uses a lockfile mechanism for the keystores to prevent two validator clients using the same
+Teku uses a file locking mechanism for the keystores to prevent two validator clients using the same
 keystores at the same time.
 
 To resolve this issue, try the one of the following:
@@ -67,7 +67,7 @@ improve the loading times of your keystores, you can convert them to the `pbkdf2
 
 If Teku fails to start with the following:
 
-```
+```lang-none
 Unable to read yaml configuration. Invalid yaml file [config.yaml]:
 java.io.CharConversionException: Invalid UTF-8 start byte 0x93 (at char #11, byte #-1) at [Source: (File); line: 1, column: 1]
 ```
@@ -87,7 +87,7 @@ If all recent attestations are marked as missed, check the following:
 
 * **Did the validators load correctly?**
 
-    Check the logs when Teku started for the the line,
+    Check the logs when Teku started for the line,
     `teku-status-log | Loaded N Validators: <validator_pubkey>[, <validator_pubkey>]`, where `N` is
     the number of expected validators. Each validator's truncated public key is also listed.
 
@@ -124,7 +124,7 @@ This could be due to your `/tmp` directory being marked non-executable (`noexec`
 To resolve this, try one of the following:
 
 * Remove `noexec` on the `/tmp` mount. This can be done permanently in the
-    fstab, or temporarily using the command `sudo mount /tmp -o remount,exec`
+    file systems table (`fstab`), or temporarily using the command `sudo mount /tmp -o remount,exec`
 
 * Create a new temporary folder for applications to use within the shell.
 
@@ -141,7 +141,7 @@ On Linux, shell processing of paths do not work when specified like this:
 ./teku --config-file=~/config.yaml
 ```
 
-The shell does not see the "~" in the command. To fix this, omit the "=".
+The shell does not see the tilde (~) in the command. To fix this, omit the equals sign (=).
 
 ```bash
 ./teku --config-file ~/config.yaml
