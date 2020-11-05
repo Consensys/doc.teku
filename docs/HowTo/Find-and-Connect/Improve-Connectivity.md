@@ -18,7 +18,7 @@ If you are using a NAT, it's easier to get peers by advertising your public addr
 Use the [`--p2p-advertised-ip`](../../Reference/CLI/CLI-Syntax.md#p2p-advertised-ip) option to
 advertise the address publicly.
 
-Additionally, if on a home network, [configure port forwarding](configuring-ports) on your router.
+Additionally, if on a home network, [configure port forwarding](#configuring-ports) on your router.
 
 !!! tip
 

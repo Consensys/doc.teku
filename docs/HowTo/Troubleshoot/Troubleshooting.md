@@ -100,7 +100,7 @@ If all recent attestations are marked as missed, check the following:
     Each validator that you run prints the message, `teku-validator-log | Validator   *** Published
     attestation  Count: 1, Slot: 48539, Root: 5e1bf5..cee8` once each epoch. If you do not see this
     for your validator then check that it loaded correctly.
-    
+
     To see this message, ensure
     [`log-include-validator-duties-enabled`](../../Reference/CLI/CLI-Syntax.md#log-include-validator-duties-enabled) is `true`.
 
@@ -114,7 +114,7 @@ If all recent attestations are marked as missed, check the following:
 
 If Teku fails to start with the following error:
 
-```
+```bash
 Teku failed to start.
 java.util.concurrent.CompletionException: java.lang.UnsatisfiedLinkError: /tmp/librocksdbjni8697586722914603821.so...
 ```
@@ -128,7 +128,7 @@ To resolve this, try one of the following:
 
 * Create a new temporary folder for applications to use within the shell.
 
-    ```
+    ```bash
     mkdir tmp
     export TMPDIR=`pwd`/tmp
     ```
