@@ -7,6 +7,12 @@ description: Describe how slash protection works in Teku
 Teku provides slashing protection to prevent validators from signing blocks or attestations
 based on what it has already signed.
 
+By default, Teku also locks keystore files listed in the
+[`--validator-keys`](../Reference/CLI/CLI-Syntax.md#validator-keys) option to prevent other
+processes from using it. You can enable and disable this functionality using the
+[`--validators-keystore-locking-enabled`](../Reference/CLI/CLI-Syntax.md#validators-keystore-locking-enabled)
+option.
+
 !!! important
 
     Teku's slashing protection does not provide protection if the same validator key is being used

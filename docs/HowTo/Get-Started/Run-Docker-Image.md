@@ -24,11 +24,20 @@ You can specify
 [Teku environment variables](../../Reference/CLI/CLI-Syntax.md#teku-environment-variables) with the
 docker image instead of the command line options.
 
-!!! example
+!!! Example "Example using Environment variables and CLI options"
 
     ```bash
-    docker run -p 9000:9000 -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 -e TEKU_LOG_FILE=/var/lib/teku/LOG --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords
+    docker run -d -p 9000:9000 -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku pegasyseng/teku:develop --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --data-path=/var/lib/teku --log-destination=CONSOLE
     ```
+
+!!! tips
+
+    * If running Docker in the background, set [`--log-destination`](../../Reference/CLI/CLI-Syntax.md#log-destination)
+        to `console` to send all logs to the console and appear in Docker's log output.
+    * Set [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) to a mount point to ensure
+        Teku data is not lost in the Docker filesystem.
+    * [Set the Docker user to the UID of the normal user](#allow-multiple-users-to-run-the-docker-image)
+        to ensure read/write access to the required files.
 
 ## Allow multiple users to run the Docker image
 

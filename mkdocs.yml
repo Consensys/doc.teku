@@ -69,6 +69,10 @@ nav:
         - Configure:
             - Specify options in a configuration file: HowTo/Configure/Use-Configuration-File.md
         - Prevent slashing offences: HowTo/Prevent-Slashing.md
+        - Find and connect to peers:
+            - Improve P2P connectivity: HowTo/Find-and-Connect/Improve-Connectivity.md
+        - Troubleshoot:
+            - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
         - Slashing protection: Concepts/Slashing-Protection.md
     - Reference:
