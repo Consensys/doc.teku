@@ -11,6 +11,14 @@ Teku uses Log4J2 for logging, and provides multiple methods to configure logging
 * [Custom logging](#advanced-custom-logging) - custom logging to configure the output and format
     of the logs.
 
+The default log directory is OS dependent:
+
+* macOS: `~/Library/teku/logs`
+* Unix/Linux: `$XDG_DATA_HOME/teku/logs` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku/logs`
+* Windows: `%localappdata%\teku\logs`
+
+The default Docker image location is `/root/.local/share/teku/logs`.
+
 ## Basic log level settings
 
 Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line option to specify
