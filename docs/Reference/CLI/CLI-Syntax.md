@@ -744,14 +744,12 @@ Possible values are:
 
 | Network   | Chain   | Type        | Description                                                         |
 |-----------|---------|-------------|---------------------------------------------------------------------|
+| `mainnet` | Eth 2.0 | Production  | Main network.                                                       |
 | `altona`  | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
-| `mainnet` | Eth 2.0 | Production  | Intended main network that targets future mainnet configuration.    |
 | `medalla` | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
 | `minimal` | Eth 2.0 | Test        | Used for local testing and development networks.                    |
-| `spadina` | Eth 2.0 | Test        | Short-lived multi-client testnet maintained by the Goerli testnet initiative.   |
 | `topaz`   | Eth 2.0 | Test        | Single-client testnet maintained by the Prysmatic Labs.             |
 | `witti`   | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
-| `zinken`  | Eth 2.0 | Test        | Short-lived multi-client testnet maintained by the Goerli testnet initiative.   |
 
 Predefined networks can provide defaults such the initial state of the network,
 bootnodes, and the address of the Ethereum 1.0 deposit contract.
