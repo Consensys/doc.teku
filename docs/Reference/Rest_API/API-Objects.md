@@ -7,7 +7,7 @@ The following objects are returned by Teku REST API methods.
 
 ## Beacon block
 
-Returned by [`beacon/block`](https://pegasyseng.github.io/teku/#operation/getBeaconBlock).
+Returned by [`beacon/block`](https://consensys.github.io/teku/#operation/getBeaconBlock).
 
 | Field              | Type     | Description                          |
 |--------------------|-:-:------|--------------------------------------|
@@ -58,7 +58,7 @@ Attestation information for the block.
 
 !!! note
     Produces a blank `signature` field for the
-    [`/validator/attestation`](https://pegasyseng.github.io/teku/#operation/getValidatorAttestation)
+    [`/validator/attestation`](https://consensys.github.io/teku/#operation/getValidatorAttestation)
     endpoint, which the validator later signs.
 
 | Field                  | Type      | Description                                         |
@@ -80,7 +80,7 @@ Attestation information for the block.
 ## Validators
 
 A list of validator information returned by
-[`/beacon/validators`](https://pegasyseng.github.io/teku/#operation/getBeaconValidators).
+[`/beacon/validators`](https://consensys.github.io/teku/#operation/getBeaconValidators).
 
 | Field                 | Type      | Description                                            |
 |-----------------------|-:-:-------|--------------------------------------------------------|

@@ -6,7 +6,7 @@ title: Running Teku
 
 **Prerequisites**:
 
-* [Teku installed](Install-Binaries.md)
+* [Teku installed](Installation-Options/Install-Binaries.md)
 * [Validators keystores] and [password files].
 
 You can run Teku as a beacon chain client and validator in a single process, or as separate

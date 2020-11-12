@@ -30,7 +30,7 @@ By default most logging output is sent to the log file, and limited content show
 
 !!! tip
 
-    Use the [`log_level`](https://pegasyseng.github.io/teku/#operation/putAdminLog_level) API
+    Use the [`log_level`](https://consensys.github.io/teku/#operation/putTekuV1AdminLog_level) API
     method to change the log level while Teku is running.
 
 Additional logging options include:
