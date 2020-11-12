@@ -17,8 +17,8 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 
 **Prerequisites**:
 
-* Install the latest version of Teku using a [binary distribution](Install-Binaries.md),
-    [from source](Build-From-Source.md), or with [Docker](Run-Docker-Image.md).
+* Install the latest stable version of Teku using a [binary distribution](Installation-Options/Install-Binaries.md),
+    or with [Docker](Installation-Options/Run-Docker-Image.md).
 * If running validators, install any Ethereum 1.0 client (for example [Hyperledger Besu]), or access a
     cloud-based service such as [Infura].
 

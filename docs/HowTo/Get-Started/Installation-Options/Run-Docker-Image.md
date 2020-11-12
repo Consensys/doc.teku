@@ -19,7 +19,7 @@ docker run consensys/teku:latest --help
 ```
 
 You can specify
-[Teku environment variables](../../Reference/CLI/CLI-Syntax.md#teku-environment-variables) with the
+[Teku environment variables](../../../Reference/CLI/CLI-Syntax.md#teku-environment-variables) with the
 docker image instead of the command line options.
 
 !!! Example "Example using Environment variables and CLI options"
@@ -30,9 +30,9 @@ docker image instead of the command line options.
 
 !!! tips
 
-    * If running Docker in the background, set [`--log-destination`](../../Reference/CLI/CLI-Syntax.md#log-destination)
+    * If running Docker in the background, set [`--log-destination`](../../../Reference/CLI/CLI-Syntax.md#log-destination)
         to `console` to send all logs to the console and appear in Docker's log output.
-    * Set [`--data-path`](../../Reference/CLI/CLI-Syntax.md#data-path) to a mount point to ensure
+    * Set [`--data-path`](../../../Reference/CLI/CLI-Syntax.md#data-path) to a mount point to ensure
         Teku data is not lost in the Docker filesystem.
     * [Set the Docker user to the UID of the normal user](#allow-multiple-users-to-run-the-docker-image)
         to ensure read/write access to the required files.
@@ -57,10 +57,10 @@ docker container.
 Expose ports for P2P peer discovery, metrics, and REST APIs. Expose the default ports or the ports
 specified using:
 
-* [`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port)
-* [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port)
-* [`--p2p-advertised-port`](../../Reference/CLI/CLI-Syntax.md#p2p-advertised-port)
-* [`--rest-api-port`](../../Reference/CLI/CLI-Syntax.md#rest-api-port).
+* [`--metrics-port`](../../../Reference/CLI/CLI-Syntax.md#metrics-port)
+* [`--p2p-port`](../../../Reference/CLI/CLI-Syntax.md#p2p-port)
+* [`--p2p-advertised-port`](../../../Reference/CLI/CLI-Syntax.md#p2p-advertised-port)
+* [`--rest-api-port`](../../../Reference/CLI/CLI-Syntax.md#rest-api-port).
 
 To run Teku exposing local ports for access:
 
@@ -84,7 +84,7 @@ The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku nod
 
 !!! note
 
-    The example assumes the validators specified in [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) has already
+    The example assumes the validators specified in [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) has already
     been registered in the Ethereum 1.0 deposit contract.
 
 Run `docker-compose up` in the directory containing the `docker-compose.yml` file
