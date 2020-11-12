@@ -50,11 +50,11 @@ The REST API is logically divided into multiple endpoints.
 | [**/validator**] | Provide information and functionality for validator clients. |
 
 <!-- Links -->
-[REST API documentation]:https://pegasyseng.github.io/teku/#stable/
-[**/admin**]:https://pegasyseng.github.io/teku/#tag/Admin
-[**/beacon**]:https://pegasyseng.github.io/teku/#tag/Beacon
-[**/network**]:https://pegasyseng.github.io/teku/#tag/Network
-[**/node**]:https://pegasyseng.github.io/teku/#tag/Node
-[**/validator**]:https://pegasyseng.github.io/teku/#tag/Validator
+[REST API documentation]:https://consensys.github.io/teku/#stable/
+[**/admin**]:https://consensys.github.io/teku/#tag/Admin
+[**/beacon**]:https://consensys.github.io/teku/#tag/Beacon
+[**/network**]:https://consensys.github.io/teku/#tag/Network
+[**/node**]:https://consensys.github.io/teku/#tag/Node
+[**/validator**]:https://consensys.github.io/teku/#tag/Validator
 [Postman]: https://www.postman.com/
 [cURL]: https://curl.haxx.se/

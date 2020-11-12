@@ -4,6 +4,11 @@ description: Build Teku from source
 
 # Build from source
 
+!!! important
+
+    If you want to use the latest development version of Teku or a specific commit, build from
+    source. Otherwise, use the [binary] or [Docker image] for more stable versions.
+
 ## Prerequisites
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -54,3 +59,7 @@ bin/teku --help
     To view the list of available Gradle tasks, run `./gradlew tasks`
 
 Continue with [Starting Teku](Connect-To-Testnet.md).
+
+<!-- links -->
+[binary]: Install-Binaries.md
+[Docker image]: Run-Docker-Image.md
