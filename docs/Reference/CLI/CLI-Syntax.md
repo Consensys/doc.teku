@@ -748,8 +748,7 @@ Possible values are:
 | `altona`  | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
 | `medalla` | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
 | `minimal` | Eth 2.0 | Test        | Used for local testing and development networks.                    |
-| `topaz`   | Eth 2.0 | Test        | Single-client testnet maintained by the Prysmatic Labs.             |
-| `witti`   | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
+| `pyrmont` | Eth 2.0 | Test        | Multi-client testnet maintained by the Goerli testnet initiative.   |
 
 Predefined networks can provide defaults such the initial state of the network,
 bootnodes, and the address of the Ethereum 1.0 deposit contract.
