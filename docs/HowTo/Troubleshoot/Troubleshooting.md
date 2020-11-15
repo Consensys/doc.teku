@@ -95,7 +95,17 @@ If all recent attestations are marked as missed, check the following:
     [`--validators-keys`](../../Reference/CLI/CLI-Syntax.md#validators-keys) option is
     correct.
 
-* **Is the beacon node syncing?**
+* **Is the beacon node still syncing?**
+
+    Validators can only attest when the beacon node is in sync. If you see lines similar to,
+    `teku-event-log | Sync Event  *** Current slot: 239418, Head slot: 123456`, then the node is
+    still syncing.
+
+    Syncing is complete when the head slot reaches the current slot. If the node is synced, the
+    messages are similar to,
+    `teku-event-log | Slot Event  *** Slot: 716614, Block: acef76..c61b, Epoch: 22394...`.
+
+* **Is the beacon node reporting attestations?**
 
     Each validator that you run prints the message, `teku-validator-log | Validator   *** Published
     attestation  Count: 1, Slot: 48539, Root: 5e1bf5..cee8` once each epoch. If you do not see this
