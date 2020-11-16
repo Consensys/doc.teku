@@ -1315,6 +1315,45 @@ When specifying file names, Teku expects that the files exist.
 
 List of validator public keys used by an external signer (for example, Web3Signer).
 
+### validators-external-signer-slashing-protection-enabled
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-slashing-protection-enabled[=<BOOLEAN>]
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-slashing-protection-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_SIGNER_SLASHING_PROTECTION_ENABLED=false
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-slashing-protection-enabled: false
+    ```
+
+Specify whether to use Teku's built-in [slashing protection] when using an external signer such as
+[Web3Signer]. Defaults to `true`.
+
+Set this option to `false` if using the slashing protection implemented by an external signer.
+
+!!! warning
+
+    Ensure the external signer has slashing protection enabled before disabling Teku
+    slashing protection, otherwise a validator may get slashed.
+
+Built-in slashing protection can only be disabled for validators using external signers. Validators
+using Teku to sign blocks and attestations always uses its built-in slashing protection.
+
 ### validators-external-signer-timeout
 
 === "Syntax"
@@ -1470,3 +1509,5 @@ or clear your weak subjectivity settings.
 <!-- links -->
 [Infura]: https://infura.io/
 [Teku metrics]: ../../HowTo/Monitor/Metrics.md
+[Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
+[slashing protection]: ../../Concepts/Slashing-Protection.md

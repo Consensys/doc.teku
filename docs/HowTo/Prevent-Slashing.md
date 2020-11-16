@@ -10,6 +10,13 @@ blocks or attestations.
 You can import and export the slashing-protection file when migrating validator keys between
 validator clients.
 
+!!! note
+
+    If using an external signer that implements its own slashing protection
+    (for example [Web3Signer]), then you can disable Teku's built-in slashing protection using the
+    [`--validators-external-signer-slashing-protection-enabled`](../Reference/CLI/CLI-Syntax.md#validators-external-signer-slashing-protection-enabled)
+    command line option.
+
 ## Importing a slashing-protection file
 
 When importing the slashing-protection file, Teku imports the file to the
@@ -58,3 +65,4 @@ You can now import the slashing-protection file in a Teku, or non-Teku node.
 [data path directory when starting Teku]: ../Reference/CLI/CLI-Syntax.md#data-path
 [Minimal]: https://hackmd.io/@sproul/Bk0Y0qdGD#Format-2-Minimal
 [Complete]: https://hackmd.io/@sproul/Bk0Y0qdGD#Format-1-Complete
+[Web3Signer]: https://docs.web3signer.consensys.net/en/latest/

@@ -9,7 +9,7 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 !!! important
 
     This example connects to the [Medalla testnet](https://github.com/goerli/medalla). If connecting
-    to a different testnet (for example Zinken), update the [`--network`](../../Reference/CLI/CLI-Syntax.md#network)
+    to a different testnet (for example Pyrmont), update the [`--network`](../../Reference/CLI/CLI-Syntax.md#network)
     option in the examples accordingly.
 
     Networks can experience stability issues and are prone to regular resets. We recommend you
@@ -81,7 +81,7 @@ requires 32 Goerli ETH per validator.
 ### Generate the validators and send the deposits
 
 Use the [Medalla Launchpad] to guide you through a step-by-step process to generate your keys and
-send the deposits. For the Zinken testnet use the [Zinken Launchpad] only.
+send the deposits.
 
 !!! note
     Remember the passwords that you used to create the validator keys, because you need it to
@@ -164,4 +164,3 @@ starting Teku.
 [Infura]: https://infura.io/
 [Launchpad]: https://medalla.launchpad.ethereum.org/
 [Medalla Launchpad]: https://medalla.launchpad.ethereum.org/
-[Zinken Launchpad]: https://zinken.launchpad.ethereum.org/
