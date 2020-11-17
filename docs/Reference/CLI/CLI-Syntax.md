@@ -1346,8 +1346,13 @@ Specify whether to use Teku's built-in [slashing protection] when using an exter
 
 Set this option to `false` if using the slashing protection implemented by an external signer.
 
-If using Teku to sign blocks and attestions then Teku will always use its built-in slashing
-protection.
+!!! warning
+
+    Ensure the external signer has slashing protection enabled before disabling Teku
+    slashing protection, otherwise a validator may get slashed.
+
+Built-in slashing protection can only be disabled for validators using external signers. Validators
+using Teku to sign blocks and attestations always uses its built-in slashing protection.
 
 ### validators-external-signer-timeout
 
