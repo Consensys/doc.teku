@@ -20,11 +20,9 @@ copyright: Teku and its documentation are licensed under Apache 2.0 license.
 extra:
   latest_version_warning:
     url_contains: /latest/
-    text: 'Teku is under heavy development. If something isn''t working as documented, check
-    <a href="https://github.com/PegaSysEng/teku/blob/master/CHANGELOG.md" title="Teku changelog on master branch" style="text-decoration: underline;"> the changelog </a>
-    or get in touch on our
-    <a href="https://discord.gg/9mCVSY6" title="ConsenSys #teku Discord channel" style="text-decoration: underline;"> Teku Discord channel</a>.
-    There may be updates that haven''t yet made it to the documentation.'
+    text: 'You are reading the Teku development version documentation and
+    some features may not be available in the stable release.
+    You can switch to the stable version using the version box at the bottom of the screen.'
   support:
     tool: Discord
     channel: https://discord.gg/9mCVSY6
