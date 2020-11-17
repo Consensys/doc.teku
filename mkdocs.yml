@@ -20,9 +20,9 @@ copyright: Teku and its documentation are licensed under Apache 2.0 license.
 extra:
   latest_version_warning:
     url_contains: /latest/
-    text: 'You are reading Teku development version documentation and
-    some displayed features may not be available in the stable release.
-    You can switch to stable version using the version box at screen bottom.'
+    text: 'You are reading the Teku development version documentation and
+    some features may not be available in the stable release.
+    You can switch to the stable version using the version box at the bottom of the screen.'
   support:
     tool: Discord
     channel: https://discord.gg/9mCVSY6
