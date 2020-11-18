@@ -1,4 +1,4 @@
-# PegaSys Teku
+# ConsenSys Teku
 
 ## What is Teku?
 
