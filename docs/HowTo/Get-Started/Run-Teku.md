@@ -15,6 +15,11 @@ processes.
 We recommend you run the beacon chain client and validator as a [single process] if they are to run
 on the same machine.
 
+!!! note
+
+    By default, Teku connects to `mainnet`. Use the [`--network`](../../Reference/CLI/CLI-Syntax.md#network)
+    command line option to specify an alternate network.
+
 ## Start the clients in a single process
 
 Start the beacon chain client and validator as a single process by specifying the validator options
