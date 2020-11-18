@@ -18,4 +18,4 @@ how to build and contribute to this documentation.
 
 [Teku]: https://github.com/Consensys/teku
 [common tools wiki]: https://github.com/Consensys/doc.common/wiki
-[Teku documentation website hosted by ReadTheDocs.com]: https://docs.teku.pegasys.tech/
+[Teku documentation website hosted by ReadTheDocs.com]: https://docs.teku.consensys.net/

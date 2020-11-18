@@ -160,7 +160,7 @@ starting Teku.
 [Metamask]: https://metamask.io/
 [faucet]: https://faucet.goerli.mudit.blog/
 [connect to Goerli]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet
-[password protected V3 Keystore file]: https://docs.ethsigner.pegasys.tech/en/latest/Tutorials/Start-EthSigner/#create-password-and-key-files
+[password protected V3 Keystore file]: https://docs.ethsigner.consensys.net/Tutorials/Start-EthSigner/#create-password-and-key-files
 [Infura]: https://infura.io/
 [Launchpad]: https://medalla.launchpad.ethereum.org/
 [Medalla Launchpad]: https://medalla.launchpad.ethereum.org/
