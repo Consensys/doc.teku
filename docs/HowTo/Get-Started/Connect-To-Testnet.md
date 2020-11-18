@@ -151,7 +151,7 @@ starting Teku.
 
 * The `#teku` channel on the ConsenSys Discord. [Invite link](https://discord.gg/aT5TcBQ)
 
-* Please raise any bugs or errors on the [Teku GitHub](https://github.com/ConsenSys/teku/issues) repository.
+* Please raise any bugs or errors on the [Teku GitHub](https://github.com/Consensys/teku/issues) repository.
 
 <!-- links -->
 [Hyperledger Besu]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Install-Binaries/
