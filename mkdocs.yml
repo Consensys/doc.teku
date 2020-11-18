@@ -128,3 +128,6 @@ plugins:
         # you can't use an already redirected path as an old_path.
         # new_path can be a file inside the docs/ folder or any URL (http://...)
         # Reference/Teku-CLI.md: Reference/CLI/CLI-Syntax.md
+        HowTo/Get-Started/Build-From-Source.md: HowTo/Get-Started/Installation-Options/Build-From-Source.md
+        HowTo/Get-Started/Install-Binaries.md: HowTo/Get-Started/Installation-Options/Install-Binaries.md
+        HowTo/Get-Started/Run-Docker-Image.md: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
