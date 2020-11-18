@@ -1,5 +1,5 @@
 <!-- Thanks for sending a pull request! Please check out our contribution guidelines: -->
-<!-- https://github.com/PegaSysEng/doc.common/wiki/Contributing-to-Pegasys-Documentation -->
+<!-- https://github.com/Consensys/doc.common/wiki/Contributing-to-Documentation -->
 
 ## Pull Request Description
 <!-- Please write a short description of your changes and any specific instructions to review them -->
