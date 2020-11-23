@@ -270,7 +270,6 @@ Possible values are:
 | Network   | Chain   | Type        | Description                                                         |
 |-----------|---------|-------------|---------------------------------------------------------------------|
 | `mainnet` | Eth 2.0 | Production  | Main network.                                                       |
-| `medalla` | Eth 2.0 | Test        | Multi-client testnet.                                               |
 | `minimal` | Eth 2.0 | Test        | Used for local testing and development networks.                    |
 | `pyrmont` | Eth 2.0 | Test        | Multi-client testnet.                                               |
 
@@ -531,7 +530,6 @@ Possible values are:
 | Network   | Chain   | Type        | Description                                                         |
 |-----------|---------|-------------|---------------------------------------------------------------------|
 | `mainnet` | Eth 2.0 | Production  | Main network.                                                       |
-| `medalla` | Eth 2.0 | Test        | Multi-client testnet.                                               |
 | `minimal` | Eth 2.0 | Test        | Used for local testing and development networks.                    |
 | `pyrmont` | Eth 2.0 | Test        | Multi-client testnet.                                               |
 

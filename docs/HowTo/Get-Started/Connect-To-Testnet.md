@@ -145,7 +145,7 @@ starting Teku.
 
 ## Finding help
 
-* The `#pyrmont` channel on the Ethereum Foundation Discord. [Invite link](https://discord.gg/D8KFeQkv)
+* The `#pyrmont` channel on the Ethereum Foundation Discord. [Invite link](https://discord.gg/zyZXUN7)
 
 * The `#teku` channel on the ConsenSys Discord. [Invite link](https://discord.gg/aT5TcBQ)
 

@@ -25,7 +25,7 @@ docker image instead of the command line options.
 !!! Example "Example using Environment variables and CLI options"
 
     ```bash
-    docker run -d -p 9000:9000 -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --data-path=/var/lib/teku --log-destination=CONSOLE
+    docker run -d -p 9000:9000 -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=pyrmont --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --data-path=/var/lib/teku --log-destination=CONSOLE
     ```
 
 !!! tips
@@ -49,7 +49,7 @@ docker container.
 !!! example
 
     ```bash
-    docker run -p 9000:9000 --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords
+    docker run -p 9000:9000 --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=pyrmont --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords
     ```
 
 ## Exposing ports
@@ -71,7 +71,7 @@ docker run -p <localportP2P>:30303 -p <localportREST>:5051 consensys/teku:latest
 !!! example
 
     ```
-    docker run -p 30303:30303 -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=medalla --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords --rest-api-enabled=true
+    docker run -p 30303:30303 -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=pyrmont --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords --rest-api-enabled=true
     ```
 
 ## Run Teku using Docker Compose
@@ -113,7 +113,7 @@ services:
 
   teku_node:
     image: consensys/teku:latest
-    command: ["--network=medalla",
+    command: ["--network=pyrmont",
               "--eth1-endpoint=http://besu_node:8545",
               "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
               "--p2p-port=9000",

@@ -36,14 +36,14 @@ differences between the command line and the YAML file format are:
 
     ```yaml
     # network
-    network: "medalla"
+    network: "pyrmont"
 
     # p2p
     p2p-enabled: true
     p2p-port: 9000
 
     # validators
-    validator-keys: "/Users/me/node/medalla/validator/keys:/Users/me/node/medalla/validator/passwords"
+    validator-keys: "/Users/me/node/pyrmont/validator/keys:/Users/me/node/pyrmont/validator/passwords"
     validators-graffiti: "Teku validator"
 
     # Eth 1
