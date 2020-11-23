@@ -26,10 +26,10 @@ extra:
   support:
     tool: Discord
     channel: https://discord.gg/9mCVSY6
-    email: support@pegasys.tech
-    website: https://pegasys.tech/
-    company: Pegasys
-    issues: https://github.com/PegaSysEng/teku/issues
+    email: quorum@consensys.net
+    website: https://consensys.net/knowledge-base/ethereum-2/teku
+    company: Consensys
+    issues: https://github.com/Consensys/teku/issues
   google:
     site_verification: 'za1cLzyS6LXDGO-pMzvfQdYTZ0Zc67uZtY0asA4YXZ0'
     tag_manager: 'GTM-5SNB3FJ'
@@ -39,8 +39,8 @@ extra:
 
 
 # Software Repository
-repo_name: PegaSysEng/Teku
-repo_url: https://github.com/PegaSysEng/teku
+repo_name: Consensys/Teku
+repo_url: https://github.com/Consensys/teku
 
 theme:
   name: material
@@ -128,3 +128,6 @@ plugins:
         # you can't use an already redirected path as an old_path.
         # new_path can be a file inside the docs/ folder or any URL (http://...)
         # Reference/Teku-CLI.md: Reference/CLI/CLI-Syntax.md
+        HowTo/Get-Started/Build-From-Source.md: HowTo/Get-Started/Installation-Options/Build-From-Source.md
+        HowTo/Get-Started/Install-Binaries.md: HowTo/Get-Started/Installation-Options/Install-Binaries.md
+        HowTo/Get-Started/Run-Docker-Image.md: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
