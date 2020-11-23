@@ -4,15 +4,16 @@ description: Teku RESTful API
 
 # REST API
 
-[Enable the REST API service](#enable-the-rest-api-service) from the command line. You can also
-interact with APIs using Swagger UI by enabling the API documentation endpoint.
+## View the REST API documentation
 
 View the [REST API documentation] for more information about the available APIs.
 
 ## Enable the REST API service
 
-Enable the REST API service by setting the [`--rest-api-enabled`](../CLI/CLI-Syntax.md#rest-api-enabled)
-command line option to `true`.
+[Enable the REST API service](#enable-the-rest-api-service) from the command line by setting the
+[`--rest-api-enabled`](../CLI/CLI-Syntax.md#rest-api-enabled) command line option to `true`.
+
+You can also interact with APIs using Swagger UI by enabling the API documentation endpoint.
 
 !!! warning
 
@@ -36,25 +37,7 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
     ```bash
     curl -X GET "http://localhost:5051/beacon/committees?epoch=2"
     ```
-
-## REST API endpoints
-
-The REST API is logically divided into multiple endpoints.
-
-| Endpoint         | Description                                 |
-|------------------|---------------------------------------------|
-| [**/admin**]     | Provides network administration functionality. |
-| [**/beacon**]    | General information about the beacon chain. |
-| [**/network**]   | Information about the network.              |
-| [**/node**]      | Information about the beacon node.          |
-| [**/validator**] | Provide information and functionality for validator clients. |
-
 <!-- Links -->
 [REST API documentation]:https://consensys.github.io/teku/#stable/
-[**/admin**]:https://consensys.github.io/teku/#tag/Admin
-[**/beacon**]:https://consensys.github.io/teku/#tag/Beacon
-[**/network**]:https://consensys.github.io/teku/#tag/Network
-[**/node**]:https://consensys.github.io/teku/#tag/Node
-[**/validator**]:https://consensys.github.io/teku/#tag/Validator
 [Postman]: https://www.postman.com/
 [cURL]: https://curl.haxx.se/
