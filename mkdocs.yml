@@ -59,7 +59,9 @@ nav:
                 - Run Teku from Docker image: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
             - Start Teku: HowTo/Get-Started/Run-Teku.md
             - Manage Memory: HowTo/Get-Started/Manage-Memory.md
-            - Connect to a testnet: HowTo/Get-Started/Connect-To-Testnet.md
+            - Connect to a network:
+                - Connect to Mainnet: HowTo/Get-Started/Connect/Connect-To-Mainnet.md
+                - Connect to a testnet: HowTo/Get-Started/Connect/Connect-To-Testnet.md
         - External signing:
               - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
         - Monitor Nodes:
@@ -131,3 +133,4 @@ plugins:
         HowTo/Get-Started/Build-From-Source.md: HowTo/Get-Started/Installation-Options/Build-From-Source.md
         HowTo/Get-Started/Install-Binaries.md: HowTo/Get-Started/Installation-Options/Install-Binaries.md
         HowTo/Get-Started/Run-Docker-Image.md: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
+        HowTo/Get-Started/Connect-To-Testnet.md: HowTo/Get-Started/Connect/Connect-To-Testnet.md
