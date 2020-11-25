@@ -101,7 +101,7 @@ option.
 <!-- links -->
 [validator clients]: #start-the-validator
 [running beacon node]: #start-the-beacon-chain-client
-[Validators keystores]: Connect-To-Testnet.md#generate-the-validators-and-send-the-deposits
-[password files]: Connect-To-Testnet.md#create-a-password-file-for-each-validator-key
+[Validators keystores]: Connect/Connect-To-Testnet.md#generate-the-validators-and-send-the-deposits
+[password files]: Connect/Connect-To-Testnet.md#create-a-password-file-for-each-validator-key
 [slashable offence]: ../../Concepts/Slashing-Protection.md
 [single process]: #start-the-clients-in-a-single-process
