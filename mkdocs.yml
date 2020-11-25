@@ -86,7 +86,6 @@ nav:
             - Development and testing: Reference/CLI/Subcommands/Development.md
         - RESTful APIs:
           - Teku REST API methods: Reference/Rest_API/Rest.md
-          - Teku API objects: Reference/Rest_API/API-Objects.md
 
 markdown_extensions:
   - toc:
