@@ -65,7 +65,7 @@ Configure Besu to [connect to MainNet] and expose the RPC-HTTP APIs.
 
 ### Sync the beacon node
 
-Sync the beacon node to ensure the network is synced before registering the validator. 
+Sync the beacon node to ensure the network is synced before registering the validator.
 
 !!! note
 
@@ -123,7 +123,7 @@ Once the validator is activated, view it on the beacon chain explorer at
 You can also use [Prometheus and Grafana] to monitor your nodes.
 
 #### Run the validator and beacon node as a single process
-    
+
 To run the beacon node and validator client as a single process, stop the [running beacon node]
 started previously, and restart it by specifying the validator key files
 [created earlier](#generate-the-validators-and-send-the-deposits), and the text files containing the
