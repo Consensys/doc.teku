@@ -8,17 +8,17 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 
 !!! important
 
-    This example connects to the [Medalla testnet](https://github.com/goerli/medalla). If connecting
-    to a different testnet (for example Pyrmont), update the [`--network`](../../Reference/CLI/CLI-Syntax.md#network)
-    option in the examples accordingly.
+    This example connects to the [Pyrmont testnet]. If connecting to a different testnet,
+    update the [`--network`](../../../Reference/CLI/CLI-Syntax.md#network) option in the examples
+    accordingly.
 
     Networks can experience stability issues and are prone to regular resets. We recommend you
     regularly check network and client documentation for updates.
 
 **Prerequisites**:
 
-* Install the latest stable version of Teku using a [binary distribution](Installation-Options/Install-Binaries.md),
-    or with [Docker](Installation-Options/Run-Docker-Image.md).
+* Install the latest stable version of Teku using a [binary distribution](../Installation-Options/Install-Binaries.md),
+    or with [Docker](../Installation-Options/Run-Docker-Image.md).
 * If running validators, install any Ethereum 1.0 client (for example [Hyperledger Besu]), or access a
     cloud-based service such as [Infura].
 
@@ -69,18 +69,17 @@ Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
 ### Load the deposit account with ETH
 
 You need an Ethereum 1.0 Goerli testnet account that contains the amount of
-Goerli ETH (plus gas) required to activate the validator. The `medalla` testnet
+Goerli ETH (plus gas) required to activate the validator. The `pyrmont` testnet
 requires 32 Goerli ETH per validator.
 
 !!! tip
 
     You can create an account on Goerli using [Metamask], and use a [faucet] to
-    fund the account. You can also request Goerli testnet ETH on the Medalla
-    Discord channel.
+    fund the account.
 
 ### Generate the validators and send the deposits
 
-Use the [Medalla Launchpad] to guide you through a step-by-step process to generate your keys and
+Use the [Pyrmont Launchpad] to guide you through a step-by-step process to generate your keys and
 send the deposits.
 
 !!! note
@@ -89,14 +88,13 @@ send the deposits.
 
 ### Create a password file for each validator key
 
-For each validator key that you create, you need to create a text file containing the password
-to decrypt the key. The password file must have the same name as the key, but use
-the `.txt` extension.
+For each validator key, create a text file containing the password to decrypt the key. The password
+file must have the same name as the key, but use the `.txt` extension.
 
 !!! example
 
     If the Launchpad creates a key named `keystore-m_12381_3600_0_0_0-1596485378.json`, then
-    the password must be named `keystore-m_12381_3600_0_0_0-1596485378.txt`.
+    the password file must be named `keystore-m_12381_3600_0_0_0-1596485378.txt`.
 
 ### Start the validator
 
@@ -106,26 +104,26 @@ and the text files containing the password to decrypt the validator key.
 !!! example
 
     ```bash
-    teku --network=medalla --eth1-endpoint=http://localhost:8545 \
+    teku --network=pyrmont --eth1-endpoint=http://localhost:8545 \
     --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
     ```
 
-Alternatively, use [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) to
+Alternatively, use [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) to
 specify the directory to load multiple keys and passwords from.
 
 !!! example
 
     ```bash
-    teku --network=medalla --eth1-endpoint=http://localhost:8545 \
+    teku --network=pyrmont --eth1-endpoint=http://localhost:8545 \
     --validator-keys=validator/keys:validator/passwords \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
     ```
 
 Once the validator is activated, view it on the beacon chain explorer at
-`https://medalla.beaconcha.in/validator/<validatorPublicKey>`.
+`https://pyrmont.beaconcha.in/validator/<validatorPublicKey>`.
 
 ## Run a beacon chain client only
 
@@ -134,7 +132,7 @@ You can run a Teku beacon chain node on a network without any validators.
 !!! example
 
     ```bash
-    teku --network=medalla --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
+    teku --network=pyrmont --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
 
 ## Add a beacon chain client to Eth2stats
@@ -142,12 +140,12 @@ You can run a Teku beacon chain node on a network without any validators.
 You can add the beacon chain node to [Eth2stats](https://eth2stats.io/add-node) for monitoring.
 
 Ensure you enable metrics using the
-[`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option when
+[`--metrics-enabled`](../../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option when
 starting Teku.
 
 ## Finding help
 
-* The `#medalla` channel on the Ethereum Foundation Discord. [Invite link](https://discord.gg/zyZXUN7)
+* The `#pyrmont` channel on the Ethereum Foundation Discord. [Invite link](https://discord.gg/zyZXUN7)
 
 * The `#teku` channel on the ConsenSys Discord. [Invite link](https://discord.gg/aT5TcBQ)
 
@@ -162,5 +160,6 @@ starting Teku.
 [connect to Goerli]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet
 [password protected V3 Keystore file]: https://docs.ethsigner.consensys.net/Tutorials/Start-EthSigner/#create-password-and-key-files
 [Infura]: https://infura.io/
-[Launchpad]: https://medalla.launchpad.ethereum.org/
-[Medalla Launchpad]: https://medalla.launchpad.ethereum.org/
+[Launchpad]: https://pyrmont.launchpad.ethereum.org/
+[Pyrmont Launchpad]: https://pyrmont.launchpad.ethereum.org/
+[Pyrmont testnet]: https://github.com/protolambda/pyrmont
