@@ -9,7 +9,7 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 !!! important
 
     This example connects to the [Pyrmont testnet]. If connecting to a different testnet,
-    update the [`--network`](../../Reference/CLI/CLI-Syntax.md#network) option in the examples
+    update the [`--network`](../../../Reference/CLI/CLI-Syntax.md#network) option in the examples
     accordingly.
 
     Networks can experience stability issues and are prone to regular resets. We recommend you
@@ -17,8 +17,8 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 
 **Prerequisites**:
 
-* Install the latest stable version of Teku using a [binary distribution](Installation-Options/Install-Binaries.md),
-    or with [Docker](Installation-Options/Run-Docker-Image.md).
+* Install the latest stable version of Teku using a [binary distribution](../Installation-Options/Install-Binaries.md),
+    or with [Docker](../Installation-Options/Run-Docker-Image.md).
 * If running validators, install any Ethereum 1.0 client (for example [Hyperledger Besu]), or access a
     cloud-based service such as [Infura].
 
@@ -110,7 +110,7 @@ and the text files containing the password to decrypt the validator key.
     --metrics-enabled
     ```
 
-Alternatively, use [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) to
+Alternatively, use [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) to
 specify the directory to load multiple keys and passwords from.
 
 !!! example
@@ -140,7 +140,7 @@ You can run a Teku beacon chain node on a network without any validators.
 You can add the beacon chain node to [Eth2stats](https://eth2stats.io/add-node) for monitoring.
 
 Ensure you enable metrics using the
-[`--metrics-enabled`](../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option when
+[`--metrics-enabled`](../../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option when
 starting Teku.
 
 ## Finding help
