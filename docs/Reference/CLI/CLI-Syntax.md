@@ -1285,6 +1285,121 @@ When specifying file names, Teku expects that the files exist.
 
     The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
 
+### validators-external-signer-keystore
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-keystore=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-keystore=teku_client_keystore.p12
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_KEYSTORE=teku_client_keystore.p12
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-keystore: "teku_client_keystore.p12"
+    ```
+
+The keystore that Teku presents to the external signer for TLS authentication. Teku can use
+PKCS12 or JKS keystore types.
+
+Use the PKCS12 keystore type if connecting to Web3Signer.
+
+### validators-external-signer-keystore-password-file
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-keystore-password-file=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-keystore-password-file=keystore_pass.txt
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_KEYSTORE_PASSWORD_FILE=keystore_pass.txt
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-keystore-password-file: "keystore_pass.txt"
+    ```
+
+Password file used to decrypt the keystore.
+
+### validators-external-signer-truststore
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-truststore=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-truststore=websigner_truststore.p12
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE=websigner_truststore.p12
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-truststore: "websigner_truststore.p12"
+    ```
+
+PKCS12 or JKS keystore used to trust external signer's self-signed certificate
+
+### validators-external-signer-truststore-password-file
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-truststore-password-file=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-truststore-password-file=truststore_pass.txt
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE_PASSWORD_FILE=truststore_pass.txt
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-truststore-password-file: "truststore_pass.txt"
+    ```
+
+Password file used to decrypt the keystore.
+
 ### validators-external-signer-public-keys
 
 === "Syntax"
