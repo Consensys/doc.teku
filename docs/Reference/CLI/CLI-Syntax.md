@@ -869,7 +869,7 @@ The default is `0.0.0.0` (all interfaces).
     p2p-peer-lower-bound: 25
     ```
 
-Lower bound on the target number of peers. The default is `20`.
+Lower bound on the target number of peers. Teku will actively seek new peers if the number of peers falls below this value. The default is `64`.
 
 ### p2p-peer-upper-bound
 
@@ -897,7 +897,7 @@ Lower bound on the target number of peers. The default is `20`.
     p2p-peer-upper-bound: 40
     ```
 
-Upper bound on the target number of peers. The default is `30`.
+Upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `74`.
 
 ### p2p-port
 
