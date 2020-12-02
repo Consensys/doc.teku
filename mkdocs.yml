@@ -76,6 +76,7 @@ nav:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
         - Slashing protection: Concepts/Slashing-Protection.md
+        - Weak subjectivity: Concepts/Weak-Subjectivity.md
     - Reference:
         - Teku command line:
           - Options: Reference/CLI/CLI-Syntax.md
@@ -133,3 +134,4 @@ plugins:
         HowTo/Get-Started/Install-Binaries.md: HowTo/Get-Started/Installation-Options/Install-Binaries.md
         HowTo/Get-Started/Run-Docker-Image.md: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
         HowTo/Get-Started/Connect-To-Testnet.md: HowTo/Get-Started/Connect/Connect-To-Testnet.md
+        Reference/Rest_API/API-Objects.md: Reference/Rest_API/Rest.md

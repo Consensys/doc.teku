@@ -328,9 +328,15 @@ Show the help message and exit.
     initial-state: "/home/me/genesis.ssz"
     ```
 
-Path or URL to the network genesis file.
+Path or URL to an SSZ encoded state file. The state file can be used to specify the genesis state,
+or a recent state from which to sync.
 
-This option does not need to be specified if the initial state is provided by the network specified
+!!! note
+
+    If overriding the initial state in a custom network. You will need to supply the initial state
+    file at each restart.
+
+This option does not need to be specified if the genesis state is provided by the network specified
 using the [`--network`](#network) option.
 
 ### logging
@@ -863,7 +869,7 @@ The default is `0.0.0.0` (all interfaces).
     p2p-peer-lower-bound: 25
     ```
 
-Lower bound on the target number of peers. The default is `20`.
+Lower bound on the target number of peers. Teku will actively seek new peers if the number of peers falls below this value. The default is `64`.
 
 ### p2p-peer-upper-bound
 
@@ -891,7 +897,7 @@ Lower bound on the target number of peers. The default is `20`.
     p2p-peer-upper-bound: 40
     ```
 
-Upper bound on the target number of peers. The default is `30`.
+Upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `74`.
 
 ### p2p-port
 
@@ -1495,7 +1501,7 @@ Attempts to lock all keystores in a directory if a directory is specified in
     ws-checkpoint: "0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600"
     ```
 
-A recent checkpoint within the weak subjectivity period.
+A recent checkpoint within the [weak subjectivity period].
 
 The weak subjectivity checkpoint is a recent finalized checkpoint on the correct chain. By
 supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long
@@ -1504,8 +1510,15 @@ period follow the correct chain. It protects the node from long-range attacks by
 Use the [`admin weak-subjectivity`](Subcommands/Admin.md#weak-subjectivity) subcommand to display
 or clear your weak subjectivity settings.
 
+!!! tip
+
+    The [BeaconScan chain explorer] provides the most recent weak subjectivity checkpoint from which to
+    safely update your nodes view of the current state.
+
 <!-- links -->
 [Infura]: https://infura.io/
 [Teku metrics]: ../../HowTo/Monitor/Metrics.md
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [slashing protection]: ../../Concepts/Slashing-Protection.md
+[weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
+[BeaconScan chain explorer]: https://beaconscan.com/ws_checkpoint
