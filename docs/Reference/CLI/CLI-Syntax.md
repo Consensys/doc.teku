@@ -1079,7 +1079,7 @@ of static peers.
 === "Syntax"
 
     ```bash
-    --rest-api-cors-origins=<url>[,<url>...]... or all or "*"
+    --rest-api-cors-origins[=<url>[,<url>...]...] or all or "*"
     ```
 
 === "Command Line"
