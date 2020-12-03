@@ -1106,7 +1106,7 @@ them with commas.
 Listed domains can access the node using HTTP REST API calls. If your client interacts with Teku
 using a browser app (such as a block explorer), add the client domain to the list.
 
-The default value is "none". If you do not list any domains, browser apps cannot interact with your
+The default value is "none." If you don't list any domains, browser apps can't interact with your
 Teku node.
 
 !!! tip
