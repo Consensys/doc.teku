@@ -2,13 +2,13 @@
 title: Voluntarily exit a validaor
 ---
 
-# Voluntarity exit a validator
+# Voluntarily exit a validator
 
 A voluntary exit is when a validator chooses to stop performing its duties, and exits the beacon
 chain.
 
-To voluntarily exit, that validator must be active for at least 256 epochs, and it
-must continue performing its validator duties until successfully exited to avoid penalties.
+The validator must continue performing its validator duties until successfully exited to avoid
+penalties.
 
 !!! important
 
@@ -32,11 +32,11 @@ In the command:
 
 * Specify the location of the beacon node using
     [`--beacon-node-api-endpoint`](../Reference/CLI/Subcommands/Voluntary-Exit.md#beacon-node-api-endpoint).
-    This is only required if running the validator client and beacon node as separate processes.
+    You must have a running beacon node which has the [REST API enabled].
 * Specify the validators to exit using the
    [`--validator-keys`](../Reference/CLI/Subcommands/Voluntary-Exit.md#validator-keys) option.
 * Specify the earliest epoch at which to exit using the [`--epoch`](../Reference/CLI/Subcommands/Voluntary-Exit.md#epoch)
-    option.
+    option. The specified epoch must be a past or current epoch.
 
 If using an external signer such as [Web3Signer], then specify the external signer URL and
 public key of the exiting validator:
@@ -50,5 +50,9 @@ public key of the exiting validator:
    --epoch=24500
    ```
 
+Use the [`/eth/v1/beacon/pool/voluntary_exits`](https://consensys.github.io/teku/#operation/getEthV1BeaconPoolVoluntary_exits)
+API to check the pending exit queue.
+
 <!-- links -->
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
+[REST API enabled]: ../Reference/CLI/CLI-Syntax.md#rest-api-enabled

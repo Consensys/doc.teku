@@ -79,7 +79,8 @@ The default is `none`.
     TEKU_EPOCH=24500
     ```
 
-Earliest epoch that the voluntary exit can be processed.
+Earliest epoch that the voluntary exit can be processed. The specified epoch can be a past epoch,
+or current epoch. You cannot specify a future epoch.
 
 !!! note
 
@@ -214,7 +215,7 @@ Timeout in milliseconds for requests to the external signer. Default is 1000.
     validators-external-signer-url: "http://localhost:9000"
     ```
 
-URL of the the external signer (for example, [Web3Signer]).
+URL of the external signer (for example, [Web3Signer]).
 
 <!-- links -->
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
