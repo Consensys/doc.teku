@@ -85,7 +85,7 @@ The default is `none`.
     confirmation-enabled: false
     ```
 
-Specify whether to ask for confirmation when exiting a validator. Defaults to `true`.
+Specify whether to request confirmation when exiting a validator. Defaults to `true`.
 
 !!! warning
 
