@@ -7,8 +7,8 @@ title: Voluntarily exit a validaor
 A voluntary exit is when a validator chooses to stop performing its duties, and exits the beacon
 chain.
 
-The validator must continue performing its validator duties until successfully exited to avoid
-penalties.
+To voluntarily exit, the validator must be active for at least 256 epochs, and it
+must continue performing its validator duties until successfully exited to avoid penalties.
 
 !!! important
 
@@ -36,7 +36,7 @@ In the command:
 * Specify the validators to exit using the
    [`--validator-keys`](../Reference/CLI/Subcommands/Voluntary-Exit.md#validator-keys) option.
 * Specify the earliest epoch at which to exit using the [`--epoch`](../Reference/CLI/Subcommands/Voluntary-Exit.md#epoch)
-    option. The specified epoch must be a past or current epoch.
+    option. If not specified, this defaults to the current epoch. You cannot specify a future epoch.
 
 If using an external signer such as [Web3Signer], then specify the external signer URL and
 public key of the exiting validator:

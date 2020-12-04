@@ -59,6 +59,39 @@ Endpoint of the beacon node's REST API. Default is `http://127.0.0.1:5051`.
 The path to the YAML configuration file.
 The default is `none`.
 
+### confirmation-enabled
+
+=== "Syntax"
+
+    ```bash
+    teku voluntary-exit --confirmation-enabled=<BOOLEAN>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    teku voluntary-exit --confirmation-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_CONFIRMATION_ENABLED=false
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    confirmation-enabled: false
+    ```
+
+Specify whether to ask for confirmation when exiting a validator. Defaults to `true`.
+
+!!! warning
+
+    Exercise care when using this option because if set to `false`, exits are generated immediately
+    without any prompt.
+
 ### epoch
 
 === "Syntax"
@@ -80,7 +113,7 @@ The default is `none`.
     ```
 
 Earliest epoch that the voluntary exit can be processed. The specified epoch can be a past epoch,
-or current epoch. You cannot specify a future epoch.
+or current epoch. You cannot specify a future epoch. Defaults to the current epoch.
 
 !!! note
 
