@@ -1079,7 +1079,7 @@ of static peers.
 === "Syntax"
 
     ```bash
-    --rest-api-cors-origins[=<url>[,<url>...]...] or "all" or "*"
+    --rest-api-cors-origins[=<url>[,<url>...]...] or "*"
     ```
 
 === "Command Line"
@@ -1111,7 +1111,7 @@ Teku node.
 
 !!! tip
 
-    For testing and development purposes, use `all` or `*` to accept requests from any domain.
+    For testing and development purposes, use `*` to accept requests from any domain.
     We don’t recommend accepting requests from any domain for production environments.
 
 ### rest-api-docs-enabled
