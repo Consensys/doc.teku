@@ -87,7 +87,7 @@ The default is `none`.
 
 Specify whether to request confirmation when exiting a validator. Defaults to `true`.
 
-!!! warning
+!!! danger
 
     Exercise care when using this option because if set to `false`, exits are generated immediately
     without any prompt.
