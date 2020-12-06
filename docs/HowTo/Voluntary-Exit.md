@@ -7,8 +7,8 @@ title: Voluntarily exit a validaor
 A voluntary exit is when a validator chooses to stop performing its duties, and exits the beacon
 chain.
 
-To voluntarily exit, the validator must be active for at least 256 epochs, and it
-must continue performing its validator duties until successfully exited to avoid penalties.
+To voluntarily exit, the validator must continue performing its validator duties until successfully
+exited to avoid penalties.
 
 !!! important
 
