@@ -19,7 +19,7 @@ on the same machine.
 
     By default, Teku connects to `mainnet`. Use the [`--network`](../../Reference/CLI/CLI-Syntax.md#network)
     command line option to specify an alternate network.
-    
+
     If the genesis state of a network is not yet known, then
     include the [`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint) command line
     option.

@@ -72,6 +72,7 @@ nav:
         - Prevent slashing offences: HowTo/Prevent-Slashing.md
         - Find and connect to peers:
             - Improve P2P connectivity: HowTo/Find-and-Connect/Improve-Connectivity.md
+        - Voluntary exit: HowTo/Voluntary-Exit.md
         - Troubleshoot:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
@@ -84,6 +85,7 @@ nav:
             - admin: Reference/CLI/Subcommands/Admin.md
             - slashing-protection: Reference/CLI/Subcommands/Slashing-Protection.md
             - validator-client, vc: Reference/CLI/Subcommands/Validator-Client.md
+            - voluntary-exit: Reference/CLI/Subcommands/Voluntary-Exit.md
             - Development and testing: Reference/CLI/Subcommands/Development.md
         - RESTful APIs:
           - Teku REST API methods: Reference/Rest_API/Rest.md
