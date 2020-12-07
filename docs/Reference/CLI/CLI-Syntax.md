@@ -1075,6 +1075,46 @@ File containing the node's private key.
 List of comma-separated [multiaddresses](https://docs.libp2p.io/reference/glossary/#multiaddr)
 of static peers.
 
+### rest-api-cors-origins
+
+=== "Syntax"
+
+    ```bash
+    --rest-api-cors-origins[=<url>[,<url>...]...] or "*"
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --rest-api-cors-origins="http://medomain.com","https://meotherdomain.com"
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_REST_API_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rest-api-cors-origins: ["http://medomain.com","https://meotherdomain.com"]
+    ```
+
+A list of domain URLs for CORS validation. You must enclose the URLs in double quotes and separate
+them with commas.
+
+Listed domains can access the node using HTTP REST API calls. If your client interacts with Teku
+using a browser app (such as a block explorer), add the client domain to the list.
+
+The default value is "none." If you don't list any domains, browser apps can't interact with your
+Teku node.
+
+!!! tip
+
+    For testing and development purposes, use `*` to accept requests from any domain.
+    We don’t recommend accepting requests from any domain for production environments.
+
 ### rest-api-docs-enabled
 
 === "Syntax"
