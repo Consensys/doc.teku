@@ -658,7 +658,8 @@ default, Teku accepts access from `localhost` and `127.0.0.1`.
     ```
 
 Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `EVENTBUS`,
-`LIBP2P`, `NETWORK`. All categories are enabled by default.
+`EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`,
+`REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`. All categories are enabled by default.
 
 ### metrics-interface
 
