@@ -1075,6 +1075,47 @@ File containing the node's private key.
 List of comma-separated [multiaddresses](https://docs.libp2p.io/reference/glossary/#multiaddr)
 of static peers.
 
+### p2p-subscribe-all-subnets-enabled
+
+=== "Syntax"
+
+    ```bash
+    --p2p-subscribe-all-subnets-enabled=<BOOLEAN>
+    ```
+
+=== "Command line"
+
+    ```bash
+    --p2p-subscribe-all-subnets-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_P2P_SUBSCRIBE_ALL_SUBNETS_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    p2p-subscribe-all-subnets-enabled: true
+    ```
+
+Allows the beacon node to stay subscribed to all subnets regardless of the number of validators.
+Defaults to `false`.
+
+When running a low number of validators Teku subscribes and unsubscribes from subnets as needed for
+the running validators.
+
+This option is primarily for users running an external validator client and load balancing it
+across multiple beacon nodes. Without this flag, depending on how requests are load balanced, the
+beacon nodes may not have subscribed to the required subnets and be unable to produce aggregates.
+
+!!! important
+
+    When set to `true`, Teku uses more CPU and bandwidth, and for most users there’s really no
+    reason to use this option.
+
 ### rest-api-cors-origins
 
 === "Syntax"
