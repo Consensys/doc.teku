@@ -11,6 +11,9 @@ We recommend setting the maximum heap size to 2GB if you have less than 8GB of R
 more RAM, but want to free up memory for other processes. This results in an approximate process
 size of 3.5GB (on Linux).
 
+If you have more than 8GB of RAM, we recommend setting the maximum heap size to approximately
+5.632GB.
+
 Set the heap size using the environment variable, or using the command line when starting Teku.
 
 === "Environment variable"
