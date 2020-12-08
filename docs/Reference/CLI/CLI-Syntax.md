@@ -1101,11 +1101,11 @@ of static peers.
     p2p-subscribe-all-subnets-enabled: true
     ```
 
-Allows the beacon node to stay subscribed to all subnets regardless of the number of validators.
+Forces the beacon node to stay subscribed to all subnets regardless of the number of validators.
 Defaults to `false`.
 
-When running a low number of validators Teku subscribes and unsubscribes from subnets as needed for
-the running validators.
+When set to `true` and running a low number of validators, Teku subscribes and unsubscribes from
+subnets as needed for the running validators.
 
 This option is primarily for users running an external validator client and load balancing it
 across multiple beacon nodes. Without this flag, depending on how requests are load balanced, the
@@ -1113,8 +1113,8 @@ beacon nodes may not have subscribed to the required subnets and be unable to pr
 
 !!! important
 
-    When set to `true`, Teku uses more CPU and bandwidth, and for most users there’s really no
-    reason to use this option.
+    When set to `true`, Teku uses more CPU and bandwidth, and for most users there’s no need to use
+    this option.
 
 ### rest-api-cors-origins
 
