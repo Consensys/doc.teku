@@ -1043,7 +1043,7 @@ The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2
     p2p-private-key-file: "/home/me/me_node/key"
     ```
 
-File containing the node's private key.
+File containing the [node's private key](../../Concepts/P2P-Private-Key.md).
 
 ### p2p-static-peers
 
