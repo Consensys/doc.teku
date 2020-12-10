@@ -34,9 +34,33 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
 
 !!! example
 
-    ```bash
-    curl -X GET "http://localhost:5051/beacon/committees?epoch=2"
-    ```
+    === "cURL request"
+
+        ```bash
+        curl -X GET "http://localhost:5051/eth/v1/node/identity"
+        ```
+
+    === "JSON Result"
+
+        ```json
+        {
+           "data":{
+              "peer_id":"16Uiu2HAkuWPWqF4W3aw9oo5Yw79v5muzBaaGTGKumuXR8qkSVq6y",
+              "enr":"enr:-KG4QJ3PlL-XIRZCBq3L-uZ4wovEVEvxUMmvv75YDk9imb21clm0x3V2J5Vf9Zz3tLDpTplhG68_kzZPOxcU0ttwNDAEhGV0aDKQtTA_KgAAAAD__________4JpZIJ2NIJpcIS5a1YhiXNlY3AyNTZrMaECATVJhRqBrqyo8l6JKz6HidWL82kQcDmtKWuQZLDmZmqDdGNwgiMog3VkcILZIg",
+              "p2p_addresses":[
+                 "/ip4/10.0.0.42/tcp/9000/p2p/16Uiu2HAkuWPWqF4W3aw9oo5Yw79v5muzBaaGTGKumuXR8qkSVq6y"
+              ],
+              "discovery_addresses":[
+                 "/ip4/10.0.0.42/udp/55586/p2p/16Uiu2HAkuWPWqF4W3aw9oo5Yw79v5muzBaaGTGKumuXR8qkSVq6y"
+              ],
+              "metadata":{
+                 "seq_number":"0",
+                 "attnets":"0x0000000000000000"
+              }
+           }
+        }
+        ```
+
 <!-- Links -->
 [REST API documentation]:https://consensys.github.io/teku/#stable/
 [Postman]: https://www.postman.com/
