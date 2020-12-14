@@ -1344,62 +1344,6 @@ Use the PKCS12 keystore type if connecting to Web3Signer.
 
 Password file used to decrypt the keystore.
 
-### validators-external-signer-truststore
-
-=== "Syntax"
-
-    ```bash
-    --validators-external-signer-truststore=<FILE>
-    ```
-
-=== "Command Line"
-
-    ```bash
-    --validators-external-signer-truststore=websigner_truststore.p12
-    ```
-
-=== "Environment Variable"
-
-    ```bash
-    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE=websigner_truststore.p12
-    ```
-
-=== "Configuration File"
-
-    ```bash
-    validators-external-signer-truststore: "websigner_truststore.p12"
-    ```
-
-PKCS12 or JKS keystore used to trust external signer's self-signed certificate
-
-### validators-external-signer-truststore-password-file
-
-=== "Syntax"
-
-    ```bash
-    --validators-external-signer-truststore-password-file=<FILE>
-    ```
-
-=== "Command Line"
-
-    ```bash
-    --validators-external-signer-truststore-password-file=truststore_pass.txt
-    ```
-
-=== "Environment Variable"
-
-    ```bash
-    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE_PASSWORD_FILE=truststore_pass.txt
-    ```
-
-=== "Configuration File"
-
-    ```bash
-    validators-external-signer-truststore-password-file: "truststore_pass.txt"
-    ```
-
-Password file used to decrypt the keystore.
-
 ### validators-external-signer-public-keys
 
 === "Syntax"
@@ -1494,6 +1438,62 @@ using Teku to sign blocks and attestations always uses its built-in slashing pro
     ```
 
 Timeout in milliseconds for requests to the external signer. Default is 1000.
+
+### validators-external-signer-truststore
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-truststore=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-truststore=websigner_truststore.p12
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE=websigner_truststore.p12
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-truststore: "websigner_truststore.p12"
+    ```
+
+PKCS12 or JKS keystore used to trust external signer's self-signed certificate
+
+### validators-external-signer-truststore-password-file
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-truststore-password-file=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-truststore-password-file=truststore_pass.txt
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE_PASSWORD_FILE=truststore_pass.txt
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-truststore-password-file: "truststore_pass.txt"
+    ```
+
+Password file used to decrypt the keystore.
 
 ### validators-external-signer-url
 

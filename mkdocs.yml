@@ -69,6 +69,7 @@ nav:
           - Configure logging: HowTo/Monitor/Logging.md
         - Configure:
             - Specify options in a configuration file: HowTo/Configure/Use-Configuration-File.md
+            - Configure TLS: HowTo/Configure/Configure-TLS.md
         - Prevent slashing offences: HowTo/Prevent-Slashing.md
         - Find and connect to peers:
             - Improve P2P connectivity: HowTo/Find-and-Connect/Improve-Connectivity.md
@@ -76,6 +77,8 @@ nav:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
         - Slashing protection: Concepts/Slashing-Protection.md
+    - Tutorials:
+        - External signer TLS: Tutorials/Configure-External-Signer-TLS.md  
     - Reference:
         - Teku command line:
           - Options: Reference/CLI/CLI-Syntax.md
