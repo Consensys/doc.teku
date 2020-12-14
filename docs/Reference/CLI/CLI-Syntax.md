@@ -328,9 +328,15 @@ Show the help message and exit.
     initial-state: "/home/me/genesis.ssz"
     ```
 
-Path or URL to the network genesis file.
+Path or URL to an SSZ encoded state file. The state file can be used to specify the genesis state,
+or a recent state from which to sync.
 
-This option does not need to be specified if the initial state is provided by the network specified
+!!! note
+
+    If overriding the initial state in a custom network. You will need to supply the initial state
+    file at each restart.
+
+This option does not need to be specified if the genesis state is provided by the network specified
 using the [`--network`](#network) option.
 
 ### logging
@@ -652,7 +658,8 @@ default, Teku accepts access from `localhost` and `127.0.0.1`.
     ```
 
 Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `EVENTBUS`,
-`LIBP2P`, `NETWORK`. All categories are enabled by default.
+`EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`,
+`REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`. All categories are enabled by default.
 
 ### metrics-interface
 
@@ -863,7 +870,7 @@ The default is `0.0.0.0` (all interfaces).
     p2p-peer-lower-bound: 25
     ```
 
-Lower bound on the target number of peers. The default is `20`.
+Lower bound on the target number of peers. Teku will actively seek new peers if the number of peers falls below this value. The default is `64`.
 
 ### p2p-peer-upper-bound
 
@@ -891,7 +898,7 @@ Lower bound on the target number of peers. The default is `20`.
     p2p-peer-upper-bound: 40
     ```
 
-Upper bound on the target number of peers. The default is `30`.
+Upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `74`.
 
 ### p2p-port
 
@@ -1036,7 +1043,7 @@ The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2
     p2p-private-key-file: "/home/me/me_node/key"
     ```
 
-File containing the node's private key.
+File containing the [node's private key](../../Concepts/P2P-Private-Key.md).
 
 ### p2p-static-peers
 
@@ -1067,6 +1074,87 @@ File containing the node's private key.
 
 List of comma-separated [multiaddresses](https://docs.libp2p.io/reference/glossary/#multiaddr)
 of static peers.
+
+### p2p-subscribe-all-subnets-enabled
+
+=== "Syntax"
+
+    ```bash
+    --p2p-subscribe-all-subnets-enabled=<BOOLEAN>
+    ```
+
+=== "Command line"
+
+    ```bash
+    --p2p-subscribe-all-subnets-enabled=true
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_P2P_SUBSCRIBE_ALL_SUBNETS_ENABLED=true
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    p2p-subscribe-all-subnets-enabled: true
+    ```
+
+Forces the beacon node to stay subscribed to all subnets regardless of the number of validators.
+Defaults to `false`.
+
+When set to `true` and running a low number of validators, Teku subscribes and unsubscribes from
+subnets as needed for the running validators.
+
+This option is primarily for users running an external validator client and load balancing it
+across multiple beacon nodes. Without this flag, depending on how requests are load balanced, the
+beacon nodes may not have subscribed to the required subnets and be unable to produce aggregates.
+
+!!! important
+
+    When set to `true`, Teku uses more CPU and bandwidth, and for most users there’s no need to use
+    this option.
+
+### rest-api-cors-origins
+
+=== "Syntax"
+
+    ```bash
+    --rest-api-cors-origins[=<url>[,<url>...]...] or "*"
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --rest-api-cors-origins="http://medomain.com","https://meotherdomain.com"
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_REST_API_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    rest-api-cors-origins: ["http://medomain.com","https://meotherdomain.com"]
+    ```
+
+A list of domain URLs for CORS validation. You must enclose the URLs in double quotes and separate
+them with commas.
+
+Listed domains can access the node using HTTP REST API calls. If your client interacts with Teku
+using a browser app (such as a block explorer), add the client domain to the list.
+
+The default value is "none." If you don't list any domains, browser apps can't interact with your
+Teku node.
+
+!!! tip
+
+    For testing and development purposes, use `*` to accept requests from any domain.
+    We don’t recommend accepting requests from any domain for production environments.
 
 ### rest-api-docs-enabled
 
@@ -1610,7 +1698,7 @@ Attempts to lock all keystores in a directory if a directory is specified in
     ws-checkpoint: "0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600"
     ```
 
-A recent checkpoint within the weak subjectivity period.
+A recent checkpoint within the [weak subjectivity period].
 
 The weak subjectivity checkpoint is a recent finalized checkpoint on the correct chain. By
 supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long
@@ -1619,8 +1707,15 @@ period follow the correct chain. It protects the node from long-range attacks by
 Use the [`admin weak-subjectivity`](Subcommands/Admin.md#weak-subjectivity) subcommand to display
 or clear your weak subjectivity settings.
 
+!!! tip
+
+    The [BeaconScan chain explorer] provides the most recent weak subjectivity checkpoint from which to
+    safely update your nodes view of the current state.
+
 <!-- links -->
 [Infura]: https://infura.io/
 [Teku metrics]: ../../HowTo/Monitor/Metrics.md
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [slashing protection]: ../../Concepts/Slashing-Protection.md
+[weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
+[BeaconScan chain explorer]: https://beaconscan.com/ws_checkpoint

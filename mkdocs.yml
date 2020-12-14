@@ -73,10 +73,12 @@ nav:
         - Prevent slashing offences: HowTo/Prevent-Slashing.md
         - Find and connect to peers:
             - Improve P2P connectivity: HowTo/Find-and-Connect/Improve-Connectivity.md
+        - Voluntary exit: HowTo/Voluntary-Exit.md
         - Troubleshoot:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
         - Slashing protection: Concepts/Slashing-Protection.md
+        - Weak subjectivity: Concepts/Weak-Subjectivity.md
     - Tutorials:
         - External signer TLS: Tutorials/Configure-External-Signer-TLS.md  
     - Reference:
@@ -86,6 +88,7 @@ nav:
             - admin: Reference/CLI/Subcommands/Admin.md
             - slashing-protection: Reference/CLI/Subcommands/Slashing-Protection.md
             - validator-client, vc: Reference/CLI/Subcommands/Validator-Client.md
+            - voluntary-exit: Reference/CLI/Subcommands/Voluntary-Exit.md
             - Development and testing: Reference/CLI/Subcommands/Development.md
         - RESTful APIs:
           - Teku REST API methods: Reference/Rest_API/Rest.md
@@ -136,3 +139,4 @@ plugins:
         HowTo/Get-Started/Install-Binaries.md: HowTo/Get-Started/Installation-Options/Install-Binaries.md
         HowTo/Get-Started/Run-Docker-Image.md: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
         HowTo/Get-Started/Connect-To-Testnet.md: HowTo/Get-Started/Connect/Connect-To-Testnet.md
+        Reference/Rest_API/API-Objects.md: Reference/Rest_API/Rest.md

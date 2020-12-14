@@ -1,5 +1,5 @@
 ---
-title: Subcommand options
+title: Validator client subcommand options
 ---
 
 # `validator-client`, `vc`
