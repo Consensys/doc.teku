@@ -9,7 +9,7 @@ You can configure TLS for communication between Teku and an external signer, for
 !!! info
 
     The [Teku and Web3Signer TLS configuration tutorial] provides instructions to create the required
-    keystores and configuration. 
+    keystores and configuration.
 
 ## Prerequisites
 
