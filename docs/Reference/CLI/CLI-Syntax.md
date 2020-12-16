@@ -328,8 +328,8 @@ Show the help message and exit.
     initial-state: "/home/me/genesis.ssz"
     ```
 
-Path or URL to an SSZ encoded state file. The state file can be used to specify the genesis state,
-or a recent state from which to sync.
+Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
+or a recent finalized checkpoint state from which to sync.
 
 !!! note
 
@@ -1043,7 +1043,7 @@ The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2
     p2p-private-key-file: "/home/me/me_node/key"
     ```
 
-File containing the node's private key.
+File containing the [node's private key](../../Concepts/P2P-Private-Key.md).
 
 ### p2p-static-peers
 
