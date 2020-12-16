@@ -15,7 +15,7 @@ You can also supply the subcommand options using [environment variables or a con
 
 ## `import`
 
-Imports the slashing protection database. Supports the [Minimal] or [Complete] interchange format.
+Imports the slashing protection database using the [validator client interchange format].
 
 ### config-file
 
@@ -83,7 +83,7 @@ Teku imports the file to the `<data-path>/validators/slashprotection/` directory
 
 ## `export`
 
-Exports the slashing protection database in [Minimal] format.
+Exports the slashing protection database in the [validator client interchange format] format.
 
 ### config-file
 
@@ -144,10 +144,9 @@ The path to the Teku data directory. The default directory is OS dependent:
 
 The file to export the slashing protection database to.
 
-Exports the database in the [Minimal] format.
+Exports the database in the [validator client interchange format] format.
 
 <!-- links -->
 [slashing protection data]: ../../../Concepts/Slashing-Protection.md
-[Minimal]: https://hackmd.io/@sproul/Bk0Y0qdGD#Format-2-Minimal
-[Complete]: https://hackmd.io/@sproul/Bk0Y0qdGD#Format-1-Complete
+[validator client interchange format]: https://eips.ethereum.org/EIPS/eip-3076
 [environment variables or a configuration file]: ../CLI-Syntax.md#specifying-options
