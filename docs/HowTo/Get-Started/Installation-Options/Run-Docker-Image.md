@@ -49,7 +49,7 @@ docker container.
 !!! example
 
     ```bash
-    docker run -p 9000:9000 --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=pyrmont --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords
+    docker run -p 9000:9000 --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --data-base-path=/var/lib/teku --network=pyrmont --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords
     ```
 
 ## Exposing ports
@@ -65,13 +65,13 @@ specified using:
 To run Teku exposing local ports for access:
 
 ```bash
-docker run -p <localportP2P>:30303 -p <localportREST>:5051 consensys/teku:latest --network=<NETWORK> --eth1-endpoint=<URL> --validator-keys=<KEY_DIR>:<PASS_DIR> --rest-api-enabled=true
+docker run -p <localportP2P>:30303 -p <localportREST>:5051 consensys/teku:latest --network=<NETWORK> --data-base-path=<DATA_DIR> --eth1-endpoint=<URL> --validator-keys=<KEY_DIR>:<PASS_DIR> --rest-api-enabled=true
 ```
 
 !!! example
 
     ```
-    docker run -p 30303:30303 -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=pyrmont --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=var/lib/teku/validator/keys:var/lib/teku/validator/passwords --rest-api-enabled=true
+    docker run -p 30303:30303 -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=pyrmont --data-base-path=/var/lib/teku --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --rest-api-enabled=true
     ```
 
 ## Run Teku using Docker Compose
@@ -90,44 +90,90 @@ The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku nod
 Run `docker-compose up` in the directory containing the `docker-compose.yml` file
 to start the container.
 
-```yaml
----
-version: '3.4'
-services:
+=== "Pyrmont"
 
-  besu_node:
-    image: hyperledger/besu:latest
-    command: ["--network=goerli",
-              "--data-path=/opt/besu/data/data",
-              "--host-allowlist=*",
-              "--sync-mode=FAST",
-              "--rpc-http-enabled",
-              "--rpc-http-cors-origins=*",
-              "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
-    volumes:
-      - ./besu:/opt/besu/data
-    ports:
-      # Map the p2p port(30303) and RPC HTTP port(8545)
-      - "8545:8545"
-      - "30303:30303"
+    ```yaml
+    ---
+    version: '3.4'
+    services:
 
-  teku_node:
-    image: consensys/teku:latest
-    command: ["--network=pyrmont",
-              "--eth1-endpoint=http://besu_node:8545",
-              "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
-              "--p2p-port=9000",
-              "--rest-api-enabled=true",
-              "--rest-api-docs-enabled=true"]
-    depends_on:
-      - besu_node
-    volumes:
-      - ./teku:/opt/teku/data
-    ports:
-      # Map the p2p port(9000) and REST API port(5051)
-      - "9000:9000"
-      - "5051:5051"
-```
+      besu_node:
+        image: hyperledger/besu:latest
+        command: ["--network=goerli",
+                  "--data-path=/opt/besu/data/data",
+                  "--host-allowlist=*",
+                  "--sync-mode=FAST",
+                  "--rpc-http-enabled",
+                  "--rpc-http-cors-origins=*",
+                  "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
+        volumes:
+          - ./besu:/opt/besu/data
+        ports:
+          # Map the p2p port(30303) and RPC HTTP port(8545)
+          - "8545:8545"
+          - "30303:30303"
+
+      teku_node:
+        environment:
+          - "JAVA_OPTS=-Xmx4g"
+        image: consensys/teku:latest
+        command: ["--network=pyrmont",
+                  "--data-base-path=/opt/teku/data"
+                  "--eth1-endpoint=http://besu_node:8545",
+                  "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
+                  "--p2p-port=9000",
+                  "--rest-api-enabled=true",
+                  "--rest-api-docs-enabled=true"]
+        depends_on:
+          - besu_node
+        volumes:
+          - ./teku:/opt/teku/data
+        ports:
+          # Map the p2p port(9000) and REST API port(5051)
+          - "9000:9000"
+          - "5051:5051"
+    ```
+
+=== "Mainnet"
+
+    ```yaml
+    ---
+    version: '3.4'
+    services:
+
+      besu_node:
+        image: hyperledger/besu:latest
+        command: ["--data-path=/opt/besu/data/data",
+                  "--host-allowlist=*",
+                  "--rpc-http-enabled",
+                  "--rpc-http-cors-origins=*",
+                  "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
+        volumes:
+          - ./besu:/opt/besu/data
+        ports:
+          # Map the p2p port(30303) and RPC HTTP port(8545)
+          - "8545:8545"
+          - "30303:30303"
+
+      teku_node:
+        environment:
+          - "JAVA_OPTS=-Xmx4g"
+        image: consensys/teku:latest
+        command: ["--data-base-path=/opt/teku/data"
+                  "--eth1-endpoint=http://besu_node:8545",
+                  "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
+                  "--p2p-port=9000",
+                  "--rest-api-enabled=true",
+                  "--rest-api-docs-enabled=true"]
+        depends_on:
+          - besu_node
+        volumes:
+          - ./teku:/opt/teku/data
+        ports:
+          # Map the p2p port(9000) and REST API port(5051)
+          - "9000:9000"
+          - "5051:5051"
+    ```
 
 <!-- Links -->
 [Hyperledger Besu]: https://besu.hyperledger.org/en/stable/
