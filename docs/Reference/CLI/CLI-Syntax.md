@@ -328,8 +328,8 @@ Show the help message and exit.
     initial-state: "/home/me/genesis.ssz"
     ```
 
-Path or URL to an SSZ encoded state file. The state file can be used to specify the genesis state,
-or a recent state from which to sync.
+Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
+or a recent finalized checkpoint state from which to sync.
 
 !!! note
 
