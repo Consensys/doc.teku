@@ -1553,7 +1553,8 @@ Timeout in milliseconds for requests to the external signer. Default is 1000.
     validators-external-signer-truststore: "websigner_truststore.p12"
     ```
 
-PKCS12 or JKS keystore used to trust external signer's self-signed certificate
+PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate
+which signs the external signer's certificate.
 
 ### validators-external-signer-truststore-password-file
 

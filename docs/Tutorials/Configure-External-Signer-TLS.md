@@ -13,7 +13,7 @@ keystores and the truststore that contain self-signed certificates.
 
 !!! info
 
-    `keytool` is available with the JDK installation, you can also use OpenSSL.
+    `keytool` is available with the JDK or JRE installation, you can also use OpenSSL.
 
 **Prerequisites**:
 
@@ -48,9 +48,10 @@ For each keystore you must create a plain text file containing the password to d
 
     !!! info
 
-        `CN` is generally the fully qualified name of Web3Server, you can use `-ext san` to add additional
-        hostnames or IP addresses. This allows the same certificate to be used for more than one hostname
-        or IP address if Web3Signer is running on a different machine to Teku with multiple hostnames.
+        Common name (`CN`) is generally the fully qualified name of Web3Server, you can use
+        `-ext san` to add additional hostnames or IP addresses. This allows the same certificate to
+        be used for more than one hostname or IP address if Web3Signer is running on a different
+        machine to Teku with multiple hostnames.
 
 1. Create a plain text file (for example `web3signer_keystore_password.txt`) that stores the
     password used to create the keystore.

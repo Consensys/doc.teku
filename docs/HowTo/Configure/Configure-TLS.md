@@ -15,13 +15,13 @@ You can configure TLS for communication between Teku and an external signer, for
 
 **Web3Signer prerequisites**:
 
-* [Web3Signer's password-protected PKCS12 keystore and password file].
-* [Web3Signer known clients file].
+* [Password-protected PKCS12 keystore and password file].
+* [Known clients file].
 
 **Teku prerequisites**:
 
 * [Teku's password-protected PKCS12 or JKS keystore and password file].
-* [Password-protected truststore and password file].
+* [Web3Signer's password-protected PKCS12 or JKS truststore and password file].
 * ETH1 client (for example [Hyperledger Besu]) synced to the required network.
 
 ## Start Web3Signer
@@ -74,10 +74,10 @@ In the command:
 <!-- links -->
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [Teku and Web3Signer TLS configuration tutorial]: ../../Tutorials/Configure-External-Signer-TLS.md
-[Web3Signer's password-protected PKCS12 keystore and password file]: ../../Tutorials/Configure-External-Signer-TLS.md#web3signer-keystore-and-password-file
-[Web3Signer known clients file]: ../../Tutorials/Configure-External-Signer-TLS.md#3-create-the-known-clients-file
+[Password-protected PKCS12 keystore and password file]: ../../Tutorials/Configure-External-Signer-TLS.md#web3signer-keystore-and-password-file
+[Known clients file]: ../../Tutorials/Configure-External-Signer-TLS.md#3-create-the-known-clients-file
 [Teku's password-protected PKCS12 or JKS keystore and password file]: ../../Tutorials/Configure-External-Signer-TLS.md#teku-keystore-and-password-file
-[Password-protected truststore and password file]: ../../Tutorials/Configure-External-Signer-TLS.md#2-create-the-truststore-and-password-file
+[Web3Signer's password-protected PKCS12 or JKS truststore and password file]: ../../Tutorials/Configure-External-Signer-TLS.md#2-create-the-truststore-and-password-file
 [Hyperledger Besu]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Installation-Options/Options/
 [Slashing protection]: https://docs.web3signer.consensys.net/en/latest/Concepts/Slashing-Protection/
 [configure your slashing protection database]: https://docs.web3signer.consensys.net/en/latest/HowTo/Configure-Slashing-Protection/
