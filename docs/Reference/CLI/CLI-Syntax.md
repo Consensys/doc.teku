@@ -249,8 +249,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
     ```
 
-Ethereum 1.0 address of the deposit contract. A deposit contract address must be defined
-if [`--eth1-endpoint`](#eth1-endpoint) is specified.
+Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
 
 The deposit contract address can also be defined in:
 
