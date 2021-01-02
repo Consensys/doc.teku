@@ -548,22 +548,22 @@ validators and attestations. Defaults to `true`.
 === "Command Line"
 
     ```bash
-    --log-include-validator-duties-enabled=true
+    --log-include-validator-duties-enabled=false
     ```
 
 === "Environment Variable"
 
     ```bash
-    TEKU_LOG_INCLUDE_VALIDATOR_DUTIES_ENABLED=true
+    TEKU_LOG_INCLUDE_VALIDATOR_DUTIES_ENABLED=false
     ```
 
 === "Configuration File"
 
     ```bash
-    log-include-validator-duties-enabled: true
+    log-include-validator-duties-enabled: false
     ```
 
-Specify whether to log details of validator event duties. Defaults to `false`.
+Specify whether to log details of validator event duties. Defaults to `true`.
 
 !!! note
     Logs could become noisy when running many validators.
