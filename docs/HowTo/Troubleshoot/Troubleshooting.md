@@ -4,6 +4,13 @@ description: Frequently asked questions and answers for troubleshooting Teku
 
 # Troubleshooting
 
+## Out of memory error
+
+If Teku exits with a `java.lang.OutOfMemoryError: Java heap space` error, it could mean that Teku's
+Java Virtual Machine (JVM) ran out of memory.
+
+To fix this, you can try [setting a maximum heap size].
+
 ## P2P port conflicts
 
 If Teku fails to start with a `P2P Port 9000 (TCP/UDP) is already in use. Check for other processes
@@ -161,3 +168,4 @@ The shell does not see the tilde (~) in the command. To fix this, omit the equal
 [Ensure your local network is configured correctly]: ../Find-and-Connect/Improve-Connectivity.md
 [EIP-2335]: https://eips.ethereum.org/EIPS/eip-2335
 [slashed]: ../../Concepts/Slashing-Protection.md
+[setting a maximum heap size]: ../Get-Started/Manage-Memory.md
