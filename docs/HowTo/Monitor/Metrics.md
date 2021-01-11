@@ -94,7 +94,7 @@ the graph.
 
 Use
 [Grafana] to visualize the collected data. See the sample
-[Teku Grafana dashboard](https://grafana.com/grafana/dashboards/12199).
+[Teku Grafana dashboard](https://grafana.com/grafana/dashboards/13457).
 
 <!-- Links -->
 [Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-metrics/blob/master/metrics.md
