@@ -249,8 +249,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
     ```
 
-Ethereum 1.0 address of the deposit contract. A deposit contract address must be defined
-if [`--eth1-endpoint`](#eth1-endpoint) is specified.
+Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
 
 The deposit contract address can also be defined in:
 
@@ -548,22 +547,22 @@ validators and attestations. Defaults to `true`.
 === "Command Line"
 
     ```bash
-    --log-include-validator-duties-enabled=true
+    --log-include-validator-duties-enabled=false
     ```
 
 === "Environment Variable"
 
     ```bash
-    TEKU_LOG_INCLUDE_VALIDATOR_DUTIES_ENABLED=true
+    TEKU_LOG_INCLUDE_VALIDATOR_DUTIES_ENABLED=false
     ```
 
 === "Configuration File"
 
     ```bash
-    log-include-validator-duties-enabled: true
+    log-include-validator-duties-enabled: false
     ```
 
-Specify whether to log details of validator event duties. Defaults to `false`.
+Specify whether to log details of validator event duties. Defaults to `true`.
 
 !!! note
     Logs could become noisy when running many validators.
