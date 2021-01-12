@@ -8,7 +8,8 @@ title: Import or export a slashing protection file
 blocks or attestations.
 
 You can import and export the slashing-protection file when migrating validator keys between
-validator clients.
+validator clients. Teku supports the [validator client interchange format] when importing or
+exporting the slashing-protection file.
 
 !!! note
 
@@ -22,8 +23,6 @@ validator clients.
 When importing the slashing-protection file, Teku imports the file to the
 `<data-path>/validators/slashprotection/` directory in the format `<validator-pubkey>.yml`
 (with no 0x prefix).
-
-Teku supports files using the [Minimal] or [Complete] interchange format when importing.
 
 !!! example
 
@@ -43,7 +42,7 @@ In this example, Teku imports the file to the `/home/me/me_node/data/validators/
 ## Exporting a slashing-protection file
 
 Export the slashing-protection file when migrating a validator to a different Teku, or non-Teku
-node. Teku exports the slashing protection file in the [Minimal] format.
+node.
 
 !!! example
 
@@ -63,6 +62,5 @@ You can now import the slashing-protection file in a Teku, or non-Teku node.
 <!--links -->
 [Teku implements slashing protection]: ../Concepts/Slashing-Protection.md
 [data path directory when starting Teku]: ../Reference/CLI/CLI-Syntax.md#data-path
-[Minimal]: https://hackmd.io/@sproul/Bk0Y0qdGD#Format-2-Minimal
-[Complete]: https://hackmd.io/@sproul/Bk0Y0qdGD#Format-1-Complete
+[validator client interchange format]: https://eips.ethereum.org/EIPS/eip-3076
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
