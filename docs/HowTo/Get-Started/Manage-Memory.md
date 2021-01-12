@@ -32,7 +32,7 @@ Set the heap size using the environment variable, or using the command line when
     The node uses more RAM to perform better if it’s available, especially during periods
     of non-finalization.
 
-## Manage out of memory dump
+## Manage the heap dump
 
 If an out of memory error occurs, the heap dump file is placed in the directory that Teku
 runs from. The heap dump file is potentially large (1-2GB), to specify the directory to place the
