@@ -249,8 +249,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
     ```
 
-Ethereum 1.0 address of the deposit contract. A deposit contract address must be defined
-if [`--eth1-endpoint`](#eth1-endpoint) is specified.
+Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
 
 The deposit contract address can also be defined in:
 
@@ -328,8 +327,8 @@ Show the help message and exit.
     initial-state: "/home/me/genesis.ssz"
     ```
 
-Path or URL to an SSZ encoded state file. The state file can be used to specify the genesis state,
-or a recent state from which to sync.
+Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
+or a recent finalized checkpoint state from which to sync.
 
 !!! note
 
@@ -548,22 +547,22 @@ validators and attestations. Defaults to `true`.
 === "Command Line"
 
     ```bash
-    --log-include-validator-duties-enabled=true
+    --log-include-validator-duties-enabled=false
     ```
 
 === "Environment Variable"
 
     ```bash
-    TEKU_LOG_INCLUDE_VALIDATOR_DUTIES_ENABLED=true
+    TEKU_LOG_INCLUDE_VALIDATOR_DUTIES_ENABLED=false
     ```
 
 === "Configuration File"
 
     ```bash
-    log-include-validator-duties-enabled: true
+    log-include-validator-duties-enabled: false
     ```
 
-Specify whether to log details of validator event duties. Defaults to `false`.
+Specify whether to log details of validator event duties. Defaults to `true`.
 
 !!! note
     Logs could become noisy when running many validators.
@@ -1043,7 +1042,7 @@ The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2
     p2p-private-key-file: "/home/me/me_node/key"
     ```
 
-File containing the node's private key.
+File containing the [node's private key](../../Concepts/P2P-Private-Key.md).
 
 ### p2p-static-peers
 
@@ -1373,6 +1372,65 @@ When specifying file names, Teku expects that the files exist.
 
     The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
 
+### validators-external-signer-keystore
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-keystore=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-keystore=teku_client_keystore.p12
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_KEYSTORE=teku_client_keystore.p12
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-keystore: "teku_client_keystore.p12"
+    ```
+
+The keystore that Teku presents to the external signer for TLS authentication. Teku can use
+PKCS12 or JKS keystore types.
+
+Use the PKCS12 keystore type if connecting to Web3Signer.
+
+### validators-external-signer-keystore-password-file
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-keystore-password-file=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-keystore-password-file=keystore_pass.txt
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_KEYSTORE_PASSWORD_FILE=keystore_pass.txt
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-keystore-password-file: "keystore_pass.txt"
+    ```
+
+Password file used to decrypt the keystore.
+
 ### validators-external-signer-public-keys
 
 === "Syntax"
@@ -1467,6 +1525,63 @@ using Teku to sign blocks and attestations always uses its built-in slashing pro
     ```
 
 Timeout in milliseconds for requests to the external signer. Default is 1000.
+
+### validators-external-signer-truststore
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-truststore=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-truststore=websigner_truststore.p12
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE=websigner_truststore.p12
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-truststore: "websigner_truststore.p12"
+    ```
+
+PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate
+which signs the external signer's certificate.
+
+### validators-external-signer-truststore-password-file
+
+=== "Syntax"
+
+    ```bash
+    --validators-external-signer-truststore-password-file=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-external-signer-truststore-password-file=truststore_pass.txt
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE_PASSWORD_FILE=truststore_pass.txt
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-external-signer-truststore-password-file: "truststore_pass.txt"
+    ```
+
+Password file used to decrypt the keystore.
 
 ### validators-external-signer-url
 
