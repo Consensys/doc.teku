@@ -256,6 +256,38 @@ The deposit contract address can also be defined in:
 * The genesis file specified using [`--initial-state`](#initial state)
 * The predefined network supplied using [`--network`](#network).
 
+### eth1-deposit-contract-max-request-size
+
+=== "Syntax"
+
+    ```bash
+    --eth1-deposit-contract-max-request-size=<INTEGER>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --eth1-deposit-contract-max-request-size=8000
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_ETH1_DEPOSIT_CONTRACT_MAX_REQUEST_SIZE=8000
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    eth1-deposit-contract-max-request-size: 8000
+    ```
+
+The maximum number of blocks to request deposit contract event logs for in a single request.
+Defaults to 10000.
+
+Setting a smaller max size may help if your ETH1 node is slow at loading deposit event logs, or when
+receiving warnings that the ETH1 node is unavailable.
+
 ### eth1-endpoint
 
 === "Syntax"
