@@ -31,13 +31,14 @@ Teku provides command line options to [import] or [export] the slash protection 
 
 ## Validator slash protection file
 
-The slash protection file records three values that protects the validator from incorrectly
+The slash protection file records multiple values that protects the validator from incorrectly
 signing blocks or attestations.
 
 !!! example
 
     ```bash
     ---
+    genesisValidatorsRoot: "0x9436e8a630e3162b7ed4f449b12b8a5a368a4b95bc46b941ae65c11613bfa4c1"
     lastSignedBlockSlot: 71090
     lastSignedAttestationSourceEpoch: 2290
     lastSignedAttestationTargetEpoch: 3247
@@ -49,6 +50,15 @@ The following rules apply to the file:
 * A validator will not sign an attestation unless the attestation source is less than or equal to
     `lastSignedAttestationSourceEpoch`, and the attestation target epoch is greater than
     `lastSignedAttestationTargetEpoch`.
+* `genesisValidatorsRoot` is a hash of the validators active at genesis, and is used to
+    differentiate between different chains. Teku does not require this field to be present, but if
+    it is present and differs from the required value, then Teku returns an error.
+
+!!! info
+
+    You can obtain the `genesisValidatorsRoot` value by using the
+    [`/eth/v1/beacon/genesis`](https://consensys.github.io/teku/#operation/getEthV1BeaconGenesis)
+    API.
 
 These rules guarantee the validator does not sign anything that is slashable.
 
