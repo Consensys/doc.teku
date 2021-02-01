@@ -16,7 +16,7 @@ description: Install Teku from binary distribution
 
 ### Install from packaged binaries
 
-Download the [Teku packaged binaries](https://cloudsmith.io/~consensys/repos/teku/groups/).
+Download the [Teku packaged binaries](https://cloudsmith.io/~consensys/repos/teku/groups/?q=teku.*).
 
 Unpack the downloaded files and change into the `teku-<release>` directory.
 
