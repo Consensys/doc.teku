@@ -31,3 +31,35 @@ Set the heap size using the environment variable, or using the command line when
 
     The node uses more RAM to perform better if it’s available, especially during periods
     of non-finalization.
+
+## Manage the heap dump
+
+If an out of memory error occurs, the heap dump file is placed in the directory that Teku
+runs from. The heap dump file is potentially large (1-2GB), to specify the directory to place the
+file, set the `-XX:HeapDumpPath` Java option to the required path.
+
+=== "Environment variable"
+
+    ```bash
+    export TEKU_OPTS="-XX:HeapDumpPath=/home/me/me_node/dumps"
+    ```
+
+=== "Command line"
+
+    ```bash
+    TEKU_OPTS="-XX:HeapDumpPath=/home/me/me_node/dumps" ./teku [options]
+    ```
+
+To disable the heap dump file generation, set the `-XX:-HeapDumpOnOutOfMemoryError` Java option.
+
+=== "Environment variable"
+
+    ```bash
+    export TEKU_OPTS="-XX:-HeapDumpOnOutOfMemoryError"
+    ```
+
+=== "Command line"
+
+    ```bash
+    TEKU_OPTS="-XX:-HeapDumpOnOutOfMemoryError" ./teku [options]
+    ```
