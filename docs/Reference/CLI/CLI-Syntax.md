@@ -1489,7 +1489,18 @@ Password file used to decrypt the keystore.
     validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
     ```
 
-List of validator public keys used by an external signer (for example, Web3Signer).
+List or URL of validator public keys used by an external signer (for example, Web3Signer).
+
+!!! tip
+
+    Use the URL of the external signer's [`/publicKeys` endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key)
+    to load the public keys of all registered validators. For example:
+    
+    ```bash
+    --validators-external-signer-public-keys=http://localhost:9000/api/v1/eth2/publicKeys
+    ```
+
+    Ensure the external signer is running before starting Teku.
 
 ### validators-external-signer-slashing-protection-enabled
 
