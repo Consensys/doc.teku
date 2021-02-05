@@ -113,17 +113,15 @@ The endpoint returns the status `200 OK` if the node is up or syncing.
         curl -I -X GET "http://192.10.10.101:5051/teku/v1/admin/liveness"
         ```
 
-    === "JSON result"
+    === "Result"
 
-        ```json
-        {
-          HTTP/1.1 200 OK
-          Date: Fri, 05 Feb 2021 03:58:30 GMT
-          Server: Javalin
-          Content-Type: application/json
-          Cache-Control: max-age=0
-          Content-Length: 0
-        }
+        ```bash
+        HTTP/1.1 200 OK
+        Date: Fri, 05 Feb 2021 03:58:30 GMT
+        Server: Javalin
+        Content-Type: application/json
+        Cache-Control: max-age=0
+        Content-Length: 0
         ```
 <!-- links -->
 [validator clients]: #start-the-validator
