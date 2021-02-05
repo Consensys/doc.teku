@@ -98,7 +98,7 @@ Specify the beacon chain client using the
 [`--beacon-node-api-endpoint`](../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint)
 option.
 
-## Check liveness
+## Confirm Teku is running
 
 Use the [`/liveness`](https://consensys.github.io/teku/#operation/getTekuV1AdminLiveness) endpoint
 to check whether the node is up.
