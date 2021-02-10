@@ -318,7 +318,9 @@ The JSON-RPC URL of Ethereum 1.0 node. This option must be specified if running 
 
 If not specified (that is, you're running a beacon chain client only), then provide an initial state
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
-[`--data-path`](#data-path), which provides the initial state to work from.
+[`--data-path`](#data-path), which provides the initial state to work from. You do not need to
+provide an initial state if running a public network which has already started (for example,
+MainNet or Pyrmont).
 
 If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL. For
 example, `https://goerli.infura.io/v3/<Project_ID>`
