@@ -205,36 +205,33 @@ Defaults to `prune`.
 Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
-#### initial-state
+#### eth1-deposit-contract-address
 
 === "Syntax"
 
     ```bash
-    teku admin weak-subjectivity clear-state --initial-state=<FILE>
+    teku admin weak-subjectivity clear-state --eth1-deposit-contract-address=<ADDRESS>
     ```
 
 === "Command Line"
 
     ```bash
-    teku admin weak-subjectivity clear-state --initial-state=/home/me/genesis.ssz
+    teku admin weak-subjectivity clear-state --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
     ```
 
 === "Environment Variable"
 
     ```bash
-    TEKU_INITIAL_STATE=/home/me/genesis.ssz
+    TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
     ```
 
 === "Configuration File"
 
     ```bash
-    initial-state: "/home/me/genesis.ssz"
+    eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
     ```
 
-Path or URL to the network genesis file.
-
-This option does not need to be specified if the initial state is provided by the network specified
-using the [`--network`](#network) option.
+Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
 
 #### network
 
@@ -465,36 +462,33 @@ Defaults to `prune`.
 Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
-#### initial-state
+#### eth1-deposit-contract-address
 
 === "Syntax"
 
     ```bash
-    teku admin weak-subjectivity display-state --initial-state=<FILE>
+    teku admin weak-subjectivity display-state --eth1-deposit-contract-address=<ADDRESS>
     ```
 
 === "Command Line"
 
     ```bash
-    teku admin weak-subjectivity display-state --initial-state=/home/me/genesis.ssz
+    teku admin weak-subjectivity display-state --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
     ```
 
 === "Environment Variable"
 
     ```bash
-    TEKU_INITIAL_STATE=/home/me/genesis.ssz
+    TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
     ```
 
 === "Configuration File"
 
     ```bash
-    initial-state: "/home/me/genesis.ssz"
+    eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
     ```
 
-Path or URL to the network genesis file.
-
-This option does not need to be specified if the initial state is provided by the network specified
-using the [`--network`](#network) option.
+Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
 
 #### network
 
