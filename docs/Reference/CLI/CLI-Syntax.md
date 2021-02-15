@@ -1495,7 +1495,7 @@ List or URL of validator public keys used by an external signer (for example, We
 
     Use the URL of the external signer's [`/publicKeys` endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key)
     to load the public keys of all registered validators. For example:
-    
+
     ```bash
     --validators-external-signer-public-keys=http://localhost:9000/api/v1/eth2/publicKeys
     ```
@@ -1684,7 +1684,7 @@ Graffiti to add when creating a block. Gets converted to bytes and padded to Byt
 
 The same graffiti is used for all validators started with this beacon node.
 
-[`--validators-graffiti-file`](#validators-graffiti-file) takes precedence if both options are set. 
+[`--validators-graffiti-file`](#validators-graffiti-file) takes precedence if both options are set.
 
 ### validators-graffiti-file
 
