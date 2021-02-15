@@ -1718,7 +1718,7 @@ File containing the validator graffiti to add when creating a block. The file co
 converted to `bytes` and padded to `Bytes32`. The same graffiti is used for all validators started
 with this beacon node.
 
-You can overwite the file while Teku is running to update the graffiti.
+You can overwrite the file while Teku is running to update the graffiti.
 
 This option takes precedence over [`--validators-graffiti`](#validators-graffiti).
 
