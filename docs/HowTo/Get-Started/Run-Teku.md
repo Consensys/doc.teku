@@ -98,6 +98,31 @@ Specify the beacon chain client using the
 [`--beacon-node-api-endpoint`](../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint)
 option.
 
+## Confirm Teku is running
+
+Use the [`/liveness`](https://consensys.github.io/teku/#operation/getTekuV1AdminLiveness) endpoint
+to check whether the node is up.
+
+The endpoint returns the status `200 OK` if the node is up or syncing.
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -I -X GET "http://192.10.10.101:5051/teku/v1/admin/liveness"
+        ```
+
+    === "Result"
+
+        ```bash
+        HTTP/1.1 200 OK
+        Date: Fri, 05 Feb 2021 03:58:30 GMT
+        Server: Javalin
+        Content-Type: application/json
+        Cache-Control: max-age=0
+        Content-Length: 0
+        ```
 <!-- links -->
 [validator clients]: #start-the-validator
 [running beacon node]: #start-the-beacon-chain-client
