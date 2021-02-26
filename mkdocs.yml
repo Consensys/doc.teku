@@ -64,6 +64,7 @@ nav:
                 - Connect to a testnet: HowTo/Get-Started/Connect/Connect-To-Testnet.md
         - External signing:
               - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
+        - Load validators without restarting: HowTo/Load-Validators-No-Restart.md
         - Monitor Nodes:
           - Use metrics: HowTo/Monitor/Metrics.md
           - Configure logging: HowTo/Monitor/Logging.md
