@@ -1509,7 +1509,7 @@ to load the public keys of all registered validators. For example:
 
     You can [load new validators without restarting Teku] if you specify a URL from which
     to load the public keys.
-    
+
 Ensure the external signer is running before starting Teku.
 
 ### validators-external-signer-slashing-protection-enabled
