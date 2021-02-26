@@ -11,8 +11,10 @@ You can load validators into a running Teku process, only if you started Teku by
 
 !!! important
 
-    If you started Teku by specifying individual validator key files or external signer public keys,
-    then you must restart Teku.
+    * If you started Teku by specifying individual validator key files or external signer public keys,
+        then you must restart Teku.
+
+    * You must restart Teku to remove validators.
 
 **Prerequisites:**
 

@@ -1808,4 +1808,4 @@ or clear your weak subjectivity settings.
 [slashing protection]: ../../Concepts/Slashing-Protection.md
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
 [BeaconScan chain explorer]: https://beaconscan.com/ws_checkpoint
-[load new validators without restarting Teku]: ../../HowTo//Load-Validators-No-Restart.md
+[load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
