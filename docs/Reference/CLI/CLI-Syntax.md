@@ -782,11 +782,11 @@ to a YAML configuration file. The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain   | Type        | Description                                                         |
-|-----------|---------|-------------|---------------------------------------------------------------------|
-| `mainnet` | Eth 2.0 | Production  | Main network.                                                       |
-| `minimal` | Eth 2.0 | Test        | Used for local testing and development networks.                    |
-| `pyrmont` | Eth 2.0 | Test        | Multi-client testnet.                                               |
+| Network   | Chain   | Type       | Description                                      |
+|:----------|:--------|:-----------|:-------------------------------------------------|
+| `mainnet` | Eth 2.0 | Production | Main network.                                    |
+| `minimal` | Eth 2.0 | Test       | Used for local testing and development networks. |
+| `pyrmont` | Eth 2.0 | Test       | Multi-client testnet.                            |
 
 Predefined networks can provide defaults such the initial state of the network,
 bootnodes, and the address of the Ethereum 1.0 deposit contract.
@@ -1400,6 +1400,11 @@ extension.
 When specifying directories, Teku expects to find identically named
 keystore and password files. For example `validator_217179e.json` and `validator_217179e.txt`.
 
+!!! tip
+
+    You can [load new validators without restarting Teku] if you specify a directory from which
+    to load the keystore files.
+
 When specifying file names, Teku expects that the files exist.
 
 !!! note
@@ -1493,16 +1498,19 @@ Password file used to decrypt the keystore.
 
 List or URL of validator public keys used by an external signer (for example, Web3Signer).
 
+Use the URL of the external signer's [`/publicKeys` endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key)
+to load the public keys of all registered validators. For example:
+
+```bash
+--validators-external-signer-public-keys=http://localhost:9000/api/v1/eth2/publicKeys
+```
+
 !!! tip
 
-    Use the URL of the external signer's [`/publicKeys` endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key)
-    to load the public keys of all registered validators. For example:
+    You can [load new validators without restarting Teku] if you specify a URL from which
+    to load the public keys.
 
-    ```bash
-    --validators-external-signer-public-keys=http://localhost:9000/api/v1/eth2/publicKeys
-    ```
-
-    Ensure the external signer is running before starting Teku.
+Ensure the external signer is running before starting Teku.
 
 ### validators-external-signer-slashing-protection-enabled
 
@@ -1800,3 +1808,4 @@ or clear your weak subjectivity settings.
 [slashing protection]: ../../Concepts/Slashing-Protection.md
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
 [BeaconScan chain explorer]: https://beaconscan.com/ws_checkpoint
+[load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
