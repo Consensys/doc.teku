@@ -8,7 +8,7 @@ description: Install Teku from binary distribution
 
 ### Prerequisites
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 
 !!! attention
 
@@ -45,7 +45,7 @@ Display Teku command line help to confirm installation:
 
     Teku requires Java 11+ to run. Earlier versions are not supported. You can install Java
     using `brew cask install adoptopenjdk`. Alternatively, you can manually install the 
-    [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+    [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html).
 
 ### Install (or upgrade) using Homebrew
 
