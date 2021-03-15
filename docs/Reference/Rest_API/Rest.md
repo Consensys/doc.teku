@@ -62,6 +62,6 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
         ```
 
 <!-- Links -->
-[REST API documentation]:https://consensys.github.io/teku/#stable/
+[REST API documentation]:https://consensys.github.io/teku/#stable
 [Postman]: https://www.postman.com/
 [cURL]: https://curl.haxx.se/
