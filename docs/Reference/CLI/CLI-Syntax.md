@@ -1813,4 +1813,4 @@ or clear your weak subjectivity settings.
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
 [BeaconScan chain explorer]: https://beaconscan.com/ws_checkpoint
 [load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
-[MainNet resources directory]: https://github.com/ConsenSys/teku/tree/b5c9b6606a6c4b77384cec1b4e26d434d52b4ab2/util/src/main/resources/tech/pegasys/teku/util/config/mainnet
+[MainNet resources directory]: https://github.com/ConsenSys/teku/tree/master/util/src/main/resources/tech/pegasys/teku/util/config/mainnet
