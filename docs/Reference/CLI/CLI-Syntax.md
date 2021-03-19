@@ -777,8 +777,12 @@ The default is `8008`.
     network: "mainnet"
     ```
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL
-to a YAML configuration file. The default is `mainnet`.
+Predefined network configuration.
+Accepts a predefined network name, or file path or URL to a YAML configuration file or directory.
+Directories must hold a `phase0.yaml` file and can hold an optional `altair.yaml` file.
+See the [MainNet resources directory] for an example.
+
+The default is `mainnet`.
 
 Possible values are:
 
@@ -788,7 +792,7 @@ Possible values are:
 | `minimal` | Eth 2.0 | Test       | Used for local testing and development networks. |
 | `pyrmont` | Eth 2.0 | Test       | Multi-client testnet.                            |
 
-Predefined networks can provide defaults such the initial state of the network,
+Predefined networks can provide defaults such as the initial state of the network,
 bootnodes, and the address of the Ethereum 1.0 deposit contract.
 
 ### p2p-advertised-ip
@@ -1809,3 +1813,4 @@ or clear your weak subjectivity settings.
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
 [BeaconScan chain explorer]: https://beaconscan.com/ws_checkpoint
 [load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
+[MainNet resources directory]: https://github.com/ConsenSys/teku/tree/b5c9b6606a6c4b77384cec1b4e26d434d52b4ab2/util/src/main/resources/tech/pegasys/teku/util/config/mainnet
