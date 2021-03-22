@@ -11,7 +11,7 @@ description: Build Teku from source
 
 ## Prerequisites
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 
 !!!important
     Teku requires Java 11+; earlier versions are not supported.
