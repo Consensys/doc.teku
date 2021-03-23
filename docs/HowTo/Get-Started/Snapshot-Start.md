@@ -18,13 +18,13 @@ The following example downloads a finalized checkpoint state file (`state.ssz`) 
 chain client, and starts Teku with the downloaded file:
 
 1. Download a recent finalized checkpoint state using the
-    [`/eth/v1/debug/beacon/states/`](https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id) endpoint
+    [`/eth/v1/debug/beacon/states/`](https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id) endpoint:
 
     ```bash
     curl -o state.ssz -H 'Accept: application/octet-stream' http://localhost:5051/eth/v1/debug/beacon/states/finalized
     ```
 
- 1. Start Teku with the [`--initial-state`](../../Reference/CLI/CLI-Syntax.md#initial-state) option:
+1. Start Teku with the [`--initial-state`](../../Reference/CLI/CLI-Syntax.md#initial-state) option:
 
      ```bash
      teku --eth1-endpoint=http://localhost:8545 --initial-state=state.ssz --validator-keys=/Users/me/mainnet/validator/keys:/Users/me/mainnet/validator/passwords
