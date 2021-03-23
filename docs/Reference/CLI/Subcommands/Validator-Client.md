@@ -161,7 +161,8 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     initial-state: "/home/me/genesis.ssz"
     ```
 
-Path or URL to the network genesis file.
+Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
+or a recent finalized checkpoint state from which to sync.
 
 This option does not need to be specified if the initial state is provided by the network specified
 using the [`--network`](#network) option.
