@@ -23,13 +23,12 @@ chain client, and starts Teku with the downloaded file:
     ```bash
     curl -o state.ssz -H 'Accept: application/octet-stream' http://localhost:5051/eth/v1/debug/beacon/states/finalized
     ```
- 
- 1. Start Teku with the [`--initial-state`](../../Reference/CLI/CLI-Syntax.md#initial-state)
-     option:
-     
+
+ 1. Start Teku with the [`--initial-state`](../../Reference/CLI/CLI-Syntax.md#initial-state) option:
+
      ```bash
      teku --eth1-endpoint=http://localhost:8545 --initial-state=state.ssz --validator-keys=/Users/me/mainnet/validator/keys:/Users/me/mainnet/validator/passwords
      ```
-  
+
   <!--links-->
   [REST API enabled]: ../../Reference/CLI/CLI-Syntax.md#rest-api-enabled
