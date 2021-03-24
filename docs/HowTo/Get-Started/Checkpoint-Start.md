@@ -32,10 +32,10 @@ to download the finalized checkpoint state from the
     You can also download a finalized checkpoint state file, and specify the location
     using the [`--initial-state`](../../Reference/CLI/CLI-Syntax.md#initial-state) option. To
     download the file and name it `state.ssz` run:
-    
+
     ```bash
     curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v1/debug/beacon/states/finalized
     ```
-     
+
 <!--links-->
 [REST API enabled]: ../../Reference/CLI/CLI-Syntax.md#rest-api-enabled
