@@ -780,7 +780,7 @@ The default is `8008`.
 Predefined network configuration.
 Accepts a predefined network name, or file path or URL to a YAML configuration file or directory.
 Directories must hold a `phase0.yaml` file and can hold an optional `altair.yaml` file.
-See the [MainNet resources directory] for an example.
+See the [Configs directory] in the Ethereum 2.0 specification for examples.
 
 The default is `mainnet`.
 
@@ -1813,4 +1813,4 @@ or clear your weak subjectivity settings.
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
 [BeaconScan chain explorer]: https://beaconscan.com/ws_checkpoint
 [load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
-[MainNet resources directory]: https://github.com/ConsenSys/teku/tree/master/util/src/main/resources/tech/pegasys/teku/util/config/mainnet
+[Configs directory]: https://github.com/ethereum/eth2.0-specs/tree/master/configs
