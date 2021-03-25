@@ -62,6 +62,7 @@ nav:
             - Connect to a network:
                 - Connect to Mainnet: HowTo/Get-Started/Connect/Connect-To-Mainnet.md
                 - Connect to a testnet: HowTo/Get-Started/Connect/Connect-To-Testnet.md
+            - Start Teku from a recent state: HowTo/Get-Started/Checkpoint-Start.md
         - External signing:
               - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
         - Load validators without restarting: HowTo/Load-Validators-No-Restart.md

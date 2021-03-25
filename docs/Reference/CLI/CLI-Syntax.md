@@ -362,7 +362,7 @@ Show the help message and exit.
     ```
 
 Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
-or a recent finalized checkpoint state from which to sync.
+or a [recent finalized checkpoint state from which to sync].
 
 !!! note
 
@@ -1813,4 +1813,5 @@ or clear your weak subjectivity settings.
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
 [BeaconScan chain explorer]: https://beaconscan.com/ws_checkpoint
 [load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
+[recent finalized checkpoint state from which to sync]: ../../HowTo/Get-Started/Checkpoint-Start.md
 [Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-specs/tree/master/configs
