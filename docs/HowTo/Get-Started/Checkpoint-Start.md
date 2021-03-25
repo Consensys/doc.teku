@@ -11,8 +11,8 @@ When starting from a recent checkpoint, Teku downloads historic chain data in th
 
 !!! important
 
-    You need access to a beacon chain client with [REST API enabled] to download the finalized
-    checkpoint state file.
+    You need access to a beacon chain client with [REST API enabled] (for example Teku) to download the 
+    finalized checkpoint state file.
 
 The following command downloads a recent finalized checkpoint state from a beacon chain client, and
 starts Teku:
