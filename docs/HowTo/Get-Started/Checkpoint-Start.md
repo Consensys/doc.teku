@@ -25,7 +25,8 @@ teku --eth1-endpoint=http://localhost:8545 \
 
 The command uses the [`--initial-state`](../../Reference/CLI/CLI-Syntax.md#initial-state) option
 to download the finalized checkpoint state from the
-[`/eth/v1/debug/beacon/states/`](https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id) endpoint.
+[`/eth/v1/debug/beacon/states/`](https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id) endpoint
+on the beacon chain client (for example Teku).
 
 !!! note
 
