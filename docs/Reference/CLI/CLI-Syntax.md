@@ -362,7 +362,7 @@ Show the help message and exit.
     ```
 
 Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
-or a recent finalized checkpoint state from which to sync.
+or a [recent finalized checkpoint state from which to sync].
 
 !!! note
 
@@ -777,8 +777,12 @@ The default is `8008`.
     network: "mainnet"
     ```
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL
-to a YAML configuration file. The default is `mainnet`.
+Predefined network configuration.
+Accepts a predefined network name, or file path or URL to a YAML configuration file or directory.
+Directories must hold a `phase0.yaml` file and can hold an optional `altair.yaml` file.
+See the [Ethereum 2.0 specification] for examples.
+
+The default is `mainnet`.
 
 Possible values are:
 
@@ -788,7 +792,7 @@ Possible values are:
 | `minimal` | Eth 2.0 | Test       | Used for local testing and development networks. |
 | `pyrmont` | Eth 2.0 | Test       | Multi-client testnet.                            |
 
-Predefined networks can provide defaults such the initial state of the network,
+Predefined networks can provide defaults such as the initial state of the network,
 bootnodes, and the address of the Ethereum 1.0 deposit contract.
 
 ### p2p-advertised-ip
@@ -1809,3 +1813,5 @@ or clear your weak subjectivity settings.
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
 [BeaconScan chain explorer]: https://beaconscan.com/ws_checkpoint
 [load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
+[recent finalized checkpoint state from which to sync]: ../../HowTo/Get-Started/Checkpoint-Start.md
+[Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-specs/tree/master/configs
