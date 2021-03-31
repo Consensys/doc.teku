@@ -785,8 +785,42 @@ Locks the keystore files listed in [`--validator-keys`](#validator-keys). Defaul
 Attempts to lock all keystores in a directory if a directory is specified in
 [`--validator-keys`](#validator-keys).
 
+### validators-performance-tracking-mode
+
+=== "Syntax"
+
+    ```bash
+    --validators-performance-tracking-mode=<STRING>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-performance-tracking-mode=LOGGING
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_PERFORMANCE_TRACKING_MODE=LOGGING
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-performance-tracking-mode: LOGGING
+    ```
+
+Set the validator performance tracking strategy. Valid options are `LOGGING`, `METRICS`, `ALL`, and
+`NONE`. Defaults to `ALL`.
+
+When `LOGGING` is enable, attestation and block performance is reported as log messages. When
+`METRICS` is enabled, attestation and block performance is reported using [metrics] in the
+[`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
+
 <!-- links -->
 [environment variables or a configuration file]: ../CLI-Syntax.md#specifying-options
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [slashing protection]: ../../../Concepts/Slashing-Protection.md
 [recent finalized checkpoint state from which to sync]: ../../../HowTo/Get-Started/Checkpoint-Start.md
+[metrics]: ../../../HowTo/Monitor/Metrics.md
