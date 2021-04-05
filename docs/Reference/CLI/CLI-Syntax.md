@@ -1765,6 +1765,39 @@ Locks the keystore files listed in [`--validator-keys`](#validator-keys). Defaul
 Attempts to lock all keystores in a directory if a directory is specified in
 [`--validator-keys`](#validator-keys).
 
+### validators-performance-tracking-mode
+
+=== "Syntax"
+
+    ```bash
+    --validators-performance-tracking-mode=<STRING>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-performance-tracking-mode=LOGGING
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_PERFORMANCE_TRACKING_MODE=LOGGING
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-performance-tracking-mode: LOGGING
+    ```
+
+Set the validator performance tracking strategy. Valid options are `LOGGING`, `METRICS`, `ALL`, and
+`NONE`. Defaults to `ALL`.
+
+When `LOGGING` is enabled, attestation and block performance is reported as log messages. When
+`METRICS` is enabled, attestation and block performance is reported using [metrics] in the
+[`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
+
 ### ws-checkpoint
 
 === "Syntax"
@@ -1815,3 +1848,4 @@ or clear your weak subjectivity settings.
 [load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
 [recent finalized checkpoint state from which to sync]: ../../HowTo/Get-Started/Checkpoint-Start.md
 [Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-specs/tree/master/configs
+[metrics]: ../../HowTo/Monitor/Metrics.md
