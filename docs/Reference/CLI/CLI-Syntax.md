@@ -1794,7 +1794,7 @@ Attempts to lock all keystores in a directory if a directory is specified in
 Set the validator performance tracking strategy. Valid options are `LOGGING`, `METRICS`, `ALL`, and
 `NONE`. Defaults to `ALL`.
 
-When `LOGGING` is enable, attestation and block performance is reported as log messages. When
+When `LOGGING` is enabled, attestation and block performance is reported as log messages. When
 `METRICS` is enabled, attestation and block performance is reported using [metrics] in the
 [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
 
