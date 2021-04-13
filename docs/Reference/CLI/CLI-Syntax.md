@@ -791,6 +791,7 @@ Possible values are:
 | `mainnet` | Eth 2.0 | Production | Main network.                                    |
 | `minimal` | Eth 2.0 | Test       | Used for local testing and development networks. |
 | `pyrmont` | Eth 2.0 | Test       | Multi-client testnet.                            |
+| `prater`  | Eth 2.0 | Test       | Multi-client testnet.                            |
 
 Predefined networks can provide defaults such as the initial state of the network,
 bootnodes, and the address of the Ethereum 1.0 deposit contract.

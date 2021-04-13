@@ -110,6 +110,12 @@ and the text files containing the password to decrypt the validator key.
     --metrics-enabled
     ```
 
+!!! note
+
+    If using a cloud-based service such as [Infura], then set
+    [`--eth1-endpoint`](../../../Reference/CLI/CLI-Syntax.md#eth1-endpoint) to the supplied URL. For
+    example, `https://goerli.infura.io/v3/<Project_ID>`.
+
 Alternatively, use [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) to
 specify the directory to load multiple keys and passwords from.
 
