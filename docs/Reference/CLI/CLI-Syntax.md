@@ -1089,7 +1089,11 @@ List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap
     p2p-advertised-port: 1789
     ```
 
-The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2p-port)
+The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2p-port).
+
+The advertised port can differ from the [`--p2p-port`](#p2p-port). For example, you can set the
+advertised port to 9010, and the `--p2p-port` value to 9009, then manually configure the firewall to
+forward external incoming requests on port 9010 to port 9009 on the Teku node.
 
 ### p2p-private-key-file
 
