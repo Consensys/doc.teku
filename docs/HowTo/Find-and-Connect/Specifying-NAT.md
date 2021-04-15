@@ -35,7 +35,6 @@ Specify `NONE` to explicitly configure the external IP address and ports adverti
 [`--p2p-host`](../../Reference/CLI/CLI-Syntax.md#p2p-host) and
 [`--p2p-port`](../../Reference/CLI/CLI-Syntax.md#p2p-port) for the P2P service.
 
-
 !!! important
 
     When the NAT method is set to `NONE`, the advertised port is the same as the
