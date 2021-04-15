@@ -882,6 +882,42 @@ The default is `true`.
 Specifies the network interface on which the node listens for P2P communication.
 The default is `0.0.0.0` (all interfaces).
 
+### p2p-nat-method
+
+=== "Syntax"
+
+    ```bash
+    --p2p-nat-method=<STRING>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --p2p-nat-method=UPNP
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_P2P_NAT_METHOD=UPNP
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    p2p-nat-method: "UPNP"
+    ```
+
+Specify the method for handling [NAT environments](../../HowTo/Find-and-Connect/Specifying-NAT.md).
+Valid options are `NONE` and `UPNP`.
+
+The default is `NONE`, which disables NAT functionality.
+
+!!! tip
+
+    UPnP support is often disabled by default in networking firmware. If disabled by default,
+    explicitly enable UPnP support.
+
 ### p2p-peer-lower-bound
 
 === "Syntax"

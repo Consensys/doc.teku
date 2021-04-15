@@ -75,6 +75,7 @@ nav:
         - Prevent slashing offences: HowTo/Prevent-Slashing.md
         - Find and connect to peers:
             - Improve P2P connectivity: HowTo/Find-and-Connect/Improve-Connectivity.md
+            - Specify NAT methods: HowTo/Find-and-Connect/Specifying-NAT.md
         - Voluntary exit: HowTo/Voluntary-Exit.md
         - Troubleshoot:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
