@@ -10,10 +10,10 @@ executors:
       - image: circleci/python:3.7.4
         auth:
           username: $DOCKER_USER_RO
-          password: $DOCKER_PASSWORD_RO      
+          password: $DOCKER_PASSWORD_RO
   node_executor:
     docker:
-      - image: circleci/node:12.9.0-stretch
+      - image: circleci/node:lts-buster
         auth:
           username: $DOCKER_USER_RO
           password: $DOCKER_PASSWORD_RO
@@ -138,16 +138,16 @@ workflows:
     jobs:
       - build:
           context:
-            - dockerhub-quorumengineering-ro      
+            - dockerhub-quorumengineering-ro
       - vale:
           context:
-            - dockerhub-quorumengineering-ro      
+            - dockerhub-quorumengineering-ro
       - markdownlint:
           context:
-            - dockerhub-quorumengineering-ro      
+            - dockerhub-quorumengineering-ro
       - linkchecker:
           context:
-            - dockerhub-quorumengineering-ro      
+            - dockerhub-quorumengineering-ro
   nightly:
     triggers:
       - schedule: # GMT
