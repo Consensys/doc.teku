@@ -14,3 +14,12 @@ Teku:
 * Provides enterprise focused metrics with Prometheus.
 * Has REST APIs for managing Eth 2.0 node operations.
 * Has external key management to manage validator signing keys.
+
+## New to Ethereum 2.0?
+
+Get started by running Teku with Docker or installing Teku.
+You can:
+
+* [Run Teku from a Docker image.](HowTo/Get-Started/Installation-Options/Run-Docker-Image.md)
+* [Install the binary distribution.](HowTo/Get-Started/Installation-Options/Install-Binaries.md)
+* [Build from source.](HowTo/Get-Started/Installation-Options/Build-From-Source.md)
