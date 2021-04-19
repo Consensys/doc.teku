@@ -141,14 +141,6 @@ You can run a Teku beacon chain node on a network without any validators.
     teku --network=pyrmont --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
 
-## Add a beacon chain client to Eth2stats
-
-You can add the beacon chain node to [Eth2stats](https://eth2stats.io/add-node) for monitoring.
-
-Ensure you enable metrics using the
-[`--metrics-enabled`](../../../Reference/CLI/CLI-Syntax.md#metrics-enabled) option when
-starting Teku.
-
 ## Finding help
 
 * The `#pyrmont` channel on the Ethereum Foundation Discord. [Invite link](https://discord.gg/zyZXUN7)
