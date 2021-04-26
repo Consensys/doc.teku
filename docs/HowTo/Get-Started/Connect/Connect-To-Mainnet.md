@@ -108,7 +108,8 @@ must have the same name as the keys, but use the `.txt` extension.
 
 !!! info
 
-    The password file is [UTF-8 encoded](https://eips.ethereum.org/EIPS/eip-2335#password-requirements).
+    The password file format follows [`EIP-2335`](https://eips.ethereum.org/EIPS/eip-2335#password-requirements)
+    requirements (UTF-8 encoded file, unicode normalization, and control code removal).
 
 ### Start the validator
 
