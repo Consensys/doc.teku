@@ -176,8 +176,9 @@ password files.
 !!! important
 
     This example connects to an [Infura] ETH1 endpoint, if running your own client, like
-    [Hyperledger Besu], then replace [`--eth1-endpoint`](../Reference/CLI/CLI-Syntax.md#eth1-endpoint)
-    with the location of the JSON-RPC URL of the ETH1 node.
+    [Hyperledger Besu], then add the JSON-RPC URL of the ETH1 node
+    to the [`--eth1-endpoint`](../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints)
+    command line option.
 
 ```bash
 teku --network=pyrmont \

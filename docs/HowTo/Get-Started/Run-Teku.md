@@ -20,8 +20,8 @@ on the same machine.
     By default, Teku connects to `mainnet`. Use the [`--network`](../../Reference/CLI/CLI-Syntax.md#network)
     command line option to specify an alternate network.
 
-    If the genesis state of a network is not yet known, then
-    include the [`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint) command line
+    If the genesis state of a network is not yet known, then include the
+    [`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints) command line
     option.
 
 ## Start the clients in a single process
@@ -32,7 +32,7 @@ with the [`teku`](../../Reference/CLI/CLI-Syntax.md#options) command
 !!! example
 
     ```
-    teku --network=pyrmont --eth1-endpoint=http://localhost:8545 \
+    teku --network=pyrmont --eth1-endpoint=http://localhost:8545,https://goerli.infura.iov3/b0f36cebcab24eef9984422efbc51f21 \
     --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
