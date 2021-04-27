@@ -293,7 +293,7 @@ receiving warnings that the ETH1 node is unavailable.
 === "Syntax"
 
     ```bash
-    --eth1-endpoint=<NETWORK>[,<NETWORK>...]...
+    --eth1-endpoint=<URL>[,<URL>...]...
     ```
 
 === "Command Line"
