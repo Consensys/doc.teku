@@ -288,33 +288,35 @@ Defaults to 10000.
 Setting a smaller max size may help if your ETH1 node is slow at loading deposit event logs, or when
 receiving warnings that the ETH1 node is unavailable.
 
-### eth1-endpoint
+### eth1-endpoint, eth1-endpoints
 
 === "Syntax"
 
     ```bash
-    --eth1-endpoint=<URL>
+    --eth1-endpoint=<URL>[,<URL>...]...
     ```
 
 === "Command Line"
 
     ```bash
-    --eth1-endpoint=http://localhost:8545
+    --eth1-endpoint=http://localhost:8545,https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111
     ```
 
 === "Environment Variable"
 
     ```bash
-    TEKU_ETH1_ENDPOINT=http://localhost:8545
+    TEKU_ETH1_ENDPOINT=http://localhost:8545,https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111
     ```
 
 === "Configuration File"
 
     ```bash
-    eth1-endpoint: "http://localhost:8545"
+    eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111"]
     ```
 
-The JSON-RPC URL of Ethereum 1.0 node. This option must be specified if running a validator.
+Comma-separated list of JSON-RPC URLs of Ethereum 1.0 nodes. Each time Teku makes a call, it finds
+the first provider in the list that is available, on the right chain, and in sync. This option must
+be specified if running a validator.
 
 If not specified (that is, you're running a beacon chain client only), then provide an initial state
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using

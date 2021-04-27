@@ -96,6 +96,11 @@ file must have the same name as the key, but use the `.txt` extension.
     If the Launchpad creates a key named `keystore-m_12381_3600_0_0_0-1596485378.json`, then
     the password file must be named `keystore-m_12381_3600_0_0_0-1596485378.txt`.
 
+!!! info
+
+    The password file format follows [`EIP-2335`](https://eips.ethereum.org/EIPS/eip-2335#password-requirements)
+    requirements (UTF-8 encoded file, unicode normalization, and control code removal).
+
 ### Start the validator
 
 Run Teku and specify the validator key files [created earlier](#generate-the-validators-and-send-the-deposits),
@@ -113,8 +118,8 @@ and the text files containing the password to decrypt the validator key.
 !!! note
 
     If using a cloud-based service such as [Infura], then set
-    [`--eth1-endpoint`](../../../Reference/CLI/CLI-Syntax.md#eth1-endpoint) to the supplied URL. For
-    example, `https://goerli.infura.io/v3/<Project_ID>`.
+    [`--eth1-endpoint`](../../../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints) to the
+    supplied URL. For example, `https://goerli.infura.io/v3/<Project_ID>`.
 
 Alternatively, use [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) to
 specify the directory to load multiple keys and passwords from.

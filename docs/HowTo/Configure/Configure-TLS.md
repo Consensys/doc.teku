@@ -59,7 +59,7 @@ teku --network=pyrmont \
 In the command:
 
 * Specify the JSON-RPC URL of the ETH1 node using
-    [`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint).
+    [`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints).
 * Specify the validator's public keys using
     [`--validators-external-signer-public-keys`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-public-keys).
 * Specify the URL of the running external signer using
