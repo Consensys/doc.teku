@@ -1868,7 +1868,8 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
     ```
 
 A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using either
-`<blockRoot>:<epochNumber>`, or a URL containing the `<blockRoot>:<epochNumber>` in a JSON payload.
+`<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`, or a URL containing the
+`<blockRoot>:<epochNumber>` in a [JSON payload via the `ws_checkpoint` key](https://beaconscan.com/ws_checkpoint).
 For example:
 
 ```bash
