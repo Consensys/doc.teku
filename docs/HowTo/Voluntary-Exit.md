@@ -6,7 +6,7 @@ title: Voluntarily exit a validaor
 
 A voluntary exit is when a validator chooses to stop performing its duties, and exits the beacon
 chain permanently.
-There is no way for a validator to rejoin the network once it voluntarily exits.
+A validator cannot rejoin the network once it voluntarily exits.
 Its funds will be frozen until the withdrawal process is implemented.
 
 To voluntarily exit, the validator must continue performing its validator duties until successfully
