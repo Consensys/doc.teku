@@ -5,10 +5,16 @@ title: Voluntarily exit a validaor
 # Voluntarily exit a validator
 
 A voluntary exit is when a validator chooses to stop performing its duties, and exits the beacon
-chain.
+chain permanently.
+There is no way for a validator to rejoin the network once it voluntarily exits.
+Its funds will be frozen until the withdrawal process is implemented.
 
 To voluntarily exit, the validator must continue performing its validator duties until successfully
 exited to avoid penalties.
+
+!!! important
+
+    To voluntarily exit, you must have a running beacon node with the [REST API enabled].
 
 !!! important
 
@@ -23,16 +29,14 @@ a voluntary exit for specified validators.
 !!! example
 
     ```bash
-    teku voluntary-exit --beacon-node-api-endpoint=http://10.32.100.1:5051 \
-    --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt \
-    --epoch=24500
+    teku voluntary-exit --beacon-node-api-endpoint=http://127.0.0.1:5051 \
+    --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt
     ```
 
 In the command:
 
 * Specify the location of the beacon node using
     [`--beacon-node-api-endpoint`](../Reference/CLI/Subcommands/Voluntary-Exit.md#beacon-node-api-endpoint).
-    You must have a running beacon node which has the [REST API enabled].
 * Specify the validators to exit using the
    [`--validator-keys`](../Reference/CLI/Subcommands/Voluntary-Exit.md#validator-keys) option.
 * Specify the earliest epoch at which to exit using the [`--epoch`](../Reference/CLI/Subcommands/Voluntary-Exit.md#epoch)
@@ -44,10 +48,9 @@ public key of the exiting validator:
 !!! example
 
    ```bash
-   teku voluntary-exit --beacon-node-api-endpoint=http://10.32.100.1:5051 \
+   teku voluntary-exit --beacon-node-api-endpoint=http://127.0.0.1:5051 \
    --validators-external-signer-public-keys=888eef... \
-   --validators-external-signer-url=http://localhost:9000 \
-   --epoch=24500
+   --validators-external-signer-url=http://localhost:9000
    ```
 
 Use the [`/eth/v1/beacon/pool/voluntary_exits`](https://consensys.github.io/teku/#operation/getEthV1BeaconPoolVoluntary_exits)
