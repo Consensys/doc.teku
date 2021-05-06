@@ -6,11 +6,13 @@ title: Voluntarily exit a validaor
 
 A voluntary exit is when a validator chooses to stop performing its duties, and exits the beacon
 chain permanently.
-A validator cannot rejoin the network once it voluntarily exits.
-Its funds will be frozen until the withdrawal process is implemented.
 
 To voluntarily exit, the validator must continue performing its validator duties until successfully
 exited to avoid penalties.
+
+!!! danger
+
+    A validator cannot rejoin the network once it voluntarily exits.
 
 !!! important
 
@@ -18,7 +20,7 @@ exited to avoid penalties.
 
 !!! important
 
-    Even if a validator has successfully exited, you cannot withdraw your funds until withdrawals are
+    Even if a validator has successfully exited, it cannot withdraw its funds until withdrawals are
     enabled in a future phase of the Ethereum 2.0 network.
 
 ## Initiate a voluntary exit
@@ -49,7 +51,7 @@ public key of the exiting validator:
 
    ```bash
    teku voluntary-exit --beacon-node-api-endpoint=http://127.0.0.1:5051 \
-   --validators-external-signer-public-keys=888eef... \
+   --validators-external-signer-public-keys=1e9f2afcc0737f4502e8d4238e4fe82d45077b2a549902b61d65367acecbccba \
    --validators-external-signer-url=http://localhost:9000
    ```
 
