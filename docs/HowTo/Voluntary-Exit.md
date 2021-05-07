@@ -10,15 +10,15 @@ chain permanently.
 To voluntarily exit, the validator must continue performing its validator duties until successfully
 exited to avoid penalties.
 
-!!! danger
-
-    A validator cannot rejoin the network once it voluntarily exits.
-
 !!! important
 
     To voluntarily exit, you must have a running beacon node with the [REST API enabled].
 
-!!! important
+!!! danger
+
+    A validator cannot rejoin the network once it voluntarily exits.
+
+!!! danger
 
     Even if a validator has successfully exited, it cannot withdraw its funds until withdrawals are
     enabled in a future phase of the Ethereum 2.0 network.
