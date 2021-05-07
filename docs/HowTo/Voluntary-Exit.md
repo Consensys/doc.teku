@@ -32,7 +32,7 @@ a voluntary exit for specified validators.
 
     ```bash
     teku voluntary-exit --beacon-node-api-endpoint=http://127.0.0.1:5051 \
-    --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt
+    --validator-keys=validator/keys/validator_1e9f2a.json:validator/passwords/validator_1e9f2a.txt
     ```
 
 In the command:
