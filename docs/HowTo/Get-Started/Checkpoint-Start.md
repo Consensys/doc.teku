@@ -37,7 +37,9 @@ on the beacon chain client (for example Teku).
     ```bash
     curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v1/debug/beacon/states/finalized
     ```
-    [Infura](https://infura.io/) now also provides an initial state option to its users. Registration is free. For more details please see (this video)[https://www.youtube.com/watch?v=ce9uVRl23zI].
+    [Infura](https://infura.io/) provides initial state endpoints for free.
+    Registration to Infura services is required.
+    Watch the ("Teku Snapshot Sync from Infura" video)[https://youtu.be/ce9uVRl23zI] for more details.
 
 <!--links-->
 [REST API enabled]: ../../Reference/CLI/CLI-Syntax.md#rest-api-enabled
