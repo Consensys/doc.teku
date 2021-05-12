@@ -23,6 +23,11 @@ To migrate a RocksDB database in [pruning mode] to a LevelDB2 database:
     curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v1/debug/beacon/states/finalized
     ```
 
+    !!! note
+
+        This step is optional, you can also [supply the finalized checkpoint state] via URL from a beacon
+        chain node or Infura when restarting Teku in the step below.
+
 1. Stop the Teku node you intend to migrate.
 
 1. Delete the `beacon` directory in your
@@ -43,3 +48,4 @@ sync and validating within minutes.
 [Download the latest finalized state]: https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id
 [pruning mode]: ../Reference/CLI/CLI-Syntax.md#data-storage-mode
 [archive mode]: ../Reference/CLI/CLI-Syntax.md#data-storage-mode
+[supply the finalized checkpoint state]: Get-Started/Checkpoint-Start.md
