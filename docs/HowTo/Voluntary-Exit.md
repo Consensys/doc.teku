@@ -5,14 +5,22 @@ title: Voluntarily exit a validaor
 # Voluntarily exit a validator
 
 A voluntary exit is when a validator chooses to stop performing its duties, and exits the beacon
-chain.
+chain permanently.
 
 To voluntarily exit, the validator must continue performing its validator duties until successfully
 exited to avoid penalties.
 
 !!! important
 
-    Even if a validator has successfully exited, you cannot withdraw your funds until withdrawals are
+    To voluntarily exit, you must have a running beacon node with the [REST API enabled].
+
+!!! danger
+
+    A validator cannot rejoin the network once it voluntarily exits.
+
+!!! danger
+
+    Even if a validator has successfully exited, it cannot withdraw its funds until withdrawals are
     enabled in a future phase of the Ethereum 2.0 network.
 
 ## Initiate a voluntary exit
@@ -23,16 +31,14 @@ a voluntary exit for specified validators.
 !!! example
 
     ```bash
-    teku voluntary-exit --beacon-node-api-endpoint=http://10.32.100.1:5051 \
-    --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt \
-    --epoch=24500
+    teku voluntary-exit --beacon-node-api-endpoint=http://127.0.0.1:5051 \
+    --validator-keys=validator/keys/validator_1e9f2a.json:validator/passwords/validator_1e9f2a.txt
     ```
 
 In the command:
 
 * Specify the location of the beacon node using
     [`--beacon-node-api-endpoint`](../Reference/CLI/Subcommands/Voluntary-Exit.md#beacon-node-api-endpoint).
-    You must have a running beacon node which has the [REST API enabled].
 * Specify the validators to exit using the
    [`--validator-keys`](../Reference/CLI/Subcommands/Voluntary-Exit.md#validator-keys) option.
 * Specify the earliest epoch at which to exit using the [`--epoch`](../Reference/CLI/Subcommands/Voluntary-Exit.md#epoch)
@@ -44,10 +50,9 @@ public key of the exiting validator:
 !!! example
 
    ```bash
-   teku voluntary-exit --beacon-node-api-endpoint=http://10.32.100.1:5051 \
-   --validators-external-signer-public-keys=888eef... \
-   --validators-external-signer-url=http://localhost:9000 \
-   --epoch=24500
+   teku voluntary-exit --beacon-node-api-endpoint=http://127.0.0.1:5051 \
+   --validators-external-signer-public-keys=1e9f2afcc0737f4502e8d4238e4fe82d45077b2a549902b61d65367acecbccba \
+   --validators-external-signer-url=http://localhost:9000
    ```
 
 Use the [`/eth/v1/beacon/pool/voluntary_exits`](https://consensys.github.io/teku/#operation/getEthV1BeaconPoolVoluntary_exits)

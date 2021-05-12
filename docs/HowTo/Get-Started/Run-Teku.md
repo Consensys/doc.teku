@@ -27,12 +27,12 @@ on the same machine.
 ## Start the clients in a single process
 
 Start the beacon chain client and validator as a single process by specifying the validator options
-with the [`teku`](../../Reference/CLI/CLI-Syntax.md#options) command
+with the [`teku`](../../Reference/CLI/CLI-Syntax.md#options) command. For example:
 
 !!! example
 
     ```
-    teku --network=pyrmont --eth1-endpoint=http://localhost:8545,https://goerli.infura.iov3/b0f36cebcab24eef9984422efbc51f21 \
+    teku --network=pyrmont --eth1-endpoints=http://localhost:8545,http://backup-host:8545/ \
     --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
