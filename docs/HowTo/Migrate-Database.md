@@ -14,12 +14,11 @@ Teku nodes running a RocksDB database to a LevelDB2 database if the Teku node ru
 
     Teku nodes running in [archive mode] have to resync from genesis to migrate.
 
-
 To migrate a RocksDB database in [pruning mode] to a LevelDB2 database:
 
 1. [Download the latest finalized state] from a beacon chain node:
 
-    ```
+    ```bash
     curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v1/debug/beacon/states/finalized
     ```
 
