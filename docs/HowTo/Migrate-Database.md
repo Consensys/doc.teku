@@ -12,7 +12,8 @@ Teku nodes running a RocksDB database to a LevelDB2 database if the Teku node ru
 
 !!! warning
 
-    Teku nodes running in [archive mode] have to resync from genesis to migrate.
+    Teku nodes running in [archive mode] have to resync from genesis to migrate. Tools to migrate
+    existing databases will be provided in future releases.
 
 To migrate a RocksDB database in [pruning mode] to a LevelDB2 database:
 
