@@ -77,6 +77,7 @@ nav:
             - Improve P2P connectivity: HowTo/Find-and-Connect/Improve-Connectivity.md
             - Specify NAT methods: HowTo/Find-and-Connect/Specifying-NAT.md
         - Voluntary exit: HowTo/Voluntary-Exit.md
+        - Migrate database: HowTo/Migrate-Database.md
         - Troubleshoot:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
