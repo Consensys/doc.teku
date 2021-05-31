@@ -366,13 +366,18 @@ Show the help message and exit.
 Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
 or a [recent finalized checkpoint state from which to sync].
 
-!!! note
-
-    If overriding the initial state in a custom network. You will need to supply the initial state
-    file at each restart.
-
 This option does not need to be specified if the genesis state is provided by the network specified
 using the [`--network`](#network) option.
+
+!!! note
+
+    If overriding the initial state in a custom network, you must supply the initial state
+    file at each restart.
+
+!!! tip
+
+    [Infura](https://infura.io/) can be used as the source of initial states with
+    `--initial-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v1/debug/beacon/states/finalized`
 
 ### logging
 
