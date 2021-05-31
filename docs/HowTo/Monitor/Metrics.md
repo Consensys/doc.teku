@@ -53,6 +53,12 @@ To configure Prometheus and run with Teku:
      --metrics-enabled=true --metrics-categories=BEACON,PROCESS,LIBP2P,JVM,NETWORK,PROCESS
      ```
 
+    !!! important
+
+        If running Prometheus on a different host to your Teku node (any host other than `localhost`),
+        ensure you add the Prometheus host to [`--metrics-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#metrics-host-allowlist)
+        when starting Teku.
+
      To specify the host and port on which Prometheus accesses Teku, use the
      [`--metrics-interface`](../../Reference/CLI/CLI-Syntax.md#metrics-interface) and
      [`--metrics-port`](../../Reference/CLI/CLI-Syntax.md#metrics-port) options. The default host
