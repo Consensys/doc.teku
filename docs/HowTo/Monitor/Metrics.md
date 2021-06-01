@@ -55,9 +55,12 @@ To configure Prometheus and run with Teku:
 
     !!! important
 
-        If running Prometheus on a different host to your Teku node (any host other than `localhost`),
-        ensure you add the Prometheus host to [`--metrics-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#metrics-host-allowlist)
-        when starting Teku.
+        To avoid DNS rebinding attacks, if running Prometheus on a different host to your Teku node
+        (any host other than `localhost`), ensure you add the hostname that Prometheus uses to
+        connect to Teku to [`--metrics-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#metrics-host-allowlist).
+
+        For example, if Prometheus is configured to get metrics from `http://teku.local:8008/metrics`
+        then `teku.local` has to be in `--metrics-host-allowlist`.
 
      To specify the host and port on which Prometheus accesses Teku, use the
      [`--metrics-interface`](../../Reference/CLI/CLI-Syntax.md#metrics-interface) and
