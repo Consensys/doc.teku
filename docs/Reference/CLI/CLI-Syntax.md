@@ -785,9 +785,8 @@ The default is `8008`.
     ```
 
 Predefined network configuration.
-Accepts a predefined network name, or file path or URL to a YAML configuration file or directory.
-Directories must hold a `phase0.yaml` file and can hold an optional `altair.yaml` file.
-See the [Ethereum 2.0 specification] for examples.
+Accepts a predefined network name, or file path or URL to a YAML configuration file. See the
+[Ethereum 2.0 specification] for examples.
 
 The default is `mainnet`.
 
