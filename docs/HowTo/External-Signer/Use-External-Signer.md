@@ -16,7 +16,7 @@ Teku supports the [Web3Signer] external signing client.
 Start Teku and specify the external signer options.
 
 ```bash
-teku --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd \
+teku --network=prater \
 --eth1-endpoint=http://localhost:8545 \
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
 --validators-external-signer-url=http://localhost:9000
