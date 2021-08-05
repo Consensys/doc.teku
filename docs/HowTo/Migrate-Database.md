@@ -11,7 +11,7 @@ LevelDB2 databases use less memory and are proven to be more stable with Teku.
 
 
 ## Automatic migration
-Teku nodes running in archive mode can use the `migrate-database`  command to avoid data loss when moving to LevelDB2. Once the process is complete, there will be two databases in the teku data folder, and after manually verifying that teku can start and has the expected data, you will be able to remove the RocksDB database.
+Teku nodes running in [archive mode] can use the `migrate-database`  command to avoid data loss when moving to LevelDB2. Once the process is complete, there will be two databases in the teku data folder, and after manually verifying that teku can start and has the expected data, you will be able to remove the RocksDB database.
 
 Disk space requirements may be as much as the existing `teku/beacon` folder in use by Teku. This storage requirement will only be for the period of the `migrate-database` command, plus long enough to validate that the new database is working.
 
@@ -24,9 +24,9 @@ The `migrate-database` command requires that Teku is not running while the data 
 teku -c /etc/teku/teku.yml migrate-database
 ```
 
-3. When migrate-databse is complete, it will specify if it succeeded, or give context to errors.  If it was successful, then start teku and check it is functioning properly.
+3. When `migrate-database` is complete, it will specify if it succeeded, or give context to errors.  If it was successful, then start teku and check it is functioning properly.
 
-4. If teku is running correctly, remove the `beacon.old` folder where teku normally runs from.
+4. If teku is running correctly, remove the `beacon.old` folder where Teku normally runs from.
 
 If `migrate-database` fails, resolve any issues and retry. Reach out on discord if there are any issues that can't be resolved.
 
