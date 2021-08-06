@@ -58,7 +58,7 @@ teku [OPTIONS] [COMMAND]
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+The path to the [YAML configuration file](../../HowTo/Configure/Use-Configuration-File.md).
 The default is `none`.
 
 ### data-base-path, data-path
