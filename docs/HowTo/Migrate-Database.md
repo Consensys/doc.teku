@@ -7,7 +7,7 @@ description: How to migrate a RocksDB database to a LevelDB2 database.
 As of v21.5.0, new Teku installations use a LevelDB2 database. Previous Teku versions use
 RocksDB which continues to be supported.
 
-LevelDB2 databases use less memory and are proven to be more stable with Teku.
+LevelDB2 databases use less memory and proves to be more stable with Teku.
 
 !!! important
 
@@ -27,9 +27,9 @@ and has the expected data before you remove the RocksDB database.
     requirement will only be for the period of the `migrate-database` command, plus long enough to validate that
     the new database is working.
 
-Ensure that Teku is not running when using the  [`migrate-database`](../Reference/CLI/Subcommands/Migrate-Database.md)
-subcommand. The duration of the migration depends on many factors, but principally on the disk speed.  Status updates
-are provided during the migration process. To migrate the database:
+Ensure that Teku isn't running when using the  [`migrate-database`](../Reference/CLI/Subcommands/Migrate-Database.md)
+subcommand. The duration of the migration depends on various factors, but principally on the disk speed. Status updates
+display during the migration process. To migrate the database:
 
 1. Shutdown the local Teku instance.
 
@@ -51,7 +51,7 @@ are provided during the migration process. To migrate the database:
         If not supplied [`--network`](../Reference/CLI/Subcommands/Migrate-Database.md#network) defaults to
         `mainnet`.
 
-1. The migration process will let you know if it succeeded, or provide context to errors.  If
+1. The migration process will let you know if it succeeded, or provide context to errors. If
     successful, then start Teku and confirm it functions correctly.
 
     !!! example
@@ -63,7 +63,7 @@ are provided during the migration process. To migrate the database:
 1. If teku is running correctly, remove the `beacon.old` directory from the
     [`--data-path`](../Reference/CLI/Subcommands/Migrate-Database.md#network) directory.
 
-If migration fails, resolve any issues and retry. Contact us on the [Teku Discord channel] if you need help
+If migration fails, resolve any issues and retry. Contact support on the [Teku Discord channel] if you need help
 resolving issues.
 
 ## Manual migration
@@ -73,8 +73,8 @@ runs in [prune mode].
 
 !!! warning
 
-    Teku nodes running in [archive mode] must resync from genesis to migrate. Use the [automatic migration](#automatic-migration)
-    to migrate Teku nodes running in [archive mode].
+    Teku nodes running in [archive mode] must resynchronize from genesis to migrate. Use the
+    [automatic migration](#automatic-migration) to migrate Teku nodes running in [archive mode].
 
 To migrate a RocksDB database in [prune mode] to a LevelDB2 database:
 
