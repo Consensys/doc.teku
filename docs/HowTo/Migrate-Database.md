@@ -16,7 +16,7 @@ LevelDB2 databases use less memory and proves to be more stable with Teku.
 
 ## Automatic migration
 
-Teku nodes running in [archive mode] must resync from genesis to migrate from RocksDB to LevelDB2. Use the
+Teku nodes running in [archive mode] must resynchronize from genesis to migrate from RocksDB to LevelDB2. Use the
 [`migrate-database`](../Reference/CLI/Subcommands/Migrate-Database.md) subcommand to migrate the database.
 Once migration completes there will be two databases in Teku's data folder. Manually verify that Teku starts
 and has the expected data before you remove the RocksDB database.
@@ -60,7 +60,7 @@ display during the migration process. To migrate the database:
         teku --data-path /etc/teku/data/
         ```
 
-1. If teku is running correctly, remove the `beacon.old` directory from the
+1. If Teku is running correctly, remove the `beacon.old` directory from the
     [`--data-path`](../Reference/CLI/Subcommands/Migrate-Database.md#network) directory.
 
 If migration fails, resolve any issues and retry. Contact support on the [Teku Discord channel] if you need help
