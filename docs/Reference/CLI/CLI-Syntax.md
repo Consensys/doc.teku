@@ -1462,6 +1462,44 @@ When specifying file names, Teku expects that the files exist.
 
     The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
 
+### validators-early-attestations-enabled
+
+=== "Syntax"
+
+    ```bash
+    --validators-early-attestations-enabled[=<BOOLEAN>]
+    ```
+
+=== "Command Line"
+
+    ```bash
+    --validators-early-attestations-enabled=false
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_EARLY_ATTESTATIONS_ENABLED=false
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-early-attestations-enabled: false
+    ```
+
+Specify whether to use Teku's built-in early attestation production, which creates an
+attestation as soon as a block has been received. Defaults to `true`.
+
+Set this option to `false` if running a validator client connected to a load balanced beacon node,
+including most hosted beacon nodes such as Infura, and validator effectiveness is poor.
+
+!!! note
+
+    Delaying attestation production increases the chances of generating a correct 
+    attestation when using a load balanced beacon node, but it does increase 
+    the risk of inclusion delays.
+
 ### validators-external-signer-keystore
 
 === "Syntax"
