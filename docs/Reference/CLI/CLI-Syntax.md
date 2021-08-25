@@ -1664,7 +1664,7 @@ using Teku to sign blocks and attestations always uses its built-in slashing pro
     validators-external-signer-timeout: 2000
     ```
 
-Timeout in milliseconds for requests to the external signer. Default is 1000.
+Timeout in milliseconds for requests to the external signer. Default is 5000.
 
 ### validators-external-signer-truststore
 

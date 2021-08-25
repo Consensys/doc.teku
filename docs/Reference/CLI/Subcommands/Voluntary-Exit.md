@@ -220,7 +220,7 @@ List of public keys of validators that you wish to voluntarily exit when using a
     validators-external-signer-timeout: 2000
     ```
 
-Timeout in milliseconds for requests to the external signer. Default is 1000.
+Timeout in milliseconds for requests to the external signer. Default is 5000.
 
 ### validators-external-signer-url
 
