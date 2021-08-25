@@ -304,7 +304,7 @@ The default Docker image location is `/root/.local/share/teku/logs`.
     log-file-name-pattern: "tekuL_%d{yyyy-MM-dd}.log"
     ```
 
-Filename pattern to apply when creating log files.
+Filename pattern to apply when creating log files. The default pattern is `teku_%d{yyyy-MM-dd}.log`
 
 ### log-include-events-enabled
 
