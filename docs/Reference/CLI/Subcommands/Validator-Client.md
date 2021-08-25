@@ -484,7 +484,7 @@ Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `
     metrics-interface: "192.168.10.101"
     ```
 
-Host on which Prometheus accesses Teku metrics. The default is `0.0.0.0`.
+Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
 
 ### metrics-port
 
