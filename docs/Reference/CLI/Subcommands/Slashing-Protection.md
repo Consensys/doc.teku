@@ -40,7 +40,7 @@ Imports the slashing protection database using the [validator client interchange
 The path to the YAML configuration file.
 The default is `none`.
 
-### data-path
+### data-base-path, data-path
 
 === "Syntax"
 
@@ -108,7 +108,7 @@ Exports the slashing protection database in the [validator client interchange fo
 The path to the YAML configuration file.
 The default is `none`.
 
-### data-path
+### data-base-path, data-path
 
 === "Syntax"
 
