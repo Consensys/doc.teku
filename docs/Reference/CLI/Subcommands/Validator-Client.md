@@ -361,7 +361,7 @@ validators and attestations. Defaults to `true`.
     log-include-validator-duties-enabled: true
     ```
 
-Specify whether to log details of validator event duties. Defaults to `false`.
+Specify whether to log details of validator event duties. Defaults to `true`.
 
 !!! note
     Logs could become noisy when running many validators.
