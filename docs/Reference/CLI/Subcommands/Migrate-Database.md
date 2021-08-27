@@ -68,168 +68,34 @@ The path to the Teku data directory. The default directory is OS dependent:
 
 The default Docker image location is `/root/.local/share/teku`.
 
-## data-storage-archive-frequency
+## data-beacon-path
 
 === "Syntax"
 
     ```bash
-    --data-storage-archive-frequency=<NUMBER>
+    --data-beacon-path=<PATH>
     ```
 
 === "Command Line"
 
     ```bash
-    --data-storage-archive-frequency=1028
+    --data-beacon-path=/home/me/me_node
     ```
 
 === "Environment Variable"
 
     ```bash
-    TEKU_DATA_STORAGE_ARCHIVE_FREQUENCY=1028
+    TEKU_DATA_BEACON_PATH=/home/me/me_node
     ```
 
 === "Configuration File"
 
     ```bash
-    data-storage-archive-frequency: 1028
+    data-beacon-path: "/home/me/me_node"
     ```
 
-Set the frequency (in slots) at which to store finalized states to disk. Defaults to 2048.
-
-This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
-
-## data-storage-mode
-
-=== "Syntax"
-
-    ```bash
-    --data-storage-mode=<STORAGE_MODE>
-    ```
-
-=== "Command Line"
-
-    ```bash
-    --data-storage-mode=archive
-    ```
-
-=== "Environment Variable"
-
-    ```bash
-    TEKU_DATA_STORAGE_MODE=archive
-    ```
-
-=== "Configuration File"
-
-    ```bash
-    data-storage-mode: "archive"
-    ```
-
-Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
-Defaults to `prune`.
-
-## data-validator-path
-
-=== "Syntax"
-
-    ```bash
-    --data-validator-path=<PATH>
-    ```
-
-=== "Command Line"
-
-    ```bash
-    --data-validator-path=/home/me/me_validator
-    ```
-
-=== "Environment Variable"
-
-    ```bash
-    TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
-    ```
-
-=== "Configuration File"
-
-    ```bash
-    data-validator-path: "/home/me/me_validator"
-    ```
-
-Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
+Path to the beacon chain client data. Defaults to `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
-
-## eth1-deposit-contract-address
-
-=== "Syntax"
-
-    ```bash
-    --eth1-deposit-contract-address=<ADDRESS>
-    ```
-
-=== "Command Line"
-
-    ```bash
-    --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
-    ```
-
-=== "Environment Variable"
-
-    ```bash
-    TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
-    ```
-
-=== "Configuration File"
-
-    ```bash
-    eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
-    ```
-
-Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
-
-The deposit contract address can also be defined in:
-
-* The genesis file specified using [`--initial-state`](#initial state)
-* The predefined network supplied using [`--network`](#network).
-
-## initial-state
-
-=== "Syntax"
-
-    ```bash
-    --initial-state=<FILE>
-    ```
-
-=== "Command Line"
-
-    ```bash
-    --initial-state=/home/me/genesis.ssz
-    ```
-
-=== "Environment Variable"
-
-    ```bash
-    TEKU_INITIAL_STATE=/home/me/genesis.ssz
-    ```
-
-=== "Configuration File"
-
-    ```bash
-    initial-state: "/home/me/genesis.ssz"
-    ```
-
-Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
-or a [recent finalized checkpoint state from which to sync](../../../HowTo/Get-Started/Checkpoint-Start.md).
-
-This option does not need to be specified if the genesis state is provided by the network specified
-using the [`--network`](#network) option.
-
-!!! note
-
-    If overriding the initial state in a custom network, you must supply the initial state
-    file at each restart.
-
-!!! tip
-
-    [Infura](https://infura.io/) can be used as the source of initial states with
-    `--initial-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v1/debug/beacon/states/finalized`
 
 ## network
 

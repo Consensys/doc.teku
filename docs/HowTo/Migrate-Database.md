@@ -23,9 +23,8 @@ and has the expected data before you remove the RocksDB database.
 
 !!! note
 
-    Disk space requirements may be as much as the existing storage folder used by Teku. This storage
-    requirement will only be for the period of the `migrate-database` command, plus long enough to validate that
-    the new database is working.
+    You need double the disk space of the existing Teku storage folder for the migration process.
+    Once you are satisfied with the migration then you can delete the RocksDB to free up space.
 
 Ensure that Teku isn't running when using the  [`migrate-database`](../Reference/CLI/Subcommands/Migrate-Database.md)
 subcommand. The duration of the migration depends on various factors, but principally on the disk speed. Status updates
@@ -51,8 +50,8 @@ display during the migration process. To migrate the database:
         If not supplied [`--network`](../Reference/CLI/Subcommands/Migrate-Database.md#network) defaults to
         `mainnet`.
 
-1. The migration process will let you know if it succeeded, or provide context to errors. If
-    successful, then start Teku and confirm it functions correctly.
+1. The migration process informs you if it succeeded, or provides context to errors. If
+    successful, then confirm Teku functions correctly.
 
     !!! example
 
