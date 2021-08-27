@@ -224,7 +224,6 @@ Use the PKCS12 keystore type if connecting to Web3Signer.
 
 Password file used to decrypt the keystore.
 
-
 ### validators-external-signer-public-keys
 
 === "Syntax"

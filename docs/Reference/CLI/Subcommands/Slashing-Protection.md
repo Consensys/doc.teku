@@ -88,7 +88,6 @@ The path to the Teku data directory. The default directory is OS dependent:
 
 Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
-
 ### from
 
 === "Syntax"
@@ -184,7 +183,6 @@ The path to the Teku data directory. The default directory is OS dependent:
     ```
 
 Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
-
 
 ### to
 
