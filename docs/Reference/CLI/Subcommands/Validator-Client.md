@@ -850,6 +850,41 @@ Graffiti to add when creating a block. Gets converted to bytes and padded to Byt
 
 The same graffiti is used for all validators started with this beacon node.
 
+### validators-graffiti-file
+
+=== "Syntax"
+
+    ```bash
+    teku vc --validators-graffiti-file=<FILE>
+    ```
+
+=== "Command Line"
+
+    ```bash
+    teku vc --validators-graffiti-file=/Users/me/mynode/graffiti.txt
+    ```
+
+=== "Environment Variable"
+
+    ```bash
+    TEKU_VALIDATORS_GRAFFITI_FILE=/Users/me/mynode/graffiti.txt
+    ```
+
+=== "Configuration File"
+
+    ```bash
+    validators-graffiti-file: "/Users/me/mynode/graffiti.txt"
+    ```
+
+File containing the validator graffiti to add when creating a block. The file contents is
+converted to `bytes` and padded to `Bytes32`. The same graffiti is used for all validators started
+with this beacon node.
+
+You can overwrite the file while Teku is running to update the graffiti.
+
+This option takes precedence over [`--validators-graffiti`](#validators-graffiti).
+
+
 ### validators-keystore-locking-enabled
 
 === "Syntax"
