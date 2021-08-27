@@ -941,7 +941,6 @@ You can overwrite the file while Teku is running to update the graffiti.
 
 This option takes precedence over [`--validators-graffiti`](#validators-graffiti).
 
-
 ### validators-keystore-locking-enabled
 
 === "Syntax"

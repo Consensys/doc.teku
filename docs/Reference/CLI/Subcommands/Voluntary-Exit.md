@@ -337,6 +337,7 @@ which signs the external signer's certificate.
     ```
 
 Password file used to decrypt the keystore.
+
 ### validators-external-signer-url
 
 === "Syntax"
