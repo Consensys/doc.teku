@@ -30,7 +30,7 @@ Ensure that Teku isn't running when using the  [`migrate-database`](../Reference
 subcommand. The duration of the migration depends on various factors, but principally on the disk speed. Status updates
 display during the migration process. To migrate the database:
 
-1. Shutdown the local Teku instance.
+1. Shut down the local Teku instance.
 
 1. Run [`migrate-database`](../Reference/CLI/Subcommands/Migrate-Database.md) to create a LevelDB2 database.
     Pass your [configuration file](Configure/Use-Configuration-File.md) or CLI options so that Teku has the correct paths
