@@ -64,7 +64,7 @@ The path to the Teku data directory. The default directory is OS dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-* Windows: `%localappdata%\teku`.
+* Windows: `%localappdata%\teku`
 
 The default Docker image location is `/root/.local/share/teku`.
 
