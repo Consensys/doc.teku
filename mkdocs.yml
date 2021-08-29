@@ -92,6 +92,7 @@ nav:
           - Options: Reference/CLI/CLI-Syntax.md
           - Subcommands:
             - admin: Reference/CLI/Subcommands/Admin.md
+            - migrate-database: Reference/CLI/Subcommands/Migrate-Database.md
             - slashing-protection: Reference/CLI/Subcommands/Slashing-Protection.md
             - validator-client, vc: Reference/CLI/Subcommands/Validator-Client.md
             - voluntary-exit: Reference/CLI/Subcommands/Voluntary-Exit.md
