@@ -12,7 +12,7 @@ LevelDB2 databases use less memory and proves to be more stable with Teku.
 !!! important
 
     We recommend Teku nodes running in [archive mode] use the [automatic migration](#automatic-migration) method, and
-    Teku nodes running in [prune mode] use the manual migration.
+    Teku nodes running in [prune mode] use the [manual migration](#manual-migration).
 
 ## Automatic migration
 
