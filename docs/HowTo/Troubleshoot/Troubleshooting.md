@@ -105,6 +105,7 @@ If all recent attestations are marked as missed, check the following:
 * **Is the beacon node still syncing?**
 
     Validators can only attest when the beacon node is in sync. If you see lines similar to,
+
     `teku-event-log | Syncing     *** Target slot: 2017218, Head slot: 123456, Remaining slots: 2015500, Connecting peers: 12`, then the node is
     still syncing.
 
