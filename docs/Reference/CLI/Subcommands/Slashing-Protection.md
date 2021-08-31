@@ -165,6 +165,8 @@ Repairs corrupted slashing-protection data files used by Teku.
     ```
 
 Reads and reports potential slashing-protection file problems, but doesn't update any files.
+You can specify which files are checked using [`--config-file`](#config-file_2), [`--data-base-path`](#data-base-path-data-path), 
+or [`--network`](#network).
 
 ### config-file
 
@@ -221,42 +223,6 @@ The default Docker image location is `/root/.local/share/teku`.
 
 Path to validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
-
-### eth1-deposit-contract-address
-
-=== "Syntax"
-
-    ```bash
-    teku slashing-protection repair --eth1-deposit-contract-address=<ADDRESS>
-    ```
-
-=== "Command Line"
-
-    ```bash
-    teku slashing-protection repair --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
-    ```
-
-Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
-
-### initial-state
-
-=== "Syntax"
-
-    ```bash
-    teku slashing-protection repair --initial-state=<STRING>
-    ```
-
-=== "Command Line"
-
-    ```bash
-    teku slashing-protection repair --initial-state=/home/me/genesis.ssz
-    ```
-
-Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
-or a [recent finalized checkpoint state from which to sync].
-
-This option does not need to be specified if the initial state is provided by the network specified
-using the [`--network`](#network) option.
 
 ### network
 
@@ -319,10 +285,10 @@ slot, or after when the validators stopped performing duties.
 === "Command Line"
 
     ```bash
-    teku slashing-protection repair --update-all-enabled=true
+    teku slashing-protection repair --update-all-enabled=false
     ```
 
-Enables slashing protection records to be updated. Defaults to `true`.
+Enables all slashing-protection records to be updated. Defaults to `false`.
 
 <!-- links -->
 [slashing protection data]: ../../../Concepts/Slashing-Protection.md
