@@ -166,7 +166,6 @@ Repairs corrupted slashing-protection data files used by Teku.
 
 Reads and reports potential slashing-protection file problems, but doesn't update any files.
 You can specify which files are checked using [`--config-file`](#config-file_2), [`--data-base-path`](#data-base-path-data-path).
-Adding [`--network`](#network) will get the genesis time for the specified network if you need to calculate a slot.
 
 ### config-file
 
