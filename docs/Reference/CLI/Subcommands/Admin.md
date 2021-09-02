@@ -40,7 +40,7 @@ Clears the stored weak subjectivity configuration.
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the YAML configuration file.
 The default is `none`.
 
 #### data-base-path, data-path
@@ -69,7 +69,7 @@ The default is `none`.
     data-base-path: "/home/me/me_node"
     ```
 
-The path to the Teku data directory. The default directory is OS dependent:
+Path to the Teku data directory. The default directory is OS-dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -103,7 +103,7 @@ The default Docker image location is `/root/.local/share/teku`.
     data-beacon-path: "/home/me/me_beaon"
     ```
 
-Path to the beacon chain client data. Defaults to `<data-base-path>/beacon` where `<data-base-path>`
+Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### data-storage-archive-frequency
@@ -132,7 +132,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     data-storage-archive-frequency: 1028
     ```
 
-Set the frequency (in slots) at which to store finalized states to disk. Defaults to 2048.
+Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
@@ -174,7 +174,7 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     ```
 
 Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
-Defaults to `prune`.
+The default is `prune`.
 
 #### data-validator-path
 
@@ -202,7 +202,7 @@ Defaults to `prune`.
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### eth1-deposit-contract-address
@@ -298,7 +298,7 @@ Displays the stored weak subjectivity configuration.
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the YAML configuration file.
 The default is `none`.
 
 #### data-base-path, data-path
@@ -327,7 +327,7 @@ The default is `none`.
     data-base-path: "/home/me/me_node"
     ```
 
-The path to the Teku data directory. The default directory is OS dependent:
+Path to the Teku data directory. The default directory is OS-dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -361,7 +361,7 @@ The default Docker image location is `/root/.local/share/teku`.
     data-beacon-path: "/home/me/me_beaon"
     ```
 
-Path to the beacon chain client data. Defaults to `<data-base-path>/beacon` where `<data-base-path>`
+Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### data-storage-archive-frequency
@@ -390,7 +390,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     data-storage-archive-frequency: 1028
     ```
 
-Set the frequency (in slots) at which to store finalized states to disk. Defaults to 2048.
+Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
@@ -432,7 +432,7 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     ```
 
 Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
-Defaults to `prune`.
+The default is `prune`.
 
 #### data-validator-path
 
@@ -460,7 +460,7 @@ Defaults to `prune`.
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### eth1-deposit-contract-address

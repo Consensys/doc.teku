@@ -37,7 +37,7 @@ Imports the slashing protection database using the [validator client interchange
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the YAML configuration file.
 The default is `none`.
 
 ### data-path
@@ -54,7 +54,7 @@ The default is `none`.
     teku slashing-protection import --data-path=/home/me/me_node
     ```
 
-The path to the Teku data directory. The default directory is OS dependent:
+Path to the Teku data directory. The default directory is OS-dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -105,7 +105,7 @@ Exports the slashing protection database in the [validator client interchange fo
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the YAML configuration file.
 The default is `none`.
 
 ### data-path
@@ -122,7 +122,7 @@ The default is `none`.
     teku slashing-protection export --data-path=/home/me/me_node
     ```
 
-The path to the Teku data directory. The default directory is OS dependent:
+Path to the Teku data directory. The default directory is OS-dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -181,7 +181,7 @@ You can specify which files are checked using [`--config-file`](#config-file_2),
     teku slashing-protection repair --config-file=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the YAML configuration file.
 The default is `none`.
 
 ### data-base-path, data-path
@@ -198,11 +198,11 @@ The default is `none`.
     teku slashing-protection repair --data-base-path=/home/me/me_node
     ```
 
-The path to the Teku data directory. The default directory is OS dependent:
+Path to the Teku data directory. The default directory is OS-dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-* Windows: `%localappdata%\teku`.
+* Windows: `%localappdata%\teku`
 
 The default Docker image location is `/root/.local/share/teku`.
 
@@ -220,7 +220,7 @@ The default Docker image location is `/root/.local/share/teku`.
     teku slashing-protection repair --data-validator-path=/home/me/me_validator
     ```
 
-Path to validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
+Path to validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### network
@@ -287,7 +287,7 @@ slot, or after when the validators stopped performing duties.
     teku slashing-protection repair --update-all-enabled=false
     ```
 
-Enables all slashing-protection records to be updated. Defaults to `false`.
+Enables all slashing-protection records to be updated. The default is `false`.
 
 <!-- links -->
 [slashing protection data]: ../../../Concepts/Slashing-Protection.md
