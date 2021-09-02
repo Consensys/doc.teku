@@ -31,7 +31,7 @@ title: Database migration subcommand options
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the [YAML configuration file](../../../HowTo/Configure/Use-Configuration-File.md).
+Path to the [YAML configuration file](../../../HowTo/Configure/Use-Configuration-File.md).
 The default is `none`.
 
 ## data-base-path, data-path
@@ -60,7 +60,7 @@ The default is `none`.
     data-base-path: "/home/me/me_node"
     ```
 
-The path to the Teku data directory. The default directory is OS dependent:
+Path to the Teku data directory. The default directory is OS-dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -94,7 +94,7 @@ The default Docker image location is `/root/.local/share/teku`.
     data-beacon-path: "/home/me/me_node"
     ```
 
-Path to the beacon chain client data. Defaults to `<data-base-path>/beacon` where `<data-base-path>`
+Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ## network
