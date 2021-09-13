@@ -34,7 +34,7 @@ Create and sign a voluntary exit for the specified validator or set of validator
     beacon-node-api-endpoint: "http://192.138.10.12"
     ```
 
-Endpoint of the beacon node's REST API. Default is `http://127.0.0.1:5051`.
+Endpoint of the beacon node's REST API. The default is `http://127.0.0.1:5051`.
 
 ### config-file
 
@@ -56,7 +56,7 @@ Endpoint of the beacon node's REST API. Default is `http://127.0.0.1:5051`.
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the YAML configuration file.
 The default is `none`.
 
 ### confirmation-enabled
@@ -85,7 +85,7 @@ The default is `none`.
     confirmation-enabled: false
     ```
 
-Specify whether to request confirmation when exiting a validator. Defaults to `true`.
+Specify whether to request confirmation when exiting a validator. The default is `true`.
 
 !!! danger
 
@@ -113,7 +113,7 @@ Specify whether to request confirmation when exiting a validator. Defaults to `t
     ```
 
 Earliest epoch that the voluntary exit can be processed. The specified epoch can be a past epoch,
-or current epoch. You cannot specify a future epoch. Defaults to the current epoch.
+or current epoch. You cannot specify a future epoch. The default is the current epoch.
 
 !!! note
 
@@ -220,7 +220,7 @@ List of public keys of validators that you wish to voluntarily exit when using a
     validators-external-signer-timeout: 2000
     ```
 
-Timeout in milliseconds for requests to the external signer. Default is 1000.
+Timeout in milliseconds for requests to the external signer. The default is 1000.
 
 ### validators-external-signer-url
 

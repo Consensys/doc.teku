@@ -58,7 +58,7 @@ teku [OPTIONS] [COMMAND]
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the [YAML configuration file](../../HowTo/Configure/Use-Configuration-File.md).
 The default is `none`.
 
 ### data-base-path, data-path
@@ -87,7 +87,7 @@ The default is `none`.
     data-base-path: "/home/me/me_node"
     ```
 
-The path to the Teku data directory. The default directory is OS dependent:
+Path to the Teku data directory. The default directory is OS-dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -121,7 +121,7 @@ The default Docker image location is `/root/.local/share/teku`.
     data-beacon-path: "/home/me/me_beaon"
     ```
 
-Path to the beacon chain client data. Defaults to `<data-base-path>/beacon` where `<data-base-path>`
+Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### data-storage-archive-frequency
@@ -150,7 +150,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     data-storage-archive-frequency: 1028
     ```
 
-Set the frequency (in slots) at which to store finalized states to disk. Defaults to 2048.
+Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
@@ -192,7 +192,7 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     ```
 
 Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
-Defaults to `prune`.
+The default is `prune`.
 
 ### data-validator-path
 
@@ -220,7 +220,7 @@ Defaults to `prune`.
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### eth1-deposit-contract-address
@@ -283,7 +283,7 @@ The deposit contract address can also be defined in:
     ```
 
 The maximum number of blocks to request deposit contract event logs for in a single request.
-Defaults to 10000.
+The default is 10000.
 
 Setting a smaller max size may help if your ETH1 node is slow at loading deposit event logs, or when
 receiving warnings that the ETH1 node is unavailable.
@@ -436,7 +436,7 @@ Default is `INFO`.
     ```
 
 Specify whether status and event log messages include a console color display code.
-Defaults to `true`.
+The default is `true`.
 
 ### log-destination
 
@@ -471,7 +471,7 @@ Specify where to output log information. Valid options are:
 * `DEFAULT_BOTH`
 * `FILE`
 
-Defaults to `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain
+The default is `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain
 events are displayed on the console, and errors and other information are logged to a file. Specify
 the log file with the [`--log-file`](#log-file) command-line option.
 
@@ -512,7 +512,7 @@ information is available in one place.
 
 Relative or absolute location, and filename of the log file.
 
-The default directory is OS dependent:
+The default directory is OS-dependent:
 
 * macOS: `~/Library/teku/logs`
 * Unix/Linux: `$XDG_DATA_HOME/teku/logs` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku/logs`
@@ -575,7 +575,7 @@ Filename pattern to apply when creating log files.
     ```
 
 Specify whether to log frequent update events. For example every slot event with
-validators and attestations. Defaults to `true`.
+validators and attestations. The default is `true`.
 
 ### log-include-validator-duties-enabled
 
@@ -603,7 +603,7 @@ validators and attestations. Defaults to `true`.
     log-include-validator-duties-enabled: false
     ```
 
-Specify whether to log details of validator event duties. Defaults to `true`.
+Specify whether to log details of validator event duties. The default is `true`.
 
 !!! note
     Logs could become noisy when running many validators.
@@ -828,7 +828,7 @@ bootnodes, and the address of the Ethereum 1.0 deposit contract.
     p2p-advertised-ip: "192.168.1.132"
     ```
 
-Advertised peer-to-peer IP address. Default is `127.0.0.1`.
+Advertised peer-to-peer IP address. The default is `127.0.0.1`.
 
 ### p2p-enabled
 
@@ -1186,7 +1186,7 @@ of static peers.
     ```
 
 Forces the beacon node to stay subscribed to all subnets regardless of the number of validators.
-Defaults to `false`.
+The default is `false`.
 
 When set to `true` and running a low number of validators, Teku subscribes and unsubscribes from
 subnets as needed for the running validators.
@@ -1232,7 +1232,7 @@ them with commas.
 Listed domains can access the node using HTTP REST API calls. If your client interacts with Teku
 using a browser app (such as a block explorer), add the client domain to the list.
 
-The default value is "none." If you don't list any domains, browser apps can't interact with your
+The default is "none." If you don't list any domains, browser apps can't interact with your
 Teku node.
 
 !!! tip
@@ -1489,7 +1489,7 @@ When specifying file names, Teku expects that the files exist.
     ```
 
 Specify whether to use Teku's built-in early attestation production, which creates an
-attestation as soon as a block is received. Defaults to `true`.
+attestation as soon as a block is received. The default is `true`.
 
 Set this option to `false` if running a validator client connected to a load balanced beacon node
 (including most hosted beacon nodes such as [Infura]), and validator effectiveness is poor.
@@ -1627,7 +1627,7 @@ Ensure the external signer is running before starting Teku.
     ```
 
 Specify whether to use Teku's built-in [slashing protection] when using an external signer such as
-[Web3Signer]. Defaults to `true`.
+[Web3Signer]. The default is `true`.
 
 Set this option to `false` if using the slashing protection implemented by an external signer.
 
@@ -1665,7 +1665,7 @@ using Teku to sign blocks and attestations always uses its built-in slashing pro
     validators-external-signer-timeout: 2000
     ```
 
-Timeout in milliseconds for requests to the external signer. Default is 1000.
+Timeout in milliseconds for requests to the external signer. The default is 1000.
 
 ### validators-external-signer-truststore
 
@@ -1844,7 +1844,7 @@ This option takes precedence over [`--validators-graffiti`](#validators-graffiti
     validators-keystore-locking-enabled: true
     ```
 
-Locks the keystore files listed in [`--validator-keys`](#validator-keys). Defaults to `true`.
+Locks the keystore files listed in [`--validator-keys`](#validator-keys). The default is `true`.
 
 Attempts to lock all keystores in a directory if a directory is specified in
 [`--validator-keys`](#validator-keys).
@@ -1876,7 +1876,7 @@ Attempts to lock all keystores in a directory if a directory is specified in
     ```
 
 Set the validator performance tracking strategy. Valid options are `LOGGING`, `METRICS`, `ALL`, and
-`NONE`. Defaults to `ALL`.
+`NONE`. The default is `ALL`.
 
 When `LOGGING` is enabled, attestation and block performance is reported as log messages. When
 `METRICS` is enabled, attestation and block performance is reported using [metrics] in the
