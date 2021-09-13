@@ -1420,13 +1420,13 @@ Displays the version and exits.
     --validator-keys=<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>[,<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>...]...
     ```
 
-=== "Command line for directory"
+=== "Example for directory"
 
     ```bash
     --validator-keys=/home/validator/keys:home/validator/passwords
     ```
 
-=== "Command line for file"
+=== "Example for file"
 
     ```bash
     --validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt

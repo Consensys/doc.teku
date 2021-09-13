@@ -565,13 +565,13 @@ bootnodes, and the address of the Ethereum 1.0 deposit contract.
     teku vc --validator-keys=<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>[,<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>...]...
     ```
 
-=== "Command line for directory"
+=== "Example for directory"
 
     ```bash
     teku vc --validator-keys=/home/validator/keys:home/validator/passwords
     ```
 
-=== "Command line for file"
+=== "Example for file"
 
     ```bash
     teku vc --validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt

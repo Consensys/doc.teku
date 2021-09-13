@@ -128,13 +128,13 @@ or current epoch. You cannot specify a future epoch. Defaults to the current epo
     teku voluntary-exit --validator-keys=<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>[,<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>...]...
     ```
 
-=== "Command line for directory"
+=== "Example for directory"
 
     ```bash
     teku voluntary-exit --validator-keys=/home/validator/keys:home/validator/passwords
     ```
 
-=== "Command line for file"
+=== "Example for file"
 
     ```bash
     teku voluntary-exit --validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt
