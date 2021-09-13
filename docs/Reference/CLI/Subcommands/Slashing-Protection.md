@@ -25,13 +25,13 @@ Imports the slashing protection database using the [validator client interchange
     teku slashing-protection import --config-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection import --config-file=/home/me/me_node/config.yaml
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
@@ -48,7 +48,7 @@ The default is `none`.
     teku slashing-protection import --data-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection import --data-path=/home/me/me_node
@@ -68,7 +68,7 @@ The path to the Teku data directory. The default directory is OS dependent:
     teku slashing-protection import --from=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection import --from=/home/slash/b845...23bed.json
@@ -93,13 +93,13 @@ Exports the slashing protection database in the [validator client interchange fo
     teku slashing-protection export --config-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection export --config-file=/home/me/me_node/config.yaml
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
@@ -116,7 +116,7 @@ The default is `none`.
     teku slashing-protection export --data-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection export --data-path=/home/me/me_node
@@ -136,7 +136,7 @@ The path to the Teku data directory. The default directory is OS dependent:
     teku slashing-protection export --to=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection export --to=/home/slash/b845...23bed.json

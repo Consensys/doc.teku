@@ -2,7 +2,7 @@
 title: Import or export a slashing protection file
 ---
 
-# Slashing Protection
+# Slashing protection
 
 [Teku implements slashing protection] to prevent validators from signing incorrect
 blocks or attestations.
