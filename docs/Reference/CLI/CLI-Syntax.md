@@ -194,6 +194,35 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
 Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
 The default is `prune`.
 
+### data-storage-non-canonical-blocks-enabled
+
+=== "Syntax"
+
+    ```bash
+    --data-storage-non-canonical-blocks-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --data-storage-non-canonical-blocks-enabled=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_DATA_STORAGE_NON_CANONICAL_BLOCKS_ENABLED=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    data-storage-non-canonical-blocks-enabled: true
+    ```
+
+Specify whether to store non-canonical blocks.
+The default is `false`.
+
 ### data-validator-path
 
 === "Syntax"
