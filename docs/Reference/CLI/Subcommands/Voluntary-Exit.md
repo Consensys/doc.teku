@@ -16,25 +16,25 @@ Create and sign a voluntary exit for the specified validator or set of validator
     teku voluntary-exit --beacon-node-api-endpoint=<ENDPOINT>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --beacon-node-api-endpoint=http://192.138.10.12
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_BEACON_NODE_ENDPOINT=http://192.138.10.12
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     beacon-node-api-endpoint: "http://192.138.10.12"
     ```
 
-Endpoint of the beacon node's REST API. Default is `http://127.0.0.1:5051`.
+Endpoint of the beacon node's REST API. The default is `http://127.0.0.1:5051`.
 
 ### config-file
 
@@ -44,19 +44,19 @@ Endpoint of the beacon node's REST API. Default is `http://127.0.0.1:5051`.
     teku voluntary-exit --config-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --config-file=/home/me/me_node/config.yaml
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the YAML configuration file.
 The default is `none`.
 
 ### confirmation-enabled
@@ -67,25 +67,25 @@ The default is `none`.
     teku voluntary-exit --confirmation-enabled=<BOOLEAN>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --confirmation-enabled=false
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_CONFIRMATION_ENABLED=false
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     confirmation-enabled: false
     ```
 
-Specify whether to request confirmation when exiting a validator. Defaults to `true`.
+Specify whether to request confirmation when exiting a validator. The default is `true`.
 
 !!! danger
 
@@ -100,20 +100,20 @@ Specify whether to request confirmation when exiting a validator. Defaults to `t
     teku voluntary-exit --epoch=<EPOCH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --epoch=24500
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_EPOCH=24500
     ```
 
 Earliest epoch that the voluntary exit can be processed. The specified epoch can be a past epoch,
-or current epoch. You cannot specify a future epoch. Defaults to the current epoch.
+or current epoch. You cannot specify a future epoch. The default is the current epoch.
 
 !!! note
 
@@ -128,25 +128,25 @@ or current epoch. You cannot specify a future epoch. Defaults to the current epo
     teku voluntary-exit --validator-keys=<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>[,<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>...]...
     ```
 
-=== "Command Line for Directory"
+=== "Example for directory"
 
     ```bash
     teku voluntary-exit --validator-keys=/home/validator/keys:home/validator/passwords
     ```
 
-=== "Command Line for File"
+=== "Example for file"
 
     ```bash
     teku voluntary-exit --validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATOR_KEYS=/home/validator/keys:home/validator/passwords
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validator-keys: "/home/validator/keys:home/validator/passwords"
@@ -232,19 +232,19 @@ Password file used to decrypt the keystore.
     teku voluntary-exit --validators-external-signer-public-keys=<KEY>[,<KEY>...]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_SIGNER_PUBLIC_KEYS=0xa99a...e44c,0xb89b...4a0b
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
@@ -261,25 +261,25 @@ List of public keys of validators that you wish to voluntarily exit when using a
     teku voluntary-exit --validators-external-signer-timeout=<INTEGER>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --validators-external-signer-timeout=2000
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_SIGNER_TIMEOUT=2000
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-timeout: 2000
     ```
 
-Timeout in milliseconds for requests to the external signer. Default is 5000.
+Timeout in milliseconds for requests to the external signer. The default is 5000.
 
 ### validators-external-signer-truststore
 
@@ -289,19 +289,19 @@ Timeout in milliseconds for requests to the external signer. Default is 5000.
     teku voluntary-exit --validators-external-signer-truststore=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --validators-external-signer-truststore=websigner_truststore.p12
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE=websigner_truststore.p12
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-truststore: "websigner_truststore.p12"
@@ -318,19 +318,19 @@ which signs the external signer's certificate.
     teku voluntary-exit --validators-external-signer-truststore-password-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --validators-external-signer-truststore-password-file=truststore_pass.txt
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE_PASSWORD_FILE=truststore_pass.txt
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-truststore-password-file: "truststore_pass.txt"
@@ -346,19 +346,19 @@ Password file used to decrypt the keystore.
     teku voluntary-exit --validators-external-signer-url=<URL>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --validators-external-signer-url=http://localhost:9000
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_SIGNER_URL=http://localhost:9000
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-url: "http://localhost:9000"

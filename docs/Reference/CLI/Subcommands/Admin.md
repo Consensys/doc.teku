@@ -28,19 +28,19 @@ Clears the stored weak subjectivity configuration.
     teku admin weak-subjectivity clear-state --config-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity clear-state --config-file=/home/me/me_node/config.yaml
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the YAML configuration file.
 The default is `none`.
 
 #### data-base-path, data-path
@@ -51,25 +51,25 @@ The default is `none`.
     teku admin weak-subjectivity clear-state --data-base-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity clear-state --data-base-path=/home/me/me_node
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_BASE_PATH=/home/me/me_node
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-base-path: "/home/me/me_node"
     ```
 
-The path to the Teku data directory. The default directory is OS dependent:
+Path to the Teku data directory. The default directory is OS-dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -85,25 +85,25 @@ The default Docker image location is `/root/.local/share/teku`.
     teku admin weak-subjectivity clear-state --data-beacon-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity clear-state --data-beacon-path=/home/me/me_beacon
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_BEACON_PATH=/home/me/me_beacon
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-beacon-path: "/home/me/me_beaon"
     ```
 
-Path to the beacon chain client data. Defaults to `<data-base-path>/beacon` where `<data-base-path>`
+Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### data-storage-archive-frequency
@@ -114,25 +114,25 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     teku admin weak-subjectivity clear-state --data-storage-archive-frequency=<NUMBER>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity clear-state --data-storage-archive-frequency=1028
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_STORAGE_ARCHIVE_FREQUENCY=1028
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-storage-archive-frequency: 1028
     ```
 
-Set the frequency (in slots) at which to store finalized states to disk. Defaults to 2048.
+Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
@@ -155,26 +155,26 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     teku admin weak-subjectivity clear-state --data-storage-mode=<STORAGE_MODE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity clear-state --data-storage-mode=archive
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_STORAGE_MODE=archive
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-storage-mode: "archive"
     ```
 
 Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
-Defaults to `prune`.
+The default is `prune`.
 
 #### data-validator-path
 
@@ -184,25 +184,25 @@ Defaults to `prune`.
     teku admin weak-subjectivity clear-state --data-validator-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity clear-state --data-validator-path=/home/me/me_validator
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### eth1-deposit-contract-address
@@ -213,19 +213,19 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     teku admin weak-subjectivity clear-state --eth1-deposit-contract-address=<ADDRESS>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity clear-state --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
@@ -241,19 +241,19 @@ Ethereum 1.0 address of the deposit contract. Only required when creating a cust
     teku admin weak-subjectivity clear-state --network=<NETWORK>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity clear-state --network=mainnet
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_NETWORK=mainnet
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     network: "mainnet"
@@ -286,19 +286,19 @@ Displays the stored weak subjectivity configuration.
     teku admin weak-subjectivity display-state --config-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity display-state --config-file=/home/me/me_node/config.yaml
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the YAML configuration file.
 The default is `none`.
 
 #### data-base-path, data-path
@@ -309,25 +309,25 @@ The default is `none`.
     teku admin weak-subjectivity display-state --data-base-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity display-state --data-base-path=/home/me/me_node
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_BASE_PATH=/home/me/me_node
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-base-path: "/home/me/me_node"
     ```
 
-The path to the Teku data directory. The default directory is OS dependent:
+Path to the Teku data directory. The default directory is OS-dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -343,25 +343,25 @@ The default Docker image location is `/root/.local/share/teku`.
     teku admin weak-subjectivity display-state --data-beacon-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity display-state --data-beacon-path=/home/me/me_beacon
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_BEACON_PATH=/home/me/me_beacon
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-beacon-path: "/home/me/me_beaon"
     ```
 
-Path to the beacon chain client data. Defaults to `<data-base-path>/beacon` where `<data-base-path>`
+Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### data-storage-archive-frequency
@@ -372,25 +372,25 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     teku admin weak-subjectivity display-state --data-storage-archive-frequency=<NUMBER>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity display-state --data-storage-archive-frequency=1028
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_STORAGE_ARCHIVE_FREQUENCY=1028
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-storage-archive-frequency: 1028
     ```
 
-Set the frequency (in slots) at which to store finalized states to disk. Defaults to 2048.
+Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
@@ -413,26 +413,26 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     teku admin weak-subjectivity display-state --data-storage-mode=<STORAGE_MODE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity display-state --data-storage-mode=archive
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_STORAGE_MODE=archive
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-storage-mode: "archive"
     ```
 
 Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
-Defaults to `prune`.
+The default is `prune`.
 
 #### data-validator-path
 
@@ -442,25 +442,25 @@ Defaults to `prune`.
     teku admin weak-subjectivity display-state --data-validator-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity display-state --data-validator-path=/home/me/me_validator
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### eth1-deposit-contract-address
@@ -471,19 +471,19 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     teku admin weak-subjectivity display-state --eth1-deposit-contract-address=<ADDRESS>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity display-state --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
@@ -499,19 +499,19 @@ Ethereum 1.0 address of the deposit contract. Only required when creating a cust
     teku admin weak-subjectivity display-state --network=<NETWORK>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku admin weak-subjectivity display-state --network=mainnet
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_NETWORK=mainnet
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     network: "mainnet"

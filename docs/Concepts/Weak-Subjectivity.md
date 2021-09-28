@@ -31,7 +31,7 @@ Teku provides two methods to safely sync a node that's been offline for an exten
     The [BeaconScan chain explorer] provides the most recent weak subjectivity checkpoint from
     which to safely update your node's view of the current state.
 
-    Use the [`/teku/v1/beacon/states/<state-id>`](https://consensys.github.io/teku/#operation/getTekuV1BeaconStatesWithState_id)
+    Use the [`/eth/v2/debug/beacon/states/<state_id>`](https://consensys.github.io/teku/#operation/getEthV2DebugBeaconStatesWithState_id)
     API on an updated node to download a recent finalized state as an SSZ encoded state file.
 
 <!-- links -->

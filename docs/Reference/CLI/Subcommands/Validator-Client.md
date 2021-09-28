@@ -29,25 +29,25 @@ You can also supply the subcommand options using [environment variables or a con
     teku vc --beacon-node-api-endpoint=<ENDPOINT>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --beacon-node-api-endpoint=http://192.138.10.12
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_BEACON_NODE_ENDPOINT=http://192.138.10.12
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     beacon-node-api-endpoint: "http://192.138.10.12"
     ```
 
-Endpoint of the beacon node's REST API. Default is `http://127.0.0.1:5051`.
+Endpoint of the beacon node's REST API. The default is `http://127.0.0.1:5051`.
 
 ### config-file
 
@@ -57,19 +57,19 @@ Endpoint of the beacon node's REST API. Default is `http://127.0.0.1:5051`.
     teku vc --config-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --config-file=/home/me/me_node/config.yaml
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-The path to the YAML configuration file.
+Path to the YAML configuration file.
 The default is `none`.
 
 ### data-base-path, data-path
@@ -80,25 +80,25 @@ The default is `none`.
     teku vc --data-base-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --data-base-path=/home/me/me_node
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_BASE_PATH=/home/me/me_node
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-base-path: "/home/me/me_node"
     ```
 
-The path to the Teku base directory for storage. The default directory is OS dependent:
+Path to the Teku base directory for storage. The default directory is OS-dependent:
 
 * macOS: `~/Library/teku`
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -114,25 +114,25 @@ The default Docker image location is `/root/.local/share/teku`.
     teku vc --data-validator-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --data-validator-path=/home/me/me_validator
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>`
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### initial-state
@@ -143,19 +143,19 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     teku vc --initial-state=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --initial-state=/home/me/genesis.ssz
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_INITIAL_STATE=/home/me/genesis.ssz
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     initial-state: "/home/me/genesis.ssz"
@@ -175,26 +175,26 @@ using the [`--network`](#network) option.
     teku vc --log-color-enabled[=<BOOLEAN>]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --log-color-enabled=false
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_LOG_COLOR_ENABLED=false
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     log-color-enabled: false
     ```
 
 Specify whether status and event log messages include a console color display code.
-Defaults to `true`.
+The default is `true`.
 
 ### log-destination
 
@@ -204,19 +204,19 @@ Defaults to `true`.
     teku vc --log-destination=<LOG_DESTINATION>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --log-destination=CONSOLE
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_LOG_DESTINATION=CONSOLE
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     log-destination: "CONSOLE"
@@ -229,7 +229,7 @@ Specify where to output log information. Valid options are:
 * `DEFAULT_BOTH`
 * `FILE`
 
-Defaults to `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain
+The default is `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain
 events are displayed on the console, and errors and other information are logged to a file. Specify
 the log file with the [`--log-file`](#log-file) command-line option.
 
@@ -250,19 +250,19 @@ information is available in one place.
     teku vc --log-file=<FILENAME>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --log-file=teku_2020-01-01.log
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_LOG_FILE=teku_2020-01-01.log
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     log-file: "teku_2020-01-01.log"
@@ -270,7 +270,7 @@ information is available in one place.
 
 Relative or absolute location, and filename of the log file.
 
-The default directory is OS dependent:
+The default directory is OS-dependent:
 
 * macOS: `~/Library/teku/logs`
 * Unix/Linux: `$XDG_DATA_HOME/teku/logs` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku/logs`
@@ -286,19 +286,19 @@ The default Docker image location is `/root/.local/share/teku/logs`.
     teku vc --log-file-name-pattern=<REGEX>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --log-file-name-pattern=tekuL_%d{yyyy-MM-dd}.log
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_LOG_FILE_NAME_PATTERN=tekuL_%d{yyyy-MM-dd}.log
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     log-file-name-pattern: "tekuL_%d{yyyy-MM-dd}.log"
@@ -314,26 +314,26 @@ Filename pattern to apply when creating log files. The default pattern is `teku_
     teku vc --log-include-events-enabled[=<BOOLEAN>]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --log-include-events-enabled=false
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_LOG_INCLUDE_EVENTS_ENABLED=false
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     log-include-events-enabled: false
     ```
 
 Specify whether to log frequent update events. For example every slot event with
-validators and attestations. Defaults to `true`.
+validators and attestations. The default is `true`.
 
 ### log-include-validator-duties-enabled
 
@@ -343,25 +343,25 @@ validators and attestations. Defaults to `true`.
     teku vc --log-include-validator-duties-enabled[=<BOOLEAN>]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --log-include-validator-duties-enabled=true
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_LOG_INCLUDE_VALIDATOR_DUTIES_ENABLED=true
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     log-include-validator-duties-enabled: true
     ```
 
-Specify whether to log details of validator event duties. Defaults to `true`.
+Specify whether to log details of validator event duties. The default is `true`.
 
 !!! note
     Logs could become noisy when running many validators.
@@ -374,19 +374,19 @@ Specify whether to log details of validator event duties. Defaults to `true`.
     teku vc --metrics-enabled[=<BOOLEAN>]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --metrics-enabled=true
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_METRICS_ENABLED=true
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     metrics-enabled: true
@@ -403,19 +403,19 @@ The default is `false`.
     teku vc --metrics-host-allowlist=<hostname>[,<hostname>...]... or "*"
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --metrics-host-allowlist=medomain.com,meotherdomain.com
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_METRICS_HOST_ALLOWLIST=medomain.com,meotherdomain.com
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     metrics-host-allowlist: ["medomain.com", "meotherdomain.com"]
@@ -437,19 +437,19 @@ default, Teku accepts access from `localhost` and `127.0.0.1`.
     teku vc --metrics-categories=<CATEGORY>[,<CATEGORY>...]...
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --metrics-categories=BEACON,JVM,PROCESS
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     metrics-categories: ["BEACON", "JVM", "PROCESS"]
@@ -466,19 +466,19 @@ Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `
     teku vc --metrics-interface=<HOST>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --metrics-interface=192.168.10.101
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_METRICS_INTERFACE=192.168.10.101
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     metrics-interface: "192.168.10.101"
@@ -494,19 +494,19 @@ Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
     teku vc --metrics-port=<PORT>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --metrics-port=6174
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_METRICS_PORT=6174
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     metrics-port: 6174
@@ -523,19 +523,19 @@ The default is `8008`.
     teku vc --network=<NETWORK>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --network=mainnet
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_NETWORK=mainnet
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     network: "mainnet"
@@ -564,25 +564,25 @@ bootnodes, and the address of the Ethereum 1.0 deposit contract.
     teku vc --validator-keys=<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>[,<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>...]...
     ```
 
-=== "Command Line for Directory"
+=== "Example for directory"
 
     ```bash
     teku vc --validator-keys=/home/validator/keys:home/validator/passwords
     ```
 
-=== "Command Line for File"
+=== "Example for file"
 
     ```bash
     teku vc --validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATOR_KEYS=/home/validator/keys:home/validator/passwords
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validator-keys: "/home/validator/keys:home/validator/passwords"
@@ -705,19 +705,19 @@ Password file used to decrypt the keystore.
     teku vc --validators-external-signer-public-keys=<KEY>[,<KEY>...]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_SIGNER_PUBLIC_KEYS=0xa99a...e44c,0xb89b...4a0b
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
@@ -733,26 +733,26 @@ List of validator public keys used by an external signer (for example, [Web3Sign
     teku vc --validators-external-signer-slashing-protection-enabled[=<BOOLEAN>]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-external-signer-slashing-protection-enabled=false
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_SIGNER_SLASHING_PROTECTION_ENABLED=false
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-slashing-protection-enabled: false
     ```
 
 Specify whether to use Teku's built-in [slashing protection] when using an external signer such as
-[Web3Signer]. Defaults to `true`.
+[Web3Signer]. The default is `true`.
 
 Set this option to `false` if using the slashing protection implemented by an external signer.
 
@@ -772,25 +772,25 @@ using Teku to sign blocks and attestations always uses its built-in slashing pro
     teku vc --validators-external-signer-timeout=<INTEGER>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-external-signer-timeout=2000
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_SIGNER_TIMEOUT=2000
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-timeout: 2000
     ```
 
-Timeout in milliseconds for requests to the external signer. Default is 5000.
+Timeout in milliseconds for requests to the external signer. The default is 5000.
 
 ### validators-external-signer-truststore
 
@@ -800,19 +800,19 @@ Timeout in milliseconds for requests to the external signer. Default is 5000.
     teku vc --validators-external-signer-truststore=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-external-signer-truststore=websigner_truststore.p12
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE=websigner_truststore.p12
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-truststore: "websigner_truststore.p12"
@@ -829,19 +829,19 @@ which signs the external signer's certificate.
     teku vc --validators-external-signer-truststore-password-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-external-signer-truststore-password-file=truststore_pass.txt
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE_PASSWORD_FILE=truststore_pass.txt
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-truststore-password-file: "truststore_pass.txt"
@@ -857,19 +857,19 @@ Password file used to decrypt the keystore.
     teku vc --validators-external-signer-url=<URL>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-external-signer-url=http://localhost:9000
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_SIGNER_URL=http://localhost:9000
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-url: "http://localhost:9000"
@@ -885,19 +885,19 @@ URL on which the external signer (for example, Web3Signer) is running.
     teku vc --validators-graffiti=<STRING>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-graffiti="Teku validator"
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_GRAFFITI="Teku validator"
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-graffiti: "Teku validator"
@@ -949,25 +949,25 @@ This option takes precedence over [`--validators-graffiti`](#validators-graffiti
     teku vc --validators-keystore-locking-enabled=<BOOLEAN>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-keystore-locking-enabled=true
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_KEYSTORE_LOCKING_ENABLED=true
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-keystore-locking-enabled: true
     ```
 
-Locks the keystore files listed in [`--validator-keys`](#validator-keys). Defaults to `true`.
+Locks the keystore files listed in [`--validator-keys`](#validator-keys). The default is `true`.
 
 Attempts to lock all keystores in a directory if a directory is specified in
 [`--validator-keys`](#validator-keys).
@@ -980,26 +980,26 @@ Attempts to lock all keystores in a directory if a directory is specified in
     --validators-performance-tracking-mode=<STRING>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --validators-performance-tracking-mode=LOGGING
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_PERFORMANCE_TRACKING_MODE=LOGGING
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-performance-tracking-mode: LOGGING
     ```
 
 Set the validator performance tracking strategy. Valid options are `LOGGING`, `METRICS`, `ALL`, and
-`NONE`. Defaults to `ALL`.
+`NONE`. The default is `ALL`.
 
 When `LOGGING` is enabled, attestation and block performance is reported as log messages. When
 `METRICS` is enabled, attestation and block performance is reported using [metrics] in the
