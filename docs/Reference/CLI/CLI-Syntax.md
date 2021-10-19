@@ -1185,7 +1185,7 @@ The UDP port used for discovery. The default is the port specified in [`--p2p-po
     ```
 
 The advertised UDP port to external peers.
-The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it has been set.
+The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set.
 Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
 
 ### p2p-private-key-file
