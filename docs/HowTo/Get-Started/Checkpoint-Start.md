@@ -20,12 +20,12 @@ starts Teku:
 ```bash
 teku --eth1-endpoint=http://localhost:8545 \
 --validator-keys=/Users/me/mainnet/validator/keys:/Users/me/mainnet/validator/passwords \
---initial-state=http://other-node:5051/eth/v1/debug/beacon/states/finalized
+--initial-state=http://other-node:5051/eth/v2/debug/beacon/states/finalized
 ```
 
 The command uses the [`--initial-state`](../../Reference/CLI/CLI-Syntax.md#initial-state) option
 to download the finalized checkpoint state from the
-[`/eth/v1/debug/beacon/states/`](https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id) endpoint
+[`/eth/v2/debug/beacon/states/`](https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id) endpoint
 on the beacon chain client (for example Teku).
 
 !!! note
@@ -35,7 +35,7 @@ on the beacon chain client (for example Teku).
     download the file and name it `state.ssz` run:
 
     ```bash
-    curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v1/debug/beacon/states/finalized
+    curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v2/debug/beacon/states/finalized
     ```
     [Infura](https://infura.io/) provides initial state endpoints for free.
     Registration to Infura services is required.

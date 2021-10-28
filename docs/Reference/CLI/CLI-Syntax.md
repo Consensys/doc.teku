@@ -406,7 +406,7 @@ using the [`--network`](#network) option.
 !!! tip
 
     [Infura](https://infura.io/) can be used as the source of initial states with
-    `--initial-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v1/debug/beacon/states/finalized`
+    `--initial-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v2/debug/beacon/states/finalized`
 
 ### logging
 
