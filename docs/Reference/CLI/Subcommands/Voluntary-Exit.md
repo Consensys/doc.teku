@@ -173,19 +173,19 @@ When specifying file names, Teku expects that the files exist.
     teku voluntary-exit --validators-external-signer-keystore=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --validators-external-signer-keystore=teku_client_keystore.p12
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_KEYSTORE=teku_client_keystore.p12
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-keystore: "teku_client_keystore.p12"
@@ -204,19 +204,19 @@ Use the PKCS12 keystore type if connecting to Web3Signer.
     teku voluntary-exit --validators-external-signer-keystore-password-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku voluntary-exit --validators-external-signer-keystore-password-file=keystore_pass.txt
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_KEYSTORE_PASSWORD_FILE=keystore_pass.txt
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-keystore-password-file: "keystore_pass.txt"

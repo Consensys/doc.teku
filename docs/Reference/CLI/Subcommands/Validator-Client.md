@@ -609,26 +609,26 @@ When specifying file names, Teku expects that the files exist.
     teku vc --validators-early-attestations-enabled[=<BOOLEAN>]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-early-attestations-enabled=false
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EARLY_ATTESTATIONS_ENABLED=false
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-early-attestations-enabled: false
     ```
 
 Specify whether to use Teku's built-in early attestation production, which creates an
-attestation as soon as a block is received. Defaults to `true`.
+attestation once a block is received. The default is `true`.
 
 Set this option to `false` if running a validator client connected to a load balanced beacon node
 (including most hosted beacon nodes such as [Infura]), and validator effectiveness is poor.
@@ -646,19 +646,19 @@ Set this option to `false` if running a validator client connected to a load bal
     teku vc --validators-external-signer-keystore=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-external-signer-keystore=teku_client_keystore.p12
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_KEYSTORE=teku_client_keystore.p12
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-keystore: "teku_client_keystore.p12"
@@ -677,19 +677,19 @@ Use the PKCS12 keystore type if connecting to Web3Signer.
     teku vc --validators-external-signer-keystore-password-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-external-signer-keystore-password-file=keystore_pass.txt
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_EXTERNAL_KEYSTORE_PASSWORD_FILE=keystore_pass.txt
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-external-signer-keystore-password-file: "keystore_pass.txt"
@@ -915,25 +915,25 @@ The same graffiti is used for all validators started with this beacon node.
     teku vc --validators-graffiti-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku vc --validators-graffiti-file=/Users/me/mynode/graffiti.txt
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_VALIDATORS_GRAFFITI_FILE=/Users/me/mynode/graffiti.txt
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     validators-graffiti-file: "/Users/me/mynode/graffiti.txt"
     ```
 
-File containing the validator graffiti to add when creating a block. The file contents is
+File containing the validator graffiti to add when creating a block. The file content is
 converted to `bytes` and padded to `Bytes32`. The same graffiti is used for all validators started
 with this beacon node.
 

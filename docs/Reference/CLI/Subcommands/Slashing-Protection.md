@@ -68,25 +68,25 @@ Path to the Teku data directory. The default directory is OS-dependent:
     teku slashing-protection import --data-validator-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection import --data-validator-path=/home/me/me_validator
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### from
 
@@ -164,25 +164,25 @@ Path to the Teku data directory. The default directory is OS-dependent:
     teku slashing-protection export --data-validator-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection export --data-validator-path=/home/me/me_validator
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data. Defaults to `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### to
 
