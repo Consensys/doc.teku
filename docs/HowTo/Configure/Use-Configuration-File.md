@@ -54,7 +54,7 @@ differences between the command line and the YAML file format are:
     metrics-categories: ["BEACON","LIBP2P","NETWORK"]
 
     # database
-    data-path: "~/tekudata"
+    data-path: "/Users/me/tekudata"
     data-storage-mode: "archive"
 
     # rest api

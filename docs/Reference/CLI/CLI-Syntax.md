@@ -282,7 +282,7 @@ Ethereum 1.0 address of the deposit contract. Only required when creating a cust
 
 The deposit contract address can also be defined in:
 
-* The genesis file specified using [`--initial-state`](#initial state)
+* The genesis file specified using [`--initial-state`](#initial-state)
 * The predefined network supplied using [`--network`](#network).
 
 ### eth1-deposit-contract-max-request-size
@@ -349,7 +349,7 @@ be specified if running a validator.
 
 If not specified (that is, you're running a beacon chain client only), then provide an initial state
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
-[`--data-path`](#data-path), which provides the initial state to work from. You do not need to
+[`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to
 provide an initial state if running a public network which has already started (for example,
 MainNet or Pyrmont).
 
@@ -406,7 +406,7 @@ using the [`--network`](#network) option.
 !!! tip
 
     [Infura](https://infura.io/) can be used as the source of initial states with
-    `--initial-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v1/debug/beacon/states/finalized`
+    `--initial-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v2/debug/beacon/states/finalized`
 
 ### logging
 
@@ -1128,6 +1128,64 @@ The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2
 The advertised port can differ from the [`--p2p-port`](#p2p-port). For example, you can set the
 advertised port to 9010, and the `--p2p-port` value to 9009, then manually configure the firewall to
 forward external incoming requests on port 9010 to port 9009 on the Teku node.
+
+### p2p-udp-port
+
+=== "Syntax"
+
+    ```bash
+    --p2p-udp-port=<PORT>
+    ```
+
+=== "Example"
+
+    ```bash
+    --p2p-udp-port=1789
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_P2P_UDP_PORT=1789
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    p2p-udp-port: 1789
+    ```
+
+The UDP port used for discovery. The default is the port specified in [`--p2p-port`](#p2p-port).
+
+### p2p-advertised-udp-port
+
+=== "Syntax"
+
+    ```bash
+    --p2p-advertised-udp-port=<PORT>
+    ```
+
+=== "Example"
+
+    ```bash
+    --p2p-advertised-udp-port=1789
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_P2P_ADVERTISED_UDP_PORT=1789
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    p2p-advertised-udp-port: 1789
+    ```
+
+The advertised UDP port to external peers.
+The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set.
+Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
 
 ### p2p-private-key-file
 
