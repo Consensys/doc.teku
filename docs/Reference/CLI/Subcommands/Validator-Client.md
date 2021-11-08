@@ -847,7 +847,7 @@ which signs the external signer's certificate.
     validators-external-signer-truststore-password-file: "truststore_pass.txt"
     ```
 
-Password file used to decrypt the keystore.
+Password file used to decrypt the [keystore](#validators-external-signer-truststore).
 
 ### validators-external-signer-url
 
