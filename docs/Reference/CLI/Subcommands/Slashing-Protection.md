@@ -60,6 +60,39 @@ Path to the Teku data directory. The default directory is OS-dependent:
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
 * Windows: `%localappdata%\teku`.
 
+### data-validator-path
+
+=== "Syntax"
+
+    ```bash
+    teku slashing-protection import --data-validator-path=<PATH>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku slashing-protection import --data-validator-path=/home/me/me_validator
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    data-validator-path: "/home/me/me_validator"
+    ```
+
+Path to the validator client data.
+The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
+
+!!! info
+
+    Teku imports slashing protection data into a `slashprotection` directory under the validator client data directory.
+
 ### from
 
 === "Syntax"
@@ -128,6 +161,39 @@ Path to the Teku data directory. The default directory is OS-dependent:
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
 * Windows: `%localappdata%\teku`.
 
+### data-validator-path
+
+=== "Syntax"
+
+    ```bash
+    teku slashing-protection export --data-validator-path=<PATH>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku slashing-protection export --data-validator-path=/home/me/me_validator
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    data-validator-path: "/home/me/me_validator"
+    ```
+
+Path to the validator client data.
+The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
+
+!!! info
+
+    Teku exports slashing protection data from the `slashprotection` directory under the validator client data directory.
+
 ### to
 
 === "Syntax"
@@ -158,7 +224,7 @@ Repairs corrupted slashing-protection data files used by Teku.
     teku slashing-protection repair --checking-only-enabled[=<BOOLEAN>]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection repair --checking-only-enabled=false
@@ -175,7 +241,7 @@ You can specify which files are checked using [`--config-file`](#config-file_2),
     teku slashing-protection repair --config-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection repair --config-file=/home/me/me_node/config.yaml
@@ -184,18 +250,18 @@ You can specify which files are checked using [`--config-file`](#config-file_2),
 Path to the YAML configuration file.
 The default is `none`.
 
-### data-base-path, data-path
+### data-path
 
 === "Syntax"
 
     ```bash
-    teku slashing-protection repair --data-base-path=<PATH>
+    teku slashing-protection repair --data-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
-    teku slashing-protection repair --data-base-path=/home/me/me_node
+    teku slashing-protection repair --data-path=/home/me/me_node
     ```
 
 Path to the Teku data directory. The default directory is OS-dependent:
@@ -214,14 +280,18 @@ The default Docker image location is `/root/.local/share/teku`.
     teku slashing-protection repair --data-validator-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection repair --data-validator-path=/home/me/me_validator
     ```
 
-Path to validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
-is specified using [`--data-base-path`](#data-base-path-data-path).
+Path to validator client data.
+The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
+
+!!! info
+
+    The slashing protection data is stored in a `slashprotection` directory under the validator client data directory.
 
 ### network
 
@@ -231,7 +301,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     teku slashing-protection repair --network=<NETWORK>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection repair --network=mainnet
@@ -260,7 +330,7 @@ bootnodes, and the address of the Ethereum 1.0 deposit contract.
     teku slashing-protection repair --slot=<INTEGER>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection repair --slot=1028
@@ -281,7 +351,7 @@ slot, or after when the validators stopped performing duties.
     teku slashing-protection repair --update-all-enabled[=<BOOLEAN>]
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     teku slashing-protection repair --update-all-enabled=false

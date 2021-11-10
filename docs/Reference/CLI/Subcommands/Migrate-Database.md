@@ -19,13 +19,13 @@ title: Database migration subcommand options
     --config-file=<FILE>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --config-file=/home/me/me_node/config.yaml
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
@@ -42,19 +42,19 @@ The default is `none`.
     --data-base-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --data-base-path=/home/me/me_node
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_BASE_PATH=/home/me/me_node
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-base-path: "/home/me/me_node"
@@ -76,19 +76,19 @@ The default Docker image location is `/root/.local/share/teku`.
     --data-beacon-path=<PATH>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --data-beacon-path=/home/me/me_node
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_DATA_BEACON_PATH=/home/me/me_node
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     data-beacon-path: "/home/me/me_node"
@@ -105,19 +105,19 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     --network=<NETWORK>
     ```
 
-=== "Command Line"
+=== "Example"
 
     ```bash
     --network=mainnet
     ```
 
-=== "Environment Variable"
+=== "Environment variable"
 
     ```bash
     TEKU_NETWORK=mainnet
     ```
 
-=== "Configuration File"
+=== "Configuration file"
 
     ```bash
     network: "mainnet"
