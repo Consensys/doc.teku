@@ -526,35 +526,28 @@ The default is `8008`.
 === "Example"
 
     ```bash
-    teku vc --network=mainnet
+    teku vc --network=auto
     ```
 
 === "Environment variable"
 
     ```bash
-    TEKU_NETWORK=mainnet
+    TEKU_NETWORK=auto
     ```
 
 === "Configuration file"
 
     ```bash
-    network: "mainnet"
+    network: "auto"
     ```
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL
-to a YAML configuration file. The default is `mainnet`.
+Predefined network configuration. The default is `mainnet`.
 
-Possible values are:
+Use `auto` to fetch the network configuration from the beacon node endpoint directly.
 
-| Network   | Chain   | Type        | Description                                      |
-|-----------|---------|-------------|--------------------------------------------------|
-| `mainnet` | Eth 2.0 | Production  | Main network.                                    |
-| `minimal` | Eth 2.0 | Test        | Used for local testing and development networks. |
-| `pyrmont` | Eth 2.0 | Test        | Multi-client testnet.                            |
-| `prater`  | Eth 2.0 | Test        | Multi-client testnet.                            |
+!!! note
 
-Predefined networks can provide defaults such the initial state of the network,
-bootnodes, and the address of the Ethereum 1.0 deposit contract.
+    Previous `--network` option values for `vc` have been deprecated in favor of `auto`.
 
 ### validator-keys
 
