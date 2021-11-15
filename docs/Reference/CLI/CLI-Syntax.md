@@ -406,7 +406,7 @@ using the [`--network`](#network) option.
 !!! tip
 
     [Infura](https://infura.io/) can be used as the source of initial states with
-    `--initial-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v1/debug/beacon/states/finalized`
+    `--initial-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v2/debug/beacon/states/finalized`
 
 ### logging
 
@@ -575,7 +575,7 @@ The default Docker image location is `/root/.local/share/teku/logs`.
     log-file-name-pattern: "tekuL_%d{yyyy-MM-dd}.log"
     ```
 
-Filename pattern to apply when creating log files.
+Filename pattern to apply when creating log files. The default pattern is `teku_%d{yyyy-MM-dd}.log`
 
 ### log-include-events-enabled
 
@@ -726,8 +726,7 @@ default, Teku accepts access from `localhost` and `127.0.0.1`.
     metrics-categories: ["BEACON", "JVM", "PROCESS"]
     ```
 
-Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `EVENTBUS`,
-`EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`,
+Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`,
 `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`. All categories are enabled by default.
 
 ### metrics-interface
@@ -1752,7 +1751,7 @@ using Teku to sign blocks and attestations always uses its built-in slashing pro
     validators-external-signer-timeout: 2000
     ```
 
-Timeout in milliseconds for requests to the external signer. The default is 1000.
+Timeout in milliseconds for requests to the external signer. The default is 5000.
 
 ### validators-external-signer-truststore
 

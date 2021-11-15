@@ -304,7 +304,7 @@ The default Docker image location is `/root/.local/share/teku/logs`.
     log-file-name-pattern: "tekuL_%d{yyyy-MM-dd}.log"
     ```
 
-Filename pattern to apply when creating log files.
+Filename pattern to apply when creating log files. The default pattern is `teku_%d{yyyy-MM-dd}.log`
 
 ### log-include-events-enabled
 
@@ -361,7 +361,7 @@ validators and attestations. The default is `true`.
     log-include-validator-duties-enabled: true
     ```
 
-Specify whether to log details of validator event duties. The default is `false`.
+Specify whether to log details of validator event duties. The default is `true`.
 
 !!! note
     Logs could become noisy when running many validators.
@@ -455,8 +455,7 @@ default, Teku accepts access from `localhost` and `127.0.0.1`.
     metrics-categories: ["BEACON", "JVM", "PROCESS"]
     ```
 
-Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `EVENTBUS`,
-`EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`,
+Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`,
 `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`. All categories are enabled by default.
 
 ### metrics-interface
@@ -485,7 +484,7 @@ Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `
     metrics-interface: "192.168.10.101"
     ```
 
-Host on which Prometheus accesses Teku metrics. The default is `0.0.0.0`.
+Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
 
 ### metrics-port
 
@@ -595,6 +594,102 @@ When specifying file names, Teku expects that the files exist.
 
     The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
 
+### validators-early-attestations-enabled
+
+=== "Syntax"
+
+    ```bash
+    teku vc --validators-early-attestations-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    teku vc --validators-early-attestations-enabled=false
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_EARLY_ATTESTATIONS_ENABLED=false
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-early-attestations-enabled: false
+    ```
+
+Specify whether to use Teku's built-in early attestation production, which creates an
+attestation once a block is received. The default is `true`.
+
+Set this option to `false` if running a validator client connected to a load balanced beacon node
+(including most hosted beacon nodes such as [Infura]), and validator effectiveness is poor.
+
+!!! note
+
+    Delaying attestation production increases the chances of generating a correct
+    attestation when using a load balanced beacon node, but it increases the risk of inclusion delays.
+
+### validators-external-signer-keystore
+
+=== "Syntax"
+
+    ```bash
+    teku vc --validators-external-signer-keystore=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku vc --validators-external-signer-keystore=teku_client_keystore.p12
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_KEYSTORE=teku_client_keystore.p12
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-external-signer-keystore: "teku_client_keystore.p12"
+    ```
+
+The keystore that Teku presents to the external signer for TLS authentication. Teku can use
+PKCS12 or JKS keystore types.
+
+Use the PKCS12 keystore type if connecting to Web3Signer.
+
+### validators-external-signer-keystore-password-file
+
+=== "Syntax"
+
+    ```bash
+    teku vc --validators-external-signer-keystore-password-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku vc --validators-external-signer-keystore-password-file=keystore_pass.txt
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_KEYSTORE_PASSWORD_FILE=keystore_pass.txt
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-external-signer-keystore-password-file: "keystore_pass.txt"
+    ```
+
+Password file used to decrypt the keystore.
+
 ### validators-external-signer-public-keys
 
 === "Syntax"
@@ -688,7 +783,64 @@ using Teku to sign blocks and attestations always uses its built-in slashing pro
     validators-external-signer-timeout: 2000
     ```
 
-Timeout in milliseconds for requests to the external signer. The default is 1000.
+Timeout in milliseconds for requests to the external signer. The default is 5000.
+
+### validators-external-signer-truststore
+
+=== "Syntax"
+
+    ```bash
+    teku vc --validators-external-signer-truststore=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku vc --validators-external-signer-truststore=websigner_truststore.p12
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE=websigner_truststore.p12
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-external-signer-truststore: "websigner_truststore.p12"
+    ```
+
+PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate
+which signs the external signer's certificate.
+
+### validators-external-signer-truststore-password-file
+
+=== "Syntax"
+
+    ```bash
+    teku vc --validators-external-signer-truststore-password-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku vc --validators-external-signer-truststore-password-file=truststore_pass.txt
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE_PASSWORD_FILE=truststore_pass.txt
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-external-signer-truststore-password-file: "truststore_pass.txt"
+    ```
+
+Password file used to decrypt the [keystore](#validators-external-signer-truststore).
 
 ### validators-external-signer-url
 
@@ -747,6 +899,40 @@ URL on which the external signer (for example, Web3Signer) is running.
 Graffiti to add when creating a block. Gets converted to bytes and padded to Bytes32.
 
 The same graffiti is used for all validators started with this beacon node.
+
+### validators-graffiti-file
+
+=== "Syntax"
+
+    ```bash
+    teku vc --validators-graffiti-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku vc --validators-graffiti-file=/Users/me/mynode/graffiti.txt
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_GRAFFITI_FILE=/Users/me/mynode/graffiti.txt
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-graffiti-file: "/Users/me/mynode/graffiti.txt"
+    ```
+
+File containing the validator graffiti to add when creating a block. The file content is
+converted to `bytes` and padded to `Bytes32`. The same graffiti is used for all validators started
+with this beacon node.
+
+You can overwrite the file while Teku is running to update the graffiti.
+
+This option takes precedence over [`--validators-graffiti`](#validators-graffiti).
 
 ### validators-keystore-locking-enabled
 

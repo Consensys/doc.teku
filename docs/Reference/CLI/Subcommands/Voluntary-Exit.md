@@ -165,6 +165,65 @@ When specifying file names, Teku expects that the files exist.
 
     The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
 
+### validators-external-signer-keystore
+
+=== "Syntax"
+
+    ```bash
+    teku voluntary-exit --validators-external-signer-keystore=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku voluntary-exit --validators-external-signer-keystore=teku_client_keystore.p12
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_KEYSTORE=teku_client_keystore.p12
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-external-signer-keystore: "teku_client_keystore.p12"
+    ```
+
+The keystore that Teku presents to the external signer for TLS authentication. Teku can use
+PKCS12 or JKS keystore types.
+
+Use the PKCS12 keystore type if connecting to Web3Signer.
+
+### validators-external-signer-keystore-password-file
+
+=== "Syntax"
+
+    ```bash
+    teku voluntary-exit --validators-external-signer-keystore-password-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku voluntary-exit --validators-external-signer-keystore-password-file=keystore_pass.txt
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_KEYSTORE_PASSWORD_FILE=keystore_pass.txt
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-external-signer-keystore-password-file: "keystore_pass.txt"
+    ```
+
+Password file used to decrypt the keystore.
+
 ### validators-external-signer-public-keys
 
 === "Syntax"
@@ -220,7 +279,64 @@ List of public keys of validators that you wish to voluntarily exit when using a
     validators-external-signer-timeout: 2000
     ```
 
-Timeout in milliseconds for requests to the external signer. The default is 1000.
+Timeout in milliseconds for requests to the external signer. The default is 5000.
+
+### validators-external-signer-truststore
+
+=== "Syntax"
+
+    ```bash
+    teku voluntary-exit --validators-external-signer-truststore=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku voluntary-exit --validators-external-signer-truststore=websigner_truststore.p12
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE=websigner_truststore.p12
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-external-signer-truststore: "websigner_truststore.p12"
+    ```
+
+PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate
+which signs the external signer's certificate.
+
+### validators-external-signer-truststore-password-file
+
+=== "Syntax"
+
+    ```bash
+    teku voluntary-exit --validators-external-signer-truststore-password-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku voluntary-exit --validators-external-signer-truststore-password-file=truststore_pass.txt
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE_PASSWORD_FILE=truststore_pass.txt
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-external-signer-truststore-password-file: "truststore_pass.txt"
+    ```
+
+Password file used to decrypt the keystore.
 
 ### validators-external-signer-url
 
