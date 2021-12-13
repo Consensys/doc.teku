@@ -6,9 +6,7 @@ title: Voluntary exit subcommand options
 
 Create and sign a voluntary exit for the specified validator or set of validators.
 
-## Options
-
-### beacon-node-api-endpoint
+## `beacon-node-api-endpoint`
 
 === "Syntax"
 
@@ -36,7 +34,7 @@ Create and sign a voluntary exit for the specified validator or set of validator
 
 Endpoint of the beacon node's REST API. The default is `http://127.0.0.1:5051`.
 
-### config-file
+## `config-file`
 
 === "Syntax"
 
@@ -59,7 +57,7 @@ Endpoint of the beacon node's REST API. The default is `http://127.0.0.1:5051`.
 Path to the YAML configuration file.
 The default is `none`.
 
-### confirmation-enabled
+## `confirmation-enabled`
 
 === "Syntax"
 
@@ -89,10 +87,9 @@ Specify whether to request confirmation when exiting a validator. The default is
 
 !!! danger
 
-    Exercise care when using this option because if set to `false`, exits are generated immediately
-    without any prompt.
+    If you set `--confirmation-enabled` to `false`, exits are generated immediately without any prompt.
 
-### epoch
+## `epoch`
 
 === "Syntax"
 
@@ -120,7 +117,7 @@ or current epoch. You cannot specify a future epoch. The default is the current 
     If there is a high number of validators that are queued to exit, then the validator exit may be
     processed at a later epoch.
 
-### validator-keys
+## `validator-keys`
 
 === "Syntax"
 
@@ -165,7 +162,7 @@ When specifying file names, Teku expects that the files exist.
 
     The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
 
-### validators-external-signer-keystore
+## `validators-external-signer-keystore`
 
 === "Syntax"
 
@@ -196,7 +193,7 @@ PKCS12 or JKS keystore types.
 
 Use the PKCS12 keystore type if connecting to Web3Signer.
 
-### validators-external-signer-keystore-password-file
+## `validators-external-signer-keystore-password-file`
 
 === "Syntax"
 
@@ -224,7 +221,7 @@ Use the PKCS12 keystore type if connecting to Web3Signer.
 
 Password file used to decrypt the keystore.
 
-### validators-external-signer-public-keys
+## `validators-external-signer-public-keys`
 
 === "Syntax"
 
@@ -253,7 +250,7 @@ Password file used to decrypt the keystore.
 List of public keys of validators that you wish to voluntarily exit when using an external signer
 (for example, [Web3Signer]).
 
-### validators-external-signer-timeout
+## `validators-external-signer-timeout`
 
 === "Syntax"
 
@@ -281,7 +278,7 @@ List of public keys of validators that you wish to voluntarily exit when using a
 
 Timeout in milliseconds for requests to the external signer. The default is 5000.
 
-### validators-external-signer-truststore
+## `validators-external-signer-truststore`
 
 === "Syntax"
 
@@ -310,7 +307,7 @@ Timeout in milliseconds for requests to the external signer. The default is 5000
 PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate
 which signs the external signer's certificate.
 
-### validators-external-signer-truststore-password-file
+## `validators-external-signer-truststore-password-file`
 
 === "Syntax"
 
@@ -338,7 +335,7 @@ which signs the external signer's certificate.
 
 Password file used to decrypt the keystore.
 
-### validators-external-signer-url
+## `validators-external-signer-url`
 
 === "Syntax"
 

@@ -4,39 +4,49 @@ description: Teku command line interface reference
 
 # Teku command line
 
-This reference describes the syntax of the Teku Command Line Interface (CLI) options and subcommands.
+This reference describes the syntax of the Teku command line interface (CLI) options.
 
 !!! important
-    The command line interface options are currently under development and may change.
+
+    The CLI options are currently under development and may change.
 
 ## Specifying options
 
-Teku options can be specified:
+You can specify Teku options:
 
-* On the command line
-* As an [environment variable](#teku-environment-variables)
+* On the command line.
+  
+    ```bash
+    teku [OPTIONS] [COMMAND]
+    ```
+
+* As an environment variable.
+  For each command line option, the equivalent environment variable is:
+
+    * Uppercase.
+    * `-` is replaced by `_`.
+    * Has a `TEKU_` prefix.
+
 * In a [YAML configuration file](../../HowTo/Configure/Use-Configuration-File.md).
 
 If an option is specified in multiple places, the order of priority is command line, environment variable,
 configuration file.
 
-### Teku environment variables
+## Using autocomplete
 
-For each command line option, the equivalent environment variable is:
-
-* Upper-case
-* `-` is replaced by `_`
-* Has a `TEKU_` prefix
-
-For example, set `--p2p-port` using the `TEKU_P2P_PORT` environment variable.
-
-## Options
-
-To start a Teku beacon chain client and validator run:
+If using Bash or Z shell, you can enable autocomplete support by navigating to the `build` folder and running:
 
 ```bash
-teku [OPTIONS] [COMMAND]
+source teku.autocomplete.sh
 ```
+
+Autocomplete allows you to view option suggestions by entering `--` and pressing the Tab key twice.
+
+```bash
+teku --Tab+Tab
+```
+
+## Options
 
 ### config-file
 

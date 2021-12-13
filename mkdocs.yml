@@ -91,6 +91,7 @@ nav:
         - Teku command line:
           - Options: Reference/CLI/CLI-Syntax.md
           - Subcommands:
+            - Overview: Reference/CLI/Subcommands/Subcommands.md
             - admin: Reference/CLI/Subcommands/Admin.md
             - migrate-database: Reference/CLI/Subcommands/Migrate-Database.md
             - slashing-protection: Reference/CLI/Subcommands/Slashing-Protection.md

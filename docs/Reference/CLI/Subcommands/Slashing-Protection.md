@@ -4,20 +4,13 @@ title: Subcommand options
 
 # `slashing-protection`
 
-Manage the local [slashing protection data] used by the validator. To use the `slashing-protection`
-subcommand run:
-
-```bash
-teku slashing-protection [subcommand] [option]
-```
-
-You can also supply the subcommand options using [environment variables or a configuration file].
+Manage the local [slashing protection data] used by the validator.
 
 ## `import`
 
 Imports the slashing protection database using the [validator client interchange format].
 
-### config-file
+### `config-file`
 
 === "Syntax"
 
@@ -40,7 +33,7 @@ Imports the slashing protection database using the [validator client interchange
 Path to the YAML configuration file.
 The default is `none`.
 
-### data-path
+### `data-path`
 
 === "Syntax"
 
@@ -60,7 +53,7 @@ Path to the Teku data directory. The default directory is OS-dependent:
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
 * Windows: `%localappdata%\teku`.
 
-### data-validator-path
+### `data-validator-path`
 
 === "Syntax"
 
@@ -93,7 +86,7 @@ The default is `<data-path>/validator` where `<data-path>` is specified using [`
 
     Teku imports slashing protection data into a `slashprotection` directory under the validator client data directory.
 
-### from
+### `from`
 
 === "Syntax"
 
@@ -118,7 +111,7 @@ Teku imports the file to the `<data-path>/validators/slashprotection/` directory
 
 Exports the slashing protection database in the [validator client interchange format] format.
 
-### config-file
+### `config-file`
 
 === "Syntax"
 
@@ -141,7 +134,7 @@ Exports the slashing protection database in the [validator client interchange fo
 Path to the YAML configuration file.
 The default is `none`.
 
-### data-path
+### `data-path`
 
 === "Syntax"
 
@@ -161,7 +154,7 @@ Path to the Teku data directory. The default directory is OS-dependent:
 * Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
 * Windows: `%localappdata%\teku`.
 
-### data-validator-path
+### `data-validator-path`
 
 === "Syntax"
 
@@ -194,7 +187,7 @@ The default is `<data-path>/validator` where `<data-path>` is specified using [`
 
     Teku exports slashing protection data from the `slashprotection` directory under the validator client data directory.
 
-### to
+### `to`
 
 === "Syntax"
 
@@ -216,7 +209,7 @@ Exports the database in the [validator client interchange format] format.
 
 Repairs corrupted slashing-protection data files used by Teku.
 
-### check-only-enabled
+### `check-only-enabled`
 
 === "Syntax"
 
@@ -233,7 +226,7 @@ Repairs corrupted slashing-protection data files used by Teku.
 Reads and reports potential slashing-protection file problems, but doesn't update any files.
 You can specify which files are checked using [`--config-file`](#config-file_2), [`--data-base-path`](#data-base-path-data-path).
 
-### config-file
+### `config-file`
 
 === "Syntax"
 
@@ -250,7 +243,7 @@ You can specify which files are checked using [`--config-file`](#config-file_2),
 Path to the YAML configuration file.
 The default is `none`.
 
-### data-path
+### `data-path`
 
 === "Syntax"
 
@@ -272,7 +265,7 @@ Path to the Teku data directory. The default directory is OS-dependent:
 
 The default Docker image location is `/root/.local/share/teku`.
 
-### data-validator-path
+### `data-validator-path`
 
 === "Syntax"
 
@@ -293,7 +286,7 @@ The default is `<data-path>/validator` where `<data-path>` is specified using [`
 
     The slashing protection data is stored in a `slashprotection` directory under the validator client data directory.
 
-### network
+### `network`
 
 === "Syntax"
 
@@ -322,7 +315,7 @@ Possible values are:
 Predefined networks can provide defaults such the initial state of the network,
 bootnodes, and the address of the Ethereum 1.0 deposit contract.
 
-### slot
+### `slot`
 
 === "Syntax"
 
@@ -343,7 +336,7 @@ slot, or after when the validators stopped performing duties.
 
     This can be automatically calculated for most networks, and is generally not required.
 
-### update-all-enabled
+### `update-all-enabled`
 
 === "Syntax"
 

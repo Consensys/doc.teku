@@ -4,24 +4,9 @@ title: Validator client subcommand options
 
 # `validator-client`, `vc`
 
-Run a validator client that connects to a remote beacon node. To use the `validator-client`
-subcommand run:
+Run a validator client that connects to a remote beacon node.
 
-```bash
-teku validator-client [options]
-```
-
-Or:
-
-```bash
-teku vc [options]
-```
-
-You can also supply the subcommand options using [environment variables or a configuration file].
-
-## Options
-
-### beacon-node-api-endpoint
+## `beacon-node-api-endpoint`
 
 === "Syntax"
 
@@ -49,7 +34,7 @@ You can also supply the subcommand options using [environment variables or a con
 
 Endpoint of the beacon node's REST API. The default is `http://127.0.0.1:5051`.
 
-### config-file
+## `config-file`
 
 === "Syntax"
 
@@ -72,7 +57,7 @@ Endpoint of the beacon node's REST API. The default is `http://127.0.0.1:5051`.
 Path to the YAML configuration file.
 The default is `none`.
 
-### data-base-path, data-path
+## `data-base-path`, `data-path`
 
 === "Syntax"
 
@@ -106,7 +91,7 @@ Path to the Teku base directory for storage. The default directory is OS-depende
 
 The default Docker image location is `/root/.local/share/teku`.
 
-### data-validator-path
+## `data-validator-path`
 
 === "Syntax"
 
@@ -135,7 +120,7 @@ The default Docker image location is `/root/.local/share/teku`.
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
-### initial-state
+## `initial-state`
 
 === "Syntax"
 
@@ -167,7 +152,7 @@ or a [recent finalized checkpoint state from which to sync].
 This option does not need to be specified if the initial state is provided by the network specified
 using the [`--network`](#network) option.
 
-### log-color-enabled
+## `log-color-enabled`
 
 === "Syntax"
 
@@ -196,7 +181,7 @@ using the [`--network`](#network) option.
 Specify whether status and event log messages include a console color display code.
 The default is `true`.
 
-### log-destination
+## `log-destination`
 
 === "Syntax"
 
@@ -242,7 +227,7 @@ information is available in one place.
     [custom Log4J2 configuration file](../../../HowTo/Monitor/Logging.md#advanced-custom-logging).
     Any other option applies the custom logging changes on top of its default settings.
 
-### log-file
+## `log-file`
 
 === "Syntax"
 
@@ -278,7 +263,7 @@ The default directory is OS-dependent:
 
 The default Docker image location is `/root/.local/share/teku/logs`.
 
-### log-file-name-pattern
+## `log-file-name-pattern`
 
 === "Syntax"
 
@@ -306,7 +291,7 @@ The default Docker image location is `/root/.local/share/teku/logs`.
 
 Filename pattern to apply when creating log files. The default pattern is `teku_%d{yyyy-MM-dd}.log`
 
-### log-include-events-enabled
+## `log-include-events-enabled`
 
 === "Syntax"
 
@@ -335,7 +320,7 @@ Filename pattern to apply when creating log files. The default pattern is `teku_
 Specify whether to log frequent update events. For example every slot event with
 validators and attestations. The default is `true`.
 
-### log-include-validator-duties-enabled
+## `log-include-validator-duties-enabled`
 
 === "Syntax"
 
@@ -366,7 +351,7 @@ Specify whether to log details of validator event duties. The default is `true`.
 !!! note
     Logs could become noisy when running many validators.
 
-### metrics-enabled
+## `metrics-enabled`
 
 === "Syntax"
 
@@ -395,7 +380,7 @@ Specify whether to log details of validator event duties. The default is `true`.
 Set to `true` to enable the metrics exporter.
 The default is `false`.
 
-### metrics-host-allowlist
+## `metrics-host-allowlist`
 
 === "Syntax"
 
@@ -429,7 +414,7 @@ default, Teku accepts access from `localhost` and `127.0.0.1`.
     To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production
     environments.
 
-### metrics-categories
+## `metrics-categories`
 
 === "Syntax"
 
@@ -458,7 +443,7 @@ default, Teku accepts access from `localhost` and `127.0.0.1`.
 Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`,
 `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`. All categories are enabled by default.
 
-### metrics-interface
+## `metrics-interface`
 
 === "Syntax"
 
@@ -486,7 +471,7 @@ Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `
 
 Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
 
-### metrics-port
+## `metrics-port`
 
 === "Syntax"
 
@@ -515,7 +500,7 @@ Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
 Specifies the port (TCP) on which [Prometheus](https://prometheus.io/) accesses Teku metrics.
 The default is `8008`.
 
-### network
+## `network`
 
 === "Syntax"
 
@@ -549,7 +534,7 @@ Use `auto` to fetch the network configuration from the beacon node endpoint dire
 
     Previous `--network` option values for `vc` have been deprecated in favor of `auto`.
 
-### validator-keys
+## `validator-keys`
 
 === "Syntax"
 
@@ -594,7 +579,7 @@ When specifying file names, Teku expects that the files exist.
 
     The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
 
-### validators-early-attestations-enabled
+## `validators-early-attestations-enabled`
 
 === "Syntax"
 
@@ -631,7 +616,7 @@ Set this option to `false` if running a validator client connected to a load bal
     Delaying attestation production increases the chances of generating a correct
     attestation when using a load balanced beacon node, but it increases the risk of inclusion delays.
 
-### validators-external-signer-keystore
+## `validators-external-signer-keystore`
 
 === "Syntax"
 
@@ -662,7 +647,7 @@ PKCS12 or JKS keystore types.
 
 Use the PKCS12 keystore type if connecting to Web3Signer.
 
-### validators-external-signer-keystore-password-file
+## `validators-external-signer-keystore-password-file`
 
 === "Syntax"
 
@@ -690,7 +675,7 @@ Use the PKCS12 keystore type if connecting to Web3Signer.
 
 Password file used to decrypt the keystore.
 
-### validators-external-signer-public-keys
+## `validators-external-signer-public-keys`
 
 === "Syntax"
 
@@ -718,7 +703,7 @@ Password file used to decrypt the keystore.
 
 List of validator public keys used by an external signer (for example, [Web3Signer]).
 
-### validators-external-signer-slashing-protection-enabled
+## `validators-external-signer-slashing-protection-enabled`
 
 === "Syntax"
 
@@ -757,7 +742,7 @@ Set this option to `false` if using the slashing protection implemented by an ex
 Built-in slashing protection can only be disabled for validators using external signers. Validators
 using Teku to sign blocks and attestations always uses its built-in slashing protection.
 
-### validators-external-signer-timeout
+## `validators-external-signer-timeout`
 
 === "Syntax"
 
@@ -785,7 +770,7 @@ using Teku to sign blocks and attestations always uses its built-in slashing pro
 
 Timeout in milliseconds for requests to the external signer. The default is 5000.
 
-### validators-external-signer-truststore
+## `validators-external-signer-truststore`
 
 === "Syntax"
 
@@ -814,7 +799,7 @@ Timeout in milliseconds for requests to the external signer. The default is 5000
 PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate
 which signs the external signer's certificate.
 
-### validators-external-signer-truststore-password-file
+## `validators-external-signer-truststore-password-file`
 
 === "Syntax"
 
@@ -842,7 +827,7 @@ which signs the external signer's certificate.
 
 Password file used to decrypt the [keystore](#validators-external-signer-truststore).
 
-### validators-external-signer-url
+## `validators-external-signer-url`
 
 === "Syntax"
 
@@ -870,7 +855,7 @@ Password file used to decrypt the [keystore](#validators-external-signer-trustst
 
 URL on which the external signer (for example, Web3Signer) is running.
 
-### validators-graffiti
+## `validators-graffiti`
 
 === "Syntax"
 
@@ -900,7 +885,7 @@ Graffiti to add when creating a block. Gets converted to bytes and padded to Byt
 
 The same graffiti is used for all validators started with this beacon node.
 
-### validators-graffiti-file
+## `validators-graffiti-file`
 
 === "Syntax"
 
@@ -934,7 +919,7 @@ You can overwrite the file while Teku is running to update the graffiti.
 
 This option takes precedence over [`--validators-graffiti`](#validators-graffiti).
 
-### validators-keystore-locking-enabled
+## `validators-keystore-locking-enabled`
 
 === "Syntax"
 
@@ -965,18 +950,18 @@ Locks the keystore files listed in [`--validator-keys`](#validator-keys). The de
 Attempts to lock all keystores in a directory if a directory is specified in
 [`--validator-keys`](#validator-keys).
 
-### validators-performance-tracking-mode
+## `validators-performance-tracking-mode`
 
 === "Syntax"
 
     ```bash
-    --validators-performance-tracking-mode=<STRING>
+    teku vc --validators-performance-tracking-mode=<STRING>
     ```
 
 === "Example"
 
     ```bash
-    --validators-performance-tracking-mode=LOGGING
+    teku vc --validators-performance-tracking-mode=LOGGING
     ```
 
 === "Environment variable"
