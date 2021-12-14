@@ -9,7 +9,7 @@ This reference describes the syntax of the Teku subcommands.
 To start a Teku node using subcommands, run:
 
 ```bash
-teku [OPTIONS] [SUBCOMMAND(S)] [SUBCOMMAND OPTIONS]
+teku [OPTIONS] [SUBCOMMANDS] [SUBCOMMAND OPTIONS]
 ```
 
 You can also supply the subcommand options using [environment variables or a configuration file](../CLI-Syntax.md#specifying-options).
