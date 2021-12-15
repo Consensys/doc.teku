@@ -4,13 +4,7 @@ title: Subcommand options
 
 # `admin`
 
-Used to perform administrative tasks. To use the `admin` subcommand run:
-
-```bash
-teku admin [subcommand] [subcommand] [options]
-```
-
-You can also supply the subcommand options using [environment variables or a configuration file].
+Used to perform administrative tasks.
 
 ## `weak-subjectivity`
 
@@ -20,7 +14,7 @@ Display or clear weak subjectivity configuration.
 
 Clears the stored weak subjectivity configuration.
 
-#### config-file
+#### `config-file`
 
 === "Syntax"
 
@@ -43,7 +37,7 @@ Clears the stored weak subjectivity configuration.
 Path to the YAML configuration file.
 The default is `none`.
 
-#### data-base-path, data-path
+#### `data-base-path`, `data-path`
 
 === "Syntax"
 
@@ -77,7 +71,7 @@ Path to the Teku data directory. The default directory is OS-dependent:
 
 The default Docker image location is `/root/.local/share/teku`.
 
-#### data-beacon-path
+#### `data-beacon-path`
 
 === "Syntax"
 
@@ -106,7 +100,7 @@ The default Docker image location is `/root/.local/share/teku`.
 Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
-#### data-storage-archive-frequency
+#### `data-storage-archive-frequency`
 
 === "Syntax"
 
@@ -147,7 +141,7 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     `--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the
     state because every 2048th slot state is saved.
 
-#### data-storage-mode
+#### `data-storage-mode`
 
 === "Syntax"
 
@@ -176,7 +170,7 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
 Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
 The default is `prune`.
 
-#### data-validator-path
+#### `data-validator-path`
 
 === "Syntax"
 
@@ -205,7 +199,7 @@ The default is `prune`.
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
-#### eth1-deposit-contract-address
+#### `eth1-deposit-contract-address`
 
 === "Syntax"
 
@@ -233,7 +227,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
 
 Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
 
-#### network
+#### `network`
 
 === "Syntax"
 
@@ -278,7 +272,7 @@ bootnodes, and the address of the Ethereum 1.0 deposit contract.
 
 Displays the stored weak subjectivity configuration.
 
-#### config-file
+#### `config-file`
 
 === "Syntax"
 
@@ -301,7 +295,7 @@ Displays the stored weak subjectivity configuration.
 Path to the YAML configuration file.
 The default is `none`.
 
-#### data-base-path, data-path
+#### `data-base-path`, `data-path`
 
 === "Syntax"
 
@@ -335,7 +329,7 @@ Path to the Teku data directory. The default directory is OS-dependent:
 
 The default Docker image location is `/root/.local/share/teku`.
 
-#### data-beacon-path
+#### `data-beacon-path`
 
 === "Syntax"
 
@@ -364,7 +358,7 @@ The default Docker image location is `/root/.local/share/teku`.
 Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
-#### data-storage-archive-frequency
+#### `data-storage-archive-frequency`
 
 === "Syntax"
 
@@ -405,7 +399,7 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     `--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the
     state because every 2048th slot state is saved.
 
-#### data-storage-mode
+#### `data-storage-mode`
 
 === "Syntax"
 
@@ -434,7 +428,7 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
 Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
 The default is `prune`.
 
-#### data-validator-path
+#### `data-validator-path`
 
 === "Syntax"
 
@@ -463,7 +457,7 @@ The default is `prune`.
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
-#### eth1-deposit-contract-address
+#### `eth1-deposit-contract-address`
 
 === "Syntax"
 
@@ -491,7 +485,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
 
 Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
 
-#### network
+#### `network`
 
 === "Syntax"
 
@@ -530,6 +524,3 @@ Possible values are:
 
 Predefined networks can provide defaults such the initial state of the network,
 bootnodes, and the address of the Ethereum 1.0 deposit contract.
-
-<!-- link -->
-[environment variables or a configuration file]: ../CLI-Syntax.md#specifying-options

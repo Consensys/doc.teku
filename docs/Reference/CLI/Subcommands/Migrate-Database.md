@@ -11,18 +11,18 @@ title: Database migration subcommand options
     As of v21.5.0, new Teku installations use a LevelDB2 database. Previous Teku versions use
     RocksDB which continue to be supported.
 
-## config-file
+## `config-file`
 
 === "Syntax"
 
     ```bash
-    --config-file=<FILE>
+    teku migrate-database --config-file=<FILE>
     ```
 
 === "Example"
 
     ```bash
-    --config-file=/home/me/me_node/config.yaml
+    teku migrate-database --config-file=/home/me/me_node/config.yaml
     ```
 
 === "Environment variable"
@@ -34,18 +34,18 @@ title: Database migration subcommand options
 Path to the [YAML configuration file](../../../HowTo/Configure/Use-Configuration-File.md).
 The default is `none`.
 
-## data-base-path, data-path
+## `data-base-path`, `data-path`
 
 === "Syntax"
 
     ```bash
-    --data-base-path=<PATH>
+    teku migrate-database --data-base-path=<PATH>
     ```
 
 === "Example"
 
     ```bash
-    --data-base-path=/home/me/me_node
+    teku migrate-database --data-base-path=/home/me/me_node
     ```
 
 === "Environment variable"
@@ -68,18 +68,18 @@ Path to the Teku data directory. The default directory is OS-dependent:
 
 The default Docker image location is `/root/.local/share/teku`.
 
-## data-beacon-path
+## `data-beacon-path`
 
 === "Syntax"
 
     ```bash
-    --data-beacon-path=<PATH>
+    teku migrate-database --data-beacon-path=<PATH>
     ```
 
 === "Example"
 
     ```bash
-    --data-beacon-path=/home/me/me_node
+    teku migrate-database --data-beacon-path=/home/me/me_node
     ```
 
 === "Environment variable"
@@ -97,18 +97,18 @@ The default Docker image location is `/root/.local/share/teku`.
 Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
-## network
+## `network`
 
 === "Syntax"
 
     ```bash
-    --network=<NETWORK>
+    teku migrate-database --network=<NETWORK>
     ```
 
 === "Example"
 
     ```bash
-    --network=mainnet
+    teku migrate-database --network=mainnet
     ```
 
 === "Environment variable"
