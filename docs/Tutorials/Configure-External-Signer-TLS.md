@@ -19,13 +19,13 @@ keystores and the truststore that contain self-signed certificates.
 
 - [Web3Signer installed](https://docs.web3signer.consensys.net/en/latest/HowTo/Get-Started/Install-Binaries/).
 - [Web3Signer signing key files](https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/) for
-    validators on the Pyrmont testnet.
+    validators on the testnet.
 - [Teku Installed](../HowTo/Get-Started/Installation-Options/Install-Binaries.md).
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
 - A running Ethereum 1.0 node such as [Hyperledger Besu], or cloud-based service such as [Infura]
     synced to the Goerli testnet.
 
-This tutorial connects to the Pyrmont testnet ETH2 testnet, and uses [Infura] to access the
+This tutorial connects to an ETH2 testnet, and uses [Infura] to access the
 Goerli ETH1 testnet. You can sign up for a free [Infura] account, or you can start your own
 [ETH1 Goerli node].
 
@@ -181,7 +181,7 @@ password files.
     command line option.
 
 ```bash
-teku --network=pyrmont \
+teku --network=prater \
 --eth1-endpoint=https://goerli.infura.iov3/d0f36ceb0c324eef9984422efbc51f21 \
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
 --validators-external-signer-url=https://localhost:9000 \

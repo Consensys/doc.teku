@@ -361,7 +361,7 @@ If not specified (that is, you're running a beacon chain client only), then prov
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
 [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to
 provide an initial state if running a public network which has already started (for example,
-MainNet or Pyrmont).
+MainNet or Prater).
 
 If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL. For
 example, `https://goerli.infura.io/v3/<Project_ID>`
@@ -834,7 +834,6 @@ Possible values are:
 |:----------|:--------|:-----------|:-------------------------------------------------|
 | `mainnet` | Eth 2.0 | Production | Main network.                                    |
 | `minimal` | Eth 2.0 | Test       | Used for local testing and development networks. |
-| `pyrmont` | Eth 2.0 | Test       | Multi-client testnet.                            |
 | `prater`  | Eth 2.0 | Test       | Multi-client testnet.                            |
 
 Predefined networks can provide defaults such as the initial state of the network,

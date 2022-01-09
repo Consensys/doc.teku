@@ -46,7 +46,7 @@ eth2
 Start Teku with the external signer, keystore, and truststore details:
 
 ```bash
-teku --network=pyrmont \
+teku --network=prater \
 --eth1-endpoint=http://localhost:8545 \
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
 --validators-external-signer-url=https://localhost:9000 \
