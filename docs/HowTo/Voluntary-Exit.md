@@ -1,5 +1,5 @@
 ---
-title: Voluntarily exit a validaor
+title: Voluntarily exit a validator
 ---
 
 # Voluntarily exit a validator

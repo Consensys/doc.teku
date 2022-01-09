@@ -58,7 +58,7 @@ nav:
                 - Build from source: HowTo/Get-Started/Installation-Options/Build-From-Source.md
                 - Run Teku from Docker image: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
             - Start Teku: HowTo/Get-Started/Run-Teku.md
-            - Manage Memory: HowTo/Get-Started/Manage-Memory.md
+            - Manage memory: HowTo/Get-Started/Manage-Memory.md
             - Connect to a network:
                 - Connect to Mainnet: HowTo/Get-Started/Connect/Connect-To-Mainnet.md
                 - Connect to a testnet: HowTo/Get-Started/Connect/Connect-To-Testnet.md
@@ -66,7 +66,7 @@ nav:
         - External signing:
               - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
         - Load validators without restarting: HowTo/Load-Validators-No-Restart.md
-        - Monitor Nodes:
+        - Monitor nodes:
           - Use metrics: HowTo/Monitor/Metrics.md
           - Configure logging: HowTo/Monitor/Logging.md
         - Configure:
@@ -91,7 +91,9 @@ nav:
         - Teku command line:
           - Options: Reference/CLI/CLI-Syntax.md
           - Subcommands:
+            - Overview: Reference/CLI/Subcommands/Subcommands.md
             - admin: Reference/CLI/Subcommands/Admin.md
+            - migrate-database: Reference/CLI/Subcommands/Migrate-Database.md
             - slashing-protection: Reference/CLI/Subcommands/Slashing-Protection.md
             - validator-client, vc: Reference/CLI/Subcommands/Validator-Client.md
             - voluntary-exit: Reference/CLI/Subcommands/Voluntary-Exit.md
