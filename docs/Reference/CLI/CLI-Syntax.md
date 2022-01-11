@@ -361,7 +361,7 @@ If not specified (that is, you're running a beacon chain client only), then prov
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
 [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to
 provide an initial state if running a public network which has already started (for example,
-MainNet or Pyrmont).
+MainNet or Prater).
 
 If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL. For
 example, `https://goerli.infura.io/v3/<Project_ID>`
@@ -834,7 +834,6 @@ Possible values are:
 |:----------|:--------|:-----------|:-------------------------------------------------|
 | `mainnet` | Eth 2.0 | Production | Main network.                                    |
 | `minimal` | Eth 2.0 | Test       | Used for local testing and development networks. |
-| `pyrmont` | Eth 2.0 | Test       | Multi-client testnet.                            |
 | `prater`  | Eth 2.0 | Test       | Multi-client testnet.                            |
 
 Predefined networks can provide defaults such as the initial state of the network,
@@ -2006,7 +2005,7 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
 
 A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using either
 `<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`, or a URL containing the
-`<blockRoot>:<epochNumber>` in a [JSON payload via the `ws_checkpoint` key](https://beaconscan.com/ws_checkpoint).
+`<blockRoot>:<epochNumber>` in a JSON payload via the `ws_checkpoint` key.
 For example:
 
 ```bash
@@ -2020,18 +2019,12 @@ period follow the correct chain. It protects the node from long-range attacks by
 Use the [`admin weak-subjectivity`](Subcommands/Admin.md#weak-subjectivity) subcommand to display
 or clear your weak subjectivity settings.
 
-!!! tip
-
-    The [BeaconScan chain explorer] provides the most recent weak subjectivity checkpoint from which to
-    safely update your nodes view of the current state.
-
 <!-- links -->
 [Infura]: https://infura.io/
 [Teku metrics]: ../../HowTo/Monitor/Metrics.md
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [slashing protection]: ../../Concepts/Slashing-Protection.md
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
-[BeaconScan chain explorer]: https://beaconscan.com/ws_checkpoint
 [load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
 [recent finalized checkpoint state from which to sync]: ../../HowTo/Get-Started/Checkpoint-Start.md
 [Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-specs/tree/master/configs
