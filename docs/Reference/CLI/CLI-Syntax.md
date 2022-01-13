@@ -2003,16 +2003,10 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
     ws-checkpoint: "0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600"
     ```
 
-A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using either
-`<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`, or a URL containing the
-`<blockRoot>:<epochNumber>` in a JSON payload via the `ws_checkpoint` key.
-For example:
+A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using
+`<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`.
 
-```bash
---ws-checkpoint=https://beaconscan.com/ws_checkpoint
-```
-
-The weak subjectivity checkpoint is a recent finalized checkpoint on the correct chain. By
+The weak subjectivity checkpoint is a recent, finalized checkpoint on the correct chain. By
 supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long
 period follow the correct chain. It protects the node from long-range attacks by malicious actors.
 
