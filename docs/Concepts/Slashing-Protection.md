@@ -47,7 +47,7 @@ signing blocks or attestations.
 The following rules apply to the file:
 
 * A validator will not sign a block unless the slot is greater than `lastSignedBlockSlot`.
-* A validator will not sign an attestation unless the attestation source is less than or equal to
+* A validator will not sign an attestation unless the attestation source is greater than or equal to
     `lastSignedAttestationSourceEpoch`, and the attestation target epoch is greater than
     `lastSignedAttestationTargetEpoch`.
 * `genesisValidatorsRoot` is a hash of the validators active at genesis, and is used to
