@@ -10,7 +10,7 @@ View the [REST API documentation] for more information about the available APIs.
 
 ## Enable the REST API service
 
-[Enable the REST API service](#enable-the-rest-api-service) from the command line by setting the
+Enable the REST API service from the command line by setting the
 [`--rest-api-enabled`](../CLI/CLI-Syntax.md#rest-api-enabled) command line option to `true`.
 
 You can also interact with APIs using Swagger UI by enabling the API documentation endpoint.
@@ -60,6 +60,23 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
            }
         }
         ```
+
+### Enable the validator REST API
+
+The [validator REST API](https://consensys.github.io/teku/#tag/Validator-Required-Api) is a subset of API methods that are enabled separately from the other REST APIs.
+
+Enable the validator REST API from the command line by setting the
+[`--validator-api-enabled`](../CLI/CLI-Syntax.md#validator-api-enabled) command line option to `true`.
+
+You can also interact with APIs using Swagger UI by enabling the API documentation endpoint by setting the
+[`--validator-api-docs-enabled`](../CLI/CLI-Syntax.md#validator-api-docs-enabled) option to `true`.
+
+Access the APIs at `http:<interface>:<port>/swagger-ui` where:
+
+* `interface` is specified using [`--validator-api-interface`](../CLI/CLI-Syntax.md#validator-api-interface)
+* `port` is specified using [`--validator-api-port`](../CLI/CLI-Syntax.md#validator-api-port)
+
+The default location is `http://localhost:5052/swagger-ui`.
 
 <!-- Links -->
 [REST API documentation]:https://consensys.github.io/teku/#stable
