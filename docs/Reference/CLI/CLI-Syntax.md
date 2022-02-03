@@ -1764,7 +1764,6 @@ Password used to decrypt the keystore for the validator REST API.
 Specifies Validator REST API listening port (HTTP).
 The default is 5052.
 
-
 ### validator-keys
 
 === "Syntax"
