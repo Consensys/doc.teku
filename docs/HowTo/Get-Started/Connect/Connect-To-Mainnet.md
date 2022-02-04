@@ -1,10 +1,10 @@
 ---
-description: How to connect to MainNet
+description: How to connect to Mainnet
 ---
 
-# Connect to MainNet
+# Connect to Mainnet
 
-The following instructions provide the steps run validators on the Ethereum 2.0 MainNet. You can
+The following instructions provide the steps run validators on the Ethereum 2.0 Mainnet. You can
 also use Teku to run a [beacon node only].
 
 !!! warning
@@ -21,16 +21,16 @@ Use the [ETH2 staking checklist] as a guide to secure your validator keys and ha
 * If running validators, install any Ethereum 1.0 client (for example [Hyperledger Besu]), or access a
     cloud-based service such as [Infura].
 
-## Run validators on MainNet
+## Run validators on Mainnet
 
 Ethereum 2.0 validators need to access an Ethereum 1.0 client to onboard new validators.
 New validators make deposits into Ethereum 1.0, and existing Ethereum 2.0 validators must
 process the deposits to allow the new validators to join Ethereum 2.0.
 
-Deposits are made into a deposit contract on the Ethereum 1.0 MainNet. The deposit contract address
+Deposits are made into a deposit contract on the Ethereum 1.0 Mainnet. The deposit contract address
 is `0x00000000219ab540356cbb839cbe05303d7705fa`.
 
-The steps to run an Ethereum 2.0 validator on MainNet are:
+The steps to run an Ethereum 2.0 validator on Mainnet are:
 
 1. If running your own Ethereum 1.0 client, [sync the Ethereum 1.0 network containing
     the deposit contract](#sync-the-ethereum-10-network).
@@ -54,7 +54,7 @@ The steps to run an Ethereum 2.0 validator on MainNet are:
 This step is only required if running your own Ethereum 1.0 client.
 
 This example uses Besu to connect to Ethereum 1.0, but any client can be used.
-Configure Besu to [connect to MainNet] and expose the RPC-HTTP APIs.
+Configure Besu to [connect to Mainnet] and expose the RPC-HTTP APIs.
 
 !!! example
 
@@ -86,7 +86,7 @@ Syncing is complete when the head slot reaches the current slot.
     Ensure your Ethereum account has enough ETH to cover the required deposit amount (32 ETH) plus
     gas.
 
-Use the [MainNet Launchpad] to guide you through a step-by-step process to generate your keys and
+Use the [Mainnet Launchpad] to guide you through a step-by-step process to generate your keys and
 send the deposits.
 
 !!! note
@@ -183,8 +183,8 @@ to specify the directory to load multiple keys and passwords from.
     ```
 
 <!-- links -->
-[connect to MainNet]: https://besu.hyperledger.org/en/latest/HowTo/Get-Started/Starting-node/#run-a-node-on-ethereum-mainnet
-[MainNet Launchpad]: https://launchpad.ethereum.org/
+[connect to Mainnet]: https://besu.hyperledger.org/en/latest/HowTo/Get-Started/Starting-node/#run-a-node-on-ethereum-mainnet
+[Mainnet Launchpad]: https://launchpad.ethereum.org/
 [ETH2 staking checklist]: https://launchpad.ethereum.org/checklist
 [running beacon]: #sync-the-beacon-node
 [single process]: #run-the-validator-and-beacon-node-as-a-single-process
