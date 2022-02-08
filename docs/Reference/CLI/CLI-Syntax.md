@@ -288,7 +288,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
     ```
 
-Execution layer (formerly Ethereum 1.0) address of the deposit contract. Only required when creating a custom network.
+The address of the deposit contract. Only required when creating a custom network.
 
 The deposit contract address can also be defined in:
 
@@ -353,7 +353,7 @@ receiving warnings that the ETH1 node is unavailable.
     eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111"]
     ```
 
-Comma-separated list of JSON-RPC URLs of execution layer (formerly Ethereum 1.0) nodes. Each time Teku makes a call, it finds
+Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds
 the first provider in the list that is available, on the right chain, and in sync. This option must
 be specified if running a validator.
 
@@ -837,7 +837,7 @@ Possible values are:
 | `prater`  | Consensus layer | Test       | Multi-client testnet.                            |
 
 Predefined networks can provide defaults such as the initial state of the network,
-bootnodes, and the address of the execution layer (formerly Ethereum 1.0) deposit contract.
+bootnodes, and the address of the deposit contract.
 
 ### p2p-advertised-ip
 

@@ -21,7 +21,7 @@ exited to avoid penalties.
 !!! danger
 
     Even if a validator has successfully exited, it cannot withdraw its funds until withdrawals are
-    enabled in a future phase of the consensus layer network.
+    enabled in a future upgrade of the consensus layer.
 
 ## Initiate a voluntary exit
 

@@ -6,8 +6,8 @@ description: How to connect to a testnet
 
 !!! note
 
-    The execution layer was formerly called "Eth 1.0". The consensus layer was formerly called "Eth 2.0".
-    For more information on the name change, refer to the [Ethereum Foundation update](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
+    This documentation has been updated in line with the name changes [recommended by the Ethereum Foundation](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
+    The execution layer is sometimes known as "Ethereum 1.0". The consensus layer is sometimes known as "Ethereum 2.0".
 
 The following instructions describe the process to connect Teku to a consensus layer testnet.
 
@@ -24,7 +24,7 @@ The following instructions describe the process to connect Teku to a consensus l
 
 * Install the latest stable version of Teku using a [binary distribution](../Installation-Options/Install-Binaries.md),
     or with [Docker](../Installation-Options/Run-Docker-Image.md).
-* If running validators, install any execution layer client (for example [Hyperledger Besu]), or access a
+* If running validators, install any execution client (for example [Hyperledger Besu]), or access a
     cloud-based service such as [Infura].
 
 Teku allows you run a [beacon chain client only], or you can [run the beacon chain client
@@ -33,14 +33,14 @@ with validators] on a public testnet.
 ## Run validators on a testnet
 
 Consensus layer validators need to access an execution client to onboard new validators.
-Validators make deposits into execution layer, and existing consensus layer validators must
-process the deposits to allow the validators to join the consensus layer.
+New validators make deposits on the execution layer testnet, and existing consensus layer validators
+must process the deposits to allow the validators to join.
 
 Deposits are made into a deposit contract on the Goerli execution layer testnet.
 
 The steps to run a consensus layer validator on a testnet are:
 
-1. If using a local execution client, [sync the Ethereum 1.0 network containing
+1. If using a local execution client, [sync the execution layer network containing
     the deposit contract](#sync-the-execution-layer-network).
 
     !!! note
@@ -59,9 +59,9 @@ The steps to run a consensus layer validator on a testnet are:
 
 ### Sync the execution layer network
 
-This step is only required if using a local execution layer client.
+This step is only required if running your own execution client.
 
-This example uses Besu to connect to execution layer, but any client can be used.
+This example uses Besu as an execution client, but any client can be used.
 Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
 
 !!! example

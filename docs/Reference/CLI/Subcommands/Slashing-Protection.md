@@ -312,7 +312,7 @@ Possible values are:
 | `prater`  | Consensus layer | Test        | Multi-client testnet.                            |
 
 Predefined networks can provide defaults such the initial state of the network,
-bootnodes, and the address of the execution layer (formerly Ethereum 1.0) deposit contract.
+bootnodes, and the address of the deposit contract.
 
 ### `slot`
 

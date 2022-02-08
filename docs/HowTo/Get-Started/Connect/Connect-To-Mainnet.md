@@ -6,8 +6,8 @@ description: How to connect to Mainnet
 
 !!! note
 
-    The execution layer was formerly called "Eth 1.0". The consensus layer was formerly called "Eth 2.0".
-    For more information on the name change, refer to the [Ethereum Foundation update](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
+    This documentation has been updated in line with the name changes [recommended by the Ethereum Foundation](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
+    The execution layer is sometimes known as "Ethereum 1.0". The consensus layer is sometimes known as "Ethereum 2.0".
 
 The following instructions provide the steps run validators on the consensus layer Mainnet. You can
 also use Teku to run a [beacon node only].
@@ -15,7 +15,7 @@ also use Teku to run a [beacon node only].
 !!! warning
 
     If staking funds on the network, the funds are locked until transfers are enabled in a
-    future phase of the consensus layer network.
+    future upgrade of the consensus layer.
 
 Use the [validator checklist] as a guide to secure your validator keys and hardware.
 
@@ -23,19 +23,19 @@ Use the [validator checklist] as a guide to secure your validator keys and hardw
 
 * Install the latest stable version of Teku using a [binary distribution](../Installation-Options/Install-Binaries.md),
     or with [Docker](../Installation-Options/Run-Docker-Image.md).
-* If running validators, install any execution layer client (for example [Hyperledger Besu]), or access a
+* If running validators, install any execution client (for example [Hyperledger Besu]), or access a
     cloud-based service such as [Infura].
 
 ## Run validators on Mainnet
 
-Consensus layer validators need to access an execution layer client to onboard new validators.
-New validators make deposits into the execution client, and existing consensus layer validators must
-process the deposits to allow the new validators to join the consensus layer.
+Consensus layer validators need to access an execution client to onboard new validators.
+New validators make deposits on the execution layer, and existing consensus layer validators must
+process the deposits to allow the new validators to join.
 
 Deposits are made into a deposit contract on the execution layer Mainnet. The deposit contract address
 is `0x00000000219ab540356cbb839cbe05303d7705fa`.
 
-The steps to run an consensus layer validator on Mainnet are:
+The steps to run a consensus layer validator on Mainnet are:
 
 1. If running your own execution client, [sync the execution network containing
     the deposit contract](#sync-the-execution-layer-network).
@@ -58,7 +58,7 @@ The steps to run an consensus layer validator on Mainnet are:
 
 This step is only required if running your own execution client.
 
-This example uses Besu to connect to execution, but any client can be used.
+This example uses Besu as an execution client, but any client can be used.
 Configure Besu to [connect to Mainnet] and expose the RPC-HTTP APIs.
 
 !!! example
@@ -91,7 +91,7 @@ Syncing is complete when the head slot reaches the current slot.
     Ensure your Ethereum account has enough ETH to cover the required deposit amount (32 ETH) plus
     gas.
 
-Use the [Ethereum Skating Launchpad] to guide you through a step-by-step process to generate your keys and
+Use the [Ethereum Staking Launchpad] to guide you through a step-by-step process to generate your keys and
 send the deposits.
 
 !!! note
