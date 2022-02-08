@@ -22,7 +22,7 @@ keystores and the truststore that contain self-signed certificates.
     validators on the testnet.
 - [Teku Installed](../HowTo/Get-Started/Installation-Options/Install-Binaries.md).
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
-- A running Ethereum 1.0 node such as [Hyperledger Besu], or cloud-based service such as [Infura]
+- A running execution layer node such as [Hyperledger Besu], or cloud-based service such as [Infura]
     synced to the Goerli testnet.
 
 This tutorial connects to an ETH2 testnet, and uses [Infura] to access the

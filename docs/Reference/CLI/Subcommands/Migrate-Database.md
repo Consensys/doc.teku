@@ -125,14 +125,14 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
 
 Predefined network configuration.
 Accepts a predefined network name, or file path or URL to a YAML configuration file. See the
-[Ethereum 2.0 specification] for examples.
+[consenus specification](https://github.com/ethereum/consensus-specs/tree/master/configs) for examples.
 
 The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain   | Type       | Description                                      |
-|:----------|:--------|:-----------|:-------------------------------------------------|
-| `mainnet` | Eth 2.0 | Production | Main network.                                    |
-| `minimal` | Eth 2.0 | Test       | Used for local testing and development networks. |
-| `prater`  | Eth 2.0 | Test       | Multi-client testnet.                            |
+| Network   | Chain           | Type       | Description                                      |
+|:----------|:----------------|:-----------|:-------------------------------------------------|
+| `mainnet` | Consensus layer | Production | Main network.                                    |
+| `minimal` | Consensus layer | Test       | Used for local testing and development networks. |
+| `prater`  | Consensus layer | Test       | Multi-client testnet.                            |

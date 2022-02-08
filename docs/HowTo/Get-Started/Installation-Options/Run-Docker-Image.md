@@ -85,7 +85,7 @@ The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku nod
 !!! note
 
     The example assumes the validators specified in [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) has already
-    been registered in the Ethereum 1.0 deposit contract.
+    been registered in the execution layer deposit contract.
 
 Run `docker-compose up` in the directory containing the `docker-compose.yml` file
 to start the container.

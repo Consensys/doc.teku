@@ -2,8 +2,8 @@
 
 ## What is Teku?
 
-Teku is an open-source Ethereum 2.0 client written in Java. Teku contains a full Beacon node implementation
-and a validator client for participating in consensus.
+Teku is an open-source consensus layer (formerly called [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/)) client written in Java.
+Teku contains a full Beacon node implementation and a validator client for participating in consensus.
 
 ## What can you do with Teku?
 
@@ -12,10 +12,10 @@ Teku:
 * Runs the Beacon node synchronization and consensus.
 * Proposes and attests blocks.
 * Provides enterprise focused metrics with Prometheus.
-* Has REST APIs for managing Eth 2.0 node operations.
+* Has REST APIs for managing consensus layer node operations.
 * Has external key management to manage validator signing keys.
 
-## New to Ethereum 2.0?
+## New to Teku?
 
 Get started by running Teku with Docker or installing Teku.
 You can:

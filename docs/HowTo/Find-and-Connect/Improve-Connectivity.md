@@ -4,7 +4,7 @@ title: How to improve P2P connectivity
 
 # Improving P2P connectivity
 
-Ethereum 2.0 relies on peer-to-peer (P2P) networking. By having a good peer count you
+The consensus layer relies on peer-to-peer (P2P) networking. By having a good peer count you
 increase the performance and health of your node. When a Teku node starts up, it looks for
 participants on the P2P network by listening for incoming connections, and finds and connects to
 peers.

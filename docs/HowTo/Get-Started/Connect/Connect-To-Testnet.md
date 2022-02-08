@@ -4,7 +4,12 @@ description: How to connect to a testnet
 
 # Connect to a testnet
 
-The following instructions describe the process to connect Teku to an Ethereum 2.0 testnet.
+!!! note
+
+    The execution layer was formerly called "Eth 1.0". The consensus layer was formerly called "Eth 2.0".
+    For more information on the name change, refer to the [Ethereum Foundation update](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
+
+The following instructions describe the process to connect Teku to a consensus layer testnet.
 
 !!! important
 
@@ -19,7 +24,7 @@ The following instructions describe the process to connect Teku to an Ethereum 2
 
 * Install the latest stable version of Teku using a [binary distribution](../Installation-Options/Install-Binaries.md),
     or with [Docker](../Installation-Options/Run-Docker-Image.md).
-* If running validators, install any Ethereum 1.0 client (for example [Hyperledger Besu]), or access a
+* If running validators, install any execution layer client (for example [Hyperledger Besu]), or access a
     cloud-based service such as [Infura].
 
 Teku allows you run a [beacon chain client only], or you can [run the beacon chain client
@@ -27,23 +32,23 @@ with validators] on a public testnet.
 
 ## Run validators on a testnet
 
-Ethereum 2.0 validators need to access an Ethereum 1.0 client to onboard new validators.
-Validators make deposits into Ethereum 1.0, and existing Ethereum 2.0 validators must
-process the deposits to allow the validators to join Ethereum 2.0.
+Consensus layer validators need to access an execution client to onboard new validators.
+Validators make deposits into execution layer, and existing consensus layer validators must
+process the deposits to allow the validators to join the consensus layer.
 
-Deposits are made into a deposit contract on the Goerli Ethereum 1.0 testnet.
+Deposits are made into a deposit contract on the Goerli execution layer testnet.
 
-The steps to run an Ethereum 2.0 validator on a testnet are:
+The steps to run a consensus layer validator on a testnet are:
 
-1. If using a local Ethereum 1.0 client, [sync the Ethereum 1.0 network containing
-    the deposit contract](#sync-the-ethereum-10-network).
+1. If using a local execution client, [sync the Ethereum 1.0 network containing
+    the deposit contract](#sync-the-execution-layer-network).
 
     !!! note
-        This step is only required if using a local Ethereum 1.0 client such as Besu.
+        This step is only required if using a local execution client such as Besu.
         If using a cloud-based service such as Infura, proceed to
         [fund your deposit account](#load-the-deposit-account-with-eth).
 
-1. [Fund the Ethereum 1.0 deposit account](#load-the-deposit-account-with-eth).
+1. [Fund the execution layer deposit account](#load-the-deposit-account-with-eth).
 
 1. [Generate the validator keys and send the deposit to the deposit
     contract](#generate-the-validators-and-send-the-deposits).
@@ -52,11 +57,11 @@ The steps to run an Ethereum 2.0 validator on a testnet are:
 
 1. [Start Teku with the validator keys](#start-the-validator).
 
-### Sync the Ethereum 1.0 network
+### Sync the execution layer network
 
-This step is only required if using a local Ethereum 1.0 client.
+This step is only required if using a local execution layer client.
 
-This example uses Besu to connect to Ethereum 1.0, but any client can be used.
+This example uses Besu to connect to execution layer, but any client can be used.
 Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
 
 !!! example
@@ -68,7 +73,7 @@ Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
 
 ### Load the deposit account with ETH
 
-You need an Ethereum 1.0 Goerli testnet account that contains the amount of
+You need an execution layer Goerli testnet account that contains the amount of
 Goerli ETH (plus gas) required to activate the validator. The `prater` testnet
 requires 32 Goerli ETH per validator.
 
