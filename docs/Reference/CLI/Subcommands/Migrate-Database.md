@@ -125,7 +125,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
 
 Predefined network configuration.
 Accepts a predefined network name, or file path or URL to a YAML configuration file. See the
-[consenus specification](https://github.com/ethereum/consensus-specs/tree/master/configs) for examples.
+[consensus specification](https://github.com/ethereum/consensus-specs/tree/master/configs) for examples.
 
 The default is `mainnet`.
 
