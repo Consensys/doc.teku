@@ -7,7 +7,7 @@ description: How to connect to a testnet
 !!! note
 
     This documentation has been updated in line with the name changes [recommended by the Ethereum Foundation](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
-    The execution layer is sometimes known as "Ethereum 1.0". The consensus layer is sometimes known as "Ethereum 2.0".
+    The execution layer is sometimes known as "Ethereum 1.0." The consensus layer is sometimes known as "Ethereum 2.0."
 
 The following instructions describe the process to connect Teku to a consensus layer testnet.
 
