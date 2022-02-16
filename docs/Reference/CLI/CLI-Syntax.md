@@ -288,7 +288,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
     ```
 
-Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
+The address of the deposit contract. Only required when creating a custom network.
 
 The deposit contract address can also be defined in:
 
@@ -353,7 +353,7 @@ receiving warnings that the ETH1 node is unavailable.
     eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111"]
     ```
 
-Comma-separated list of JSON-RPC URLs of Ethereum 1.0 nodes. Each time Teku makes a call, it finds
+Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds
 the first provider in the list that is available, on the right chain, and in sync. This option must
 be specified if running a validator.
 
@@ -361,7 +361,7 @@ If not specified (that is, you're running a beacon chain client only), then prov
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
 [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to
 provide an initial state if running a public network which has already started (for example,
-MainNet or Prater).
+Mainnet or Prater).
 
 If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL. For
 example, `https://goerli.infura.io/v3/<Project_ID>`
@@ -824,20 +824,20 @@ The default is `8008`.
 
 Predefined network configuration.
 Accepts a predefined network name, or file path or URL to a YAML configuration file. See the
-[Ethereum 2.0 specification] for examples.
+[consensus specification] for examples.
 
 The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain   | Type       | Description                                      |
-|:----------|:--------|:-----------|:-------------------------------------------------|
-| `mainnet` | Eth 2.0 | Production | Main network.                                    |
-| `minimal` | Eth 2.0 | Test       | Used for local testing and development networks. |
-| `prater`  | Eth 2.0 | Test       | Multi-client testnet.                            |
+| Network   | Chain           | Type       | Description                                      |
+|:----------|:----------------|:-----------|:-------------------------------------------------|
+| `mainnet` | Consensus layer | Production | Main network.                                    |
+| `minimal` | Consensus layer | Test       | Used for local testing and development networks. |
+| `prater`  | Consensus layer | Test       | Multi-client testnet.                            |
 
 Predefined networks can provide defaults such as the initial state of the network,
-bootnodes, and the address of the Ethereum 1.0 deposit contract.
+bootnodes, and the address of the deposit contract.
 
 ### p2p-advertised-ip
 
@@ -2021,5 +2021,5 @@ or clear your weak subjectivity settings.
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
 [load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
 [recent finalized checkpoint state from which to sync]: ../../HowTo/Get-Started/Checkpoint-Start.md
-[Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-specs/tree/master/configs
+[consensus specification]: https://github.com/ethereum/consensus-specs/tree/master/configs
 [metrics]: ../../HowTo/Monitor/Metrics.md
