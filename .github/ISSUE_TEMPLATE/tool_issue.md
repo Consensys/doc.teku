@@ -1,48 +1,38 @@
 ---
-name: Doc tool bug report
-about: Create a report to help us improve our doc tools.
+name: Documentation tool bug report
+about: Create a report to help us improve our documentation tools.
 title: ''
 
 ---
 
-<!-- **IMPORTANT: this is only for reporting documentation tools bugs.**
+<!-- IMPORTANT: This is only for reporting documentation tool bugs.
 
-- Report Teku software issues at https://github.com/consensys/teku.
-- Report doc content issues using the "Doc content issue report" template.
+Report Teku software issues at https://github.com/consensys/teku.
+Report documentation content issues using the "Documentation content issue report" template.
 
-**Before creating a bug**, did you try refreshing your browser cache for our site?
+Before creating an issue, did you try refreshing your browser cache for the site?
 -->
 
 ## Describe the bug
 
-<!-- A clear and concise description of what the doc bug is. -->
+<!-- Add a clear and concise description of what the documentation bug is. -->
 
-## The broken page
+### Steps to reproduce
 
-[Paste the doc site page link here.]
+<!-- Include steps to reproduce the bug. -->
 
-## System (please complete the following information)
+### Expected behavior
 
- - OS: [Windows, macOS, Linux] and its version.
- - Browser: [Chrome, Firefox, Safari,…] and its version.
- - Plugins: list plugins activated in your Browser.
+<!-- Include what you expected to happen. -->
 
-## To Reproduce
+## System settings
 
-Steps to reproduce the behavior:
-1. Go to page '…'
-2. Click on '…'
-3. Scroll down to '…'
-4. See error
+<!-- Add the following information about your system: -->
 
-## Expected behavior
-
-<!-- A clear and concise description of what you expected to happen. -->
-
-## Screenshots
-
-<!-- If it helps to understand the issue, you may link an annotated screenshot or a small demo video. -->
+- OS and version:
+- Browser and version:
+- Plugins activated in your browser:
 
 ## More context
 
-<!-- Add any other context about the problem here. -->
+<!-- Add any other context about the problem here, for example, screenshots or a small demo video. -->

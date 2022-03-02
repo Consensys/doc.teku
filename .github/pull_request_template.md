@@ -1,65 +1,59 @@
-## Pull request checklist
+# Pull request checklist
 
-Use the following list to make sure your PR fits the Teku doc quality standard.
+Use the following template to make sure your PR fits the Teku documentation standard.
 
-### Before creating the pull request
-
-Make sure that:
-
-- [ ] you have read the [contribution guidelines](https://github.com/ConsenSys/doc.common/wiki/Contributing-to-Documentation).
-- [ ] you have [tested your changes locally](https://github.com/ConsenSys/doc.common/wiki/MkDocs-And-Custom-Markdown-Guide#preview-documentation-site-locally) before submitting them to the community for review.
-
-### After creating your pull request and tests finished
+## Before creating the PR
 
 Make sure that:
 
-- [ ] you have fixed all the issues raised by the tests, if any.
-- [ ] you have verified the rendering of your changes on
-  [ReadTheDocs.org PR preview](https://github.com/ConsenSys/doc.common/wiki/MkDocs-And-Custom-Markdown-Guide#preview-the-doc-site-for-your-pr-on-readthedocscom)
-  and updated the testing link (see [Testing](#testing)).
+- [ ] You've read the [contribution guidelines](https://consensys.net/docs/doctools/).
+- [ ] You've [previewed your changes locally](https://consensys.net/docs/doctools/en/latest/preview/old-system/#preview-locally).
 
 ## Describe the change
 
-<!-- A clear and concise description of what this PR changes in the documentation. -->
+<!-- Add a clear and concise description of what this PR changes in the documentation. -->
 
 ## Issue fixed
 
-<!-- Except for minor changes (typos, commas) it's required to have a Github issue linked to your
-pull request.
+<!-- Except for minor changes (e.g., typos or commas) it's required to have a GitHub issue linked to your PR.
 
-Use the following to make Github close the issue automatically when merging the PR:
-fixes #{your issue number}
+Add "fixes #{your issue number}" to close the issue automatically when the PR is merged.
 If multiple issues are involved, use one line for each issue.
 
-If you don't want to close the issue, use:
-see #{your issue number} -->
+If you don't want to close the issue, link to the issue with "see #{your issue number}". -->
 
-## Impacted parts <!-- check as many boxes as needed -->
+## Impacted parts
 
-### For content changes
+<!-- Check the items from the following lists that your PR impacts. You can check multiple boxes. -->
 
-- [ ] Doc content
-- [ ] Doc pages organisation
+For content changes:
 
-### For tools changes
+- [ ] Documentation content
+- [ ] Documentation page organization
+
+For tool changes:
 
 - [ ] CircleCI workflow
-- [ ] Build and QA tools (lint, vale,…)
+- [ ] Build and QA tools (e.g., lint or vale)
 - [ ] MkDocs templates
 - [ ] MkDocs configuration
 - [ ] Python dependencies
 - [ ] Node dependencies and JavaScript
-- [ ] ReadTheDocs configuration
+- [ ] Read the Docs configuration
 - [ ] GitHub integration
 
-## Testing
+## After creating your PR and tests have finished
 
-<!-- Steps to follow to review and test your changes.
-Add links to preview the pages changes here.
-Link format is https://pegasys-teku--{your PR number}.org.readthedocs.build/en/{your PR number}/
-Where {your PR number} must be replaced by the number of this PR, for instance 123
+Make sure that:
+
+- [ ] You've [fixed any issues](https://consensys.net/docs/doctools/en/latest/contribute/fix-cicd-errors/) raised by the tests.
+- [ ] You've [previewed your changes on Read the Docs](https://consensys.net/docs/doctools/en/latest/preview/old-system/#preview-on-read-the-docs)
+  and added a [preview link](#preview).
+
+## Preview
+
+<!-- Add the link to preview your changes on Read the Docs.
+
+The link format is "https://pegasys-teku--{your PR number}.org.readthedocs.build/en/{your PR number}/",
+where {your PR number} must be replaced by the number of this PR.
 -->
-
-## Screenshots / recording
-
-<!-- If it helps to understand your change, you may link an annotated screenshot or a small demo video. -->
