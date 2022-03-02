@@ -16,7 +16,7 @@ Before creating an issue, did you use the search field in the documentation to f
 ## Describe the bug
 
 <!-- Add a clear and concise description of what the documentation issue is.
-Also, check the issue type in the following list): -->
+Also, check the issue type in the following list: -->
 
 - [ ] Missing content
 - [ ] Outdated content
