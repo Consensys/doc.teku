@@ -11,14 +11,16 @@ Make sure that:
 
 ## Describe the change
 
-<!-- Add a clear and concise description of what this PR changes in the documentation. -->
+<!-- Add a clear and concise description of what your PR changes in the documentation. -->
 
 ## Issue fixed
 
-<!-- It's required to have a GitHub issue linked to your PR, except for minor changes (e.g., typos or commas).
+<!-- Link to the GitHub issue that your PR addresses.
 
 Add "fixes #{your issue number}" to close the issue automatically when the PR is merged.
-Add "see #{your issue number}" to link to the issue without automatically closing it when the PR is merged. -->
+
+If your PR doesn't completely fix the issue, add "see #{your issue number}" to link to the issue
+without automatically closing it. -->
 
 ## Impacted parts
 
