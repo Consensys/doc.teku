@@ -10,20 +10,13 @@ title: ''
 Report Teku software issues at https://github.com/consensys/teku.
 Report documentation content issues using the "Documentation content issue report" template.
 
-Before creating an issue, did you try refreshing your browser cache for the site?
+Before creating an issue, did you refresh your browser cache for the site?
 -->
 
 ## Describe the bug
 
-<!-- Add a clear and concise description of what the documentation bug is. -->
-
-### Steps to reproduce
-
-<!-- Include steps to reproduce the bug. -->
-
-### Expected behavior
-
-<!-- Include what you expected to happen. -->
+<!-- Add a clear and concise description of what the documentation bug is.
+Include steps to reproduce the bug and what you expected to happen. -->
 
 ## System settings
 
