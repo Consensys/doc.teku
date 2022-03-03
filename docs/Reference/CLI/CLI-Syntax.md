@@ -288,7 +288,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
     ```
 
-Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
+The address of the deposit contract. Only required when creating a custom network.
 
 The deposit contract address can also be defined in:
 
@@ -353,7 +353,7 @@ receiving warnings that the ETH1 node is unavailable.
     eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111"]
     ```
 
-Comma-separated list of JSON-RPC URLs of Ethereum 1.0 nodes. Each time Teku makes a call, it finds
+Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds
 the first provider in the list that is available, on the right chain, and in sync. This option must
 be specified if running a validator.
 
@@ -824,20 +824,20 @@ The default is `8008`.
 
 Predefined network configuration.
 Accepts a predefined network name, or file path or URL to a YAML configuration file. See the
-[Ethereum 2.0 specification] for examples.
+[consensus specification] for examples.
 
 The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain   | Type       | Description                                      |
-|:----------|:--------|:-----------|:-------------------------------------------------|
-| `mainnet` | Eth 2.0 | Production | Main network.                                    |
-| `minimal` | Eth 2.0 | Test       | Used for local testing and development networks. |
-| `prater`  | Eth 2.0 | Test       | Multi-client testnet.                            |
+| Network   | Chain           | Type       | Description                                      |
+|:----------|:----------------|:-----------|:-------------------------------------------------|
+| `mainnet` | Consensus layer | Production | Main network.                                    |
+| `minimal` | Consensus layer | Test       | Used for local testing and development networks. |
+| `prater`  | Consensus layer | Test       | Multi-client testnet.                            |
 
 Predefined networks can provide defaults such as the initial state of the network,
-bootnodes, and the address of the Ethereum 1.0 deposit contract.
+bootnodes, and the address of the deposit contract.
 
 ### p2p-advertised-ip
 
@@ -2260,16 +2260,10 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
     ws-checkpoint: "0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600"
     ```
 
-A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using either
-`<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`, or a URL containing the
-`<blockRoot>:<epochNumber>` in a JSON payload via the `ws_checkpoint` key.
-For example:
+A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using
+`<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`.
 
-```bash
---ws-checkpoint=https://beaconscan.com/ws_checkpoint
-```
-
-The weak subjectivity checkpoint is a recent finalized checkpoint on the correct chain. By
+The weak subjectivity checkpoint is a recent, finalized checkpoint on the correct chain. By
 supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long
 period follow the correct chain. It protects the node from long-range attacks by malicious actors.
 
@@ -2284,5 +2278,5 @@ or clear your weak subjectivity settings.
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
 [load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
 [recent finalized checkpoint state from which to sync]: ../../HowTo/Get-Started/Checkpoint-Start.md
-[Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-specs/tree/master/configs
+[consensus specification]: https://github.com/ethereum/consensus-specs/tree/master/configs
 [metrics]: ../../HowTo/Monitor/Metrics.md
