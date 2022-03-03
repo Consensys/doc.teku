@@ -61,11 +61,11 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
         }
         ```
 
-### Enable the validator REST API
+## Enable the validator client API
 
-The [validator REST API](https://consensys.github.io/teku/#tag/Validator-Required-Api) is a subset of API methods that are enabled separately from the other REST APIs.
+The [validator client API methods](https://consensys.github.io/teku/#tag/Validator) are enabled separately from the REST API methods.
 
-Enable the validator REST API from the command line by setting the
+Enable the validator client API service from the command line by setting the
 [`--validator-api-enabled`](../CLI/CLI-Syntax.md#validator-api-enabled) command line option to `true`.
 
 You can also interact with APIs using Swagger UI by enabling the API documentation endpoint by setting the
