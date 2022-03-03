@@ -34,7 +34,7 @@ For content changes:
 For tool changes:
 
 - [ ] CircleCI workflow
-- [ ] Build and QA tools (e.g., lint or vale)
+- [ ] Build and QA tools (for example lint or vale)
 - [ ] MkDocs templates
 - [ ] MkDocs configuration
 - [ ] Python dependencies
@@ -57,5 +57,3 @@ Make sure that:
 The link format is "https://pegasys-teku--{your PR number}.org.readthedocs.build/en/{your PR number}/",
 where {your PR number} is replaced by the number of this PR.
 -->
-
-<!-- TODO remove this debug, just a change to trigger CI.-->
