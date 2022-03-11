@@ -262,6 +262,63 @@ The default is `false`.
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
+### ee-endpoint
+
+=== "Syntax"
+
+    ```bash
+    --ee-endpoint=<URL>
+    ```
+
+=== "Example"
+
+    ```bash
+    --ee-endpoint=https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_EE_ENDPOINT=https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    ee-endpoint: "https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111"
+    ```
+
+JSON-RPC URL of the execution engine node.
+
+### ee-jwt-secret-file
+
+=== "Syntax"
+
+    ```bash
+    --ee-jwt-secret-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --ee-jwt-secret-file=ee-jwt-secret.hex
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_EE_JWT_SECRET_FILE=ee-jwt-secret.hex
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    ee-jwt-secret-file: "ee-jwt-secret.hex"
+    ```
+
+Location of the file specifying the hex-encoded 256-bit secret key to be used for verifying and generating JSON Web
+Tokens.
+
 ### eth1-deposit-contract-address
 
 === "Syntax"
@@ -2033,6 +2090,91 @@ Set the validator performance tracking strategy. Valid options are `LOGGING`, `M
 When `LOGGING` is enabled, attestation and block performance is reported as log messages. When
 `METRICS` is enabled, attestation and block performance is reported using [metrics] in the
 [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
+
+### validators-proposer-config
+
+=== "Syntax"
+
+    ```bash
+    --validators-proposer-config=<STRING>
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-proposer-config=/home/me/node/proposerConfig.json
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_PROPOSER_CONFIG=/home/me/node/proposerConfig.json
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-proposer-config: "/home/me/node/proposerConfig.json"
+    ```
+
+Remote URL or local file path from which to load proposer configuration.
+
+### validators-proposer-config-refresh-enabled
+
+=== "Syntax"
+
+    ```bash
+    --validators-proposer-config-refresh-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-proposer-config-refresh-enabled=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_PROPOSER_CONFIG_REFRESH_ENABLED=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-proposer-config-refresh-enabled: true
+    ```
+
+Set to `true` to enable reloading the proposer configuration on every proposer preparation (once per epoch).
+The default is `false`.
+
+### validators-proposer-default-fee-recipient
+
+=== "Syntax"
+
+    ```bash
+    --validators-proposer-default-fee-recipient=<ADDRESS>
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-proposer-default-fee-recipient=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_PROPOSER_DEFAULT_FEE_RECIPIENT=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-proposer-default-fee-recipient: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+    ```
+
+Default fee recipient when producing a new execution block.
 
 ### ws-checkpoint
 
