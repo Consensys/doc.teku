@@ -273,19 +273,19 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
 === "Example"
 
     ```bash
-    --ee-endpoint=https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111
+    --ee-endpoint=http://localhost:8545
     ```
 
 === "Environment variable"
 
     ```bash
-    TEKU_EE_ENDPOINT=https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111
+    TEKU_EE_ENDPOINT=http://localhost:8545
     ```
 
 === "Configuration file"
 
     ```bash
-    ee-endpoint: "https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111"
+    ee-endpoint: "http://localhost:8545"
     ```
 
 JSON-RPC URL of the execution engine node.
@@ -2117,7 +2117,7 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
     validators-proposer-config: "/home/me/node/proposerConfig.json"
     ```
 
-Remote URL or local file path from which to load proposer configuration.
+Remote URL or local file path from which to load the proposer configuration.
 
 ### validators-proposer-config-refresh-enabled
 
