@@ -2117,7 +2117,28 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
     validators-proposer-config: "/home/me/node/proposerConfig.json"
     ```
 
-Remote URL or local file path from which to load the proposer configuration.
+Remote URL or local file path to the proposer configuration file, which is a JSON file that specifies:
+
+- `proposer_config` - (optional) A proposer configuration for multiple validator public keys.
+- `default_config` - (required) A default proposer configuration for validator public keys not included in
+  `proposer_config`.
+  
+Each proposer configuration must specify a `fee_recipient`.
+
+!!! example "`proposerConfig.json`"
+
+    ```json
+    {
+      "proposer_config": {
+        "0xa057816155ad77931185101128655c0191bd0214c201ca48ed887f6c4c6adf334070efcd75140eada5ac83a92506dd7a": {
+          "fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
+        }
+      },
+      "default_config": {
+        "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+      }
+    }
+    ```
 
 ### validators-proposer-config-refresh-enabled
 
@@ -2145,7 +2166,8 @@ Remote URL or local file path from which to load the proposer configuration.
     validators-proposer-config-refresh-enabled: true
     ```
 
-Set to `true` to enable reloading the proposer configuration on every proposer preparation (once per epoch).
+Set to `true` to enable reloading the [proposer configuration](#validators-proposer-config) on every proposer
+preparation (once per epoch).
 The default is `false`.
 
 ### validators-proposer-default-fee-recipient
@@ -2174,7 +2196,8 @@ The default is `false`.
     validators-proposer-default-fee-recipient: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
     ```
 
-Default fee recipient when producing a new execution block.
+Default fee recipient used if `fee_recipient` isn't specified in the
+[default proposer configuration](#validators-proposer-config), when producing a new execution block.
 
 ### ws-checkpoint
 
