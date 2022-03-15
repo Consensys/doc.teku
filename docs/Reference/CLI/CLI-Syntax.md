@@ -2119,8 +2119,8 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
 
 Remote URL or local file path to the proposer configuration file, which is a JSON file that specifies:
 
-- `proposer_config` - (optional) A proposer configuration for multiple validator public keys.
-- `default_config` - (required) A default proposer configuration for validator public keys not included in
+* `proposer_config` - (optional) A proposer configuration for multiple validator public keys.
+* `default_config` - (required) A default proposer configuration for validator public keys not included in
   `proposer_config`.
   
 Each proposer configuration must specify a `fee_recipient`.
