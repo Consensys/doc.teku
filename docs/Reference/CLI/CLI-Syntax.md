@@ -2196,8 +2196,15 @@ The default is `false`.
     validators-proposer-default-fee-recipient: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
     ```
 
-Default fee recipient used if `fee_recipient` isn't specified in the
-[default proposer configuration](#validators-proposer-config), when producing a new execution block.
+Default fee recipient for all validator keys.
+When running a validator, this is an alternative to the `fee_recipient` in the
+[default proposer configuration](#validators-proposer-config).
+
+!!! important
+
+    We recommend using this option when running a beacon node serving APIs to other validator clients.
+    The specified fee recipient is used in rare cases when a validator requests a block production but its fee recipient
+    is still unknown for the beacon node.
 
 ### ws-checkpoint
 
