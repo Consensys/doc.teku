@@ -63,7 +63,7 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
 
 ## Enable the validator client API
 
-The [validator client API methods](https://consensys.github.io/teku/#tag/Validator) are enabled separately from the REST API methods.
+The [validator client API methods](https://ethereum.github.io/keymanager-APIs/) are enabled separately from the REST API methods.
 
 Enable the validator client API service from the command line by setting the
 [`--validator-api-enabled`](../CLI/CLI-Syntax.md#validator-api-enabled) command line option to `true`.
