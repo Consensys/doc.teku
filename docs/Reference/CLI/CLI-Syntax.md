@@ -273,22 +273,22 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
 === "Example"
 
     ```bash
-    --ee-endpoint=http://localhost:8545
+    --ee-endpoint=http://localhost:8550
     ```
 
 === "Environment variable"
 
     ```bash
-    TEKU_EE_ENDPOINT=http://localhost:8545
+    TEKU_EE_ENDPOINT=http://localhost:8550
     ```
 
 === "Configuration file"
 
     ```bash
-    ee-endpoint: "http://localhost:8545"
+    ee-endpoint: "http://localhost:8550"
     ```
 
-JSON-RPC URL of the execution engine node.
+URL of the execution client's Engine JSON RPC APIs.
 
 ### ee-jwt-secret-file
 
