@@ -796,6 +796,63 @@ Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
 Specifies the port (TCP) on which [Prometheus](https://prometheus.io/) accesses Teku metrics.
 The default is `8008`.
 
+### metrics-publish-endpoint
+
+=== "Syntax"
+
+    ```bash
+    --metrics-publish-endpoint=<URL>
+    ```
+
+=== "Example"
+
+    ```bash
+    --metrics-publish-endpoint=https://beaconcha.in/api/v1/client/metrics?apikey={apikey}
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_METRICS_PUBLISH_ENDPOINT=https://beaconcha.in/api/v1/client/metrics?apikey={apikey}
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    metrics-publish-endpoint: "https://beaconcha.in/api/v1/client/metrics?apikey={apikey}"
+    ```
+
+Endpoint URL of an external service such as [beaconcha.in](https://beaconcha.in/) to which Teku publishes metrics for node monitoring.
+
+### metrics-publish-interval
+
+=== "Syntax"
+
+    ```bash
+    --metrics-publish-interval=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --metrics-publish-interval=60
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_METRICS_PUBLISH_INTERVAL=60
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    metrics-publish-interval: "60"
+    ```
+
+Interval between metric publications to the external service defined in [metrics-publish-endpoint](#metrics-publish-endpoint), measured in seconds.
+The default is `60`.
+
 ### network
 
 === "Syntax"
