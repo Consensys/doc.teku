@@ -1576,7 +1576,7 @@ Teku node.
 Set to `true` to enable the Validator REST API documentation.
 The default is `false`.
 
-The documentation can be accessed at `http://<interface>:<port>/swagger-ui` where:
+The documentation can be accessed at `http://<interface>:<port>/swagger-docs` where:
 
 * `interface` is specified using [`--validator-api-interface`](#validator-api-interface)
 * `port` is specified using [`--validator-api-port`](#validator-api-port)
@@ -1607,7 +1607,7 @@ The documentation can be accessed at `http://<interface>:<port>/swagger-ui` wher
     validator-api-enabled: true
     ```
 
-Set to `true` to enable the [validator REST API](../Rest_API/Rest.md#enable-the-validator-rest-api).
+Set to `true` to enable the [validator client API](../Rest_API/Rest.md#enable-the-validator-client-api).
 The default is `false`.
 
 If set to `true`, then use [`--validator-api-host-allowlist`](#validator-api-host-allowlist) to limit access

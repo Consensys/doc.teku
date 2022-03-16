@@ -68,15 +68,15 @@ The [validator client API methods](https://ethereum.github.io/keymanager-APIs/) 
 Enable the validator client API service from the command line by setting the
 [`--validator-api-enabled`](../CLI/CLI-Syntax.md#validator-api-enabled) command line option to `true`.
 
-You can also interact with APIs using Swagger UI by enabling the API documentation endpoint by setting the
+You can also interact with APIs by enabling the API documentation endpoint by setting the
 [`--validator-api-docs-enabled`](../CLI/CLI-Syntax.md#validator-api-docs-enabled) option to `true`.
 
-Access the APIs at `http:<interface>:<port>/swagger-ui` where:
+Access the APIs at `http:<interface>:<port>/swagger-docs` where:
 
 * `interface` is specified using [`--validator-api-interface`](../CLI/CLI-Syntax.md#validator-api-interface)
 * `port` is specified using [`--validator-api-port`](../CLI/CLI-Syntax.md#validator-api-port)
 
-The default location is `http://localhost:5052/swagger-ui`.
+The default location is `http://localhost:5052/swagger-docs`.
 
 <!-- Links -->
 [REST API documentation]:https://consensys.github.io/teku/#stable
