@@ -1633,10 +1633,10 @@ Teku node.
 Set to `true` to enable the Validator REST API documentation.
 The default is `false`.
 
-The documentation can be accessed at `http://<interface>:<port>/swagger-docs` where:
+When enabling the API documentation endpoint, you must also specify:
 
-* `interface` is specified using [`--validator-api-interface`](#validator-api-interface)
-* `port` is specified using [`--validator-api-port`](#validator-api-port)
+* `interface` by using [`--validator-api-interface`](#validator-api-interface)
+* `port` by using [`--validator-api-port`](#validator-api-port)
 
 ### validator-api-enabled
 
