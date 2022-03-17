@@ -262,6 +262,63 @@ The default is `false`.
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
+### ee-endpoint
+
+=== "Syntax"
+
+    ```bash
+    --ee-endpoint=<URL>
+    ```
+
+=== "Example"
+
+    ```bash
+    --ee-endpoint=http://localhost:8550
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_EE_ENDPOINT=http://localhost:8550
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    ee-endpoint: "http://localhost:8550"
+    ```
+
+URL of the execution client's Engine JSON RPC APIs.
+
+### ee-jwt-secret-file
+
+=== "Syntax"
+
+    ```bash
+    --ee-jwt-secret-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --ee-jwt-secret-file=ee-jwt-secret.hex
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_EE_JWT_SECRET_FILE=ee-jwt-secret.hex
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    ee-jwt-secret-file: "ee-jwt-secret.hex"
+    ```
+
+Location of the file specifying the hex-encoded 256-bit secret key to be used for verifying and generating JSON Web
+Tokens.
+
 ### eth1-deposit-contract-address
 
 === "Syntax"
@@ -2290,6 +2347,121 @@ Set the validator performance tracking strategy. Valid options are `LOGGING`, `M
 When `LOGGING` is enabled, attestation and block performance is reported as log messages. When
 `METRICS` is enabled, attestation and block performance is reported using [metrics] in the
 [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
+
+### validators-proposer-config
+
+=== "Syntax"
+
+    ```bash
+    --validators-proposer-config=<STRING>
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-proposer-config=/home/me/node/proposerConfig.json
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_PROPOSER_CONFIG=/home/me/node/proposerConfig.json
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-proposer-config: "/home/me/node/proposerConfig.json"
+    ```
+
+Remote URL or local file path to the proposer configuration file, which is a JSON file that specifies:
+
+* `proposer_config` - (optional) A proposer configuration for multiple validator public keys.
+* `default_config` - (required) A default proposer configuration for validator public keys not included in
+  `proposer_config`.
+  
+Each proposer configuration must specify a `fee_recipient`.
+
+!!! example "`proposerConfig.json`"
+
+    ```json
+    {
+      "proposer_config": {
+        "0xa057816155ad77931185101128655c0191bd0214c201ca48ed887f6c4c6adf334070efcd75140eada5ac83a92506dd7a": {
+          "fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
+        }
+      },
+      "default_config": {
+        "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+      }
+    }
+    ```
+
+### validators-proposer-config-refresh-enabled
+
+=== "Syntax"
+
+    ```bash
+    --validators-proposer-config-refresh-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-proposer-config-refresh-enabled=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_PROPOSER_CONFIG_REFRESH_ENABLED=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-proposer-config-refresh-enabled: true
+    ```
+
+Set to `true` to enable reloading the [proposer configuration](#validators-proposer-config) on every proposer
+preparation (once per epoch).
+The default is `false`.
+
+### validators-proposer-default-fee-recipient
+
+=== "Syntax"
+
+    ```bash
+    --validators-proposer-default-fee-recipient=<ADDRESS>
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-proposer-default-fee-recipient=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_PROPOSER_DEFAULT_FEE_RECIPIENT=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-proposer-default-fee-recipient: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+    ```
+
+Default fee recipient for all validator keys.
+When running a validator, this is an alternative to the `fee_recipient` in the
+[default proposer configuration](#validators-proposer-config).
+
+!!! important
+
+    We recommend using this option when running a beacon node serving APIs to other validator clients.
+    The specified fee recipient is used in rare cases when a validator requests a block production but its fee recipient
+    is still unknown for the beacon node.
 
 ### ws-checkpoint
 
