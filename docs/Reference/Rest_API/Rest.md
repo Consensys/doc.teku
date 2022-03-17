@@ -68,11 +68,10 @@ The [validator client API methods](https://ethereum.github.io/keymanager-APIs/) 
 Enable the validator client API service from the command line by setting the
 [`--validator-api-enabled`](../CLI/CLI-Syntax.md#validator-api-enabled) command line option to `true`.
 
-Alternatively, the [OpenAPI specifications](https://swagger.io/specification/) for the validator client API can be consumed by an interface such as [swagger-docs](https://swagger.io/docs/).
-In order to generate the specifications, you must first enable the API documentation endpoint.
+The [OpenAPI specifications](https://swagger.io/specification/) for the validator client API are available at `/swagger-docs`
+when the [`--validator-api-docs-enabled`](../CLI/CLI-Syntax.md#validator-api-docs-enabled) option is set to `true`.
+The `/swagger-docs` endpoint defines the API if code generators are in use.
 
-Enable the API documentation endpoint by setting
-the [`--validator-api-docs-enabled`](../CLI/CLI-Syntax.md#validator-api-docs-enabled) option to `true`.
 When enabling the API documentation endpoint, specify the following:
 
 * `interface` is specified using [`--validator-api-interface`](../CLI/CLI-Syntax.md#validator-api-interface)
