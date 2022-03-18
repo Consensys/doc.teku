@@ -1626,7 +1626,7 @@ Displays the version and exits.
 === "Syntax"
 
     ```bash
-    --validator-api-cors-origins[=<url>[,<url>...]...] or "*"
+    --validator-api-cors-origins="<URL>"[,"<URL>",...] or "*"
     ```
 
 === "Example"
@@ -1647,8 +1647,7 @@ Displays the version and exits.
     validator-api-cors-origins: ["http://medomain.com","https://meotherdomain.com"]
     ```
 
-A list of domain URLs for CORS validation. You must enclose the URLs in double quotes and separate
-them with commas.
+A comma-separated list of domain URLs for CORS validation.
 
 Listed domains can access the node using validator API calls. If your client interacts with Teku
 using a browser app (such as a block explorer), add the client domain to the list.
@@ -1687,13 +1686,13 @@ Teku node.
     validator-api-docs-enabled: true
     ```
 
-Set to `true` to enable the Validator REST API documentation.
+Set to `true` to enable the [validator REST API documentation](../Rest_API/Rest.md#enable-the-validator-client-api).
 The default is `false`.
 
 When enabling the API documentation endpoint, you must also specify:
 
-* `interface` by using [`--validator-api-interface`](#validator-api-interface)
-* `port` by using [`--validator-api-port`](#validator-api-port)
+* `interface` by using [`--validator-api-interface`](#validator-api-interface).
+* `port` by using [`--validator-api-port`](#validator-api-port).
 
 ### validator-api-enabled
 
@@ -1753,7 +1752,7 @@ to trusted parties.
     validator-api-host-allowlist: ["medomain.com", "meotherdomain.com"]
     ```
 
-A comma-separated list of hostnames to allow access to the validator REST API. By
+A comma-separated list of hostnames to allow access to the [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api). By
 default, Teku accepts access from `localhost` and `127.0.0.1`.
 
 !!! warning
@@ -1790,7 +1789,7 @@ default, Teku accepts access from `localhost` and `127.0.0.1`.
     validator-api-interface: "0.0.0.0"
     ```
 
-Specifies the interface on which the validator REST API listens.
+The interface on which the [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api) listens.
 The default is `127.0.0.1`.
 
 ### validator-api-keystore-file
@@ -1847,7 +1846,7 @@ Keystore file for the validator REST API.
     validator-api-keystore-password-file: "keystore_pass.txt"
     ```
 
-Password used to decrypt the keystore for the validator REST API.
+Password used to decrypt the keystore for the [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api).
 
 ### validator-api-port
 
@@ -1875,7 +1874,7 @@ Password used to decrypt the keystore for the validator REST API.
     validator-api-port: 5052
     ```
 
-Specifies Validator REST API listening port (HTTP).
+The [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api) listening port (HTTP).
 The default is 5052.
 
 ### validator-keys

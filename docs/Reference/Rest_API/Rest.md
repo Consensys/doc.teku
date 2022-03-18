@@ -72,10 +72,10 @@ The [OpenAPI specifications](https://swagger.io/specification/) for the validato
 when the [`--validator-api-docs-enabled`](../CLI/CLI-Syntax.md#validator-api-docs-enabled) option is set to `true`.
 The `/swagger-docs` endpoint defines the API if code generators are in use.
 
-When enabling the API documentation endpoint, specify the following:
+When enabling the API documentation endpoint, specify:
 
-* `interface` using the [`--validator-api-interface`](../CLI/CLI-Syntax.md#validator-api-interface) option
-* `port` using the [`--validator-api-port`](../CLI/CLI-Syntax.md#validator-api-port) option
+* `interface` using the [`--validator-api-interface`](../CLI/CLI-Syntax.md#validator-api-interface) option.
+* `port` using the [`--validator-api-port`](../CLI/CLI-Syntax.md#validator-api-port) option.
 
 <!-- Links -->
 [REST API documentation]:https://consensys.github.io/teku/#stable
