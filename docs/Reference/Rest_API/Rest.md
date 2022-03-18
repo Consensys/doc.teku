@@ -74,8 +74,8 @@ The `/swagger-docs` endpoint defines the API if code generators are in use.
 
 When enabling the API documentation endpoint, specify the following:
 
-* `interface` is specified using [`--validator-api-interface`](../CLI/CLI-Syntax.md#validator-api-interface)
-* `port` is specified using [`--validator-api-port`](../CLI/CLI-Syntax.md#validator-api-port)
+* `interface` using the [`--validator-api-interface`](../CLI/CLI-Syntax.md#validator-api-interface) option
+* `port` using the [`--validator-api-port`](../CLI/CLI-Syntax.md#validator-api-port) option
 
 <!-- Links -->
 [REST API documentation]:https://consensys.github.io/teku/#stable
