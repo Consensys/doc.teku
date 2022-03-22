@@ -131,7 +131,7 @@ The default Docker image location is `/root/.local/share/teku`.
     data-beacon-path: "/home/me/me_beaon"
     ```
 
-Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
+Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### data-storage-archive-frequency
@@ -414,7 +414,7 @@ Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. E
 the first provider in the list that is available, on the right chain, and in sync. This option must
 be specified if running a validator.
 
-If not specified (that is, you're running a beacon chain client only), then provide an initial state
+If not specified (that is, you're running a beacon node only), then provide an initial state
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
 [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to
 provide an initial state if running a public network which has already started (for example,

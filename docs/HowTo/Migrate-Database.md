@@ -77,7 +77,7 @@ runs in [prune mode].
 
 To migrate a RocksDB database in [prune mode] to a LevelDB2 database:
 
-1. [Download the latest finalized state] from a beacon chain node:
+1. [Download the latest finalized state] from a beacon node:
 
     ```bash
     curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v2/debug/beacon/states/finalized

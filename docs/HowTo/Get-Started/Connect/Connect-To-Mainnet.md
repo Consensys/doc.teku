@@ -45,7 +45,7 @@ The steps to run a consensus layer validator on Mainnet are:
         If using a cloud-based service such as Infura, proceed to
         [sync the beacon node](#sync-the-beacon-node).
 
-1. [Sync the Teku beacon node with the beacon chain](#sync-the-beacon-node).
+1. [Sync the Teku beacon node with the Beacon Chain](#sync-the-beacon-node).
 
 1. [Generate the validator keys and send the deposit to the deposit
     contract](#generate-the-validators-and-send-the-deposits).
@@ -127,7 +127,7 @@ validator client on a [separate machine].
     beacon node. Otherwise you need to stop the [running beacon] node and restart it by supplying
     the validator keys.
 
-Once the validator is activated, view it on the beacon chain explorer at
+Once the validator is activated, view it on the Beacon Chain explorer at
 `https://beaconcha.in/validator/<validatorPublicKey>`.
 
 You can also use [Prometheus and Grafana] to monitor your nodes.
