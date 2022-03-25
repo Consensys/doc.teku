@@ -288,7 +288,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     ee-endpoint: "http://localhost:8550"
     ```
 
-URL of the execution client's Engine JSON RPC APIs.
+URL of the execution client's Engine JSON-RPC APIs.
 
 ### ee-jwt-secret-file
 

@@ -7,7 +7,8 @@ description: How to connect to Mainnet
 !!! note
 
     This documentation has been updated in line with the name changes [recommended by the Ethereum Foundation](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
-    The execution layer is sometimes known as "Ethereum 1.0." The consensus layer is sometimes known as "Ethereum 2.0."
+    The execution layer was previously known as "Ethereum 1.0."
+    The consensus layer was previously known as "Ethereum 2.0."
 
 The following instructions provide the steps run validators on the consensus layer Mainnet. You can
 also use Teku to run a [beacon node only].
@@ -23,8 +24,7 @@ Use the [validator checklist] as a guide to secure your validator keys and hardw
 
 * Install the latest stable version of Teku using a [binary distribution](../Installation-Options/Install-Binaries.md),
     or with [Docker](../Installation-Options/Run-Docker-Image.md).
-* If running validators, install any execution client (for example [Hyperledger Besu]), or access a
-    cloud-based service such as [Infura].
+* Install any execution client (for example [Hyperledger Besu]), or access a cloud-based service such as [Infura].
 
 ## Run validators on Mainnet
 

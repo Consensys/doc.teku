@@ -7,7 +7,8 @@ description: How to connect to a testnet
 !!! note
 
     This documentation has been updated in line with the name changes [recommended by the Ethereum Foundation](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
-    The execution layer is sometimes known as "Ethereum 1.0." The consensus layer is sometimes known as "Ethereum 2.0."
+    The execution layer was previously known as "Ethereum 1.0."
+    The consensus layer was previously known as "Ethereum 2.0."
 
 The following instructions describe the process to connect Teku to a consensus layer testnet.
 
@@ -16,6 +17,8 @@ The following instructions describe the process to connect Teku to a consensus l
     This example connects to the Prater testnet. If connecting to a different testnet,
     update the [`--network`](../../../Reference/CLI/CLI-Syntax.md#network) option in the examples
     accordingly.
+
+    See [this guide on testing Teku and Besu on the Kiln Merge testnet](LINK-TO-BESU-DOCS).
 
     Networks can experience stability issues and are prone to regular resets. We recommend you
     regularly check network and client documentation for updates.
