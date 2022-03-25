@@ -288,7 +288,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     ee-endpoint: "http://localhost:8550"
     ```
 
-URL of the execution client's Engine JSON-RPC APIs.
+URL of the [execution client's](../../Concepts/Merge.md#execution-and-consensus-clients) Engine JSON-RPC APIs.
 
 ### ee-jwt-secret-file
 
@@ -316,8 +316,11 @@ URL of the execution client's Engine JSON-RPC APIs.
     ee-jwt-secret-file: "ee-jwt-secret.hex"
     ```
 
-Location of the file specifying the hex-encoded 256-bit secret key to be used for verifying and generating JSON Web
-Tokens.
+Shared secret used to authenticate [execution clients](../../Concepts/Merge.md#execution-and-consensus-clients) when
+using the Engine JSON-RPC API.
+Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`.
+May be a relative or absolute path.
+See an [example of how to generate this](LINK-TO-BESU-DOCS).
 
 ### eth1-deposit-contract-address
 
