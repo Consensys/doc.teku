@@ -14,10 +14,6 @@ In Ethereum's PoS, you must run a [full node](Merge.md#execution-and-consensus-c
 
     Withdrawing staked ETH isn't yet supported and will be included in a separate upgrade following The Merge.
 
-!!! note
-
-    Consensus clients that don't perform validator duties are referred to as "beacon nodes" or "Beacon Chain clients."
-
 The PoS mechanism randomly chooses validators to propose or validate blocks on the
 [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) (consensus blocks) in defined time frames (slots).
 

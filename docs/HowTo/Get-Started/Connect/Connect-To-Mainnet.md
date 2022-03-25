@@ -24,7 +24,8 @@ Use the [validator checklist] as a guide to secure your validator keys and hardw
 
 * Install the latest stable version of Teku using a [binary distribution](../Installation-Options/Install-Binaries.md),
     or with [Docker](../Installation-Options/Run-Docker-Image.md).
-* Install any execution client (for example [Hyperledger Besu]), or access a cloud-based service such as [Infura].
+* If running validators, install any execution client (for example [Hyperledger Besu]), or access a
+    cloud-based service such as [Infura].
 
 ## Run validators on Mainnet
 
