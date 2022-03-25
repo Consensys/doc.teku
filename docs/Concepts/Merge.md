@@ -32,7 +32,7 @@ After The Merge, a Mainnet node operator must run both an execution client and a
 You must run a node to become a Mainnet [validator](Proof-of-Stake.md), but you can also run a non-validator node (run
 the consensus client as a beacon node only).
 
-You can [test Teku with Besu on the Kiln Merge testnet](LINK-TO-BESU-DOCS).
+You can [test Teku with Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
 
 You can [run Teku on Ethereum Mainnet](../HowTo/Get-Started/Connect/Connect-To-Mainnet.md).
 

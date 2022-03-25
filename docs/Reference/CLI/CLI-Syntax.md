@@ -320,7 +320,7 @@ Shared secret used to authenticate [execution clients](../../Concepts/Merge.md#e
 using the Engine JSON-RPC API.
 Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`.
 May be a relative or absolute path.
-See an [example of how to generate this](LINK-TO-BESU-DOCS).
+See an [example of how to generate this](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
 
 ### eth1-deposit-contract-address
 
