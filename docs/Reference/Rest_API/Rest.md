@@ -10,7 +10,7 @@ View the [REST API documentation] for more information about the available APIs.
 
 ## Enable the REST API service
 
-[Enable the REST API service](#enable-the-rest-api-service) from the command line by setting the
+Enable the REST API service from the command line by setting the
 [`--rest-api-enabled`](../CLI/CLI-Syntax.md#rest-api-enabled) command line option to `true`.
 
 You can also interact with APIs using Swagger UI by enabling the API documentation endpoint.
@@ -60,6 +60,22 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
            }
         }
         ```
+
+## Enable the validator client API
+
+The [validator client API methods](https://ethereum.github.io/keymanager-APIs/) are enabled separately from the REST API methods.
+
+Enable the validator client API service from the command line by setting the
+[`--validator-api-enabled`](../CLI/CLI-Syntax.md#validator-api-enabled) command line option to `true`.
+
+The [OpenAPI specifications](https://swagger.io/specification/) for the validator client API are available at `/swagger-docs`
+when the [`--validator-api-docs-enabled`](../CLI/CLI-Syntax.md#validator-api-docs-enabled) option is set to `true`.
+The `/swagger-docs` endpoint defines the API if code generators are in use.
+
+When enabling the API documentation endpoint, specify:
+
+* `interface` using the [`--validator-api-interface`](../CLI/CLI-Syntax.md#validator-api-interface) option.
+* `port` using the [`--validator-api-port`](../CLI/CLI-Syntax.md#validator-api-port) option.
 
 <!-- Links -->
 [REST API documentation]:https://consensys.github.io/teku/#stable
