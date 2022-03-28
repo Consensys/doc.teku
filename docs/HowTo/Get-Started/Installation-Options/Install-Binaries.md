@@ -55,14 +55,13 @@ To install Teku using Homebrew:
 
 ```bash
 brew tap ConsenSys/teku
-brew install teku
+brew install ConsenSys/teku/teku
 ```
 
 To upgrade Teku using Homebrew:
 
 ```bash
-brew tap ConsenSys/teku
-brew upgrade teku
+brew upgrade ConsenSys/teku/teku
 ```
 
 To display the Teku version and confirm installation:
