@@ -14,6 +14,8 @@ description: Install Teku from binary distribution
 
     Teku requires Java 11+ to compile; earlier versions are not supported.
 
+* If using Windows, install the [Microsoft Visual C++ 2010 security update](https://www.microsoft.com/en-us/download/details.aspx?id=26999).
+
 ### Install from packaged binaries
 
 Download the [Teku packaged binaries](https://github.com/ConsenSys/teku/releases).

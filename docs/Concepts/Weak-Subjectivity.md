@@ -19,12 +19,16 @@ can act dishonestly and continue feeding you blocks to lead you down the wrong c
 
 ## Safely sync your node
 
-Teku provides two methods to safely sync a node that's been offline for an extended period.
+Teku provides two methods to safely sync a node that is new to the network or has been offline for an extended period.
 
-1. Use [`--ws-checkpoint`](../Reference/CLI/CLI-Syntax.md#ws-checkpoint) to supply a weak
-    subjectivity checkpoint from which a node can securely update its view of the current state.
 1. Use [`--initial-state`](../Reference/CLI/CLI-Syntax.md#initial-state) to supply an SSZ encoded
     state file from which to sync.
+2. Use [`--ws-checkpoint`](../Reference/CLI/CLI-Syntax.md#ws-checkpoint) to supply a weak
+    subjectivity checkpoint by which a node can securely validate its view of the current state.
+
+We recommend using `--inital-state`.
+It provides the same security benefits as `--ws-checkpoint`, but syncs faster.
+The only exception is when syncing an archive node, in which case, use `--ws-checkpoint`.
 
 !!! tip
 

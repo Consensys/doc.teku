@@ -262,6 +262,63 @@ The default is `false`.
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
+### ee-endpoint
+
+=== "Syntax"
+
+    ```bash
+    --ee-endpoint=<URL>
+    ```
+
+=== "Example"
+
+    ```bash
+    --ee-endpoint=http://localhost:8550
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_EE_ENDPOINT=http://localhost:8550
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    ee-endpoint: "http://localhost:8550"
+    ```
+
+URL of the execution client's Engine JSON RPC APIs.
+
+### ee-jwt-secret-file
+
+=== "Syntax"
+
+    ```bash
+    --ee-jwt-secret-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --ee-jwt-secret-file=ee-jwt-secret.hex
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_EE_JWT_SECRET_FILE=ee-jwt-secret.hex
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    ee-jwt-secret-file: "ee-jwt-secret.hex"
+    ```
+
+Location of the file specifying the hex-encoded 256-bit secret key to be used for verifying and generating JSON Web
+Tokens.
+
 ### eth1-deposit-contract-address
 
 === "Syntax"
@@ -288,7 +345,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
     ```
 
-Ethereum 1.0 address of the deposit contract. Only required when creating a custom network.
+The address of the deposit contract. Only required when creating a custom network.
 
 The deposit contract address can also be defined in:
 
@@ -353,7 +410,7 @@ receiving warnings that the ETH1 node is unavailable.
     eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111"]
     ```
 
-Comma-separated list of JSON-RPC URLs of Ethereum 1.0 nodes. Each time Teku makes a call, it finds
+Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds
 the first provider in the list that is available, on the right chain, and in sync. This option must
 be specified if running a validator.
 
@@ -361,7 +418,7 @@ If not specified (that is, you're running a beacon chain client only), then prov
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
 [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to
 provide an initial state if running a public network which has already started (for example,
-MainNet or Prater).
+Mainnet or Prater).
 
 If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL. For
 example, `https://goerli.infura.io/v3/<Project_ID>`
@@ -796,6 +853,63 @@ Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
 Specifies the port (TCP) on which [Prometheus](https://prometheus.io/) accesses Teku metrics.
 The default is `8008`.
 
+### metrics-publish-endpoint
+
+=== "Syntax"
+
+    ```bash
+    --metrics-publish-endpoint=<URL>
+    ```
+
+=== "Example"
+
+    ```bash
+    --metrics-publish-endpoint=https://beaconcha.in/api/v1/client/metrics?apikey={apikey}
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_METRICS_PUBLISH_ENDPOINT=https://beaconcha.in/api/v1/client/metrics?apikey={apikey}
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    metrics-publish-endpoint: "https://beaconcha.in/api/v1/client/metrics?apikey={apikey}"
+    ```
+
+Endpoint URL of an external service such as [beaconcha.in](https://beaconcha.in/) to which Teku publishes metrics for node monitoring.
+
+### metrics-publish-interval
+
+=== "Syntax"
+
+    ```bash
+    --metrics-publish-interval=<INTEGER>
+    ```
+
+=== "Example"
+
+    ```bash
+    --metrics-publish-interval=60
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_METRICS_PUBLISH_INTERVAL=60
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    metrics-publish-interval: "60"
+    ```
+
+Interval between metric publications to the external service defined in [metrics-publish-endpoint](#metrics-publish-endpoint), measured in seconds.
+The default is `60`.
+
 ### network
 
 === "Syntax"
@@ -824,20 +938,20 @@ The default is `8008`.
 
 Predefined network configuration.
 Accepts a predefined network name, or file path or URL to a YAML configuration file. See the
-[Ethereum 2.0 specification] for examples.
+[consensus specification] for examples.
 
 The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain   | Type       | Description                                      |
-|:----------|:--------|:-----------|:-------------------------------------------------|
-| `mainnet` | Eth 2.0 | Production | Main network.                                    |
-| `minimal` | Eth 2.0 | Test       | Used for local testing and development networks. |
-| `prater`  | Eth 2.0 | Test       | Multi-client testnet.                            |
+| Network   | Chain           | Type       | Description                                      |
+|:----------|:----------------|:-----------|:-------------------------------------------------|
+| `mainnet` | Consensus layer | Production | Main network.                                    |
+| `minimal` | Consensus layer | Test       | Used for local testing and development networks. |
+| `prater`  | Consensus layer | Test       | Multi-client testnet.                            |
 
 Predefined networks can provide defaults such as the initial state of the network,
-bootnodes, and the address of the Ethereum 1.0 deposit contract.
+bootnodes, and the address of the deposit contract.
 
 ### p2p-advertised-ip
 
@@ -1507,6 +1621,262 @@ The default is 5051.
 
 Displays the version and exits.
 
+### validator-api-cors-origins
+
+=== "Syntax"
+
+    ```bash
+    --validator-api-cors-origins="<URL>"[,"<URL>",...] or "*"
+    ```
+
+=== "Example"
+
+    ```bash
+    --validator-api-cors-origins="http://medomain.com","https://meotherdomain.com"
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATOR_API_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validator-api-cors-origins: ["http://medomain.com","https://meotherdomain.com"]
+    ```
+
+A comma-separated list of domain URLs for CORS validation.
+
+Listed domains can access the node using validator API calls. If your client interacts with Teku
+using a browser app (such as a block explorer), add the client domain to the list.
+
+The default is "none." If you don't list any domains, browser apps can't interact with your
+Teku node.
+
+!!! tip
+
+    For testing and development purposes, use `*` to accept requests from any domain.
+    We don’t recommend accepting requests from any domain for production environments.
+
+### validator-api-docs-enabled
+
+=== "Syntax"
+
+    ```bash
+    --validator-api-docs-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --validator-api-docs-enabled=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATOR_API_DOCS_ENABLED=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validator-api-docs-enabled: true
+    ```
+
+Set to `true` to enable the [validator REST API documentation](../Rest_API/Rest.md#enable-the-validator-client-api).
+The default is `false`.
+
+When enabling the API documentation endpoint, you must also specify:
+
+* `interface` by using [`--validator-api-interface`](#validator-api-interface).
+* `port` by using [`--validator-api-port`](#validator-api-port).
+
+### validator-api-enabled
+
+=== "Syntax"
+
+    ```bash
+    --validator-api-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --validator-api-enabled=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATOR_API_ENABLED=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validator-api-enabled: true
+    ```
+
+Set to `true` to enable the [validator client API](../Rest_API/Rest.md#enable-the-validator-client-api).
+The default is `false`.
+
+If set to `true`, then use [`--validator-api-host-allowlist`](#validator-api-host-allowlist) to limit access
+to trusted parties.
+
+### validator-api-host-allowlist
+
+=== "Syntax"
+
+    ```bash
+    --validator-api-host-allowlist=<hostname>[,<hostname>...]... or "*"
+    ```
+
+=== "Example"
+
+    ```bash
+    --validator-api-host-allowlist=medomain.com,meotherdomain.com
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATOR_API_HOST_ALLOWLIST=medomain.com,meotherdomain.com
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validator-api-host-allowlist: ["medomain.com", "meotherdomain.com"]
+    ```
+
+A comma-separated list of hostnames to allow access to the [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api). By
+default, Teku accepts access from `localhost` and `127.0.0.1`.
+
+!!! warning
+
+    Only trusted parties should access the API. Do not directly expose these APIs publicly on
+    production nodes.
+
+    We don't recommend allowing all hostnames (`"*"`) for production environments.
+
+### validator-api-interface
+
+=== "Syntax"
+
+    ```bash
+    --validator-api-interface=<HOST>
+    ```
+
+=== "Example"
+
+    ```bash
+    # to listen on all interfaces
+    --validator-api-interface=0.0.0.0
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATOR_API_INTERFACE=0.0.0.0
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validator-api-interface: "0.0.0.0"
+    ```
+
+The interface on which the [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api) listens.
+The default is `127.0.0.1`.
+
+### validator-api-keystore-file
+
+=== "Syntax"
+
+    ```bash
+    --validator-api-keystore-file=<keystoreFile>
+    ```
+
+=== "Example"
+
+    ```bash
+    --validator-api-keystore-file=teku_client_truststore.p12
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATOR_API_KEYSTORE_FILE=teku_client_truststore.p12
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validator-api-keystore-file: "teku_client_truststore.p12"
+    ```
+
+Keystore file for the validator REST API.
+
+### validator-api-keystore-password-file
+
+=== "Syntax"
+
+    ```bash
+    --validator-api-keystore-password-file=<keystorePasswordFile>
+    ```
+
+=== "Example"
+
+    ```bash
+    --validator-api-keystore-password-file=keystore_pass.txt
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATOR_API_KEYSTORE_PASSWORD_FILE=keystore_pass.txt
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validator-api-keystore-password-file: "keystore_pass.txt"
+    ```
+
+Password used to decrypt the keystore for the [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api).
+
+### validator-api-port
+
+=== "Syntax"
+
+    ```bash
+    --validator-api-port=<PORT>
+    ```
+
+=== "Example"
+
+    ```bash
+    --validator-api-port=5052
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATOR_API_PORT=5052
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validator-api-port: 5052
+    ```
+
+The [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api) listening port (HTTP).
+The default is 5052.
+
 ### validator-keys
 
 === "Syntax"
@@ -1977,6 +2347,121 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
 `METRICS` is enabled, attestation and block performance is reported using [metrics] in the
 [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
 
+### validators-proposer-config
+
+=== "Syntax"
+
+    ```bash
+    --validators-proposer-config=<STRING>
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-proposer-config=/home/me/node/proposerConfig.json
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_PROPOSER_CONFIG=/home/me/node/proposerConfig.json
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-proposer-config: "/home/me/node/proposerConfig.json"
+    ```
+
+Remote URL or local file path to the proposer configuration file, which is a JSON file that specifies:
+
+* `proposer_config` - (optional) A proposer configuration for multiple validator public keys.
+* `default_config` - (required) A default proposer configuration for validator public keys not included in
+  `proposer_config`.
+  
+Each proposer configuration must specify a `fee_recipient`.
+
+!!! example "`proposerConfig.json`"
+
+    ```json
+    {
+      "proposer_config": {
+        "0xa057816155ad77931185101128655c0191bd0214c201ca48ed887f6c4c6adf334070efcd75140eada5ac83a92506dd7a": {
+          "fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
+        }
+      },
+      "default_config": {
+        "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+      }
+    }
+    ```
+
+### validators-proposer-config-refresh-enabled
+
+=== "Syntax"
+
+    ```bash
+    --validators-proposer-config-refresh-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-proposer-config-refresh-enabled=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_PROPOSER_CONFIG_REFRESH_ENABLED=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-proposer-config-refresh-enabled: true
+    ```
+
+Set to `true` to enable reloading the [proposer configuration](#validators-proposer-config) on every proposer
+preparation (once per epoch).
+The default is `false`.
+
+### validators-proposer-default-fee-recipient
+
+=== "Syntax"
+
+    ```bash
+    --validators-proposer-default-fee-recipient=<ADDRESS>
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-proposer-default-fee-recipient=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_PROPOSER_DEFAULT_FEE_RECIPIENT=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-proposer-default-fee-recipient: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+    ```
+
+Default fee recipient for all validator keys.
+When running a validator, this is an alternative to the `fee_recipient` in the
+[default proposer configuration](#validators-proposer-config).
+
+!!! important
+
+    We recommend using this option when running a beacon node serving APIs to other validator clients.
+    The specified fee recipient is used in rare cases when a validator requests a block production but its fee recipient
+    is still unknown for the beacon node.
+
 ### ws-checkpoint
 
 === "Syntax"
@@ -2003,16 +2488,10 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
     ws-checkpoint: "0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600"
     ```
 
-A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using either
-`<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`, or a URL containing the
-`<blockRoot>:<epochNumber>` in a JSON payload via the `ws_checkpoint` key.
-For example:
+A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using
+`<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`.
 
-```bash
---ws-checkpoint=https://beaconscan.com/ws_checkpoint
-```
-
-The weak subjectivity checkpoint is a recent finalized checkpoint on the correct chain. By
+The weak subjectivity checkpoint is a recent, finalized checkpoint on the correct chain. By
 supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long
 period follow the correct chain. It protects the node from long-range attacks by malicious actors.
 
@@ -2027,5 +2506,5 @@ or clear your weak subjectivity settings.
 [weak subjectivity period]: ../../Concepts/Weak-Subjectivity.md
 [load new validators without restarting Teku]: ../../HowTo/Load-Validators-No-Restart.md
 [recent finalized checkpoint state from which to sync]: ../../HowTo/Get-Started/Checkpoint-Start.md
-[Ethereum 2.0 specification]: https://github.com/ethereum/eth2.0-specs/tree/master/configs
+[consensus specification]: https://github.com/ethereum/consensus-specs/tree/master/configs
 [metrics]: ../../HowTo/Monitor/Metrics.md
