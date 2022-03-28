@@ -16,7 +16,9 @@ After The Merge, a full Ethereum Mainnet node will be a combination of an execut
 called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client).
 
 Execution clients, such as [Besu], manage the state and execute transactions on the execution layer.
-Consensus clients, such as Teku, maintain [consensus](Proof-of-Stake.md) on the [Beacon Chain] (consensus layer).
+Consensus clients, such as Teku, contain beacon node and validator client implementations.
+The beacon node is the primary link to the [Beacon Chain] (consensus layer).
+The validator client performs [validator duties](Proof-of-Stake.md) on the consensus layer.
 
 Execution and consensus clients communicate with each other using the
 [Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).
@@ -28,11 +30,12 @@ Execution clients communicate among each other in a peer-to-peer network, and co
 
 ### Run a node
 
-After The Merge, a Mainnet node operator must run both an execution client and a consensus client at the same time.
-You must run a node to become a Mainnet [validator](Proof-of-Stake.md), but you can also run a non-validator node (run
-the consensus client as a beacon node only).
+After The Merge, a Mainnet node operator must run both an execution client and a beacon node at the same time.
+To become a validator, you must also run a validator client (either
+[in the same process as the beacon node](../HowTo/Get-Started/Run-Teku.md#start-the-clients-in-a-single-process) or
+[separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately).
 
-You can [test Teku with Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
+You can [test Teku with Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/latest/Tutorials/Merge-Testnet/).
 
 You can [run Teku on Ethereum Mainnet](../HowTo/Get-Started/Connect/Connect-To-Mainnet.md).
 

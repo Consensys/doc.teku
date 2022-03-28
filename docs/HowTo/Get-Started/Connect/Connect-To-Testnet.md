@@ -18,7 +18,7 @@ The following instructions describe the process to connect Teku to a consensus l
     update the [`--network`](../../../Reference/CLI/CLI-Syntax.md#network) option in the examples
     accordingly.
 
-    See [this guide on testing Teku and Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
+    See [this guide on testing Teku and Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/latest/Tutorials/Merge-Testnet/).
 
     Networks can experience stability issues and are prone to regular resets. We recommend you
     regularly check network and client documentation for updates.

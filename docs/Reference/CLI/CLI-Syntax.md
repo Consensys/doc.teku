@@ -318,9 +318,9 @@ URL of the [execution client's](../../Concepts/Merge.md#execution-and-consensus-
 
 Shared secret used to authenticate [execution clients](../../Concepts/Merge.md#execution-and-consensus-clients) when
 using the Engine JSON-RPC API.
-Contents of file must be at least 32 hex-encoded bytes and not begin with `0x`.
+Contents of file must be 32 hex-encoded bytes.
 May be a relative or absolute path.
-See an [example of how to generate this](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
+See an [example of how to generate this](https://besu.hyperledger.org/en/latest/Tutorials/Merge-Testnet/).
 
 ### eth1-deposit-contract-address
 
