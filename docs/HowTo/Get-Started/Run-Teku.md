@@ -63,7 +63,7 @@ validators to connect to the beacon node.
 
 !!! warning
     Don't pass the validator keys as a command line option to both the beacon node and
-    validator client. This can cause a [slashable offence].
+    validator client. This can cause a [slashable offense].
 
 By default, [validator clients] can connect to the beacon node at `http://127.0.0.1:5051`.
 Use the [`--rest-api-interface`](../../Reference/CLI/CLI-Syntax.md#rest-api-interface)
@@ -92,7 +92,7 @@ a Teku as a validator.
 !!! warning
     Ensure that the validator keys are only provided to the validator. Don't pass the validator
     keys as command line options to both the beacon node and validator client. This can a
-    cause a [slashable offence].
+    cause a [slashable offense].
 
 Specify the beacon node using the
 [`--beacon-node-api-endpoint`](../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint)
@@ -128,5 +128,5 @@ The endpoint returns the status `200 OK` if the node is up or syncing.
 [running beacon node]: #start-the-beacon-node
 [Validator keystores]: Connect/Connect-To-Testnet.md#generate-the-validators-and-send-the-deposits
 [password files]: Connect/Connect-To-Testnet.md#create-a-password-file-for-each-validator-key
-[slashable offence]: ../../Concepts/Slashing-Protection.md
+[slashable offense]: ../../Concepts/Slashing-Protection.md
 [single process]: #start-the-clients-in-a-single-process
