@@ -22,7 +22,7 @@ In Ethereum's PoS, you must run a [full node](Merge.md#execution-and-consensus-c
     [separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately).
 
 The PoS mechanism randomly chooses validators to propose or validate blocks on the
-[Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) (consensus blocks) in defined time frames.
+[Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) in defined time frames.
 
 Proposers are responsible for proposing new consensus blocks, and non-proposing validators are responsible for
 validating (attesting to) proposed blocks.
@@ -35,7 +35,7 @@ execute and validate the payload.
 When a node validates a consensus block, its [consensus client](Merge.md#execution-and-consensus-clients) processes
 the block and sends the execution payload to the [execution client](Merge.md#execution-and-consensus-clients), which:
 
-1. Assembles a block on the execution layer (execution block).
+1. Assembles a block on the execution layer.
 1. Verifies pre-conditions.
 1. Executes transactions.
 1. Verifies post-conditions.

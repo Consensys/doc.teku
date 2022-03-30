@@ -15,18 +15,24 @@ After The Merge, a full Ethereum Mainnet node will be a combination of an execut
 [Ethereum 1.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client) and a consensus client (previously
 called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client).
 
+Execution and consensus clients communicate with each other using the
+[Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).
+
+![Ethereum Merge node](../images/Execution-Consensus-Clients.png)
+
+### Execution clients
+
 Execution clients, such as [Besu], manage the state and execute transactions on the execution layer.
+Execution clients serve [JSON-RPC API](https://besu.hyperledger.org/en/stable/Reference/API-Methods/) requests and
+communicate with each other in a peer-to-peer network
+
+### Consensus clients
+
 Consensus clients, such as Teku, contain beacon node and validator client implementations.
 The beacon node is the primary link to the [Beacon Chain] (consensus layer).
 The validator client performs [validator duties](Proof-of-Stake.md) on the consensus layer.
-
-Execution and consensus clients communicate with each other using the
-[Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).
-Execution clients serve [JSON-RPC API](https://besu.hyperledger.org/en/stable/Reference/API-Methods/) requests and
-consensus clients serve [REST API](../Reference/Rest_API/Rest.md) requests.
-Execution clients communicate among each other in a peer-to-peer network, and consensus clients do the same.
-
-![Ethereum Merge node](../images/Execution-Consensus-Clients.png)
+Consensus clients serve [REST API](../Reference/Rest_API/Rest.md) requests and communicate with each other in a
+peer-to-peer network.
 
 ### Run a node
 
@@ -37,7 +43,7 @@ To become a validator, you must also run a validator client (either
 
 You can [test Teku with Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/latest/Tutorials/Merge-Testnet/).
 
-You can [run Teku on Ethereum Mainnet](../HowTo/Get-Started/Connect/Connect-To-Mainnet.md).
+You can [run Teku with Besu on Ethereum Mainnet](../HowTo/Get-Started/Connect/Connect-To-Mainnet.md).
 
 <!-- links -->
 [Beacon Chain]: https://ethereum.org/en/upgrades/beacon-chain/
