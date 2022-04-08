@@ -83,6 +83,8 @@ nav:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
+        - Proof of stake: Concepts/Proof-of-Stake.md
+        - The Merge: Concepts/Merge.md
         - Node private key: Concepts/P2P-Private-Key.md
         - Slashing protection: Concepts/Slashing-Protection.md
         - Weak subjectivity: Concepts/Weak-Subjectivity.md

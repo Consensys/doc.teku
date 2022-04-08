@@ -93,8 +93,8 @@ To configure Prometheus and run with Teku:
         The available metrics are prefixed with the category type specified using
         [`--metrics-categories`](../../Reference/CLI/CLI-Syntax.md#metrics-categories).
 
-        The [beacon chain metrics] lists the minimum set of metrics implemented by
-        beacon chain clients.
+        The [Beacon Chain metrics] lists the minimum set of metrics implemented by
+        beacon nodes.
 
 Click the **Graph** tab to view the data as a time-based graph. The query string displays below
 the graph.
@@ -106,5 +106,5 @@ Use
 [Teku Grafana dashboard](https://grafana.com/grafana/dashboards/13457).
 
 <!-- Links -->
-[beacon chain metrics]: https://github.com/ethereum/beacon-metrics/blob/master/metrics.md
+[Beacon Chain metrics]: https://github.com/ethereum/beacon-metrics/blob/master/metrics.md
 [Grafana]: https://grafana.com/docs/grafana/latest/guides/getting_started/

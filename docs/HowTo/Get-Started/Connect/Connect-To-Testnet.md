@@ -7,7 +7,8 @@ description: How to connect to a testnet
 !!! note
 
     This documentation has been updated in line with the name changes [recommended by the Ethereum Foundation](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
-    The execution layer is sometimes known as "Ethereum 1.0." The consensus layer is sometimes known as "Ethereum 2.0."
+    The execution layer was previously known as "Ethereum 1.0."
+    The consensus layer was previously known as "Ethereum 2.0."
 
 The following instructions describe the process to connect Teku to a consensus layer testnet.
 
@@ -16,6 +17,8 @@ The following instructions describe the process to connect Teku to a consensus l
     This example connects to the Prater testnet. If connecting to a different testnet,
     update the [`--network`](../../../Reference/CLI/CLI-Syntax.md#network) option in the examples
     accordingly.
+
+    See [this guide on testing Teku and Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/latest/Tutorials/Merge-Testnet/).
 
     Networks can experience stability issues and are prone to regular resets. We recommend you
     regularly check network and client documentation for updates.
@@ -27,7 +30,7 @@ The following instructions describe the process to connect Teku to a consensus l
 * If running validators, install any execution client (for example [Hyperledger Besu]), or access a
     cloud-based service such as [Infura].
 
-Teku allows you run a [beacon chain client only], or you can [run the beacon chain client
+Teku allows you run a [beacon node only], or you can [run the beacon node
 with validators] on a public testnet.
 
 ## Run validators on a testnet
@@ -138,12 +141,12 @@ specify the directory to load multiple keys and passwords from.
     --metrics-enabled
     ```
 
-Once the validator is activated, view it on the beacon chain explorer at
+Once the validator is activated, view it on the Beacon Chain explorer at
 `https://prater.beaconcha.in/validator/<validatorPublicKey>`.
 
-## Run a beacon chain client only
+## Run a beacon node only
 
-You can run a Teku beacon chain node on a network without any validators.
+You can run a Teku beacon node on a network without any validators.
 
 !!! example
 
@@ -161,8 +164,8 @@ You can run a Teku beacon chain node on a network without any validators.
 
 <!-- links -->
 [Hyperledger Besu]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Install-Binaries/
-[beacon chain client only]: #run-a-beacon-chain-client-only
-[run the beacon chain client with validators]: #run-validators-on-a-testnet
+[beacon node only]: #run-a-beacon-node-only
+[run the beacon node with validators]: #run-validators-on-a-testnet
 [Metamask]: https://metamask.io/
 [faucet]: https://faucet.goerli.mudit.blog/
 [connect to Goerli]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet

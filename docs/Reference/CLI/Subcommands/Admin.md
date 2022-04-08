@@ -97,7 +97,7 @@ The default Docker image location is `/root/.local/share/teku`.
     data-beacon-path: "/home/me/me_beaon"
     ```
 
-Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
+Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### `data-storage-archive-frequency`
@@ -354,7 +354,7 @@ The default Docker image location is `/root/.local/share/teku`.
     data-beacon-path: "/home/me/me_beaon"
     ```
 
-Path to the beacon chain client data. The default is `<data-base-path>/beacon` where `<data-base-path>`
+Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### `data-storage-archive-frequency`
