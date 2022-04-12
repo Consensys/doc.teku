@@ -16,7 +16,7 @@ After The Merge, a full Ethereum Mainnet node will be a combination of an execut
 called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client).
 
 Execution and consensus clients communicate with each other using the
-[Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).
+[Engine API](https://besu.hyperledger.org/en/latest/HowTo/Interact/APIs/Engine-API/).
 
 ![Ethereum Merge node](../images/Execution-Consensus-Clients.png)
 
@@ -24,7 +24,7 @@ Execution and consensus clients communicate with each other using the
 
 Execution clients, such as [Besu], manage the state and execute transactions on the execution layer.
 Execution clients serve [JSON-RPC API](https://besu.hyperledger.org/en/stable/Reference/API-Methods/) requests and
-communicate with each other in a peer-to-peer network
+communicate with each other in a peer-to-peer network.
 
 ### Consensus clients
 
