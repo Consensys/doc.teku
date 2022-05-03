@@ -2440,19 +2440,19 @@ The default is `false`.
 === "Example"
 
     ```bash
-    --validators-proposer-default-fee-recipient=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
+    --validators-proposer-default-fee-recipient=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73
     ```
 
 === "Environment variable"
 
     ```bash
-    TEKU_VALIDATORS_PROPOSER_DEFAULT_FEE_RECIPIENT=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
+    TEKU_VALIDATORS_PROPOSER_DEFAULT_FEE_RECIPIENT=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73
     ```
 
 === "Configuration file"
 
     ```bash
-    validators-proposer-default-fee-recipient: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+    validators-proposer-default-fee-recipient: "0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"
     ```
 
 Default fee recipient for all validator keys.
