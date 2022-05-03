@@ -55,5 +55,5 @@ When calling an endpoint that requires authorization, you must send the generate
 !!! example
 
     ```bash
-    curl -X POST -H 'Authorization: Bearer <JWT_TOKEN>' -d '{"jsonrpc":"2.0","method":"<API_METHOD>","params":[],"id":1}' <JSON-RPC-http-hostname:port>
+    curl -H "Authorization: Bearer <TOKEN>" -X GET https://localhost:5052/eth/v1/keystores
     ```

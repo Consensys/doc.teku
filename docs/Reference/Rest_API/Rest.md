@@ -73,6 +73,12 @@ When enabling the validator client API, you must [create a keystore](../../HowTo
 Set the keystore using [`--validator-api-keystore-file`](../CLI/CLI-Syntax.md#validator-api-keystore-file)
 and the password file for the keystore using [`--validator-api-keystore-password-file`](../CLI/CLI-Syntax.md#validator-api-keystore-password-file).
 
+!!! example
+
+    ```bash
+    teku --validator-validator-api-enabled --validator-api-keystore-file=validator_keystore.p12 --validator-api-keystore-password-file=validator_keystore_pass.txt
+    ```
+
 The [OpenAPI specifications](https://swagger.io/specification/) for the validator client API are available at `/swagger-docs`
 when the [`--validator-api-docs-enabled`](../CLI/CLI-Syntax.md#validator-api-docs-enabled) option is set to `true`.
 The `/swagger-docs` endpoint defines the API if code generators are in use.
