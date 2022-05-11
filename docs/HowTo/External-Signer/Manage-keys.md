@@ -9,8 +9,8 @@ You can list keys, import keystores, and delete keys with the API.
 
 ## Enable validator client API
 
-To use the key manager API endpoints, you must [enable the validator client API](../../Reference/Rest_API#enable-the-validator-client-api)
-using the [`--validator-validator-api-enabled`](../../Reference/CLI/CLI-Syntax.md#validator-api-enabled) option.
+To use the key manager API endpoints, [enable the validator client API](../../Reference/Rest_API.md#enable-the-validator-client-api)
+using the [`--validator-api-enabled`](../../Reference/CLI/CLI-Syntax.md#validator-api-enabled) option.
 You must also [create a keystore](#create-a-keystore) to enable access.
 
 ### Create a keystore
@@ -42,7 +42,7 @@ When enabling the validator client API, you must create a keystore.
     !!! example
 
         ```bash
-        teku --validator-validator-api-enabled --validator-api-keystore-file=validator_keystore.p12 --validator-api-keystore-password-file=validator_keystore_pass.txt
+        teku --validator-api-enabled --validator-api-keystore-file=validator_keystore.p12 --validator-api-keystore-password-file=validator_keystore_pass.txt
         ```
 
 ### Authentication

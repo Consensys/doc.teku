@@ -66,8 +66,8 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
 The [validator client API](../../HowTo/External-Signer/Manage-keys.md) allows you to call the [key manager API endpoints]((https://ethereum.github.io/keymanager-APIs/))
 and is enabled separately from the REST API methods.
 
-Enable the validator client API service from the command line by setting the
-[`--validator-api-enabled`](../CLI/CLI-Syntax.md#validator-api-enabled) command line option to `true`.
+Enable the validator client API service from the command line by including the
+[`--validator-api-enabled`](../CLI/CLI-Syntax.md#validator-api-enabled) command line option.
 
 When enabling the validator client API, you must [create a keystore](../../HowTo/External-Signer/Manage-keys.md#create-a-keystore).
 Set the keystore using [`--validator-api-keystore-file`](../CLI/CLI-Syntax.md#validator-api-keystore-file)
@@ -76,7 +76,7 @@ and the password file for the keystore using [`--validator-api-keystore-password
 !!! example
 
     ```bash
-    teku --validator-validator-api-enabled --validator-api-keystore-file=validator_keystore.p12 --validator-api-keystore-password-file=validator_keystore_pass.txt
+    teku --validator-api-enabled --validator-api-keystore-file=validator_keystore.p12 --validator-api-keystore-password-file=validator_keystore_pass.txt
     ```
 
 The [OpenAPI specifications](https://swagger.io/specification/) for the validator client API are available at `/swagger-docs`
