@@ -44,7 +44,7 @@ The execution-endpoint requirements depends on the client used, and there is no 
 Prior to Bellatrix coming online, all eth1 clients required for use as an execution-engine should be sync'd on mainnet so that this does not delay network participation. Validators are not able to produce attestations or blocks without an execution-endpoint that is fully synchronized.
 
 ## Fee recipient
-Once bellatrix blocks are getting mined, transaction fees will start being earned by validators.  The recipient of these fees will be the defined fee recipient, and can be configured for each validator key.
+Once the merge transition completes and execution layer transactions are included in beacon node blocks, transaction fees will start being earned by validators.  The recipient of these fees will be the defined fee recipient, and can be configured for each validator key.
 
 For simpler configurations, all that is needed is for the beacon-node to be configured with a default fee recipient via [validators-proposer-default-fee-recipient](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-config). This fee recipient will then be used for any duties performed by the beacon-node.
 More complex configurations are able to provide a configuration file that defines the default fee recipient, plus fee recipients for any validators that use a fee recipient other than the default with [validators-proposer-config](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-config).
