@@ -41,7 +41,7 @@ Teku configuration changes will look similar to:
 
 The execution-endpoint requirements depends on the client used, and there is no requirement to use any particular eth1 client. The traffic between execution endpoint and the  beacon-node will be relatively high, so that should be taken into account when planning your solution.
 
-Prior to Bellatrix coming online, all eth1 clients required for use as an execution-engine should be sync'd on mainnet so that this does not delay network participation. Validators are not able to produce blocks without an execution-endpoint that is fully synchronized.
+Prior to Bellatrix coming online, all eth1 clients required for use as an execution-engine should be sync'd on mainnet so that this does not delay network participation. Validators are not able to produce attestations or blocks without an execution-endpoint that is fully synchronized.
 
 ## Fee recipient
 Once bellatrix blocks are getting mined, transaction fees will start being earned by validators.  The recipient of these fees will be the defined fee recipient, and can be configured for each validator key.
