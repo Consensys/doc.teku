@@ -1,16 +1,16 @@
 # Preparing for the Merge
 
 ## Overview
-'The Merge' is the process where Ethereum changes from a proof of work network, to a proof of stake consensus network.
+'The Merge' is the process where Ethereum changes from a proof of work network, to a proof of stake network.
 
 It's been described anecdotally as 'switch engines in the car from gas to electric while going 90 down the freeway'.
 
 ## What to expect
-The consensus layer client (previously eth2 client, eg. Teku, Lighthouse, Prysm, Nimbus, loadstar) will have configuration defined to instruct it to start listening for a certain terminal difficulty to be reached on the eth1 endpoint.
+The consensus layer client (previously eth2 client, eg. Teku, Lighthouse, Prysm, Nimbus, loadstar) will have configuration defined to instruct it to start listening for a certain total terminal difficulty (TTD) to be reached on the eth1 endpoint.
 
 Once that difficulty is reached, eth1 will then become the execution layer of Ethereum, and the consensus layer will be responsible for progressing the chain.
 
-The consensus layer will enable Bellatrix (the merge configuration) prior to the terminal difficulty being reached, then it is up to eth1 blocks to reach the pre-determined difficulty, then from that point Ethereum moves to a proof of stake network.
+The consensus layer will enable Bellatrix (the merge configuration) prior to the TTD being reached, then it is up to eth1 blocks to reach the TTD, then from that point Ethereum moves to a proof of stake network.
 
 Post merge, as well as validators earning rewards for performing duties, there are also earnings from the inclusion of execution layer transactions, and these earnings are directed to a fee recipient address on the execution layer. Other rewards such as attestation and block rewards will continue to be paid to the validator's balance on the beacon chain.
 
@@ -47,7 +47,8 @@ Prior to Bellatrix coming online, all eth1 clients required for use as an execut
 Once the merge transition completes and execution layer transactions are included in beacon node blocks, transaction fees will start being earned by validators.  The recipient of these fees will be the defined fee recipient, and can be configured for each validator key.
 
 For simpler configurations, all that is needed is for the beacon-node (and validator client if run in a separate process) to be configured with a default fee recipient via [validators-proposer-default-fee-recipient](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-config). This fee recipient will then be used for any duties performed by the beacon-node.
-More complex configurations are able to provide a configuration file that defines the default fee recipient, plus fee recipients for any validators that use a fee recipient other than the default with [validators-proposer-config](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-config).
+
+More complex configurations are able to provide a configuration file that defines the default fee recipient, plus fee recipients for any validators that use a fee recipient other than the default with [validators-proposer-config](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-config). A full node (beacon node and validator client combined) would be able to use both configuration options, but if a validator-client is running stand-alone, only the `validators-proposer-config` option should be specified, and `validators-proposer-default-fee-recipient` would be specified on the beacon-node that the validator-client is attached to.
 
  
 ## Update teku
