@@ -9,7 +9,7 @@ You can list keys, import keystores, and delete keys with the API.
 
 ## Enable validator client API
 
-To use the key manager API endpoints, [enable the validator client API](../../Reference/Rest_API.md#enable-the-validator-client-api)
+To use the key manager API endpoints, [enable the validator client API](../../Reference/Rest_API/Rest.md#enable-the-validator-client-api)
 using the [`--validator-api-enabled`](../../Reference/CLI/CLI-Syntax.md#validator-api-enabled) option.
 You must also [create a keystore](#create-a-keystore) to enable access.
 
