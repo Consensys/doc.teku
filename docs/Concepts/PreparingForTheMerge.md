@@ -20,7 +20,7 @@ Pre-merge, an eth1-client is required for block proposal to get deposits for val
 
 Once the merge is complete, the execution engine becomes much more heavily relied upon for execution. It will be no longer viable for an external provider to be referenced, each beacon-node will need to be closely associated with an execution engine (eth1 client).
 
-Each beacon-node will require its own execution-engine, so if you are maintaining multiple beacon-nodes, you will need to set up an execution-engine for each beacon-node. Service providers that provide eth1 access will not be adequate for a beacon-node to continue to function on the network.
+Each beacon-node will require its own execution-engine, so if you are maintaining multiple beacon-nodes, you will need to set up an execution-engine for each beacon-node. Service providers that provide eth1 access will not be adequate for a beacon-node to continue to function on the network. There is currently no provision for a beacon-node to have a failover execution engine, a beacon-node and execution engine pair would be needed to provide failover functionality to a validator-client.
 
 To configure the execution-engine for teku, the [ee-endpoint](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint) will need to be set in teku configuration. this can be done prior to the merge block, and can replace [eth1-endpoint](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#ee-endpoint).
 
