@@ -12,7 +12,7 @@ Once that difficulty is reached, eth1 will then become the execution layer of Et
 
 The consensus layer will enable Bellatrix (the merge configuration) prior to the terminal difficulty being reached, then it is up to eth1 blocks to reach the pre-determined difficulty, then from that point Ethereum moves to a proof of stake network.
 
-Post merge, as well as validators earning rewards for performing duties, there are also earnings from the execution engine performing work, and these earnings are directed to a fee recipient address.
+Post merge, as well as validators earning rewards for performing duties, there are also earnings from the inclusion of execution layer transactions, and these earnings are directed to a fee recipient address on the execution layer. Other rewards such as attestation and block rewards will continue to be paid to the validator's balance on the beacon chain.
 
 ## Execution Engine
 
