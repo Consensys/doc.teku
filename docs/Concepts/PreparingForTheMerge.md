@@ -52,7 +52,7 @@ More complex configurations are able to provide a configuration file that define
  
 ## Update teku
 
-Once a block has been determined for Bellatrix on mainnet, teku will be updated to contain that in the mainnet network settings built with the release. Clients should ensure they are up to date prior to the time that Bellatrix gets enabled.
+Once Bellatrix  has been scheduled for activation on mainnet, teku will be updated to contain that in the mainnet network settings built with the release. Clients should ensure they are up to date prior to the time that Bellatrix gets enabled.
 
 Stay up to date with release notifications for teku and your eth1 client. Teku notifications are available via:
  - Sign up to [release announcements](https://pages.consensys.net/teku-sign-up) email list (release and important announcements only, no marketing)
