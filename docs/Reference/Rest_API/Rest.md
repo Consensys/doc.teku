@@ -63,7 +63,9 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
 
 ## Enable the validator client API
 
-The [validator client API](../../HowTo/External-Signer/Manage-keys.md) allows you to call the [key manager API endpoints]((https://ethereum.github.io/keymanager-APIs/))
+The [validator client API](../../HowTo/External-Signer/Manage-keys.md) allows you to call the
+<!-- markdown-link-check-disable-next-line -->
+[key manager API endpoints]((https://ethereum.github.io/keymanager-APIs/))
 and is enabled separately from the REST API methods.
 
 Enable the validator client API service from the command line by including the
