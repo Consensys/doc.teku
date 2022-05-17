@@ -28,6 +28,11 @@ Configure the execution client for Teku by setting [`ee-endpoint`](../Reference/
 Teku configuration file.
 This can replace [`eth1-endpoint`](../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints).
 
+!!! important
+
+    After The Merge, you can't use `eth1-endpoint` to specify an external execution layer provider.
+    This option will be replaced by specifying `ee-endpoint` for each beacon node.
+
 Validators can't produce attestations or blocks without a fully synced execution endpoint.
 To expedite network participation, all execution clients should be synced on Ethereum Mainnet before the Merge
 configuration (Bellatrix) comes online.

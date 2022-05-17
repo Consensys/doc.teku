@@ -429,8 +429,10 @@ For example, `https://goerli.infura.io/v3/<Project_ID>`.
 
 !!! important
 
-    After [The Merge](../../Concepts/Merge.md), this option will be replaced by [`ee-endpoint`](#ee-endpoint).
-    You can [configure `ee-endpoint`](../../HowTo/Prepare-for-The-Merge.md) before The Merge.
+    After [The Merge](../../Concepts/Merge.md), you can't use `eth1-endpoint` to specify an external execution layer
+    provider.
+    This option will be replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
+    You can [configure your execution client](../../HowTo/Prepare-for-The-Merge.md) before The Merge.
 
 ### help
 
