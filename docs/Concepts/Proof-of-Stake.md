@@ -28,6 +28,8 @@ Proposers are responsible for proposing new consensus blocks, and non-proposing 
 validating (attesting to) proposed blocks.
 Validators are rewarded for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and
 penalized for malicious behavior.
+Validators also receive [transaction fees](../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) for included
+blocks.
 
 Each consensus block contains an execution payload, which contains a list of transactions and other data required to
 execute and validate the payload.

@@ -10,7 +10,7 @@ of an [execution layer and consensus layer](#execution-and-consensus-clients).
 The Merge will transition Mainnet from proof of work to [proof of stake consensus](Proof-of-Stake.md).
 
 You can [prepare Teku for The Merge](../HowTo/Prepare-for-The-Merge.md) and
-[test Teku with Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
+[test Teku with Hyperledger Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
 
 ## Execution and consensus clients
 
@@ -51,7 +51,7 @@ to a proof of stake network.
 After The Merge, a Mainnet node operator must run both an execution client and a beacon node at the same time.
 To become a validator, you must also run a validator client (either
 [in the same process as the beacon node](../HowTo/Get-Started/Run-Teku.md#start-the-clients-in-a-single-process) or
-[separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately).
+[separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately)).
 
 After The Merge, in addition to validators earning rewards for performing [validator duties](Proof-of-Stake.md),
 [fee recipients](../HowTo/Prepare-for-The-Merge.md#fee-recipient) will also earn rewards for the inclusion of execution

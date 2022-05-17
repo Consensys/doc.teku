@@ -9,7 +9,7 @@ Prepare Teku for [The Merge](../Concepts/Merge.md) by [configuring the execution
 You can make the configuration changes in Teku's [configuration file](Configure/Use-Configuration-File.md) before The Merge.
 
 You can also
-[test Teku with Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
+[test Teku with Hyperledger Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
 
 ## Configure the execution client
 
@@ -18,25 +18,26 @@ deposits for block proposals.
 Block proposals are intermittent, and a validator can get the data from other blocks if its execution client is offline
 for some reason.
 
-Once The Merge is complete, execution clients will play a more crucial role in executing transactions.
-You need to set up an execution client for each beacon node you maintain.
+After The Merge, execution clients will play a more crucial role in executing transactions.
 Service providers that provide execution layer access won't be adequate for a beacon node to continue to function on the
 network.
-
-A beacon node won't be able to have a failover execution client; a validator client would need a beacon node and
-execution client pair to provide failover functionality.
+You must set up an execution client for each beacon node you maintain.
+You can use any execution client with Teku.
 
 Configure the execution client for Teku by setting [`ee-endpoint`](../Reference/CLI/CLI-Syntax.md#ee-endpoint) in the
 Teku configuration file.
 This can replace [`eth1-endpoint`](../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints).
 
-The execution endpoint requirements depends on the execution client used, and you can use any client.
-When planning your solution, take into account that the traffic between execution endpoint and the beacon node will be
-relatively high.
-
 Validators can't produce attestations or blocks without a fully synced execution endpoint.
 To expedite network participation, all execution clients should be synced on Ethereum Mainnet before the Merge
 configuration (Bellatrix) comes online.
+
+!!! note "Notes"
+
+    - After The Merge, a beacon node won't be able to have a failover execution client; a validator client will need a
+      beacon node and execution client pair to provide failover functionality.
+    - When planning your solution, take into account that the traffic between execution endpoint and the beacon node
+      will be relatively high.
 
 ### Configure the Java Web Token
 
@@ -49,7 +50,7 @@ openssl rand -hex 32 -out <file>
 
 Provide the JWT to Teku using the [`ee-jwt-secret-file`](../Reference/CLI/CLI-Syntax.md#ee-jwt-secret-file)
 configuration option, and to the chosen execution endpoint using its configuration options.
-For example, provide the JWT to [Hyperledger Besu] using the
+For example, provide the JWT to [Hyperledger Besu](https://besu.hyperledger.org/) using the
 [`engine-jwt-secret`](https://besu.hyperledger.org/en/stable/Reference/CLI/CLI-Syntax/#engine-jwt-secret) option.
 
 ## Configure the fee recipient
@@ -64,14 +65,14 @@ the [`validators-proposer-default-fee-recipient`](../Reference/CLI/CLI-Syntax.md
 option.
 This fee recipient will be used for any duties performed by the beacon node.
 
-For more complex configurations, provide a proposer configuration file that defines the default fee recipient plus fee
-recipients for any validators that use a fee recipient other than the default using the
+For more complex configurations, provide a proposer configuration file that defines the default fee recipient plus
+non-default fee recipients for any validators using the
 [`validators-proposer-config`](../Reference/CLI/CLI-Syntax.md#validators-proposer-config) option.
 
 A full consensus client (beacon node and validator client combined) can use either configuration option.
-A stand-alone validator client should only specify the `validators-proposer-config` option, and its attached beacon node
-should specify the `validators-proposer-default-fee-recipient` option.
- 
+A stand-alone validator client should only specify `validators-proposer-config`, and its attached beacon node should
+specify `validators-proposer-default-fee-recipient`.
+
 ## Update Teku
 
 Once Bellatrix is scheduled for activation on Ethereum Mainnet, Teku will be updated to contain the new configuration in
@@ -83,5 +84,5 @@ You can follow Teku notifications by:
 - Signing up to the [release announcements](https://pages.consensys.net/teku-sign-up) email list (release and important
   announcements only, no marketing).
 - Following Teku on [Twitter](https://twitter.com/Teku_ConsenSys).
-- Following the **teku** channel in the ConSensys [Discord](https://discord.gg/7hPv2T6).
+- Following the Teku channel in the ConsenSys [Discord](https://discord.gg/7hPv2T6).
 - Subscribing to release notifications on GitHub for [Teku](https://github.com/ConsenSys/teku).
