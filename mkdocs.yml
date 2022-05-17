@@ -66,6 +66,7 @@ nav:
             - Migrate to Teku: HowTo/Get-Started/Migrate-to-Teku.md
         - External signing:
               - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
+              - Manage validator signing keys: HowTo/External-Signer/Manage-keys.md
         - Load validators without restarting: HowTo/Load-Validators-No-Restart.md
         - Monitor nodes:
           - Use metrics: HowTo/Monitor/Metrics.md
