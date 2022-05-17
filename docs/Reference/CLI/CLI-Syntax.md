@@ -288,7 +288,8 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     ee-endpoint: "http://localhost:8550"
     ```
 
-URL of the [execution client's](../../Concepts/Merge.md#execution-and-consensus-clients) Engine JSON-RPC APIs.
+URL of the [execution client's](../../Concepts/Merge.md#execution-clients) Engine JSON-RPC APIs.
+This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after [The Merge](../../Concepts/Merge.md).
 
 ### ee-jwt-secret-file
 
@@ -320,7 +321,7 @@ Shared secret used to authenticate [execution clients](../../Concepts/Merge.md#e
 using the Engine JSON-RPC API.
 Contents of file must be 32 hex-encoded bytes.
 May be a relative or absolute path.
-See an [example of how to generate this](https://besu.hyperledger.org/en/latest/Tutorials/Merge-Testnet/).
+See an [example of how to generate this](../../HowTo/Prepare-for-The-Merge.md#configure-the-java-web-token).
 
 ### eth1-deposit-contract-address
 
@@ -413,9 +414,9 @@ receiving warnings that the ETH1 node is unavailable.
     eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111"]
     ```
 
-Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds
-the first provider in the list that is available, on the right chain, and in sync. This option must
-be specified if running a validator.
+Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes.
+Each time Teku makes a call, it finds the first provider in the list that is available, on the right chain, and in sync.
+This option must be specified if running a validator.
 
 If not specified (that is, you're running a beacon node only), then provide an initial state
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
@@ -423,8 +424,13 @@ using the [`--initial-state`](#initial-state) option, or start Teku from an exis
 provide an initial state if running a public network which has already started (for example,
 Mainnet or Prater).
 
-If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL. For
-example, `https://goerli.infura.io/v3/<Project_ID>`
+If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL.
+For example, `https://goerli.infura.io/v3/<Project_ID>`.
+
+!!! important
+
+    After [The Merge](../../Concepts/Merge.md), this option will be replaced by [`ee-endpoint`](#ee-endpoint).
+    You can [configure `ee-endpoint`](../../HowTo/Prepare-for-The-Merge.md) before The Merge.
 
 ### help
 
@@ -2376,7 +2382,8 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
     validators-proposer-config: "/home/me/node/proposerConfig.json"
     ```
 
-Remote URL or local file path to the proposer configuration file, which is a JSON file that specifies:
+Remote URL or local file path to the [proposer configuration file](../../HowTo/Prepare-for-The-Merge.md), which is a
+JSON file that specifies:
 
 * `proposer_config` - (optional) A proposer configuration for multiple validator public keys.
 * `default_config` - (required) A default proposer configuration for validator public keys not included in
@@ -2455,7 +2462,7 @@ The default is `false`.
     validators-proposer-default-fee-recipient: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
     ```
 
-Default fee recipient for all validator keys.
+Default [fee recipient](../../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) for all validator keys.
 When running a validator, this is an alternative to the `fee_recipient` in the
 [default proposer configuration](#validators-proposer-config).
 
