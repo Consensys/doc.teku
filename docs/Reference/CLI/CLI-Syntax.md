@@ -1812,22 +1812,23 @@ The default is `127.0.0.1`.
 === "Example"
 
     ```bash
-    --validator-api-keystore-file=teku_client_truststore.p12
+    --validator-api-keystore-file=validator_keystorstore.p12
     ```
 
 === "Environment variable"
 
     ```bash
-    TEKU_VALIDATOR_API_KEYSTORE_FILE=teku_client_truststore.p12
+    TEKU_VALIDATOR_API_KEYSTORE_FILE=validator_keystore.p12
     ```
 
 === "Configuration file"
 
     ```bash
-    validator-api-keystore-file: "teku_client_truststore.p12"
+    validator-api-keystore-file: "validator_keystore.p12"
     ```
 
-Keystore file for the validator REST API.
+Keystore file for the [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api).
+Teku can use PKCS12 or JKS keystore types.
 
 ### validator-api-keystore-password-file
 
@@ -1840,19 +1841,19 @@ Keystore file for the validator REST API.
 === "Example"
 
     ```bash
-    --validator-api-keystore-password-file=keystore_pass.txt
+    --validator-api-keystore-password-file=validator_keystore_pass.txt
     ```
 
 === "Environment variable"
 
     ```bash
-    TEKU_VALIDATOR_API_KEYSTORE_PASSWORD_FILE=keystore_pass.txt
+    TEKU_VALIDATOR_API_KEYSTORE_PASSWORD_FILE=validator_keystore_pass.txt
     ```
 
 === "Configuration file"
 
     ```bash
-    validator-api-keystore-password-file: "keystore_pass.txt"
+    validator-api-keystore-password-file: "validator_keystore_pass.txt"
     ```
 
 Password used to decrypt the keystore for the [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api).
@@ -2447,19 +2448,19 @@ The default is `false`.
 === "Example"
 
     ```bash
-    --validators-proposer-default-fee-recipient=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
+    --validators-proposer-default-fee-recipient=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73
     ```
 
 === "Environment variable"
 
     ```bash
-    TEKU_VALIDATORS_PROPOSER_DEFAULT_FEE_RECIPIENT=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73
+    TEKU_VALIDATORS_PROPOSER_DEFAULT_FEE_RECIPIENT=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73
     ```
 
 === "Configuration file"
 
     ```bash
-    validators-proposer-default-fee-recipient: "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+    validators-proposer-default-fee-recipient: "0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"
     ```
 
 Default [fee recipient](../../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) for all validator keys.

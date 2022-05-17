@@ -35,6 +35,7 @@ commands:
 jobs:
   # Build the doc with MkDocs. This is just to test the build works. No artifact is published from
   # this job as Readthedocs.com performs this task itself when triggered by Github webhook.
+  # see https://readthedocs.com/dashboard/pegasys-teku/integrations/
   build:
     executor: python_executor
     steps:
