@@ -25,8 +25,8 @@ Execution and consensus clients communicate with each other using the
 
 ### Execution clients
 
-Execution clients, such as [Besu](https://besu.hyperledger.org/en/stable/), manage the state and execute transactions on
-the execution layer.
+Execution clients, such as [Besu](https://besu.hyperledger.org/en/stable/), manage the execution layer, including
+executing transactions and updating the world state.
 Execution clients serve [JSON-RPC API](https://besu.hyperledger.org/en/stable/Reference/API-Methods/) requests and
 communicate with each other in a peer-to-peer network.
 
@@ -40,9 +40,13 @@ peer-to-peer network.
 
 ## What happens during The Merge
 
-Before The Merge, the consensus client's configuration will be [updated](../HowTo/Prepare-for-The-Merge.md#update-teku)
-to listen for a certain total terminal difficulty (TTD) to be reached on the
-[execution endpoint](../Reference/CLI/CLI-Syntax.md#ee-endpoint).
+Before The Merge, the execution and consensus clients' configurations will be
+[updated](../HowTo/Prepare-for-The-Merge.md#update-teku) to listen for a certain total terminal difficulty (TTD) to be
+reached on the [execution endpoint](../Reference/CLI/CLI-Syntax.md#ee-endpoint).
+
+Teku will periodically request information about the execution client's configuration to check that they agree on the
+configuration and can connect.
+Teku will log warnings if the configuration doesn't match.
 
 The consensus layer will enable the Merge configuration (Bellatrix) before reaching the TTD.
 Once the execution layer blocks reach the TTD, the Beacon Chain will merge into Ethereum Mainnet, and Ethereum will move
