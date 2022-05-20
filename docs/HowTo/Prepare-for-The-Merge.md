@@ -4,8 +4,13 @@ description: How to prepare for The Merge
 
 # Prepare for The Merge
 
-Prepare Teku for [The Merge](../Concepts/Merge.md) by [configuring the execution client](#configure-the-execution-client),
-[configuring the fee recipient](#configure-the-fee-recipient), and [staying up to date on Teku releases](#update-teku).
+If you're running one or more Teku beacon nodes and validators on Ethereum Mainnet, prepare for
+[The Merge](../Concepts/Merge.md) by:
+
+1. [Configuring the execution client](#configure-the-execution-client).
+1. [Configuring the fee recipient](#configure-the-fee-recipient).
+1. [Staying up to date on Teku releases](#update-teku).
+
 You can make the configuration changes in Teku's [configuration file](Configure/Use-Configuration-File.md) before The Merge.
 
 You can also
@@ -13,19 +18,27 @@ You can also
 
 ## Configure the execution client
 
-Before The Merge, an [execution client](../Concepts/Merge.md#execution-clients) is required for validators to get
-deposits for block proposals.
-Block proposals are intermittent, and a validator can get the data from other blocks if its execution client is offline
-for some reason.
+Before The Merge, validators require an [execution client](../Concepts/Merge.md#execution-clients) to get deposits for
+block proposals.
+Block proposals are intermittent, and a validator can get the data from other blocks if its execution client is offline.
 
 After The Merge, execution clients will play a more crucial role in executing transactions.
-Service providers that provide execution layer access won't be adequate for a beacon node to continue to function on the
-network.
-You must set up an execution client for each beacon node you maintain.
+Service providers that provide execution layer access, such as Infura, won't be adequate for a beacon node to continue
+to function on the network.
+You must set up an execution client for each beacon node you maintain, using the following steps.
 You can use any execution client with Teku.
 
-Configure the execution client for Teku by setting [`ee-endpoint`](../Reference/CLI/CLI-Syntax.md#ee-endpoint) in the
-Teku configuration file.
+!!! note "Notes"
+
+    - After The Merge, a beacon node won't be able to have a failover execution client; a validator client will need a
+      beacon node and execution client pair to provide failover functionality.
+    - When planning your solution, take into account that the traffic between the execution client and beacon node
+      will be relatively high.
+
+### 1. Configure the execution endpoint
+
+Specify the execution client endpoint using [`ee-endpoint`](../Reference/CLI/CLI-Syntax.md#ee-endpoint) in the Teku
+configuration file.
 This can replace [`eth1-endpoint`](../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints).
 
 !!! important
@@ -33,34 +46,29 @@ This can replace [`eth1-endpoint`](../Reference/CLI/CLI-Syntax.md#eth1-endpoint-
     After The Merge, you can't use `eth1-endpoint` to specify an external execution layer provider.
     This option will be replaced by specifying `ee-endpoint` for each beacon node.
 
+### 2. Sync the execution client
+
 Validators can't produce attestations or blocks without a fully synced execution endpoint.
-To expedite network participation, all execution clients should be synced on Ethereum Mainnet before the Merge
-configuration (Bellatrix) comes online.
+To expedite network participation, sync your execution client on Ethereum Mainnet before the Merge configuration
+(Bellatrix) comes online.
 
-!!! note "Notes"
-
-    - After The Merge, a beacon node won't be able to have a failover execution client; a validator client will need a
-      beacon node and execution client pair to provide failover functionality.
-    - When planning your solution, take into account that the traffic between execution endpoint and the beacon node
-      will be relatively high.
-
-### Configure the Java Web Token
+### 3. Configure the Java Web Token
 
 Java Web Token (JWT) authentication is used to secure the communication between the beacon node and execution client.
-You can generate this using a command line tool, for example:
+You can generate a JWT using a command line tool, for example:
 
 ```bash
 openssl rand -hex 32 -out <file>
 ```
 
 Provide the JWT to Teku using the [`ee-jwt-secret-file`](../Reference/CLI/CLI-Syntax.md#ee-jwt-secret-file)
-configuration option, and to the chosen execution endpoint using its configuration options.
+configuration option, and to the execution client using its configuration options.
 For example, provide the JWT to [Hyperledger Besu](https://besu.hyperledger.org/) using the
 [`engine-jwt-secret`](https://besu.hyperledger.org/en/stable/Reference/CLI/CLI-Syntax/#engine-jwt-secret) option.
 
 ## Configure the fee recipient
 
-Once The Merge is complete and execution layer transactions are included in beacon node blocks, validators will earn
+After The Merge, execution layer transactions will be included in beacon node blocks, and validators will earn
 transaction fees.
 You can configure the recipient of these fees for each validator key.
 
@@ -80,8 +88,7 @@ specify `validators-proposer-default-fee-recipient`.
 
 ## Update Teku
 
-Once Bellatrix is scheduled for activation on Ethereum Mainnet, Teku will be updated to contain the new configuration in
-the Mainnet settings built with the release.
+Once Bellatrix is scheduled for activation on Mainnet, Teku will be released with updated configuration for Mainnet.
 Ensure your Teku client and execution client is up to date before Bellatrix is enabled.
 
 You can follow Teku notifications by:
