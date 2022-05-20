@@ -68,7 +68,7 @@ jobs:
           name: Install dependencies
           command: |
             wget https://github.com/errata-ai/vale/releases/download/v2.6.0/vale_2.6.0_Linux_64-bit.tar.gz
-            mkdir bin && tar -xvzf vale_2.6.0_Linux_64-bit.tar.gz vale -C bin
+            mkdir bin && tar -xvzf vale_2.6.0_Linux_64-bit.tar.gz -C bin vale
       - run:
           name: Run Vale
           command: |
