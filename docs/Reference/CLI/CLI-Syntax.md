@@ -1144,7 +1144,7 @@ Lower bound on the target number of peers. Teku will actively seek new peers if 
     p2p-peer-upper-bound: 40
     ```
 
-Upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `74`.
+Upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `100`.
 
 ### p2p-port
 
