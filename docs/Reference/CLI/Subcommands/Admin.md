@@ -515,11 +515,15 @@ to a YAML configuration file. The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain           | Type        | Description                                                |
-|-----------|-----------------|-------------|------------------------------------------------------------|
-| `mainnet` | Consensus layer | Production  | Main network.                                              |
-| `minimal` | Consensus layer | Test        | Used for local testing and development networks.           |
-| `prater`  | Consensus layer | Test        | Multi-client testnet.                                      |
+| Network   | Chain           | Type        | Description                                               |
+|-----------|-----------------|-------------|-----------------------------------------------------------|
+| `mainnet` | Consensus layer | Production  | Main network                                              |
+| `minimal` | Consensus layer | Test        | Used for local testing and development networks           |
+| `prater`  | Consensus layer | Test        | Multi-client testnet                                      |
+| `kiln`    | Consensus layer | Test        | Multi-client testnet                                      |
+| `ropsten` | Consensus layer | Test        | Multi-client testnet                                      |
+| `gnosis`  | Consensus layer | Test        | Multi-client testnet                                      |
+| `sepolia` | Consensus layer | Test        | Multi-client testnet                                      |
 
 Predefined networks can provide defaults such the initial state of the network,
 bootnodes, and the address of the deposit contract.
