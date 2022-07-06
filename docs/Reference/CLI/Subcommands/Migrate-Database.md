@@ -138,5 +138,5 @@ Possible values are:
 | `prater`  | Consensus layer | Test       | Multi-client testnet                             |
 | `kiln`    | Consensus layer | Test       | Multi-client testnet                             |
 | `ropsten` | Consensus layer | Test       | Multi-client testnet                             |
-| `gnosis`  | Consensus layer | Test       | Multi-client testnet                             |
+| `gnosis`  | Consensus layer | Production | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
 | `sepolia` | Consensus layer | Test       | Multi-client testnet                             |
