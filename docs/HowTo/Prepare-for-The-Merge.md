@@ -54,11 +54,11 @@ To expedite network participation, sync your execution client on Ethereum Mainne
 
 ### 3. Configure the Java Web Token
 
-Java Web Token (JWT) authentication is used to secure the communication between the beacon node and execution client.
+JSON Web Token (JWT) authentication is used to secure the communication between the beacon node and execution client.
 You can generate a JWT using a command line tool, for example:
 
 ```bash
-openssl rand -hex 32 -out <file>
+openssl rand -hex 32 > token.txt
 ```
 
 Provide the JWT to Teku using the [`ee-jwt-secret-file`](../Reference/CLI/CLI-Syntax.md#ee-jwt-secret-file)
