@@ -52,7 +52,7 @@ Validators can't produce attestations or blocks without a fully synced execution
 To expedite network participation, sync your execution client on Ethereum Mainnet before the Merge configuration
 (Bellatrix) comes online.
 
-### 3. Configure the Java Web Token
+### 3. Configure the JSON Web Token
 
 JSON Web Token (JWT) authentication is used to secure the communication between the beacon node and execution client.
 You can generate a JWT using a command line tool, for example:
