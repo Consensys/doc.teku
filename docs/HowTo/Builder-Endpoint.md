@@ -16,7 +16,7 @@ To configure a builder endpoint, specify the following options:
 
 * [enable blinded block production](#enable-blinded-block-production)
 * [specify the builder endpoint](#specify-the-builder-endpoint)
-* [register the validator ](#register-the-validator)
+* [register the validator](#register-the-validator)
 
 ### Enable blinded block production
 
@@ -38,9 +38,9 @@ The following builder relay endpoints are live and can be used for testing.
 
 | Network | Endpoint |
 |:--------|:-------:|
-| Kiln    | https://builder-relay-kiln.flashbots.net/    |
-| Ropsten | https://builder-relay-ropsten.flashbots.net/ |
-| Sepolia | https://builder-relay-sepolia.flashbots.net/ |
+| Kiln    | `https://builder-relay-kiln.flashbots.net/`    |
+| Ropsten | `https://builder-relay-ropsten.flashbots.net/` |
+| Sepolia | `https://builder-relay-sepolia.flashbots.net/` |
 
 You can also use middleware like [`mev-boost`](https://github.com/flashbots/mev-boost):
 
@@ -50,7 +50,7 @@ You can also use middleware like [`mev-boost`](https://github.com/flashbots/mev-
 
 ### Register the validator
 
-You must register your validator with the builder before proposing a block. 
+You must register your validator with the builder before proposing a block.
 Enable registration for all validators using [`--validators-builder-registration-default-enabled`](../Reference/CLI/CLI-Syntax.md#validators-builder-registration-default-enabled)
 
 To enable registration for specific validators only, use a [proposer configuration](../Reference/CLI/CLI-Syntax.md#validators-proposer-config)
@@ -85,7 +85,7 @@ and specify the enabled validators in the `proposer_config`.
 
 ### Example builder configurations
 
-!!! example "Solo staker, validator client and beacon node in a single process"
+!!! example "Validator client and beacon node in a single process"
 
     ```bash
     teku --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A" --ee-endpoint="http://127.0.0.1:8551" --ee-jwt-secret-file="/etc/jwt-secret.hex" --validators-builder-registration-default-enabled=true --builder-endpoint="http://127.0.0.1:18550"
