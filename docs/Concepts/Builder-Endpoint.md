@@ -11,7 +11,7 @@ from their local [execution clients](Merge.md#execution-clients) via the Engine 
 Optionally, a consensus client can configure an external builder endpoint and
 delegate the execution payload construction to it, instead of using the execution client.
 
-The most common builder endpoint deployment is to run a specialised middleware such as [`mev-boost`](https://github.com/flashbots/mev-boost).
+The most common builder endpoint deployment is to run a specialised external software such as [`mev-boost`](https://github.com/flashbots/mev-boost).
 `mev-boost`works by requesting a payload proposal from several entities (called relays) and selecting the best bid,
 in order to improve validator rewards and increase the maximal extractable value (MEV).
 

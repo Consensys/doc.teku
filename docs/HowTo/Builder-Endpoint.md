@@ -38,11 +38,11 @@ The following builder relay endpoints are live and can be used for testing.
 
 | Network | Endpoint |
 |:--------|:-------:|
-| Kiln    | `https://builder-relay-kiln.flashbots.net/`    |
-| Ropsten | `https://builder-relay-ropsten.flashbots.net/` |
-| Sepolia | `https://builder-relay-sepolia.flashbots.net/` |
+| `kiln`    | `https://builder-relay-kiln.flashbots.net/`    |
+| `ropsten` | `https://builder-relay-ropsten.flashbots.net/` |
+| `sepolia` | `https://builder-relay-sepolia.flashbots.net/` |
 
-You can also use middleware like [`mev-boost`](https://github.com/flashbots/mev-boost):
+You can also use external software such as [`mev-boost`](https://github.com/flashbots/mev-boost):
 
 ```bash
 --builder-endpoint=http://127.0.0.1:18550
