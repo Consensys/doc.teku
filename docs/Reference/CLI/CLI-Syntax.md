@@ -1370,7 +1370,7 @@ File containing the [node's private key](../../Concepts/P2P-Private-Key.md).
 === "Environment variable"
 
     ```bash
-    TEKU_P2P_STATIC-PEERS=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
+    TEKU_P2P_STATIC_PEERS=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
     ```
 
 === "Configuration file"
