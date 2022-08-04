@@ -70,4 +70,4 @@ If either component is not available, the node will not be available on the netw
 
 This means that after the merge has occurred, for a node to be available on the network, both the execution client and the consensus client must be 
 active.  Further, for duties to be performed, the execution client and the consensus client must be in sync with their portion of the network. 
-If the execution client is syncing, the consensus client can run optimistically, but cannot perform duties.
+If the execution client is syncing, the consensus client can use optimistic sync to import blocks, but cannot perform duties.
