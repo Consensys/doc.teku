@@ -11,7 +11,7 @@ The following subcommands are used for development and testing purposes.
 Manually run state transitions for blocks or slots for debugging.
 
 ```bash
-teku transtion
+teku transition
 ```
 
 ## `peer`
