@@ -62,3 +62,12 @@ After The Merge, in addition to validators earning rewards for performing [valid
 layer transactions.
 
 You can [prepare Teku for The Merge](../HowTo/Prepare-for-The-Merge.md).
+
+## After The Merge
+
+After the merge of a network is complete, a single 'node' becomes a combination of both the execution client and the consensus client. 
+If either component is not available, the node will not be available on the network.
+
+This means that after the merge has occurred, for a node to be available on the network, both the execution client and the consensus client must be 
+active.  Further, for duties to be performed, the execution client and the consensus client must be in sync with their portion of the network. 
+If the execution client is syncing, the consensus client can run optimistically, but cannot perform duties.
