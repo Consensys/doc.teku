@@ -12,7 +12,7 @@ If the builder goes down, the local execution client proposes a block instead.
 
 ## Configure an endpoint
 
-To configure a builder endpoint, specify the following options:
+To configure a builder endpoint:
 
 * [enable blinded block production](#enable-blinded-block-production)
 * [specify the builder endpoint](#specify-the-builder-endpoint)
