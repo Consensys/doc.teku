@@ -20,7 +20,7 @@ To configure a builder endpoint:
 
 ### Enable blinded block production
 
-Enable blinded block production using the command line option [`--validators-proposer-blinded-blocks-enabled`](../Reference/CLI/CLI-Syntax.md#validators-proposer-blinded-blocks-enabled)
+Enable blinded block production using the [`--validators-proposer-blinded-blocks-enabled`](../Reference/CLI/CLI-Syntax.md#validators-proposer-blinded-blocks-enabled) command line option.
 
 !!! note
 
