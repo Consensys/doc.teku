@@ -8,7 +8,7 @@ When [The Merge](Merge.md) completes, [consensus clients](Merge.md#consensus-cli
 will be responsible for proposing blocks containing an execution payload obtained
 from their local [execution clients](Merge.md#execution-clients) via the Engine API.
 
-Optionally, a consensus client can configure an external builder endpoint and
+A consensus client can optionally configure an external builder endpoint and
 delegate the execution payload construction to it, instead of using the execution client.
 
 ## MEV-Boost
