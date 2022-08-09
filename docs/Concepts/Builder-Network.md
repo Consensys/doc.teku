@@ -14,7 +14,7 @@ delegate the execution payload construction to it, instead of using the executio
 ## MEV-Boost
 
 The most common builder endpoint deployment is to run a specialised external software such as [MEV-Boost](https://github.com/flashbots/mev-boost).
-Mev-Boost works by requesting a payload proposal from several entities (called relays) and selecting the best bid,
+MEV-Boost works by requesting a payload proposal from several entities (called relays) and selecting the best bid,
 in order to improve validator rewards and increase the maximal extractable value (MEV).
 
 Teku allows [configuring the beacon node to a builder network](../HowTo/Builder-Network.md) for generating execution payloads.

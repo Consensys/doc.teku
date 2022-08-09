@@ -105,9 +105,6 @@ Note the `default_config` applies to all validators who don't have their own pro
           "proposer_config": {
             "0xa057816155ad77931185101128655c0191bd0214c201ca48ed887f6c4c6adf334070efcd75140eada5ac83a92506dd7a": {
               "fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
-              "builder": {
-                "enabled": false
-              }
             }
           },
           "default_config": {
@@ -118,8 +115,6 @@ Note the `default_config` applies to all validators who don't have their own pro
           }
         }
         ```
-
-        In this example, MEV-Boost is enabled by default, and validator `0xa057...` is specifically disabled.
 
     === "Beacon node paramaters"
 
