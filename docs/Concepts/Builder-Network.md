@@ -18,4 +18,4 @@ MEV-Boost works by requesting a payload proposal from several entities (called r
 in order to improve validator rewards and increase the maximal extractable value (MEV).
 
 Teku allows you to [configure the beacon node to use a builder network](../HowTo/Builder-Network.md) to generate execution payloads.
-In case of failures or non-timely responses, Teku falls back to the payload produced by the local execution client as specified with [`ee-endpoint`](../Reference/CLI/CLI-Syntax.md#ee-endpoint).
+In case of failures or non-timely responses, Teku falls back to the payload produced by the local execution client specified with [`ee-endpoint`](../Reference/CLI/CLI-Syntax.md#ee-endpoint).
