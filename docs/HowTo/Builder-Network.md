@@ -119,5 +119,5 @@ Note the `default_config` applies to all validators who don't have their own pro
     === "Beacon node paramaters"
 
         ```bash
-        Teku --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A" --ee-endpoint="http://127.0.0.1:8551" --ee-jwt-secret-file="/etc/jwt-secret.hex" --builder-endpoint="http://127.0.0.1:18550"
+        teku --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A" --ee-endpoint="http://127.0.0.1:8551" --ee-jwt-secret-file="/etc/jwt-secret.hex" --builder-endpoint="http://127.0.0.1:18550"
         ```
