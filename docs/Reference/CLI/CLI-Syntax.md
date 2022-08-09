@@ -74,7 +74,7 @@ teku --Tab+Tab
     builder-endpoint: "http://127.0.0.1:18550"
     ```
 
-Specifies the address for an external [builder endpoint](../../HowTo/Builder-Endpoint.md).
+Specifies the address for an external [builder endpoint](../../HowTo/Builder-Network.md).
 
 ### config-file
 
@@ -1997,37 +1997,7 @@ When specifying file names, Teku expects that the files exist.
     validators-builder-registration-default-enabled: true
     ```
 
-Set to `true` to have all validators managed by the validator client register to the [builder endpoint](../../HowTo/Builder-Endpoint.md) when proposing a block.
-
-### validators-builder-registration-timestamp-override
-
-=== "Syntax"
-
-    ```bash
-    --validators-builder-registration-timestamp-override=<timestamp>
-    ```
-
-=== "Example"
-
-    ```bash
-    --validators-builder-registration-timestamp-override=120000
-    ```
-
-=== "Environment variable"
-
-    ```bash
-    TEKU_VALIDATORS_BUILDER_REGISTRATION_TIMESTAMP_OVERRIDE=120000
-    ```
-
-=== "Configuration file"
-
-    ```bash
-    validators-builder-registration-timestamp-override: 120000
-    ```
-
-Specify a timestamp in Unix format that is used when registering validators against the [builder endpoint](../../HowTo/Builder-Endpoint.md).
-It is only useful in deployments where validator keys are shared between multiple nodes,
-where nodes require registering using the exact same registration message.
+Set to `true` to have all validators managed by the validator client register to the [builder endpoint](../../HowTo/Builder-Network.md) when proposing a block.
 
 ### validators-early-attestations-enabled
 
@@ -2475,7 +2445,7 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
     validators-proposer-blinded-blocks-enabled: true
     ```
 
-Set to `true` to enable blinded blocks production, a prerequisite for the [builder endpoint](../../HowTo/Builder-Endpoint.md).
+Set to `true` to enable blinded blocks production, a prerequisite for the [builder network](../../HowTo/Builder-Network.md).
 When [`--validators-builder-registration-default-enabled`](#validators-builder-registration-default-enabled)
 is enabled this option is enabled automatically.
 The default is `false`.
