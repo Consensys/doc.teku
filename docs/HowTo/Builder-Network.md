@@ -95,7 +95,7 @@ Note the `default_config` applies to all validators who don't have their own pro
     === "Validator client parameters"
 
         ```bash
-        Teku validator-client --validators-proposer-blinded-blocks-enabled=true --validators-proposer-config="/etc/teku/proposerConfig.json"
+        teku validator-client --validators-proposer-blinded-blocks-enabled=true --validators-proposer-config="/etc/teku/proposerConfig.json"
         ```
 
     === "Proposer configuration"
