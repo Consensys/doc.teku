@@ -450,7 +450,7 @@ If not specified (that is, you're running a beacon node only), then provide an i
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
 [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to
 provide an initial state if running a public network which has already started (for example,
-Mainnet or Prater).
+Mainnet or Goerli).
 
 If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL.
 For example, `https://goerli.infura.io/v3/<Project_ID>`.
@@ -987,7 +987,7 @@ Possible values are:
 |:-------------|:----------------|:-----------|:------------------------------------------------|
 | `mainnet`    | Consensus layer | Production | Main network                                    |
 | `minimal`    | Consensus layer | Test       | Used for local testing and development networks |
-| `prater`     | Consensus layer | Test       | Multi-client testnet                            |
+| `goerli`     | Consensus layer | Test       | Multi-client testnet                            |
 | `kiln`       | Consensus layer | Test       | Multi-client testnet                            |
 | `ropsten`    | Consensus layer | Test       | Multi-client testnet                            |
 | `gnosis`     | Consensus layer | Production | Network for the [Gnosis chain](https://docs.gnosischain.com/) |

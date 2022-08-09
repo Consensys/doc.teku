@@ -32,7 +32,7 @@ with the [`teku`](../../Reference/CLI/CLI-Syntax.md#options) command. For exampl
 !!! example
 
     ```
-    teku --network=prater --eth1-endpoints=http://localhost:8545,http://backup-host:8545/ \
+    teku --network=goerli --eth1-endpoints=http://localhost:8545,http://backup-host:8545/ \
     --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
@@ -54,7 +54,7 @@ Run Teku as a beacon node.
 !!! example
 
     ```bash
-    teku --network=prater --eth1-endpoint=http://localhost:8545 \
+    teku --network=goerli --eth1-endpoint=http://localhost:8545 \
     --metrics-enabled --rest-api-enabled
     ```
 
@@ -85,7 +85,7 @@ a Teku as a validator.
 !!! example
 
     ```
-    teku validator-client --network=prater --beacon-node-api-endpoint=http://192.10.10.101:5051 \
+    teku validator-client --network=goerli --beacon-node-api-endpoint=http://192.10.10.101:5051 \
     --validator-keys=validator/keys:validator/passwords
     ```
 

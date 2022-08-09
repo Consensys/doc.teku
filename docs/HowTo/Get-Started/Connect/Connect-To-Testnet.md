@@ -14,11 +14,11 @@ The following instructions describe the process to connect Teku to a consensus l
 
 !!! important
 
-    This example connects to the Prater testnet. If connecting to a different testnet,
+    This example connects to the Goerli testnet. If connecting to a different testnet,
     update the [`--network`](../../../Reference/CLI/CLI-Syntax.md#network) option in the examples
     accordingly.
 
-    See [this guide on testing Teku and Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/latest/Tutorials/Merge-Testnet/).
+    See [this guide on testing Teku and Besu on a post-Merge testnet](https://besu.hyperledger.org/en/latest/Tutorials/Merge-Testnet/).
 
     Networks can experience stability issues and are prone to regular resets. We recommend you
     regularly check network and client documentation for updates.
@@ -77,7 +77,7 @@ Configure Besu to [connect to Goerli] and expose the RPC-HTTP APIs.
 ### Load the deposit account with ETH
 
 You need an execution layer Goerli testnet account that contains the amount of
-Goerli ETH (plus gas) required to activate the validator. The `prater` testnet
+Goerli ETH (plus gas) required to activate the validator. The `goerli` testnet
 requires 32 Goerli ETH per validator.
 
 !!! tip
@@ -87,7 +87,7 @@ requires 32 Goerli ETH per validator.
 
 ### Generate the validators and send the deposits
 
-Use the [Prater Launchpad] to guide you through a step-by-step process to generate your keys and
+Use the [Goerli Launchpad] to guide you through a step-by-step process to generate your keys and
 send the deposits.
 
 !!! note
@@ -117,7 +117,7 @@ and the text files containing the password to decrypt the validator key.
 !!! example
 
     ```bash
-    teku --network=prater --eth1-endpoint=http://localhost:8545 \
+    teku --network=goerli --eth1-endpoint=http://localhost:8545 \
     --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
@@ -135,7 +135,7 @@ specify the directory to load multiple keys and passwords from.
 !!! example
 
     ```bash
-    teku --network=prater --eth1-endpoint=http://localhost:8545 \
+    teku --network=goerli --eth1-endpoint=http://localhost:8545 \
     --validator-keys=validator/keys:validator/passwords \
     --rest-api-enabled=true --rest-api-docs-enabled=true \
     --metrics-enabled
@@ -151,12 +151,12 @@ You can run a Teku beacon node on a network without any validators.
 !!! example
 
     ```bash
-    teku --network=prater --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
+    teku --network=goerli --metrics-enabled --rest-api-enabled --rest-api-docs-enabled
     ```
 
 ## Finding help
 
-* The `#prater` channel on the Ethereum Foundation Discord. [Invite link](https://discord.gg/zyZXUN7)
+* The `#testnets` channel on the Ethereum Foundation Discord. [Invite link](https://discord.gg/zyZXUN7)
 
 * The `#teku` channel on the ConsenSys Discord. [Invite link](https://discord.gg/aT5TcBQ)
 
@@ -171,5 +171,5 @@ You can run a Teku beacon node on a network without any validators.
 [connect to Goerli]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet
 [password protected V3 Keystore file]: https://docs.ethsigner.consensys.net/Tutorials/Start-EthSigner/#create-password-and-key-files
 [Infura]: https://infura.io/
-[Launchpad]: https://prater.launchpad.ethereum.org/
-[Prater Launchpad]: https://prater.launchpad.ethereum.org/
+[Launchpad]: https://goerli.launchpad.ethereum.org/
+[Goerli Launchpad]: https://goerli.launchpad.ethereum.org/
