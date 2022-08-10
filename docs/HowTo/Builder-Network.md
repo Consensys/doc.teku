@@ -4,7 +4,7 @@ description: How to connect to a builder network
 
 # Connect to a builder network
 
-You can connect a [builder network](../Concepts/Builder-Network.md) to generate execution
+You can connect  to a [builder network](../Concepts/Builder-Network.md) to generate execution
 payloads for the [consensus client](../Concepts/Merge.md#consensus-clients).
 
 The builder recommends new blocks that are validated by the consensus client.
