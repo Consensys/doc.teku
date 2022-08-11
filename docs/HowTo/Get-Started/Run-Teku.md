@@ -85,7 +85,7 @@ a Teku as a validator.
 !!! example
 
     ```
-    teku validator-client --network=goerli --beacon-node-api-endpoint=http://192.10.10.101:5051 \
+    teku validator-client --network=goerli --beacon-node-api-endpoint=http://192.10.10.101:5051,http://192.140.110.44:5051 \
     --validator-keys=validator/keys:validator/passwords
     ```
 
@@ -94,9 +94,14 @@ a Teku as a validator.
     keys as command line options to both the beacon node and validator client. This can a
     cause a [slashable offense].
 
-Specify the beacon node using the
-[`--beacon-node-api-endpoint`](../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint)
+Specify one or more beacon nodes using the
+[`--beacon-node-api-endpoint`](../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint-beacon-node-api-endpoints)
 option.
+
+!!! important
+
+    You can supply multiple beacon node endpoints to the validator, the first one will be used as the
+    primary node, and others as failovers.
 
 ## Confirm Teku is running
 

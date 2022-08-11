@@ -166,7 +166,7 @@ specify the directory to load multiple keys and passwords from.
 If running the validator client on a separate machine to the beacon node, then run Teku using the
 [`vc`](../../../Reference/CLI/Subcommands/Validator-Client.md) or
 [`validator-client`](../../../Reference/CLI/Subcommands/Validator-Client.md) subcommand, and specify
-the location of the beacon node's API endpoint using
+the location of one or more beacon node API endpoints using
 [`--beacon-node-api-endpoint`](../../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint).
 
 You also need to specify the validator key files [created earlier](#generate-the-validators-and-send-the-deposits),
