@@ -35,7 +35,7 @@ Run a validator client that connects to a remote beacon node.
 Endpoint of the beacon node's REST API. You can configure multiple beacon nodes by providing a
 comma-separated list of beacon node API endpoints.
 
-If multiple beacon node endpoints are configured, the first one will be used as primary and others
+If multiple beacon node endpoints are configured, the first one is used as primary and others
 as failovers.
 
 The default is `http://127.0.0.1:5051`.
