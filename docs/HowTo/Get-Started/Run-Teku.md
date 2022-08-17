@@ -100,7 +100,7 @@ option.
 
 !!! important
 
-    You can supply multiple beacon node endpoints to the validator, the first one will be used as the
+    You can supply multiple beacon node endpoints to the validator. The first one is used as the
     primary node, and others as failovers.
 
 ## Confirm Teku is running
