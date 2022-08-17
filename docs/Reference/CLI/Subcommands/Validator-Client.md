@@ -23,7 +23,7 @@ Run a validator client that connects to a remote beacon node.
 === "Environment variable"
 
     ```bash
-    TEKU_BEACON_NODE_ENDPOINT=http://192.138.10.12,http://192.140.11.44:5051
+    TEKU_BEACON_NODE_API_ENDPOINT=http://192.138.10.12,http://192.140.11.44:5051
     ```
 
 === "Configuration file"
