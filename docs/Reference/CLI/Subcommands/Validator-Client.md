@@ -126,38 +126,6 @@ The default Docker image location is `/root/.local/share/teku`.
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
 
-## `initial-state`
-
-=== "Syntax"
-
-    ```bash
-    teku vc --initial-state=<FILE>
-    ```
-
-=== "Example"
-
-    ```bash
-    teku vc --initial-state=/home/me/genesis.ssz
-    ```
-
-=== "Environment variable"
-
-    ```bash
-    TEKU_INITIAL_STATE=/home/me/genesis.ssz
-    ```
-
-=== "Configuration file"
-
-    ```bash
-    initial-state: "/home/me/genesis.ssz"
-    ```
-
-Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
-or a [recent finalized checkpoint state from which to sync].
-
-This option does not need to be specified if the initial state is provided by the network specified
-using the [`--network`](#network) option.
-
 ## `log-color-enabled`
 
 === "Syntax"
