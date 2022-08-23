@@ -100,14 +100,14 @@ to start the container.
       besu_node:
         image: hyperledger/besu:latest
         command: ["--network=goerli",
-                  "--data-path=/opt/besu/data/data",
+                  "--data-path=/var/lib/besu/data",
                   "--host-allowlist=*",
                   "--sync-mode=FAST",
                   "--rpc-http-enabled",
                   "--rpc-http-cors-origins=*",
                   "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
         volumes:
-          - ./besu:/opt/besu/data
+          - ./besu:/var/lib/besu/data
         ports:
           # Map the p2p port(30303) and RPC HTTP port(8545)
           - "8545:8545"
@@ -119,16 +119,16 @@ to start the container.
           - "JAVA_OPTS=-Xmx4g"
         image: consensys/teku:latest
         command: ["--network=goerli",
-                  "--data-base-path=/opt/teku/data"
+                  "--data-base-path=/var/lib/teku/data"
                   "--eth1-endpoint=http://besu_node:8545",
-                  "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
+                  "--validator-keys=/var/lib/teku/data/validator/keys:/var/lib/teku/data/validator/passwords",
                   "--p2p-port=9000",
                   "--rest-api-enabled=true",
                   "--rest-api-docs-enabled=true"]
         depends_on:
           - besu_node
         volumes:
-          - ./teku:/opt/teku/data
+          - ./teku:/var/lib/teku/data
         ports:
           # Map the p2p port(9000) and REST API port(5051)
           - "9000:9000/tcp"
@@ -145,13 +145,13 @@ to start the container.
 
       besu_node:
         image: hyperledger/besu:latest
-        command: ["--data-path=/opt/besu/data/data",
+        command: ["--data-path=/var/lib/besu/data",
                   "--host-allowlist=*",
                   "--rpc-http-enabled",
                   "--rpc-http-cors-origins=*",
                   "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
         volumes:
-          - ./besu:/opt/besu/data
+          - ./besu:/var/lib/besu/data
         ports:
           # Map the p2p port(30303) and RPC HTTP port(8545)
           - "8545:8545"
@@ -162,16 +162,16 @@ to start the container.
         environment:
           - "JAVA_OPTS=-Xmx4g"
         image: consensys/teku:latest
-        command: ["--data-base-path=/opt/teku/data"
+        command: ["--data-base-path=/var/lib/teku/data"
                   "--eth1-endpoint=http://besu_node:8545",
-                  "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
+                  "--validator-keys=/var/lib/teku/data/validator/keys:/var/lib/teku/data/validator/passwords",
                   "--p2p-port=9000",
                   "--rest-api-enabled=true",
                   "--rest-api-docs-enabled=true"]
         depends_on:
           - besu_node
         volumes:
-          - ./teku:/opt/teku/data
+          - ./teku:/var/lib/teku/data
         ports:
           # Map the p2p port(9000) and REST API port(5051)
           - "9000:9000/tcp"
