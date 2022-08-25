@@ -55,15 +55,15 @@ To expedite network participation, sync your execution client on Ethereum Mainne
 ### 3. Configure the JSON Web Token
 
 JSON Web Token (JWT) authentication is used to secure the communication between the beacon node and execution client.
-You can generate a JWT using a command line tool, for example:
+You can generate a key for signing JWTs using a command line tool, for example:
 
 ```bash
 openssl rand -hex 32 > token.txt
 ```
 
-Provide the JWT to Teku using the [`ee-jwt-secret-file`](../Reference/CLI/CLI-Syntax.md#ee-jwt-secret-file)
+Provide the signing key to Teku using the [`ee-jwt-secret-file`](../Reference/CLI/CLI-Syntax.md#ee-jwt-secret-file)
 configuration option, and to the execution client using its configuration options.
-For example, provide the JWT to [Hyperledger Besu](https://besu.hyperledger.org/) using the
+For example, provide the key to [Hyperledger Besu](https://besu.hyperledger.org/) using the
 [`engine-jwt-secret`](https://besu.hyperledger.org/en/stable/Reference/CLI/CLI-Syntax/#engine-jwt-secret) option.
 
 ## Configure the fee recipient
