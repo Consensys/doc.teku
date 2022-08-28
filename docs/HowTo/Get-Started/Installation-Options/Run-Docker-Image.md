@@ -100,17 +100,21 @@ to start the container.
       besu_node:
         image: hyperledger/besu:latest
         command: ["--network=goerli",
-                  "--data-path=/opt/besu/data/data",
+                  "--data-path=/opt/besu/data",
                   "--host-allowlist=*",
                   "--sync-mode=FAST",
                   "--rpc-http-enabled",
                   "--rpc-http-cors-origins=*",
                   "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
+                  "--engine-jwt-secret=/opt/besu/data/token.txt",
+                  "--engine-host-allowlist=*",
+                  "--engine-rpc-enabled=true"
         volumes:
           - ./besu:/opt/besu/data
         ports:
-          # Map the p2p port(30303) and RPC HTTP port(8545)
+          # Map the p2p port(30303), RPC HTTP port(8545) and engine port (8551)
           - "8545:8545"
+          - "8551:8551"
           - "30303:30303/tcp"
           - "30303:30303/udp"
 
@@ -119,8 +123,10 @@ to start the container.
           - "JAVA_OPTS=-Xmx4g"
         image: consensys/teku:latest
         command: ["--network=goerli",
-                  "--data-base-path=/opt/teku/data"
-                  "--eth1-endpoint=http://besu_node:8545",
+                  "--data-base-path=/opt/teku/data",
+                  "--validators-proposer-default-fee-recipient=YOUR_WALLET",
+                  "--ee-endpoint=http://besu_node:8551",
+                  "--ee-jwt-secret-file=/opt/teku/data/token.txt",
                   "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
                   "--p2p-port=9000",
                   "--rest-api-enabled=true",
@@ -145,16 +151,20 @@ to start the container.
 
       besu_node:
         image: hyperledger/besu:latest
-        command: ["--data-path=/opt/besu/data/data",
+        command: ["--data-path=/opt/besu/data",
                   "--host-allowlist=*",
                   "--rpc-http-enabled",
                   "--rpc-http-cors-origins=*",
-                  "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
+                  "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3",
+                  "--engine-jwt-secret=/opt/besu/data/token.txt",
+                  "--engine-host-allowlist=*",
+                  "--engine-rpc-enabled=true"]
         volumes:
           - ./besu:/opt/besu/data
         ports:
-          # Map the p2p port(30303) and RPC HTTP port(8545)
+          # Map the p2p port(30303), RPC HTTP port(8545) and engine port (8551)
           - "8545:8545"
+          - "8551:8551"
           - "30303:30303/tcp"
           - "30303:30303/udp"
 
@@ -162,8 +172,10 @@ to start the container.
         environment:
           - "JAVA_OPTS=-Xmx4g"
         image: consensys/teku:latest
-        command: ["--data-base-path=/opt/teku/data"
-                  "--eth1-endpoint=http://besu_node:8545",
+        command: ["--data-base-path=/opt/teku/data",
+                  "--validators-proposer-default-fee-recipient=YOUR_WALLET",
+                  "--ee-endpoint=http://besu_node:8551",
+                  "--ee-jwt-secret-file=/opt/teku/data/token.txt",
                   "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
                   "--p2p-port=9000",
                   "--rest-api-enabled=true",
