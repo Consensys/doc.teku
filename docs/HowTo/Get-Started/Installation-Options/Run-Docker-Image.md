@@ -112,7 +112,7 @@ to start the container.
         volumes:
           - ./besu:/opt/besu/data
         ports:
-          # Map the p2p port(30303), RPC HTTP port(8545) and engine port (8551)
+          # Map the p2p port(30303), RPC HTTP port(8545), and engine port (8551)
           - "8545:8545"
           - "8551:8551"
           - "30303:30303/tcp"
