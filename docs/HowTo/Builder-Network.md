@@ -67,9 +67,9 @@ Note the `default_config` applies to all validators who don't have their own pro
         }
       },
       "default_config": {
-        "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+        "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
         "builder": {
-          "enabled": false,
+          "enabled": false
         }
       }
     }
