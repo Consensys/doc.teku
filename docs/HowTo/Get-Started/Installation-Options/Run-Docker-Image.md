@@ -100,7 +100,7 @@ to start the container.
       besu_node:
         image: hyperledger/besu:latest
         command: ["--network=goerli",
-                  "--data-path=/opt/besu/data",
+                  "--data-path=/var/lib/besu/data",
                   "--host-allowlist=*",
                   "--sync-mode=FAST",
                   "--rpc-http-enabled",
@@ -110,7 +110,7 @@ to start the container.
                   "--engine-host-allowlist=*",
                   "--engine-rpc-enabled=true"
         volumes:
-          - ./besu:/opt/besu/data
+          - ./besu:/var/lib/besu/data
         ports:
           # Map the p2p port(30303), RPC HTTP port(8545), and engine port (8551)
           - "8545:8545"
@@ -126,15 +126,15 @@ to start the container.
                   "--data-base-path=/opt/teku/data",
                   "--validators-proposer-default-fee-recipient=YOUR_WALLET",
                   "--ee-endpoint=http://besu_node:8551",
-                  "--ee-jwt-secret-file=/opt/teku/data/token.txt",
-                  "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
+                  "--ee-jwt-secret-file=/var/lib/teku/data/token.txt",
+                  "--validator-keys=/var/lib/teku/data/validator/keys:/var/lib/teku/data/validator/passwords",
                   "--p2p-port=9000",
                   "--rest-api-enabled=true",
                   "--rest-api-docs-enabled=true"]
         depends_on:
           - besu_node
         volumes:
-          - ./teku:/opt/teku/data
+          - ./teku:/var/lib/teku/data
         ports:
           # Map the p2p port(9000) and REST API port(5051)
           - "9000:9000/tcp"
@@ -151,7 +151,7 @@ to start the container.
 
       besu_node:
         image: hyperledger/besu:latest
-        command: ["--data-path=/opt/besu/data",
+        command: ["--data-path=/var/lib/besu/data",
                   "--host-allowlist=*",
                   "--rpc-http-enabled",
                   "--rpc-http-cors-origins=*",
@@ -160,7 +160,7 @@ to start the container.
                   "--engine-host-allowlist=*",
                   "--engine-rpc-enabled=true"]
         volumes:
-          - ./besu:/opt/besu/data
+          - ./besu:/var/lib/besu/data
         ports:
           # Map the p2p port(30303), RPC HTTP port(8545), and engine port (8551)
           - "8545:8545"
@@ -175,15 +175,15 @@ to start the container.
         command: ["--data-base-path=/opt/teku/data",
                   "--validators-proposer-default-fee-recipient=YOUR_WALLET",
                   "--ee-endpoint=http://besu_node:8551",
-                  "--ee-jwt-secret-file=/opt/teku/data/token.txt",
-                  "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
+                  "--ee-jwt-secret-file=/var/lib/teku/data/token.txt",
+                  "--validator-keys=/var/lib/teku/data/validator/keys:/var/lib/teku/data/validator/passwords",
                   "--p2p-port=9000",
                   "--rest-api-enabled=true",
                   "--rest-api-docs-enabled=true"]
         depends_on:
           - besu_node
         volumes:
-          - ./teku:/opt/teku/data
+          - ./teku:/var/lib/teku/data
         ports:
           # Map the p2p port(9000) and REST API port(5051)
           - "9000:9000/tcp"
