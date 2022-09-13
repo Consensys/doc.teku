@@ -106,7 +106,7 @@ to start the container.
                   "--rpc-http-enabled",
                   "--rpc-http-cors-origins=*",
                   "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
-                  "--engine-jwt-secret=/opt/besu/data/token.txt",
+                  "--engine-jwt-secret=/var/lib/besu/data/token.txt",
                   "--engine-host-allowlist=*",
                   "--engine-rpc-enabled=true"
         volumes:
@@ -123,7 +123,7 @@ to start the container.
           - "JAVA_OPTS=-Xmx4g"
         image: consensys/teku:latest
         command: ["--network=goerli",
-                  "--data-base-path=/opt/teku/data",
+                  "--data-base-path=/var/lib/teku/data",
                   "--validators-proposer-default-fee-recipient=YOUR_WALLET",
                   "--ee-endpoint=http://besu_node:8551",
                   "--ee-jwt-secret-file=/var/lib/teku/data/token.txt",
@@ -156,7 +156,7 @@ to start the container.
                   "--rpc-http-enabled",
                   "--rpc-http-cors-origins=*",
                   "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3",
-                  "--engine-jwt-secret=/opt/besu/data/token.txt",
+                  "--engine-jwt-secret=/var/lib/besu/data/token.txt",
                   "--engine-host-allowlist=*",
                   "--engine-rpc-enabled=true"]
         volumes:
@@ -172,7 +172,7 @@ to start the container.
         environment:
           - "JAVA_OPTS=-Xmx4g"
         image: consensys/teku:latest
-        command: ["--data-base-path=/opt/teku/data",
+        command: ["--data-base-path=/var/lib/teku/data",
                   "--validators-proposer-default-fee-recipient=YOUR_WALLET",
                   "--ee-endpoint=http://besu_node:8551",
                   "--ee-jwt-secret-file=/var/lib/teku/data/token.txt",
