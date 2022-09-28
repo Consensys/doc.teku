@@ -4,19 +4,28 @@ description: What is the Merge?
 
 # The Merge
 
-The Ethereum upgrade known as [The Merge](https://ethereum.org/en/upgrades/merge/) will merge the
-[Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) into Ethereum Mainnet, turning Mainnet into a combination
-of an [execution layer and consensus layer](#execution-and-consensus-clients).
-The Merge will transition Mainnet from proof of work to [proof of stake consensus](Proof-of-Stake.md).
+!!! important
 
-You can [prepare Teku for The Merge](../HowTo/Prepare-for-The-Merge.md) and
-[test Teku with Hyperledger Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
+    The Merge was executed on **September 15, 2022**.
+
+[The Merge](https://ethereum.org/en/upgrades/merge/) was an Ethereum upgrade that merged the
+[Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) into Ethereum Mainnet, turning
+Mainnet into a combination of an [execution layer and consensus layer](#execution-and-consensus-clients).
+The Merge transitioned Mainnet from proof of work to [proof of stake consensus](Proof-of-Stake.md).
+
+You can run Teku as a consensus client with:
+
+- Any execution client on Mainnet.
+- Any execution client on a testnet.
+- Besu on Mainnet.
+- Besu on a testnet.
 
 ## Execution and consensus clients
 
-After The Merge, a full Ethereum Mainnet node will be a combination of an execution client (previously called an
-[Ethereum 1.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client) and a consensus client (previously
-called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client).
+After The Merge, a full Ethereum Mainnet node is a combination of an execution client (previously
+called an [Ethereum 1.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client) and
+a consensus client (previously called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/)
+client).
 
 Execution and consensus clients communicate with each other using the
 [Engine API](https://besu.hyperledger.org/en/latest/HowTo/Interact/APIs/Engine-API/).
@@ -25,40 +34,36 @@ Execution and consensus clients communicate with each other using the
 
 ### Execution clients
 
-Execution clients, such as [Besu](https://besu.hyperledger.org/en/stable/), manage the execution layer, including
-executing transactions and updating the world state.
-Execution clients serve [JSON-RPC API](https://besu.hyperledger.org/en/stable/Reference/API-Methods/) requests and
-communicate with each other in a peer-to-peer network.
+Execution clients, such as [Besu](https://besu.hyperledger.org/en/stable/), manage the execution
+layer, including executing transactions and updating the world state.
+Execution clients serve [JSON-RPC API](https://besu.hyperledger.org/en/stable/Reference/API-Methods/)
+requests and communicate with each other in a peer-to-peer network.
 
 ### Consensus clients
 
 Consensus clients, such as Teku, contain beacon node and validator client implementations.
-The beacon node is the primary link to the [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) (consensus layer).
+The beacon node is the primary link to the [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/)
+(consensus layer).
 The validator client performs [validator duties](Proof-of-Stake.md) on the consensus layer.
-Consensus clients serve [REST API](../Reference/Rest_API/Rest.md) requests and communicate with each other in a
-peer-to-peer network.
+Consensus clients serve [REST API](../Reference/Rest_API/Rest.md) requests and communicate with each
+other in a peer-to-peer network.
 
-## What happens during The Merge
+## What happened during The Merge
 
-Before The Merge, the execution and consensus clients' configurations will be
-[updated](../HowTo/Prepare-for-The-Merge.md#update-teku) to listen for a certain total terminal difficulty (TTD) to be
-reached on the [execution endpoint](../Reference/CLI/CLI-Syntax.md#ee-endpoint).
+Before The Merge, the execution and consensus clients' configurations were updated to listen for a
+certain total terminal difficulty (TTD) to be reached.
 
-Teku will periodically request information about the execution client's configuration to check that they agree on the
-configuration and can connect.
-Teku will log warnings if the configuration doesn't match.
+The consensus layer enabled the Merge configuration (Bellatrix) before reaching the TTD.
+Once the execution layer blocks reached the TTD, the Beacon Chain merged into Ethereum Mainnet, and
+Ethereum transitioned to a proof of stake network.
 
-The consensus layer will enable the Merge configuration (Bellatrix) before reaching the TTD.
-Once the execution layer blocks reach the TTD, the Beacon Chain will merge into Ethereum Mainnet, and Ethereum will move
-to a proof of stake network.
+!!! important
+    After The Merge, a Mainnet node operator must run both an execution client and a beacon node at
+    the same time.
+    To become a validator, you must also run a validator client (either
+    [in the same process as the beacon node](../HowTo/Get-Started/Run-Teku.md#start-the-clients-in-a-single-process)
+    or [separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately)).
 
-After The Merge, a Mainnet node operator must run both an execution client and a beacon node at the same time.
-To become a validator, you must also run a validator client (either
-[in the same process as the beacon node](../HowTo/Get-Started/Run-Teku.md#start-the-clients-in-a-single-process) or
-[separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately)).
-
-After The Merge, in addition to validators earning rewards for performing [validator duties](Proof-of-Stake.md),
-[fee recipients](../HowTo/Prepare-for-The-Merge.md#fee-recipient) will also earn rewards for the inclusion of execution
-layer transactions.
-
-You can [prepare Teku for The Merge](../HowTo/Prepare-for-The-Merge.md).
+After The Merge, validators earn rewards for performing [validator duties](Proof-of-Stake.md), and
+[fee recipients](../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) earn rewards for the
+inclusion of execution layer transactions.
