@@ -4,108 +4,64 @@ description: How to connect to Mainnet
 
 # Connect to Mainnet
 
-!!! note
-
-    This documentation has been updated in line with the name changes [recommended by the Ethereum Foundation](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
-    The execution layer was previously known as "Ethereum 1.0."
-    The consensus layer was previously known as "Ethereum 2.0."
-
-The following instructions provide the steps run validators on the consensus layer Mainnet. You can
-also use Teku to run a [beacon node only].
-
-!!! warning
-
-    If staking funds on the network, the funds are locked until transfers are enabled in a
-    future upgrade of the consensus layer.
-
-Use the [validator checklist] as a guide to secure your validator keys and hardware.
-
-**Prerequisites**:
-
-* Install the latest stable version of Teku using a [binary distribution](../Installation-Options/Install-Binaries.md),
-    or with [Docker](../Installation-Options/Run-Docker-Image.md).
-* If running validators, install any execution client (for example [Hyperledger Besu]), or access a
-    cloud-based service such as [Infura].
-
-## Run validators on Mainnet
-
-Consensus layer validators need to access an execution client to onboard new validators.
-New validators make deposits on the execution layer, and existing consensus layer validators must
-process the deposits to allow the new validators to join.
-
-Deposits are made into a deposit contract on the execution layer Mainnet. The deposit contract address
-is `0x00000000219ab540356cBB839Cbe05303d7705Fa`.
-
-The steps to run a consensus layer validator on Mainnet are:
-
-1. If running your own execution client, [sync the execution network containing
-    the deposit contract](#sync-the-execution-layer-network).
-
-    !!! note
-        This step is only required if running your own execution client such as Besu.
-        If using a cloud-based service such as Infura, proceed to
-        [sync the beacon node](#sync-the-beacon-node).
-
-1. [Sync the Teku beacon node with the Beacon Chain](#sync-the-beacon-node).
-
-1. [Generate the validator keys and send the deposit to the deposit
-    contract](#generate-the-validators-and-send-the-deposits).
-
-1. [Create a password file for each validator key](#create-a-password-file-for-each-validator-key).
-
-1. [Start Teku with the validator keys](#start-the-validator).
-
-### Sync the execution layer network
-
-This step is only required if running your own execution client.
-
-This example uses Besu as an execution client, but any client can be used.
-Configure Besu to [connect to Mainnet] and expose the RPC-HTTP APIs.
-
-!!! example
-
-    ```bash
-    besu --rpc-http-enabled=true --rpc-http-port=8545 \
-    --rpc-http-api=ETH,NET,WEB3 --fast-sync-min-peers=2
-    ```
-
-### Sync the beacon node
-
-Sync the beacon node to ensure the network is synced before registering the validator.
-
-!!! note
-
-    Before network launch there will be no data to sync.
-
-!!! example
-
-    ```bash
-    teku --metrics-enabled --rest-api-enabled
-    ```
-
-Syncing is complete when the head slot reaches the current slot.
-
-### Generate the validators and send the deposits
-
 !!! important
+    [The Merge](../../../Concepts/Merge.md) was executed on **September 15, 2022**.
+    Ethereum is now a [proof of stake](../../../Concepts/Proof-of-Stake.md) network, and a full
+    Ethereum node requires both [an execution client and a consensus client](../../../Concepts/Merge.md#execution-and-consensus-clients).
 
-    Ensure your Ethereum account has enough ETH to cover the required deposit amount (32 ETH) plus
-    gas.
+Run Teku as a consensus client with any execution client on Ethereum Mainnet.
 
-Use the [Ethereum Staking Launchpad] to guide you through a step-by-step process to generate your keys and
-send the deposits.
+If you're using [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) as an execution client,
+you can follow the [Besu and Teku Mainnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-mainnet/).
 
-!!! note
-    Remember the passwords that you used to create the validator keys, because you need it to
-    [create the validator password files](#create-a-password-file-for-each-validator-key).
+## Prerequisites
+
+- [Teku installed](../Installation-Options/Install-Binaries.md).
+- An execution client installed.
+  For example, [Besu].
+
+## 1. Generate the shared secret
+
+Run the following command:
+
+```bash
+openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
+```
+
+You will specify `jwtsecret.hex` when starting Teku and the execution client.
+This is a shared JWT secret the clients use to authenticate each other when using the
+[Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).
+
+## 2. Start the execution client
+
+Refer to your execution client documentation to configure and start the execution client.
+Make sure you specify the shared secret generated in [step 1].
+
+If you're using [Besu], you can follow the [Besu and Teku Mainnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-mainnet/).
+
+Ensure your execution client is fully synced before submitting your staking deposit in the next step.
+This can take several days.
+
+## 3. Generate validator keys and stake ETH
+
+If you're running a beacon node only, skip to the [next step](#4-start-teku).
+
+If you're also running a validator client, have a funded Ethereum address ready (32 ETH and gas fees
+for each validator).
+
+Generate validator keys and stake your ETH for one or more validators using the
+[Staking Launchpad](https://launchpad.ethereum.org/en/).
+Remember the passwords that you use to create the validator keys, because you need them to
+[create the validator password files](#create-a-password-file-for-each-validator-key).
 
 ### Create a password file for each validator key
 
 For each validator key, create a text file containing the password to decrypt the key.
 
 Teku allows you to specify individual keys and passwords in the command line, or you can specify
-folders from which to load keys and passwords. If specifying folders, then password files
-must have the same name as the keys, but use the `.txt` extension.
+directories from which to load keys and passwords.
+If specifying directories, password files must have the same name as the keys, but use the `.txt`
+extension.
 
 !!! example
 
@@ -117,86 +73,115 @@ must have the same name as the keys, but use the `.txt` extension.
     The password file format follows [`EIP-2335`](https://eips.ethereum.org/EIPS/eip-2335#password-requirements)
     requirements (UTF-8 encoded file, unicode normalization, and control code removal).
 
-### Start the validator
+## 4. Start Teku
 
-You can run the Teku validator as a [single process] with the beacon node, or you can run the
-validator client on a [separate machine].
+Open a new terminal window.
 
-!!! important
+### Beacon node only
 
-    If running validators as a split process, then connect the validator to the running
-    beacon node. Otherwise you need to stop the [running beacon] node and restart it by supplying
-    the validator keys.
+To run Teku as a beacon node only (without validator duties), run the following command or
+[specify the options in a configuration file](../../Configure/Use-Configuration-File.md):
 
-Once the validator is activated, view it on the Beacon Chain explorer at
-`https://beaconcha.in/validator/<validatorPublicKey>`.
+```bash
+teku \
+    --ee-endpoint=http://localhost:8551          \
+    --ee-jwt-secret-file=<path to jwtsecret.hex> \
+    --metrics-enabled=true                       \
+    --rest-api-enabled=true
+```
 
-You can also use [Prometheus and Grafana] to monitor your nodes.
+Specify the path to the `jwtsecret.hex` file generated in [step 1] using the
+[`--ee-jwt-secret-file`](../../../Reference/CLI/CLI-Syntax.md#ee-jwt-secret-file) option.
 
-#### Run the validator and beacon node as a single process
+Also, in the command:
 
-To run the beacon node and validator client as a single process, stop the [running beacon node]
-started previously, and restart it by specifying the validator key files
-[created earlier](#generate-the-validators-and-send-the-deposits), and the text files containing the
-password to decrypt the validator key.
+- [`--ee-endpoint`](../../../Reference/CLI/CLI-Syntax.md#ee-endpoint) is set to the default URL of
+  the execution client's Engine API.
+- [`--metrics-enabled`](../../../Reference/CLI/CLI-Syntax.md#metrics-enabled) enables the metrics
+  exporter.
+- [`--rest-api-enabled`](../../../Reference/CLI/CLI-Syntax.md#rest-api-enabled) enables the REST API
+  service.
 
-!!! example
+You can modify the option values and add other [command line options](../../../Reference/CLI/CLI-Syntax.md)
+as needed.
 
-    ```bash
-    teku --eth1-endpoint=http://localhost:8545 \
-    --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt \
-    --rest-api-enabled=true --rest-api-docs-enabled=true \
-    --metrics-enabled
-    ```
+### Beacon node and validator client
 
-Alternatively, use [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) to
-specify the directory to load multiple keys and passwords from.
+You can run the Teku beacon node and validator client as a [single process](#single-process) or as
+[separate processes](#separate-processes).
 
-!!! example
+You can check your validator status by searching your Ethereum address on the [Beacon Chain explorer](https://beaconcha.in/).
+It may take up to multiple days for your validator to be activated and start proposing blocks.
 
-    ```bash
-    teku --eth1-endpoint=http://localhost:8545 \
-    --validator-keys=validator/keys:validator/passwords \
-    --rest-api-enabled=true --rest-api-docs-enabled=true \
-    --metrics-enabled
-    ```
+You can also use [Prometheus and Grafana](../../Monitor/Metrics.md) to monitor your nodes.
 
-#### Run the validator on a separate machine
+#### Single process
 
-If running the validator client on a separate machine to the beacon node, then run Teku using the
-[`vc`](../../../Reference/CLI/Subcommands/Validator-Client.md) or
-[`validator-client`](../../../Reference/CLI/Subcommands/Validator-Client.md) subcommand, and specify
-the location of one or more beacon node API endpoints using
-[`--beacon-node-api-endpoint`](../../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint).
+To run the Teku beacon node and validator client in a single process, run the following command or
+[specify the options in the configuration file](../../Configure/Use-Configuration-File.md):
 
-You also need to specify the validator key files [created earlier](#generate-the-validators-and-send-the-deposits),
-and the text files containing the password to decrypt the validator key.
+```bash
+teku \
+  --ee-endpoint=http://localhost:8551                       \
+  --ee-jwt-secret-file=<path to jwtsecret.hex>              \
+  --metrics-enabled=true                                    \
+  --rest-api-enabled=true                                   \
+  --validators-proposer-default-fee-recipient=<ETH address> \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
 
-!!! example
+Specify:
 
-    ```bash
-    teku validator-client --beacon-node-api-endpoint=http://192.10.10.101:5051 \
-    --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt
-    ```
-Alternatively, use [`--validator-keys`](../../../Reference/CLI/Subcommands/Validator-Client.md#validator-keys)
-to specify the directory to load multiple keys and passwords from.
+- The path to the `jwtsecret.hex` file generated in [step 1] using the
+  [`--ee-jwt-secret-file`](../../../Reference/CLI/CLI-Syntax.md#ee-jwt-secret-file) option.
+- An Ethereum address you own as the default fee recipient using the
+  [`--validators-proposer-default-fee-recipient`](../../../Reference/CLI/CLI-Syntax.md#validators-proposer-default-fee-recipient)
+  option.
+- The paths to the keystore `.json` file and password `.txt` file created in
+  [step 3](#create-a-password-file-for-each-validator-key) for each validator using the
+  [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) option.
+  Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators
+  with commas.
+  Alternatively, specify paths to directories to load multiple keys and passwords from.
 
-!!! example
+Also, in the command:
 
-    ```bash
-    teku validator-client --beacon-node-api-endpoint=http://192.10.10.101:5051 \
-    --validator-keys=validator/keys:validator/passwords
-    ```
+- [`--ee-endpoint`](../../../Reference/CLI/CLI-Syntax.md#ee-endpoint) is set to the default URL of
+  the execution client's Engine API.
+- [`--metrics-enabled`](../../../Reference/CLI/CLI-Syntax.md#metrics-enabled) enables the metrics
+  exporter.
+- [`--rest-api-enabled`](../../../Reference/CLI/CLI-Syntax.md#rest-api-enabled) enables the REST API
+  service.
+
+You can modify the option values and add other [command line options](../../../Reference/CLI/CLI-Syntax.md)
+as needed.
+
+#### Separate processes
+
+To run the Teku beacon node and validator client as separate processes, first [start Teku as a
+beacon node only](#beacon-node-only).
+
+On a separate machine, run Teku using the [`validator-client`](../../../Reference/CLI/Subcommands/Validator-Client.md)
+subcommand:
+
+```bash
+teku validator-client \
+    --beacon-node-api-endpoint=<endpoint> \
+    --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
+
+Specify:
+
+- The location of one or more beacon node API endpoints using the
+  [`--beacon-node-api-endpoint`](../../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint-beacon-node-api-endpoints)
+  option.
+- The paths to the keystore `.json` file and password `.txt` file created in
+  [step 3](#create-a-password-file-for-each-validator-key) for each validator using the
+  [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) option.
+  Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators
+  with commas.
+  Alternatively, specify paths to directories to load multiple keys and passwords from.
 
 <!-- links -->
-[connect to Mainnet]: https://besu.hyperledger.org/en/latest/HowTo/Get-Started/Starting-node/#run-a-node-on-ethereum-mainnet
-[Ethereum Staking Launchpad]: https://launchpad.ethereum.org/
-[validator checklist]: https://launchpad.ethereum.org/checklist
-[running beacon]: #sync-the-beacon-node
-[single process]: #run-the-validator-and-beacon-node-as-a-single-process
-[separate machine]: #run-the-validator-on-a-separate-machine
-[Hyperledger Besu]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Install-Binaries/
-[Infura]: https://infura.io/
-[beacon node only]: #sync-the-beacon-node
-[running beacon node]: #sync-the-beacon-node
-[Prometheus and Grafana]: ../../Monitor/Metrics.md
+[Besu]: https://besu.hyperledger.org/en/stable/
+[step 1]: #1-generate-the-shared-secret

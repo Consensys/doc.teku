@@ -2,6 +2,11 @@
 description: How to prepare for The Merge
 ---
 
+!!! warning "Important"
+    [The Merge](../Concepts/Merge.md) was executed on **September 15, 2022**.
+    This page will remain up for a short period of time for your reference.
+    Please see the [guide on connecting Teku to Mainnet](Get-Started/Connect/Connect-To-Mainnet.md).
+
 # Prepare for The Merge
 
 If you're running one or more Teku beacon nodes and validators on Ethereum Mainnet, prepare for
@@ -14,7 +19,7 @@ If you're running one or more Teku beacon nodes and validators on Ethereum Mainn
 You can make the configuration changes in Teku's [configuration file](Configure/Use-Configuration-File.md) before The Merge.
 
 You can also
-[test Teku with Hyperledger Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
+[test Teku with Hyperledger Besu on the Merge testnet](https://besu.hyperledger.org/en/stable/public-networks/tutorials/merge-testnet/).
 
 ## Configure the execution client
 

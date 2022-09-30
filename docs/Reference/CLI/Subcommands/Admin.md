@@ -260,11 +260,9 @@ Possible values are:
 
 | Network   | Chain           | Type        | Description                                      |
 |-----------|-----------------|-------------|--------------------------------------------------|
-| `mainnet` | Consensus layer | Production  | Main network                                    |
-| `minimal` | Consensus layer | Test        | Used for local testing and development networks |
-| `goerli`  | Consensus layer | Test        | Multi-client testnet                            |
-| `kiln`    | Consensus layer | Test        | Multi-client testnet                             |
-| `ropsten` | Consensus layer | Test        | Multi-client testnet                             |
+| `mainnet` | Consensus layer | Production  | Main network                                     |
+| `minimal` | Consensus layer | Test        | Used for local testing and development networks  |
+| `goerli`  | Consensus layer | Test        | Multi-client testnet                             |
 | `gnosis`  | Consensus layer | Production  | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
 | `sepolia` | Consensus layer | Test        | Multi-client testnet                             |
 
@@ -524,8 +522,6 @@ Possible values are:
 | `mainnet` | Consensus layer | Production  | Main network                                              |
 | `minimal` | Consensus layer | Test        | Used for local testing and development networks           |
 | `goerli`  | Consensus layer | Test        | Multi-client testnet                                      |
-| `kiln`    | Consensus layer | Test        | Multi-client testnet                                      |
-| `ropsten` | Consensus layer | Test        | Multi-client testnet                                      |
 | `gnosis`  | Consensus layer | Production  | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
 | `sepolia` | Consensus layer | Test        | Multi-client testnet                                      |
 

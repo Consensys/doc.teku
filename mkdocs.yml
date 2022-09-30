@@ -58,11 +58,11 @@ nav:
                 - Build from source: HowTo/Get-Started/Installation-Options/Build-From-Source.md
                 - Run Teku from Docker image: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
             - Start Teku: HowTo/Get-Started/Run-Teku.md
-            - Manage memory: HowTo/Get-Started/Manage-Memory.md
             - Connect to a network:
                 - Connect to Mainnet: HowTo/Get-Started/Connect/Connect-To-Mainnet.md
                 - Connect to a testnet: HowTo/Get-Started/Connect/Connect-To-Testnet.md
             - Start Teku from a recent state: HowTo/Get-Started/Checkpoint-Start.md
+            - Manage memory: HowTo/Get-Started/Manage-Memory.md
             - Migrate to Teku: HowTo/Get-Started/Migrate-to-Teku.md
         - External signing:
               - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
