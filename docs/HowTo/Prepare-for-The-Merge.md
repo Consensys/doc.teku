@@ -19,7 +19,7 @@ If you're running one or more Teku beacon nodes and validators on Ethereum Mainn
 You can make the configuration changes in Teku's [configuration file](Configure/Use-Configuration-File.md) before The Merge.
 
 You can also
-[test Teku with Hyperledger Besu on the Kiln Merge testnet](https://besu.hyperledger.org/en/stable/Tutorials/Merge-Testnet/).
+[test Teku with Hyperledger Besu on the Merge testnet](https://besu.hyperledger.org/en/stable/public-networks/tutorials/merge-testnet/).
 
 ## Configure the execution client
 
