@@ -82,6 +82,7 @@ nav:
         - Migrate database: HowTo/Migrate-Database.md
         - Prepare for The Merge: HowTo/Prepare-for-The-Merge.md
         - Connect to a builder network: HowTo/Builder-Network.md
+        - Use sentry beacon nodes: HowTo/Sentry-Nodes.md
         - Troubleshoot:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
