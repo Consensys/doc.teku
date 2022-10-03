@@ -15,7 +15,7 @@ One way to mitigate this issue is using the sentry nodes.
 
     Only remote validators can use sentry nodes.
 
-When configuring your remote validator to use sentry beacon nodes, each beacon node (or cluster of beacon nodes) can be assigned a "role". Each role determine which beacon node the remote validator will send request to when performing a task.
+When configuring your remote validator to use sentry beacon nodes, each beacon node (or cluster of beacon nodes) can be assigned a "role." Each role determine which beacon node the remote validator will send request to when performing a task.
 
 The sentry nodes feature supports three roles:
 
@@ -29,11 +29,11 @@ The sentry nodes feature supports three roles:
 
     The option `--Xsentry-config-file=<file_path>` cannot be used with the option `--beacon-node-api-endpoint`.
 
-All sentry node configuration resides on a json file. To configure your remote validator to use sentry nodes use the option `--Xsentry-config-file=<file_path>`.
+All sentry node configuration resides on a JSON file. To configure your remote validator to use sentry nodes use the option `--Xsentry-config-file=<file_path>`.
 
 The configuration file looks like this:
 
-```
+```json
 {
   "beacon_nodes": {
     "duties_provider": {
@@ -59,11 +59,11 @@ Only the `duties_provider` role is mandatory. And for each role, you can assign 
 
 **Example:**
 
-With sentry node config file on `/etc/sentry-node-config.json` and containing the content in our previous example, start your remote validator with the option `--Xsentry-config-file=/etc/sentry-node-config.json`.
+With sentry node configuration file on `/etc/sentry-node-config.json` and containing the content in our previous example, start your remote validator with the option `--Xsentry-config-file=/etc/sentry-node-config.json`.
 
 During start up the logs should have something like this:
 
-```
+```bash
 ...
 DEBUG | SentryNodesConfigLoader | 2022-10-03 01:31:48.260 INFO  - Loading sentry nodes configuration from /etc/sentry-node-config.json
 DEBUG | SentryNodesConfigLoader | 2022-10-03 01:31:48.277 INFO  - Duty provider beacon nodes: http://duties:9051
@@ -72,4 +72,4 @@ DEBUG | SentryNodesConfigLoader | 2022-10-03 01:31:48.278 INFO  - Attestation pu
 ...
 ```
 
-At this point, the remote validator already knows what beacon nodes should be used for its tasks and no furthre configuration is needed.
+At this point, the remote validator already knows what beacon nodes should be used for its tasks and no further configuration is needed.
