@@ -6,33 +6,39 @@ title: Validator client subcommand options
 
 Run a validator client that connects to a remote beacon node.
 
-## `beacon-node-api-endpoint`
+## `beacon-node-api-endpoint`, `beacon-node-api-endpoints`
 
 === "Syntax"
 
     ```bash
-    teku vc --beacon-node-api-endpoint=<ENDPOINT>
+    teku vc --beacon-node-api-endpoint=<ENDPOINT>[,<ENDPOINT>...]...
     ```
 
 === "Example"
 
     ```bash
-    teku vc --beacon-node-api-endpoint=http://192.138.10.12
+    teku vc --beacon-node-api-endpoint=http://192.138.10.12:5051,http://192.140.11.44:5051
     ```
 
 === "Environment variable"
 
     ```bash
-    TEKU_BEACON_NODE_ENDPOINT=http://192.138.10.12
+    TEKU_BEACON_NODE_API_ENDPOINT=http://192.138.10.12,http://192.140.11.44:5051
     ```
 
 === "Configuration file"
 
     ```bash
-    beacon-node-api-endpoint: "http://192.138.10.12"
+    beacon-node-api-endpoint: ["http://192.138.10.12","http://192.140.11.44:5051"]
     ```
 
-Endpoint of the beacon node's REST API. The default is `http://127.0.0.1:5051`.
+Endpoint of the beacon node's REST API. You can configure multiple beacon nodes by providing a
+comma-separated list of beacon node API endpoints.
+
+If multiple beacon node endpoints are configured, the first one is used as primary and others
+as failovers.
+
+The default is `http://127.0.0.1:5051`.
 
 ## `config-file`
 
@@ -119,38 +125,6 @@ The default Docker image location is `/root/.local/share/teku`.
 
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
 is specified using [`--data-base-path`](#data-base-path-data-path).
-
-## `initial-state`
-
-=== "Syntax"
-
-    ```bash
-    teku vc --initial-state=<FILE>
-    ```
-
-=== "Example"
-
-    ```bash
-    teku vc --initial-state=/home/me/genesis.ssz
-    ```
-
-=== "Environment variable"
-
-    ```bash
-    TEKU_INITIAL_STATE=/home/me/genesis.ssz
-    ```
-
-=== "Configuration file"
-
-    ```bash
-    initial-state: "/home/me/genesis.ssz"
-    ```
-
-Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
-or a [recent finalized checkpoint state from which to sync].
-
-This option does not need to be specified if the initial state is provided by the network specified
-using the [`--network`](#network) option.
 
 ## `log-color-enabled`
 

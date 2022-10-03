@@ -4,7 +4,7 @@ description: Ethereum proof of stake
 
 # Proof of stake
 
-[The Merge](Merge.md) transitions Ethereum Mainnet to
+[The Merge](Merge.md) transitioned Ethereum Mainnet to
 [proof of stake (PoS)](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/) consensus.
 
 In Ethereum's PoS, you must run a [full node](Merge.md#execution-and-consensus-clients) and
@@ -15,8 +15,7 @@ In Ethereum's PoS, you must run a [full node](Merge.md#execution-and-consensus-c
     Withdrawing staked ETH isn't yet supported and will be included in a separate upgrade following The Merge.
 
 !!! note
-
-    You must run a beacon node and an execution client to operate a node on Mainnet post-Merge.
+    You must run a beacon node and an execution client to operate a node on Mainnet.
     To become a validator, you must also run a validator client (either
     [in the same process as the beacon node](../HowTo/Get-Started/Run-Teku.md#start-the-clients-in-a-single-process) or
     [separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately).
@@ -28,6 +27,8 @@ Proposers are responsible for proposing new consensus blocks, and non-proposing 
 validating (attesting to) proposed blocks.
 Validators are rewarded for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and
 penalized for malicious behavior.
+Validators also receive [transaction fees](../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) for included
+blocks.
 
 Each consensus block contains an execution payload, which contains a list of transactions and other data required to
 execute and validate the payload.

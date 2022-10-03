@@ -15,31 +15,31 @@ on the same machine.
     By default, Teku connects to `mainnet`. Use the [`--network`](../../Reference/CLI/CLI-Syntax.md#network)
     command line option to specify an alternate network.
 
-    If the genesis state of a network is not yet known, then include the
-    [`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints) command line
-    option.
-
 ## Prerequisites
 
-* [Teku installed](Installation-Options/Install-Binaries.md)
-* [Validator keystores] and [password files]
+* [Teku installed](Installation-Options/Install-Binaries.md).
+* [An execution client synced](Connect/Connect-To-Mainnet.md#2-start-the-execution-client).
+* [Validator keystores and password files](Connect/Connect-To-Mainnet.md#3-generate-validator-keys-and-stake-eth).
 
 ## Start the clients in a single process
 
 Start the beacon node and validator as a single process by specifying the validator options
-with the [`teku`](../../Reference/CLI/CLI-Syntax.md#options) command. For example:
+using the [`teku`](../../Reference/CLI/CLI-Syntax.md#options) command.
 
 !!! example
 
-    ```
-    teku --network=prater --eth1-endpoints=http://localhost:8545,http://backup-host:8545/ \
-    --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt \
-    --rest-api-enabled=true --rest-api-docs-enabled=true \
-    --metrics-enabled
+    ```bash
+    teku \
+      --ee-endpoint=http://localhost:8551                       \
+      --ee-jwt-secret-file=jwtsecret.hex                        \
+      --metrics-enabled=true                                    \
+      --rest-api-enabled=true                                   \
+      --validators-proposer-default-fee-recipient=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73 \
+      --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt
     ```
 
 Use the [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) option to specify
-the directory or file to load the encrypted keystore file(s) and associated password file(s) from.
+the directories or files to load the encrypted keystore file(s) and associated password file(s) from.
 
 ## Run the clients separately
 
@@ -54,8 +54,11 @@ Run Teku as a beacon node.
 !!! example
 
     ```bash
-    teku --network=prater --eth1-endpoint=http://localhost:8545 \
-    --metrics-enabled --rest-api-enabled
+    teku \
+        --ee-endpoint=http://localhost:8551 \
+        --ee-jwt-secret-file=jwtsecret.hex  \
+        --metrics-enabled=true              \
+        --rest-api-enabled=true
     ```
 
 Specify [`--rest-api-enabled`](../../Reference/CLI/CLI-Syntax.md#rest-api-enabled) to allow
@@ -85,8 +88,9 @@ a Teku as a validator.
 !!! example
 
     ```
-    teku validator-client --network=prater --beacon-node-api-endpoint=http://192.10.10.101:5051 \
-    --validator-keys=validator/keys:validator/passwords
+    teku validator-client \
+        --beacon-node-api-endpoint=http://192.10.10.101:5051,http://192.140.110.44:5051 \
+        --validator-keys=validator/keys:validator/passwords
     ```
 
 !!! warning
@@ -94,9 +98,14 @@ a Teku as a validator.
     keys as command line options to both the beacon node and validator client. This can a
     cause a [slashable offense].
 
-Specify the beacon node using the
-[`--beacon-node-api-endpoint`](../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint)
+Specify one or more beacon nodes using the
+[`--beacon-node-api-endpoint`](../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint-beacon-node-api-endpoints)
 option.
+
+!!! important
+
+    You can supply multiple beacon node endpoints to the validator. The first one is used as the
+    primary node, and others as failovers.
 
 ## Confirm Teku is running
 

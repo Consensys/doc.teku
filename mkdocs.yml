@@ -58,11 +58,11 @@ nav:
                 - Build from source: HowTo/Get-Started/Installation-Options/Build-From-Source.md
                 - Run Teku from Docker image: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
             - Start Teku: HowTo/Get-Started/Run-Teku.md
-            - Manage memory: HowTo/Get-Started/Manage-Memory.md
             - Connect to a network:
                 - Connect to Mainnet: HowTo/Get-Started/Connect/Connect-To-Mainnet.md
                 - Connect to a testnet: HowTo/Get-Started/Connect/Connect-To-Testnet.md
             - Start Teku from a recent state: HowTo/Get-Started/Checkpoint-Start.md
+            - Manage memory: HowTo/Get-Started/Manage-Memory.md
             - Migrate to Teku: HowTo/Get-Started/Migrate-to-Teku.md
         - External signing:
               - Use an external signer: HowTo/External-Signer/Use-External-Signer.md
@@ -80,10 +80,13 @@ nav:
             - Specify NAT methods: HowTo/Find-and-Connect/Specifying-NAT.md
         - Voluntary exit: HowTo/Voluntary-Exit.md
         - Migrate database: HowTo/Migrate-Database.md
+        - Prepare for The Merge: HowTo/Prepare-for-The-Merge.md
+        - Connect to a builder network: HowTo/Builder-Network.md
         - Troubleshoot:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
         - Architecture: Concepts/ArchitectureOverview.md
+        - Builder network and MEV-Boost: Concepts/Builder-Network.md
         - Proof of stake: Concepts/Proof-of-Stake.md
         - The Merge: Concepts/Merge.md
         - Node private key: Concepts/P2P-Private-Key.md

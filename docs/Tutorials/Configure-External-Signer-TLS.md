@@ -181,7 +181,7 @@ password files.
     command line option.
 
 ```bash
-teku --network=prater \
+teku --network=goerli \
 --eth1-endpoint=https://goerli.infura.iov3/d0f36ceb0c324eef9984422efbc51f21 \
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
 --validators-external-signer-url=https://localhost:9000 \

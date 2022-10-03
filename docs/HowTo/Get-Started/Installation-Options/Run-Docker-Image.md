@@ -25,7 +25,7 @@ docker image instead of the command line options.
 !!! Example "Example using Environment variables and CLI options"
 
     ```bash
-    docker run -d -p 9000:9000/tcp -p 9000:9000/udp -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=prater --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --data-path=/var/lib/teku --log-destination=CONSOLE
+    docker run -d -p 9000:9000/tcp -p 9000:9000/udp -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=goerli --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --data-path=/var/lib/teku --log-destination=CONSOLE
     ```
 
 !!! tips
@@ -49,7 +49,7 @@ docker container.
 !!! example
 
     ```bash
-    docker run -p 9000:9000/tcp -p 9000:9000/udp --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --data-base-path=/var/lib/teku --network=prater --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords
+    docker run -p 9000:9000/tcp -p 9000:9000/udp --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --data-base-path=/var/lib/teku --network=goerli --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords
     ```
 
 ## Exposing ports
@@ -71,7 +71,7 @@ docker run -p <localportP2P>:30303/tcp -p <localportP2P>:30303/udp -p <localport
 !!! example
 
     ```
-    docker run -p 30303:30303/tcp -p 30303:30303/udp -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=prater --data-base-path=/var/lib/teku --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --rest-api-enabled=true
+    docker run -p 30303:30303/tcp -p 30303:30303/udp -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=goerli --data-base-path=/var/lib/teku --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --rest-api-enabled=true
     ```
 
 ## Run Teku using Docker Compose
@@ -90,7 +90,7 @@ The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku nod
 Run `docker-compose up` in the directory containing the `docker-compose.yml` file
 to start the container.
 
-=== "Prater"
+=== "Goerli"
 
     ```yaml
     ---
@@ -100,17 +100,21 @@ to start the container.
       besu_node:
         image: hyperledger/besu:latest
         command: ["--network=goerli",
-                  "--data-path=/opt/besu/data/data",
+                  "--data-path=/var/lib/besu/data",
                   "--host-allowlist=*",
                   "--sync-mode=FAST",
                   "--rpc-http-enabled",
                   "--rpc-http-cors-origins=*",
                   "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
+                  "--engine-jwt-secret=/var/lib/besu/data/token.txt",
+                  "--engine-host-allowlist=*",
+                  "--engine-rpc-enabled=true"
         volumes:
-          - ./besu:/opt/besu/data
+          - ./besu:/var/lib/besu/data
         ports:
-          # Map the p2p port(30303) and RPC HTTP port(8545)
+          # Map the p2p port(30303), RPC HTTP port(8545), and engine port (8551)
           - "8545:8545"
+          - "8551:8551"
           - "30303:30303/tcp"
           - "30303:30303/udp"
 
@@ -118,17 +122,19 @@ to start the container.
         environment:
           - "JAVA_OPTS=-Xmx4g"
         image: consensys/teku:latest
-        command: ["--network=prater",
-                  "--data-base-path=/opt/teku/data"
-                  "--eth1-endpoint=http://besu_node:8545",
-                  "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
+        command: ["--network=goerli",
+                  "--data-base-path=/var/lib/teku/data",
+                  "--validators-proposer-default-fee-recipient=YOUR_WALLET",
+                  "--ee-endpoint=http://besu_node:8551",
+                  "--ee-jwt-secret-file=/var/lib/teku/data/token.txt",
+                  "--validator-keys=/var/lib/teku/data/validator/keys:/var/lib/teku/data/validator/passwords",
                   "--p2p-port=9000",
                   "--rest-api-enabled=true",
                   "--rest-api-docs-enabled=true"]
         depends_on:
           - besu_node
         volumes:
-          - ./teku:/opt/teku/data
+          - ./teku:/var/lib/teku/data
         ports:
           # Map the p2p port(9000) and REST API port(5051)
           - "9000:9000/tcp"
@@ -145,16 +151,20 @@ to start the container.
 
       besu_node:
         image: hyperledger/besu:latest
-        command: ["--data-path=/opt/besu/data/data",
+        command: ["--data-path=/var/lib/besu/data",
                   "--host-allowlist=*",
                   "--rpc-http-enabled",
                   "--rpc-http-cors-origins=*",
-                  "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
+                  "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3",
+                  "--engine-jwt-secret=/var/lib/besu/data/token.txt",
+                  "--engine-host-allowlist=*",
+                  "--engine-rpc-enabled=true"]
         volumes:
-          - ./besu:/opt/besu/data
+          - ./besu:/var/lib/besu/data
         ports:
-          # Map the p2p port(30303) and RPC HTTP port(8545)
+          # Map the p2p port(30303), RPC HTTP port(8545), and engine port (8551)
           - "8545:8545"
+          - "8551:8551"
           - "30303:30303/tcp"
           - "30303:30303/udp"
 
@@ -162,16 +172,18 @@ to start the container.
         environment:
           - "JAVA_OPTS=-Xmx4g"
         image: consensys/teku:latest
-        command: ["--data-base-path=/opt/teku/data"
-                  "--eth1-endpoint=http://besu_node:8545",
-                  "--validator-keys=/opt/teku/data/validator/keys:/opt/teku/data/validator/passwords",
+        command: ["--data-base-path=/var/lib/teku/data",
+                  "--validators-proposer-default-fee-recipient=YOUR_WALLET",
+                  "--ee-endpoint=http://besu_node:8551",
+                  "--ee-jwt-secret-file=/var/lib/teku/data/token.txt",
+                  "--validator-keys=/var/lib/teku/data/validator/keys:/var/lib/teku/data/validator/passwords",
                   "--p2p-port=9000",
                   "--rest-api-enabled=true",
                   "--rest-api-docs-enabled=true"]
         depends_on:
           - besu_node
         volumes:
-          - ./teku:/opt/teku/data
+          - ./teku:/var/lib/teku/data
         ports:
           # Map the p2p port(9000) and REST API port(5051)
           - "9000:9000/tcp"

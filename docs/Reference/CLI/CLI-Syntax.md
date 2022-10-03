@@ -48,6 +48,34 @@ teku --Tab+Tab
 
 ## Options
 
+### builder-endpoint
+
+=== "Syntax"
+
+    ```bash
+    --builder-endpoint=<URL>
+    ```
+
+=== "Example"
+
+    ```bash
+    --builder-endpoint=http://127.0.0.1:18550
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_BUILDER_ENDPOINT=http://127.0.0.1:18550
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    builder-endpoint: "http://127.0.0.1:18550"
+    ```
+
+Specifies the address for an external [builder endpoint](../../HowTo/Builder-Network.md).
+
 ### config-file
 
 === "Syntax"
@@ -288,7 +316,8 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
     ee-endpoint: "http://localhost:8550"
     ```
 
-URL of the [execution client's](../../Concepts/Merge.md#execution-and-consensus-clients) Engine JSON-RPC APIs.
+URL of the [execution client's](../../Concepts/Merge.md#execution-clients) Engine JSON-RPC APIs.
+This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after [The Merge](../../Concepts/Merge.md).
 
 ### ee-jwt-secret-file
 
@@ -320,7 +349,7 @@ Shared secret used to authenticate [execution clients](../../Concepts/Merge.md#e
 using the Engine JSON-RPC API.
 Contents of file must be 32 hex-encoded bytes.
 May be a relative or absolute path.
-See an [example of how to generate this](https://besu.hyperledger.org/en/latest/Tutorials/Merge-Testnet/).
+See an [example of how to generate this](../../HowTo/Prepare-for-The-Merge.md#3-configure-the-json-web-token).
 
 ### eth1-deposit-contract-address
 
@@ -413,18 +442,25 @@ receiving warnings that the ETH1 node is unavailable.
     eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111"]
     ```
 
-Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds
-the first provider in the list that is available, on the right chain, and in sync. This option must
-be specified if running a validator.
+Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes.
+Each time Teku makes a call, it finds the first provider in the list that is available, on the right chain, and in sync.
+This option must be specified if running a validator.
 
 If not specified (that is, you're running a beacon node only), then provide an initial state
 using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
 [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to
 provide an initial state if running a public network which has already started (for example,
-Mainnet or Prater).
+Mainnet or Goerli).
 
-If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL. For
-example, `https://goerli.infura.io/v3/<Project_ID>`
+If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL.
+For example, `https://goerli.infura.io/v3/<Project_ID>`.
+
+!!! important
+
+    After [The Merge](../../Concepts/Merge.md), you can't use `eth1-endpoint` to specify an external execution layer
+    provider.
+    This option will be replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
+    You can [configure your execution client](../../HowTo/Prepare-for-The-Merge.md) before The Merge.
 
 ### help
 
@@ -947,11 +983,13 @@ The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain           | Type       | Description                                      |
-|:----------|:----------------|:-----------|:-------------------------------------------------|
-| `mainnet` | Consensus layer | Production | Main network.                                    |
-| `minimal` | Consensus layer | Test       | Used for local testing and development networks. |
-| `prater`  | Consensus layer | Test       | Multi-client testnet.                            |
+| Network      | Chain           | Type       | Description                                     |
+|:-------------|:----------------|:-----------|:------------------------------------------------|
+| `mainnet`    | Consensus layer | Production | Main network                                    |
+| `minimal`    | Consensus layer | Test       | Used for local testing and development networks |
+| `goerli`     | Consensus layer | Test       | Multi-client testnet                            |
+| `gnosis`     | Consensus layer | Production | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
+| `sepolia`    | Consensus layer | Test       | Multi-client testnet                            |
 
 Predefined networks can provide defaults such as the initial state of the network,
 bootnodes, and the address of the deposit contract.
@@ -1132,7 +1170,7 @@ Lower bound on the target number of peers. Teku will actively seek new peers if 
     p2p-peer-upper-bound: 40
     ```
 
-Upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `74`.
+Upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `100`.
 
 ### p2p-port
 
@@ -1358,7 +1396,7 @@ File containing the [node's private key](../../Concepts/P2P-Private-Key.md).
 === "Environment variable"
 
     ```bash
-    TEKU_P2P_STATIC-PEERS=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
+    TEKU_P2P_STATIC_PEERS=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
     ```
 
 === "Configuration file"
@@ -1932,6 +1970,34 @@ When specifying file names, Teku expects that the files exist.
 
     The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
 
+### validators-builder-registration-default-enabled
+
+=== "Syntax"
+
+    ```bash
+    --validators-builder-registration-default-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-builder-registration-default-enabled=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_BUILDER_REGISTRATION_DEFAULT_ENABLED=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-builder-registration-default-enabled: true
+    ```
+
+Set to `true` to have all validators managed by the validator client register to the [builder endpoint](../../HowTo/Builder-Network.md) when proposing a block.
+
 ### validators-early-attestations-enabled
 
 === "Syntax"
@@ -2352,6 +2418,37 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
 `METRICS` is enabled, attestation and block performance is reported using [metrics] in the
 [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
 
+### validators-proposer-blinded-blocks-enabled
+
+=== "Syntax"
+
+    ```bash
+    --validators-proposer-blinded-blocks-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --validators-proposer-blinded-blocks-enabled=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_VALIDATORS_PROPOSER_BLINDED_BLOCKS_ENABLED=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    validators-proposer-blinded-blocks-enabled: true
+    ```
+
+Set to `true` to enable blinded blocks production, a prerequisite for the [builder network](../../HowTo/Builder-Network.md).
+When [`--validators-builder-registration-default-enabled`](#validators-builder-registration-default-enabled)
+is enabled this option is enabled automatically.
+The default is `false`.
+
 ### validators-proposer-config
 
 === "Syntax"
@@ -2378,13 +2475,19 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
     validators-proposer-config: "/home/me/node/proposerConfig.json"
     ```
 
-Remote URL or local file path to the proposer configuration file, which is a JSON file that specifies:
+Remote URL or local file path to the [proposer configuration file](../../HowTo/Prepare-for-The-Merge.md), which is a
+JSON file that specifies:
 
 * `proposer_config` - (optional) A proposer configuration for multiple validator public keys.
 * `default_config` - (required) A default proposer configuration for validator public keys not included in
   `proposer_config`.
   
-Each proposer configuration must specify a `fee_recipient`.
+`fee_recipient`is optional in `proposal_config` but is mandatory for `default_config`.
+
+`builder` is optional for each proposer configuration and includes two attributes:
+
+* `enabled` - (mandatory when including `builder`) specifies whether to use the [builder endpoint](#builder-endpoint) when proposing blocks.
+* `gas_limit` - (optional) specifies the `gas_limit` for the builder. The default is `30000000`.
 
 !!! example "`proposerConfig.json`"
 
@@ -2393,10 +2496,18 @@ Each proposer configuration must specify a `fee_recipient`.
       "proposer_config": {
         "0xa057816155ad77931185101128655c0191bd0214c201ca48ed887f6c4c6adf334070efcd75140eada5ac83a92506dd7a": {
           "fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
+          "builder": {
+            "enabled": true,
+            "gas_limit": "12345654321"
+          }
         }
       },
       "default_config": {
         "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+        "builder": {
+          "enabled": false,
+          "gas_limit": "12345654321"
+        }
       }
     }
     ```
@@ -2457,7 +2568,7 @@ The default is `false`.
     validators-proposer-default-fee-recipient: "0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"
     ```
 
-Default fee recipient for all validator keys.
+Default [fee recipient](../../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) for all validator keys.
 When running a validator, this is an alternative to the `fee_recipient` in the
 [default proposer configuration](#validators-proposer-config).
 
