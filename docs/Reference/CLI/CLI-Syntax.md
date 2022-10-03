@@ -1861,6 +1861,7 @@ The default is `127.0.0.1`.
 
 Keystore file for the [validator REST API](../Rest_API/Rest.md#enable-the-validator-client-api).
 Teku can use PKCS12 or JKS keystore types.
+You must [create a keystore](../../HowTo/External-Signer/Manage-keys.md#create-a-keystore) to enable access.
 
 ### validator-api-keystore-password-file
 
