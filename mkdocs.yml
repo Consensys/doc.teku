@@ -96,7 +96,20 @@ nav:
         - External signer TLS: Tutorials/Configure-External-Signer-TLS.md  
     - Reference:
         - Teku command line:
-          - Options: Reference/CLI/CLI-Syntax.md
+          - Options:
+            - Overview: Reference/CLI/Options/Options.md
+            - Execution Layer: Reference/CLI/Options/Execution-Layer.md
+            - Storage: Reference/CLI/Options/Storage.md
+            - Network: Reference/CLI/Options/Network.md
+            - Deposit: Reference/CLI/Options/Deposit.md
+            - Logging: Reference/CLI/Options/Logging.md
+            - Metrics: Reference/CLI/Options/Metrics.md
+            - REST API: Reference/CLI/Options/REST-API.md
+            - Validator: Reference/CLI/Options/Validator.md
+            - Validator API: Reference/CLI/Options/Validator-API.md
+            - Validator Keys: Reference/CLI/Options/Validator-Keys.md
+            - Validator Proposer: Reference/CLI/Options/Validator-Proposer.md
+            - Weak Subjectivity: Reference/CLI/Options/Weak-Subjectivity.md
           - Subcommands:
             - Overview: Reference/CLI/Subcommands/Subcommands.md
             - admin: Reference/CLI/Subcommands/Admin.md
