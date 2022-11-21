@@ -1406,7 +1406,7 @@ File containing the [node's private key](../../Concepts/P2P-Private-Key.md).
                        "/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1"]
     ```
 
-List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/glossary/#multiaddr)
+List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr)
 of static peers.
 
 ### p2p-subscribe-all-subnets-enabled
