@@ -51,8 +51,6 @@ To enable registration for specific validators only, use the
 [--validators-proposal-config](../Reference/CLI/CLI-Syntax.md#validators-proposer-config) option
 and specify the enabled validators in the `proposer_config` of the proposer configuration JSON file.
 
-Note the `default_config` applies to all validators who don't have their own proposer configuration.
-
 !!! example "`proposerConfig.json`"
 
     ```json

@@ -2478,16 +2478,21 @@ The default is `false`.
 Remote URL or local file path to the [proposer configuration file](../../HowTo/Prepare-for-The-Merge.md), which is a
 JSON file that specifies:
 
+* `default_config` - (required) A default proposer configuration which contains all default values that will be applied to every validator. These values can be overridden for specific validators in `proposer_config`. 
 * `proposer_config` - (optional) A proposer configuration for multiple validator public keys.
-* `default_config` - (required) A default proposer configuration for validator public keys not included in
-  `proposer_config`.
+
+Proposer configuration attributes:
   
-`fee_recipient`is optional in `proposal_config` but is mandatory for `default_config`.
+`fee_recipient` (optional in `proposal_config` but is mandatory for `default_config`)
+[fee recipient](../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) to be used when proposing blocks. 
 
-`builder` is optional for each proposer configuration and includes two attributes:
+`builder` (optional). includes three attributes:
 
-* `enabled` - (mandatory when including `builder`) specifies whether to use the [builder endpoint](#builder-endpoint) when proposing blocks.
+* `enabled` - (optional in `proposal_config` but is mandatory for `default_config`) specifies whether to use the [builder endpoint](#builder-endpoint) when proposing blocks.
 * `gas_limit` - (optional) specifies the `gas_limit` for the builder. The default is `30000000`.
+* `registration_overrides` (optional) specifies dedicated overrides to be used during the registration process. Useful for `DVT` and `SSV` technologies
+  * `timestamp` (optional) timestamp to be used (instead of current time) in validator registration message
+  * `public_key` (optional in `proposal_config` but is forbidden for `default_config`) public key to be used (instead of validator's public key) in validator registration message
 
 !!! example "`proposerConfig.json`"
 
@@ -2498,19 +2503,51 @@ JSON file that specifies:
           "fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
           "builder": {
             "enabled": true,
-            "gas_limit": "12345654321"
+            "gas_limit": "35000000"
           }
-        }
+        },
+"0xa99a76ed7796f7be22d5b7e85deeb7c5677e88e511e0b337618f8c4eb61349b4bf2d153f649f7b53359fe8b94a38e44c": {
+          "builder": {
+            "enabled": true
+          }
+        },
       },
       "default_config": {
         "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
         "builder": {
           "enabled": false,
-          "gas_limit": "12345654321"
+          "gas_limit": "25000000"
         }
       }
     }
     ```
+
+In the example, validator `0xa0578...` will be configured as:
+
+```json
+"fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
+"builder": {
+  "enabled": true,
+  "gas_limit": "35000000"
+}
+```
+validator `0xa99a7...` will be configured as:
+```json
+"fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
+"builder": {
+  "enabled": true,
+  "gas_limit": "25000000"
+}
+```
+
+all other validators will will be configured as:
+```json
+"fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+"builder": {
+  "enabled": false
+}
+```
+
 
 ### validators-proposer-config-refresh-enabled
 
