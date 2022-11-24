@@ -2506,7 +2506,7 @@ Proposer configuration attributes:
             "gas_limit": "35000000"
           }
         },
-"0xa99a76ed7796f7be22d5b7e85deeb7c5677e88e511e0b337618f8c4eb61349b4bf2d153f649f7b53359fe8b94a38e44c": {
+        "0xa99a76ed7796f7be22d5b7e85deeb7c5677e88e511e0b337618f8c4eb61349b4bf2d153f649f7b53359fe8b94a38e44c": {
           "builder": {
             "enabled": true
           }
