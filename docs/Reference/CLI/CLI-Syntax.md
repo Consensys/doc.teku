@@ -2483,16 +2483,16 @@ JSON file that specifies:
 
 Proposer configuration attributes:
   
-`fee_recipient` (optional in `proposal_config` but is mandatory for `default_config`)
+`fee_recipient` - (optional in `proposal_config` but is mandatory for `default_config`)
 [fee recipient](../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) to be used when proposing blocks. 
 
-`builder` (optional). includes three attributes:
+`builder` - (optional) includes three attributes:
 
 * `enabled` - (optional in `proposal_config` but is mandatory for `default_config`) specifies whether to use the [builder endpoint](#builder-endpoint) when proposing blocks.
 * `gas_limit` - (optional) specifies the `gas_limit` for the builder. The default is `30000000`.
-* `registration_overrides` (optional) specifies dedicated overrides to be used during the registration process. Useful for `DVT` and `SSV` technologies
-  * `timestamp` (optional) timestamp to be used (instead of current time) in validator registration message
-  * `public_key` (optional in `proposal_config` but is forbidden for `default_config`) public key to be used (instead of validator's public key) in validator registration message
+* `registration_overrides` - (optional) specifies dedicated overrides to be used during the registration process. Useful for `DVT` and `SSV` technologies. The override is specified using the following attributes:
+    * `timestamp` - (optional) timestamp to be used (instead of current time) in validator registration message
+    * `public_key` - (optional in `proposal_config` but is forbidden for `default_config`) public key to be used (instead of validator's public key) in validator registration message
 
 !!! example "`proposerConfig.json`"
 
@@ -2513,7 +2513,7 @@ Proposer configuration attributes:
         },
       },
       "default_config": {
-        "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+        "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
         "builder": {
           "enabled": false,
           "gas_limit": "25000000"
@@ -2547,6 +2547,38 @@ all other validators will will be configured as:
   "enabled": false
 }
 ```
+
+!!! example "`proposerConfigForDVT.json`"
+
+    ```json
+    {
+      "proposer_config": {
+        "0xa057816155ad77931185101128655c0191bd0214c201ca48ed887f6c4c6adf334070efcd75140eada5ac83a92506dd7a": {
+          "builder": {
+            "registration_overrides": {
+                "public_key": "0xaef9162ee6f29ee82fbfe387756d84f9ac472eb8709217aaf28f5ef0ea273f6210e531496470b30d2b7747216e3672d5"
+            }
+          }
+        },
+        "0xa99a76ed7796f7be22d5b7e85deeb7c5677e88e511e0b337618f8c4eb61349b4bf2d153f649f7b53359fe8b94a38e44c": {
+          "builder": {
+            "registration_overrides": {
+                "public_key": "0xb53d21a4cfd562c469cc81514d4ce5a6b577d8403d32a394dc265dd190b47fa9f829fdd7963afdf972e5e77854051f6f"
+            }
+          }
+        },
+      },
+      "default_config": {
+        "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
+        "builder": {
+          "enabled": true,
+          "registration_overrides": {
+            "timestamp": "1234567"
+          }
+        }
+      }
+    }
+    ```
 
 
 ### validators-proposer-config-refresh-enabled
