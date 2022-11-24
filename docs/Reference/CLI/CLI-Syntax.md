@@ -2483,7 +2483,7 @@ JSON file that specifies:
 
 Proposer configuration attributes:
   
-`fee_recipient` - (optional in `proposal_config` but is mandatory for `default_config`) [fee recipient](../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) to be used when proposing blocks.
+`fee_recipient` - (optional in `proposal_config` but is mandatory for `default_config`) [fee recipient](../../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) to be used when proposing blocks.
 
 `builder` - (optional) includes three attributes:
 
