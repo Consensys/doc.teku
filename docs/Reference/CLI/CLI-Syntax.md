@@ -2541,7 +2541,7 @@ validator `0xa99a7...` will be configured as:
 }
 ```
 
-all other validators will will be configured as:
+all other validators will be configured as:
 
 ```json
 "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
@@ -2584,7 +2584,7 @@ The following is an example where `DVT` and `SSV` are involved:
     }
     ```
 
-In this case we have builder enabled by default, with `timestamp` registration override. Each validator has its own `public_key` overrde.
+In this case we have builder enabled by default, with `timestamp` registration override. Each validator has its own `public_key` override.
 All validators will use the same `0x6e35733c5af9B61374A128e6F85f553aF09ff89A` as `fee_recipient`.
 
 ### validators-proposer-config-refresh-enabled
