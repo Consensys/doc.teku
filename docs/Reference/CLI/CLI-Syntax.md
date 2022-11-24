@@ -2531,7 +2531,9 @@ In the example, validator `0xa0578...` will be configured as:
   "gas_limit": "35000000"
 }
 ```
+
 validator `0xa99a7...` will be configured as:
+
 ```json
 "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
 "builder": {
@@ -2541,6 +2543,7 @@ validator `0xa99a7...` will be configured as:
 ```
 
 all other validators will will be configured as:
+
 ```json
 "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
 "builder": {
