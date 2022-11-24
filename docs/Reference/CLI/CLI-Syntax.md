@@ -2478,13 +2478,12 @@ The default is `false`.
 Remote URL or local file path to the [proposer configuration file](../../HowTo/Prepare-for-The-Merge.md), which is a
 JSON file that specifies:
 
-* `default_config` - (required) A default proposer configuration which contains all default values that will be applied to every validator. These values can be overridden for specific validators in `proposer_config`. 
+* `default_config` - (required) A default proposer configuration which contains all default values that will be applied to every validator. These values can be overridden for specific validators in `proposer_config`.
 * `proposer_config` - (optional) A proposer configuration for multiple validator public keys.
 
 Proposer configuration attributes:
   
-`fee_recipient` - (optional in `proposal_config` but is mandatory for `default_config`)
-[fee recipient](../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) to be used when proposing blocks. 
+`fee_recipient` - (optional in `proposal_config` but is mandatory for `default_config`) [fee recipient](../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) to be used when proposing blocks.
 
 `builder` - (optional) includes three attributes:
 
