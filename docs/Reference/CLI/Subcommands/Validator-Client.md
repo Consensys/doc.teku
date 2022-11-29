@@ -40,7 +40,7 @@ as failovers.
 
 !!! note
 
-    This option cannot be used with [`--Xsentry-config-file`](#xsentry-config-file) option
+    This option cannot be used with the [sentry beacon nodes early access feature](../../../HowTo/Sentry-Nodes.md).
 
 The default is `http://127.0.0.1:5051`.
 
