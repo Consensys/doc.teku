@@ -512,38 +512,6 @@ Use `auto` to fetch the network configuration from the beacon node endpoint dire
 
     Previous `--network` option values for `vc` have been deprecated in favor of `auto`.
 
-## Xsentry-config-file
-
-=== "Syntax"
-
-    ```bash
-    --Xsentry-config-file=<FILE>
-    ```
-
-=== "Example"
-
-    ```bash
-    --Xsentry-config-file=/etc/sentry-nodes-config.json
-    ```
-
-=== "Environment variable"
-
-    ```bash
-    X_SENTRY_CONFIG_FILE=/etc/sentry-nodes-config.json
-    ```
-
-=== "Configuration file"
-
-    ```bash
-    Xsentry-config-file: "/etc/sentry-nodes-config.json"
-    ```
-
-Specifies the configuration file used from [sentry nodes deployment](../../../HowTo/Sentry-Nodes.md).
-
-!!! note
-
-    This option cannot be used with [`--beacon-node-api-endpoint`](#beacon-node-api-endpoint-beacon-node-api-endpoints) option
-
 ## `validator-keys`
 
 === "Syntax"
