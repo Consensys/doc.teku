@@ -2475,25 +2475,31 @@ The default is `false`.
     validators-proposer-config: "/home/me/node/proposerConfig.json"
     ```
 
-Remote URL or local file path to the [proposer configuration file](../../HowTo/Prepare-for-The-Merge.md), which is a
-JSON file that specifies:
+Remote URL or local file path to the proposer configuration file, which is a JSON file that specifies:
 
 * `default_config` - (required) A default proposer configuration which contains all default values that will be applied to every validator. These values can be overridden for specific validators in `proposer_config`.
 * `proposer_config` - (optional) A proposer configuration for multiple validator public keys.
 
 Proposer configuration attributes:
-  
-`fee_recipient` - (optional in `proposal_config` but is mandatory for `default_config`) [fee recipient](../../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) to be used when proposing blocks.
 
-`builder` - (optional) includes three attributes:
+* `fee_recipient` - (optional in `proposal_config` but required in `default_config`) [Fee recipient](../../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient)
+  to be used when proposing blocks.
+* `builder` - (optional) Includes three attributes:
+    * `enabled` - (optional in `proposal_config` but required in `default_config`) Indicates whether
+      to use the [builder endpoint](#builder-endpoint) when proposing blocks.
+    * `gas_limit` - (optional) Gas limit for the builder.
+      The default is `30000000`.
+    * `registration_overrides` - (optional) Dedicated overrides to be used during the registration process.
+      Useful for `DVT` and `SSV` technologies.
+      The override is specified using the following attributes:
+        * `timestamp` - (optional) Timestamp to be used (instead of the current time) in the validator
+          registration message.
+        * `public_key` - (optional in `proposal_config` but forbidden in `default_config`) Public
+          key to be used (instead of the validator's public key) in the validator registration message.
 
-* `enabled` - (optional in `proposal_config` but is mandatory for `default_config`) specifies whether to use the [builder endpoint](#builder-endpoint) when proposing blocks.
-* `gas_limit` - (optional) specifies the `gas_limit` for the builder. The default is `30000000`.
-* `registration_overrides` - (optional) specifies dedicated overrides to be used during the registration process. Useful for `DVT` and `SSV` technologies. The override is specified using the following attributes:
-    * `timestamp` - (optional) timestamp to be used (instead of current time) in validator registration message
-    * `public_key` - (optional in `proposal_config` but is forbidden for `default_config`) public key to be used (instead of validator's public key) in validator registration message
+The following is an example proposer configuration file.
 
-!!! example "`proposerConfig.json`"
+??? example "`proposerConfig.json`"
 
     ```json
     {
@@ -2521,38 +2527,38 @@ Proposer configuration attributes:
     }
     ```
 
-In the example, validator `0xa0578...` will be configured as:
+    In this example, validator `0xa0578...` is configured as:
+    
+    ```json
+    "fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
+    "builder": {
+      "enabled": true,
+      "gas_limit": "35000000"
+    }
+    ```
+    
+    Validator `0xa99a7...` is configured as:
+    
+    ```json
+    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
+    "builder": {
+      "enabled": true,
+      "gas_limit": "25000000"
+    }
+    ```
+    
+    All other validators are configured as:
+    
+    ```json
+    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+    "builder": {
+      "enabled": false
+    }
+    ```
 
-```json
-"fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
-"builder": {
-  "enabled": true,
-  "gas_limit": "35000000"
-}
-```
+The following is an example using `DVT` and `SSV`.
 
-validator `0xa99a7...` will be configured as:
-
-```json
-"fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
-"builder": {
-  "enabled": true,
-  "gas_limit": "25000000"
-}
-```
-
-all other validators will be configured as:
-
-```json
-"fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
-"builder": {
-  "enabled": false
-}
-```
-
-The following is an example where `DVT` and `SSV` are involved:
-
-!!! example "`proposerConfigForDVT.json`"
+??? example "`proposerConfigForDVT.json`"
 
     ```json
     {
@@ -2584,8 +2590,9 @@ The following is an example where `DVT` and `SSV` are involved:
     }
     ```
 
-In this case we have builder enabled by default, with `timestamp` registration override. Each validator has its own `public_key` override.
-All validators will use the same `0x6e35733c5af9B61374A128e6F85f553aF09ff89A` as `fee_recipient`.
+    In this example, the builder is enabled by default, with `timestamp` registration override.
+    Each validator has its own `public_key` override.
+    All validators use the same `0x6e35733c5af9B61374A128e6F85f553aF09ff89A` as `fee_recipient`.
 
 ### validators-proposer-config-refresh-enabled
 
