@@ -26,7 +26,6 @@ extra:
   support:
     tool: Discord
     channel: https://discord.gg/9mCVSY6
-    email: quorum@consensys.net
     website: https://consensys.net/knowledge-base/ethereum-2/teku
     company: Consensys
     issues: https://github.com/Consensys/teku/issues
