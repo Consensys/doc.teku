@@ -117,6 +117,23 @@ or current epoch. You cannot specify a future epoch. The default is the current 
     If there is a high number of validators that are queued to exit, then the validator exit may be
     processed at a later epoch.
 
+## `include-keymanager-keys`
+
+=== "Syntax"
+
+    ```bash
+    teku voluntary-exit --include-keymanager-keys=<BOOLEAN>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku voluntary-exit --include-keymanager-keys=true
+    ```
+
+Include validator keys managed using the [key manager APIs](../../../HowTo/External-Signer/Manage-keys.md).
+The default is `false`.
+
 ## `validator-keys`
 
 === "Syntax"
@@ -161,6 +178,23 @@ When specifying file names, Teku expects that the files exist.
 !!! note
 
     The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
+
+## `validator-public-keys`
+
+=== "Syntax"
+
+    ```bash
+    teku voluntary-exit --validator-public-keys=<PUBKEY>[,<PUBKEY>...]...
+    ```
+
+=== "Example"
+
+    ```bash
+    teku voluntary-exit --validator-public-keys=0xc7931ac6937f6c776d8dfe84918f7b26d986f2e45af5869085839b8817db2705,0x179a0e2768621eede9ce961cf8ee4f0ece5be9a1795c294269b69b85c765f3cc
+    ```
+
+Restrict the exit command to a specified list of public keys. When the parameter is not used, all keys
+will be exited.
 
 ## `validators-external-signer-keystore`
 
