@@ -23,7 +23,7 @@ command line option.
 
 !!! note
 
-    If [--validators-builder-registration-default-enabled](../Reference/CLI/CLI-Syntax.md#validators-builder-registration-default-enabled)
+    If [--validators-builder-registration-default-enabled](../../Reference/CLI/CLI-Syntax.md#validators-builder-registration-default-enabled)
     is set to `true`, then `--validators-proposer-blinded-blocks-enabled` is automatically enabled.
 
 ## 2. Specify the builder endpoint
