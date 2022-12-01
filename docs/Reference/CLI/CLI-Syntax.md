@@ -2487,6 +2487,7 @@ Proposer configuration attributes:
 * `builder` - (optional) Includes three attributes:
     * `enabled` - (optional in `proposal_config` but required in `default_config`) Indicates whether
       to use the [builder endpoint](#builder-endpoint) when proposing blocks.
+      The default is `false`.
     * `gas_limit` - (optional) Gas limit for the builder.
       The default is `30000000`.
     * `registration_overrides` - (optional) Dedicated overrides to be used during the registration process.
@@ -2496,6 +2497,12 @@ Proposer configuration attributes:
           registration message.
         * `public_key` - (optional in `proposal_config` but forbidden in `default_config`) Public
           key to be used (instead of the validator's public key) in the validator registration message.
+
+Each attribute value, for a given validator key, will be determined following the priority:
+1. specific configuration in `proposer_config`
+1. default configuration `default_config`
+1. default CLI argument (applicable only to `builder.enabled`)
+1. default value (applicable only to `builder.enabled`)
 
 The following is an example proposer configuration file.
 
@@ -2552,9 +2559,100 @@ The following is an example proposer configuration file.
     ```json
     "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
     "builder": {
-      "enabled": false
+      "enabled": false,
+      "gas_limit": "25000000"
     }
     ```
+
+The following is an example in conjunction with CLI argument.
+
+??? example "`proposerConfigAndCLI.json`"
+
+    ```json
+    {
+      "proposer_config": {
+        "0xa057816155ad77931185101128655c0191bd0214c201ca48ed887f6c4c6adf334070efcd75140eada5ac83a92506dd7a": {
+          "fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
+          "builder": {
+            "gas_limit": "35000000"
+          }
+        },
+        "0xa99a76ed7796f7be22d5b7e85deeb7c5677e88e511e0b337618f8c4eb61349b4bf2d153f649f7b53359fe8b94a38e44c": {
+          "builder": {
+            "enabled": false
+          }
+        },
+      },
+      "default_config": {
+        "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
+      }
+    }
+    ```
+
+    If `--validators-builder-registration-default-enabled` is specified in CLI
+
+    Validator `0xa0578...` is configured as:
+    
+    ```json
+    "fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
+    "builder": {
+      "enabled": true,
+      "gas_limit": "35000000"
+    }
+    ```
+
+    Validator `0xa99a7...` is configured as:
+
+    ```json
+    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+    "builder": {
+      "enabled": false,
+      "gas_limit": "30000000"
+    }
+    ```
+
+    All other validators are configured as:
+    
+    ```json
+    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+    "builder": {
+      "enabled": true,
+      "gas_limit": "30000000"
+    }
+    ```
+
+    If `--validators-builder-registration-default-enabled` is NOT specified (or set to false) in CLI
+
+    Validator `0xa0578...` is configured as:
+    
+    ```json
+    "fee_recipient": "0x50155530FCE8a85ec7055A5F8b2bE214B3DaeFd3",
+    "builder": {
+      "enabled": false,
+      "gas_limit": "35000000"
+    }
+    ```
+
+    Validator `0xa99a7...` is configured as:
+
+    ```json
+    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+    "builder": {
+      "enabled": false,
+      "gas_limit": "30000000"
+    }
+    ```
+
+    All other validators are configured as:
+    
+    ```json
+    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+    "builder": {
+      "enabled": false,
+      "gas_limit": "30000000"
+    }
+    ```
+
 
 The following is an example using `DVT` and `SSV`.
 
