@@ -134,7 +134,7 @@ The following is an example proposer configuration in conjunction with a CLI arg
 }
 ```
 
-If [`--validators-builder-registration-default-enabled`](../../Reference/CLI#validators-builder-registration-default-enabled)
+If [`--validators-builder-registration-default-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-builder-registration-default-enabled)
 is set to `true`:
 
 * Validator `0xa0578...` is configured as:
@@ -167,7 +167,7 @@ is set to `true`:
     }
     ```
 
-If [`--validators-builder-registration-default-enabled`](../../Reference/CLI#validators-builder-registration-default-enabled)
+If [`--validators-builder-registration-default-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-builder-registration-default-enabled)
 isn't specified (or set to `false`):
 
 * Validator `0xa0578...` is configured as:

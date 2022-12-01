@@ -86,7 +86,7 @@ and specify the enabled validators in the `proposer_config` field of the [propos
 !!! note
 
     If you use a proposer configuration, you must enable blinded block production using
-    [`--validators-proposer-blinded-blocks-enabled`](../Reference/CLI/CLI-Syntax.md#validators-proposer-blinded-blocks-enabled).
+    [`--validators-proposer-blinded-blocks-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-proposer-blinded-blocks-enabled).
 
 ## Example builder configurations
 
