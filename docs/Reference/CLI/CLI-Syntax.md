@@ -2558,7 +2558,7 @@ The following is an example proposer configuration file.
     All other validators are configured as:
     
     ```json
-    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
     "builder": {
       "enabled": false,
       "gas_limit": "25000000"
@@ -2590,7 +2590,7 @@ The following is an example in conjunction with CLI argument.
     }
     ```
 
-    If `--validators-builder-registration-default-enabled` is specified in CLI
+    * If `--validators-builder-registration-default-enabled` is specified in CLI
 
     Validator `0xa0578...` is configured as:
     
@@ -2615,14 +2615,14 @@ The following is an example in conjunction with CLI argument.
     All other validators are configured as:
     
     ```json
-    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
     "builder": {
       "enabled": true,
       "gas_limit": "30000000"
     }
     ```
 
-    If `--validators-builder-registration-default-enabled` is NOT specified (or set to false) in CLI
+    * If `--validators-builder-registration-default-enabled` is NOT specified (or set to false) in CLI
 
     Validator `0xa0578...` is configured as:
     
@@ -2637,7 +2637,7 @@ The following is an example in conjunction with CLI argument.
     Validator `0xa99a7...` is configured as:
 
     ```json
-    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
     "builder": {
       "enabled": false,
       "gas_limit": "30000000"
@@ -2647,7 +2647,7 @@ The following is an example in conjunction with CLI argument.
     All other validators are configured as:
     
     ```json
-    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+    "fee_recipient": "0x6e35733c5af9B61374A128e6F85f553aF09ff89A",
     "builder": {
       "enabled": false,
       "gas_limit": "30000000"
