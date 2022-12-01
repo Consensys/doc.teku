@@ -2654,7 +2654,6 @@ The following is an example in conjunction with CLI argument.
     }
     ```
 
-
 The following is an example using `DVT` and `SSV`.
 
 ??? example "`proposerConfigForDVT.json`"
