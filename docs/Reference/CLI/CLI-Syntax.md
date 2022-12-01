@@ -2499,6 +2499,7 @@ Proposer configuration attributes:
           key to be used (instead of the validator's public key) in the validator registration message.
 
 Each attribute value, for a given validator key, will be determined following the priority:
+
 1. specific configuration in `proposer_config`
 1. default configuration `default_config`
 1. default CLI argument (applicable only to `builder.enabled`)
