@@ -2498,12 +2498,12 @@ Proposer configuration attributes:
         * `public_key` - (optional in `proposal_config` but forbidden in `default_config`) Public
           key to be used (instead of the validator's public key) in the validator registration message.
 
-Each attribute value, for a given validator key, will be determined following the priority:
+Each attribute value, for a given validator key, is determined using the following priority:
 
-1. specific configuration in `proposer_config`
-1. default configuration `default_config`
-1. default CLI argument (applicable only to `builder.enabled`)
-1. default value (applicable only to `builder.enabled`)
+1. Specific configuration in `proposer_config`
+1. Default configuration in `default_config`
+1. Default CLI argument (applicable only to `builder.enabled`)
+1. Default value (applicable only to `builder.enabled`)
 
 The following is an example proposer configuration file.
 
