@@ -40,7 +40,7 @@ as failovers.
 
 !!! note
 
-    This option cannot be used with [`--Xsentry-config-file`](#xsentry-config-file) option
+    This option cannot be used with the [sentry beacon nodes early access feature](../../../HowTo/Sentry-Nodes.md).
 
 The default is `http://127.0.0.1:5051`.
 
@@ -511,38 +511,6 @@ Use `auto` to fetch the network configuration from the beacon node endpoint dire
 !!! note
 
     Previous `--network` option values for `vc` have been deprecated in favor of `auto`.
-
-## Xsentry-config-file
-
-=== "Syntax"
-
-    ```bash
-    --Xsentry-config-file=<FILE>
-    ```
-
-=== "Example"
-
-    ```bash
-    --Xsentry-config-file=/etc/sentry-nodes-config.json
-    ```
-
-=== "Environment variable"
-
-    ```bash
-    X_SENTRY_CONFIG_FILE=/etc/sentry-nodes-config.json
-    ```
-
-=== "Configuration file"
-
-    ```bash
-    Xsentry-config-file: "/etc/sentry-nodes-config.json"
-    ```
-
-Specifies the configuration file used from [sentry nodes deployment](../../../HowTo/Sentry-Nodes.md).
-
-!!! note
-
-    This option cannot be used with [`--beacon-node-api-endpoint`](#beacon-node-api-endpoint-beacon-node-api-endpoints) option
 
 ## `validator-keys`
 

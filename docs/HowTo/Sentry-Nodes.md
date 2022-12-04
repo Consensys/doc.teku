@@ -4,64 +4,73 @@ description: How to use sentry beacon nodes
 
 !!! warning
 
-    Sentry Nodes feature is experimental and is subject to change.
+    Sentry beacon nodes is an early access feature and is subject to change.
 
-# Sentry Beacon Nodes
+# Sentry beacon nodes
 
-Future block proposers can be calculated ahead of time. This opens up an attack vector for attackers to DoS attack the beacon node used by a validator in order to cause it to miss their block proposal, losing their block proposal rewards.
-One way to mitigate this issue is using the sentry nodes.
-
-!!! important
-
-    Only remote validators can use sentry nodes.
-
-When configuring your remote validator to use sentry beacon nodes, each beacon node (or cluster of beacon nodes) can be assigned a "role." Each role determine which beacon node the remote validator will send request to when performing a task.
-
-The sentry nodes feature supports three roles:
-
-- The **Duties Provider** is the beacon node used for things like requesting attestation and block duties.
-- The **Block Handler** is the beacon node used for block creation and publishing.
-- The **Attestation Publisher** is the beacon node used for publishing attestations.
-
-## How to Configure
+You can calculate future block proposers ahead of time, which opens up an attack vector for attackers.
+A DoS attack on a validator's beacon node can cause the validator to miss its block proposal, thereby loosing
+the block proposal reward. You can mitigate this issue by using sentry nodes.
 
 !!! important
 
-    The option `--Xsentry-config-file=<file_path>` cannot be used with the option `--beacon-node-api-endpoint`.
+    Only [validators executed seperately](Get-Started/Run-Teku.md#run-the-clients-separately) from
+    beacon nodes (remote validators) can use sentry nodes 
 
-All sentry node configuration resides on a JSON file. To configure your remote validator to use sentry nodes use the option `--Xsentry-config-file=<file_path>`.
+When you configure your remote validator to use sentry beacon nodes, each beacon node (or cluster of
+beacon nodes) can be assigned a role. Each role determines which beacon node the remote validator
+sends request to when performing a task.
 
-The configuration file looks like this:
+Sentry nodes support three roles:
+
+- `duties_provider` - Beacon node used for requesting attestations and block duties.
+- `block_handler` - Beacon node used for block creation and publishing.
+- `attestation_publisher` - Beacon node used for publishing attestations.
+
+Only the `duties_provider` role is mandatory. You can assign multiple beacon node endpoints for each
+role.
+
+## Configure sentry nodes
+
+!!! important
+
+    The CLI option `--Xsentry-config-file=<file_path>` cannot be used with
+    [`--beacon-node-api-endpoint`](../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint).
+
+Configure your sentry nodes in a JSON configuration file. To configure your remote validator to use the
+sentry node configuration, use the `--Xsentry-config-file=<file_path>` CLI option.
+
+The configuration file (in this example, `/etc/sentry-node-config.json`) uses the following format:
 
 ```json
 {
   "beacon_nodes": {
     "duties_provider": {
       "endpoints": [
-        "http://duties:5051"
+        "http://duties:9051"
       ]
     },
     "block_handler": {
       "endpoints": [
-        "http://block:5051"
+        "http://block:9051"
       ]
     },
     "attestation_publisher": {
       "endpoints": [
-        "http://attestation:5051"
+        "http://attestation:9051"
       ]
     }
   }
 }
 ```
 
-Only the `duties_provider` role is mandatory. And for each role, you can assign multiple beacon node endpoints for failover.
+Start your remote validator with the `--Xsentry-config-file` option, for example:
 
-**Example:**
+```bash
+teku validator --Xsentry-config-file=/etc/sentry-node-config.json
+```
 
-With sentry node configuration file on `/etc/sentry-node-config.json` and containing the content in our previous example, start your remote validator with the option `--Xsentry-config-file=/etc/sentry-node-config.json`.
-
-During start up the logs should have something like this:
+During startup the logs display output similar to:
 
 ```bash
 ...
@@ -72,4 +81,5 @@ DEBUG | SentryNodesConfigLoader | 2022-10-03 01:31:48.278 INFO  - Attestation pu
 ...
 ```
 
-At this point, the remote validator already knows what beacon nodes should be used for its tasks and no further configuration is needed.
+At this point, the remote validator knows what beacon nodes should be used for its tasks and
+no further configuration is required.
