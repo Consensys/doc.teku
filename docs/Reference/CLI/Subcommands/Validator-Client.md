@@ -38,6 +38,10 @@ comma-separated list of beacon node API endpoints.
 If multiple beacon node endpoints are configured, the first one is used as primary and others
 as failovers.
 
+!!! note
+
+    This option cannot be used with the [sentry beacon nodes early access feature](../../../HowTo/Sentry-Nodes.md).
+
 The default is `http://127.0.0.1:5051`.
 
 ## `config-file`

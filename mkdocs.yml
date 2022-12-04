@@ -82,6 +82,7 @@ nav:
         - Voluntary exit: HowTo/Voluntary-Exit.md
         - Migrate database: HowTo/Migrate-Database.md
         - Prepare for The Merge: HowTo/Prepare-for-The-Merge.md
+        - Use sentry beacon nodes: HowTo/Sentry-Nodes.md
         - Troubleshoot:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
