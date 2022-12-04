@@ -83,7 +83,7 @@ the [`validators-proposer-default-fee-recipient`](../Reference/CLI/CLI-Syntax.md
 option.
 This fee recipient will be used for any duties performed by the beacon node.
 
-For more complex configurations, provide a proposer configuration file that defines the default fee recipient plus
+For more complex configurations, provide a [proposer configuration file](Configure/Proposer-Configuration.md) that defines the default fee recipient plus
 non-default fee recipients for any validators using the
 [`validators-proposer-config`](../Reference/CLI/CLI-Syntax.md#validators-proposer-config) option.
 

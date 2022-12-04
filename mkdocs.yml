@@ -26,7 +26,6 @@ extra:
   support:
     tool: Discord
     channel: https://discord.gg/9mCVSY6
-    email: quorum@consensys.net
     website: https://consensys.net/knowledge-base/ethereum-2/teku
     company: Consensys
     issues: https://github.com/Consensys/teku/issues
@@ -73,6 +72,8 @@ nav:
           - Configure logging: HowTo/Monitor/Logging.md
         - Configure:
             - Specify options in a configuration file: HowTo/Configure/Use-Configuration-File.md
+            - Use a proposer configuration file: HowTo/Configure/Proposer-Configuration.md
+            - Configure Teku to use a builder network: HowTo/Configure/Builder-Network.md
             - Configure TLS: HowTo/Configure/Configure-TLS.md
         - Prevent slashing offences: HowTo/Prevent-Slashing.md
         - Find and connect to peers:
@@ -156,3 +157,4 @@ plugins:
         HowTo/Get-Started/Run-Docker-Image.md: HowTo/Get-Started/Installation-Options/Run-Docker-Image.md
         HowTo/Get-Started/Connect-To-Testnet.md: HowTo/Get-Started/Connect/Connect-To-Testnet.md
         Reference/Rest_API/API-Objects.md: Reference/Rest_API/Rest.md
+        HowTo/Builder-Network.md: HowTo/Configure/Builder-Network.md
