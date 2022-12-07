@@ -30,7 +30,7 @@ When enabling the validator client API, you must create a keystore.
     === "Example"
 
         ```bash
-        keytool -keystore validator_keystore.p12 -storetype PKCS12 -storepass changeit
+        keytool -kenkeypair -keystore validator_keystore.p12 -storetype PKCS12 -storepass changeit
         ```
 
 2. Create a plain text file (for example `validator_keystore_pass.txt`) that stores the
