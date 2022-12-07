@@ -10,7 +10,7 @@ the block proposal reward. You can mitigate this issue by using sentry nodes.
 
 !!! important
 
-    Only [validators executed seperately](Get-Started/Run-Teku.md#run-the-clients-separately) from
+    Only [validators executed separately](Get-Started/Run-Teku.md#run-the-clients-separately) from
     beacon nodes (remote validators) can use sentry nodes 
 
 When you configure your remote validator to use sentry beacon nodes, each beacon node (or cluster of
