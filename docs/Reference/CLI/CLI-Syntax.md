@@ -1652,6 +1652,33 @@ The default is `127.0.0.1`.
 Specifies REST API listening port (HTTP).
 The default is 5051.
 
+### sentry-config-file
+
+=== "Syntax"
+
+    ```bash
+    --sentry-config-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --sentry-config-file=/etc/sentry-node-config.json
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_SENTRY-CONFIG_FILE=/etc/sentry-node-config.json
+    ```
+
+Path to the [sentry node](../../HowTo/Sentry-Nodes.md) configuration file.
+The default is `none`.
+
+!!! important
+
+    This option can't be used with [`--beacon-node-api-endpoint`](Subcommands/Validator-Client.md#beacon-node-api-endpoint-beacon-node-api-endpoints).
+
 ### version
 
 === "Syntax"
