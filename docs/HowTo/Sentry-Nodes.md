@@ -2,10 +2,6 @@
 description: How to use sentry beacon nodes
 ---
 
-!!! warning
-
-    Sentry beacon nodes is an early access feature and is subject to change.
-
 # Sentry beacon nodes
 
 You can calculate future block proposers ahead of time, which opens up an attack vector for attackers.
@@ -14,7 +10,7 @@ the block proposal reward. You can mitigate this issue by using sentry nodes.
 
 !!! important
 
-    Only [validators executed seperately](Get-Started/Run-Teku.md#run-the-clients-separately) from
+    Only [validators executed separately](Get-Started/Run-Teku.md#run-the-clients-separately) from
     beacon nodes (remote validators) can use sentry nodes 
 
 When you configure your remote validator to use sentry beacon nodes, each beacon node (or cluster of
@@ -34,11 +30,11 @@ role.
 
 !!! important
 
-    The CLI option `--Xsentry-config-file=<file_path>` cannot be used with
+    The CLI option `--sentry-config-file=<file_path>` cannot be used with
     [`--beacon-node-api-endpoint`](../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint).
 
 Configure your sentry nodes in a JSON configuration file. To configure your remote validator to use the
-sentry node configuration, use the `--Xsentry-config-file=<file_path>` CLI option.
+sentry node configuration, use the `--sentry-config-file=<file_path>` CLI option.
 
 The configuration file (in this example, `/etc/sentry-node-config.json`) uses the following format:
 
@@ -64,10 +60,10 @@ The configuration file (in this example, `/etc/sentry-node-config.json`) uses th
 }
 ```
 
-Start your remote validator with the `--Xsentry-config-file` option, for example:
+Start your remote validator with the `--sentry-config-file` option, for example:
 
 ```bash
-teku validator --Xsentry-config-file=/etc/sentry-node-config.json
+teku validator --sentry-config-file=/etc/sentry-node-config.json
 ```
 
 During startup the logs display output similar to:
