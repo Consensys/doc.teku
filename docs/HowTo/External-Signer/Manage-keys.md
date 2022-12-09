@@ -80,6 +80,7 @@ SSL certificate to be accepted as valid. Multiple addresses can be specified whe
       IP.1 = 127.0.0.1
       IP.2 = 10.0.0.6
       ```
+
       You should adjust the `req_distinguised_name` and `alt_names` sections to match your needs.
 
 2. Create a plain text file (for example `validator_keystore_pass.txt`) that stores the
