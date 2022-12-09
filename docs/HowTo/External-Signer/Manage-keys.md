@@ -18,7 +18,7 @@ You must also [create a keystore](#create-a-keystore) to enable access.
 When enabling the validator client API, you must create a keystore.
 
 1. Use a tool such as [keytool](https://docs.oracle.com/javase/6/docs/technotes/tools/solaris/keytool.html) or [openSSL](https://www.openssl.org/)
-   to generate a keystore. Note that the `CN` value must be set to the domain name or IP used to access the validator API. 
+   to generate a keystore. Note that the `CN` value must be set to the domain name or IP used to access the validator API.
    Keytool sets this based on the answer to `What is your first and last name?`.
 
     === "Syntax"
