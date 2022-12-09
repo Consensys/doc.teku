@@ -52,28 +52,28 @@ When the key manager API is accessible via different domain names or IP addresse
 SSL certificate to be accepted as valid. Multiple addresses can be specified when using openSSL to generate the certificate.
 
 1. Create a file openssl.cnf to contain the configuration required for the certificate. For example:
-   
+
    === "Example"
-      
+
       ```properties
       [req]
       distinguished_name = req_distinguished_name
       x509_extensions = v3_req
       prompt = no
-      
+
       [req_distinguished_name]
       countryName = US
       stateOrProvinceName = CA
       localityName = San Francisco
       organizationName = My Organization Name
       organizationalUnitName = My Department Name
-      
+
       [v3_req]
       subjectKeyIdentifier = hash
       authorityKeyIdentifier = keyid,issuer
       basicConstraints = CA:TRUE
       subjectAltName = @alt_names
-      
+
       [alt_names]
       DNS.1 = mydomain.com
       DNS.2 = localhost
@@ -93,14 +93,12 @@ SSL certificate to be accepted as valid. Multiple addresses can be specified whe
       ```bash
       openssl req -x509 -nodes -days <expiry> -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out <keystore> -passout file:<password-file>
       ```
-   
+
    === "Example"
 
       ```bash
       openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out validator_keystore.p12 -passout file:validator_keystore_pass.txt
       ```
-
-
 
 ### Authentication
 
