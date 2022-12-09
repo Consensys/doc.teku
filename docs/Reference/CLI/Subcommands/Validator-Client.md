@@ -70,7 +70,7 @@ The default is `http://127.0.0.1:5051`.
     beacon-node-ssz-blocks-enabled: false
     ```
 
-Enable or disable the use of SSZ encoding for API requests to the beacon node to create blocks. 
+Enable or disable the use of SSZ encoding for API requests to the beacon node to create blocks.
 The default is `true`.
 
 ## `config-file`
