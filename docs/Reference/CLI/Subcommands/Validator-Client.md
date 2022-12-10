@@ -44,6 +44,35 @@ as failovers.
 
 The default is `http://127.0.0.1:5051`.
 
+## `beacon-node-ssz-blocks-enabled`
+
+=== "Syntax"
+
+    ```bash
+    teku vc --beacon-node-ssz-blocks-enabled=<BOOLEAN>
+    ```
+
+=== "Example"
+
+    ```bash
+    teku vc --beacon-node-ssz-blocks-enabled=false
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_BEACON_NODE_SSZ_BLOCKS_ENABLED=false
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    beacon-node-ssz-blocks-enabled: false
+    ```
+
+Enable or disable the use of SSZ encoding for API requests to the beacon node to create blocks.
+The default is `true`.
+
 ## `config-file`
 
 === "Syntax"
