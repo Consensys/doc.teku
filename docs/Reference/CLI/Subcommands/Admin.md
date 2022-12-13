@@ -167,7 +167,7 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     data-storage-mode: "archive"
     ```
 
-Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
+Set the strategy for handling historical chain data. Valid options are `minimal`, `prune` and `archive`.
 The default is `prune`.
 
 #### `data-validator-path`

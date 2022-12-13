@@ -190,7 +190,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
 
 Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
-This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
+This option is ignored if [`--data-storage-mode`](#data-storage-mode) is not set to `archive`.
 
 !!! note
     Specifying a larger number of slots as the archive frequency has a potentially higher overhead
@@ -229,7 +229,12 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     data-storage-mode: "archive"
     ```
 
-Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
+Set the strategy for handling historical chain data. Valid options are:
+
+ * `minimal` - Stores the minimal required data to follow the chain and run validators. Finalized states and historic blocks are pruned.
+ * `prune` - Stores all blocks, but finalized states are pruned.
+ * `archive` - Stores all blocks and states.
+
 The default is `prune`.
 
 ### data-storage-non-canonical-blocks-enabled
