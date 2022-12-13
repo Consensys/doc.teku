@@ -231,9 +231,9 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is not set
 
 Set the strategy for handling historical chain data. Valid options are:
 
- * `minimal` - Stores the minimal required data to follow the chain and run validators. Finalized states and historic blocks are pruned.
- * `prune` - Stores all blocks, but finalized states are pruned.
- * `archive` - Stores all blocks and states.
+* `minimal` - Stores the minimal required data to follow the chain and run validators. Finalized states and historic blocks are pruned.
+* `prune` - Stores all blocks, but finalized states are pruned.
+* `archive` - Stores all blocks and states.
 
 The default is `prune`.
 
