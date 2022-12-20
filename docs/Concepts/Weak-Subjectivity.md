@@ -34,3 +34,7 @@ The only exception is when syncing an archive node, in which case, use `--ws-che
 
     Use the [`/eth/v2/debug/beacon/states/<state_id>`](https://consensys.github.io/teku/#operation/getEthV2DebugBeaconStatesWithState_id)
     API on an updated node to download a recent finalized state as an SSZ encoded state file.
+
+Another option is to utilise the [Reconstruct Historical States Service](../HowTo/Reconstruct-Historical-States-Service.md).
+This allows the creation of a full archive node, ensuring that once the node is up to date, the concerns associated with weak
+subjectivity are cleared.
