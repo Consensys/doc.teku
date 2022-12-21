@@ -467,6 +467,49 @@ For example, `https://goerli.infura.io/v3/<Project_ID>`.
     This option will be replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
     You can [configure your execution client](../../HowTo/Prepare-for-The-Merge.md) before The Merge.
 
+### genesis-state
+
+=== "Syntax"
+
+    ```bash
+    --genesis-state=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --genesis-state=/home/me/genesis.ssz
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_GENESIS_STATE=/home/me/genesis.ssz
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    genesis-state: "/home/me/genesis.ssz"
+    ```
+
+Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
+or a [recent finalized checkpoint state from which to sync].
+
+This option does not need to be specified if the genesis state is provided by the network specified
+using the [`--network`](#network) option. It also is not required if the Reconstruct Historical
+States Service is not being utilised.
+
+!!! note
+
+    If overriding the genesis state in a custom network, you must supply the genesis state
+    file at each restart.
+
+!!! tip
+
+    [Infura](https://infura.io/) can be used as the source of initial states with
+    `--genesis-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v2/debug/beacon/states/genesis`
+
 ### help
 
 === "Syntax"
@@ -1483,6 +1526,38 @@ beacon nodes may not have subscribed to the required subnets and be unable to pr
 
     When set to `true`, Teku uses more CPU and bandwidth, and for most users there’s no need to use
     this option.
+
+### reconstruct-historic-states
+
+=== "Syntax"
+
+    ```bash
+    --reconstruct-historic-states=<BOOLEAN>
+    ```
+
+=== "Example"
+
+    ```bash
+    --reconstruct-historic-states=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_RECONSTRUCT_HISTORIC_STATES=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    reconstruct-historic-states: true
+    ```
+
+When set to `true` the [Reconstruct Historical States Service](../../HowTo/Reconstruct-Historical-States-Service.md),
+is enabled where an archive node is able to reconstruct historical states from genesis up to the current checkpoint,
+running during start up.
+
+When set to `false` this service is not enabled.
 
 ### rest-api-cors-origins
 

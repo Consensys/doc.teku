@@ -30,7 +30,7 @@ openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 
 You will specify `jwtsecret.hex` when starting Teku and the execution client.
 This is a shared JWT secret the clients use to authenticate each other when using the
-[Engine API](https://github.com/ethereum/execution-apis/blob/main/src/engine/specification.md).
+[Engine API](https://github.com/ethereum/execution-apis/blob/v1.0.0-beta.1/src/engine/specification.md).
 
 ## 2. Start the execution client
 
