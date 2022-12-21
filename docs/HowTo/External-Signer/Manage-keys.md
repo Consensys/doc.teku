@@ -53,7 +53,7 @@ SSL certificate to be accepted as valid. Multiple addresses can be specified whe
 
 1. Create a file openssl.cnf to contain the configuration required for the certificate. For example:
 
-   === "Example"
+    === "Example"
 
       ```properties
       [req]
@@ -88,13 +88,13 @@ SSL certificate to be accepted as valid. Multiple addresses can be specified whe
 
 3. Generate an x509 certificate from the configuration and convert to PKCS12 format:
 
-   === "Syntax"
+    === "Syntax"
 
       ```bash
       openssl req -x509 -nodes -days <expiry> -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out <keystore> -passout file:<password-file>
       ```
 
-   === "Example"
+    === "Example"
 
       ```bash
       openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out validator_keystore.p12 -passout file:validator_keystore_pass.txt
