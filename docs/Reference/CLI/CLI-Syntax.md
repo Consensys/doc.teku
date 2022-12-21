@@ -748,6 +748,35 @@ Specify whether to log details of validator event duties. The default is `true`.
 !!! note
     Logs could become noisy when running many validators.
 
+### metrics-block-timing-tracking-enabled
+
+=== "Syntax"
+
+    ```bash
+    --metrics-block-timing-tracking-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --metrics-block-timing-tracking-enabled=false
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_METRICS_BLOCK_TIMING_TRACKING_ENABLED=false
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    metrics-block-timing-tracking-enabled: false
+    ```
+
+Enables or disables block timing metrics.
+The default is `true`.
+
 ### metrics-enabled
 
 === "Syntax"
