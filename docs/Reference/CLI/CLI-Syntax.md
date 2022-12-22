@@ -558,9 +558,7 @@ using the [`--network`](#network) option.
     file at each restart.
 
 !!! tip
-
-    [Infura](https://infura.io/) can be used as the source of initial states with
-    `--initial-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v2/debug/beacon/states/finalized`
+    See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 
 ### logging
 
