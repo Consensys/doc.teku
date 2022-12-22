@@ -51,54 +51,54 @@ When enabling the validator client API, you must create a keystore.
 When the key manager API is accessible via different domain names or IP addresses, each domain or IP needs to be listed in the
 SSL certificate to be accepted as valid. Multiple addresses can be specified when using openSSL to generate the certificate.
 
-1. Create a file openssl.cnf to contain the configuration required for the certificate. For example:
+1. Create a file named `openssl.cnf` containing the configuration required for the certificate.
 
-    === "Example"
+    !!! example "`openssl.cnf`"
 
-      ```properties
-      [req]
-      distinguished_name = req_distinguished_name
-      x509_extensions = v3_req
-      prompt = no
+        ```properties
+        [req]
+        distinguished_name = req_distinguished_name
+        x509_extensions = v3_req
+        prompt = no
 
-      [req_distinguished_name]
-      countryName = US
-      stateOrProvinceName = CA
-      localityName = San Francisco
-      organizationName = My Organization Name
-      organizationalUnitName = My Department Name
+        [req_distinguished_name]
+        countryName = US
+        stateOrProvinceName = CA
+        localityName = San Francisco
+        organizationName = My Organization Name
+        organizationalUnitName = My Department Name
 
-      [v3_req]
-      subjectKeyIdentifier = hash
-      authorityKeyIdentifier = keyid,issuer
-      basicConstraints = CA:TRUE
-      subjectAltName = @alt_names
+        [v3_req]
+        subjectKeyIdentifier = hash
+        authorityKeyIdentifier = keyid,issuer
+        basicConstraints = CA:TRUE
+        subjectAltName = @alt_names
 
-      [alt_names]
-      DNS.1 = mydomain.com
-      DNS.2 = localhost
-      IP.1 = 127.0.0.1
-      IP.2 = 10.0.0.6
-      ```
+        [alt_names]
+        DNS.1 = mydomain.com
+        DNS.2 = localhost
+        IP.1 = 127.0.0.1
+        IP.2 = 10.0.0.6
+        ```
 
-      You should adjust the `req_distinguised_name` and `alt_names` sections to match your needs.
+        You should adjust the `req_distinguised_name` and `alt_names` sections to match your needs.
 
-2. Create a plain text file (for example `validator_keystore_pass.txt`) that stores the
+2. Create a plain text file (for example, `validator_keystore_pass.txt`) that stores the
    password you defined in the keystore.
 
-3. Generate an x509 certificate from the configuration and convert to PKCS12 format:
+3. Generate an x509 certificate from the configuration and convert it to PKCS12 format:
 
     === "Syntax"
 
-      ```bash
-      openssl req -x509 -nodes -days <expiry> -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out <keystore> -passout file:<password-file>
-      ```
+        ```bash
+        openssl req -x509 -nodes -days <expiry> -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out <keystore> -passout file:<password-file>
+        ```
 
     === "Example"
 
-      ```bash
-      openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out validator_keystore.p12 -passout file:validator_keystore_pass.txt
-      ```
+        ```bash
+        openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out validator_keystore.p12 -passout file:validator_keystore_pass.txt
+        ```
 
 ### Authentication
 
