@@ -105,10 +105,10 @@ to start the container.
                   "--sync-mode=FAST",
                   "--rpc-http-enabled",
                   "--rpc-http-cors-origins=*",
-                  "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3"]
+                  "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3",
                   "--engine-jwt-secret=/var/lib/besu/data/token.txt",
                   "--engine-host-allowlist=*",
-                  "--engine-rpc-enabled=true"
+                  "--engine-rpc-enabled=true"]
         volumes:
           - ./besu:/var/lib/besu/data
         ports:
