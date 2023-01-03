@@ -25,3 +25,5 @@ You can:
 * [Run Teku from a Docker image.](HowTo/Get-Started/Installation-Options/Run-Docker-Image.md)
 * [Install the binary distribution.](HowTo/Get-Started/Installation-Options/Install-Binaries.md)
 * [Build from source.](HowTo/Get-Started/Installation-Options/Build-From-Source.md)
+
+[//]: # (Debugging comment)
