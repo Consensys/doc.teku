@@ -1,56 +1,69 @@
 # Withdrawals
 
-## Overview
-Validators who stake ether on mainnet, as of the `Bellatrix` upgrade, accrue 2 forms of reward:
-- EL (Execution-layer) rewards payed directly to an eth1address for block inclusion
-- CL (Consensus-layer) rewards for performing actions each epoch, to the CL validator balance.
+Validators staking ether on Mainnet after The Merge, accrue 2 forms of rewards:
 
-Prior to the Capella upgrade, the balances of Consensus-layer validator keys was locked away, and not able to be transferred back to an `eth1Address` (ethereum address).
+- Execution layer rewards payed directly to an Ethereum address.
+- Consensus layer rewards for performing actions each epoch.
 
-The Capella upgrade implements an automated process which allows the funds of validator keys to be deposited to an `eth1Address`.
+Before the Capella upgrade, consensus layer rewards were locked away, and
+unable to be transferred to an Ethereum address. The Capella upgrade implements an automated
+process that allows a validator's funds to be deposited to an Ethereum address.
 
-## Types of withdrawal
-There are two types of withdrawals, and both are automated and require no user interaction once the withdrawal key has been setup as an `eth1Address`.
+!!! note
+
+    Teku provides multiple methods to allow you to
+    [specify an Ethereum address to store your validator's rewards](Prepare-for-The-Merge.md#configure-the-fee-recipient).
+
+## Types of withdrawals
+
+There are two types of automated withdrawals that occur once the
+[withdrawal key is set up as an Ethereum address](Prepare-for-The-Merge.md#configure-the-fee-recipient).
 
 ### Partial Withdrawals
-_Partial withdrawals_ concern validators who are active on the network and have a balance exceeding 32ETH.  
-Periodically, a deposit will be made to the associated `eth1Address` for any balance exceeding 32ETH 
-associated with the validator key. This means that a validators balance will periodically reduce to 
-32ETH once capella becomes the active fork on the network.
+
+Partial withdrawals are for active validators that have a balance exceeding 32 ETH.
+The network periodically makes deposits to the associated Ethereum address for validators with a balance
+exceeding 32 ETH. This means that a validator's balance will periodically reduce to 32 ETH once Capella
+becomes the active fork on the network.
 
 ### Full Withdrawals
-_Full withdrawals_ concern validators who are exited from the network, and have waited the nessesary time to be withdrawable. 
-For these validators, their entire balance is returned to the `eth1Address` associated with the validator key. 
-The balance cannot be transferred until the validator key is associated with an `eth1Address`.
 
-Once a validator is exited, it will not become active on the network again, and currently (as of capella) there is no mechanism
-for recycling the validator id that has been exited.
+Full withdrawals are for validators that have exited the network, and have waited the nessesary time to withdraw their funds.
+For these validators, their entire balance is returned to the Ethereum address associated with the validator key.
+The balance cannot be transferred until the validator key is associated with an Ethereum address.
+
+An exited validator cannot become active on the network again, and currently (as of Capella)
+there is no mechanism for recycling the validator ID that has been exited.
 
 ## How it works
-Starting from the first capella slot, block proposers will start providing up to 16 withdrawals per block proposed. 
 
-Proposers will start from validator 1, and find validators that qualify (must have an `eth1Address`, must have an excess balance or be exited).
-On mainnet, with 32 slots per epoch, this equates to 512 withdrawals per epoch if all slots are producing blocks.
+From the first Capella slot, block proposers provide up to 16 withdrawals per proposed block.
 
-Block proposers need to select the withdrawals that go into the block in a predictable mechanism to be able to follow the chain correctly.
+Proposers start from validator 1, and find validators that qualify: must have an Ethereum address, must
+have an excess balance, or have exited. On Mainnet, with 32 slots per epoch, this equates to 512 withdrawals
+per epoch if all slots are producing blocks.
 
-Each block, up to 16 changes to withdrawal credentials are also allowed, where an owner of a validator key is able to update their 
-withdrawal key to an `eth1Address`. This change is taken from a pool, and the order is not guaranteed, it will depend on a number of factors.
+Block proposers select the withdrawals that go into the block using a predictable mechanism to follow
+the chain correctly.
 
-## Withdrawal Keys
-There are two types of withdrawal keys that a validator may have been configured with when they were setup.
+In each block, up to 16 changes to withdrawal credentials are also allowed, where an owner of a validator
+key can update their withdrawal key's Ethereum address. This change is taken from a pool, and
+the order is not guaranteed.
 
-It has been possible to setup a validator key that has a withdrawal address of an `eth1Address` for a while now, 
-and many users may find that their validator key is already configured with an `eth1Address` 
-for the withdrawal key. The withdrawal keys that are configured in this way are prefixed with a `0x01` code.
+## Withdrawal keys
 
-BLS Keys are prefixed by `0x00`. These keys are not able to have automated withdrawals run on them. 
-If the owner of the validator key wishes to get rewards from a validator key that has `0x00` withdrawal credentials, 
-they need to alter their credentials to specify an eth1 address for their withdrawal key.
+Withdrawal keys that are configured as [BLS keys](https://en.wikipedia.org/wiki/BLS_digital_signature)
+cannot have automated withdrawals executed for them. Users must alter their credentials to specify an
+ETH1 address for their withdrawal key.
 
-To determine the type of withdrawal key in use by your validator, if you are unsure, 
-it is possible to query your validator configuration on chain.  The following script will allow 
-you to determine the withdrawal key of a given validator id. 
+BLS withdrawal keys are prefixed with `0x00`, whereas ETH1 withdrawal keys are prefixed with a `0x01`.
+
+To determine the type of withdrawal key used by your validator, you can query your validator configuration
+onchain.
+
+### Determine the withdrawal key type
+
+The following script allows you to determine the withdrawal key of a given validator ID.
 
 __NOTE__
  - This query runs against the beacon-api on your localhost:5051, so would require that to be accessible.
@@ -67,7 +80,7 @@ This will output a string like:
 ```
 The first 4 characters of the string, in this case `0x00`, indicate that a BLS withdrawal key is in use by validator 1 on the network (goerli in this example).
 
-## Updating Withdrawal keys
+### Update your withdrawal key
 
 If your withdrawal address is a BLS key (starts with `0x00`), the Capella fork comes with 
 a process to allow you to update your withdrawal address to a `0x01` withdrawal key.
@@ -76,10 +89,10 @@ in order to sign the request to prove that you have access to the BLS Withdrawal
 
 Because of the requirement for access to the withdrawal key for signing, Teku does not offer a utility to generate a signed request.
 
-Tools such as [ethdo](https://github.com/wealdtech/ethdo) are able to sign the request correctly, 
+Tools such as [ethdo](https://github.com/wealdtech/ethdo) are able to sign the request correctly,
 and the signed data can be submitted directly, or via your own beacon node.
 
-Per block, 16 validator keys can update withdrawal credentials, so the process may be congested initially. 
+Per block, 16 validator keys can update withdrawal credentials, so the process may be congested initially.
 If you submit a request to update your key, and it hasn't been done in a period of time, you might consider re-submitting the request.
 It may take several epochs for the change to be included in a block, depending on the number of requests in the queue.
 
