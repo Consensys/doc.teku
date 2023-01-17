@@ -101,5 +101,5 @@ You can follow Teku notifications by:
 - Signing up to the [release announcements](https://pages.consensys.net/teku-sign-up) email list (release and important
   announcements only, no marketing).
 - Following Teku on [Twitter](https://twitter.com/Teku_ConsenSys).
-- Following the Teku channel in the ConsenSys [Discord](https://discord.gg/7hPv2T6).
+- Following the Teku channel in the ConsenSys [Discord](https://discord.com/invite/consensys).
 - Subscribing to release notifications on GitHub for [Teku](https://github.com/ConsenSys/teku).

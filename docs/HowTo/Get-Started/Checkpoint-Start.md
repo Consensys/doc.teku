@@ -29,7 +29,6 @@ to download the finalized checkpoint state from the
 on the beacon node (for example, Teku).
 
 !!! note
-
     You can also download a finalized checkpoint state file, and specify the location
     using the [`--initial-state`](../../Reference/CLI/CLI-Syntax.md#initial-state) option. To
     download the file and name it `state.ssz` run:
@@ -37,9 +36,9 @@ on the beacon node (for example, Teku).
     ```bash
     curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v2/debug/beacon/states/finalized
     ```
-    [Infura](https://infura.io/) provides initial state endpoints for free.
-    Registration to Infura services is required.
-    Watch the ["Teku Snapshot Sync from Infura" video](https://youtu.be/ce9uVRl23zI) for more details.
+
+!!! tip
+    See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 
 <!--links-->
 [REST API enabled]: ../../Reference/CLI/CLI-Syntax.md#rest-api-enabled

@@ -190,7 +190,7 @@ is specified using [`--data-base-path`](#data-base-path-data-path).
 
 Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
-This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
+This option is ignored if [`--data-storage-mode`](#data-storage-mode) is not set to `archive`.
 
 !!! note
     Specifying a larger number of slots as the archive frequency has a potentially higher overhead
@@ -229,7 +229,12 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     data-storage-mode: "archive"
     ```
 
-Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
+Set the strategy for handling historical chain data. Valid options are:
+
+* `minimal` - Stores the minimal required data to follow the chain and run validators. Finalized states and historic blocks are pruned.
+* `prune` - Stores all blocks, but finalized states are pruned.
+* `archive` - Stores all blocks and states.
+
 The default is `prune`.
 
 ### data-storage-non-canonical-blocks-enabled
@@ -462,6 +467,49 @@ For example, `https://goerli.infura.io/v3/<Project_ID>`.
     This option will be replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
     You can [configure your execution client](../../HowTo/Prepare-for-The-Merge.md) before The Merge.
 
+### genesis-state
+
+=== "Syntax"
+
+    ```bash
+    --genesis-state=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --genesis-state=/home/me/genesis.ssz
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_GENESIS_STATE=/home/me/genesis.ssz
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    genesis-state: "/home/me/genesis.ssz"
+    ```
+
+Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state,
+or a [recent finalized checkpoint state from which to sync].
+
+This option does not need to be specified if the genesis state is provided by the network specified
+using the [`--network`](#network) option. It also is not required if the Reconstruct Historical
+States Service is not being utilised.
+
+!!! note
+
+    If overriding the genesis state in a custom network, you must supply the genesis state
+    file at each restart.
+
+!!! tip
+
+    [Infura](https://infura.io/) can be used as the source of initial states with
+    `--genesis-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v2/debug/beacon/states/genesis`
+
 ### help
 
 === "Syntax"
@@ -510,9 +558,7 @@ using the [`--network`](#network) option.
     file at each restart.
 
 !!! tip
-
-    [Infura](https://infura.io/) can be used as the source of initial states with
-    `--initial-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v2/debug/beacon/states/finalized`
+    See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 
 ### logging
 
@@ -742,6 +788,35 @@ Specify whether to log details of validator event duties. The default is `true`.
 
 !!! note
     Logs could become noisy when running many validators.
+
+### metrics-block-timing-tracking-enabled
+
+=== "Syntax"
+
+    ```bash
+    --metrics-block-timing-tracking-enabled[=<BOOLEAN>]
+    ```
+
+=== "Example"
+
+    ```bash
+    --metrics-block-timing-tracking-enabled=false
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_METRICS_BLOCK_TIMING_TRACKING_ENABLED=false
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    metrics-block-timing-tracking-enabled: false
+    ```
+
+Enables or disables block timing metrics.
+The default is `true`.
 
 ### metrics-enabled
 
@@ -1450,6 +1525,38 @@ beacon nodes may not have subscribed to the required subnets and be unable to pr
     When set to `true`, Teku uses more CPU and bandwidth, and for most users there’s no need to use
     this option.
 
+### reconstruct-historic-states
+
+=== "Syntax"
+
+    ```bash
+    --reconstruct-historic-states=<BOOLEAN>
+    ```
+
+=== "Example"
+
+    ```bash
+    --reconstruct-historic-states=true
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_RECONSTRUCT_HISTORIC_STATES=true
+    ```
+
+=== "Configuration file"
+
+    ```bash
+    reconstruct-historic-states: true
+    ```
+
+When set to `true` the [Reconstruct Historical States Service](../../HowTo/Reconstruct-Historical-States-Service.md),
+is enabled where an archive node is able to reconstruct historical states from genesis up to the current checkpoint,
+running during start up.
+
+When set to `false` this service is not enabled.
+
 ### rest-api-cors-origins
 
 === "Syntax"
@@ -1651,6 +1758,33 @@ The default is `127.0.0.1`.
 
 Specifies REST API listening port (HTTP).
 The default is 5051.
+
+### sentry-config-file
+
+=== "Syntax"
+
+    ```bash
+    --sentry-config-file=<FILE>
+    ```
+
+=== "Example"
+
+    ```bash
+    --sentry-config-file=/etc/sentry-node-config.json
+    ```
+
+=== "Environment variable"
+
+    ```bash
+    TEKU_SENTRY-CONFIG_FILE=/etc/sentry-node-config.json
+    ```
+
+Path to the [sentry node](../../HowTo/Sentry-Nodes.md) configuration file.
+The default is `none`.
+
+!!! important
+
+    This option can't be used with [`--beacon-node-api-endpoint`](Subcommands/Validator-Client.md#beacon-node-api-endpoint-beacon-node-api-endpoints).
 
 ### version
 

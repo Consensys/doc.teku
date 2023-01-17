@@ -207,7 +207,7 @@ Exports the database in the [validator client interchange format] format.
 
 ## `repair`
 
-Repairs corrupted slashing-protection data files used by Teku.
+Repairs corrupted slashing protection data files used by Teku.
 
 ### `check-only-enabled`
 
@@ -223,7 +223,7 @@ Repairs corrupted slashing-protection data files used by Teku.
     teku slashing-protection repair --checking-only-enabled=false
     ```
 
-Reads and reports potential slashing-protection file problems, but doesn't update any files.
+Reads and reports potential slashing protection file problems, but doesn't update any files.
 You can specify which files are checked using [`--config-file`](#config-file_2), [`--data-base-path`](#data-base-path-data-path).
 
 ### `config-file`
@@ -351,7 +351,7 @@ slot, or after when the validators stopped performing duties.
     teku slashing-protection repair --update-all-enabled=false
     ```
 
-Enables all slashing-protection records to be updated. The default is `false`.
+Enables all slashing protection records to be updated. The default is `false`.
 
 <!-- links -->
 [slashing protection data]: ../../../Concepts/Slashing-Protection.md
