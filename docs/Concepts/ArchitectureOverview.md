@@ -16,4 +16,4 @@ You can [run the beacon node only](../HowTo/Get-Started/Run-Teku.md#start-the-be
 [run the beacon node and validator client](../HowTo/Get-Started/Run-Teku.md#start-the-clients-in-a-single-process).
 
 Read more about the [Ethereum consensus client architecture](https://ethereum.org/en/developers/docs/nodes-and-clients/).
-For more information about the Teku architecture, contact us on [Teku Discord channel](https://discord.gg/9mCVSY6).
+For more information about the Teku architecture, contact us on [Teku Discord channel](https://discord.com/invite/consensys).
