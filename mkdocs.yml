@@ -25,7 +25,7 @@ extra:
     You can switch to the stable version using the version box at the bottom of the screen.'
   support:
     tool: Discord
-    channel: https://discord.gg/9mCVSY6
+    channel: https://discord.com/invite/consensys
     website: https://consensys.net/knowledge-base/ethereum-2/teku
     company: Consensys
     issues: https://github.com/Consensys/teku/issues
@@ -96,7 +96,7 @@ nav:
         - Slashing protection: Concepts/Slashing-Protection.md
         - Weak subjectivity: Concepts/Weak-Subjectivity.md
     - Tutorials:
-        - External signer TLS: Tutorials/Configure-External-Signer-TLS.md  
+        - External signer TLS: Tutorials/Configure-External-Signer-TLS.md
     - Reference:
         - Teku command line:
           - Options: Reference/CLI/CLI-Syntax.md

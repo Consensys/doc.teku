@@ -109,4 +109,4 @@ sync and validating within minutes.
 [prune mode]: ../Reference/CLI/CLI-Syntax.md#data-storage-mode
 [archive mode]: ../Reference/CLI/CLI-Syntax.md#data-storage-mode
 [supply the finalized checkpoint state]: Get-Started/Checkpoint-Start.md
-[Teku Discord channel]: https://discord.gg/9mCVSY6
+[Teku Discord channel]: https://discord.com/invite/consensys
