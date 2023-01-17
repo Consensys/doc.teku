@@ -1,10 +1,10 @@
 ---
-description: Describe how slash protection works in Teku
+description: Describe how slashing protection works in Teku
 ---
 
 # Slashing protection
 
-Teku provides slashing protection to prevent validators from signing blocks or attestations
+Teku implements slashing protection to prevent validators from signing blocks or attestations
 based on what it has already signed.
 
 By default, Teku also locks keystore files listed in the
@@ -27,11 +27,16 @@ blocks for each validator in the `<data-path>/validator/slashprotection/` direct
     Set `<data-path>` using the [`--data-path`](../Reference/CLI/CLI-Syntax.md#data-path) command
     line option.
 
-Teku provides command line options to [import] or [export] the slash protection file.
+Teku provides command line options to [import] or [export] the slashing protection file.
 
-## Validator slash protection file
+!!! tip
+    Teku also supports [doppelganger detection](../HowTo/Doppelganger-Detection.md) to help prevent
+    slashing.
+    This is an early access feature.
 
-The slash protection file records multiple values that protects the validator from incorrectly
+## Validator slashing protection file
+
+The slashing protection file records multiple values that protects the validator from incorrectly
 signing blocks or attestations.
 
 !!! example
@@ -62,14 +67,14 @@ The following rules apply to the file:
 
 These rules guarantee the validator does not sign anything that is slashable.
 
-## Migrate the slash protection file
+## Migrate the slashing protection file
 
-Use the Teku command line options to [import] or [export] the slash protection file.
+Use the Teku command line options to [import] or [export] the slashing protection file.
 Alternatively you can manually migrate or create the database.
 
 ### Between Teku nodes
 
-If moving a validator from one Teku node to another, you can manually migrate the slash protection
+If moving a validator from one Teku node to another, you can manually migrate the slashing protection
 file.
 
 For example, to manually move the file from node A to node B:
@@ -86,9 +91,9 @@ For example, to manually move the file from node A to node B:
 
 If moving a validator from a different client to Teku, you can either:
 
-* Manually [create a new slash protection file] by setting the values based on the validator's last
+* Manually [create a new slashing protection file] by setting the values based on the validator's last
     signing details.
-* [Import] the slashing-protection file.
+* [Import] the slashing protection file.
 
 To manually create the file, stop the other client to ensure it isn't signing, then set
 `lastSignedBlockSlot` to the current chain head slot + 1, `lastSignedAttestationSourceEpoch` to the
@@ -97,7 +102,7 @@ current justified checkpoint, and set `lastSignedAttestationTargetEpoch` to the 
 Start the Teku node with the validator key.
 
 <!-- links -->
-[YAML file is stored per validator]: #validator-slash-protection-file
-[create a new slash protection file]: #validator-slash-protection-file
-[import]: ../HowTo/Prevent-Slashing.md#importing-a-slashing-protection-file
-[export]: ../HowTo/Prevent-Slashing.md#exporting-a-slashing-protection-file
+[YAML file is stored per validator]: #validator-slashing-protection-file
+[create a new slashing protection file]: #validator-slashing-protection-file
+[import]: ../HowTo/Prevent-Slashing.md#import-a-slashing-protection-file
+[export]: ../HowTo/Prevent-Slashing.md#export-a-slashing-protection-file
