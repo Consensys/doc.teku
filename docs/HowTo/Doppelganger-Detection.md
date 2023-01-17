@@ -50,7 +50,7 @@ This means that the validators being checked are inactive for at most two epochs
     These side effects result in penalties and missed rewards.
 
 You might still consider these side effects a worthwhile trade-off of doppelganger detection, since
-it can prevent slashing. 
+it can prevent slashing.
 
 ## Logs
 
