@@ -24,9 +24,8 @@ upgrade, consensus layer rewards were locked, and unable to be transferred to an
 
 ## Types of withdrawals
 
-There are two types of automated withdrawals that occur once the
-withdrawal key is set up as an Ethereum address: [partial withdrawals](#partial-withdrawals) and
-[full withdrawals](#full-withdrawals).
+Two types of automated withdrawals occur once the withdrawal key is set up as an Ethereum address:
+[partial withdrawals](#partial-withdrawals) and [full withdrawals](#full-withdrawals).
 
 ### Partial withdrawals
 

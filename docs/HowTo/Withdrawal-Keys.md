@@ -24,7 +24,7 @@ The following shell script allows you to determine the withdrawal address of a g
     curl http://localhost:5051/eth/v1/beacon/states/finalized/validators/$VALIDATOR | jq '.data | .validator.withdrawal_credentials'
     ```
 
-=== "Example output
+=== "Example output"
 
     ```
     "0x00fc40352b0a186d83267fc1342ec5da49dbb78e1099a4bd8db16d2c0d223594"
