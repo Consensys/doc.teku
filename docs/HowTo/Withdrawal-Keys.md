@@ -42,9 +42,10 @@ key.
 
 !!! important
 
-    Teku does not offer functionality to update your withdrawal key from a BLS withdrawal address to
-    an Ethereum address. Use a tool like [`ethdo`](https://github.com/wealdtech/ethdo/blob/master/docs/changingwithdrawalcredentials.md)
-    instead.
+    Teku does not offer functionality to create a signed withdrawal credential change.
+    Tools such as [`ethdo`](https://github.com/wealdtech/ethdo/blob/master/docs/changingwithdrawalcredentials.md)
+    allow you to generate this signed message, which can be submitted directly to your beacon node if
+    your REST API is active.
 
 If your withdrawal address is a BLS key (starts with `0x00`), the Capella fork provides a process to
 update your withdrawal address to a `0x01` withdrawal key (Ethereum address).
@@ -59,8 +60,6 @@ and the signed data can be submitted directly, or via your own beacon node.
     - Once a validator has been updated to use a `0x01` withdrawal key (Ethereum address), it cannot be changed again.
     - Updating your withdrawal credentials is not available until the Capella fork is active.
     - Ensure you update to the expected Ethereum address because the change is permanent.
-    - The updated address will receive a direct deposited for 0 gas, but no EVM code will be executed
-        as part of the transaction.
 
 A maximum of 16 validator keys can update their withdrawal credentials per block, so the process may
 be congested initially. If you submit a request to update your key, and it hasn't been done in a period
@@ -81,5 +80,5 @@ time to avoid inactivity penalties.
 
 !!! important
 
-    Ensure that you own, or have access to the current Ethereum address before exiting, otherwise you
+    Ensure that you own the current Ethereum address before exiting, otherwise you
     will be unable to access your funds.

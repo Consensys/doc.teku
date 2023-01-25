@@ -16,11 +16,12 @@ upgrade, consensus layer rewards were locked, and unable to be transferred to an
 !!! important
 
     When you create a validator, it's currently possible to set its withdrawal address to a
-    [BLS address](https://en.wikipedia.org/wiki/BLS_digital_signature), or an Ethereum address. After
-    the Capella fork, users must use an Ethereum address as their withdrawal address to allow automatics
-    transfers.
+    [BLS address](https://en.wikipedia.org/wiki/BLS_digital_signature), or an Ethereum address.
 
-    You can [update your BLS withdrawal address to an Ethereum address](../HowTo/Withdrawal-Keys.md).
+    You can [update your BLS withdrawal address to an Ethereum address](../HowTo/Withdrawal-Keys.md)
+    after the Capella upgrade.
+
+You do not pay gas fees for receiving reward payments.
 
 ## Types of withdrawals
 
