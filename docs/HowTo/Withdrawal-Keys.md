@@ -71,7 +71,8 @@ API see if your request is still in the pool.
 
 ### Update your Ethereum address
 
-To update an Ethereum address, you'll need to create a new validator key. You can exit your current
+If your withdrawal credentials are set to an Ethereum address, and you wish to update it to a
+different address, you'll need to create a new validator key. You can exit your currentg
 validator key as a voluntary exit, and use the funds from the full withdrawal of that to create the
 new validator key.
 
