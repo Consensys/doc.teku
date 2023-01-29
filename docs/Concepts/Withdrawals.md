@@ -63,7 +63,7 @@ Withdrawal keys that are configured as [BLS keys](https://en.wikipedia.org/wiki/
 cannot have automated withdrawals executed for them. Users must alter their credentials to specify an
 Ethereum address for their withdrawal key.
 
-BLS withdrawal keys are prefixed with `0x00`, whereas ETH1 withdrawal keys are prefixed with a `0x01`.
+BLS withdrawal keys are prefixed with `0x00`, whereas Ethereum withdrawal keys are prefixed with a `0x01`.
 
 To determine the type of withdrawal key used by your validator, you can
 [query your validator configuration onchain](../HowTo/Withdrawal-Keys.md#determine-the-withdrawal-key-type).
