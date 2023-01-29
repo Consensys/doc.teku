@@ -4,9 +4,10 @@ title: How to update your withdrawal credentials
 
 # Update your withdrawal credentials
 
-When you create a validator, it’s currently possible to set its [withdrawal](../Concepts/Withdrawals.md) address
-to a BLS address, or an Ethereum address. After the Capella fork, users must use an Ethereum address as their withdrawal
-address to allow automatics transfers.
+When you create a validator, it’s possible to set its [withdrawal](../Concepts/Withdrawals.md) address
+to a BLS address, or an Ethereum address.
+
+You can update your BLS withdrawal address to an Ethereum address after the Capella upgrade.
 
 ## Determine the withdrawal address type
 
