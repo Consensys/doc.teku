@@ -17,7 +17,8 @@ upgrade, consensus layer rewards were locked, and unable to be transferred to an
 !!! important
 
     When you create a validator, it's possible to set its withdrawal address to a
-    [BLS address](https://en.wikipedia.org/wiki/BLS_digital_signature), or an Ethereum address.
+    [BLS address](https://en.wikipedia.org/wiki/BLS_digital_signature), or an Ethereum address. Withdrawal
+    keys that are configured as BLS keys cannot have automated withdrawals executed for them.
 
     You can [update your BLS withdrawal address to an Ethereum address](../HowTo/Withdrawal-Keys.md)
     after the Capella upgrade.
