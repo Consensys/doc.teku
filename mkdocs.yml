@@ -85,6 +85,7 @@ nav:
         - Prepare for The Merge: HowTo/Prepare-for-The-Merge.md
         - Reconstruct Historical States Service: HowTo/Reconstruct-Historical-States-Service.md
         - Use sentry beacon nodes: HowTo/Sentry-Nodes.md
+        - Update withdrawal keys: HowTo/Withdrawal-Keys.md
         - Troubleshoot:
             - Solve common problems: HowTo/Troubleshoot/Troubleshooting.md
     - Concepts:
@@ -95,6 +96,7 @@ nav:
         - Node private key: Concepts/P2P-Private-Key.md
         - Slashing protection: Concepts/Slashing-Protection.md
         - Weak subjectivity: Concepts/Weak-Subjectivity.md
+        - Withdrawals: Concepts/Withdrawals.md
     - Tutorials:
         - External signer TLS: Tutorials/Configure-External-Signer-TLS.md
     - Reference:
