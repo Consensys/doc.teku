@@ -4,15 +4,21 @@ description: How to prepare for The Merge
 sidebar_position: 11
 ---
 
-!!! warning "Important" [The Merge](../Concepts/Merge.md) was executed on **September 15, 2022**. This page will remain up for a short period of time for your reference. Please see the [guide on connecting Teku to Mainnet](Get-Started/Connect/Connect-To-Mainnet.md).
+:::warning Important
+
+[The Merge](../Concepts/Merge.md) was executed on **September 15, 2022**.
+
+This page will remain up for a short period of time for your reference. Please see the [guide on connecting Teku to Mainnet](Get-Started/Connect/Connect-To-Mainnet.md).
+
+:::
 
 # Prepare for The Merge
 
 If you're running one or more Teku beacon nodes and validators on Ethereum Mainnet, prepare for [The Merge](../Concepts/Merge.md) by:
 
 1. [Configuring the execution client](#configure-the-execution-client).
-1. [Configuring the fee recipient](#configure-the-fee-recipient).
-1. [Staying up to date on Teku releases](#update-teku).
+2. [Configuring the fee recipient](#configure-the-fee-recipient).
+3. [Staying up to date on Teku releases](#update-teku).
 
 You can make the configuration changes in Teku's [configuration file](Configure/Use-Configuration-File.md) before The Merge.
 
@@ -24,21 +30,22 @@ Before The Merge, validators require an [execution client](../Concepts/Merge.md#
 
 After The Merge, execution clients will play a more crucial role in executing transactions. Service providers that provide execution layer access, such as Infura, won't be adequate for a beacon node to continue to function on the network. You must set up an execution client for each beacon node you maintain, using the following steps. You can use any execution client with Teku.
 
-!!! note "Notes"
+:::note
 
-    - After The Merge, a beacon node won't be able to have a failover execution client; a validator client will need a
-      beacon node and execution client pair to provide failover functionality.
-    - When planning your solution, take into account that the traffic between the execution client and beacon node
-      will be relatively high.
+- After The Merge, a beacon node won't be able to have a failover execution client; a validator client will need a beacon node and execution client pair to provide failover functionality.
+- When planning your solution, take into account that the traffic between the execution client and beacon node will be relatively high.
+
+:::
 
 ### 1. Configure the execution endpoint
 
 Specify the execution client endpoint using [`ee-endpoint`](../Reference/CLI/CLI-Syntax.md#ee-endpoint) in the Teku configuration file. This can replace [`eth1-endpoint`](../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints).
 
-!!! important
+:::info
 
-    After The Merge, you can't use `eth1-endpoint` to specify an external execution layer provider.
-    This option will be replaced by specifying `ee-endpoint` for each beacon node.
+After The Merge, you can't use `eth1-endpoint` to specify an external execution layer provider. This option will be replaced by specifying `ee-endpoint` for each beacon node.
+
+:::
 
 ### 2. Sync the execution client
 

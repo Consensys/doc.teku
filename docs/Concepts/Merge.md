@@ -6,9 +6,11 @@ sidebar_position: 4
 
 # The Merge
 
-!!! important
+:::info
 
-    The Merge was executed on **September 15, 2022**.
+The Merge was executed on **September 15, 2022**.
+
+:::
 
 [The Merge](https://ethereum.org/en/upgrades/merge/) was an Ethereum upgrade that merged the [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) into Ethereum Mainnet, turning Mainnet into a combination of an [execution layer and consensus layer](#execution-and-consensus-clients). The Merge transitioned Mainnet from proof of work to [proof of stake consensus](Proof-of-Stake.md).
 
@@ -41,6 +43,10 @@ Before The Merge, the execution and consensus clients' configurations were updat
 
 The consensus layer enabled the Merge configuration (Bellatrix) before reaching the TTD. Once the execution layer blocks reached the TTD, the Beacon Chain merged into Ethereum Mainnet, and Ethereum transitioned to a proof of stake network.
 
-!!! important After The Merge, a Mainnet node operator must run both an execution client and a beacon node at the same time. To become a validator, you must also run a validator client (either [in the same process as the beacon node](../HowTo/Get-Started/Run-Teku.md#start-the-clients-in-a-single-process) or [separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately)).
+:::tip
+
+After The Merge, a Mainnet node operator must run both an execution client and a beacon node at the same time. To become a validator, you must also run a validator client (either [in the same process as the beacon node](../HowTo/Get-Started/Run-Teku.md#start-the-clients-in-a-single-process) or [separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately)).
+
+:::
 
 After The Merge, validators earn rewards for performing [validator duties](Proof-of-Stake.md), and [fee recipients](../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) earn rewards for the inclusion of execution layer transactions.

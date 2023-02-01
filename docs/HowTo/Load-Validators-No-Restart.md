@@ -11,12 +11,12 @@ You can load validators into a running Teku process, only if you started Teku by
 - Specifying a directory using [`--validator-keys`](../Reference/CLI/CLI-Syntax.md#validator-keys), or
 - Specifying a URL using [`--validators-external-signer-public-keys`](../Reference/CLI/CLI-Syntax.md#validators-external-signer-public-keys).
 
-!!! important
+:::caution
 
-    * If you started Teku by specifying individual validator key files or external signer public keys,
-        then you must restart Teku.
+- If you started Teku by specifying individual validator key files or external signer public keys, then you must restart Teku.
+- You must restart Teku to remove validators.
 
-    * You must restart Teku to remove validators.
+:::
 
 **Prerequisites:**
 

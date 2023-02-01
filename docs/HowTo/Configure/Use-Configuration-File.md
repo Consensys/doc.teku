@@ -21,41 +21,40 @@ Values must conform to YAML specifications for strings, numbers, arrays, and boo
 - Comma-separated lists on the command line are string arrays in the YAML file.
 - Enclose all string values (including but not limited to file paths, hexadecimal numbers, URLs) in quotes.
 
-!!!tip
+:::tip
 
-    The [command line reference](../../Reference/CLI/CLI-Syntax.md) includes configuration file
-    examples for each option.
+The [command line reference](../../Reference/CLI/CLI-Syntax.md) includes configuration file examples for each option.
 
-!!! example "Sample YAML configuration file"
+:::
 
-    ```yaml
-    # network
-    network: "goerli"
+```yaml title="Sample YAML configuration file"
+# network
+network: "goerli"
 
-    # p2p
-    p2p-enabled: true
-    p2p-port: 9000
+# p2p
+p2p-enabled: true
+p2p-port: 9000
 
-    # validators
-    validator-keys: "/Users/me/node/goerli/validator/keys:/Users/me/node/goerli/validator/passwords"
-    validators-graffiti: "Teku validator"
+# validators
+validator-keys: "/Users/me/node/goerli/validator/keys:/Users/me/node/goerli/validator/passwords"
+validators-graffiti: "Teku validator"
 
-    # Eth 1
-    eth1-endpoint: "http://localhost:8545"
+# Eth 1
+eth1-endpoint: "http://localhost:8545"
 
-    # metrics
-    metrics-enabled: true
-    metrics-categories: ["BEACON","LIBP2P","NETWORK"]
+# metrics
+metrics-enabled: true
+metrics-categories: ["BEACON", "LIBP2P", "NETWORK"]
 
-    # database
-    data-path: "/Users/me/tekudata"
-    data-storage-mode: "archive"
+# database
+data-path: "/Users/me/tekudata"
+data-storage-mode: "archive"
 
-    # rest api
-    rest-api-port: 5051
-    rest-api-docs-enabled: true
-    rest-api-enabled: true
+# rest api
+rest-api-port: 5051
+rest-api-docs-enabled: true
+rest-api-enabled: true
 
-    # logging
-    log-include-validator-duties-enabled: true
-    ```
+# logging
+log-include-validator-duties-enabled: true
+```

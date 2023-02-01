@@ -18,27 +18,29 @@ When enabling the validator client API, you must create a keystore.
 
 1.  Use a tool such as [keytool](https://docs.oracle.com/javase/6/docs/technotes/tools/solaris/keytool.html) or [openSSL](https://www.openssl.org/) to generate a keystore. Note that the `CN` value must be set to the domain name or IP used to access the validator API. Keytool sets this based on the answer to `What is your first and last name?`.
 
-    === "Syntax"
+    <!--tabs-->
 
-         ```bash
-         keytool -genkeypair -keystore <keystore> -storetype PKCS12 -storepass <password>
-         ```
+    # Syntax
 
-    === "Example"
+    ```bash
+    keytool -genkeypair -keystore <keystore> -storetype PKCS12 -storepass <password>
+    ```
 
-         ```bash
-         keytool -genkeypair -keystore validator_keystore.p12 -storetype PKCS12 -storepass changeit
-         ```
+    # Example
+
+    ```bash
+    keytool -genkeypair -keystore validator_keystore.p12 -storetype PKCS12 -storepass changeit
+    ```
+
+    <!--/tabs-->
 
 2.  Create a plain text file (for example `validator_keystore_pass.txt`) that stores the password you defined in the keystore.
 
 3.  Start Teku using [`--validator-api-keystore-file`](../../Reference/CLI/CLI-Syntax.md#validator-api-keystore-file) to define the keystore file and [`--validator-api-keystore-password-file`](../../Reference/CLI/CLI-Syntax.md#validator-api-keystore-password-file) to define the password file.
 
-    !!! example
-
-         ```bash
-         teku --validator-api-enabled --validator-api-keystore-file=validator_keystore.p12 --validator-api-keystore-password-file=validator_keystore_pass.txt
-         ```
+    ```bash title="Example"
+    teku --validator-api-enabled --validator-api-keystore-file=validator_keystore.p12 --validator-api-keystore-password-file=validator_keystore_pass.txt
+    ```
 
 #### Supporting Multiple Domains and IPs
 
@@ -46,51 +48,53 @@ When the key manager API is accessible via different domain names or IP addresse
 
 1.  Create a file named `openssl.cnf` containing the configuration required for the certificate.
 
-    !!! example "`openssl.cnf`"
+    ```ini title="openssl.cnf"
+    [req]
+    distinguished_name = req_distinguished_name
+    x509_extensions = v3_req
+    prompt = no
 
-        ```properties
-        [req]
-        distinguished_name = req_distinguished_name
-        x509_extensions = v3_req
-        prompt = no
+    [req_distinguished_name]
+    countryName = US
+    stateOrProvinceName = CA
+    localityName = San Francisco
+    organizationName = My Organization Name
+    organizationalUnitName = My Department Name
 
-        [req_distinguished_name]
-        countryName = US
-        stateOrProvinceName = CA
-        localityName = San Francisco
-        organizationName = My Organization Name
-        organizationalUnitName = My Department Name
+    [v3_req]
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid,issuer
+    basicConstraints = CA:TRUE
+    subjectAltName = @alt_names
 
-        [v3_req]
-        subjectKeyIdentifier = hash
-        authorityKeyIdentifier = keyid,issuer
-        basicConstraints = CA:TRUE
-        subjectAltName = @alt_names
+    [alt_names]
+    DNS.1 = mydomain.com
+    DNS.2 = localhost
+    IP.1 = 127.0.0.1
+    IP.2 = 10.0.0.6
+    ```
 
-        [alt_names]
-        DNS.1 = mydomain.com
-        DNS.2 = localhost
-        IP.1 = 127.0.0.1
-        IP.2 = 10.0.0.6
-        ```
-
-        You should adjust the `req_distinguised_name` and `alt_names` sections to match your needs.
+    You should adjust the `req_distinguised_name` and `alt_names` sections to match your needs.
 
 2.  Create a plain text file (for example, `validator_keystore_pass.txt`) that stores the password you defined in the keystore.
 
 3.  Generate an x509 certificate from the configuration and convert it to PKCS12 format:
 
-    === "Syntax"
+    <!--tabs-->
 
-        ```bash
-        openssl req -x509 -nodes -days <expiry> -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out <keystore> -passout file:<password-file>
-        ```
+    # Syntax
 
-    === "Example"
+    ```bash
+    openssl req -x509 -nodes -days <expiry> -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out <keystore> -passout file:<password-file>
+    ```
 
-        ```bash
-        openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out validator_keystore.p12 -passout file:validator_keystore_pass.txt
-        ```
+    # Example
+
+    ```bash
+    openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out validator_keystore.p12 -passout file:validator_keystore_pass.txt
+    ```
+
+    <!--/tabs-->
 
 ### Authentication
 
@@ -98,8 +102,6 @@ Authentication verifies user access to requested validator client methods.
 
 Upon startup of the validator client, Teku creates an API token at the path `/opt/teku/data/validator/key-manager`. When calling an endpoint that requires authorization, you must send the generated token in the `Authorization` request header field with the `Bearer` authentication scheme.
 
-!!! example
-
-    ```bash
-    curl -H "Authorization: Bearer <TOKEN>" -X GET https://localhost:5052/eth/v1/keystores
-    ```
+```bash title="Example"
+curl -H "Authorization: Bearer <TOKEN>" -X GET https://localhost:5052/eth/v1/keystores
+```

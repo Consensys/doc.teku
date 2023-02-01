@@ -16,10 +16,11 @@ Specify `UPNP` to quickly allow inbound peer connections without manual router c
 
 UPnP automatically detects if a node is running in a UPnP environment and provides port forwarding. UPnP might introduce delays during node startup, especially on networks without a UPnP gateway device.
 
-!!! tip
+:::tip
 
-    UPnP support is often disabled by default in networking firmware. If disabled by default, you
-    must explicitly enable UPnP support.
+UPnP support is often disabled by default in networking firmware. If disabled by default, you must explicitly enable UPnP support.
+
+:::
 
 ## None
 

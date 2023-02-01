@@ -9,9 +9,11 @@ Configure TLS communication with an external signer such as [Web3Signer] which a
 
 This tutorial configures TLS between Teku and Web3Signer, and use the [`keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html) utility to generate keystores and the truststore that contain self-signed certificates.
 
-!!! info
+:::info
 
-    `keytool` is available with the JDK or JRE installation, you can also use OpenSSL.
+`keytool` is available with the JDK or JRE installation, you can also use OpenSSL.
+
+:::
 
 **Prerequisites**:
 
@@ -39,20 +41,17 @@ For each keystore you must create a plain text file containing the password to d
     keytool -genkeypair -keystore web3signer_keystore.p12 -storetype PKCS12 -storepass changeit -alias web3signer -keyalg RSA -keysize 2048 -validity 109500 -dname "CN=localhost, OU=PegaSys, O=ConsenSys, L=Brisbane, ST=QLD, C=AU" -ext san=dns:localhost,ip:127.0.0.1
     ```
 
-    !!! info
+    :::info
 
-        Common name (`CN`) is generally the fully qualified name of Web3Server, you can use
-        `-ext san` to add additional hostnames or IP addresses. This allows the same certificate to
-        be used for more than one hostname or IP address if Web3Signer is running on a different
-        machine to Teku with multiple hostnames.
+    Common name (`CN`) is generally the fully qualified name of Web3Server, you can use `-ext san` to add additional hostnames or IP addresses. This allows the same certificate to be used for more than one hostname or IP address if Web3Signer is running on a different machine to Teku with multiple hostnames.
 
-1.  Create a plain text file (for example `web3signer_keystore_password.txt`) that stores the password used to create the keystore.
+    :::
 
-    !!! example "web3signer_keystore_password.txt"
+2.  Create a plain text file (for example `web3signer_keystore_password.txt`) that stores the password used to create the keystore.
 
-        ```bash
-        changeit
-        ```
+    ```bash title="web3signer_keystore_password.txt"
+    changeit
+    ```
 
 You now have the `web3signer_keystore.p12` and `web3signer_keystore_password.txt` files that must be supplied when [starting Web3Signer](#4-start-web3signer).
 
@@ -66,18 +65,17 @@ Teku presents the keystore to Web3Signer for TLS mutual authentication. We recom
     keytool -genkeypair -keystore teku_client_keystore.p12 -storetype PKCS12 -storepass changeit -alias teku_client -keyalg RSA -keysize 2048 -validity 109500 -dname "CN=teku, OU=PegaSys, O=ConsenSys, L=Brisbane, ST=QLD, C=AU"
     ```
 
-    !!! info
+    :::info
 
-        For Teku as a client, `CN` doesn't need to have a hostname, however it must be a lowercase value,
-        such as `CN=teku`.
+    For Teku as a client, `CN` doesn't need to have a hostname, however it must be a lowercase value, such as `CN=teku`.
 
-1.  Create a plain text file (for example `teku_keystore_password.txt`) that stores the password used to create the keystore.
+    :::
 
-    !!! example "teku_keystore_password.txt"
+2.  Create a plain text file (for example `teku_keystore_password.txt`) that stores the password used to create the keystore.
 
-        ```bash
-        changeit
-        ```
+    ```bash title="teku_keystore_password.txt"
+    changeit
+    ```
 
 You now have the `teku_client_keystore.p12` and `teku_keystore_password.txt` files that must be supplied when [starting Teku](#5-start-teku).
 
@@ -93,19 +91,17 @@ To create the truststore:
     keytool -exportcert -keystore ./web3signer_keystore.p12 -alias web3signer -rfc -file web3signer.pem
     ```
 
-1.  Import the public certificate into a truststore to be used by Teku, and type `yes` if asked to trust the certificate.
+2.  Import the public certificate into a truststore to be used by Teku, and type `yes` if asked to trust the certificate.
 
     ```bash
     keytool -importcert -storetype PKCS12 -keystore web3signer_truststore.p12 -alias web3signer -trustcacerts -storepass changeit -file ./web3signer.pem
     ```
 
-1.  Create a plain text file (for example `truststore_pass.txt`) that stores the password used to create the keystore.
+3.  Create a plain text file (for example `truststore_pass.txt`) that stores the password used to create the keystore.
 
-    !!! example "truststore_pass.txt"
-
-        ```bash
-        changeit
-        ```
+    ```bash title="truststore_pass.txt"
+    changeit
+    ```
 
 You now have the `web3signer_truststore.p12` and `truststore_pass.txt` files that must be supplied when [starting Teku](#5-start-teku).
 
@@ -119,25 +115,27 @@ Web3Signer uses a known clients file to trust client certificates.
    keytool -list -v -keystore teku_client_keystore.p12
    ```
 
-1. Create a plain text file (in this case `knownClients.txt`) and add the `CN` and `SHA256` details in one line (separated by a single space).
+2. Create a plain text file (in this case `knownClients.txt`) and add the `CN` and `SHA256` details in one line (separated by a single space).
 
    ```bash
    teku 67:89:C8:95:70:E0:38:10:2F:AB:7E:A3:75:4A:8C:29:C1:64:52:37:E5:E9:CD:EF:CD:27:C2:88:BF:84:3A:A1
    ```
 
-!!! info
+:::info
 
-    You can add multiple known clients to the file by adding the `CN` and `SHA256` details on a new
-    line.
+You can add multiple known clients to the file by adding the `CN` and `SHA256` details on a new line.
+
+:::
 
 You now have the `knownClients.txt` file that must be supplied when [starting Web3Signer](#4-start-web3signer).
 
 ## 4. Start Web3Signer
 
-!!! danger
+:::warning
 
-    This example disables [Web3Signer slashing protection], this is not recommended on
-    Mainnet.
+This example disables [Web3Signer slashing protection], this is not recommended on Mainnet.
+
+:::
 
 Start Web3Signer using the [keystore and password](#web3signer-keystore-and-password-file), and [known clients file](#3-create-the-known-clients-file) created earlier.
 
@@ -153,12 +151,11 @@ eth2 --slashing-protection-enabled=false
 
 Start Teku and specify the [keystore](#teku-keystore-and-password-file) and [truststore](#2-create-the-truststore-and-password-file) created earlier, with the accompanying password files.
 
-!!! important
+:::caution
 
-    This example connects to an [Infura] ETH1 endpoint, if running your own client, like
-    [Hyperledger Besu], then add the JSON-RPC URL of the ETH1 node
-    to the [`--eth1-endpoint`](../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints)
-    command line option.
+This example connects to an [Infura] ETH1 endpoint, if running your own client, like [Hyperledger Besu], then add the JSON-RPC URL of the ETH1 node to the [`--eth1-endpoint`](../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints) command line option.
+
+:::
 
 ```bash
 teku --network=goerli \

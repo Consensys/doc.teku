@@ -10,35 +10,39 @@ Teku implements slashing protection to prevent validators from signing blocks or
 
 By default, Teku also locks keystore files listed in the [`--validator-keys`](../Reference/CLI/CLI-Syntax.md#validator-keys) option to prevent other processes from using it. You can enable and disable this functionality using the [`--validators-keystore-locking-enabled`](../Reference/CLI/CLI-Syntax.md#validators-keystore-locking-enabled) option.
 
-!!! important
+:::warning
 
-    Teku's slashing protection does not provide protection if the same validator key is being used
-    by multiple nodes.
+Teku's slashing protection does not provide protection if the same validator key is being used by multiple nodes.
+
+:::
 
 To protect validators from slashable offenses, Teku stores a record of the most recently signed blocks for each validator in the `<data-path>/validator/slashprotection/` directory. One [YAML file is stored per validator] in the format `<validator-pubkey>.yml` (with no `0x` prefix).
 
-!!! note
+:::note
 
-    Set `<data-path>` using the [`--data-path`](../Reference/CLI/CLI-Syntax.md#data-path) command
-    line option.
+Set `<data-path>` using the [`--data-path`](../Reference/CLI/CLI-Syntax.md#data-path) command line option.
+
+:::
 
 Teku provides command line options to [import] or [export] the slashing protection file.
 
-!!! tip Teku also supports [doppelganger detection](../HowTo/Doppelganger-Detection.md) to help prevent slashing. This is an early access feature.
+:::tip
+
+Teku also supports [doppelganger detection](../HowTo/Doppelganger-Detection.md) to help prevent slashing. This is an early access feature.
+
+:::
 
 ## Validator slashing protection file
 
 The slashing protection file records multiple values that protects the validator from incorrectly signing blocks or attestations.
 
-!!! example
-
-    ```bash
-    ---
-    genesisValidatorsRoot: "0x9436e8a630e3162b7ed4f449b12b8a5a368a4b95bc46b941ae65c11613bfa4c1"
-    lastSignedBlockSlot: 71090
-    lastSignedAttestationSourceEpoch: 2290
-    lastSignedAttestationTargetEpoch: 3247
-    ```
+```yaml title="Example"
+---
+genesisValidatorsRoot: "0x9436e8a630e3162b7ed4f449b12b8a5a368a4b95bc46b941ae65c11613bfa4c1"
+lastSignedBlockSlot: 71090
+lastSignedAttestationSourceEpoch: 2290
+lastSignedAttestationTargetEpoch: 3247
+```
 
 The following rules apply to the file:
 
@@ -46,11 +50,11 @@ The following rules apply to the file:
 - A validator will not sign an attestation unless the attestation source is greater than or equal to `lastSignedAttestationSourceEpoch`, and the attestation target epoch is greater than `lastSignedAttestationTargetEpoch`.
 - `genesisValidatorsRoot` is a hash of the validators active at genesis, and is used to differentiate between different chains. Teku does not require this field to be present, but if it is present and differs from the required value, then Teku returns an error.
 
-!!! info
+:::info
 
-    You can obtain the `genesisValidatorsRoot` value by using the
-    [`/eth/v1/beacon/genesis`](https://consensys.github.io/teku/#operation/getEthV1BeaconGenesis)
-    API.
+You can obtain the `genesisValidatorsRoot` value by using the [`/eth/v1/beacon/genesis`](https://consensys.github.io/teku/#operation/getEthV1BeaconGenesis) API.
+
+:::
 
 These rules guarantee the validator does not sign anything that is slashable.
 

@@ -7,11 +7,11 @@ sidebar_position: 2
 
 You can define complex fee recipient and [builder network](Builder-Network.md) configurations for multiple validators using a proposer configuration file. Specify the proposer configuration file using the [`--validators-proposer-config`](../../Reference/CLI/CLI-Syntax.md#validators-proposer-config) command line option.
 
-!!! note
+:::note
 
-    To define a single default fee recipient for all validator keys, use the
-    [`--validators-proposer-default-fee-recipient`](../../Reference/CLI/CLI-Syntax.md#validators-proposer-default-fee-recipient)
-    option instead.
+To define a single default fee recipient for all validator keys, use the [`--validators-proposer-default-fee-recipient`](../../Reference/CLI/CLI-Syntax.md#validators-proposer-default-fee-recipient) option instead.
+
+:::
 
 ## Proposer configuration file attributes
 
@@ -33,13 +33,11 @@ Attributes for each proposer configuration are:
 Each attribute value, for a given validator key, is determined using the following priority:
 
 1. Specific configuration in `proposer_config`
-1. Default configuration in `default_config`
-1. Default CLI argument (applicable only to `builder.enabled`)
-1. Default value (applicable only to `builder.enabled`)
+2. Default configuration in `default_config`
+3. Default CLI argument (applicable only to `builder.enabled`)
+4. Default value (applicable only to `builder.enabled`)
 
-## Example configuration file
-
-```json
+```json title="Example configuration file"
 {
   "proposer_config": {
     "0xa057816155ad77931185101128655c0191bd0214c201ca48ed887f6c4c6adf334070efcd75140eada5ac83a92506dd7a": {

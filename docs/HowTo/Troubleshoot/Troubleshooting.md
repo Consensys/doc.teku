@@ -29,9 +29,11 @@ To resolve this issue, try the one of the following:
 - Set the permissions of the directory holding the keystores so that it is writable by Teku.
 - Set [`--validators-keystore-locking-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-keystore-locking-enabled) to `false` to disable the locking functionality.
 
-!!! important
+:::warning
 
-    Ensure no other process or clients are using your keys. If they are, you could get [slashed].
+Ensure no other process or clients are using your keys. If they are, you could get [slashed].
+
+:::
 
 ## Keystore file already in use
 
@@ -44,9 +46,11 @@ To resolve this issue, try the one of the following:
 - Manually remove the lock files that are created alongside your keystore files, with `.lock` appended to the filename. Take care not to delete your keystores.
 - Set [`--validators-keystore-locking-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-keystore-locking-enabled) to `false` to disable the locking functionality.
 
-!!! important
+:::warning
 
-    Ensure no other process or clients are using your keys. If they are, you could get [slashed].
+Ensure no other process or clients are using your keys. If they are, you could get [slashed].
+
+:::
 
 ## Keystore files are loading slowly
 
@@ -60,7 +64,7 @@ The `scrypt` formatted keystores are more secure because they require more resou
 
 If Teku fails to start with the following:
 
-```lang-none
+```
 Unable to read yaml configuration. Invalid yaml file [config.yaml]:
 java.io.CharConversionException: Invalid UTF-8 start byte 0x93 (at char #11, byte #-1) at [Source: (File); line: 1, column: 1]
 ```
@@ -71,9 +75,11 @@ This could mean that the word processor has inserted smart quotes instead of str
 
 Check whether your validator's attestations are being included in blocks at [`BeaconCha.in`](https://beaconcha.in/).
 
-!!! note
+:::note
 
-    Occasional missed attestations are normal on a P2P network, but they should be a few percent.
+Occasional missed attestations are normal on a P2P network, but they should be a few percent.
+
+:::
 
 If all recent attestations are marked as missed, check the following:
 

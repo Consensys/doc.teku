@@ -63,7 +63,11 @@ Display the Teku help to confirm installation:
 bin/teku --help
 ```
 
-!!! tip To view the list of available Gradle tasks, run `./gradlew tasks`
+:::tip
+
+To view the list of available Gradle tasks, run `./gradlew tasks`
+
+:::
 
 Continue with [Starting Teku](../Run-Teku.md).
 

@@ -9,24 +9,25 @@ Teku implements [slashing protection] to prevent validators from signing incorre
 
 You can import and export the slashing protection file when migrating validator keys between validator clients. Teku supports the [validator client interchange format] when importing or exporting the slashing protection file.
 
-!!! note
+:::note
 
-    If using an external signer that implements its own slashing protection
-    (for example [Web3Signer]), then you can disable Teku's built-in slashing protection using the
-    [`--validators-external-signer-slashing-protection-enabled`](../Reference/CLI/CLI-Syntax.md#validators-external-signer-slashing-protection-enabled)
-    command line option.
+If using an external signer that implements its own slashing protection (for example [Web3Signer]), then you can disable Teku's built-in slashing protection using the [`--validators-external-signer-slashing-protection-enabled`](../Reference/CLI/CLI-Syntax.md#validators-external-signer-slashing-protection-enabled) command line option.
 
-!!! tip You can also [enable doppelganger detection](Doppelganger-Detection.md) to help prevent slashing. This is an early access feature.
+:::
+
+:::tip
+
+You can also [enable doppelganger detection](Doppelganger-Detection.md) to help prevent slashing. This is an early access feature.
+
+:::
 
 ## Import a slashing protection file
 
 When importing the slashing protection file, Teku imports the file to the `<data-path>/validators/slashprotection/` directory in the format `<validator-pubkey>.yml` (with no 0x prefix).
 
-!!! example
-
-    ```
-    teku slashing-protection import --data-path=/home/me/me_node --from=/home/slash/slashing-interchange-format.json
-    ```
+```bash title="Example"
+teku slashing-protection import --data-path=/home/me/me_node --from=/home/slash/slashing-interchange-format.json
+```
 
 In the command line:
 
@@ -39,11 +40,9 @@ In this example, Teku imports the file to the `/home/me/me_node/data/validators/
 
 Export the slashing protection file when migrating a validator to a different Teku, or non-Teku node.
 
-!!! example
-
-    ```
-    teku slashing-protection export --data-path=/home/me/me_node --to=/home/slash/slashing-interchange-format-minimal.json
-    ```
+```bash title="Example"
+teku slashing-protection export --data-path=/home/me/me_node --to=/home/slash/slashing-interchange-format-minimal.json
+```
 
 In the command line:
 

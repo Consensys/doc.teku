@@ -15,9 +15,11 @@ If you are using a NAT, it's easier to get peers by advertising your public addr
 
 Additionally, if on a home network, [configure port forwarding](#configuring-ports) on your router.
 
-!!! tip
+:::tip
 
-    Check the [`ip4.me`](http://ip4.me/) website to view your public IP address.
+Check the [`ip4.me`](http://ip4.me/) website to view your public IP address.
+
+:::
 
 ## Configuring ports
 
@@ -33,6 +35,8 @@ Check the readiness of your node by using the [`get node readiness` API](https:/
 
 You can specify a number in the `target_peer_count` parameter to require a minimum number of peers before the node is considered ready.
 
-!!! note
+:::note
 
-    Make sure to [enable the REST API service](../../Reference/Rest_API/Rest.md#enable-the-rest-api-service).
+Make sure to [enable the REST API service](../../Reference/Rest_API/Rest.md#enable-the-rest-api-service).
+
+:::

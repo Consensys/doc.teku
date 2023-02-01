@@ -26,10 +26,11 @@ Use the [`--logging`](../../Reference/CLI/CLI-Syntax.md#logging) command line op
 
 By default most logging output is sent to the log file, and limited content shown on the console.
 
-!!! tip
+:::tip
 
-    Use the [`log_level`](https://consensys.github.io/teku/#operation/putTekuV1AdminLog_level) API
-    method to change the log level while Teku is running.
+Use the [`log_level`](https://consensys.github.io/teku/#operation/putTekuV1AdminLog_level) API method to change the log level while Teku is running.
+
+:::
 
 Additional logging options include:
 
@@ -45,36 +46,35 @@ When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain events ar
 
 Use `DEFAULT_BOTH` when using a [custom Log4J2 configuration file](#advanced-custom-logging). Any other option applies the custom logging changes on top of its default settings.
 
-!!! note
+:::note
 
-    For production systems we recommend using the `CONSOLE` or `FILE` options to ensure all log
-    information is available in one place.
+For production systems we recommend using the `CONSOLE` or `FILE` options to ensure all log information is available in one place.
+
+:::
 
 ## Advanced custom logging
 
 You can provide your own logging configuration using the standard Log4J2 configuration mechanisms.
 
-!!! example "debug.xml"
+```xml title="debug.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+  <Properties>
+    <Property name="root.log.level">INFO</Property>
+  </Properties>
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <Configuration status="INFO">
-      <Properties>
-        <Property name="root.log.level">INFO</Property>
-      </Properties>
-
-      <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
-          <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSSZZZ} | %t | %-5level | %c{1} | %msg %throwable%n" />
-        </Console>
-      </Appenders>
-      <Loggers>
-        <Root level="${sys:root.log.level}">
-          <AppenderRef ref="Console" />
-        </Root>
-      </Loggers>
-    </Configuration>
-    ```
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSSZZZ} | %t | %-5level | %c{1} | %msg %throwable%n" />
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="${sys:root.log.level}">
+      <AppenderRef ref="Console" />
+    </Root>
+  </Loggers>
+</Configuration>
+```
 
 To use your custom configuration, set the environment variable `LOG4J_CONFIGURATION_FILE` to the location of your configuration file, and ensure [`--log-destination`](../../Reference/CLI/CLI-Syntax.md#log-destination) is not set to `DEFAULT_BOTH`.
 
@@ -82,8 +82,6 @@ If you have more specific requirements, you can create your own [log4j2 configur
 
 For Bash-based executions, you can set the variable for only the scope of the program execution by setting it before starting Teku.
 
-!!! example
-
-    ```bash
-    LOG4J_CONFIGURATION_FILE=./debug.xml teku [OPTIONS]
-    ```
+```bash title="Example"
+LOG4J_CONFIGURATION_FILE=./debug.xml teku [OPTIONS]
+```

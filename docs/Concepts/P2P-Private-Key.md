@@ -12,8 +12,8 @@ When starting Teku, if the [`--p2p-private-key-file`](../Reference/CLI/CLI-Synta
 
 If the `generated-node-key.dat` file exists in the data directory when starting Teku, the node starts using the private stored in the file.
 
-!!! info
+:::info
 
-    The `generated-node-key.dat` file is stored by default in the
-    `<data-beacon-path>/kvstore` directory, where `<data-beacon-path>` is specified using the
-    [`--data-beacon-path`](../Reference/CLI/CLI-Syntax.md#data-beacon-path) option.
+The `generated-node-key.dat` file is stored by default in the `<data-beacon-path>/kvstore` directory, where `<data-beacon-path>` is specified using the [`--data-beacon-path`](../Reference/CLI/CLI-Syntax.md#data-beacon-path) option.
+
+:::

@@ -10,11 +10,17 @@ sidebar_position: 3
 
 In Ethereum's PoS, you must run a [full node](Merge.md#execution-and-consensus-clients) and [stake 32 ETH](https://ethereum.org/en/staking/) to become a validator.
 
-!!! important
+:::warning
 
-    Withdrawing staked ETH isn't yet supported and will be included in a separate upgrade following The Merge.
+Withdrawing staked ETH isn't yet supported and will be included in a separate upgrade following The Merge.
 
-!!! note You must run a beacon node and an execution client to operate a node on Mainnet. To become a validator, you must also run a validator client (either [in the same process as the beacon node](../HowTo/Get-Started/Run-Teku.md#start-the-clients-in-a-single-process) or [separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately).
+:::
+
+:::note
+
+You must run a beacon node and an execution client to operate a node on Mainnet. To become a validator, you must also run a validator client (either [in the same process as the beacon node](../HowTo/Get-Started/Run-Teku.md#start-the-clients-in-a-single-process) or [separately](../HowTo/Get-Started/Run-Teku.md#run-the-clients-separately).
+
+:::
 
 The PoS mechanism randomly chooses validators to propose or validate blocks on the [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) in defined time frames.
 

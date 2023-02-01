@@ -7,10 +7,11 @@ sidebar_position: 4
 
 You can configure TLS for communication between Teku and an external signer, for example [Web3Signer].
 
-!!! info
+:::info
 
-    The [Teku and Web3Signer TLS configuration tutorial] provides instructions to create the required
-    keystores and configuration.
+The [Teku and Web3Signer TLS configuration tutorial] provides instructions to create the required keystores and configuration.
+
+:::
 
 ## Prerequisites
 
@@ -37,10 +38,11 @@ web3signer --key-store-path=/Users/me/keyFiles/ \
 eth2
 ```
 
-!!! note
+:::note
 
-    [Slashing protection] is enabled by default when using the `eth2` Web3Signer subcommand.
-    If using Web3Signer slashing protection, ensure you [configure your slashing protection database].
+[Slashing protection] is enabled by default when using the `eth2` Web3Signer subcommand. If using Web3Signer slashing protection, ensure you [configure your slashing protection database].
+
+:::
 
 ## Start Teku
 
