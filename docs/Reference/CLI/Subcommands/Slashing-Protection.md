@@ -1,5 +1,6 @@
 ---
-title: Subcommand options
+title: slashing-protection
+sidebar_position: 4
 ---
 
 # `slashing-protection`
@@ -30,8 +31,7 @@ Imports the slashing protection database using the [validator client interchange
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-Path to the YAML configuration file.
-The default is `none`.
+Path to the YAML configuration file. The default is `none`.
 
 ### `data-path`
 
@@ -49,9 +49,9 @@ The default is `none`.
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
-* macOS: `~/Library/teku`
-* Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-* Windows: `%localappdata%\teku`.
+- macOS: `~/Library/teku`
+- Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
+- Windows: `%localappdata%\teku`.
 
 ### `data-validator-path`
 
@@ -79,8 +79,7 @@ Path to the Teku data directory. The default directory is OS-dependent:
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data.
-The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
+Path to the validator client data. The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
 
 !!! info
 
@@ -102,8 +101,7 @@ The default is `<data-path>/validator` where `<data-path>` is specified using [`
 
 The file to import the slashing protection database from.
 
-Teku imports the file to the `<data-path>/validators/slashprotection/` directory in the format
-`<validator-pubkey>.yml` (with no 0x prefix).
+Teku imports the file to the `<data-path>/validators/slashprotection/` directory in the format `<validator-pubkey>.yml` (with no 0x prefix).
 
 `<data-path>` is defined using [`--data-path`](#data-path).
 
@@ -131,8 +129,7 @@ Exports the slashing protection database in the [validator client interchange fo
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-Path to the YAML configuration file.
-The default is `none`.
+Path to the YAML configuration file. The default is `none`.
 
 ### `data-path`
 
@@ -150,9 +147,9 @@ The default is `none`.
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
-* macOS: `~/Library/teku`
-* Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-* Windows: `%localappdata%\teku`.
+- macOS: `~/Library/teku`
+- Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
+- Windows: `%localappdata%\teku`.
 
 ### `data-validator-path`
 
@@ -180,8 +177,7 @@ Path to the Teku data directory. The default directory is OS-dependent:
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data.
-The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
+Path to the validator client data. The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
 
 !!! info
 
@@ -223,8 +219,7 @@ Repairs corrupted slashing protection data files used by Teku.
     teku slashing-protection repair --checking-only-enabled=false
     ```
 
-Reads and reports potential slashing protection file problems, but doesn't update any files.
-You can specify which files are checked using [`--config-file`](#config-file_2), [`--data-base-path`](#data-base-path-data-path).
+Reads and reports potential slashing protection file problems, but doesn't update any files. You can specify which files are checked using [`--config-file`](#config-file_2), [`--data-base-path`](#data-base-path-data-path).
 
 ### `config-file`
 
@@ -240,8 +235,7 @@ You can specify which files are checked using [`--config-file`](#config-file_2),
     teku slashing-protection repair --config-file=/home/me/me_node/config.yaml
     ```
 
-Path to the YAML configuration file.
-The default is `none`.
+Path to the YAML configuration file. The default is `none`.
 
 ### `data-path`
 
@@ -259,9 +253,9 @@ The default is `none`.
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
-* macOS: `~/Library/teku`
-* Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-* Windows: `%localappdata%\teku`
+- macOS: `~/Library/teku`
+- Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
+- Windows: `%localappdata%\teku`
 
 The default Docker image location is `/root/.local/share/teku`.
 
@@ -279,8 +273,7 @@ The default Docker image location is `/root/.local/share/teku`.
     teku slashing-protection repair --data-validator-path=/home/me/me_validator
     ```
 
-Path to validator client data.
-The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
+Path to validator client data. The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
 
 !!! info
 
@@ -300,21 +293,19 @@ The default is `<data-path>/validator` where `<data-path>` is specified using [`
     teku slashing-protection repair --network=mainnet
     ```
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL
-to a YAML configuration file. The default is `mainnet`.
+Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain           | Type        | Description                                     |
-|-----------|-----------------|-------------|-------------------------------------------------|
-| `mainnet` | Consensus layer | Production  | Main network                                    |
-| `minimal` | Consensus layer | Test        | Used for local testing and development networks |
-| `goerli`  | Consensus layer | Test        | Multi-client testnet                            |
-| `gnosis`  | Consensus layer | Production  | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
-| `sepolia` | Consensus layer | Test        | Multi-client testnet                            |
+| Network | Chain | Type | Description |
+| --- | --- | --- | --- |
+| `mainnet` | Consensus layer | Production | Main network |
+| `minimal` | Consensus layer | Test | Used for local testing and development networks |
+| `goerli` | Consensus layer | Test | Multi-client testnet |
+| `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
+| `sepolia` | Consensus layer | Test | Multi-client testnet |
 
-Predefined networks can provide defaults such the initial state of the network,
-bootnodes, and the address of the deposit contract.
+Predefined networks can provide defaults such the initial state of the network, bootnodes, and the address of the deposit contract.
 
 ### `slot`
 
@@ -330,8 +321,7 @@ bootnodes, and the address of the deposit contract.
     teku slashing-protection repair --slot=1028
     ```
 
-Updates slashing protection files to contain the specified slot as a minimum. The value should be a future
-slot, or after when the validators stopped performing duties.
+Updates slashing protection files to contain the specified slot as a minimum. The value should be a future slot, or after when the validators stopped performing duties.
 
 !!! note
 
@@ -354,6 +344,7 @@ slot, or after when the validators stopped performing duties.
 Enables all slashing protection records to be updated. The default is `false`.
 
 <!-- links -->
+
 [slashing protection data]: ../../../Concepts/Slashing-Protection.md
 [validator client interchange format]: https://eips.ethereum.org/EIPS/eip-3076
 [environment variables or a configuration file]: ../CLI-Syntax.md#specifying-options

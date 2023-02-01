@@ -1,25 +1,25 @@
 ---
-description: How to connect to a builder network
+description: Configure Teku to use a builder network
+sidebar_position: 3
 ---
 
 # Configure Teku to use a builder network
 
-You can connect to a [builder network](../../Concepts/Builder-Network.md) to generate execution
-payloads for the [consensus client](../../Concepts/Merge.md#consensus-clients).
+You can connect to a [builder network](../../Concepts/Builder-Network.md) to generate execution payloads for the [consensus client](../../Concepts/Merge.md#consensus-clients).
 
-The builder recommends new blocks that are validated by the consensus client.
-If the builder goes down, the local execution client proposes a block instead.
+The builder recommends new blocks that are validated by the consensus client. If the builder goes down, the local execution client proposes a block instead.
 
 To configure Teku to use a builder network:
 
-1. [Enable blinded block production.](#1-enable-blinded-block-production)
-1. [Specify the builder endpoint.](#2-specify-the-builder-endpoint)
-1. [Register the validator.](#3-register-the-validator)
+- [Configure Teku to use a builder network](#configure-teku-to-use-a-builder-network)
+  - [1. Enable blinded block production](#1-enable-blinded-block-production)
+  - [2. Specify the builder endpoint](#2-specify-the-builder-endpoint)
+  - [3. Register the validator](#3-register-the-validator)
+  - [Example builder configurations](#example-builder-configurations)
 
 ## 1. Enable blinded block production
 
-Enable blinded block production using the [`--validators-proposer-blinded-blocks-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-proposer-blinded-blocks-enabled)
-command line option.
+Enable blinded block production using the [`--validators-proposer-blinded-blocks-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-proposer-blinded-blocks-enabled) command line option.
 
 !!! note
 
@@ -28,8 +28,7 @@ command line option.
 
 ## 2. Specify the builder endpoint
 
-Specify the builder endpoint using the [`--builder-endpoint`](../../Reference/CLI/CLI-Syntax.md#builder-endpoint)
-command line option.
+Specify the builder endpoint using the [`--builder-endpoint`](../../Reference/CLI/CLI-Syntax.md#builder-endpoint) command line option.
 
 !!! example
 
@@ -39,8 +38,7 @@ command line option.
 
 View the [list of relay endpoints](https://github.com/flashbots/mev-boost#usage) for available endpoints.
 
-You can also use external software such as [MEV-Boost](https://github.com/flashbots/mev-boost) to
-connect to multiple relays.
+You can also use external software such as [MEV-Boost](https://github.com/flashbots/mev-boost) to connect to multiple relays.
 
 !!! example
 
@@ -50,13 +48,9 @@ connect to multiple relays.
 
 ## 3. Register the validator
 
-You must register your validator with the builder before proposing a block.
-Enable registration for all validators using the [`--validators-builder-registration-default-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-builder-registration-default-enabled)
-command line option.
+You must register your validator with the builder before proposing a block. Enable registration for all validators using the [`--validators-builder-registration-default-enabled`](../../Reference/CLI/CLI-Syntax.md#validators-builder-registration-default-enabled) command line option.
 
-To enable registration for specific validators only, use the
-[`--validators-proposal-config`](../../Reference/CLI/CLI-Syntax.md#validators-proposer-config) option
-and specify the enabled validators in the `proposer_config` field of the [proposer configuration file](Proposer-Configuration.md).
+To enable registration for specific validators only, use the [`--validators-proposal-config`](../../Reference/CLI/CLI-Syntax.md#validators-proposer-config) option and specify the enabled validators in the `proposer_config` field of the [proposer configuration file](Proposer-Configuration.md).
 
 !!! example "`proposerConfig.json`"
 
@@ -129,7 +123,7 @@ and specify the enabled validators in the `proposer_config` field of the [propos
     }
     ```
 
-    Beacon node paramaters:
+    Beacon node parameters:
 
     ```bash
     teku \

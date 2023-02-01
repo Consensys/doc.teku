@@ -1,5 +1,7 @@
 ---
+title: Run Teku from Docker
 description: Run Teku using the official docker image
+sidebar_position: 3
 ---
 
 # Running Teku from a Docker image
@@ -8,7 +10,7 @@ Use the Teku Docker image to run a node without installing Teku.
 
 **Prerequisites**:
 
-* [Docker](https://docs.docker.com/install/)
+- [Docker](https://docs.docker.com/install/)
 
 ## Run Teku Docker image
 
@@ -18,9 +20,7 @@ Display the Teku command line help using the Docker image
 docker run consensys/teku:latest --help
 ```
 
-You can specify
-[Teku environment variables](../../../Reference/CLI/CLI-Syntax.md#teku-environment-variables) with the
-docker image instead of the command line options.
+You can specify [Teku environment variables](../../../Reference/CLI/CLI-Syntax.md#teku-environment-variables) with the docker image instead of the command line options.
 
 !!! Example "Example using Environment variables and CLI options"
 
@@ -39,12 +39,9 @@ docker image instead of the command line options.
 
 ## Allow multiple users to run the Docker image
 
-If using a local volume  to mount data, ensure the permissions on the directory allow other
-users and groups to read/write.
+If using a local volume to mount data, ensure the permissions on the directory allow other users and groups to read/write.
 
-Use the Docker [`--user`](https://docs.docker.com/engine/reference/commandline/run/) option to run
-the container for the specified user. Use the UID because the username may not exist inside the
-docker container.
+Use the Docker [`--user`](https://docs.docker.com/engine/reference/commandline/run/) option to run the container for the specified user. Use the UID because the username may not exist inside the docker container.
 
 !!! example
 
@@ -54,13 +51,12 @@ docker container.
 
 ## Exposing ports
 
-Expose ports for P2P peer discovery, metrics, and REST APIs. Expose the default ports or the ports
-specified using:
+Expose ports for P2P peer discovery, metrics, and REST APIs. Expose the default ports or the ports specified using:
 
-* [`--metrics-port`](../../../Reference/CLI/CLI-Syntax.md#metrics-port)
-* [`--p2p-port`](../../../Reference/CLI/CLI-Syntax.md#p2p-port)
-* [`--p2p-advertised-port`](../../../Reference/CLI/CLI-Syntax.md#p2p-advertised-port)
-* [`--rest-api-port`](../../../Reference/CLI/CLI-Syntax.md#rest-api-port).
+- [`--metrics-port`](../../../Reference/CLI/CLI-Syntax.md#metrics-port)
+- [`--p2p-port`](../../../Reference/CLI/CLI-Syntax.md#p2p-port)
+- [`--p2p-advertised-port`](../../../Reference/CLI/CLI-Syntax.md#p2p-advertised-port)
+- [`--rest-api-port`](../../../Reference/CLI/CLI-Syntax.md#rest-api-port).
 
 To run Teku exposing local ports for access:
 
@@ -78,7 +74,7 @@ docker run -p <localportP2P>:30303/tcp -p <localportP2P>:30303/udp -p <localport
 
 **Prerequisites**:
 
-* [Docker Compose](https://docs.docker.com/compose/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku node.
 
@@ -87,8 +83,7 @@ The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku nod
     The example assumes the validators specified in [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) have already
     been registered in the deposit contract.
 
-Run `docker-compose up` in the directory containing the `docker-compose.yml` file
-to start the container.
+Run `docker-compose up` in the directory containing the `docker-compose.yml` file to start the container.
 
 === "Goerli"
 
@@ -192,4 +187,5 @@ to start the container.
     ```
 
 <!-- Links -->
+
 [Hyperledger Besu]: https://besu.hyperledger.org/en/stable/

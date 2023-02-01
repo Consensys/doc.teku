@@ -1,5 +1,6 @@
 ---
-title: Configure TLS for an external signer
+title: Configure TLS
+sidebar_position: 4
 ---
 
 # Configure TLS
@@ -15,14 +16,14 @@ You can configure TLS for communication between Teku and an external signer, for
 
 **Web3Signer prerequisites**:
 
-* [Password-protected PKCS12 keystore and password file].
-* [Known clients file].
+- [Password-protected PKCS12 keystore and password file].
+- [Known clients file].
 
 **Teku prerequisites**:
 
-* [Teku's password-protected PKCS12 or JKS keystore and password file].
-* [Web3Signer's password-protected PKCS12 or JKS truststore and password file].
-* ETH1 client (for example [Hyperledger Besu]) synced to the required network.
+- [Teku's password-protected PKCS12 or JKS keystore and password file].
+- [Web3Signer's password-protected PKCS12 or JKS truststore and password file].
+- ETH1 client (for example [Hyperledger Besu]) synced to the required network.
 
 ## Start Web3Signer
 
@@ -58,20 +59,14 @@ teku --network=goerli \
 
 In the command:
 
-* Specify the JSON-RPC URL of the ETH1 node using
-    [`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints).
-* Specify the validator's public keys using
-    [`--validators-external-signer-public-keys`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-public-keys).
-* Specify the URL of the running external signer using
-    [`--validators-external-signer-url`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-url).
-* Specify the truststore and password file using
-    [`validators-external-signer-truststore`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-truststore) and
-    [`validators-external-signer-truststore-password-file`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-truststore-password-file).
-* Specify the keystore and password file using
-    [`validators-external-signer-keystore`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-keystore) and
-    [`validators-external-signer-keystore-password-file`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-keystore-password-file).
+- Specify the JSON-RPC URL of the ETH1 node using [`--eth1-endpoint`](../../Reference/CLI/CLI-Syntax.md#eth1-endpoint-eth1-endpoints).
+- Specify the validator's public keys using [`--validators-external-signer-public-keys`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-public-keys).
+- Specify the URL of the running external signer using [`--validators-external-signer-url`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-url).
+- Specify the truststore and password file using [`validators-external-signer-truststore`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-truststore) and [`validators-external-signer-truststore-password-file`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-truststore-password-file).
+- Specify the keystore and password file using [`validators-external-signer-keystore`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-keystore) and [`validators-external-signer-keystore-password-file`](../../Reference/CLI/CLI-Syntax.md#validators-external-signer-keystore-password-file).
 
 <!-- links -->
+
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [Teku and Web3Signer TLS configuration tutorial]: ../../Tutorials/Configure-External-Signer-TLS.md
 [Password-protected PKCS12 keystore and password file]: ../../Tutorials/Configure-External-Signer-TLS.md#web3signer-keystore-and-password-file

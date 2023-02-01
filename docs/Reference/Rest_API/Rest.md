@@ -10,8 +10,7 @@ View the [REST API documentation] for more information about the available APIs.
 
 ## Enable the REST API service
 
-Enable the REST API service from the command line by setting the
-[`--rest-api-enabled`](../CLI/CLI-Syntax.md#rest-api-enabled) command line option to `true`.
+Enable the REST API service from the command line by setting the [`--rest-api-enabled`](../CLI/CLI-Syntax.md#rest-api-enabled) command line option to `true`.
 
 You can also interact with APIs using Swagger UI by enabling the API documentation endpoint.
 
@@ -20,13 +19,12 @@ You can also interact with APIs using Swagger UI by enabling the API documentati
     Only trusted parties should access the REST API. Do not directly expose these APIs publicly on
     production nodes.
 
-Interact with Teku APIs using the web browser by setting the
-[`--rest-api-docs-enabled`](../CLI/CLI-Syntax.md#rest-api-docs-enabled) command line option to `true`.
+Interact with Teku APIs using the web browser by setting the [`--rest-api-docs-enabled`](../CLI/CLI-Syntax.md#rest-api-docs-enabled) command line option to `true`.
 
 Access the APIs at `http:<interface>:<port>/swagger-ui` where:
 
-* `interface` is specified using [`--rest-api-interface`](../CLI/CLI-Syntax.md#rest-api-interface)
-* `port` is specified using [`--rest-api-port`](../CLI/CLI-Syntax.md#rest-api-port)
+- `interface` is specified using [`--rest-api-interface`](../CLI/CLI-Syntax.md#rest-api-interface)
+- `port` is specified using [`--rest-api-port`](../CLI/CLI-Syntax.md#rest-api-port)
 
 The default location is `http://localhost:5051/swagger-ui`.
 
@@ -63,16 +61,11 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
 
 ## Enable the validator client API
 
-The [validator client API](../../HowTo/External-Signer/Manage-keys.md) allows you to call the
-[key manager API endpoints](https://ethereum.github.io/keymanager-APIs/)
-and is enabled separately from the REST API methods.
+The [validator client API](../../HowTo/External-Signer/Manage-keys.md) allows you to call the [key manager API endpoints](https://ethereum.github.io/keymanager-APIs/) and is enabled separately from the REST API methods.
 
-Enable the validator client API service from the command line by including the
-[`--validator-api-enabled`](../CLI/CLI-Syntax.md#validator-api-enabled) command line option.
+Enable the validator client API service from the command line by including the [`--validator-api-enabled`](../CLI/CLI-Syntax.md#validator-api-enabled) command line option.
 
-When enabling the validator client API, you must [create a keystore](../../HowTo/External-Signer/Manage-keys.md#create-a-keystore).
-Set the keystore using [`--validator-api-keystore-file`](../CLI/CLI-Syntax.md#validator-api-keystore-file)
-and the password file for the keystore using [`--validator-api-keystore-password-file`](../CLI/CLI-Syntax.md#validator-api-keystore-password-file).
+When enabling the validator client API, you must [create a keystore](../../HowTo/External-Signer/Manage-keys.md#create-a-keystore). Set the keystore using [`--validator-api-keystore-file`](../CLI/CLI-Syntax.md#validator-api-keystore-file) and the password file for the keystore using [`--validator-api-keystore-password-file`](../CLI/CLI-Syntax.md#validator-api-keystore-password-file).
 
 !!! example
 
@@ -80,16 +73,15 @@ and the password file for the keystore using [`--validator-api-keystore-password
     teku --validator-api-enabled --validator-api-keystore-file=validator_keystore.p12 --validator-api-keystore-password-file=validator_keystore_pass.txt
     ```
 
-The [OpenAPI specifications](https://swagger.io/specification/) for the validator client API are available at `/swagger-docs`
-when the [`--validator-api-docs-enabled`](../CLI/CLI-Syntax.md#validator-api-docs-enabled) option is set to `true`.
-The `/swagger-docs` endpoint defines the API if code generators are in use.
+The [OpenAPI specifications](https://swagger.io/specification/) for the validator client API are available at `/swagger-docs` when the [`--validator-api-docs-enabled`](../CLI/CLI-Syntax.md#validator-api-docs-enabled) option is set to `true`. The `/swagger-docs` endpoint defines the API if code generators are in use.
 
 When enabling the API documentation endpoint, specify:
 
-* `interface` using the [`--validator-api-interface`](../CLI/CLI-Syntax.md#validator-api-interface) option.
-* `port` using the [`--validator-api-port`](../CLI/CLI-Syntax.md#validator-api-port) option.
+- `interface` using the [`--validator-api-interface`](../CLI/CLI-Syntax.md#validator-api-interface) option.
+- `port` using the [`--validator-api-port`](../CLI/CLI-Syntax.md#validator-api-port) option.
 
 <!-- Links -->
-[REST API documentation]:https://consensys.github.io/teku/#stable
+
+[REST API documentation]: /api
 [Postman]: https://www.postman.com/
 [cURL]: https://curl.haxx.se/

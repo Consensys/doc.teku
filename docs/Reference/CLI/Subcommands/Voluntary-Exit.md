@@ -1,5 +1,6 @@
 ---
-title: Voluntary exit subcommand options
+title: voluntary-exit
+sidebar_position: 6
 ---
 
 # `voluntary-exit`
@@ -54,8 +55,7 @@ Endpoint of the beacon node's REST API. The default is `http://127.0.0.1:5051`.
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-Path to the YAML configuration file.
-The default is `none`.
+Path to the YAML configuration file. The default is `none`.
 
 ## `confirmation-enabled`
 
@@ -109,8 +109,7 @@ Specify whether to request confirmation when exiting a validator. The default is
     TEKU_EPOCH=24500
     ```
 
-Earliest epoch that the voluntary exit can be processed. The specified epoch can be a past epoch,
-or current epoch. You cannot specify a future epoch. The default is the current epoch.
+Earliest epoch that the voluntary exit can be processed. The specified epoch can be a past epoch, or current epoch. You cannot specify a future epoch. The default is the current epoch.
 
 !!! note
 
@@ -131,8 +130,7 @@ or current epoch. You cannot specify a future epoch. The default is the current 
     teku voluntary-exit --include-keymanager-keys=true
     ```
 
-Include validator keys managed using the [key manager APIs](../../../HowTo/External-Signer/Manage-keys.md).
-The default is `false`.
+Include validator keys managed using the [key manager APIs](../../../HowTo/External-Signer/Manage-keys.md). The default is `false`.
 
 ## `validator-keys`
 
@@ -166,12 +164,9 @@ The default is `false`.
     validator-keys: "/home/validator/keys:home/validator/passwords"
     ```
 
-Directory or file to load the encrypted keystores and passwords of the validators that you wish to
-exit. Keystore files must use the `.json` file extension, and password files must use the `.txt`
-file extension.
+Directory or file to load the encrypted keystores and passwords of the validators that you wish to exit. Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
 
-When specifying directories, Teku expects to find identically named
-keystore and password files. For example `validator_217179e.json` and `validator_217179e.txt`.
+When specifying directories, Teku expects to find identically named keystore and password files. For example `validator_217179e.json` and `validator_217179e.txt`.
 
 When specifying file names, Teku expects that the files exist.
 
@@ -193,8 +188,7 @@ When specifying file names, Teku expects that the files exist.
     teku voluntary-exit --validator-public-keys=0xc7931ac6937f6c776d8dfe84918f7b26d986f2e45af5869085839b8817db2705,0x179a0e2768621eede9ce961cf8ee4f0ece5be9a1795c294269b69b85c765f3cc
     ```
 
-Restrict the exit command to a specified list of public keys. When the parameter is not used, all keys
-will be exited.
+Restrict the exit command to a specified list of public keys. When the parameter is not used, all keys will be exited.
 
 ## `validators-external-signer-keystore`
 
@@ -222,8 +216,7 @@ will be exited.
     validators-external-signer-keystore: "teku_client_keystore.p12"
     ```
 
-The keystore that Teku presents to the external signer for TLS authentication. Teku can use
-PKCS12 or JKS keystore types.
+The keystore that Teku presents to the external signer for TLS authentication. Teku can use PKCS12 or JKS keystore types.
 
 Use the PKCS12 keystore type if connecting to Web3Signer.
 
@@ -281,8 +274,7 @@ Password file used to decrypt the keystore.
     validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
     ```
 
-List of public keys of validators that you wish to voluntarily exit when using an external signer
-(for example, [Web3Signer]).
+List of public keys of validators that you wish to voluntarily exit when using an external signer (for example, [Web3Signer]).
 
 ## `validators-external-signer-timeout`
 
@@ -338,8 +330,7 @@ Timeout in milliseconds for requests to the external signer. The default is 5000
     validators-external-signer-truststore: "websigner_truststore.p12"
     ```
 
-PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate
-which signs the external signer's certificate.
+PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate which signs the external signer's certificate.
 
 ## `validators-external-signer-truststore-password-file`
 
@@ -398,4 +389,5 @@ Password file used to decrypt the keystore.
 URL of the external signer (for example, [Web3Signer]).
 
 <!-- links -->
+
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/

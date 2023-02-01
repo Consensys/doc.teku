@@ -1,5 +1,7 @@
 ---
+title: Development and testing
 description: Teku command line interface subcommands
+sidebar_position: 7
 ---
 
 # Development and testing subcommands
@@ -31,5 +33,6 @@ teku genesis
 ```
 
 <!-- links -->
-[environment variables]: CLI-Syntax.md##teku-environment-variables
-[configuration file]: ../../HowTo/Configure/Use-Configuration-File.md
+
+[environment variables]: ../CLI-Syntax.md##teku-environment-variables
+[configuration file]: ../../../HowTo/Configure/Use-Configuration-File.md

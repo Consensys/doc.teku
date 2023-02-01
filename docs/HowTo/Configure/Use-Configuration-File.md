@@ -1,31 +1,25 @@
 ---
+title: Specify options in a configuration file
 description: Use Teku configuration file
+sidebar_position: 1
 ---
 
 # Using the Teku configuration file
 
 To specify command line options in a file, use a YAML configuration file.
 
-To specify the configuration file, use the
-[`--config-file`](../../Reference/CLI/CLI-Syntax.md#config-file) option.
+To specify the configuration file, use the [`--config-file`](../../Reference/CLI/CLI-Syntax.md#config-file) option.
 
-To override an option specified in the configuration file, either specify the same option on the
-command line or as an
-[environment variable](../../Reference/CLI/CLI-Syntax.md#teku-environment-variables). For options
-specified in more than one place, the order of precedence is command line, environment variable,
-configuration file.
+To override an option specified in the configuration file, either specify the same option on the command line or as an [environment variable](../../Reference/CLI/CLI-Syntax.md#teku-environment-variables). For options specified in more than one place, the order of precedence is command line, environment variable, configuration file.
 
 ## YAML specification
 
-The configuration file must be a valid YAML file composed of key/value pairs. Each key is the
-corresponding command line option name without the leading dashes (`--`).
+The configuration file must be a valid YAML file composed of key/value pairs. Each key is the corresponding command line option name without the leading dashes (`--`).
 
-Values must conform to YAML specifications for strings, numbers, arrays, and booleans. Specific
-differences between the command line and the YAML file format are:
+Values must conform to YAML specifications for strings, numbers, arrays, and booleans. Specific differences between the command line and the YAML file format are:
 
-* Comma-separated lists on the command line are string arrays in the YAML file.
-* Enclose all string values (including but not limited to file paths, hexadecimal numbers,
-    URLs) in quotes.
+- Comma-separated lists on the command line are string arrays in the YAML file.
+- Enclose all string values (including but not limited to file paths, hexadecimal numbers, URLs) in quotes.
 
 !!!tip
 

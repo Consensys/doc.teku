@@ -1,5 +1,7 @@
 ---
+title: Install binary distribution
 description: Install Teku from binary distribution
+sidebar_position: 1
 ---
 
 # Install binary distribution
@@ -8,14 +10,15 @@ description: Install Teku from binary distribution
 
 ### Prerequisites
 
-* [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 
 !!! attention
 
     Teku requires Java 11+ to compile; earlier versions are not supported.
 
 <!-- markdown-link-check-disable-next-line -->
-* If using Windows, install the [Microsoft Visual C++ 2010 security update](https://www.microsoft.com/en-us/download/details.aspx?id=26999).
+
+- If using Windows, install the [Microsoft Visual C++ 2010 security update](https://www.microsoft.com/en-us/download/details.aspx?id=26999).
 
 ### Install from packaged binaries
 
@@ -41,13 +44,13 @@ Display Teku command line help to confirm installation:
 
 ### Prerequisites
 
-* [Homebrew](https://brew.sh/)
-* Java JDK.
+- [Homebrew](https://brew.sh/)
+- Java JDK.
 
 !!!important
 
     Teku requires Java 11+ to run. Earlier versions are not supported. You can install Java
-    using `brew cask install adoptopenjdk`. Alternatively, you can manually install the 
+    using `brew cask install adoptopenjdk`. Alternatively, you can manually install the
     [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html).
 
 ### Install (or upgrade) using Homebrew

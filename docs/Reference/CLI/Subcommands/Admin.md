@@ -1,5 +1,6 @@
 ---
-title: Subcommand options
+title: admin
+sidebar_position: 2
 ---
 
 # `admin`
@@ -34,8 +35,7 @@ Clears the stored weak subjectivity configuration.
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-Path to the YAML configuration file.
-The default is `none`.
+Path to the YAML configuration file. The default is `none`.
 
 #### `data-base-path`, `data-path`
 
@@ -65,9 +65,9 @@ The default is `none`.
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
-* macOS: `~/Library/teku`
-* Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-* Windows: `%localappdata%\teku`.
+- macOS: `~/Library/teku`
+- Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
+- Windows: `%localappdata%\teku`.
 
 The default Docker image location is `/root/.local/share/teku`.
 
@@ -97,8 +97,7 @@ The default Docker image location is `/root/.local/share/teku`.
     data-beacon-path: "/home/me/me_beaon"
     ```
 
-Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>`
-is specified using [`--data-base-path`](#data-base-path-data-path).
+Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### `data-storage-archive-frequency`
 
@@ -130,11 +129,7 @@ Set the frequency (in slots) at which to store finalized states to disk. The def
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
-!!! note
-    Specifying a larger number of slots as the archive frequency has a potentially higher overhead
-    for retrieving finalized states since more states may need to be regenerated to get to the
-    requested state. Specifying a lower number of slots as the frequency increases the disk space
-    usage.
+!!! note Specifying a larger number of slots as the archive frequency has a potentially higher overhead for retrieving finalized states since more states may need to be regenerated to get to the requested state. Specifying a lower number of slots as the frequency increases the disk space usage.
 
     For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest
     response time for retrieving a finalized state since each slot state is saved, whereas
@@ -167,8 +162,7 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     data-storage-mode: "archive"
     ```
 
-Set the strategy for handling historical chain data. Valid options are `minimal`, `prune` and `archive`.
-The default is `prune`.
+Set the strategy for handling historical chain data. Valid options are `minimal`, `prune` and `archive`. The default is `prune`.
 
 #### `data-validator-path`
 
@@ -196,8 +190,7 @@ The default is `prune`.
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
-is specified using [`--data-base-path`](#data-base-path-data-path).
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### `eth1-deposit-contract-address`
 
@@ -253,21 +246,19 @@ The address of the deposit contract. Only required when creating a custom networ
     network: "mainnet"
     ```
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL
-to a YAML configuration file. The default is `mainnet`.
+Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain           | Type        | Description                                      |
-|-----------|-----------------|-------------|--------------------------------------------------|
-| `mainnet` | Consensus layer | Production  | Main network                                     |
-| `minimal` | Consensus layer | Test        | Used for local testing and development networks  |
-| `goerli`  | Consensus layer | Test        | Multi-client testnet                             |
-| `gnosis`  | Consensus layer | Production  | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
-| `sepolia` | Consensus layer | Test        | Multi-client testnet                             |
+| Network | Chain | Type | Description |
+| --- | --- | --- | --- |
+| `mainnet` | Consensus layer | Production | Main network |
+| `minimal` | Consensus layer | Test | Used for local testing and development networks |
+| `goerli` | Consensus layer | Test | Multi-client testnet |
+| `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
+| `sepolia` | Consensus layer | Test | Multi-client testnet |
 
-Predefined networks can provide defaults such the initial state of the network,
-bootnodes, and the address of the deposit contract.
+Predefined networks can provide defaults such the initial state of the network, bootnodes, and the address of the deposit contract.
 
 ### `display-state`
 
@@ -293,8 +284,7 @@ Displays the stored weak subjectivity configuration.
     TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
     ```
 
-Path to the YAML configuration file.
-The default is `none`.
+Path to the YAML configuration file. The default is `none`.
 
 #### `data-base-path`, `data-path`
 
@@ -324,9 +314,9 @@ The default is `none`.
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
-* macOS: `~/Library/teku`
-* Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-* Windows: `%localappdata%\teku`.
+- macOS: `~/Library/teku`
+- Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
+- Windows: `%localappdata%\teku`.
 
 The default Docker image location is `/root/.local/share/teku`.
 
@@ -356,8 +346,7 @@ The default Docker image location is `/root/.local/share/teku`.
     data-beacon-path: "/home/me/me_beaon"
     ```
 
-Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>`
-is specified using [`--data-base-path`](#data-base-path-data-path).
+Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### `data-storage-archive-frequency`
 
@@ -389,11 +378,7 @@ Set the frequency (in slots) at which to store finalized states to disk. The def
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
-!!! note
-    Specifying a larger number of slots as the archive frequency has a potentially higher overhead
-    for retrieving finalized states since more states may need to be regenerated to get to the
-    requested state. Specifying a lower number of slots as the frequency increases the disk space
-    usage.
+!!! note Specifying a larger number of slots as the archive frequency has a potentially higher overhead for retrieving finalized states since more states may need to be regenerated to get to the requested state. Specifying a lower number of slots as the frequency increases the disk space usage.
 
     For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest
     response time for retrieving a finalized state since each slot state is saved, whereas
@@ -426,8 +411,7 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
     data-storage-mode: "archive"
     ```
 
-Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
-The default is `prune`.
+Set the strategy for handling historical chain data. Valid options are `prune` and `archive`. The default is `prune`.
 
 #### `data-validator-path`
 
@@ -455,8 +439,7 @@ The default is `prune`.
     data-validator-path: "/home/me/me_validator"
     ```
 
-Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
-is specified using [`--data-base-path`](#data-base-path-data-path).
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### `eth1-deposit-contract-address`
 
@@ -512,18 +495,16 @@ The address of the deposit contract. Only required when creating a custom networ
     network: "mainnet"
     ```
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL
-to a YAML configuration file. The default is `mainnet`.
+Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain           | Type        | Description                                               |
-|-----------|-----------------|-------------|-----------------------------------------------------------|
-| `mainnet` | Consensus layer | Production  | Main network                                              |
-| `minimal` | Consensus layer | Test        | Used for local testing and development networks           |
-| `goerli`  | Consensus layer | Test        | Multi-client testnet                                      |
-| `gnosis`  | Consensus layer | Production  | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
-| `sepolia` | Consensus layer | Test        | Multi-client testnet                                      |
+| Network | Chain | Type | Description |
+| --- | --- | --- | --- |
+| `mainnet` | Consensus layer | Production | Main network |
+| `minimal` | Consensus layer | Test | Used for local testing and development networks |
+| `goerli` | Consensus layer | Test | Multi-client testnet |
+| `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
+| `sepolia` | Consensus layer | Test | Multi-client testnet |
 
-Predefined networks can provide defaults such the initial state of the network,
-bootnodes, and the address of the deposit contract.
+Predefined networks can provide defaults such the initial state of the network, bootnodes, and the address of the deposit contract.

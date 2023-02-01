@@ -1,21 +1,17 @@
 ---
+title: Enable doppelganger detection
 description: How to enable doppelganger detection
+sidebar_position: 7
 ---
 
 # Enable doppelganger detection
 
-Doppelganger detection checks if the validators keys are already active before scheduling any of
-their duties (the validators stay inactive for at most two epochs).
-This can help prevent slashing offences.
+Doppelganger detection checks if the validators keys are already active before scheduling any of their duties (the validators stay inactive for at most two epochs). This can help prevent slashing offences.
 
 When enabled, doppelganger detection is triggered from two entry points:
 
-1. At [validator client startup](Get-Started/Run-Teku.md#start-teku): If at least one
-   doppelganger is detected, the validator client shuts down after it finishes the check.
-1. When importing keys via the [key manager API](https://ethereum.github.io/keymanager-APIs/): Any
-   detected doppelganger's keys are ignored (not imported).
-   The other keys are imported and the validators start performing their duties after it finishes
-   the check.
+1. At [validator client startup](Get-Started/Run-Teku.md#start-teku): If at least one doppelganger is detected, the validator client shuts down after it finishes the check.
+1. When importing keys via the [key manager API](https://ethereum.github.io/keymanager-APIs/): Any detected doppelganger's keys are ignored (not imported). The other keys are imported and the validators start performing their duties after it finishes the check.
 
 !!! warning
 
@@ -27,8 +23,7 @@ When enabled, doppelganger detection is triggered from two entry points:
 
 Enable doppelganger detection by setting the `--Xdoppelganger-detection-enabled` option to `true`.
 
-Your validator client must be connected to a beacon node with liveness tracking enabled.
-Enable liveness tracking by setting the `--Xbeacon-liveness-tracking-enabled` option to `true`.
+Your validator client must be connected to a beacon node with liveness tracking enabled. Enable liveness tracking by setting the `--Xbeacon-liveness-tracking-enabled` option to `true`.
 
 ## Side effects
 
@@ -42,15 +37,14 @@ This means that the validators being checked are inactive for at most two epochs
 !!! warning
 
     Keeping the validators inactive might cause:
-    
+
     - Missed attestations.
     - Missed sync committee contributions.
     - Missed block proposals.
 
     These side effects result in penalties and missed rewards.
 
-You might still consider these side effects a worthwhile trade-off of doppelganger detection, since
-it can prevent slashing.
+You might still consider these side effects a worthwhile trade-off of doppelganger detection, since it can prevent slashing.
 
 ## Logs
 

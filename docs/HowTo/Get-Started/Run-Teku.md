@@ -1,14 +1,13 @@
 ---
-title: Running Teku
+title: Start Teku
+sidebar_position: 2
 ---
 
 # Start Teku
 
-You can run Teku as a beacon node and validator in a single process, or as separate
-processes.
+You can run Teku as a beacon node and validator in a single process, or as separate processes.
 
-We recommend you run the beacon node and validator as a [single process] if they are to run
-on the same machine.
+We recommend you run the beacon node and validator as a [single process] if they are to run on the same machine.
 
 !!! note
 
@@ -17,14 +16,13 @@ on the same machine.
 
 ## Prerequisites
 
-* [Teku installed](Installation-Options/Install-Binaries.md).
-* [An execution client synced](Connect/Connect-To-Mainnet.md#2-start-the-execution-client).
-* [Validator keystores and password files](Connect/Connect-To-Mainnet.md#3-generate-validator-keys-and-stake-eth).
+- [Teku installed](Installation-Options/Install-Binaries.md).
+- [An execution client synced](Connect/Connect-To-Mainnet.md#2-start-the-execution-client).
+- [Validator keystores and password files](Connect/Connect-To-Mainnet.md#3-generate-validator-keys-and-stake-eth).
 
 ## Start the clients in a single process
 
-Start the beacon node and validator as a single process by specifying the validator options
-using the [`teku`](../../Reference/CLI/CLI-Syntax.md#options) command.
+Start the beacon node and validator as a single process by specifying the validator options using the [`teku`](../../Reference/CLI/CLI-Syntax.md#options) command.
 
 !!! example
 
@@ -38,14 +36,11 @@ using the [`teku`](../../Reference/CLI/CLI-Syntax.md#options) command.
       --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt
     ```
 
-Use the [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) option to specify
-the directories or files to load the encrypted keystore file(s) and associated password file(s) from.
+Use the [`--validator-keys`](../../Reference/CLI/CLI-Syntax.md#validator-keys) option to specify the directories or files to load the encrypted keystore file(s) and associated password file(s) from.
 
 ## Run the clients separately
 
-Validators must connect to a beacon node to publish attestations or propose blocks. The
-beacon node requires internet access, but the connected validators can run on machines without
-internet access.
+Validators must connect to a beacon node to publish attestations or propose blocks. The beacon node requires internet access, but the connected validators can run on machines without internet access.
 
 ### Start the beacon node
 
@@ -61,29 +56,19 @@ Run Teku as a beacon node.
         --rest-api-enabled=true
     ```
 
-Specify [`--rest-api-enabled`](../../Reference/CLI/CLI-Syntax.md#rest-api-enabled) to allow
-validators to connect to the beacon node.
+Specify [`--rest-api-enabled`](../../Reference/CLI/CLI-Syntax.md#rest-api-enabled) to allow validators to connect to the beacon node.
 
-!!! warning
-    Don't pass the validator keys as a command line option to both the beacon node and
-    validator client. This can cause a [slashable offense].
+!!! warning Don't pass the validator keys as a command line option to both the beacon node and validator client. This can cause a [slashable offense].
 
-By default, [validator clients] can connect to the beacon node at `http://127.0.0.1:5051`.
-Use the [`--rest-api-interface`](../../Reference/CLI/CLI-Syntax.md#rest-api-interface)
-and [`--rest-api-port`](../../Reference/CLI/CLI-Syntax.md#rest-api-port) options to update the
-address.
+By default, [validator clients] can connect to the beacon node at `http://127.0.0.1:5051`. Use the [`--rest-api-interface`](../../Reference/CLI/CLI-Syntax.md#rest-api-interface) and [`--rest-api-port`](../../Reference/CLI/CLI-Syntax.md#rest-api-port) options to update the address.
 
-You can specify
-[`--rest-api-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#rest-api-host-allowlist) to
-allow access to the REST API from specific hostnames.
+You can specify [`--rest-api-host-allowlist`](../../Reference/CLI/CLI-Syntax.md#rest-api-host-allowlist) to allow access to the REST API from specific hostnames.
 
 ### Start the validator
 
 To run a validator, connect to a [running beacon node].
 
-Use the [`validator-client`](../../Reference/CLI/Subcommands/Validator-Client.md#validator-client-vc)
-or [`vc`](../../Reference/CLI/Subcommands/Validator-Client.md#validator-client-vc) subcommand to run
-a Teku as a validator.
+Use the [`validator-client`](../../Reference/CLI/Subcommands/Validator-Client.md#validator-client-vc) or [`vc`](../../Reference/CLI/Subcommands/Validator-Client.md#validator-client-vc) subcommand to run a Teku as a validator.
 
 !!! example
 
@@ -93,14 +78,9 @@ a Teku as a validator.
         --validator-keys=validator/keys:validator/passwords
     ```
 
-!!! warning
-    Ensure that the validator keys are only provided to the validator. Don't pass the validator
-    keys as command line options to both the beacon node and validator client. This can a
-    cause a [slashable offense].
+!!! warning Ensure that the validator keys are only provided to the validator. Don't pass the validator keys as command line options to both the beacon node and validator client. This can a cause a [slashable offense].
 
-Specify one or more beacon nodes using the
-[`--beacon-node-api-endpoint`](../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint-beacon-node-api-endpoints)
-option.
+Specify one or more beacon nodes using the [`--beacon-node-api-endpoint`](../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint-beacon-node-api-endpoints) option.
 
 !!! important
 
@@ -109,8 +89,7 @@ option.
 
 ## Confirm Teku is running
 
-Use the [`/liveness`](https://consensys.github.io/teku/#operation/getTekuV1AdminLiveness) endpoint
-to check whether the node is up.
+Use the [`/liveness`](https://consensys.github.io/teku/#operation/getTekuV1AdminLiveness) endpoint to check whether the node is up.
 
 The endpoint returns the status `200 OK` if the node is up or syncing.
 
@@ -132,7 +111,9 @@ The endpoint returns the status `200 OK` if the node is up or syncing.
         Cache-Control: max-age=0
         Content-Length: 0
         ```
+
 <!-- links -->
+
 [validator clients]: #start-the-validator
 [running beacon node]: #start-the-beacon-node
 [Validator keystores]: Connect/Connect-To-Testnet.md#generate-the-validators-and-send-the-deposits
