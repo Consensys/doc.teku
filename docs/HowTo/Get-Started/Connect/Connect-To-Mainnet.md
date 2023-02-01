@@ -6,7 +6,13 @@ sidebar_position: 1
 
 # Connect to Mainnet
 
-!!! important [The Merge](../../../Concepts/Merge.md) was executed on **September 15, 2022**. Ethereum is now a [proof of stake](../../../Concepts/Proof-of-Stake.md) network, and a full Ethereum node requires both [an execution client and a consensus client](../../../Concepts/Merge.md#execution-and-consensus-clients).
+:::info
+
+[The Merge](../../../Concepts/Merge.md) was executed on **September 15, 2022**.
+
+Ethereum is now a [proof of stake](../../../Concepts/Proof-of-Stake.md) network, and a full Ethereum node requires both [an execution client and a consensus client](../../../Concepts/Merge.md#execution-and-consensus-clients).
+
+:::
 
 Run Teku as a consensus client with any execution client on Ethereum Mainnet.
 
@@ -49,15 +55,17 @@ For each validator key, create a text file containing the password to decrypt th
 
 Teku allows you to specify individual keys and passwords in the command line, or you can specify directories from which to load keys and passwords. If specifying directories, password files must have the same name as the keys, but use the `.txt` extension.
 
-!!! example
+:::info
 
-    If the Launchpad creates a key named `keystore-m_12381_3600_0_0_0-1596485378.json`, then
-    the password file must be named `keystore-m_12381_3600_0_0_0-1596485378.txt`.
+If the Launchpad creates a key named `keystore-m_12381_3600_0_0_0-1596485378.json`, then the password file must be named `keystore-m_12381_3600_0_0_0-1596485378.txt`.
 
-!!! info
+:::
 
-    The password file format follows [`EIP-2335`](https://eips.ethereum.org/EIPS/eip-2335#password-requirements)
-    requirements (UTF-8 encoded file, unicode normalization, and control code removal).
+:::info
+
+The password file format follows [`EIP-2335`](https://eips.ethereum.org/EIPS/eip-2335#password-requirements) requirements (UTF-8 encoded file, unicode normalization, and control code removal).
+
+:::
 
 ## 4. Start Teku
 

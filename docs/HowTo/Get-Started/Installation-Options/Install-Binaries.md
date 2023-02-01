@@ -12,9 +12,11 @@ sidebar_position: 1
 
 - [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 
-!!! attention
+:::caution
 
-    Teku requires Java 11+ to compile; earlier versions are not supported.
+Teku requires Java 11+ to compile; earlier versions are not supported.
+
+:::
 
 <!-- markdown-link-check-disable-next-line -->
 
@@ -28,17 +30,21 @@ Unpack the downloaded files and change into the `teku-<release>` directory.
 
 Display Teku command line help to confirm installation:
 
-=== "Linux/macOS"
+<!--tabs-->
 
-    ```bash
-    ./bin/teku --help
-    ```
+# Linux/macOS
 
-=== "Windows"
+```bash
+./bin/teku --help
+```
 
-    ```bat
-    bin\teku --help
-    ```
+# Windows
+
+```bat
+bin\teku --help
+```
+
+<!--/tabs-->
 
 ## macOS with Homebrew
 
@@ -47,11 +53,11 @@ Display Teku command line help to confirm installation:
 - [Homebrew](https://brew.sh/)
 - Java JDK.
 
-!!!important
+:::caution
 
-    Teku requires Java 11+ to run. Earlier versions are not supported. You can install Java
-    using `brew cask install adoptopenjdk`. Alternatively, you can manually install the
-    [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html).
+Teku requires Java 11+ to run. Earlier versions are not supported. You can install Java using `brew cask install adoptopenjdk`. Alternatively, you can manually install the [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html).
+
+:::
 
 ### Install (or upgrade) using Homebrew
 

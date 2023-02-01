@@ -10,11 +10,11 @@ Run Teku as a consensus client with any execution client on the [Goerli](https:/
 
 If you're using [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can follow the [Besu and Teku testnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-testnet/).
 
-!!! note
+:::note
 
-    Sepolia is a permissioned network and you can't run a validator client on it without
-    [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
-    You can connect your consensus client using the beacon node only, without any validator duties.
+Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first. You can connect your consensus client using the beacon node only, without any validator duties.
+
+:::
 
 ## Prerequisites
 
@@ -45,10 +45,11 @@ If you're running a beacon node only, skip to the [next step](#4-start-teku).
 
 If you're also running a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
 
-!!! note
+:::note
 
-    If you're unable to get ETH using the faucet, you can ask for help on the
-    [EthStaker Discord](https://discord.io/ethstaker).
+If you're unable to get ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.io/ethstaker).
+
+:::
 
 Generate validator keys and stake your testnet ETH for one or more validators using the [Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/).
 
@@ -60,15 +61,17 @@ For each validator key, create a text file containing the password to decrypt th
 
 Teku allows you to specify individual keys and passwords in the command line, or you can specify directories from which to load keys and passwords. If specifying directories, password files must have the same name as the keys, but use the `.txt` extension.
 
-!!! example
+:::info
 
-    If the Launchpad creates a key named `keystore-m_12381_3600_0_0_0-1596485378.json`, then
-    the password file must be named `keystore-m_12381_3600_0_0_0-1596485378.txt`.
+If the Launchpad creates a key named `keystore-m_12381_3600_0_0_0-1596485378.json`, then the password file must be named `keystore-m_12381_3600_0_0_0-1596485378.txt`.
 
-!!! info
+:::
 
-    The password file format follows [`EIP-2335`](https://eips.ethereum.org/EIPS/eip-2335#password-requirements)
-    requirements (UTF-8 encoded file, unicode normalization, and control code removal).
+:::info
+
+The password file format follows [`EIP-2335`](https://eips.ethereum.org/EIPS/eip-2335#password-requirements) requirements (UTF-8 encoded file, unicode normalization, and control code removal).
+
+:::
 
 ## 4. Start Teku
 
@@ -78,27 +81,31 @@ Open a new terminal window.
 
 To run Teku as a beacon node only (without validator duties), run the following command or [specify the options in a configuration file](../../Configure/Use-Configuration-File.md):
 
-=== "Goerli"
+<!--tabs-->
 
-    ```bash
-    teku \
-        --network=goerli                             \
-        --ee-endpoint=http://localhost:8551          \
-        --ee-jwt-secret-file=<path to jwtsecret.hex> \
-        --metrics-enabled=true                       \
-        --rest-api-enabled=true
-    ```
+# Goerli
 
-=== "Sepolia"
+```bash
+teku \
+    --network=goerli                             \
+    --ee-endpoint=http://localhost:8551          \
+    --ee-jwt-secret-file=<path to jwtsecret.hex> \
+    --metrics-enabled=true                       \
+    --rest-api-enabled=true
+```
 
-    ```bash
-    teku \
-        --network=sepolia                            \
-        --ee-endpoint=http://localhost:8551          \
-        --ee-jwt-secret-file=<path to jwtsecret.hex> \
-        --metrics-enabled=true                       \
-        --rest-api-enabled=true
-    ```
+# Sepolia
+
+```bash
+teku \
+    --network=sepolia                            \
+    --ee-endpoint=http://localhost:8551          \
+    --ee-jwt-secret-file=<path to jwtsecret.hex> \
+    --metrics-enabled=true                       \
+    --rest-api-enabled=true
+```
+
+<!--/tabs-->
 
 Specify the path to the `jwtsecret.hex` file generated in [step 1] using the [`--ee-jwt-secret-file`](../../../Reference/CLI/CLI-Syntax.md#ee-jwt-secret-file) option.
 
@@ -116,23 +123,26 @@ You can also use [Prometheus and Grafana](../../Monitor/Metrics.md) to monitor y
 
 To run the Teku beacon node and validator client in a single process, run the following command or [specify the options in the configuration file](../../Configure/Use-Configuration-File.md):
 
-=== "Goerli"
+<!--tabs-->
 
-    ```bash
-    teku \
-      --network=goerli                                          \
-      --ee-endpoint=http://localhost:8551                       \
-      --ee-jwt-secret-file=<path to jwtsecret.hex>              \
-      --metrics-enabled=true                                    \
-      --rest-api-enabled=true                                   \
-      --validators-proposer-default-fee-recipient=<ETH address> \
-      --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
-    ```
+# Goerli
 
-=== "Sepolia"
+```bash
+teku \
+  --network=goerli                                          \
+  --ee-endpoint=http://localhost:8551                       \
+  --ee-jwt-secret-file=<path to jwtsecret.hex>              \
+  --metrics-enabled=true                                    \
+  --rest-api-enabled=true                                   \
+  --validators-proposer-default-fee-recipient=<ETH address> \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
 
-    Sepolia is a permissioned network and you can't run a validator client on it without
-    [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
+# Sepolia
+
+Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
+
+<!--/tabs-->
 
 Specify:
 
@@ -148,19 +158,22 @@ To run the Teku beacon node and validator client as separate processes, first [s
 
 On a separate machine, run Teku using the [`validator-client`](../../../Reference/CLI/Subcommands/Validator-Client.md) subcommand:
 
-=== "Goerli"
+<!--tabs-->
 
-    ```bash
-    teku validator-client \
-        --network=goerli                      \
-        --beacon-node-api-endpoint=<endpoint> \
-        --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
-    ```
+# Goerli
 
-=== "Sepolia"
+```bash
+teku validator-client \
+    --network=goerli                      \
+    --beacon-node-api-endpoint=<endpoint> \
+    --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
 
-    Sepolia is a permissioned network and you can't run a validator client on it without
-    [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
+# Sepolia
+
+Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
+
+<!--/tabs-->
 
 Specify:
 
