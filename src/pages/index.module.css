@@ -25,7 +25,12 @@
 }
 
 .introductionBlock {
-  background: linear-gradient(56.02deg, #2c56dd 49.2%, #30daad 95.07%), #2c56dd;
+  background: linear-gradient(
+    152deg,
+    rgba(44 86 221) 50%,
+    rgba(237 119 79) 100%,
+    rgba(0 212 255) 100%
+  );
   padding: 6rem;
   text-align: center;
   width: 100%;
