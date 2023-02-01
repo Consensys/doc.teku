@@ -10,11 +10,11 @@
   }
 
   .title {
-    font-size: 8vw;
+    font-size: 2.5rem;
   }
 
   .subtitle {
-    font-size: 3vw;
+    font-size: 0.8rem;
   }
 }
 
@@ -37,12 +37,4 @@
 
 html[data-theme="dark"] .forceColor {
   color: var(--ifm-font-color-secondary);
-}
-
-.title {
-  font-size: 5vw;
-}
-
-.subtitle {
-  font-size: 1.5vw;
 }
