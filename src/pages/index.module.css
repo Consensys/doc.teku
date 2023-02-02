@@ -8,14 +8,6 @@
     padding: 2rem;
     word-wrap: normal;
   }
-
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .subtitle {
-    font-size: 0.8rem;
-  }
 }
 
 .buttons {
@@ -42,4 +34,22 @@
 
 html[data-theme="dark"] .forceColor {
   color: var(--ifm-font-color-secondary);
+}
+
+.title {
+  background-image: linear-gradient(
+    270deg,
+    rgb(237 119 80) 20%,
+    rgb(0 213 255) 80%
+  );
+  background-clip: text;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-background-clip: text;
+  color: transparent;
+
+  font-size: clamp(1.5rem, 5vw, 6rem);
+}
+
+.subtitle {
+  font-size: clamp(0.8rem, 1vw, 2rem);
 }
