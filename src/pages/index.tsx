@@ -15,13 +15,10 @@ function HomepageHeader() {
         <h1 className={clsx("hero__title", styles.title, styles.forceColor)}>
           {siteConfig.title}
         </h1>
-        <p
-          className={clsx(
-            "hero__subtitle",
-            styles.forceColor,
-            styles.subtitle,
-          )}>
-          {siteConfig.tagline}
+        <p className={clsx("hero__subtitle", styles.subtitle)}>
+          <blockquote className={clsx(styles.forceColor)}>
+            {siteConfig.tagline}
+          </blockquote>
         </p>
         <div className={styles.buttons}>
           <Link

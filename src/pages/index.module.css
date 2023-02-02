@@ -19,9 +19,8 @@
 .introductionBlock {
   background: linear-gradient(
     152deg,
-    rgba(44 86 221) 50%,
-    rgba(237 119 79) 100%,
-    rgba(0 212 255) 100%
+    rgba(44 86 221) 30%,
+    rgba(237 119 79) 100%
   );
   padding: 6rem;
   text-align: center;
@@ -30,10 +29,11 @@
 
 .forceColor {
   color: var(--ifm-color-content-inverse);
+  border-left-color: rgba(237 119 79);
 }
 
 html[data-theme="dark"] .forceColor {
-  color: var(--ifm-font-color-secondary);
+  color: var(--ifm-color-secondary-dark);
 }
 
 .title {
