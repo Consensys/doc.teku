@@ -64,7 +64,7 @@ const redocusaurus = [
 const config = {
   title: "ConsenSys Teku",
   tagline:
-    "An open source Java Ethereum consensus client that contains a full beacon node implementation and a validator client for participating in proof of stake consensus",
+    "An open source  Ethereum consensus client in Java that contains a full beacon node implementation and a validator client for participating in proof of stake consensus",
   url: "https://consensys.github.io",
   baseUrl,
   onBrokenLinks: "throw",
