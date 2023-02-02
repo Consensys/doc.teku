@@ -45,5 +45,5 @@ html[data-theme="dark"] .forceColor {
   margin: 0 0 var(--ifm-spacing-vertical);
   padding: var(--ifm-blockquote-padding-vertical)
     var(--ifm-blockquote-padding-horizontal);
-  font-size: clamp(0.8rem, 1vw, 2rem);
+  font-size: clamp(0.8rem, 1vw, 1.2rem);
 }
