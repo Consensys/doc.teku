@@ -28,7 +28,7 @@ const CardList: CardItem[] = [
         Hit the ground running in less than 5 minutes!
       </>
     ),
-    buttonName: "Go to installation",
+    buttonName: "Go and get started",
     buttonType: "success",
   },
   {
