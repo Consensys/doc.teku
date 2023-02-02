@@ -12,7 +12,7 @@ function HomepageHeader() {
   return (
     <header className={clsx(styles.introductionBlock)}>
       <div className="container">
-        <h1 className={clsx("hero__title", styles.forceColor, styles.title)}>
+        <h1 className={clsx("hero__title", styles.title)}>
           {siteConfig.title}
         </h1>
         <p
