@@ -29,7 +29,6 @@
 
 .forceColor {
   color: var(--ifm-color-content-inverse);
-  border-left-color: rgba(237 119 79);
 }
 
 html[data-theme="dark"] .forceColor {
@@ -41,5 +40,10 @@ html[data-theme="dark"] .forceColor {
 }
 
 .subtitle {
+  border-left: var(--ifm-blockquote-border-left-width) solid rgba(237 119 79);
+  box-shadow: var(--ifm-blockquote-shadow);
+  margin: 0 0 var(--ifm-spacing-vertical);
+  padding: var(--ifm-blockquote-padding-vertical)
+    var(--ifm-blockquote-padding-horizontal);
   font-size: clamp(0.8rem, 1vw, 2rem);
 }
