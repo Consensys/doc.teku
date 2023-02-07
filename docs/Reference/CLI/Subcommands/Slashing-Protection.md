@@ -313,15 +313,15 @@ The default Docker image location is `/root/.local/share/teku`.
 
 # Syntax
 
-    ```bash
-    teku slashing-protection repair --data-validator-path=<PATH>
-    ```
+```bash
+teku slashing-protection repair --data-validator-path=<PATH>
+```
 
 # Example
 
-    ```bash
-    teku slashing-protection repair --data-validator-path=/home/me/me_validator
-    ```
+```bash
+teku slashing-protection repair --data-validator-path=/home/me/me_validator
+```
 
 <!--/tabs-->
 
