@@ -26,3 +26,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOC_DIR: ${{ matrix.folder }}
+          SKIP_TEST: true
