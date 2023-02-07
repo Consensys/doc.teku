@@ -35,9 +35,6 @@ For tool changes:
 
 - [ ] CircleCI workflow
 - [ ] Build and QA tools (for example lint or vale)
-- [ ] MkDocs templates
-- [ ] MkDocs configuration
-- [ ] Python dependencies
 - [ ] Node dependencies and JavaScript
 - [ ] Read the Docs configuration
 - [ ] GitHub integration
@@ -47,8 +44,7 @@ For tool changes:
 Make sure that:
 
 - [ ] You've [fixed any issues](https://consensys.net/docs/doctools/en/latest/contribute/fix-cicd-errors/) raised by the tests.
-- [ ] You've [previewed your changes on Read the Docs](https://consensys.net/docs/doctools/en/latest/preview/old-system/#preview-on-read-the-docs)
-  and added a [preview link](#preview).
+- [ ] You've previewed your changes with Vercel below.
 
 ## Preview
 
