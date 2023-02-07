@@ -1,5 +1,7 @@
 ---
+title: Overview
 description: Subcommands overview
+sidebar_position: 1
 ---
 
 # Subcommands

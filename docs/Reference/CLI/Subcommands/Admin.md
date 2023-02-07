@@ -1,5 +1,6 @@
 ---
-title: Subcommand options
+title: admin
+sidebar_position: 2
 ---
 
 # `admin`
@@ -16,258 +17,281 @@ Clears the stored weak subjectivity configuration.
 
 #### `config-file`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity clear-state --config-file=<FILE>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity clear-state --config-file=<FILE>
+```
 
-    ```bash
-    teku admin weak-subjectivity clear-state --config-file=/home/me/me_node/config.yaml
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity clear-state --config-file=/home/me/me_node/config.yaml
+```
 
-    ```bash
-    TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
-    ```
+# Environment variable
 
-Path to the YAML configuration file.
-The default is `none`.
+```bash
+TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
+```
+
+<!--/tabs-->
+
+Path to the YAML configuration file. The default is `none`.
 
 #### `data-base-path`, `data-path`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity clear-state --data-base-path=<PATH>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity clear-state --data-base-path=<PATH>
+```
 
-    ```bash
-    teku admin weak-subjectivity clear-state --data-base-path=/home/me/me_node
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity clear-state --data-base-path=/home/me/me_node
+```
 
-    ```bash
-    TEKU_DATA_BASE_PATH=/home/me/me_node
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_DATA_BASE_PATH=/home/me/me_node
+```
 
-    ```bash
-    data-base-path: "/home/me/me_node"
-    ```
+# Configuration file
+
+```bash
+data-base-path: "/home/me/me_node"
+```
+
+<!--/tabs-->
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
-* macOS: `~/Library/teku`
-* Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-* Windows: `%localappdata%\teku`.
+- macOS: `~/Library/teku`
+- Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
+- Windows: `%localappdata%\teku`.
 
 The default Docker image location is `/root/.local/share/teku`.
 
 #### `data-beacon-path`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity clear-state --data-beacon-path=<PATH>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity clear-state --data-beacon-path=<PATH>
+```
 
-    ```bash
-    teku admin weak-subjectivity clear-state --data-beacon-path=/home/me/me_beacon
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity clear-state --data-beacon-path=/home/me/me_beacon
+```
 
-    ```bash
-    TEKU_DATA_BEACON_PATH=/home/me/me_beacon
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_DATA_BEACON_PATH=/home/me/me_beacon
+```
 
-    ```bash
-    data-beacon-path: "/home/me/me_beaon"
-    ```
+# Configuration file
 
-Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>`
-is specified using [`--data-base-path`](#data-base-path-data-path).
+```bash
+data-beacon-path: "/home/me/me_beaon"
+```
+
+<!--/tabs-->
+
+Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### `data-storage-archive-frequency`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity clear-state --data-storage-archive-frequency=<NUMBER>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity clear-state --data-storage-archive-frequency=<NUMBER>
+```
 
-    ```bash
-    teku admin weak-subjectivity clear-state --data-storage-archive-frequency=1028
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity clear-state --data-storage-archive-frequency=1028
+```
 
-    ```bash
-    TEKU_DATA_STORAGE_ARCHIVE_FREQUENCY=1028
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_DATA_STORAGE_ARCHIVE_FREQUENCY=1028
+```
 
-    ```bash
-    data-storage-archive-frequency: 1028
-    ```
+# Configuration file
+
+```bash
+data-storage-archive-frequency: 1028
+```
+
+<!--/tabs-->
 
 Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
-!!! note
-    Specifying a larger number of slots as the archive frequency has a potentially higher overhead
-    for retrieving finalized states since more states may need to be regenerated to get to the
-    requested state. Specifying a lower number of slots as the frequency increases the disk space
-    usage.
+:::note
 
-    For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest
-    response time for retrieving a finalized state since each slot state is saved, whereas
-    `--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the
-    state because every 2048th slot state is saved.
+Specifying a larger number of slots as the archive frequency has a potentially higher overhead for retrieving finalized states since more states may need to be regenerated to get to the requested state. Specifying a lower number of slots as the frequency increases the disk space usage.
+
+:::
+
+For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest response time for retrieving a finalized state since each slot state is saved, whereas `--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the state because every 2048th slot state is saved.
 
 #### `data-storage-mode`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity clear-state --data-storage-mode=<STORAGE_MODE>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity clear-state --data-storage-mode=<STORAGE_MODE>
+```
 
-    ```bash
-    teku admin weak-subjectivity clear-state --data-storage-mode=archive
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity clear-state --data-storage-mode=archive
+```
 
-    ```bash
-    TEKU_DATA_STORAGE_MODE=archive
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_DATA_STORAGE_MODE=archive
+```
 
-    ```bash
-    data-storage-mode: "archive"
-    ```
+# Configuration file
 
-Set the strategy for handling historical chain data. Valid options are `minimal`, `prune` and `archive`.
-The default is `prune`.
+```bash
+data-storage-mode: "archive"
+```
+
+<!--/tabs-->
+
+Set the strategy for handling historical chain data. Valid options are `minimal`, `prune` and `archive`. The default is `prune`.
 
 #### `data-validator-path`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity clear-state --data-validator-path=<PATH>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity clear-state --data-validator-path=<PATH>
+```
 
-    ```bash
-    teku admin weak-subjectivity clear-state --data-validator-path=/home/me/me_validator
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity clear-state --data-validator-path=/home/me/me_validator
+```
 
-    ```bash
-    TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
+```
 
-    ```bash
-    data-validator-path: "/home/me/me_validator"
-    ```
+# Configuration file
 
-Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
-is specified using [`--data-base-path`](#data-base-path-data-path).
+```bash
+data-validator-path: "/home/me/me_validator"
+```
+
+<!--/tabs-->
+
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### `eth1-deposit-contract-address`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity clear-state --eth1-deposit-contract-address=<ADDRESS>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity clear-state --eth1-deposit-contract-address=<ADDRESS>
+```
 
-    ```bash
-    teku admin weak-subjectivity clear-state --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity clear-state --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
+```
 
-    ```bash
-    TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
+```
 
-    ```bash
-    eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
-    ```
+# Configuration file
+
+```bash
+eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
+```
+
+<!--/tabs-->
 
 The address of the deposit contract. Only required when creating a custom network.
 
 #### `network`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity clear-state --network=<NETWORK>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity clear-state --network=<NETWORK>
+```
 
-    ```bash
-    teku admin weak-subjectivity clear-state --network=mainnet
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity clear-state --network=mainnet
+```
 
-    ```bash
-    TEKU_NETWORK=mainnet
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_NETWORK=mainnet
+```
 
-    ```bash
-    network: "mainnet"
-    ```
+# Configuration file
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL
-to a YAML configuration file. The default is `mainnet`.
+```bash
+network: "mainnet"
+```
+
+<!--/tabs-->
+
+Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain           | Type        | Description                                      |
-|-----------|-----------------|-------------|--------------------------------------------------|
-| `mainnet` | Consensus layer | Production  | Main network                                     |
-| `minimal` | Consensus layer | Test        | Used for local testing and development networks  |
-| `goerli`  | Consensus layer | Test        | Multi-client testnet                             |
-| `gnosis`  | Consensus layer | Production  | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
-| `sepolia` | Consensus layer | Test        | Multi-client testnet                             |
+| Network | Chain | Type | Description |
+| --- | --- | --- | --- |
+| `mainnet` | Consensus layer | Production | Main network |
+| `minimal` | Consensus layer | Test | Used for local testing and development networks |
+| `goerli` | Consensus layer | Test | Multi-client testnet |
+| `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
+| `sepolia` | Consensus layer | Test | Multi-client testnet |
 
-Predefined networks can provide defaults such the initial state of the network,
-bootnodes, and the address of the deposit contract.
+Predefined networks can provide defaults such the initial state of the network, bootnodes, and the address of the deposit contract.
 
 ### `display-state`
 
@@ -275,255 +299,278 @@ Displays the stored weak subjectivity configuration.
 
 #### `config-file`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity display-state --config-file=<FILE>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity display-state --config-file=<FILE>
+```
 
-    ```bash
-    teku admin weak-subjectivity display-state --config-file=/home/me/me_node/config.yaml
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity display-state --config-file=/home/me/me_node/config.yaml
+```
 
-    ```bash
-    TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
-    ```
+# Environment variable
 
-Path to the YAML configuration file.
-The default is `none`.
+```bash
+TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
+```
+
+<!--/tabs-->
+
+Path to the YAML configuration file. The default is `none`.
 
 #### `data-base-path`, `data-path`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity display-state --data-base-path=<PATH>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity display-state --data-base-path=<PATH>
+```
 
-    ```bash
-    teku admin weak-subjectivity display-state --data-base-path=/home/me/me_node
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity display-state --data-base-path=/home/me/me_node
+```
 
-    ```bash
-    TEKU_DATA_BASE_PATH=/home/me/me_node
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_DATA_BASE_PATH=/home/me/me_node
+```
 
-    ```bash
-    data-base-path: "/home/me/me_node"
-    ```
+# Configuration file
+
+```bash
+data-base-path: "/home/me/me_node"
+```
+
+<!--/tabs-->
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
-* macOS: `~/Library/teku`
-* Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-* Windows: `%localappdata%\teku`.
+- macOS: `~/Library/teku`
+- Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
+- Windows: `%localappdata%\teku`.
 
 The default Docker image location is `/root/.local/share/teku`.
 
 #### `data-beacon-path`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity display-state --data-beacon-path=<PATH>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity display-state --data-beacon-path=<PATH>
+```
 
-    ```bash
-    teku admin weak-subjectivity display-state --data-beacon-path=/home/me/me_beacon
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity display-state --data-beacon-path=/home/me/me_beacon
+```
 
-    ```bash
-    TEKU_DATA_BEACON_PATH=/home/me/me_beacon
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_DATA_BEACON_PATH=/home/me/me_beacon
+```
 
-    ```bash
-    data-beacon-path: "/home/me/me_beaon"
-    ```
+# Configuration file
 
-Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>`
-is specified using [`--data-base-path`](#data-base-path-data-path).
+```bash
+data-beacon-path: "/home/me/me_beaon"
+```
+
+<!--/tabs-->
+
+Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### `data-storage-archive-frequency`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity display-state --data-storage-archive-frequency=<NUMBER>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity display-state --data-storage-archive-frequency=<NUMBER>
+```
 
-    ```bash
-    teku admin weak-subjectivity display-state --data-storage-archive-frequency=1028
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity display-state --data-storage-archive-frequency=1028
+```
 
-    ```bash
-    TEKU_DATA_STORAGE_ARCHIVE_FREQUENCY=1028
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_DATA_STORAGE_ARCHIVE_FREQUENCY=1028
+```
 
-    ```bash
-    data-storage-archive-frequency: 1028
-    ```
+# Configuration file
+
+```bash
+data-storage-archive-frequency: 1028
+```
+
+<!--/tabs-->
 
 Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
 
-!!! note
-    Specifying a larger number of slots as the archive frequency has a potentially higher overhead
-    for retrieving finalized states since more states may need to be regenerated to get to the
-    requested state. Specifying a lower number of slots as the frequency increases the disk space
-    usage.
+:::note
 
-    For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest
-    response time for retrieving a finalized state since each slot state is saved, whereas
-    `--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the
-    state because every 2048th slot state is saved.
+Specifying a larger number of slots as the archive frequency has a potentially higher overhead for retrieving finalized states since more states may need to be regenerated to get to the requested state. Specifying a lower number of slots as the frequency increases the disk space usage.
+
+:::
+
+For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest response time for retrieving a finalized state since each slot state is saved, whereas `--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the state because every 2048th slot state is saved.
 
 #### `data-storage-mode`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity display-state --data-storage-mode=<STORAGE_MODE>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity display-state --data-storage-mode=<STORAGE_MODE>
+```
 
-    ```bash
-    teku admin weak-subjectivity display-state --data-storage-mode=archive
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity display-state --data-storage-mode=archive
+```
 
-    ```bash
-    TEKU_DATA_STORAGE_MODE=archive
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_DATA_STORAGE_MODE=archive
+```
 
-    ```bash
-    data-storage-mode: "archive"
-    ```
+# Configuration file
 
-Set the strategy for handling historical chain data. Valid options are `prune` and `archive`.
-The default is `prune`.
+```bash
+data-storage-mode: "archive"
+```
+
+<!--/tabs-->
+
+Set the strategy for handling historical chain data. Valid options are `prune` and `archive`. The default is `prune`.
 
 #### `data-validator-path`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity display-state --data-validator-path=<PATH>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity display-state --data-validator-path=<PATH>
+```
 
-    ```bash
-    teku admin weak-subjectivity display-state --data-validator-path=/home/me/me_validator
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity display-state --data-validator-path=/home/me/me_validator
+```
 
-    ```bash
-    TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
+```
 
-    ```bash
-    data-validator-path: "/home/me/me_validator"
-    ```
+# Configuration file
 
-Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>`
-is specified using [`--data-base-path`](#data-base-path-data-path).
+```bash
+data-validator-path: "/home/me/me_validator"
+```
+
+<!--/tabs-->
+
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 #### `eth1-deposit-contract-address`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity display-state --eth1-deposit-contract-address=<ADDRESS>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity display-state --eth1-deposit-contract-address=<ADDRESS>
+```
 
-    ```bash
-    teku admin weak-subjectivity display-state --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity display-state --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
+```
 
-    ```bash
-    TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
+```
 
-    ```bash
-    eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
-    ```
+# Configuration file
+
+```bash
+eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
+```
+
+<!--/tabs-->
 
 The address of the deposit contract. Only required when creating a custom network.
 
 #### `network`
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    teku admin weak-subjectivity display-state --network=<NETWORK>
-    ```
+# Syntax
 
-=== "Example"
+```bash
+teku admin weak-subjectivity display-state --network=<NETWORK>
+```
 
-    ```bash
-    teku admin weak-subjectivity display-state --network=mainnet
-    ```
+# Example
 
-=== "Environment variable"
+```bash
+teku admin weak-subjectivity display-state --network=mainnet
+```
 
-    ```bash
-    TEKU_NETWORK=mainnet
-    ```
+# Environment variable
 
-=== "Configuration file"
+```bash
+TEKU_NETWORK=mainnet
+```
 
-    ```bash
-    network: "mainnet"
-    ```
+# Configuration file
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL
-to a YAML configuration file. The default is `mainnet`.
+```bash
+network: "mainnet"
+```
+
+<!--/tabs-->
+
+Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. The default is `mainnet`.
 
 Possible values are:
 
-| Network   | Chain           | Type        | Description                                               |
-|-----------|-----------------|-------------|-----------------------------------------------------------|
-| `mainnet` | Consensus layer | Production  | Main network                                              |
-| `minimal` | Consensus layer | Test        | Used for local testing and development networks           |
-| `goerli`  | Consensus layer | Test        | Multi-client testnet                                      |
-| `gnosis`  | Consensus layer | Production  | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
-| `sepolia` | Consensus layer | Test        | Multi-client testnet                                      |
+| Network | Chain | Type | Description |
+| --- | --- | --- | --- |
+| `mainnet` | Consensus layer | Production | Main network |
+| `minimal` | Consensus layer | Test | Used for local testing and development networks |
+| `goerli` | Consensus layer | Test | Multi-client testnet |
+| `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
+| `sepolia` | Consensus layer | Test | Multi-client testnet |
 
-Predefined networks can provide defaults such the initial state of the network,
-bootnodes, and the address of the deposit contract.
+Predefined networks can provide defaults such the initial state of the network, bootnodes, and the address of the deposit contract.

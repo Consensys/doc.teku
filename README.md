@@ -1,21 +1,17 @@
----
-description: ConsenSys Teku documentation repository overview
----
-
 # ConsenSys Teku
 
- Latest: [![Documentation Status](https://readthedocs.com/projects/pegasys-teku/badge/?version=latest)](https://docs.teku.consensys.net/en/latest/?badge=latest)
- Stable: [![Documentation Status](https://readthedocs.com/projects/pegasys-teku/badge/?version=stable)](https://docs.teku.consensys.net/en/stable/?badge=stable)
+This documentation repo is built using [Docusaurus 2](https://docusaurus.io/).
 
-[Teku] is ConsenSys Ethereum 2.0 client.
+### Local Development
 
-The software sources are hosted in [`https://github.com/Consensys/teku`](https://github.com/Consensys/teku)
+    $ npm install
+    $ npm run prepare
+    $ npm start
 
-This repository only contains the sources for [Teku documentation website hosted by ReadTheDocs.com].
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-This repository uses a Git submodule. Please refer to the [common tools wiki] for explanation about
-how to build and contribute to this documentation.
+### Build
 
-[Teku]: https://github.com/Consensys/teku
-[common tools wiki]: https://github.com/Consensys/doc.common/wiki
-[Teku documentation website hosted by ReadTheDocs.com]: https://docs.teku.consensys.net/
+    $ npm run build
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.

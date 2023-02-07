@@ -1,5 +1,7 @@
 ---
+title: Install binary distribution
 description: Install Teku from binary distribution
+sidebar_position: 1
 ---
 
 # Install binary distribution
@@ -8,14 +10,17 @@ description: Install Teku from binary distribution
 
 ### Prerequisites
 
-* [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 
-!!! attention
+:::caution
 
-    Teku requires Java 11+ to compile; earlier versions are not supported.
+Teku requires Java 11+ to compile; earlier versions are not supported.
+
+:::
 
 <!-- markdown-link-check-disable-next-line -->
-* If using Windows, install the [Microsoft Visual C++ 2010 security update](https://www.microsoft.com/en-us/download/details.aspx?id=26999).
+
+- If using Windows, install the [Microsoft Visual C++ 2010 security update](https://www.microsoft.com/en-us/download/details.aspx?id=26999).
 
 ### Install from packaged binaries
 
@@ -25,30 +30,34 @@ Unpack the downloaded files and change into the `teku-<release>` directory.
 
 Display Teku command line help to confirm installation:
 
-=== "Linux/macOS"
+<!--tabs-->
 
-    ```bash
-    ./bin/teku --help
-    ```
+# Linux/macOS
 
-=== "Windows"
+```bash
+./bin/teku --help
+```
 
-    ```bat
-    bin\teku --help
-    ```
+# Windows
+
+```bat
+bin\teku --help
+```
+
+<!--/tabs-->
 
 ## macOS with Homebrew
 
 ### Prerequisites
 
-* [Homebrew](https://brew.sh/)
-* Java JDK.
+- [Homebrew](https://brew.sh/)
+- Java JDK.
 
-!!!important
+:::caution
 
-    Teku requires Java 11+ to run. Earlier versions are not supported. You can install Java
-    using `brew cask install adoptopenjdk`. Alternatively, you can manually install the 
-    [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html).
+Teku requires Java 11+ to run. Earlier versions are not supported. You can install Java using `brew cask install adoptopenjdk`. Alternatively, you can manually install the [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html).
+
+:::
 
 ### Install (or upgrade) using Homebrew
 
