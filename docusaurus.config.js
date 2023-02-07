@@ -38,34 +38,12 @@ const redocusaurus = [
   },
 ];
 
-// const docusaurusOpenApi = [
-//   "docusaurus-plugin-openapi-docs",
-//   {
-//     id: "openapi",
-//     docsPluginId: "classic", // e.g. "classic" or the plugin-content-docs id
-//     config: {
-//       teku: {
-//         specPath:
-//           "https://raw.githubusercontent.com/ConsenSys/teku/gh-pages/latest.json", // path or URL to the OpenAPI spec
-//         proxy: "https://cors.pan.dev",
-//         // "petstore" is considered the <id> that you will reference in the CLI
-//         outputDir: "docs/api-gen", // output directory for generated *.mdx and sidebar.js files
-//         template: "api.mustache", // Customize API MDX with mustache template
-//         sidebarOptions: {
-//           groupPathsBy: "tag",
-//           categoryLinkSource: "tag",
-//         },
-//       },
-//     },
-//   },
-// ];
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "ConsenSys Teku",
   tagline:
     "An open-source Ethereum consensus client written in Java that contains a full beacon node and a validator client for participating in proof of stake consensus",
-  url: "https://consensys.github.io",
+  url: "https://docs.teku.consensys.net",
   baseUrl,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
@@ -99,8 +77,6 @@ const config = {
           // @ts-ignore
           // eslint-disable-next-line global-require
           remarkPlugins: [require("remark-docusaurus-tabs")],
-          // docLayoutComponent: "@theme/DocPage",
-          // docItemComponent: "@theme/ApiItem",
           include: ["**/*.md", "**/*.mdx"],
           exclude: [
             "**/_*.{js,jsx,ts,tsx,md,mdx}",
@@ -108,7 +84,7 @@ const config = {
             "**/*.test.{js,jsx,ts,tsx}",
             "**/__tests__/**",
           ],
-          showLastUpdateAuthor: true,
+          showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           includeCurrentVersion: true,
         },
