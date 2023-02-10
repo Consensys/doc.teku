@@ -21,9 +21,9 @@ Doppelganger detection is an **early access** feature. This feature is imperfect
 
 ## Enable doppelganger detection
 
-Enable doppelganger detection by setting the `--Xdoppelganger-detection-enabled` option to `true`.
+Enable doppelganger detection by setting the `--doppelganger-detection-enabled` option to `true`.
 
-Your validator client must be connected to a beacon node with liveness tracking enabled. Enable liveness tracking by setting the `--Xbeacon-liveness-tracking-enabled` option to `true`.
+Your validator client must be connected to a beacon node with validators liveness tracking enabled. Enable validators liveness tracking by setting the `--Xbeacon-liveness-tracking-enabled` option to `true`.
 
 ## Side effects
 

@@ -322,6 +322,38 @@ data-validator-path: "/home/me/me_validator"
 
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
+### doppelganger-detection-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--doppelganger-detection-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--doppelganger-detection-enabled=true
+```
+
+# Environment variable
+
+```bash
+TEKU_DOPPELH_GANGER_DETECTION_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+doppelganger-detection-enabled: true
+```
+
+<!--/tabs-->
+
+Enables or Disables [Doppelganger Detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
+
 ### ee-endpoint
 
 <!--tabs-->
