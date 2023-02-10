@@ -352,7 +352,7 @@ doppelganger-detection-enabled: true
 
 <!--/tabs-->
 
-Enables or Disables [Doppelganger Detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
+Enables or disables [Doppelganger Detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
 
 ### ee-endpoint
 
