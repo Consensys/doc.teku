@@ -15,15 +15,18 @@ When enabled, doppelganger detection is triggered from two entry points:
 
 :::warning
 
-Doppelganger detection is an **early access** feature. This feature is imperfect and might fail to detect doppelgangers. Use this as a last resort option that might prevent validators from being slashed.
+Doppelganger detection is an early access feature. This feature is imperfect and might fail to detect doppelgangers. Use this as a last resort option that might prevent validators from being slashed.
 
 :::
 
 ## Enable doppelganger detection
 
-Enable doppelganger detection by setting the `--doppelganger-detection-enabled` option to `true`.
+Enable doppelganger detection by setting the
+[`--doppelganger-detection-enabled`](../Reference/CLI/CLI-Syntax.md#doppelganger-detection-enabled)
+option to `true`.
 
-Your validator client must be connected to a beacon node with validators liveness tracking enabled. Enable validators liveness tracking by setting the `--Xbeacon-liveness-tracking-enabled` option to `true`.
+Your validator client must be connected to a beacon node with validator liveness tracking enabled.
+Enable validator liveness tracking by setting the `--Xbeacon-liveness-tracking-enabled` option to `true`.
 
 ## Side effects
 

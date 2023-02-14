@@ -341,7 +341,7 @@ Path to the validator client data. The default is `<data-base-path>/validator` w
 # Environment variable
 
 ```bash
-TEKU_DOPPELH_GANGER_DETECTION_ENABLED=true
+TEKU_DOPPELGANGER_DETECTION_ENABLED=true
 ```
 
 # Configuration file
@@ -352,7 +352,7 @@ doppelganger-detection-enabled: true
 
 <!--/tabs-->
 
-Enables or disables [Doppelganger Detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
+Enables or disables [doppelganger detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
 
 ### ee-endpoint
 
