@@ -31,19 +31,14 @@ openssl rand -hex 32 | tr -d "\n" > jwtsecret.hex
 
 You will specify `jwtsecret.hex` when starting Teku and the execution client. This is a shared JWT secret the clients use to authenticate each other when using the [Engine API](https://github.com/ethereum/execution-apis/blob/v1.0.0-beta.1/src/engine/specification.md).
 
-## 2. Start the execution client
+## 2. Generate validator keys
 
-Refer to your execution client documentation to configure and start the execution client. Make sure you specify the shared secret generated in [step 1].
+If you're running a beacon node only, skip to the [next step](#3-start-the-execution-client).
 
-If you're using [Besu], you can follow the [Besu and Teku testnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-testnet/).
-
-Ensure your execution client is fully synced before submitting your staking deposit in the next step.
-
-## 3. Generate validator keys and stake ETH
-
-If you're running a beacon node only, skip to the [next step](#4-start-teku).
-
-If you're also running a validator client, create a test Ethereum address (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)). Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet. See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
+If you're also running a validator client, create a test Ethereum address
+(you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
+Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet.
+See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
 
 :::note
 
@@ -51,9 +46,10 @@ If you're unable to get ETH using the faucet, you can ask for help on the [EthSt
 
 :::
 
-Generate validator keys and stake your testnet ETH for one or more validators using the [Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/).
+Generate validator keys for one or more validators using the [Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/).
 
-Remember the passwords that you use to create the validator keys, because you need them to [create the validator password files](#create-a-password-file-for-each-validator-key).
+Remember the passwords that you use to create the validator keys, because you
+need them to [create the validator password files](#create-a-password-file-for-each-validator-key).
 
 ### Create a password file for each validator key
 
@@ -72,6 +68,12 @@ If the Launchpad creates a key named `keystore-m_12381_3600_0_0_0-1596485378.jso
 The password file format follows [`EIP-2335`](https://eips.ethereum.org/EIPS/eip-2335#password-requirements) requirements (UTF-8 encoded file, unicode normalization, and control code removal).
 
 :::
+
+## 3. Start the execution client
+
+Refer to your execution client documentation to configure and start the execution client. Make sure you specify the shared secret generated in [step 1].
+
+If you're using [Besu], you can follow the [Besu and Teku testnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-testnet/).
 
 ## 4. Start Teku
 
@@ -148,7 +150,7 @@ Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 1] using the [`--ee-jwt-secret-file`](../../../Reference/CLI/CLI-Syntax.md#ee-jwt-secret-file) option.
 - An Ethereum address you own as the default fee recipient using the [`--validators-proposer-default-fee-recipient`](../../../Reference/CLI/CLI-Syntax.md#validators-proposer-default-fee-recipient) option.
-- The paths to the keystore `.json` file and password `.txt` file created in [step 3](#create-a-password-file-for-each-validator-key) for each validator using the [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) option. Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas. Alternatively, specify paths to directories to load multiple keys and passwords from.
+- The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key) for each validator using the [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) option. Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas. Alternatively, specify paths to directories to load multiple keys and passwords from.
 
 You can modify the option values and add other [command line options](../../../Reference/CLI/CLI-Syntax.md) as needed.
 
@@ -178,7 +180,27 @@ Sepolia is a permissioned network and you can't run a validator client on it wit
 Specify:
 
 - The location of one or more beacon node API endpoints using the [`--beacon-node-api-endpoint`](../../../Reference/CLI/Subcommands/Validator-Client.md#beacon-node-api-endpoint-beacon-node-api-endpoints) option.
-- The paths to the keystore `.json` file and password `.txt` file created in [step 3](#create-a-password-file-for-each-validator-key) for each validator using the [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) option. Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas. Alternatively, specify paths to directories to load multiple keys and passwords from.
+- The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key) for each validator using the [`--validator-keys`](../../../Reference/CLI/CLI-Syntax.md#validator-keys) option. Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas. Alternatively, specify paths to directories to load multiple keys and passwords from.
+
+## 5. Wait for the clients to sync
+
+After starting the execution client and Teku, your node starts syncing and
+connecting to peers.
+
+If you're running Teku as a beacon node only, you're all set.
+If you're also running Teku as a validator client, ensure your clients are fully
+synced before submitting your staking deposit in the next step.
+Syncing the execution client can take several days.
+
+## 6. Stake ETH
+
+Stake your testnet ETH for one or more validators using the
+[Goerli Staking Launchpad](https://goerli.launchpad.ethereum.org/).
+
+You can check your validator status by searching your Ethereum address on the
+[Goerli Beacon Chain explorer](https://goerli.beaconcha.in/).
+It may take up to multiple days for your validator to be activated and start
+proposing blocks.
 
 <!-- links -->
 
