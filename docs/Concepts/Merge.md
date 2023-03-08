@@ -49,4 +49,4 @@ After The Merge, a Mainnet node operator must run both an execution client and a
 
 :::
 
-After The Merge, validators earn rewards for performing [validator duties](Proof-of-Stake.md), and [fee recipients](../HowTo/Prepare-for-The-Merge.md#configure-the-fee-recipient) earn rewards for the inclusion of execution layer transactions.
+After The Merge, validators earn rewards for performing [validator duties](Proof-of-Stake.md), and fee recipients earn rewards for the inclusion of execution layer transactions.

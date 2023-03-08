@@ -384,7 +384,7 @@ ee-jwt-secret-file: "ee-jwt-secret.hex"
 
 <!--/tabs-->
 
-Shared secret used to authenticate [execution clients](../../Concepts/Merge.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../HowTo/Prepare-for-The-Merge.md#3-configure-the-json-web-token).
+Shared secret used to authenticate [execution clients](../../Concepts/Merge.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../HowTo/Get-Started/Connect/Connect-To-Mainnet.md#1-generate-the-shared-secret).
 
 ### eth1-deposit-contract-address
 
@@ -495,7 +495,8 @@ If using a cloud-based service such as [Infura], then set the endpoint to the su
 
 :::caution
 
-After [The Merge](../../Concepts/Merge.md), you can't use `eth1-endpoint` to specify an external execution layer provider. This option will be replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node. You can [configure your execution client](../../HowTo/Prepare-for-The-Merge.md) before The Merge.
+After [The Merge](../../Concepts/Merge.md), you can't use `eth1-endpoint` to specify an external execution layer provider.
+This option is replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
 
 :::
 
