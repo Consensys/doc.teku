@@ -1,5 +1,5 @@
 ---
-title: Weab subjectivity
+title: Weak subjectivity
 description: Describe weak subjectivity
 sidebar_position: 7
 ---
