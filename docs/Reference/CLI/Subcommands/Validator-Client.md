@@ -598,12 +598,6 @@ Predefined network configuration. The default is `mainnet`.
 
 Use `auto` to fetch the network configuration from the beacon node endpoint directly.
 
-:::note
-
-Previous `--network` option values for `vc` have been deprecated in favor of `auto`.
-
-:::
-
 ## `validator-keys`
 
 <!--tabs-->
