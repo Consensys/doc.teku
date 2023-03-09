@@ -80,7 +80,7 @@ beacon-liveness-tracking-enabled: true
 
 <!--/tabs-->
 
-Enables or disables the live validators tracking. Used by the [doppelganger detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
+Enables or disables validator liveness tracking. Used by [doppelganger detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
 
 ### builder-endpoint
 
