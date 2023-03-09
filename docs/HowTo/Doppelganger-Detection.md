@@ -26,7 +26,7 @@ Enable doppelganger detection by setting the
 option to `true`.
 
 Your validator client must be connected to a beacon node with validator liveness tracking enabled.
-Enable validator liveness tracking by setting the `--Xbeacon-liveness-tracking-enabled` option to `true`.
+Enable validator liveness tracking by setting the `--beacon-liveness-tracking-enabled` option to `true`.
 
 ## Side effects
 

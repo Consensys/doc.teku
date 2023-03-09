@@ -50,6 +50,38 @@ teku --Tab+Tab
 
 ## Options
 
+### beacon-liveness-tracking-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--beacon-liveness-tracking-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--beacon-liveness-tracking-enabled=true
+```
+
+# Environment variable
+
+```bash
+TEKU_BEACON_LIVENESS_TRACKING_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+beacon-liveness-tracking-enabled: true
+```
+
+<!--/tabs-->
+
+Enables or disables the live validators tracking. Used by the [doppelganger detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
+
 ### builder-endpoint
 
 <!--tabs-->
