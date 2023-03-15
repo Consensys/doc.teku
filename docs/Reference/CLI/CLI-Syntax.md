@@ -50,6 +50,38 @@ teku --Tab+Tab
 
 ## Options
 
+### beacon-liveness-tracking-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--beacon-liveness-tracking-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--beacon-liveness-tracking-enabled=true
+```
+
+# Environment variable
+
+```bash
+TEKU_BEACON_LIVENESS_TRACKING_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+beacon-liveness-tracking-enabled: true
+```
+
+<!--/tabs-->
+
+Enables or disables validator liveness tracking. Used by [doppelganger detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
+
 ### builder-endpoint
 
 <!--tabs-->
@@ -321,6 +353,38 @@ data-validator-path: "/home/me/me_validator"
 <!--/tabs-->
 
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
+
+### doppelganger-detection-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--doppelganger-detection-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--doppelganger-detection-enabled=true
+```
+
+# Environment variable
+
+```bash
+TEKU_DOPPELGANGER_DETECTION_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+doppelganger-detection-enabled: true
+```
+
+<!--/tabs-->
+
+Enables or disables [doppelganger detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
 
 ### ee-endpoint
 
