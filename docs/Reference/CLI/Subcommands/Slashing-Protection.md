@@ -11,6 +11,12 @@ Manage the local [slashing protection data] used by the validator.
 
 Imports the slashing protection database using the [validator client interchange format].
 
+:::caution
+
+Before running the import, you must stop the validator and confirm the process has fully exited and won't be restarted.
+
+:::
+
 ### `config-file`
 
 <!--tabs-->
