@@ -5,8 +5,8 @@ sidebar_position: 6
 
 # `voluntary-exit`
 
-Create and sign a voluntary exit for the specified validator or set of validators.  
-The [voluntary-exit] subcommand can be run as a separate Teku process.
+Create and sign a [voluntary exit] for the specified validator or set of validators.  
+This subcommand can be run as a separate Teku process.
 
 :::caution
 
@@ -460,4 +460,4 @@ URL of the external signer (for example, [Web3Signer]).
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [REST API enabled]: ../../../Reference/CLI/CLI-Syntax.md#rest-api-enabled
-[voluntary-exit]: ../../../HowTo/Voluntary-Exit.md
+[voluntary exit]: ../../../HowTo/Voluntary-Exit.md
