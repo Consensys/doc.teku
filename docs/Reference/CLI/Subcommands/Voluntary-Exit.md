@@ -10,7 +10,7 @@ The [voluntary-exit] subcommand can be run as a separate Teku process.
 
 :::caution
 
-To voluntarily exit, you must have a running beacon node with the [REST API enabled].
+To submit a voluntary exit, you must have a running beacon node with the [REST API enabled].
 
 :::
 
