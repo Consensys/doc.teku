@@ -459,4 +459,4 @@ URL of the external signer (for example, [Web3Signer]).
 <!-- links -->
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
-[REST API enabled]: ../Reference/CLI/CLI-Syntax.md#rest-api-enabled
+[REST API enabled]: ../../../Reference/CLI/CLI-Syntax.md#rest-api-enabled
