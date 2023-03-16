@@ -5,7 +5,14 @@ sidebar_position: 6
 
 # `voluntary-exit`
 
-Create and sign a voluntary exit for the specified validator or set of validators.
+Create and sign a [voluntary exit] for the specified validator or set of validators.  
+This subcommand can be run as a separate Teku process.
+
+:::caution
+
+To submit a voluntary exit, you must have a running beacon node with the [REST API enabled].
+
+:::
 
 ## `beacon-node-api-endpoint`
 
@@ -452,3 +459,5 @@ URL of the external signer (for example, [Web3Signer]).
 <!-- links -->
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
+[REST API enabled]: ../../../Reference/CLI/CLI-Syntax.md#rest-api-enabled
+[voluntary exit]: ../../../HowTo/Voluntary-Exit.md

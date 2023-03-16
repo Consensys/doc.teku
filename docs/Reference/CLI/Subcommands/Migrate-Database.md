@@ -14,6 +14,12 @@ As of v21.5.0, new Teku installations use a LevelDB2 database. Previous Teku ver
 
 :::
 
+:::caution
+
+Before running the database migration, you must shut down the local Teku instance and confirm the process has fully exited and won't be restarted.
+
+:::
+
 ## `config-file`
 
 <!--tabs-->
