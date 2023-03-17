@@ -559,8 +559,7 @@ If using a cloud-based service such as [Infura], then set the endpoint to the su
 
 :::caution
 
-After [The Merge](../../Concepts/Merge.md), you can't use `eth1-endpoint` to specify an external execution layer provider.
-This option is replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
+After [The Merge](../../Concepts/Merge.md), you can't use `eth1-endpoint` to specify an external execution layer provider. This option is replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
 
 :::
 
@@ -1490,6 +1489,48 @@ p2p-discovery-enabled: false
 <!--/tabs-->
 
 Enables or disables P2P peer discovery. If disabled, [`p2p-static-peers`](#p2p-static-peers) defines the peer connections. The default is `true`.
+
+### p2p-discovery-site-local-addresses-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--p2p-discovery-site-local-addresses-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--p2p-discovery-site-local-addresses-enabled
+```
+
+# Environment variable
+
+```bash
+TEKU_P2P_DISCOVERY_SITE_LOCAL_ADDRESSES_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+p2p-discovery-site-local-addresses-enabled: true
+```
+
+<!--/tabs-->
+
+Enables or disables discovery of the following local network (RFC1918) addresses. The default is `false`.
+
+```text
+10.0.0.0    	-   10.255.255.255  (10/8 prefix)
+172.16.0.0  	-   172.31.255.255  (172.16/12 prefix)
+192.168.0.0 	-   192.168.255.255 (192.168/16 prefix)
+```
+
+Normal Teku operation shouldn't send traffic to these local network addresses.
+
+In test or private networks, operators might need to enable discovery of local addresses. For example, when you run multiple consensus layer nodes in one local network, these nodes are not discovered on the public internet and are advertised with local (RFC1918) addresses.
 
 ### p2p-discovery-bootnodes
 
