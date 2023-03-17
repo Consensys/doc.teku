@@ -1520,20 +1520,17 @@ p2p-discovery-site-local-addresses-enabled: true
 
 <!--/tabs-->
 
-Whether discovery accepts messages and peer records with site local (RFC1918) addresses. Default is `false`.
+Enables or disables discovery of the following local network (RFC1918) addresses. The default is `false`.
 
-Normal Teku operation should not send traffic to local networks (RFC1918) addresses:
-
-```
-   The Internet Assigned Numbers Authority (IANA) has reserved the
-   following three blocks of the IP address space for private internets:
-
- 	10.0.0.0    	-   10.255.255.255  (10/8 prefix)
- 	172.16.0.0  	-   172.31.255.255  (172.16/12 prefix)
- 	192.168.0.0 	-   192.168.255.255 (192.168/16 prefix)
+```text
+10.0.0.0    	-   10.255.255.255  (10/8 prefix)
+172.16.0.0  	-   172.31.255.255  (172.16/12 prefix)
+192.168.0.0 	-   192.168.255.255 (192.168/16 prefix)
 ```
 
-For some reasons operators may need to enable discovery of local addresses, for example when you run multiple consensus layer nodes in one local network, these nodes are not discovered in public Internet and are advertised with local (RFC1918) IPs. Such configurations are usual for test or private networks. When running in such configuration this flag should be toggled (set to true).
+Normal Teku operation shouldn't send traffic to these local network addresses.
+
+In test or private networks, operators might need to enable discovery of local addresses. For example, when you run multiple consensus layer nodes in one local network, these nodes are not discovered on the public internet and are advertised with local (RFC1918) addresses.
 
 ### p2p-discovery-bootnodes
 
