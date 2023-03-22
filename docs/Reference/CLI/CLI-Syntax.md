@@ -82,38 +82,6 @@ beacon-liveness-tracking-enabled: true
 
 Enables or disables validator liveness tracking. Used by [doppelganger detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
 
-### builder-endpoint
-
-<!--tabs-->
-
-# Syntax
-
-```bash
---builder-endpoint=<URL>
-```
-
-# Example
-
-```bash
---builder-endpoint=http://127.0.0.1:18550
-```
-
-# Environment variable
-
-```bash
-TEKU_BUILDER_ENDPOINT=http://127.0.0.1:18550
-```
-
-# Configuration file
-
-```bash
-builder-endpoint: "http://127.0.0.1:18550"
-```
-
-<!--/tabs-->
-
-Specifies the address for an external [builder endpoint](../../HowTo/Configure/Builder-Network.md).
-
 ### builder-bid-compare-factor
 
 <!--tabs-->
@@ -144,13 +112,45 @@ builder-bid-compare-factor: 50
 
 <!--/tabs-->
 
-Changes validator's builder bid compare factor. The default value is 100 (100%).
+The validator's builder bid compare factor. The default is 100 (100%).
 
-Execution layer clients in Capella-enabled networks along with execution payload provide its value, so beacon node could compare it against the builder bid in order to maximize validators profit or decrease network censorship at low or no cost.
+Execution layer clients in [Capella-enabled networks](https://notes.ethereum.org/@launchpad/withdrawals-faq#Q-What-is-ShanghaiCapella) provide the execution payload and the payload value. The beacon node compares this value against the builder bid to maximize the validator's profit or decrease network censorship at a low or no cost.
 
-This option allows to set the compare factor applied to the builder bid value when comparing it with locally produced payload. Factor is expressed in percentage (e.g. `100` means locally produced payload will be chosen when its value is equal or greater than the entire builder bid value, `80` means local payload will be chosen when its value is at least 80% of builder bid value).
+Use this option to set the compare factor applied to the builder bid value when comparing it to the locally produced payload. The factor is expressed in a percentage. For example, a builder bid compare factor of `80` means the local payload is chosen when its value is at least 80% of the builder bid value.
 
-Set it to `BUILDER_ALWAYS` to always use builder bid. In this configuration locally produced payload will be used only when the bid is invalid.
+Set this option to `BUILDER_ALWAYS` to always use the builder bid, unless the bid is invalid.
+
+### builder-endpoint
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--builder-endpoint=<URL>
+```
+
+# Example
+
+```bash
+--builder-endpoint=http://127.0.0.1:18550
+```
+
+# Environment variable
+
+```bash
+TEKU_BUILDER_ENDPOINT=http://127.0.0.1:18550
+```
+
+# Configuration file
+
+```bash
+builder-endpoint: "http://127.0.0.1:18550"
+```
+
+<!--/tabs-->
+
+The address for an external [builder endpoint](../../HowTo/Configure/Builder-Network.md).
 
 ### config-file
 
