@@ -114,6 +114,44 @@ builder-endpoint: "http://127.0.0.1:18550"
 
 Specifies the address for an external [builder endpoint](../../HowTo/Configure/Builder-Network.md).
 
+### builder-bid-compare-factor
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--builder-bid-compare-factor=<STRING>
+```
+
+# Example
+
+```bash
+--builder-bid-compare-factor=50
+```
+
+# Environment variable
+
+```bash
+TEKU_BUILDER_BID_COMPARE_FACTOR=50
+```
+
+# Configuration file
+
+```bash
+builder-bid-compare-factor: 50
+```
+
+<!--/tabs-->
+
+Changes validator's builder bid compare factor. The default value is 100 (100%).
+
+Execution layer clients in Capella-enabled networks along with execution payload provide its value, so beacon node could compare it against the builder bid in order to maximize validators profit or decrease network censorship at low or no cost.
+
+This option allows to set the compare factor applied to the builder bid value when comparing it with locally produced payload. Factor is expressed in percentage (e.g. `100` means locally produced payload will be chosen when its value is equal or greater than the entire builder bid value, `80` means local payload will be chosen when its value is at least 80% of builder bid value).
+
+Set it to `BUILDER_ALWAYS` to always use builder bid. In this configuration locally produced payload will be used only when the bid is invalid.
+
 ### config-file
 
 <!--tabs-->
