@@ -82,6 +82,44 @@ beacon-liveness-tracking-enabled: true
 
 Enables or disables validator liveness tracking. Used by [doppelganger detection](../../HowTo/Doppelganger-Detection.md). The default is `false`.
 
+### builder-bid-compare-factor
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--builder-bid-compare-factor=<STRING>
+```
+
+# Example
+
+```bash
+--builder-bid-compare-factor=50
+```
+
+# Environment variable
+
+```bash
+TEKU_BUILDER_BID_COMPARE_FACTOR=50
+```
+
+# Configuration file
+
+```bash
+builder-bid-compare-factor: 50
+```
+
+<!--/tabs-->
+
+The builder bid compare factor. The default is 100 (100%).
+
+Execution layer clients in [Capella-enabled networks](https://notes.ethereum.org/@launchpad/withdrawals-faq#Q-What-is-ShanghaiCapella) provide the execution payload and the payload value. The beacon node compares this value against the builder bid to maximize the validator's profit or decrease network censorship at a low or no cost.
+
+Use this option to set the compare factor applied to the builder bid value when comparing it to the locally produced payload. The factor is expressed in a percentage. For example, a builder bid compare factor of `80` means the local payload is chosen when its value is at least 80% of the builder bid value.
+
+Set this option to `BUILDER_ALWAYS` to always use the builder bid, unless the bid is invalid.
+
 ### builder-endpoint
 
 <!--tabs-->
@@ -112,7 +150,7 @@ builder-endpoint: "http://127.0.0.1:18550"
 
 <!--/tabs-->
 
-Specifies the address for an external [builder endpoint](../../HowTo/Configure/Builder-Network.md).
+The address for an external [builder endpoint](../../HowTo/Configure/Builder-Network.md).
 
 ### config-file
 
