@@ -112,7 +112,7 @@ builder-bid-compare-factor: 50
 
 <!--/tabs-->
 
-The validator's builder bid compare factor. The default is 100 (100%).
+The builder bid compare factor. The default is 100 (100%).
 
 Execution layer clients in [Capella-enabled networks](https://notes.ethereum.org/@launchpad/withdrawals-faq#Q-What-is-ShanghaiCapella) provide the execution payload and the payload value. The beacon node compares this value against the builder bid to maximize the validator's profit or decrease network censorship at a low or no cost.
 
