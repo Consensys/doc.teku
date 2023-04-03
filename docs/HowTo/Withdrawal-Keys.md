@@ -63,7 +63,7 @@ keys in the same location.
 
 Teku doesn't offer functionality to create a signed withdrawal credential change.
 Tools such as
-[`ethdo`](https://github.com/wealdtech/ethdo/blob/master/docs/changingwithdrawalcredentials.md)
+[`staking-deposit-cli`](https://github.com/ethereum/staking-deposit-cli#generate-bls-to-execution-change-arguments)
 allow you to generate this signed message, which can be submitted directly to
 your beacon node if your REST API is active.
 
@@ -77,9 +77,7 @@ You must have the BLS withdrawal address private key, or the seed phrase
 withdrawal key.
 
 Tools such as
-[ethdo](https://github.com/wealdtech/ethdo/blob/master/docs/changingwithdrawalcredentials.md)
-can sign the request correctly, and the signed data can be submitted directly,
-or using your own beacon node.
+[`staking-deposit-cli`](https://github.com/ethereum/staking-deposit-cli#generate-bls-to-execution-change-arguments) or [`ethdo`](https://github.com/wealdtech/ethdo/blob/master/docs/changingwithdrawalcredentials.md) can sign the request correctly. You can then submit the signed withdrawal credential change to your own beacon node using the [`bls_to_execution_changes`](https://consensys.github.io/teku/#tag/Beacon/operation/postBlsToExecutionChange) API, or broadcast it using [`beaconcha.in`](https://beaconcha.in/tools/broadcast).
 
 :::caution Important information about changing withdrawal credentials
 
