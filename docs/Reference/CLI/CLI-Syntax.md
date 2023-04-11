@@ -601,6 +601,38 @@ After [The Merge](../../Concepts/Merge.md), you can't use `eth1-endpoint` to spe
 
 :::
 
+### exchange-capabilities-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--exchange-capabilities-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--exchange-capabilities-enabled=true
+```
+
+# Environment variable
+
+```bash
+TEKU_EXCHANGE_CAPABILITIES_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+exchange-capabilities-enabled: true
+```
+
+<!--/tabs-->
+
+Enables or disables Engine API method negotiation. Using this option simplifies the process of upgrading nodes, allowing the beacon node to know what Engine API methods the [execution client](../../Concepts/Merge.md#execution-clients) supports. The default is `true`.
+
 ### genesis-state
 
 <!--tabs-->
