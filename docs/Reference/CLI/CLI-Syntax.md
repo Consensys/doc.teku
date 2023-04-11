@@ -631,7 +631,7 @@ exchange-capabilities-enabled: true
 
 <!--/tabs-->
 
-Enables or disables Engine API methods negotiation. Using this option simplifies the process of upgrading nodes, allowing the beacon node to know what Engine API methods the [execution client](../../Concepts/Merge.md#execution-clients) supports. The default is `true`.
+Enables or disables Engine API method negotiation. Using this option simplifies the process of upgrading nodes, allowing the beacon node to know what Engine API methods the [execution client](../../Concepts/Merge.md#execution-clients) supports. The default is `true`.
 
 ### genesis-state
 
