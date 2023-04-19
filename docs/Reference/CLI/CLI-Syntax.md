@@ -631,11 +631,13 @@ deposit-snapshot-enabled: false
 
 <!--/tabs-->
 
-Use bundled deposit contract tree snapshot and persist tree after finalization. Enabled by default.
+Enables or disables using a bundled deposit contract tree snapshot and persisting the tree after finalization. The default is `true`.
 
-Currently at sync Teku requests all deposit logs from the execution layer up to the head. Next, at each startup Teku loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consumes peer resources and delays node availability on restart. This feature dramatically decreases the time of both operations by bundling deposit tree snapshots in Teku distribution for all major networks including testnets (Mainnet, Gnosis, Goerli, Sepolia) and persisting current tree after finalization. Instead of replaying thousands of deposits on startup, Teku will load bundled tree or a saved one, whichever is the latest.
+Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both operations by bundling deposit tree snapshots in the Teku distribution for all major networks (Mainnet, Gnosis, Goerli, and Sepolia) and persisting the current tree after finalization. Instead of replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one, whichever is the latest.
 
-When adding this feature, we did some security considerations. If a malicious agent changes bundled tree, Teku will throw `InvalidDepositEventsException` on the next deposit received from Execution Layer and will be unable to follow up the chain, so you will not be able to propose with incorrect deposit tree snapshot. Overall, it means network couldn't be attacked with malicious bundle, the consequences will be inability to propose like with any other serious bug in proposal flow.
+:::info Security considerations
+If an attacker changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received from the execution layer. The attacker can't follow up the chain, and so can't propose with an incorrect deposit tree snapshot.
+:::
 
 ### exchange-capabilities-enabled
 
