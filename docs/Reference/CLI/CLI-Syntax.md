@@ -636,7 +636,7 @@ Enables or disables using a bundled deposit contract tree snapshot and persistin
 Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both operations by bundling deposit tree snapshots in the Teku distribution for all major networks (Mainnet, Gnosis, Goerli, and Sepolia) and persisting the current tree after finalization. Instead of replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one, whichever is the latest.
 
 :::info Security considerations
-If an attacker changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received from the execution layer. The attacker can't follow up the chain, and so can't propose with an incorrect deposit tree snapshot.
+If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect deposit tree snapshot.
 :::
 
 ### exchange-capabilities-enabled
