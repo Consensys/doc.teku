@@ -601,3 +601,4 @@ SIGHUP
 LIBP
 libp
 ethdo
+beaconcha.in
