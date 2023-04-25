@@ -601,6 +601,44 @@ After [The Merge](../../Concepts/Merge.md), you can't use `eth1-endpoint` to spe
 
 :::
 
+### deposit-snapshot-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--deposit-snapshot-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--deposit-snapshot-enabled=false
+```
+
+# Environment variable
+
+```bash
+TEKU_DEPOSIT_SNAPSHOT_ENABLED=false
+```
+
+# Configuration file
+
+```bash
+deposit-snapshot-enabled: false
+```
+
+<!--/tabs-->
+
+Enables or disables using a bundled deposit contract tree snapshot and persisting the tree after finalization. The default is `true`.
+
+Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both operations by bundling deposit tree snapshots in the Teku distribution for all major networks (Mainnet, Gnosis, Goerli, and Sepolia) and persisting the current tree after finalization. Instead of replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one, whichever is the latest.
+
+:::info Security considerations
+If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect deposit tree snapshot.
+:::
+
 ### exchange-capabilities-enabled
 
 <!--tabs-->
