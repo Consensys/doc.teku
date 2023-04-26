@@ -55,7 +55,7 @@ bin\teku --help
 
 :::caution
 
-Teku requires Java 11+ to run. Earlier versions are not supported. You can install Java using `brew cask install adoptopenjdk`. Alternatively, you can manually install the [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html).
+Teku requires Java 11+ to run. Earlier versions are not supported. You can install Java using `brew install temurin`. Alternatively, you can manually install the [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html).
 
 :::
 
