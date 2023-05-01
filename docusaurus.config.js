@@ -42,7 +42,7 @@ const redocusaurus = [
 const config = {
   title: "ConsenSys Teku",
   tagline:
-    "An open-source Ethereum consensus client written in Java that contains a full beacon node and a validator client for participating in proof of stake consensus",
+    "Welcome to the ConsenSys Teku developer documentation. Teku is an open-source Ethereum consensus client containing a full beacon node and validator client implementation.",
   url: "https://docs.teku.consensys.net",
   baseUrl,
   onBrokenLinks: "throw",
@@ -201,24 +201,33 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Get Started",
+                label: "Introduction",
+                to: "introduction",
+              },
+              {
+                label: "Get started",
                 to: "/category/get-started",
               },
               {
-                label: "Concepts",
-                to: "/category/concepts",
+                label: "How to guides",
+                to: "/category/how-to",
               },
               {
                 label: "Tutorials",
                 to: "/category/tutorials",
               },
+            ],
+          },
+          {
+            title: "Reference",
+            items: [
               {
-                label: "Reference",
-                to: "/Reference/CLI/CLI-Syntax",
+                label: "Command line",
+                to: "reference/cli",
               },
               {
                 label: "REST API",
-                to: "/api",
+                to: "/reference/rest",
               },
             ],
           },
@@ -226,30 +235,21 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Discord",
+                label: "ConsenSys Discord",
                 href: "https://discord.gg/ChtFaC4",
               },
               {
-                label: "Issues",
-                href: "https://github.com/ConsenSys/teku/issues",
+                label: "Teku GitHub",
+                href: "https://github.com/ConsenSys/teku",
               },
-            ],
-          },
-          {
-            title: "More",
-            items: [
               {
-                label: "Documentation on GitHub",
+                label: "Teku documentation GitHub",
                 href: "https://github.com/ConsenSys/doc.teku",
-              },
-              {
-                label: "ConsenSys",
-                href: "https://consensys.net",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} ConsenSys, Inc. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} ConsenSys, Inc.`,
       },
       prism: {
         theme: lightCodeTheme,
