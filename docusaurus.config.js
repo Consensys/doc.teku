@@ -404,9 +404,7 @@ const config = {
         createRedirects(existingPath) {
           if (existingPath.includes("/how-to")) {
             // Redirect from /HowTo/X to /how-to/X
-            return [
-              existingPath.replace("/how-to", "/HowTo"),
-            ];
+            return [existingPath.replace("/how-to", "/HowTo")];
           }
           return undefined; // Return a falsy value: no redirect created
         },

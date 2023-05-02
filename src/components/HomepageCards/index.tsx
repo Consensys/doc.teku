@@ -22,6 +22,7 @@ const CardList: CardItem[] = [
   {
     title: "🏁 Get started",
     link: "/category/get-started",
+    // prettier-ignore
     description: (
       <>
         Get started with Teku using one of several installation options.
@@ -33,6 +34,7 @@ const CardList: CardItem[] = [
   {
     title: "💭 Learn",
     link: "/category/concepts",
+    // prettier-ignore
     description: (
       <>
         Learn about Teku concepts such as proof of stake and weak subjectivity.
@@ -44,6 +46,7 @@ const CardList: CardItem[] = [
   {
     title: "👨‍💻 Reference",
     link: "/reference/cli",
+    // prettier-ignore
     description: (
       <>
         See Teku command line options and REST API methods.
