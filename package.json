@@ -23,7 +23,6 @@
     "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky install"
   },
   "lint-staged": {
-    "src/**/*.{ts,js,jsx,tsx}": "npm run lint:fix",
     "**/*.{ts,tsx}": "npm run typecheck-staged",
     "**/*.css": "npm run lint:style",
     "**/*.{md,mdx}": "npm run lint:spelling",
