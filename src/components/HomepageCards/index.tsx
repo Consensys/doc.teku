@@ -86,7 +86,7 @@ export default function HomepageCards(): JSX.Element {
   return (
     <section className={clsx("margin-top--lg", "margin-bottom--lg")}>
       <div className="container">
-        <h1 align="center">Quick links</h1>
+        <h1>Quick links</h1>
         <hr />
         <div className="row">
           {CardList.map((props, idx) => (

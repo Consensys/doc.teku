@@ -294,7 +294,7 @@ const config = {
       },
     ],
     [
-      '@docusaurus/plugin-client-redirects',
+      "@docusaurus/plugin-client-redirects",
       {
         redirects: [
           {
@@ -386,7 +386,10 @@ const config = {
             to: "/how-to/use-sentry-nodes",
           },
           {
-            from: ["/category/troubleshoot", "/HowTo/Troubleshoot/Troubleshooting"],
+            from: [
+              "/category/troubleshoot",
+              "/HowTo/Troubleshoot/Troubleshooting",
+            ],
             to: "/how-to/troubleshoot",
           },
           {
@@ -399,10 +402,10 @@ const config = {
           },
         ],
         createRedirects(existingPath) {
-          if (existingPath.includes('/how-to')) {
+          if (existingPath.includes("/how-to")) {
             // Redirect from /HowTo/X to /how-to/X
             return [
-              existingPath.replace('/how-to', '/HowTo'),
+              existingPath.replace("/how-to", "/HowTo"),
             ];
           }
           return undefined; // Return a falsy value: no redirect created
