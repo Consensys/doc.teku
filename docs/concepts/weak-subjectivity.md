@@ -31,4 +31,6 @@ Use the [`/eth/v2/debug/beacon/states/<state_id>`](https://consensys.github.io/t
 
 :::
 
-Another option is to utilize the [Reconstruct Historical States Service](../how-to/reconstruct-historical-states.md). This allows the creation of a full archive node, ensuring that once the node is up to date, the concerns associated with weak subjectivity are cleared.
+Another option is to [reconstruct historical states](../how-to/reconstruct-historical-states.md).
+This allows the creation of a full archive node, ensuring that once the node is
+up-to-date, the concerns associated with weak subjectivity are cleared.

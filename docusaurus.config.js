@@ -293,6 +293,122 @@ const config = {
         containerId: "GTM-W4K2Z88",
       },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: "/HowTo/Get-Started/Installation-Options/Install-Binaries",
+            to: "/get-started/install/install-binaries",
+          },
+          {
+            from: "/HowTo/Get-Started/Installation-Options/Build-From-Source",
+            to: "/get-started/install/build-from-source",
+          },
+          {
+            from: "/HowTo/Get-Started/Installation-Options/Run-Docker-Image",
+            to: "/get-started/install/run-docker-image",
+          },
+          {
+            from: "/HowTo/Get-Started/Run-Teku",
+            to: "/get-started/start-teku",
+          },
+          {
+            from: "/HowTo/Get-Started/Connect/Connect-To-Mainnet",
+            to: "/get-started/connect/mainnet",
+          },
+          {
+            from: "/HowTo/Get-Started/Connect/Connect-To-Testnet",
+            to: "/get-started/connect/testnet",
+          },
+          {
+            from: "/HowTo/Get-Started/Checkpoint-Start",
+            to: "/get-started/checkpoint-start",
+          },
+          {
+            from: "/HowTo/Get-Started/Manage-Memory",
+            to: "/get-started/manage-memory",
+          },
+          {
+            from: "/HowTo/Get-Started/Migrate-to-Teku",
+            to: "/get-started/migrate-to-teku",
+          },
+          {
+            from: "/category/external-signing",
+            to: "/category/use-an-external-signer",
+          },
+          {
+            from: "/HowTo/External-Signer/Use-External-Signer",
+            to: "/how-to/use-external-signer/use-web3signer",
+          },
+          {
+            from: "/HowTo/External-Signer/Manage-keys",
+            to: "/how-to/use-external-signer/manage-keys",
+          },
+          {
+            from: "/HowTo/Load-Validators-No-Restart",
+            to: "/how-to/load-validators-without-restarting",
+          },
+          {
+            from: "/HowTo/Monitor/Metrics",
+            to: "/how-to/monitor/use-metrics",
+          },
+          {
+            from: "/HowTo/Monitor/Logging",
+            to: "/how-to/monitor/configure-logging",
+          },
+          {
+            from: "/HowTo/Configure/Use-Configuration-File",
+            to: "/how-to/configure/use-config-file",
+          },
+          {
+            from: "/HowTo/Configure/Proposer-Configuration",
+            to: "/how-to/configure/use-proposer-config-file",
+          },
+          {
+            from: "/HowTo/Configure/Configure-TLS",
+            to: "/how-to/configure/tls",
+          },
+          {
+            from: "/HowTo/Find-and-Connect/Specifying-NAT",
+            to: "/how-to/find-and-connect/specify-nat",
+          },
+          {
+            from: "/HowTo/Voluntary-Exit",
+            to: "/how-to/voluntarily-exit",
+          },
+          {
+            from: "/HowTo/Reconstruct-Historical-States-Service",
+            to: "/how-to/reconstruct-historical-states",
+          },
+          {
+            from: "/HowTo/Sentry-Nodes",
+            to: "/how-to/use-sentry-nodes",
+          },
+          {
+            from: ["/category/troubleshoot", "/HowTo/Troubleshoot/Troubleshooting"],
+            to: "/how-to/troubleshoot",
+          },
+          {
+            from: "/HowTo/Withdrawal-Keys",
+            to: "/how-to/update-withdrawal-keys",
+          },
+          {
+            from: "/Concepts/ArchitectureOverview",
+            to: "/concepts/architecture",
+          },
+        ],
+        createRedirects(existingPath) {
+          if (existingPath.includes('/how-to')) {
+            // Redirect from /HowTo/X to /how-to/X
+            return [
+              existingPath.replace('/how-to', '/HowTo'),
+            ];
+          }
+          return undefined; // Return a falsy value: no redirect created
+        },
+      },
+    ],
   ],
   themes: [],
 };

@@ -1,7 +1,7 @@
 ---
 title: Reconstruct historical states
 description: Reconstruct historical states on an archive node.
-sidebar_position: 12
+sidebar_position: 11
 ---
 
 # Reconstruct historical states

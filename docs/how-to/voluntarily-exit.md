@@ -1,7 +1,7 @@
 ---
 title: Voluntarily exit
 description: Voluntarily exit a validator from the Beacon Chain.
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 # Voluntarily exit a validator

@@ -1,7 +1,7 @@
 ---
 title: Use sentry beacon nodes
 description: Mitigate DoS attacks by using sentry nodes.
-sidebar_position: 13
+sidebar_position: 9
 ---
 
 # Use sentry beacon nodes

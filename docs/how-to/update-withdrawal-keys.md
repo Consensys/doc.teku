@@ -1,7 +1,7 @@
 ---
 title: Update your withdrawal credentials
 description: Update your BLS withdrawal address to an Ethereum address.
-sidebar_position: 14
+sidebar_position: 12
 ---
 
 # Update your withdrawal credentials

@@ -1,7 +1,7 @@
 ---
 title: Migrate the database
 description: Migrate a RocksDB database to a LevelDB2 database.
-sidebar_position: 10
+sidebar_position: 12
 ---
 
 # Migrate the database

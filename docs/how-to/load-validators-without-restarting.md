@@ -1,7 +1,7 @@
 ---
 title: Load validators without restarting
 description: Load validators without restarting Teku.
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 # Load validators without restarting Teku
