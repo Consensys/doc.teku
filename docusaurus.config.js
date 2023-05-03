@@ -40,9 +40,9 @@ const redocusaurus = [
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "ConsenSys Teku",
+  title: "Teku",
   tagline:
-    "Welcome to the ConsenSys Teku developer documentation. Teku is an open-source Ethereum consensus client containing a full beacon node and validator client implementation.",
+    "Welcome to the Teku developer documentation. Teku is an open-source Ethereum consensus client containing a full beacon node and validator client implementation.",
   url: "https://docs.teku.consensys.net",
   baseUrl,
   onBrokenLinks: "throw",
