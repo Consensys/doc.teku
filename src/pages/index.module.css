@@ -36,14 +36,13 @@ html[data-theme="dark"] .forceColor {
 }
 
 .title {
-  font-size: clamp(1.5rem, 5vw, 6rem);
+  font-size: clamp(1.5rem, 2.5vw, 4rem);
 }
 
 .subtitle {
-  border-left: var(--ifm-blockquote-border-left-width) solid rgba(237 119 79);
   box-shadow: var(--ifm-blockquote-shadow);
   margin: 0 0 var(--ifm-spacing-vertical);
   padding: var(--ifm-blockquote-padding-vertical)
     var(--ifm-blockquote-padding-horizontal);
-  font-size: clamp(0.8rem, 1vw, 1.2rem);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
 }

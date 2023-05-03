@@ -21,7 +21,8 @@ function HomepageHeader() {
             styles.forceColor,
             styles.subtitle,
           )}>
-          {siteConfig.tagline}
+          Teku is an open-source Ethereum consensus client containing a full
+          beacon node and validator client implementation.
         </p>
         <div className={styles.buttons}>
           <Link
