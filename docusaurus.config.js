@@ -40,9 +40,7 @@ const redocusaurus = [
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "ConsenSys Teku",
-  tagline:
-    "An open-source Ethereum consensus client written in Java that contains a full beacon node and a validator client for participating in proof of stake consensus",
+  title: "Teku documentation",
   url: "https://docs.teku.consensys.net",
   baseUrl,
   onBrokenLinks: "throw",
@@ -201,24 +199,33 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Get Started",
+                label: "Introduction",
+                to: "introduction",
+              },
+              {
+                label: "Get started",
                 to: "/category/get-started",
               },
               {
-                label: "Concepts",
-                to: "/category/concepts",
+                label: "How to guides",
+                to: "/category/how-to",
               },
               {
                 label: "Tutorials",
                 to: "/category/tutorials",
               },
+            ],
+          },
+          {
+            title: "Reference",
+            items: [
               {
-                label: "Reference",
-                to: "/Reference/CLI/CLI-Syntax",
+                label: "Command line",
+                to: "reference/cli",
               },
               {
                 label: "REST API",
-                to: "/api",
+                to: "/reference/rest",
               },
             ],
           },
@@ -226,30 +233,21 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Discord",
+                label: "ConsenSys Discord",
                 href: "https://discord.gg/ChtFaC4",
               },
               {
-                label: "Issues",
-                href: "https://github.com/ConsenSys/teku/issues",
+                label: "Teku GitHub",
+                href: "https://github.com/ConsenSys/teku",
               },
-            ],
-          },
-          {
-            title: "More",
-            items: [
               {
-                label: "Documentation on GitHub",
+                label: "Teku documentation GitHub",
                 href: "https://github.com/ConsenSys/doc.teku",
-              },
-              {
-                label: "ConsenSys",
-                href: "https://consensys.net",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} ConsenSys, Inc. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} ConsenSys, Inc.`,
       },
       prism: {
         theme: lightCodeTheme,
@@ -291,6 +289,123 @@ const config = {
       "@docusaurus/plugin-google-tag-manager",
       {
         containerId: "GTM-W4K2Z88",
+      },
+    ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            from: "/HowTo/Get-Started/Installation-Options/Install-Binaries",
+            to: "/get-started/install/install-binaries",
+          },
+          {
+            from: "/HowTo/Get-Started/Installation-Options/Build-From-Source",
+            to: "/get-started/install/build-from-source",
+          },
+          {
+            from: "/HowTo/Get-Started/Installation-Options/Run-Docker-Image",
+            to: "/get-started/install/run-docker-image",
+          },
+          {
+            from: "/HowTo/Get-Started/Run-Teku",
+            to: "/get-started/start-teku",
+          },
+          {
+            from: "/HowTo/Get-Started/Connect/Connect-To-Mainnet",
+            to: "/get-started/connect/mainnet",
+          },
+          {
+            from: "/HowTo/Get-Started/Connect/Connect-To-Testnet",
+            to: "/get-started/connect/testnet",
+          },
+          {
+            from: "/HowTo/Get-Started/Checkpoint-Start",
+            to: "/get-started/checkpoint-start",
+          },
+          {
+            from: "/HowTo/Get-Started/Manage-Memory",
+            to: "/get-started/manage-memory",
+          },
+          {
+            from: "/HowTo/Get-Started/Migrate-to-Teku",
+            to: "/get-started/migrate-to-teku",
+          },
+          {
+            from: "/category/external-signing",
+            to: "/category/use-an-external-signer",
+          },
+          {
+            from: "/HowTo/External-Signer/Use-External-Signer",
+            to: "/how-to/use-external-signer/use-web3signer",
+          },
+          {
+            from: "/HowTo/External-Signer/Manage-keys",
+            to: "/how-to/use-external-signer/manage-keys",
+          },
+          {
+            from: "/HowTo/Load-Validators-No-Restart",
+            to: "/how-to/load-validators-without-restarting",
+          },
+          {
+            from: "/HowTo/Monitor/Metrics",
+            to: "/how-to/monitor/use-metrics",
+          },
+          {
+            from: "/HowTo/Monitor/Logging",
+            to: "/how-to/monitor/configure-logging",
+          },
+          {
+            from: "/HowTo/Configure/Use-Configuration-File",
+            to: "/how-to/configure/use-config-file",
+          },
+          {
+            from: "/HowTo/Configure/Proposer-Configuration",
+            to: "/how-to/configure/use-proposer-config-file",
+          },
+          {
+            from: "/HowTo/Configure/Configure-TLS",
+            to: "/how-to/configure/tls",
+          },
+          {
+            from: "/HowTo/Find-and-Connect/Specifying-NAT",
+            to: "/how-to/find-and-connect/specify-nat",
+          },
+          {
+            from: "/HowTo/Voluntary-Exit",
+            to: "/how-to/voluntarily-exit",
+          },
+          {
+            from: "/HowTo/Reconstruct-Historical-States-Service",
+            to: "/how-to/reconstruct-historical-states",
+          },
+          {
+            from: "/HowTo/Sentry-Nodes",
+            to: "/how-to/use-sentry-nodes",
+          },
+          {
+            from: [
+              "/category/troubleshoot",
+              "/HowTo/Troubleshoot/Troubleshooting",
+            ],
+            to: "/how-to/troubleshoot",
+          },
+          {
+            from: "/HowTo/Withdrawal-Keys",
+            to: "/how-to/update-withdrawal-keys",
+          },
+          {
+            from: "/Concepts/ArchitectureOverview",
+            to: "/concepts/architecture",
+          },
+        ],
+        createRedirects(existingPath) {
+          if (existingPath.includes("/how-to")) {
+            // Redirect from /HowTo/X to /how-to/X
+            return [existingPath.replace("/how-to", "/HowTo")];
+          }
+          return undefined; // Return a falsy value: no redirect created
+        },
       },
     ],
   ],

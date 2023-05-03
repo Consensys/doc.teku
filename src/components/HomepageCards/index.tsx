@@ -20,39 +20,39 @@ type CardItem = {
 
 const CardList: CardItem[] = [
   {
-    title: "🏁 Getting Started",
+    title: "🏁 Get started",
     link: "/category/get-started",
+    // prettier-ignore
     description: (
       <>
-        Get started with Teku by installing as binary, from source, or Docker.
-        Hit the ground running in less than 5 minutes!
+        Get started with Teku using one of several installation options.
       </>
     ),
-    buttonName: "Go and get started",
+    buttonName: "Continue",
     buttonType: "success",
   },
   {
     title: "💭 Learn",
     link: "/category/concepts",
+    // prettier-ignore
     description: (
       <>
-        Check out some general concepts that will help you understand how Teku
-        and Ethereum work under the hood and are architected.
+        Learn about Teku concepts such as proof of stake and weak subjectivity.
       </>
     ),
-    buttonName: "Go and learn",
+    buttonName: "Continue",
     buttonType: "secondary",
   },
   {
     title: "👨‍💻 Reference",
-    link: "/Reference/CLI/CLI-Syntax",
+    link: "/reference/cli",
+    // prettier-ignore
     description: (
       <>
-        Find command line arguments, REST API methods, and general configuration
-        in the References section.
+        See Teku command line options and REST API methods.
       </>
     ),
-    buttonName: "Go to reference",
+    buttonName: "Continue",
     buttonType: "info",
   },
 ];
@@ -89,7 +89,7 @@ export default function HomepageCards(): JSX.Element {
   return (
     <section className={clsx("margin-top--lg", "margin-bottom--lg")}>
       <div className="container">
-        <h1>Quick Links</h1>
+        <h1>Quick links</h1>
         <hr />
         <div className="row">
           {CardList.map((props, idx) => (

@@ -21,13 +21,14 @@ function HomepageHeader() {
             styles.forceColor,
             styles.subtitle,
           )}>
-          {siteConfig.tagline}
+          Teku is an open-source Ethereum consensus client containing a full
+          beacon node and validator client implementation.
         </p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/category/get-started">
-            Get Started - 5min ⏱️
+            to="/introduction">
+            Learn more
           </Link>
         </div>
       </div>
@@ -38,9 +39,7 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   // const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout
-      title={`Welcome`}
-      description="An open-source, client-agnostic, Ethereum transaction signer that separates private key management from transaction validation by signing transactions using a private key that can be secured in a variety of cloud providers, or encrypted on a local disk.">
+    <Layout title={`Welcome`}>
       <HomepageHeader />
       <main>
         <HomepageCards />
