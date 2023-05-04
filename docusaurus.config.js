@@ -398,6 +398,10 @@ const config = {
             from: "/Concepts/ArchitectureOverview",
             to: "/concepts/architecture",
           },
+          {
+            from: "/Reference/CLI/CLI-Syntax",
+            to: "/reference/cli",
+          },
         ],
         createRedirects(existingPath) {
           if (existingPath.includes("/how-to")) {
