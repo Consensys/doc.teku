@@ -28,7 +28,7 @@ Teku provides command line options to [import] or [export] the slashing protecti
 
 :::tip
 
-Teku also supports [doppelganger detection](../how-to/doppelganger-detection.md) to help prevent slashing. This is an early access feature.
+Teku also supports [doppelganger detection](../how-to/enable-doppelganger-detection.md) to help prevent slashing. This is an early access feature.
 
 :::
 

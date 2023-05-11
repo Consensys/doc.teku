@@ -80,7 +80,7 @@ beacon-liveness-tracking-enabled: true
 
 <!--/tabs-->
 
-Enables or disables validator liveness tracking. Used by [doppelganger detection](../../how-to/doppelganger-detection.md). The default is `false`.
+Enables or disables validator liveness tracking. Used by [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
 
 ### builder-bid-compare-factor
 
@@ -422,7 +422,7 @@ doppelganger-detection-enabled: true
 
 <!--/tabs-->
 
-Enables or disables [doppelganger detection](../../how-to/doppelganger-detection.md). The default is `false`.
+Enables or disables [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
 
 ### ee-endpoint
 
