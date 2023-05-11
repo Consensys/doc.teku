@@ -176,7 +176,7 @@ const config = {
             position: "right",
           },
           {
-            href: "https://discord.gg/ChtFaC4",
+            href: "https://discord.com/invite/consensys",
             className: "header-discord-link",
             position: "right",
           },
@@ -234,7 +234,7 @@ const config = {
             items: [
               {
                 label: "ConsenSys Discord",
-                href: "https://discord.gg/ChtFaC4",
+                href: "https://discord.com/invite/consensys",
               },
               {
                 label: "Teku GitHub",
