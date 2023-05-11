@@ -18,7 +18,7 @@ If using an external signer that implements its own slashing protection (for exa
 
 :::tip
 
-You can also [enable doppelganger detection](doppelganger-detection.md) to help prevent slashing. This is an early access feature.
+You can also [enable doppelganger detection](enable-doppelganger-detection.md) to help prevent slashing. This is an early access feature.
 
 :::
 

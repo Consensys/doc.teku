@@ -176,7 +176,7 @@ const config = {
             position: "right",
           },
           {
-            href: "https://discord.gg/ChtFaC4",
+            href: "https://discord.com/invite/consensys",
             className: "header-discord-link",
             position: "right",
           },
@@ -234,7 +234,7 @@ const config = {
             items: [
               {
                 label: "ConsenSys Discord",
-                href: "https://discord.gg/ChtFaC4",
+                href: "https://discord.com/invite/consensys",
               },
               {
                 label: "Teku GitHub",
@@ -368,8 +368,16 @@ const config = {
             to: "/how-to/configure/tls",
           },
           {
+            from: "/HowTo/Configure/Builder-Network",
+            to: "/how-to/configure/builder-network",
+          },
+          {
             from: "/HowTo/Find-and-Connect/Specifying-NAT",
             to: "/how-to/find-and-connect/specify-nat",
+          },
+          {
+            from: "/HowTo/Find-and-Connect/Improve-Connectivity",
+            to: "/how-to/find-and-connect/improve-connectivity",
           },
           {
             from: "/HowTo/Voluntary-Exit",
@@ -395,6 +403,18 @@ const config = {
             to: "/how-to/update-withdrawal-keys",
           },
           {
+            from: "/HowTo/Doppelganger-Detection",
+            to: "/how-to/enable-doppelganger-detection",
+          },
+          {
+            from: "/HowTo/Migrate-Database",
+            to: "/how-to/migrate-database",
+          },
+          {
+            from: "/HowTo/Prevent-Slashing",
+            to: "/how-to/prevent-slashing",
+          },
+          {
             from: "/Concepts/ArchitectureOverview",
             to: "/concepts/architecture",
           },
@@ -403,13 +423,6 @@ const config = {
             to: "/reference/cli",
           },
         ],
-        createRedirects(existingPath) {
-          if (existingPath.includes("/how-to")) {
-            // Redirect from /HowTo/X to /how-to/X
-            return [existingPath.replace("/how-to", "/HowTo")];
-          }
-          return undefined; // Return a falsy value: no redirect created
-        },
       },
     ],
   ],
