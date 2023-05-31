@@ -7,9 +7,15 @@ sidebar_position: 13
 
 Use the [rewards API](https://consensys.github.io/teku/#tag/Rewards) to view the validator rewards.
 
-:::tip
+:::note
+
+You cannot query attestation rewards for the latest epoch.
+
+:::
 
 Enable the rewards API with the [`--rest-api-enabled`](../reference/cli/index.md#rest-api-enabled) command line option.
+
+:::tip
 
 A [Swagger interface is also available](../reference/rest.md#enable-the-rest-api-service). Use the [`--rest-api-docs-enabled`](../reference/cli/index.md#rest-api-docs-enabled) command line option to enable the web interface.
 
