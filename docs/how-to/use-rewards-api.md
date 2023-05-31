@@ -23,7 +23,7 @@ The following limitations apply:
 
 - The rewards API relies on state and block data to retrieve the reward information, meaning you'll receive limited data if the beacon node being queried is not an archive node.
 
-- Querying from a beacon node in `prune` storage mode only returns information for the the `finalized` block, and nothing before that.
+- You can only query blocks from finalized to head if you are in `prune` storage mode.
 
 ## Impact of data storage modes
 
@@ -36,6 +36,8 @@ You can change the frequency that states are stored by specifying [`data-storage
 :::
 
 Consider using a beacon node with `archive` mode storage if you frequently call the rewards API on finalized data. However, this may produce slow results due to having to replay blocks due to the infrequent storage of states on disk (every 2048 slots by default).
+
+You can consider tuning your data storage to access data quicker, by storing more states (at the cost of disk space), for example, [setting the archive frequency](../reference/cli/index.md#data-storage-archive-frequency) to `256` or even `64`, and replaying a less blocks.
 
 ## Examples
 
@@ -89,12 +91,11 @@ curl -X POST \
   "execution_optimistic": false,
   "finalized": false,
   "data": [
-      {
-        "validator_index": "1",
-        "reward": "16778"
-      }
-    ]
-  }
+    {
+      "validator_index": "1",
+      "reward": "16778"
+    }
+  ]
 }
 ```
 
