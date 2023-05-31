@@ -5,7 +5,7 @@ sidebar_position: 13
 
 # View block rewards
 
-Use the [rewards API](https://consensys.github.io/teku/#tag/Rewards) to view the validator rewards for specific blocks.
+Use the [rewards API](https://consensys.github.io/teku/#tag/Rewards) to view the validator rewards.
 
 :::tip
 
@@ -37,7 +37,7 @@ You can change the frequency that states are stored by specifying [`data-storage
 
 Consider using a beacon node with `archive` mode storage if you frequently call the rewards API on finalized data. However, this may produce slow results due to having to replay blocks due to the infrequent storage of states on disk (every 2048 slots by default).
 
-You can consider tuning your data storage to access data quicker, by storing more states (at the cost of disk space), for example, [setting the archive frequency](../reference/cli/index.md#data-storage-archive-frequency) to `256` or even `64`, and replaying a less blocks.
+You can consider tuning your data storage to access data quicker, by storing more states (at the cost of disk space), for example, [setting the archive frequency](../reference/cli/index.md#data-storage-archive-frequency) to `256` or even `64`, and replaying less blocks.
 
 ## Examples
 
