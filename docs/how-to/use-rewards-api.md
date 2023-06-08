@@ -121,7 +121,7 @@ curl -X POST \
      -d '["0"]' |jq
 ```
 
-# Results
+# Result
 
 ```json
  {
