@@ -360,6 +360,38 @@ data-storage-non-canonical-blocks-enabled: true
 
 Specify whether to store non-canonical blocks. The default is `false`.
 
+### data-storage-non-canonical-blob-sidecars-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--data-storage-non-canonical-blob-sidecars-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--data-storage-non-canonical-blob-sidecars-enabled=true
+```
+
+# Environment variable
+
+```bash
+TEKU_DATA_STORAGE_NON_CANONICAL_BLOB_SIDECARS_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+data-storage-non-canonical-blob-sidecars-enabled: true
+```
+
+<!--/tabs-->
+
+Specify whether to store non-canonical blob sidecars. The default is `false`.
+
 ### data-validator-path
 
 <!--tabs-->
@@ -635,9 +667,7 @@ Enables or disables using a bundled deposit contract tree snapshot and persistin
 
 Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both operations by bundling deposit tree snapshots in the Teku distribution for all major networks (Mainnet, Gnosis, Goerli, and Sepolia) and persisting the current tree after finalization. Instead of replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one, whichever is the latest.
 
-:::info Security considerations
-If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect deposit tree snapshot.
-:::
+:::info Security considerations If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect deposit tree snapshot. :::
 
 ### exchange-capabilities-enabled
 
