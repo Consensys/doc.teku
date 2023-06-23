@@ -180,16 +180,6 @@ const config = {
             className: "header-discord-link",
             position: "right",
           },
-          {
-            href: "https://twitter.com/consensys",
-            className: "header-twitter-link",
-            position: "right",
-          },
-          {
-            href: "https://hub.docker.com/r/consensys/teku",
-            className: "header-dockerhub-link",
-            position: "right",
-          },
         ],
       },
       footer: {
@@ -333,7 +323,7 @@ const config = {
           },
           {
             from: "/category/external-signing",
-            to: "/category/use-an-external-signer",
+            to: "/how-to/use-external-signer",
           },
           {
             from: "/HowTo/External-Signer/Use-External-Signer",
@@ -421,6 +411,47 @@ const config = {
           {
             from: "/Reference/CLI/CLI-Syntax",
             to: "/reference/cli",
+          },
+          {
+            from: "/category/get-started",
+            to: "/get-started",
+          },
+          {
+            from: "/category/install-teku",
+            to: "/get-started/install",
+          },
+          {
+            from: "/category/connect-to-a-network",
+            to: "/get-started/connect",
+          },
+          // prettier-ignore
+          {
+           from: "/category/how-to",
+           to: "/how-to",
+          },
+          {
+            from: "/category/configure",
+            to: "/how-to/configure",
+          },
+          {
+            from: "/category/use-an-external-signer",
+            to: "/how-to/use-external-signer",
+          },
+          {
+            from: "/category/find-and-connect-to-peers",
+            to: "/how-to/find-and-connect",
+          },
+          {
+            from: "/category/monitor-nodes",
+            to: "/how-to/monitor",
+          },
+          {
+            from: "/category/concepts",
+            to: "/concepts",
+          },
+          {
+            from: "/category/tutorials",
+            to: "/tutorials",
           },
         ],
       },

@@ -1,21 +1,7 @@
-# ConsenSys Teku
+# Teku documentation
 
-This documentation repo is built using [Docusaurus 2](https://docusaurus.io/).
+This documentation repository is built using [Docusaurus](https://docusaurus.io/), and the doc
+site is published at [`docs.teku.consensys.net`](https://docs.teku.consensys.net/).
 
-See [more](https://docs-template.consensys.net/) information about using Docusaurus quickly.
-
-### Contributing & Local Development
-
-    $ npm install
-    $ npm run prepare
-    $ npm start
-    $ git commit
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-    $ npm run build
-    $ npm run serve
-
-This command generates static content into the `build` directory.
+View the [ConsenSys doc contribution guidelines](https://docs-template.consensys.net/) for
+information about submitting documentation changes and previewing the site locally.
