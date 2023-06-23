@@ -425,7 +425,9 @@ const config = {
             to: "/get-started/connect",
           },
           {
+          // prettier-ignore
            from: "/category/how-to",
+          // prettier-ignore
            to: "/how-to",
           },
           {
