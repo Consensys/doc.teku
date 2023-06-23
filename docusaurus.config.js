@@ -424,10 +424,9 @@ const config = {
             from: "/category/connect-to-a-network",
             to: "/get-started/connect",
           },
+          // prettier-ignore
           {
-          // prettier-ignore
            from: "/category/how-to",
-          // prettier-ignore
            to: "/how-to",
           },
           {
