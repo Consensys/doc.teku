@@ -21,7 +21,7 @@ type CardItem = {
 const CardList: CardItem[] = [
   {
     title: "🏁 Get started",
-    link: "/category/get-started",
+    link: "/get-started",
     // prettier-ignore
     description: (
       <>
@@ -33,7 +33,7 @@ const CardList: CardItem[] = [
   },
   {
     title: "💭 Learn",
-    link: "/category/concepts",
+    link: "/concepts",
     // prettier-ignore
     description: (
       <>
