@@ -18,13 +18,7 @@ To voluntarily exit, you must have a running beacon node with the [REST API enab
 
 :::warning
 
-A validator **cannot** rejoin the network once it voluntarily exits.
-
-:::
-
-:::warning
-
-Even if a validator has successfully exited, it **cannot withdraw** its funds until withdrawals are enabled in a future upgrade of the consensus layer.
+A validator **cannot** rejoin the network once it voluntarily exits. You can set up a new validator with the withdrawn funds.
 
 :::
 
