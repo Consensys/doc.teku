@@ -182,7 +182,7 @@ builder-set-user-agent-header: true
 
 <!--/tabs-->
 
-Set User-Agent header to teku/v&lt;version&gt; (e.g. teku/v23.4.0) when making a builder bid request to help builders identify clients and versions. The default is `true`.
+Set the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`) when making a builder bid request to help builders identify clients and versions. The default is `true`.
 
 ### config-file
 
