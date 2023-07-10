@@ -152,6 +152,38 @@ builder-endpoint: "http://127.0.0.1:18550"
 
 The address for an external [builder endpoint](../../how-to/configure/builder-network.md).
 
+### builder-set-user-agent-header
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--builder-set-user-agent-header[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--builder-set-user-agent-header=true
+```
+
+# Environment variable
+
+```bash
+TEKU_BUILDER_SET_USER_AGENT_HEADER=true
+```
+
+# Configuration file
+
+```bash
+builder-set-user-agent-header: true
+```
+
+<!--/tabs-->
+
+Set the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`) when making a builder bid request to help builders identify clients and versions. The default is `true`.
+
 ### config-file
 
 <!--tabs-->
