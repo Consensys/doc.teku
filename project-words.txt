@@ -71,6 +71,7 @@ changefreq
 changeit
 chedeau
 cheng
+chiado
 clientcert
 clientkey
 clsx
