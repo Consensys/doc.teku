@@ -2716,7 +2716,7 @@ Use the URL to load the public keys from a remote service. For example:
 --validators-external-signer-public-keys=http://localhost:9900/publicKeys
 ```
 
-Use the value `external-signer` to load all public keys managed by the external signer. Teku will automatically query external signer's [`/publicKeys` endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
+Use the value `external-signer` to load all public keys managed by the external signer. Teku automatically queries the external signer's [`/publicKeys` endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
 
 ```bash
 --validators-external-signer-public-keys=external-signer
