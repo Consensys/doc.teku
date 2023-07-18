@@ -152,6 +152,38 @@ builder-endpoint: "http://127.0.0.1:18550"
 
 The address for an external [builder endpoint](../../how-to/configure/builder-network.md).
 
+### builder-set-user-agent-header
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--builder-set-user-agent-header[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--builder-set-user-agent-header=true
+```
+
+# Environment variable
+
+```bash
+TEKU_BUILDER_SET_USER_AGENT_HEADER=true
+```
+
+# Configuration file
+
+```bash
+builder-set-user-agent-header: true
+```
+
+<!--/tabs-->
+
+Set the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`) when making a builder bid request to help builders identify clients and versions. The default is `true`.
+
 ### config-file
 
 <!--tabs-->
@@ -1329,6 +1361,7 @@ Possible values are:
 | `goerli` | Consensus layer | Test | Multi-client testnet |
 | `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
 | `sepolia` | Consensus layer | Test | Multi-client testnet |
+| `chiado` | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
 
 Predefined networks can provide defaults such as the initial state of the network, bootnodes, and the address of the deposit contract.
 
@@ -2677,10 +2710,16 @@ validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
 
 List or URL of validator public keys used by an external signer (for example, Web3Signer).
 
-Use the URL of the external signer's [`/publicKeys` endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key) to load the public keys of all registered validators. For example:
+Use the URL to load the public keys from a remote service. For example:
 
 ```bash
---validators-external-signer-public-keys=http://localhost:9000/api/v1/eth2/publicKeys
+--validators-external-signer-public-keys=http://localhost:9900/publicKeys
+```
+
+Use the value `external-signer` to load all public keys managed by the external signer. Teku automatically queries the external signer's [`/publicKeys` endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
+
+```bash
+--validators-external-signer-public-keys=external-signer
 ```
 
 :::tip
