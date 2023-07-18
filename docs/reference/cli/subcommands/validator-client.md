@@ -782,7 +782,7 @@ validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
 
 <!--/tabs-->
 
-List of validator public keys used by an external signer (for example, [Web3Signer]).
+List or URL of validator public keys used by an external signer (for example, [Web3Signer]).
 
 Use the URL to load the public keys from a remote service. For example:
 
