@@ -671,6 +671,38 @@ Normally, at sync, Teku requests all deposit logs from the execution layer up to
 If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect deposit tree snapshot.
 :::
 
+### exchange-capabilities-monitoring-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--exchange-capabilities-monitoring-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--exchange-capabilities-monitoring-enabled=true
+```
+
+# Environment variable
+
+```bash
+TEKU_EXCHANGE_CAPABILITIES_MONITORING_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+exchange-capabilities-monitoring-enabled: true
+```
+
+<!--/tabs-->
+
+Enables or disables querying the [execution client](../../concepts/merge.md#execution-clients) periodically for the Engine API methods it supports. If enabled and incompatibility is detected, there will be a warning raised in the logs. The default is `true`.
+
 
 ### genesis-state
 
