@@ -701,7 +701,7 @@ exchange-capabilities-monitoring-enabled: true
 
 <!--/tabs-->
 
-Enables or disables querying the [execution client](../../concepts/merge.md#execution-clients) periodically for the Engine API methods it supports. If enabled and incompatibility is detected, there will be a warning raised in the logs. The default is `true`.
+Enables or disables querying the [execution client](../../concepts/merge.md#execution-clients) periodically for the Engine API methods it supports. If enabled and incompatibility is detected, a warning is raised in the logs. The default is `true`.
 
 
 ### genesis-state
