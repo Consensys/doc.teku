@@ -14,7 +14,7 @@ sidebar_position: 1
 
 :::caution
 
-Teku requires Java 11+ to compile; earlier versions are not supported.
+Teku requires Java 17+ to compile; earlier versions are not supported.
 
 :::
 
@@ -55,7 +55,7 @@ bin\teku --help
 
 :::caution
 
-Teku requires Java 11+ to run. Earlier versions are not supported. You can install Java using `brew install temurin`. Alternatively, you can manually install the [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html).
+Teku requires Java 17+ to run. Earlier versions are not supported. You can install Java using `brew install temurin`. Alternatively, you can manually install the [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html).
 
 :::
 
