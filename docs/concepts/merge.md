@@ -25,13 +25,13 @@ You can run Teku as a consensus client with:
 
 After The Merge, a full Ethereum Mainnet node is a combination of an execution client (previously called an [Ethereum 1.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client) and a consensus client (previously called an [Ethereum 2.0](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/) client).
 
-Execution and consensus clients communicate with each other using the [Engine API](https://besu.hyperledger.org/en/latest/HowTo/Interact/APIs/Engine-API/).
+Execution and consensus clients communicate with each other using the [Engine API](https://besu.hyperledger.org/development/public-networks/how-to/use-engine-api).
 
 ![Ethereum Merge node](../images/execution-consensus-clients.png)
 
 ### Execution clients
 
-Execution clients, such as [Besu](https://besu.hyperledger.org/en/stable/), manage the execution layer, including executing transactions and updating the world state. Execution clients serve [JSON-RPC API](https://besu.hyperledger.org/en/stable/Reference/API-Methods/) requests and communicate with each other in a peer-to-peer network.
+Execution clients, such as [Besu](https://besu.hyperledger.org/en/stable/), manage the execution layer, including executing transactions and updating the world state. Execution clients serve [JSON-RPC API](https://besu.hyperledger.org/development/public-networks/reference/api) requests and communicate with each other in a peer-to-peer network.
 
 ### Consensus clients
 

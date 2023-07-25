@@ -172,7 +172,7 @@ teku --network=goerli \
 <!-- links -->
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
-[Hyperledger Besu]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Installation-Options/Options/
+[Hyperledger Besu]: https://besu.hyperledger.org/development/public-networks/get-started/install
 [Infura]: https://infura.io/
-[ETH1 Goerli node]: https://besu.hyperledger.org/en/stable/HowTo/Get-Started/Starting-node/#run-a-node-on-goerli-testnet
+[ETH1 Goerli node]: https://besu.hyperledger.org/development/public-networks/get-started/start-node#run-a-node-on-goerli-testnet
 [Web3Signer slashing protection]: https://docs.web3signer.consensys.net/en/latest/Concepts/Slashing-Protection/
