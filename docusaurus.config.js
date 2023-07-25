@@ -71,6 +71,23 @@ const config = {
           // Set a base path separate from default /docs
           editUrl: "https://github.com/ConsenSys/doc.teku/tree/master/",
           path: "docs",
+          lastVersion: "23.6.2",
+          versions: {
+            //defaults to the ./docs folder
+            // using 'development' instead of 'next' as path
+            current: {
+              label: "development",
+              path: "development",
+              banner: "unreleased",
+            },
+            //the last stable release in the versioned_docs/version-stable
+            // using 'stable' as path
+            "23.6.2": {
+              label: "stable (23.6.2)",
+              path: "stable",
+              banner: "none",
+            },
+          },
           routeBasePath: "/",
           // @ts-ignore
           // eslint-disable-next-line global-require
@@ -170,6 +187,10 @@ const config = {
             label: "API",
             to: "/api/",
           },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
+          }, 
           {
             href: "https://github.com/ConsenSys/teku",
             className: "header-github-link",
@@ -285,6 +306,14 @@ const config = {
       "@docusaurus/plugin-client-redirects",
       {
         redirects: [
+          {
+            from: "/en/latest",
+            to: "/",
+          },
+          {
+            from: "/en/stable",
+            to: "/",
+          },
           {
             from: "/HowTo/Get-Started/Installation-Options/Install-Binaries",
             to: "/get-started/install/install-binaries",
@@ -454,6 +483,19 @@ const config = {
             to: "/tutorials",
           },
         ],
+        createRedirects(existingPath) {
+          if (existingPath.includes("/development")) {
+            return [
+              existingPath.replace("/development", "/en/development"),
+              existingPath.replace("/development", "/en/latest"),
+              existingPath.replace("/development", "/latest"),
+            ];
+          }
+          if (existingPath.includes("/stable")) {
+            return [existingPath.replace("/stable", "/en/stable")];
+          }
+          return undefined; // Return a falsy value: no redirect created
+        },
       },
     ],
   ],
