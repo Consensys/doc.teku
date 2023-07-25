@@ -190,7 +190,8 @@ const config = {
           {
             type: "docsVersionDropdown",
             position: "right",
-          }, 
+            dropdownActiveClassDisabled: true,
+          },
           {
             href: "https://github.com/ConsenSys/teku",
             className: "header-github-link",
