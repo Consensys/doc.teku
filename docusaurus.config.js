@@ -317,171 +317,170 @@ const config = {
           },
           {
             from: "/HowTo/Get-Started/Installation-Options/Install-Binaries",
-            to: "/get-started/install/install-binaries",
+            to: "/stable/get-started/install/install-binaries",
           },
           {
             from: "/HowTo/Get-Started/Installation-Options/Build-From-Source",
-            to: "/get-started/install/build-from-source",
+            to: "/stable/get-started/install/build-from-source",
           },
           {
             from: "/HowTo/Get-Started/Installation-Options/Run-Docker-Image",
-            to: "/get-started/install/run-docker-image",
+            to: "/stable/get-started/install/run-docker-image",
           },
           {
             from: "/HowTo/Get-Started/Run-Teku",
-            to: "/get-started/start-teku",
+            to: "/stable/get-started/start-teku",
           },
           {
             from: "/HowTo/Get-Started/Connect/Connect-To-Mainnet",
-            to: "/get-started/connect/mainnet",
+            to: "/stable/get-started/connect/mainnet",
           },
           {
             from: "/HowTo/Get-Started/Connect/Connect-To-Testnet",
-            to: "/get-started/connect/testnet",
+            to: "/stable/get-started/connect/testnet",
           },
           {
             from: "/HowTo/Get-Started/Checkpoint-Start",
-            to: "/get-started/checkpoint-start",
+            to: "/stable/get-started/checkpoint-start",
           },
           {
             from: "/HowTo/Get-Started/Manage-Memory",
-            to: "/get-started/manage-memory",
+            to: "/stable/get-started/manage-memory",
           },
           {
             from: "/HowTo/Get-Started/Migrate-to-Teku",
-            to: "/get-started/migrate-to-teku",
+            to: "/stable/get-started/migrate-to-teku",
           },
           {
             from: "/category/external-signing",
-            to: "/how-to/use-external-signer",
+            to: "/stable/how-to/use-external-signer",
           },
           {
             from: "/HowTo/External-Signer/Use-External-Signer",
-            to: "/how-to/use-external-signer/use-web3signer",
+            to: "/stable/how-to/use-external-signer/use-web3signer",
           },
           {
             from: "/HowTo/External-Signer/Manage-keys",
-            to: "/how-to/use-external-signer/manage-keys",
+            to: "/stable/how-to/use-external-signer/manage-keys",
           },
           {
             from: "/HowTo/Load-Validators-No-Restart",
-            to: "/how-to/load-validators-without-restarting",
+            to: "/stable/how-to/load-validators-without-restarting",
           },
           {
             from: "/HowTo/Monitor/Metrics",
-            to: "/how-to/monitor/use-metrics",
+            to: "/stable/how-to/monitor/use-metrics",
           },
           {
             from: "/HowTo/Monitor/Logging",
-            to: "/how-to/monitor/configure-logging",
+            to: "/stable/how-to/monitor/configure-logging",
           },
           {
             from: "/HowTo/Configure/Use-Configuration-File",
-            to: "/how-to/configure/use-config-file",
+            to: "/stable/how-to/configure/use-config-file",
           },
           {
             from: "/HowTo/Configure/Proposer-Configuration",
-            to: "/how-to/configure/use-proposer-config-file",
+            to: "/stable/how-to/configure/use-proposer-config-file",
           },
           {
             from: "/HowTo/Configure/Configure-TLS",
-            to: "/how-to/configure/tls",
+            to: "/stable/how-to/configure/tls",
           },
           {
             from: "/HowTo/Configure/Builder-Network",
-            to: "/how-to/configure/builder-network",
+            to: "/stable/how-to/configure/builder-network",
           },
           {
             from: "/HowTo/Find-and-Connect/Specifying-NAT",
-            to: "/how-to/find-and-connect/specify-nat",
+            to: "/stable/how-to/find-and-connect/specify-nat",
           },
           {
             from: "/HowTo/Find-and-Connect/Improve-Connectivity",
-            to: "/how-to/find-and-connect/improve-connectivity",
+            to: "/stable/how-to/find-and-connect/improve-connectivity",
           },
           {
             from: "/HowTo/Voluntary-Exit",
-            to: "/how-to/voluntarily-exit",
+            to: "/stable/how-to/voluntarily-exit",
           },
           {
             from: "/HowTo/Reconstruct-Historical-States-Service",
-            to: "/how-to/reconstruct-historical-states",
+            to: "/stable/how-to/reconstruct-historical-states",
           },
           {
             from: "/HowTo/Sentry-Nodes",
-            to: "/how-to/use-sentry-nodes",
+            to: "/stable/how-to/use-sentry-nodes",
           },
           {
             from: [
               "/category/troubleshoot",
-              "/HowTo/Troubleshoot/Troubleshooting",
+              "/stable/HowTo/Troubleshoot/Troubleshooting",
             ],
             to: "/how-to/troubleshoot",
           },
           {
             from: "/HowTo/Withdrawal-Keys",
-            to: "/how-to/update-withdrawal-keys",
+            to: "/stable/how-to/update-withdrawal-keys",
           },
           {
             from: "/HowTo/Doppelganger-Detection",
-            to: "/how-to/enable-doppelganger-detection",
+            to: "/stable/how-to/enable-doppelganger-detection",
           },
           {
             from: "/HowTo/Migrate-Database",
-            to: "/how-to/migrate-database",
+            to: "/stable/how-to/migrate-database",
           },
           {
             from: "/HowTo/Prevent-Slashing",
-            to: "/how-to/prevent-slashing",
+            to: "/stable/how-to/prevent-slashing",
           },
           {
             from: "/Concepts/ArchitectureOverview",
-            to: "/concepts/architecture",
+            to: "/stable/concepts/architecture",
           },
           {
             from: "/Reference/CLI/CLI-Syntax",
-            to: "/reference/cli",
+            to: "/stable/reference/cli",
           },
           {
             from: "/category/get-started",
-            to: "/get-started",
+            to: "/stable/get-started",
           },
           {
             from: "/category/install-teku",
-            to: "/get-started/install",
+            to: "/stable/get-started/install",
           },
           {
             from: "/category/connect-to-a-network",
-            to: "/get-started/connect",
+            to: "/stable/get-started/connect",
           },
-          // prettier-ignore
           {
            from: "/category/how-to",
-           to: "/how-to",
+           to: "/stable/how-to",
           },
           {
             from: "/category/configure",
-            to: "/how-to/configure",
+            to: "/stable/how-to/configure",
           },
           {
             from: "/category/use-an-external-signer",
-            to: "/how-to/use-external-signer",
+            to: "/stable/how-to/use-external-signer",
           },
           {
             from: "/category/find-and-connect-to-peers",
-            to: "/how-to/find-and-connect",
+            to: "/stable/how-to/find-and-connect",
           },
           {
             from: "/category/monitor-nodes",
-            to: "/how-to/monitor",
+            to: "/stable/how-to/monitor",
           },
           {
             from: "/category/concepts",
-            to: "/concepts",
+            to: "/stable/concepts",
           },
           {
             from: "/category/tutorials",
-            to: "/tutorials",
+            to: "/stable/tutorials",
           },
         ],
         createRedirects(existingPath) {
