@@ -1,17 +1,17 @@
-import React from 'react';
-import clsx from 'clsx';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Link from '@docusaurus/Link';
-import Translate from '@docusaurus/Translate';
+import React from "react";
+import clsx from "clsx";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Link from "@docusaurus/Link";
+import Translate from "@docusaurus/Translate";
 import {
   useActivePlugin,
   useDocVersionSuggestions,
-} from '@docusaurus/plugin-content-docs/client';
-import {ThemeClassNames} from '@docusaurus/theme-common';
+} from "@docusaurus/plugin-content-docs/client";
+import {ThemeClassNames} from "@docusaurus/theme-common";
 import {
   useDocsPreferredVersion,
   useDocsVersion,
-} from '@docusaurus/theme-common/internal';
+} from "@docusaurus/theme-common/internal";
 function UnreleasedVersionLabel({siteTitle, versionMetadata}) {
   return (
     <Translate
@@ -22,7 +22,7 @@ function UnreleasedVersionLabel({siteTitle, versionMetadata}) {
         versionLabel: <b>{versionMetadata.label}</b>,
       }}>
       {
-        'This is the development version of the documentation and some features may not yet be available in the stable release.'
+        "This is the development version of the documentation and some features may not yet be available in the stable release."
       }
     </Translate>
   );
@@ -37,7 +37,7 @@ function UnmaintainedVersionLabel({siteTitle, versionMetadata}) {
         versionLabel: <b>{versionMetadata.label}</b>,
       }}>
       {
-        'This is documentation for {siteTitle} {versionLabel}, which is no longer actively maintained.'
+        "This is documentation for {siteTitle} {versionLabel}, which is no longer actively maintained."
       }
     </Translate>
   );
@@ -93,7 +93,7 @@ function DocVersionBannerEnabled({className, versionMetadata}) {
       className={clsx(
         className,
         ThemeClassNames.docs.docVersionBanner,
-        'alert alert--warning margin-bottom--md',
+        "alert alert--warning margin-bottom--md",
       )}
       role="alert">
       <div>
