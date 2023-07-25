@@ -416,7 +416,7 @@ const config = {
               "/category/troubleshoot",
               "/stable/HowTo/Troubleshoot/Troubleshooting",
             ],
-            to: "/how-to/troubleshoot",
+            to: "/stable/how-to/troubleshoot",
           },
           {
             from: "/HowTo/Withdrawal-Keys",
