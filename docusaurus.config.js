@@ -455,8 +455,8 @@ const config = {
             to: "/stable/get-started/connect",
           },
           {
-           from: "/category/how-to",
-           to: "/stable/how-to",
+            from: "/category/how-to",
+            to: "/stable/how-to",
           },
           {
             from: "/category/configure",
