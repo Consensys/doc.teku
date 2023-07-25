@@ -212,19 +212,19 @@ const config = {
             items: [
               {
                 label: "Introduction",
-                to: "introduction",
+                to: "/stable/introduction",
               },
               {
                 label: "Get started",
-                to: "/category/get-started",
+                to: "/stable/get-started",
               },
               {
                 label: "How to guides",
-                to: "/category/how-to",
+                to: "/stable/how-to",
               },
               {
                 label: "Tutorials",
-                to: "/category/tutorials",
+                to: "/stable/tutorials",
               },
             ],
           },
@@ -233,11 +233,11 @@ const config = {
             items: [
               {
                 label: "Command line",
-                to: "reference/cli",
+                to: "/stable/reference/cli",
               },
               {
                 label: "REST API",
-                to: "/reference/rest",
+                to: "/stable/reference/rest",
               },
             ],
           },
