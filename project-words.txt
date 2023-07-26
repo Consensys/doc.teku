@@ -287,6 +287,7 @@ longpaths
 lorber
 lowercased
 lqip
+lukso
 lunrjs
 mapbox
 marcey
