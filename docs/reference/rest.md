@@ -83,6 +83,6 @@ When enabling the API documentation endpoint, specify:
 
 <!-- Links -->
 
-[REST API documentation]: /api
+[REST API documentation]: https://consensys.github.io/teku/
 [Postman]: https://www.postman.com/
 [cURL]: https://curl.haxx.se/

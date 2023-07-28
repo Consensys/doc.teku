@@ -6,7 +6,7 @@ description: Teku RESTful API
 
 <!-- markdown-link-check-disable -->
 :::tip View the REST API
-View the [REST API documentation](/api) for information about the available API methods.
+View the [REST API documentation](https://consensys.github.io/teku/) for information about the available API methods.
 :::
 <!-- markdown-link-check-enable -->
 

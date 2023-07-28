@@ -4,40 +4,6 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const isDev = process.env.NODE_ENV === "development";
 const baseUrl = isDev ? "/" : "/";
 
-/**
- * @type {import('redocusaurus').PresetEntry}
- */
-const redocusaurus = [
-  "redocusaurus",
-  {
-    specs: [
-      {
-        id: "using-remote-url",
-        // Remote File
-        spec: "https://raw.githubusercontent.com/ConsenSys/teku/gh-pages/latest.json",
-        route: "/api/",
-      },
-    ],
-    theme: {
-      /**
-       * Highlight color for docs
-       */
-      primaryColor: "#ed774f",
-      primaryColorDark: "#ed774f",
-      /**
-       * Options to pass to redoc
-       * @see https://github.com/redocly/redoc#redoc-options-object
-       */
-      options: { disableSearch: true },
-      /**
-       * Options to pass to override RedocThemeObject
-       * @see https://github.com/Redocly/redoc#redoc-theme-object
-       */
-      theme: {},
-    },
-  },
-];
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Teku documentation",
@@ -108,7 +74,6 @@ const config = {
         },
       },
     ],
-    redocusaurus,
   ],
 
   themeConfig:
@@ -185,7 +150,7 @@ const config = {
           },
           {
             label: "API",
-            to: "/api/",
+            to: "https://consensys.github.io/teku/",
           },
           {
             type: "docsVersionDropdown",
