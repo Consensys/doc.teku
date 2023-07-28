@@ -280,173 +280,173 @@ const config = {
             from: "/en/stable",
             to: "/",
           },
-          {
-            from: "/HowTo/Get-Started/Installation-Options/Install-Binaries",
-            to: "/stable/get-started/install/install-binaries",
-          },
-          {
-            from: "/HowTo/Get-Started/Installation-Options/Build-From-Source",
-            to: "/stable/get-started/install/build-from-source",
-          },
-          {
-            from: "/HowTo/Get-Started/Installation-Options/Run-Docker-Image",
-            to: "/stable/get-started/install/run-docker-image",
-          },
-          {
-            from: "/HowTo/Get-Started/Run-Teku",
-            to: "/stable/get-started/start-teku",
-          },
-          {
-            from: "/HowTo/Get-Started/Connect/Connect-To-Mainnet",
-            to: "/stable/get-started/connect/mainnet",
-          },
-          {
-            from: "/HowTo/Get-Started/Connect/Connect-To-Testnet",
-            to: "/stable/get-started/connect/testnet",
-          },
-          {
-            from: "/HowTo/Get-Started/Checkpoint-Start",
-            to: "/stable/get-started/checkpoint-start",
-          },
-          {
-            from: "/HowTo/Get-Started/Manage-Memory",
-            to: "/stable/get-started/manage-memory",
-          },
-          {
-            from: "/HowTo/Get-Started/Migrate-to-Teku",
-            to: "/stable/get-started/migrate-to-teku",
-          },
-          {
-            from: "/category/external-signing",
-            to: "/stable/how-to/use-external-signer",
-          },
-          {
-            from: "/HowTo/External-Signer/Use-External-Signer",
-            to: "/stable/how-to/use-external-signer/use-web3signer",
-          },
-          {
-            from: "/HowTo/External-Signer/Manage-keys",
-            to: "/stable/how-to/use-external-signer/manage-keys",
-          },
-          {
-            from: "/HowTo/Load-Validators-No-Restart",
-            to: "/stable/how-to/load-validators-without-restarting",
-          },
-          {
-            from: "/HowTo/Monitor/Metrics",
-            to: "/stable/how-to/monitor/use-metrics",
-          },
-          {
-            from: "/HowTo/Monitor/Logging",
-            to: "/stable/how-to/monitor/configure-logging",
-          },
-          {
-            from: "/HowTo/Configure/Use-Configuration-File",
-            to: "/stable/how-to/configure/use-config-file",
-          },
-          {
-            from: "/HowTo/Configure/Proposer-Configuration",
-            to: "/stable/how-to/configure/use-proposer-config-file",
-          },
-          {
-            from: "/HowTo/Configure/Configure-TLS",
-            to: "/stable/how-to/configure/tls",
-          },
-          {
-            from: "/HowTo/Configure/Builder-Network",
-            to: "/stable/how-to/configure/builder-network",
-          },
-          {
-            from: "/HowTo/Find-and-Connect/Specifying-NAT",
-            to: "/stable/how-to/find-and-connect/specify-nat",
-          },
-          {
-            from: "/HowTo/Find-and-Connect/Improve-Connectivity",
-            to: "/stable/how-to/find-and-connect/improve-connectivity",
-          },
-          {
-            from: "/HowTo/Voluntary-Exit",
-            to: "/stable/how-to/voluntarily-exit",
-          },
-          {
-            from: "/HowTo/Reconstruct-Historical-States-Service",
-            to: "/stable/how-to/reconstruct-historical-states",
-          },
-          {
-            from: "/HowTo/Sentry-Nodes",
-            to: "/stable/how-to/use-sentry-nodes",
-          },
-          {
-            from: [
-              "/category/troubleshoot",
-              "/stable/HowTo/Troubleshoot/Troubleshooting",
-            ],
-            to: "/stable/how-to/troubleshoot",
-          },
-          {
-            from: "/HowTo/Withdrawal-Keys",
-            to: "/stable/how-to/update-withdrawal-keys",
-          },
-          {
-            from: "/HowTo/Doppelganger-Detection",
-            to: "/stable/how-to/enable-doppelganger-detection",
-          },
-          {
-            from: "/HowTo/Migrate-Database",
-            to: "/stable/how-to/migrate-database",
-          },
-          {
-            from: "/HowTo/Prevent-Slashing",
-            to: "/stable/how-to/prevent-slashing",
-          },
-          {
-            from: "/Concepts/ArchitectureOverview",
-            to: "/stable/concepts/architecture",
-          },
-          {
-            from: "/Reference/CLI/CLI-Syntax",
-            to: "/stable/reference/cli",
-          },
-          {
-            from: "/category/get-started",
-            to: "/stable/get-started",
-          },
-          {
-            from: "/category/install-teku",
-            to: "/stable/get-started/install",
-          },
-          {
-            from: "/category/connect-to-a-network",
-            to: "/stable/get-started/connect",
-          },
-          {
-            from: "/category/how-to",
-            to: "/stable/how-to",
-          },
-          {
-            from: "/category/configure",
-            to: "/stable/how-to/configure",
-          },
-          {
-            from: "/category/use-an-external-signer",
-            to: "/stable/how-to/use-external-signer",
-          },
-          {
-            from: "/category/find-and-connect-to-peers",
-            to: "/stable/how-to/find-and-connect",
-          },
-          {
-            from: "/category/monitor-nodes",
-            to: "/stable/how-to/monitor",
-          },
-          {
-            from: "/category/concepts",
-            to: "/stable/concepts",
-          },
-          {
-            from: "/category/tutorials",
-            to: "/stable/tutorials",
-          },
+          // {
+          //   from: "/HowTo/Get-Started/Installation-Options/Install-Binaries",
+          //   to: "/stable/get-started/install/install-binaries",
+          // },
+          // {
+          //   from: "/HowTo/Get-Started/Installation-Options/Build-From-Source",
+          //   to: "/stable/get-started/install/build-from-source",
+          // },
+          // {
+          //   from: "/HowTo/Get-Started/Installation-Options/Run-Docker-Image",
+          //   to: "/stable/get-started/install/run-docker-image",
+          // },
+          // {
+          //   from: "/HowTo/Get-Started/Run-Teku",
+          //   to: "/stable/get-started/start-teku",
+          // },
+          // {
+          //   from: "/HowTo/Get-Started/Connect/Connect-To-Mainnet",
+          //   to: "/stable/get-started/connect/mainnet",
+          // },
+          // {
+          //   from: "/HowTo/Get-Started/Connect/Connect-To-Testnet",
+          //   to: "/stable/get-started/connect/testnet",
+          // },
+          // {
+          //   from: "/HowTo/Get-Started/Checkpoint-Start",
+          //   to: "/stable/get-started/checkpoint-start",
+          // },
+          // {
+          //   from: "/HowTo/Get-Started/Manage-Memory",
+          //   to: "/stable/get-started/manage-memory",
+          // },
+          // {
+          //   from: "/HowTo/Get-Started/Migrate-to-Teku",
+          //   to: "/stable/get-started/migrate-to-teku",
+          // },
+          // {
+          //   from: "/category/external-signing",
+          //   to: "/stable/how-to/use-external-signer",
+          // },
+          // {
+          //   from: "/HowTo/External-Signer/Use-External-Signer",
+          //   to: "/stable/how-to/use-external-signer/use-web3signer",
+          // },
+          // {
+          //   from: "/HowTo/External-Signer/Manage-keys",
+          //   to: "/stable/how-to/use-external-signer/manage-keys",
+          // },
+          // {
+          //   from: "/HowTo/Load-Validators-No-Restart",
+          //   to: "/stable/how-to/load-validators-without-restarting",
+          // },
+          // {
+          //   from: "/HowTo/Monitor/Metrics",
+          //   to: "/stable/how-to/monitor/use-metrics",
+          // },
+          // {
+          //   from: "/HowTo/Monitor/Logging",
+          //   to: "/stable/how-to/monitor/configure-logging",
+          // },
+          // {
+          //   from: "/HowTo/Configure/Use-Configuration-File",
+          //   to: "/stable/how-to/configure/use-config-file",
+          // },
+          // {
+          //   from: "/HowTo/Configure/Proposer-Configuration",
+          //   to: "/stable/how-to/configure/use-proposer-config-file",
+          // },
+          // {
+          //   from: "/HowTo/Configure/Configure-TLS",
+          //   to: "/stable/how-to/configure/tls",
+          // },
+          // {
+          //   from: "/HowTo/Configure/Builder-Network",
+          //   to: "/stable/how-to/configure/builder-network",
+          // },
+          // {
+          //   from: "/HowTo/Find-and-Connect/Specifying-NAT",
+          //   to: "/stable/how-to/find-and-connect/specify-nat",
+          // },
+          // {
+          //   from: "/HowTo/Find-and-Connect/Improve-Connectivity",
+          //   to: "/stable/how-to/find-and-connect/improve-connectivity",
+          // },
+          // {
+          //   from: "/HowTo/Voluntary-Exit",
+          //   to: "/stable/how-to/voluntarily-exit",
+          // },
+          // {
+          //   from: "/HowTo/Reconstruct-Historical-States-Service",
+          //   to: "/stable/how-to/reconstruct-historical-states",
+          // },
+          // {
+          //   from: "/HowTo/Sentry-Nodes",
+          //   to: "/stable/how-to/use-sentry-nodes",
+          // },
+          // {
+          //   from: [
+          //     "/category/troubleshoot",
+          //     "/stable/HowTo/Troubleshoot/Troubleshooting",
+          //   ],
+          //   to: "/stable/how-to/troubleshoot",
+          // },
+          // {
+          //   from: "/HowTo/Withdrawal-Keys",
+          //   to: "/stable/how-to/update-withdrawal-keys",
+          // },
+          // {
+          //   from: "/HowTo/Doppelganger-Detection",
+          //   to: "/stable/how-to/enable-doppelganger-detection",
+          // },
+          // {
+          //   from: "/HowTo/Migrate-Database",
+          //   to: "/stable/how-to/migrate-database",
+          // },
+          // {
+          //   from: "/HowTo/Prevent-Slashing",
+          //   to: "/stable/how-to/prevent-slashing",
+          // },
+          // {
+          //   from: "/Concepts/ArchitectureOverview",
+          //   to: "/stable/concepts/architecture",
+          // },
+          // {
+          //   from: "/Reference/CLI/CLI-Syntax",
+          //   to: "/stable/reference/cli",
+          // },
+          // {
+          //   from: "/category/get-started",
+          //   to: "/stable/get-started",
+          // },
+          // {
+          //   from: "/category/install-teku",
+          //   to: "/stable/get-started/install",
+          // },
+          // {
+          //   from: "/category/connect-to-a-network",
+          //   to: "/stable/get-started/connect",
+          // },
+          // {
+          //   from: "/category/how-to",
+          //   to: "/stable/how-to",
+          // },
+          // {
+          //   from: "/category/configure",
+          //   to: "/stable/how-to/configure",
+          // },
+          // {
+          //   from: "/category/use-an-external-signer",
+          //   to: "/stable/how-to/use-external-signer",
+          // },
+          // {
+          //   from: "/category/find-and-connect-to-peers",
+          //   to: "/stable/how-to/find-and-connect",
+          // },
+          // {
+          //   from: "/category/monitor-nodes",
+          //   to: "/stable/how-to/monitor",
+          // },
+          // {
+          //   from: "/category/concepts",
+          //   to: "/stable/concepts",
+          // },
+          // {
+          //   from: "/category/tutorials",
+          //   to: "/stable/tutorials",
+          // },
         ],
         createRedirects(existingPath) {
           if (existingPath.includes("/development")) {
