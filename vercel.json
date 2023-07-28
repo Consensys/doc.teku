@@ -16,7 +16,7 @@
       "permanent": true
     },
     {
-      "source": "/:path(?!/(?:development|stable)/).*",
+      "source": "/:path((?!/(?:development|stable)/).*)",
       "destination": "/stable/:path*",
       "permanent": true
     }
