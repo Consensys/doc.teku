@@ -14,6 +14,11 @@
       "source": "/en/stable/:match(.*)",
       "destination": "/:match(.*)",
       "permanent": true
+    },
+    {
+      "source": "/:path((?!/(?:development|stable)/).*)",
+      "destination": "/stable/:path*",
+      "permanent": true
     }
   ]
 }

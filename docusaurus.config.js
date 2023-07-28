@@ -456,9 +456,9 @@ const config = {
               existingPath.replace("/development", "/latest"),
             ];
           }
-          if (existingPath.includes("/stable")) {
-            return [existingPath.replace("/stable", "/en/stable")];
-          }
+          // if (existingPath.includes("/stable")) {
+          //   return [existingPath.replace("/stable", "/en/stable")];
+          // }
           return undefined; // Return a falsy value: no redirect created
         },
       },
