@@ -36,24 +36,25 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Set a base path separate from default /docs
           editUrl: "https://github.com/ConsenSys/doc.teku/tree/master/",
-          path: "docs",
-          lastVersion: "23.6.2",
-          versions: {
-            //defaults to the ./docs folder
-            // using 'development' instead of 'next' as path
-            current: {
-              label: "development",
-              path: "development",
-              banner: "unreleased",
-            },
-            //the last stable release in the versioned_docs/version-stable
-            // using 'stable' as path
-            "23.6.2": {
-              label: "stable (23.6.2)",
-              banner: "none",
-            },
-          },
           routeBasePath: "/",
+          path: "./docs",
+          includeCurrentVersion: true,
+          lastVersion: "23.6.2",
+          // versions: {
+          //   //defaults to the ./docs folder
+          //   // using 'development' instead of 'next' as path
+          //   current: {
+          //     label: "development",
+          //     path: "development",
+          //     banner: "unreleased",
+          //   },
+          //   //the last stable release in the versioned_docs/version-stable
+          //   // using 'stable' as path
+          //   "23.6.2": {
+          //     label: "stable (23.6.2)",
+          //     banner: "none",
+          //   },
+          // },
           // @ts-ignore
           // eslint-disable-next-line global-require
           remarkPlugins: [require("remark-docusaurus-tabs")],
@@ -66,7 +67,6 @@ const config = {
           ],
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
-          includeCurrentVersion: true,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -272,194 +272,173 @@ const config = {
       {
         redirects: [
           {
-            from: "/en/latest",
-            to: "/",
+            from: "/HowTo/Get-Started/Installation-Options/Install-Binaries",
+            to: "/get-started/install/install-binaries",
           },
           {
-            from: "/en/stable",
-            to: "/",
+            from: "/HowTo/Get-Started/Installation-Options/Build-From-Source",
+            to: "/get-started/install/build-from-source",
           },
-          // {
-          //   from: "/HowTo/Get-Started/Installation-Options/Install-Binaries",
-          //   to: "/stable/get-started/install/install-binaries",
-          // },
-          // {
-          //   from: "/HowTo/Get-Started/Installation-Options/Build-From-Source",
-          //   to: "/stable/get-started/install/build-from-source",
-          // },
-          // {
-          //   from: "/HowTo/Get-Started/Installation-Options/Run-Docker-Image",
-          //   to: "/stable/get-started/install/run-docker-image",
-          // },
-          // {
-          //   from: "/HowTo/Get-Started/Run-Teku",
-          //   to: "/stable/get-started/start-teku",
-          // },
-          // {
-          //   from: "/HowTo/Get-Started/Connect/Connect-To-Mainnet",
-          //   to: "/stable/get-started/connect/mainnet",
-          // },
-          // {
-          //   from: "/HowTo/Get-Started/Connect/Connect-To-Testnet",
-          //   to: "/stable/get-started/connect/testnet",
-          // },
-          // {
-          //   from: "/HowTo/Get-Started/Checkpoint-Start",
-          //   to: "/stable/get-started/checkpoint-start",
-          // },
-          // {
-          //   from: "/HowTo/Get-Started/Manage-Memory",
-          //   to: "/stable/get-started/manage-memory",
-          // },
-          // {
-          //   from: "/HowTo/Get-Started/Migrate-to-Teku",
-          //   to: "/stable/get-started/migrate-to-teku",
-          // },
-          // {
-          //   from: "/category/external-signing",
-          //   to: "/stable/how-to/use-external-signer",
-          // },
-          // {
-          //   from: "/HowTo/External-Signer/Use-External-Signer",
-          //   to: "/stable/how-to/use-external-signer/use-web3signer",
-          // },
-          // {
-          //   from: "/HowTo/External-Signer/Manage-keys",
-          //   to: "/stable/how-to/use-external-signer/manage-keys",
-          // },
-          // {
-          //   from: "/HowTo/Load-Validators-No-Restart",
-          //   to: "/stable/how-to/load-validators-without-restarting",
-          // },
-          // {
-          //   from: "/HowTo/Monitor/Metrics",
-          //   to: "/stable/how-to/monitor/use-metrics",
-          // },
-          // {
-          //   from: "/HowTo/Monitor/Logging",
-          //   to: "/stable/how-to/monitor/configure-logging",
-          // },
-          // {
-          //   from: "/HowTo/Configure/Use-Configuration-File",
-          //   to: "/stable/how-to/configure/use-config-file",
-          // },
-          // {
-          //   from: "/HowTo/Configure/Proposer-Configuration",
-          //   to: "/stable/how-to/configure/use-proposer-config-file",
-          // },
-          // {
-          //   from: "/HowTo/Configure/Configure-TLS",
-          //   to: "/stable/how-to/configure/tls",
-          // },
-          // {
-          //   from: "/HowTo/Configure/Builder-Network",
-          //   to: "/stable/how-to/configure/builder-network",
-          // },
-          // {
-          //   from: "/HowTo/Find-and-Connect/Specifying-NAT",
-          //   to: "/stable/how-to/find-and-connect/specify-nat",
-          // },
-          // {
-          //   from: "/HowTo/Find-and-Connect/Improve-Connectivity",
-          //   to: "/stable/how-to/find-and-connect/improve-connectivity",
-          // },
-          // {
-          //   from: "/HowTo/Voluntary-Exit",
-          //   to: "/stable/how-to/voluntarily-exit",
-          // },
-          // {
-          //   from: "/HowTo/Reconstruct-Historical-States-Service",
-          //   to: "/stable/how-to/reconstruct-historical-states",
-          // },
-          // {
-          //   from: "/HowTo/Sentry-Nodes",
-          //   to: "/stable/how-to/use-sentry-nodes",
-          // },
-          // {
-          //   from: [
-          //     "/category/troubleshoot",
-          //     "/stable/HowTo/Troubleshoot/Troubleshooting",
-          //   ],
-          //   to: "/stable/how-to/troubleshoot",
-          // },
-          // {
-          //   from: "/HowTo/Withdrawal-Keys",
-          //   to: "/stable/how-to/update-withdrawal-keys",
-          // },
-          // {
-          //   from: "/HowTo/Doppelganger-Detection",
-          //   to: "/stable/how-to/enable-doppelganger-detection",
-          // },
-          // {
-          //   from: "/HowTo/Migrate-Database",
-          //   to: "/stable/how-to/migrate-database",
-          // },
-          // {
-          //   from: "/HowTo/Prevent-Slashing",
-          //   to: "/stable/how-to/prevent-slashing",
-          // },
-          // {
-          //   from: "/Concepts/ArchitectureOverview",
-          //   to: "/stable/concepts/architecture",
-          // },
-          // {
-          //   from: "/Reference/CLI/CLI-Syntax",
-          //   to: "/stable/reference/cli",
-          // },
-          // {
-          //   from: "/category/get-started",
-          //   to: "/stable/get-started",
-          // },
-          // {
-          //   from: "/category/install-teku",
-          //   to: "/stable/get-started/install",
-          // },
-          // {
-          //   from: "/category/connect-to-a-network",
-          //   to: "/stable/get-started/connect",
-          // },
-          // {
-          //   from: "/category/how-to",
-          //   to: "/stable/how-to",
-          // },
-          // {
-          //   from: "/category/configure",
-          //   to: "/stable/how-to/configure",
-          // },
-          // {
-          //   from: "/category/use-an-external-signer",
-          //   to: "/stable/how-to/use-external-signer",
-          // },
-          // {
-          //   from: "/category/find-and-connect-to-peers",
-          //   to: "/stable/how-to/find-and-connect",
-          // },
-          // {
-          //   from: "/category/monitor-nodes",
-          //   to: "/stable/how-to/monitor",
-          // },
-          // {
-          //   from: "/category/concepts",
-          //   to: "/stable/concepts",
-          // },
-          // {
-          //   from: "/category/tutorials",
-          //   to: "/stable/tutorials",
-          // },
+          {
+            from: "/HowTo/Get-Started/Installation-Options/Run-Docker-Image",
+            to: "/get-started/install/run-docker-image",
+          },
+          {
+            from: "/HowTo/Get-Started/Run-Teku",
+            to: "/get-started/start-teku",
+          },
+          {
+            from: "/HowTo/Get-Started/Connect/Connect-To-Mainnet",
+            to: "/get-started/connect/mainnet",
+          },
+          {
+            from: "/HowTo/Get-Started/Connect/Connect-To-Testnet",
+            to: "/get-started/connect/testnet",
+          },
+          {
+            from: "/HowTo/Get-Started/Checkpoint-Start",
+            to: "/get-started/checkpoint-start",
+          },
+          {
+            from: "/HowTo/Get-Started/Manage-Memory",
+            to: "/get-started/manage-memory",
+          },
+          {
+            from: "/HowTo/Get-Started/Migrate-to-Teku",
+            to: "/get-started/migrate-to-teku",
+          },
+          {
+            from: "/category/external-signing",
+            to: "/how-to/use-external-signer",
+          },
+          {
+            from: "/HowTo/External-Signer/Use-External-Signer",
+            to: "/how-to/use-external-signer/use-web3signer",
+          },
+          {
+            from: "/HowTo/External-Signer/Manage-keys",
+            to: "/how-to/use-external-signer/manage-keys",
+          },
+          {
+            from: "/HowTo/Load-Validators-No-Restart",
+            to: "/how-to/load-validators-without-restarting",
+          },
+          {
+            from: "/HowTo/Monitor/Metrics",
+            to: "/how-to/monitor/use-metrics",
+          },
+          {
+            from: "/HowTo/Monitor/Logging",
+            to: "/how-to/monitor/configure-logging",
+          },
+          {
+            from: "/HowTo/Configure/Use-Configuration-File",
+            to: "/how-to/configure/use-config-file",
+          },
+          {
+            from: "/HowTo/Configure/Proposer-Configuration",
+            to: "/how-to/configure/use-proposer-config-file",
+          },
+          {
+            from: "/HowTo/Configure/Configure-TLS",
+            to: "/how-to/configure/tls",
+          },
+          {
+            from: "/HowTo/Configure/Builder-Network",
+            to: "/how-to/configure/builder-network",
+          },
+          {
+            from: "/HowTo/Find-and-Connect/Specifying-NAT",
+            to: "/how-to/find-and-connect/specify-nat",
+          },
+          {
+            from: "/HowTo/Find-and-Connect/Improve-Connectivity",
+            to: "/how-to/find-and-connect/improve-connectivity",
+          },
+          {
+            from: "/HowTo/Voluntary-Exit",
+            to: "/how-to/voluntarily-exit",
+          },
+          {
+            from: "/HowTo/Reconstruct-Historical-States-Service",
+            to: "/how-to/reconstruct-historical-states",
+          },
+          {
+            from: "/HowTo/Sentry-Nodes",
+            to: "/how-to/use-sentry-nodes",
+          },
+          {
+            from: [
+              "/category/troubleshoot",
+              "/HowTo/Troubleshoot/Troubleshooting",
+            ],
+            to: "/how-to/troubleshoot",
+          },
+          {
+            from: "/HowTo/Withdrawal-Keys",
+            to: "/how-to/update-withdrawal-keys",
+          },
+          {
+            from: "/HowTo/Doppelganger-Detection",
+            to: "/how-to/enable-doppelganger-detection",
+          },
+          {
+            from: "/HowTo/Migrate-Database",
+            to: "/how-to/migrate-database",
+          },
+          {
+            from: "/HowTo/Prevent-Slashing",
+            to: "/how-to/prevent-slashing",
+          },
+          {
+            from: "/Concepts/ArchitectureOverview",
+            to: "/concepts/architecture",
+          },
+          {
+            from: "/Reference/CLI/CLI-Syntax",
+            to: "/reference/cli",
+          },
+          {
+            from: "/category/get-started",
+            to: "/get-started",
+          },
+          {
+            from: "/category/install-teku",
+            to: "/get-started/install",
+          },
+          {
+            from: "/category/connect-to-a-network",
+            to: "/get-started/connect",
+          },
+          {
+            from: "/category/how-to",
+            to: "/how-to",
+          },
+          {
+            from: "/category/configure",
+            to: "/how-to/configure",
+          },
+          {
+            from: "/category/use-an-external-signer",
+            to: "/how-to/use-external-signer",
+          },
+          {
+            from: "/category/find-and-connect-to-peers",
+            to: "/how-to/find-and-connect",
+          },
+          {
+            from: "/category/monitor-nodes",
+            to: "/how-to/monitor",
+          },
+          {
+            from: "/category/concepts",
+            to: "/concepts",
+          },
+          {
+            from: "/category/tutorials",
+            to: "/tutorials",
+          },
         ],
-        createRedirects(existingPath) {
-          if (existingPath.includes("/development")) {
-            return [
-              existingPath.replace("/development", "/en/development"),
-              existingPath.replace("/development", "/en/latest"),
-              existingPath.replace("/development", "/latest"),
-            ];
-          }
-          if (existingPath.includes("/stable")) {
-            return [existingPath.replace("/stable", "/en/stable")];
-          }
-          return undefined; // Return a falsy value: no redirect created
-        },
       },
     ],
   ],
