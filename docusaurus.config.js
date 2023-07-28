@@ -50,7 +50,6 @@ const config = {
             // using 'stable' as path
             "23.6.2": {
               label: "stable (23.6.2)",
-              path: "stable",
               banner: "none",
             },
           },
