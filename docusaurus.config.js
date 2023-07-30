@@ -40,21 +40,18 @@ const config = {
           path: "./docs",
           includeCurrentVersion: true,
           lastVersion: "23.6.2",
-          // versions: {
-          //   //defaults to the ./docs folder
-          //   // using 'development' instead of 'next' as path
-          //   current: {
-          //     label: "development",
-          //     path: "development",
-          //     banner: "unreleased",
-          //   },
-          //   //the last stable release in the versioned_docs/version-stable
-          //   // using 'stable' as path
-          //   "23.6.2": {
-          //     label: "stable (23.6.2)",
-          //     banner: "none",
-          //   },
-          // },
+          versions: {
+            //defaults to the ./docs folder
+            // using 'development' instead of 'next' as path
+            current: {
+              label: "development",
+              path: "development",
+            },
+            //the last stable release in the versioned_docs/version-stable
+            "23.6.2": {
+              label: "stable (23.6.2)",
+            },
+          },
           // @ts-ignore
           // eslint-disable-next-line global-require
           remarkPlugins: [require("remark-docusaurus-tabs")],
