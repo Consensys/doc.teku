@@ -31,7 +31,7 @@ Execution and consensus clients communicate with each other using the [Engine AP
 
 ### Execution clients
 
-Execution clients, such as [Besu](https://besu.hyperledger.org/), manage the execution layer, including executing transactions and updating the world state. Execution clients serve [JSON-RPC API](https://besu.hyperledger.org/development/public-networks/reference/api) requests and communicate with each other in a peer-to-peer network.
+Execution clients, such as [Besu](https://besu.hyperledger.org/), manage the execution layer, including executing transactions and updating the world state. Execution clients serve [JSON-RPC API](https://besu.hyperledger.org/stable/public-networks/reference/api) requests and communicate with each other in a peer-to-peer network.
 
 ### Consensus clients
 

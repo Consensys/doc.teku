@@ -4,40 +4,6 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const isDev = process.env.NODE_ENV === "development";
 const baseUrl = isDev ? "/" : "/";
 
-/**
- * @type {import('redocusaurus').PresetEntry}
- */
-const redocusaurus = [
-  "redocusaurus",
-  {
-    specs: [
-      {
-        id: "using-remote-url",
-        // Remote File
-        spec: "https://raw.githubusercontent.com/ConsenSys/teku/gh-pages/latest.json",
-        route: "/api/",
-      },
-    ],
-    theme: {
-      /**
-       * Highlight color for docs
-       */
-      primaryColor: "#ed774f",
-      primaryColorDark: "#ed774f",
-      /**
-       * Options to pass to redoc
-       * @see https://github.com/redocly/redoc#redoc-options-object
-       */
-      options: { disableSearch: true },
-      /**
-       * Options to pass to override RedocThemeObject
-       * @see https://github.com/Redocly/redoc#redoc-theme-object
-       */
-      theme: {},
-    },
-  },
-];
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Teku documentation",
@@ -70,8 +36,22 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Set a base path separate from default /docs
           editUrl: "https://github.com/ConsenSys/doc.teku/tree/master/",
-          path: "docs",
           routeBasePath: "/",
+          path: "./docs",
+          includeCurrentVersion: true,
+          lastVersion: "23.6.2",
+          versions: {
+            //defaults to the ./docs folder
+            // using 'development' instead of 'next' as path
+            current: {
+              label: "development",
+              path: "development",
+            },
+            //the last stable release in the versioned_docs/version-stable
+            "23.6.2": {
+              label: "stable (23.6.2)",
+            },
+          },
           // @ts-ignore
           // eslint-disable-next-line global-require
           remarkPlugins: [require("remark-docusaurus-tabs")],
@@ -84,14 +64,12 @@ const config = {
           ],
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
-          includeCurrentVersion: true,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
       },
     ],
-    redocusaurus,
   ],
 
   themeConfig:
@@ -168,7 +146,12 @@ const config = {
           },
           {
             label: "API",
-            to: "/api/",
+            to: "https://consensys.github.io/teku/",
+          },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
+            dropdownActiveClassDisabled: true,
           },
           {
             href: "https://github.com/ConsenSys/teku",
@@ -190,19 +173,19 @@ const config = {
             items: [
               {
                 label: "Introduction",
-                to: "introduction",
+                to: "/introduction",
               },
               {
                 label: "Get started",
-                to: "/category/get-started",
+                to: "/get-started",
               },
               {
                 label: "How to guides",
-                to: "/category/how-to",
+                to: "/how-to",
               },
               {
                 label: "Tutorials",
-                to: "/category/tutorials",
+                to: "/tutorials",
               },
             ],
           },
@@ -211,7 +194,7 @@ const config = {
             items: [
               {
                 label: "Command line",
-                to: "reference/cli",
+                to: "/reference/cli",
               },
               {
                 label: "REST API",
@@ -424,10 +407,9 @@ const config = {
             from: "/category/connect-to-a-network",
             to: "/get-started/connect",
           },
-          // prettier-ignore
           {
-           from: "/category/how-to",
-           to: "/how-to",
+            from: "/category/how-to",
+            to: "/how-to",
           },
           {
             from: "/category/configure",

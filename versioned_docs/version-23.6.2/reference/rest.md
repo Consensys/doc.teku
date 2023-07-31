@@ -4,9 +4,11 @@ description: Teku RESTful API
 
 # Use the REST API
 
+<!-- markdown-link-check-disable -->
 :::tip View the REST API
-View the [REST API documentation] for information about the available API methods.
+View the [REST API documentation](https://consensys.github.io/teku/) for information about the available API methods.
 :::
+<!-- markdown-link-check-enable -->
 
 ## Enable the REST API service
 
@@ -83,6 +85,5 @@ When enabling the API documentation endpoint, specify:
 
 <!-- Links -->
 
-[REST API documentation]: https://consensys.github.io/teku/
 [Postman]: https://www.postman.com/
 [cURL]: https://curl.haxx.se/
