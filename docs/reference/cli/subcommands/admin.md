@@ -388,7 +388,7 @@ TEKU_DATA_BEACON_PATH=/home/me/me_beacon
 # Configuration file
 
 ```bash
-data-beacon-path: "/home/me/me_beaon"
+data-beacon-path: "/home/me/me_beacon"
 ```
 
 <!--/tabs-->
@@ -427,7 +427,7 @@ data-storage-archive-frequency: 1028
 
 Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
-This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
+This option is ignored if [`--data-storage-mode`](#data-storage-mode) is not set to `archive`.
 
 :::note
 
@@ -467,7 +467,7 @@ data-storage-mode: "archive"
 
 <!--/tabs-->
 
-Set the strategy for handling historical chain data. Valid options are `prune` and `archive`. The default is `prune`.
+Set the strategy for handling historical chain data. Valid options are `minimal`, `prune` and `archive`. The default is `minimal`.
 
 #### `data-validator-path`
 
