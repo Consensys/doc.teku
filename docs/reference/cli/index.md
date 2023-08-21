@@ -390,7 +390,7 @@ data-storage-non-canonical-blocks-enabled: true
 
 <!--/tabs-->
 
-Specify whether to store non-canonical blocks. The default is `false`.
+Specify whether to store non-canonical blocks and blob sidecars. The default is `false`.
 
 ### data-validator-path
 
