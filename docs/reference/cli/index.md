@@ -358,7 +358,7 @@ Set the strategy for handling historical chain data. Valid options are:
 - `prune` - Stores all blocks, but finalized states are pruned.
 - `archive` - Stores all blocks and states.
 
-The default is `prune`.
+The default is `minimal`.
 
 ### data-storage-non-canonical-blocks-enabled
 
