@@ -1,14 +1,16 @@
 ---
 title: Connect to a testnet
-description: Connect Teku to the Goerli or Sepolia testnet.
+description: Connect Teku to a testnet.
 sidebar_position: 1
 ---
 
 # Connect to a testnet
 
-Run Teku as a consensus client with any execution client on the [Goerli](https://github.com/eth-clients/goerli) and [Sepolia](https://github.com/eth-clients/sepolia) testnets.
+Run Teku as a consensus client with any execution client on a testnet (for example [Goerli](https://github.com/eth-clients/goerli),
+[Sepolia](https://github.com/eth-clients/sepolia), or [Holesky](https://github.com/eth-clients/holesky)).
 
-If you're using [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can follow the [Besu and Teku testnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-testnet/).
+If you're using [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can follow the
+[Besu and Teku testnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-testnet/).
 
 :::note
 
@@ -38,7 +40,8 @@ If you're running a beacon node only, skip to the [next step](#3-start-the-execu
 If you're also running a validator client, create a test Ethereum address
 (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
 Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet.
-See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli) and [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
+See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data-g%C3%B6rli),
+[Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia), and [Holesky faucets](https://holesky.ethpandaops.io/).
 
 :::note
 
@@ -95,6 +98,17 @@ teku \
     --rest-api-enabled=true
 ```
 
+# Holesky
+
+```bash
+teku \
+    --network=holesky                            \
+    --ee-endpoint=http://localhost:8551          \
+    --ee-jwt-secret-file=<path to jwtsecret.hex> \
+    --metrics-enabled=true                       \
+    --rest-api-enabled=true
+```
+
 # Sepolia
 
 ```bash
@@ -122,7 +136,8 @@ You can also use [Prometheus and Grafana](../../how-to/monitor/use-metrics.md) t
 
 #### Single process
 
-To run the Teku beacon node and validator client in a single process, run the following command or [specify the options in the configuration file](../../how-to/configure/use-config-file.md):
+To run the Teku beacon node and validator client in a single process, run the following command or
+[specify the options in the configuration file](../../how-to/configure/use-config-file.md):
 
 <!--tabs-->
 
@@ -131,6 +146,19 @@ To run the Teku beacon node and validator client in a single process, run the fo
 ```bash
 teku \
   --network=goerli                                          \
+  --ee-endpoint=http://localhost:8551                       \
+  --ee-jwt-secret-file=<path to jwtsecret.hex>              \
+  --metrics-enabled=true                                    \
+  --rest-api-enabled=true                                   \
+  --validators-proposer-default-fee-recipient=<ETH address> \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
+
+# Holesky
+
+```bash
+teku \
+  --network=holesky                                         \
   --ee-endpoint=http://localhost:8551                       \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
@@ -162,6 +190,15 @@ On a separate machine, run Teku using the [`validator-client`](../../reference/c
 <!--tabs-->
 
 # Goerli
+
+```bash
+teku validator-client \
+    --network=goerli                      \
+    --beacon-node-api-endpoint=<endpoint> \
+    --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
+
+# Holesky
 
 ```bash
 teku validator-client \

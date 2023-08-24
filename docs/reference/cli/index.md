@@ -665,10 +665,17 @@ deposit-snapshot-enabled: false
 
 Enables or disables using a bundled deposit contract tree snapshot and persisting the tree after finalization. The default is `true`.
 
-Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both operations by bundling deposit tree snapshots in the Teku distribution for all major networks (Mainnet, Gnosis, Goerli, and Sepolia) and persisting the current tree after finalization. Instead of replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one, whichever is the latest.
+Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku
+loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources
+and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both
+operations by bundling deposit tree snapshots in the Teku distribution for all major
+networks (Mainnet, Gnosis, Goerli, and Sepolia) and persisting the current tree after finalization. Instead of
+replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one, whichever is the latest.
 
 :::info Security considerations
-If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect deposit tree snapshot.
+If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received
+from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect
+deposit tree snapshot.
 :::
 
 ### exchange-capabilities-monitoring-enabled
@@ -1361,6 +1368,7 @@ Possible values are:
 | `minimal` | Consensus layer | Test | Used for local testing and development networks |
 | `goerli` | Consensus layer | Test | Multi-client testnet |
 | `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/) |
+| `holesky` | Consensus layer | Test | Multi-client testnet |
 | `sepolia` | Consensus layer | Test | Multi-client testnet |
 | `chiado` | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
 | `lukso` | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/) |
