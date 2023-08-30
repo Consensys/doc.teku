@@ -358,7 +358,7 @@ Set the strategy for handling historical chain data. Valid options are:
 - `prune` - Stores all blocks, but finalized states are pruned.
 - `archive` - Stores all blocks and states.
 
-The default is `prune`.
+The default is `minimal`.
 
 ### data-storage-non-canonical-blocks-enabled
 
@@ -390,7 +390,7 @@ data-storage-non-canonical-blocks-enabled: true
 
 <!--/tabs-->
 
-Specify whether to store non-canonical blocks. The default is `false`.
+Specify whether to store non-canonical blocks and blob sidecars. The default is `false`.
 
 ### data-validator-path
 
@@ -1360,9 +1360,10 @@ Possible values are:
 | `mainnet` | Consensus layer | Production | Main network |
 | `minimal` | Consensus layer | Test | Used for local testing and development networks |
 | `goerli` | Consensus layer | Test | Multi-client testnet |
-| `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://docs.gnosischain.com/) |
+| `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/) |
 | `sepolia` | Consensus layer | Test | Multi-client testnet |
 | `chiado` | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
+| `lukso` | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/) |
 
 Predefined networks can provide defaults such as the initial state of the network, bootnodes, and the address of the deposit contract.
 
