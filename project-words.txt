@@ -126,6 +126,7 @@ doesn
 dogfood
 dogfooding
 dojocat
+dteku
 dumpconfig
 dyte
 décembre
