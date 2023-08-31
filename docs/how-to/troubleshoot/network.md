@@ -10,7 +10,7 @@ sidebar_position: 15
 Use [checkpoint sync](../../get-started/checkpoint-start.md) to sync Teku from a recent finalized checkpoint, bypassing
 the need to sync from genesis and enabling a quick synchronization process within minutes. To do this, use the
 [`--initial-state`](../../reference/cli/index.md#initial-state) CLI option which accepts a URL or file that provides a recent
-finalized `BeaconState`. Any syncronized beacon node can provide this from the standard API, and you can view
+finalized `BeaconState`. Any synchronized beacon node can provide this from the standard API, and you can view
 [the list of public sources](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 
 The [`--initial-state`](../../reference/cli/index.md#initial-state) option is only used when you first create a database. To
@@ -78,8 +78,8 @@ Common issues include:
 * **Low numbers of peers, or poor quality peers**. Refer to the [peering troubleshooting topic](#how-many-peers-do-i-need-or-other-peering-issues)
     for more information to resolve this.
 
-* **Poor internet speed**. An example is someone was on an ADSL link with only about 2.5Mbps upstream which led to
-    misses, typically anything over 10Mbps upstream is acceptable.
+* **Poor internet speed**. An example is someone was on an ADSL link with only about 2.5 Mbps upstream which led to
+    misses, typically anything over 10 Mbps upstream is acceptable.
 
 
 ## Address missing attestations or non-inclusion issues

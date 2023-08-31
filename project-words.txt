@@ -47,6 +47,7 @@ blockperiod
 blockperiodseconds
 blockquotes
 blockscout
+blst
 bootnode
 bootnodes
 browserslist
@@ -72,6 +73,7 @@ changeit
 chedeau
 cheng
 chiado
+chrony
 clientcert
 clientkey
 clsx
@@ -298,6 +300,7 @@ mathjax
 maxlynch
 maxpeers
 maxresdefault
+mbps
 mdast
 mdxa
 mdxast
@@ -324,6 +327,7 @@ mkdocs
 mmvv
 moesif
 msapplication
+multiaddress
 multiaddresses
 multikey
 multitenancy
@@ -433,6 +437,7 @@ promtail
 protobuf
 protobuffet
 prpl
+prysm
 pubkey
 publickey
 puppeth
@@ -505,6 +510,7 @@ setext
 shiki
 showinfo
 sida
+sigill
 sighup
 simen
 simplestorage
