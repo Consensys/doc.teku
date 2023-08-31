@@ -1,10 +1,9 @@
 ---
-title: Troubleshoot
 description: Solve common problems encountered with Teku.
 sidebar_position: 14
 ---
 
-# Troubleshoot
+# Troubleshoot general issues
 
 ## Out of memory error
 
@@ -16,7 +15,7 @@ To fix this, you can try [setting a maximum heap size].
 
 If Teku fails to start with a `P2P Port 9000 (TCP/UDP) is already in use. Check for other processes using this port.` error, it means that Teku is trying to use a network port that is already in use.
 
-For example, Teku and Lighthouse both use port 9000 by default for P2P traffic. You can change Teku's default port number with the [`--p2p-port`](../reference/cli/index.md#p2p-port) option.
+For example, Teku and Lighthouse both use port 9000 by default for P2P traffic. You can change Teku's default port number with the [`--p2p-port`](../../reference/cli/index.md#p2p-port) option.
 
 ## Unable to lock a keystore file
 
@@ -27,7 +26,7 @@ Teku uses a file locking mechanism for the keystores to prevent two validator cl
 To resolve this issue, try the one of the following:
 
 - Set the permissions of the directory holding the keystores so that it is writable by Teku.
-- Set [`--validators-keystore-locking-enabled`](../reference/cli/index.md#validators-keystore-locking-enabled) to `false` to disable the locking functionality.
+- Set [`--validators-keystore-locking-enabled`](../../reference/cli/index.md#validators-keystore-locking-enabled) to `false` to disable the locking functionality.
 
 :::warning
 
@@ -44,7 +43,7 @@ Teku uses a file locking mechanism for the keystores to prevent two validator cl
 To resolve this issue, try the one of the following:
 
 - Manually remove the lock files that are created alongside your keystore files, with `.lock` appended to the filename. Take care not to delete your keystores.
-- Set [`--validators-keystore-locking-enabled`](../reference/cli/index.md#validators-keystore-locking-enabled) to `false` to disable the locking functionality.
+- Set [`--validators-keystore-locking-enabled`](../../reference/cli/index.md#validators-keystore-locking-enabled) to `false` to disable the locking functionality.
 
 :::warning
 
@@ -87,7 +86,7 @@ If all recent attestations are marked as missed, check the following:
 
   Check the logs when Teku started for the line, `teku-status-log | Loaded N Validators: <validator_pubkey>[, <validator_pubkey>]`, where `N` is the number of expected validators. Each validator's truncated public key is also listed.
 
-  If the validator did not load, check for any errors loading the validator, and that the [`--validators-keys`](../reference/cli/index.md#validators-keys) option is correct.
+  If the validator did not load, check for any errors loading the validator, and that the [`--validators-keys`](../../reference/cli/index.md#validators-keys) option is correct.
 
 - **Is the beacon node still syncing?**
 
@@ -101,7 +100,7 @@ If all recent attestations are marked as missed, check the following:
 
   Each validator that you run prints the message, `teku-validator-log | Validator *** Published attestation Count: 1, Slot: 48539, Root: 5e1bf5..cee8` once each epoch. If you do not see this for your validator then check that it loaded correctly.
 
-  To see this message, ensure [`log-include-validator-duties-enabled`](../reference/cli/index.md#log-include-validator-duties-enabled) is `true`.
+  To see this message, ensure [`log-include-validator-duties-enabled`](../../reference/cli/index.md#log-include-validator-duties-enabled) is `true`.
 
 - **Do you have peers?**
 
@@ -145,7 +144,7 @@ The shell does not see the tilde (~) in the command. To fix this, omit the equal
 
 <!-- links -->
 
-[Ensure your local network is configured correctly]: find-and-connect/improve-connectivity.md
+[Ensure your local network is configured correctly]: ../find-and-connect/improve-connectivity.md
 [EIP-2335]: https://eips.ethereum.org/EIPS/eip-2335
-[slashed]: ../concepts/slashing-protection.md
-[setting a maximum heap size]: ../get-started/manage-memory.md
+[slashed]: ../../concepts/slashing-protection.md
+[setting a maximum heap size]: ../../get-started/manage-memory.md
