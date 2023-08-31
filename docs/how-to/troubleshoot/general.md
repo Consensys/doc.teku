@@ -1,10 +1,9 @@
 ---
-title: General Troubleshooting
 description: Solve common problems encountered with Teku.
 sidebar_position: 14
 ---
 
-# General Troubleshooting
+# Troubleshoot general issues
 
 ## Out of memory error
 
