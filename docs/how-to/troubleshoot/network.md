@@ -10,7 +10,7 @@ sidebar_position: 15
 Use [checkpoint sync](../../get-started/checkpoint-start.md) to sync Teku from a recent finalized checkpoint, bypassing
 the need to sync from genesis and enabling a quick synchronization process within minutes. To do this, use the
 [`--initial-state`](../../reference/cli/index.md#initial-state) CLI option which accepts a URL or file that provides a recent
-finalised `BeaconState`. Any syncronized beacon node can provide this from the standard API, and you can view
+finalized `BeaconState`. Any syncronized beacon node can provide this from the standard API, and you can view
 [the list of public sources](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 
 The [`--initial-state`](../../reference/cli/index.md#initial-state) option is only used when you first create a database. To
@@ -138,7 +138,7 @@ JAVA_OPTS="-Dteku.portableBlst=true"
 
 If the user has already set `-Dteku.portableBlst=false` it should be changed to `true`.
 
-## Force Teku to use the optimised BLST library
+## Force Teku to use the optimized BLST library
 
 Check the Teku logs at startup for `Using optimized BLST library` if it was able to detect a compatible CPU, or
 `Using portable BLST library` if it could not.
