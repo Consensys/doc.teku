@@ -36,35 +36,44 @@ You can decode the ENR by using the [ENR Viewer website](https://enr-viewer.com/
 
 ## Resolve peering issues
 
-Teku's default target is 74 peers, and performs well with 100 peers. Additional peers enhance performance up to a limit, but
-a balanced combination of inbound and outbound peers is essential for optimal connectivity.
+By default, teku will attempt to get 100 peers. It's possible to increase the number of peers to improve performance, but this does
+incur more overheads for network traffic, and more messages will need to be validated.
 
-If you are behind a NAT router, ensure you allow both UDP and TCP traffic to be forwarded inbound to Teku (port `9000` by default).
-You can check your current peer list if you have the API running with:
+The two arguments that influence the number of peers that teku will attempt to connect to are `--p2p-peer-lower-bound` (64 default),
+and `--p2p-peer-upper-bound` (100 default).  If these parameters are reduced on your beacon node, and your participation degrades, 
+consider increasing the parameters to improve your performance.
 
-```bash
-curl -X GET "http://127.0.0.1:5051/eth/v1/node/peers" -H "accept: application/json"`.
-```
-
-Search for "direction": "inbound" to confirm incoming traffic. If absent, forward your NAT or review firewall rules for
-permitting inbound on port `9000`.
-
-View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic, but
-you need to substitute `9000` for the port numbers.
-
-If you are looking just the direction of the traffic, copy and paste the following command to your terminal to show the
-direction counts:
+To query the number of inbound and outbound peers using the beacon-rest-api, the following request will query the peers endpoint and collate
+the data based on the direction (inbound and outbound).
 
 ```bash
 curl http://127.0.0.1:5051/eth/v1/node/peers |jq '.data | group_by(.direction)[] | {direction: .[0].direction, count: length}'
 ```
 
+If there are only outbound peers are shown, then peers are not able to connect to you from outside your infrastructure.
+
+Typically, networks will have a firewall at the point of entry (router / modem / gateway), and that firewall will block access to any incoming data by default.
+
+The firewall will need to be updated to add a rule to allow the `--p2p-port` (9000 by default) access for `UDP` and `TCP` traffic.
+This port would then be forwarded (TCP and UDP) to the internal IP address of the machine hosting your beacon-node software. 
+Some operating systems also run firewalls locally which should be updated to allow this port to accept communication.
+
+View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic, but you need to substitute  your `--p2p-port` (9000 by default) for the port numbers.
+
+Another possible cause of incoming peers not being able to connect, is when an address has been specified using the `--p2p-advertised-ip` command argument, 
+and that address is no longer correct. Most users will not need to use this parameter, as teku will automatically detect the address to use by default.
+If you are not getting incoming peers, but your firewall and forwarding is correct, then this is the most likely cause.
+
+Another possible cause of incoming peers not being able to connect is using a different port on your network gateway (router / modem). 
+This is generally done because only 1 service can listen on a port, so if you run multiple beacon nodes, you need multiple ports open on your gateway.
+The easiest solution is to try to use the same port on your gateway as is specified on your `--p2p-port` (9000 by default), 
+but users are also able to update the advertised port using `--p2p-advertised-port` if required.
+
 ## Resolve poor attestation performance
 
 Troubleshooting poor attestation performance is complicated, and the solution requires you to identify the root cause.
 
-[This video](https://www.symphonious.net/2020/09/08/exploring-eth2-attestation-inclusion/) is a little old, but the general
-picture is still relevant.
+[This video](https://www.symphonious.net/2020/09/08/exploring-eth2-attestation-inclusion/) is a little old, but the general picture is still relevant.
 
 Common issues include:
 
