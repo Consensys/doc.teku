@@ -3,7 +3,7 @@ description: Solve common networking problems encountered with Teku.
 sidebar_position: 15
 ---
 
-# Troubleshoot network issues
+# Network issues
 
 ## Speed up sync time
 
@@ -36,38 +36,54 @@ You can decode the ENR by using the [ENR Viewer website](https://enr-viewer.com/
 
 ## Resolve peering issues
 
-By default, teku will attempt to get 100 peers. It's possible to increase the number of peers to improve performance, but this does
-incur more overheads for network traffic, and more messages will need to be validated.
+### Peer connection issues
 
-The two arguments that influence the number of peers that teku will attempt to connect to are `--p2p-peer-lower-bound` (64 default),
-and `--p2p-peer-upper-bound` (100 default).  If these parameters are reduced on your beacon node, and your participation degrades, 
-consider increasing the parameters to improve your performance.
+By default, Teku attempts to get 100 peers. You can increase the number of peers to improve performance, but this does
+lead to increased network traffic and a higher number of messages requiring validation.
 
-To query the number of inbound and outbound peers using the beacon-rest-api, the following request will query the peers endpoint and collate
-the data based on the direction (inbound and outbound).
+Teku's attempt to connect with peers is influenced by two CLI options: [`--p2p-peer-lower-bound`](../../reference/cli/index.md#p2p-peer-lower-bound) (default is 64)
+and [`--p2p-peer-upper-bound`](../../reference/cli/index.md#p2p-peer-upper-bound) (default is 100).  If you notice a
+decline in your beacon node's participation after reducing these parameters, consider increasing them to enhance performance.
+
+
+### Firewall connection issues
+
+To determine the number of inbound and outbound peers via the beacon node's REST API, you can send a request to the peers
+endpoint. This gathers data and organizes it based on the direction, either inbound or outbound.
 
 ```bash
 curl http://127.0.0.1:5051/eth/v1/node/peers |jq '.data | group_by(.direction)[] | {direction: .[0].direction, count: length}'
 ```
 
-If there are only outbound peers are shown, then peers are not able to connect to you from outside your infrastructure.
+If only outbound peers are displayed, it indicates that peers cannot connect to your infrastructure from the outside.
+Networks typically have a firewall at the entry point (router / modem / gateway) that blocks incoming data by default.
 
-Typically, networks will have a firewall at the point of entry (router / modem / gateway), and that firewall will block access to any incoming data by default.
+To resolve this, update the firewall to include a rule that allows access to the [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default)
+for both `UDP` and `TCP` traffic. Subsequently, forward this port (TCP and UDP) to the internal IP address of the machine running the
+beacon node. Some operating systems also have local firewalls that should be updated to permit communication through this port.
 
-The firewall will need to be updated to add a rule to allow the `--p2p-port` (9000 by default) access for `UDP` and `TCP` traffic.
-This port would then be forwarded (TCP and UDP) to the internal IP address of the machine hosting your beacon-node software. 
-Some operating systems also run firewalls locally which should be updated to allow this port to accept communication.
+:::info
 
 View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic, but you need to substitute  your `--p2p-port` (9000 by default) for the port numbers.
 
-Another possible cause of incoming peers not being able to connect, is when an address has been specified using the `--p2p-advertised-ip` command argument, 
-and that address is no longer correct. Most users will not need to use this parameter, as teku will automatically detect the address to use by default.
-If you are not getting incoming peers, but your firewall and forwarding is correct, then this is the most likely cause.
+:::
 
-Another possible cause of incoming peers not being able to connect is using a different port on your network gateway (router / modem). 
-This is generally done because only 1 service can listen on a port, so if you run multiple beacon nodes, you need multiple ports open on your gateway.
-The easiest solution is to try to use the same port on your gateway as is specified on your `--p2p-port` (9000 by default), 
-but users are also able to update the advertised port using `--p2p-advertised-port` if required.
+### Advertised IP address issues 
+
+A potential reason for incoming peers being unable to connect could be an incorrect address specified using the
+[`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip) option. Teku auto-detects the address to use by
+default, so most users won't need to use this option. If you're experiencing issues with incoming peers despite having
+correct firewall and forwarding settings, this could likely be the cause.
+
+
+### Network gateway issues
+
+A potential reason for incoming peers not being able to connect could be the use of a different port on your network
+gateway (router or modem). 
+This usually happens because only one service can listen on a port. Therefore, if you're running multiple beacon nodes, you'll
+need to open multiple ports on your gateway. The simplest solution is to use the same port on your gateway as specified
+in your [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default). However, if necessary, users can also
+update the advertised port using the [`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port) command.
 
 ## Resolve poor attestation performance
 
