@@ -3,7 +3,7 @@ description: Solve common networking problems encountered with Teku.
 sidebar_position: 15
 ---
 
-# Troubleshoot network issues
+# Network issues
 
 ## Speed up sync time
 
@@ -36,35 +36,60 @@ You can decode the ENR by using the [ENR Viewer website](https://enr-viewer.com/
 
 ## Resolve peering issues
 
-Teku's default target is 74 peers, and performs well with 100 peers. Additional peers enhance performance up to a limit, but
-a balanced combination of inbound and outbound peers is essential for optimal connectivity.
+### Peer connection issues
 
-If you are behind a NAT router, ensure you allow both UDP and TCP traffic to be forwarded inbound to Teku (port `9000` by default).
-You can check your current peer list if you have the API running with:
+By default, Teku attempts to get 100 peers. You can increase the number of peers to improve performance, but this does
+lead to increased network traffic and a higher number of messages requiring validation.
 
-```bash
-curl -X GET "http://127.0.0.1:5051/eth/v1/node/peers" -H "accept: application/json"`.
-```
+Teku's attempt to connect with peers is influenced by two CLI options: [`--p2p-peer-lower-bound`](../../reference/cli/index.md#p2p-peer-lower-bound) (default is 64)
+and [`--p2p-peer-upper-bound`](../../reference/cli/index.md#p2p-peer-upper-bound) (default is 100).  If you notice a
+decline in your beacon node's participation after reducing these parameters, consider increasing them to enhance performance.
 
-Search for "direction": "inbound" to confirm incoming traffic. If absent, forward your NAT or review firewall rules for
-permitting inbound on port `9000`.
 
-View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic, but
-you need to substitute `9000` for the port numbers.
+### Firewall connection issues
 
-If you are looking just the direction of the traffic, copy and paste the following command to your terminal to show the
-direction counts:
+To determine the number of inbound and outbound peers via the beacon node's REST API, you can send a request to the peers
+endpoint. This gathers data and organizes it based on the direction, either inbound or outbound.
 
 ```bash
 curl http://127.0.0.1:5051/eth/v1/node/peers |jq '.data | group_by(.direction)[] | {direction: .[0].direction, count: length}'
 ```
 
+If only outbound peers are displayed, it indicates that peers cannot connect to your infrastructure from the outside.
+Networks typically have a firewall at the entry point (router / modem / gateway) that blocks incoming data by default.
+
+To resolve this, update the firewall to include a rule that allows access to the [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default)
+for both `UDP` and `TCP` traffic. Subsequently, forward this port (TCP and UDP) to the internal IP address of the machine running the
+beacon node. Some operating systems also have local firewalls that should be updated to permit communication through this port.
+
+:::info
+
+View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic, but you need to substitute  your `--p2p-port` (9000 by default) for the port numbers.
+
+:::
+
+### Advertised IP address issues 
+
+A possible reason for incoming peers being unable to connect could be an incorrect address specified using the
+[`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip) option. Teku auto-detects the address to use by
+default, so most users won't need to use this option. If you're experiencing issues with incoming peers despite having
+correct firewall and forwarding settings, this could potentially be the cause.
+
+
+### Network gateway issues
+
+A potential reason for incoming peers not being able to connect could be the use of a different port on your network
+gateway (router or modem). 
+This usually happens because only one service can listen on a port. Therefore, if you're running multiple beacon nodes, you'll
+need to open multiple ports on your gateway. The simplest solution is to use the same port on your gateway as specified
+in your [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default). However, if necessary, users can also
+update the advertised port using the [`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port) command.
+
 ## Resolve poor attestation performance
 
 Troubleshooting poor attestation performance is complicated, and the solution requires you to identify the root cause.
 
-[This video](https://www.symphonious.net/2020/09/08/exploring-eth2-attestation-inclusion/) is a little old, but the general
-picture is still relevant.
+[This video](https://www.symphonious.net/2020/09/08/exploring-eth2-attestation-inclusion/) is a little old, but the general picture is still relevant.
 
 Common issues include:
 

@@ -3,7 +3,7 @@ description: Solve common problems encountered with Teku.
 sidebar_position: 14
 ---
 
-# Troubleshoot general issues
+# General issues
 
 ## Out of memory error
 
