@@ -53,7 +53,7 @@ const config = {
             },
             "23.8.0": {
               label: "stable (23.8.0)",
-            }
+            },
           },
           // @ts-ignore
           // eslint-disable-next-line global-require
