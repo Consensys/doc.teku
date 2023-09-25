@@ -52,7 +52,7 @@ const config = {
               label: "stable (23.9.1)",
             },
             "23.8.0": {
-              label: "stable (23.8.0)",
+              label: "23.8.0",
             },
           },
           // @ts-ignore
