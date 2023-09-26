@@ -77,5 +77,5 @@ In the command:
 [Teku's password-protected PKCS12 or JKS keystore and password file]: ../../tutorials/configure-external-signer-tls.md#teku-keystore-and-password-file
 [Web3Signer's password-protected PKCS12 or JKS truststore and password file]: ../../tutorials/configure-external-signer-tls.md#2-create-the-truststore-and-password-file
 [Hyperledger Besu]: https://besu.hyperledger.org/stable/public-networks/get-started/install
-[Slashing protection]: https://docs.web3signer.consensys.net/en/latest/Concepts/Slashing-Protection/
+[Slashing protection]: https://docs.web3signer.consensys.net/en/latest/concepts/slashing-protection/
 [configure your slashing protection database]: https://docs.web3signer.consensys.net/en/latest/HowTo/Configure-Slashing-Protection/
