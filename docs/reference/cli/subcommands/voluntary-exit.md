@@ -192,7 +192,7 @@ network: "mainnet"
 
 <!--/tabs-->
 
-Predefined network configuration. The default is unset, as the network specification will be read from the beacon-api unless specified.
+Predefined network configuration. There is no default value, because Teku reads the network specification from the Beacon API unless specified.
 
 ## `validator-keys`
 
