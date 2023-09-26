@@ -42,7 +42,7 @@ See the list of [Goerli faucets](https://github.com/eth-clients/goerli#meta-data
 
 :::note
 
-If you're unable to get ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.io/ethstaker).
+If you're unable to get ETH using the faucet, you can ask for help on the [EthStaker Discord](https://discord.gg/ethstaker).
 
 :::
 
