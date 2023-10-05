@@ -162,6 +162,38 @@ teku voluntary-exit --include-keymanager-keys=true
 
 Include validator keys managed using the [key manager APIs](../../../how-to/use-external-signer/manage-keys.md). The default is `false`.
 
+## `network`
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+teku voluntary-exit --network=<NETWORK>
+```
+
+# Example
+
+```bash
+teku voluntary-exit --network=mainnet
+```
+
+# Environment variable
+
+```bash
+TEKU_NETWORK=mainnet
+```
+
+# Configuration file
+
+```bash
+network: "mainnet"
+```
+
+<!--/tabs-->
+
+Predefined network configuration. There is no default value, because Teku reads the network specification from the Beacon API unless specified.
+
 ## `validator-keys`
 
 <!--tabs-->
