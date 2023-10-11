@@ -39,7 +39,7 @@ const config = {
           routeBasePath: "/",
           path: "./docs",
           includeCurrentVersion: true,
-          lastVersion: "23.9.1",
+          lastVersion: "23.10.0",
           versions: {
             //defaults to the ./docs folder
             // using 'development' instead of 'next' as path
@@ -48,8 +48,11 @@ const config = {
               path: "development",
             },
             //the last stable release in the versioned_docs/version-stable
+            "23.10.0": {
+              label: "stable (23.10.0)",
+            },
             "23.9.1": {
-              label: "stable (23.9.1)",
+              label: "23.9.1",
             },
             "23.8.0": {
               label: "23.8.0",
