@@ -50,6 +50,7 @@ blockscout
 blst
 bootnode
 bootnodes
+boostrap
 browserslist
 browserstack
 brqyo
@@ -70,6 +71,7 @@ certfile
 chaindata
 changefreq
 changeit
+checkpointz
 chedeau
 cheng
 chiado
