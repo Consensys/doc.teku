@@ -811,6 +811,46 @@ See [this community-maintained list of checkpoint state endpoints](https://eth-c
 
 :::
 
+### checkpoint-sync-url
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--checkpoint-sync-url=<URL>
+```
+
+# Example
+
+```bash
+--checkpoint-sync-url="https://beaconstate.ethstaker.cc"
+```
+
+# Environment variable
+
+```bash
+TEKU_CHECKPOINT_SYNC_URL="https://beaconstate.ethstaker.cc"
+```
+
+# Configuration file
+
+```bash
+checkpoint-sync-url: "https://beaconstate.ethstaker.cc"
+```
+
+<!--/tabs-->
+
+URL of a Checkpointz endpoint used to boostrap the node.
+
+By default, Teku will try to download the finalized state from the endpoint. If it can't download the finalized state, it will try to download the genesis state.
+
+:::tip
+
+See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
+
+:::
+
 ### logging
 
 <!--tabs-->
