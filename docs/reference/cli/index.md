@@ -841,9 +841,9 @@ checkpoint-sync-url: "https://beaconstate.ethstaker.cc"
 
 <!--/tabs-->
 
-URL of a Checkpointz endpoint used to boostrap the node.
+URL of a Checkpointz endpoint used to [start Teku from a recent state](../../get-started/checkpoint-start.md).
 
-By default, Teku will try to download the finalized state from the endpoint. If it can't download the finalized state, it will try to download the genesis state.
+By default, Teku tries to download the finalized state from the endpoint. If it can't download the finalized state, it tries to download the genesis state.
 
 :::tip
 

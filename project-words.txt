@@ -50,7 +50,6 @@ blockscout
 blst
 bootnode
 bootnodes
-boostrap
 browserslist
 browserstack
 brqyo

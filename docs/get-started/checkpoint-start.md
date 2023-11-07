@@ -36,7 +36,8 @@ You can also download a finalized checkpoint state file, and specify the locatio
 curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v2/debug/beacon/states/finalized
 ```
 
-And to start Teku:
+And to start Teku, run:
+
 ```bash
 teku --eth1-endpoint=http://localhost:8545 \
 --validator-keys=/Users/me/mainnet/validator/keys:/Users/me/mainnet/validator/passwords \
