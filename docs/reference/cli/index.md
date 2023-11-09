@@ -2914,9 +2914,41 @@ TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE_PASSWORD_FILE=truststore_pass.txt
 validators-external-signer-truststore-password-file: "truststore_pass.txt"
 ```
 
-<!--/tabs-->
+<!--tabs-->
 
 Password file used to decrypt the keystore.
+
+### allow-no-loaded-keys
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--allow-no-loaded-keys=<BOOLEAN>
+```
+
+# Example
+
+```bash
+--allow-no-loaded-keys=true
+```
+
+# Environment variable
+
+```bash
+TEKU_ALLOW_NO_LOADED_KEYS=true
+```
+
+# Configuration file
+
+```bash
+allow-no-loaded-keys: true
+```
+
+<!--/tabs-->
+
+Allows the validator client to run with no loaded keys. The default is `true`.
 
 ### validators-external-signer-url
 
