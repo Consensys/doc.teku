@@ -40,7 +40,7 @@ const config = {
           routeBasePath: "/",
           path: "./docs",
           includeCurrentVersion: true,
-          lastVersion: "23.10.0",
+          lastVersion: "23.11.0",
           versions: {}, // defined at ./versions-preset.json
           // @ts-ignore
           // eslint-disable-next-line global-require
