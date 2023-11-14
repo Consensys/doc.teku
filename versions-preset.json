@@ -1,0 +1,6 @@
+{
+  "current": { "label": "development", "path": "development" },
+  "23.10.0": { "label": "stable (23.10.0)" },
+  "23.9.1": { "label": "stable (23.9.1)" },
+  "23.8.0": { "label": "23.8.0" }
+}

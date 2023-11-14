@@ -1,3 +1,4 @@
+const fs = require("fs");
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
@@ -40,24 +41,7 @@ const config = {
           path: "./docs",
           includeCurrentVersion: true,
           lastVersion: "23.10.0",
-          versions: {
-            //defaults to the ./docs folder
-            // using 'development' instead of 'next' as path
-            current: {
-              label: "development",
-              path: "development",
-            },
-            //the last stable release in the versioned_docs/version-stable
-            "23.10.0": {
-              label: "stable (23.10.0)",
-            },
-            "23.9.1": {
-              label: "23.9.1",
-            },
-            "23.8.0": {
-              label: "23.8.0",
-            },
-          },
+          versions: {}, // defined at ./versions-preset.json
           // @ts-ignore
           // eslint-disable-next-line global-require
           remarkPlugins: [require("remark-docusaurus-tabs")],
@@ -451,5 +435,13 @@ const config = {
     ],
   ],
 };
+
+const data = fs.readFileSync("./versions-preset.json", {
+  encoding: "utf8",
+  flag: "r",
+});
+let versions = JSON.parse(data);
+// Injecting preset versions into config object
+config.presets[0][1].docs.versions = versions;
 
 module.exports = config;
