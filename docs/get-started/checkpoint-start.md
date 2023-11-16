@@ -44,6 +44,13 @@ teku --eth1-endpoint=http://localhost:8545 \
 --initial-state=state.ssz
 ```
 
+Another option is to use [`--initial-state`](../reference/cli/index.md#initial-state) with the URL of the state you want to use:
+
+```bash
+teku --eth1-endpoint=http://localhost:8545 \
+--validator-keys=/Users/me/mainnet/validator/keys:/Users/me/mainnet/validator/passwords \
+--initial-state=http://other-node:5051/eth/v2/debug/beacon/states/finalized
+```
 :::
 
 <!--links-->
