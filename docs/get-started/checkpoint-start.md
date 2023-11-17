@@ -53,6 +53,25 @@ teku --eth1-endpoint=http://localhost:8545 \
 ```
 :::
 
+## Syncing outside of weak subjectivity period
+
+The weak subjectivity period is the period of time (or more specifically epochs) that a node can be behind the chain and trust that the chain it is following is the correct chain. The mechanism on how the weak subjectivity period works are a bit more complex but in practice, it will tell Teku if the state you have as your latest checkpoint (either starting a new node or because your node was offline for a while) is too old to continue syncing from.
+
+During startup, as soon as Teku loads its initial state (e.g. downloading it using `--checkpoint-sync-url` or reading its existing database), it will check if the latest finalized state epoch is within the weak subjectivity period. If it is, Teku will start looking for peers and downloading the missing blocks to catch-up with the chain. If it is too old, Teku will log an error message and exit.
+
+:::caution
+
+Originally, Teku's default behavior was to sync from any point in the chain without the weak subjectivity check, including syncing all the way from the genesis of the chain. However, this is not considered safe.
+
+If you really want to allow Teku to sync from outside the weak subjectivity period, you can use the CLI flag: [`--ignore-weak-subjectivity-period-enabled`](../reference/cli/index.md#ignore-weak-subjectivity-period-enabled)
+
+:::
+
+For more information on the weak subjectivity period and how it works, check out these links:
+- https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/weak-subjectivity/
+- https://blog.ethereum.org/2014/11/25/proof-stake-learned-love-weak-subjectivity
+- https://www.symphonious.net/2019/11/27/exploring-ethereum-2-weak-subjectivity-period/
+
 <!--links-->
 
 [REST API enabled]: ../reference/cli/index.md#rest-api-enabled

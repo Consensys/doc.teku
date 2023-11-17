@@ -851,6 +851,44 @@ See [this community-maintained list of checkpoint state endpoints](https://eth-c
 
 :::
 
+### ignore-weak-subjectivity-period-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--ignore-weak-subjectivity-period-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--ignore-weak-subjectivity-period-enabled=true
+```
+
+# Environment variable
+
+```bash
+TEKU_IGNORE_WEAK_SUBJECTIVITY_PERIOD_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+ignore-weak-subjectivity-period-enabled: true
+```
+
+<!--/tabs-->
+
+Ignores the [weak subjectivity period verification](../../get-started/checkpoint-start.md#syncing-outside-of-weak-subjectivity-period) that Teku performs at startup.
+
+:::caution
+
+Syncing out of the weak subjectivity period is considered unsafe.
+
+:::
+
 ### logging
 
 <!--tabs-->
