@@ -40,7 +40,7 @@ const config = {
           routeBasePath: "/",
           path: "./docs",
           includeCurrentVersion: true,
-          lastVersion: "23.11.0",
+          lastVersion: "", // defined further down in this file
           versions: {}, // defined at ./versions-preset.json
           // @ts-ignore
           // eslint-disable-next-line global-require
@@ -440,8 +440,18 @@ const data = fs.readFileSync("./versions-preset.json", {
   encoding: "utf8",
   flag: "r",
 });
+
 let versions = JSON.parse(data);
 // Injecting preset versions into config object
 config.presets[0][1].docs.versions = versions;
+config.presets[0][1].docs.versions.current = {
+  label: "development",
+  path: "development",
+};
+
+let stableVersion = Object.keys(versions).find((key) =>
+  versions[key].label.includes("stable"),
+);
+config.presets[0][1].docs.lastVersion = stableVersion;
 
 module.exports = config;
