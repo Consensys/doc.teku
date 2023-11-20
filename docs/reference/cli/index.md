@@ -882,9 +882,10 @@ ignore-weak-subjectivity-period-enabled: true
 
 Ignores the [weak subjectivity](../../concepts/weak-subjectivity.md) period verification that Teku
 performs at startup.
+The default is `false`.
 
 :::caution
-Syncing outside the weak subjectivity period is not considered safe.
+Syncing from outside the weak subjectivity period is considered unsafe.
 :::
 
 ### logging

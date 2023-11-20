@@ -35,8 +35,8 @@ Teku provides three methods to safely sync a node that is new to the network or 
 3. Use [`--ws-checkpoint`](../reference/cli/index.md#ws-checkpoint) to supply a weak subjectivity
     checkpoint by which a node can securely validate its view of the current state.
 
-We recommend using `--checkpoint-sync-url` or `--initial-state`.
-They provide the same security benefits as `--ws-checkpoint`, but sync faster.
+We recommend using `--checkpoint-sync-url` on Mainnet.
+It provides the same security benefits as `--ws-checkpoint`, but syncs faster.
 The only exception is when syncing an archive node, in which case, use `--ws-checkpoint`.
 
 :::tip
@@ -52,7 +52,7 @@ up-to-date, the concerns associated with weak subjectivity are cleared.
 
 Originally, Teku's default behavior was to sync from any point in the chain without the weak
 subjectivity check, including syncing all the way from the genesis of the chain.
-However, this is not considered safe.
+However, this is considered unsafe.
 
 If you want to allow Teku to sync outside the weak subjectivity period, you can use the
 [`--ignore-weak-subjectivity-period-enabled`](../reference/cli/index.md#ignore-weak-subjectivity-period-enabled)

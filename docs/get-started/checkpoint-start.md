@@ -6,8 +6,8 @@ sidebar_position: 4
 
 # Start Teku from a recent state
 
-To get Teku up and running in only a few minutes, you can start Teku from a recent finalized
-checkpoint state rather than syncing from genesis.
+To get Teku up and running in only a few minutes, start Teku from a recent finalized checkpoint
+state rather than syncing from genesis.
 Using a checkpoint state enables Teku to sync within the
 [weak subjectivity](../concepts/weak-subjectivity.md) period.
 
