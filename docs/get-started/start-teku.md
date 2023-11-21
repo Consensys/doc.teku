@@ -32,6 +32,7 @@ teku \
   --ee-jwt-secret-file=jwtsecret.hex                        \
   --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
+  --checkpoint-sync-url=https://beaconstate.ethstaker.cc    \
   --validators-proposer-default-fee-recipient=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73 \
   --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt
 ```
@@ -48,10 +49,11 @@ Run Teku as a beacon node.
 
 ```bash title="Example"
 teku \
-    --ee-endpoint=http://localhost:8551 \
-    --ee-jwt-secret-file=jwtsecret.hex  \
-    --metrics-enabled=true              \
-    --rest-api-enabled=true
+    --ee-endpoint=http://localhost:8551                    \
+    --ee-jwt-secret-file=jwtsecret.hex                     \
+    --metrics-enabled=true                                 \
+    --rest-api-enabled=true                                \
+    --checkpoint-sync-url=https://beaconstate.ethstaker.cc \
 ```
 
 Specify [`--rest-api-enabled`](../reference/cli/index.md#rest-api-enabled) to allow validators to connect to the beacon node.
