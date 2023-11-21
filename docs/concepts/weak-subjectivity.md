@@ -32,12 +32,8 @@ Teku provides three methods to safely sync a node that is new to the network or 
     checkpoint state endpoint from which to sync.
 2. Use [`--initial-state`](../reference/cli/index.md#initial-state) to supply an SSZ encoded state
     file from which to sync.
-3. Use [`--ws-checkpoint`](../reference/cli/index.md#ws-checkpoint) to supply a weak subjectivity
-    checkpoint by which a node can securely validate its view of the current state.
 
 We recommend using `--checkpoint-sync-url` on Mainnet.
-It provides the same security benefits as `--ws-checkpoint`, but syncs faster.
-The only exception is when syncing an archive node, in which case, use `--ws-checkpoint`.
 
 :::tip
 Use the [`/eth/v2/debug/beacon/states/<state_id>`](https://consensys.github.io/teku/#operation/getEthV2DebugBeaconStatesWithState_id)
