@@ -96,7 +96,7 @@ teku \
     --ee-jwt-secret-file=<path to jwtsecret.hex> \
     --metrics-enabled=true                       \
     --rest-api-enabled=true                      \
-    --checkpoint-sync-url=<checkpoint state URL>
+    --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
 # Sepolia
@@ -108,7 +108,7 @@ teku \
     --ee-jwt-secret-file=<path to jwtsecret.hex> \
     --metrics-enabled=true                       \
     --rest-api-enabled=true                      \
-    --checkpoint-sync-url=<checkpoint state URL>
+    --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
 <!--/tabs-->
@@ -146,7 +146,7 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
-  --checkpoint-sync-url=<checkpoint state URL>              \
+  --checkpoint-sync-url=<checkpoint sync URL>              \
   --validators-proposer-default-fee-recipient=<ETH address> \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
