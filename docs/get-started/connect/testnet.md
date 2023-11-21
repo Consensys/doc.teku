@@ -95,7 +95,8 @@ teku \
     --ee-endpoint=http://localhost:8551          \
     --ee-jwt-secret-file=<path to jwtsecret.hex> \
     --metrics-enabled=true                       \
-    --rest-api-enabled=true
+    --rest-api-enabled=true                      \
+    --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
 # Sepolia
@@ -106,12 +107,18 @@ teku \
     --ee-endpoint=http://localhost:8551          \
     --ee-jwt-secret-file=<path to jwtsecret.hex> \
     --metrics-enabled=true                       \
-    --rest-api-enabled=true
+    --rest-api-enabled=true                      \
+    --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
 <!--/tabs-->
 
-Specify the path to the `jwtsecret.hex` file generated in [step 1] using the [`--ee-jwt-secret-file`](../../reference/cli/index.md#ee-jwt-secret-file) option.
+Specify:
+
+- The path to the `jwtsecret.hex` file generated in [step 1] using the
+  [`--ee-jwt-secret-file`](../../reference/cli/index.md#ee-jwt-secret-file) option.
+- The URL of a checkpoint sync endpoint using the
+  [`--checkpoint-sync-url`](../../reference/cli/index.md#checkpoint-sync-url) option.
 
 You can modify the option values and add other [command line options](../../reference/cli/index.md) as needed.
 
@@ -139,6 +146,7 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
+  --checkpoint-sync-url=<checkpoint sync URL>              \
   --validators-proposer-default-fee-recipient=<ETH address> \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
@@ -152,6 +160,8 @@ Sepolia is a permissioned network and you can't run a validator client on it wit
 Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 1] using the [`--ee-jwt-secret-file`](../../reference/cli/index.md#ee-jwt-secret-file) option.
+- The URL of a checkpoint sync endpoint using the
+  [`--checkpoint-sync-url`](../../reference/cli/index.md#checkpoint-sync-url) option.
 - An Ethereum address you own as the default fee recipient using the [`--validators-proposer-default-fee-recipient`](../../reference/cli/index.md#validators-proposer-default-fee-recipient) option.
 - The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key) for each validator using the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option. Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas. Alternatively, specify paths to directories to load multiple keys and passwords from.
 

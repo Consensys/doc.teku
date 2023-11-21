@@ -184,6 +184,45 @@ builder-set-user-agent-header: true
 
 Set the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`) when making a builder bid request to help builders identify clients and versions. The default is `true`.
 
+### checkpoint-sync-url
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--checkpoint-sync-url=<URL>
+```
+
+# Example
+
+```bash
+--checkpoint-sync-url="https://beaconstate.ethstaker.cc"
+```
+
+# Environment variable
+
+```bash
+TEKU_CHECKPOINT_SYNC_URL="https://beaconstate.ethstaker.cc"
+```
+
+# Configuration file
+
+```bash
+checkpoint-sync-url: "https://beaconstate.ethstaker.cc"
+```
+
+<!--/tabs-->
+
+URL of a Checkpointz endpoint used to [start Teku from a recent state](../../get-started/checkpoint-start.md).
+
+By default, Teku tries to download the finalized state from the endpoint.
+If it can't download the finalized state, it tries to download the genesis state.
+
+:::tip
+See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
+:::
+
 ### config-file
 
 <!--tabs-->
@@ -811,44 +850,42 @@ See [this community-maintained list of checkpoint state endpoints](https://eth-c
 
 :::
 
-### checkpoint-sync-url
+### ignore-weak-subjectivity-period-enabled
 
 <!--tabs-->
 
 # Syntax
 
 ```bash
---checkpoint-sync-url=<URL>
+--ignore-weak-subjectivity-period-enabled[=<BOOLEAN>]
 ```
 
 # Example
 
 ```bash
---checkpoint-sync-url="https://beaconstate.ethstaker.cc"
+--ignore-weak-subjectivity-period-enabled=true
 ```
 
 # Environment variable
 
 ```bash
-TEKU_CHECKPOINT_SYNC_URL="https://beaconstate.ethstaker.cc"
+TEKU_IGNORE_WEAK_SUBJECTIVITY_PERIOD_ENABLED=true
 ```
 
 # Configuration file
 
 ```bash
-checkpoint-sync-url: "https://beaconstate.ethstaker.cc"
+ignore-weak-subjectivity-period-enabled: true
 ```
 
 <!--/tabs-->
 
-URL of a Checkpointz endpoint used to [start Teku from a recent state](../../get-started/checkpoint-start.md).
+Ignores the [weak subjectivity](../../concepts/weak-subjectivity.md) period verification that Teku
+performs at startup.
+The default is `false`.
 
-By default, Teku tries to download the finalized state from the endpoint. If it can't download the finalized state, it tries to download the genesis state.
-
-:::tip
-
-See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
-
+:::caution
+Syncing from outside the weak subjectivity period is considered unsafe.
 :::
 
 ### logging
@@ -3256,11 +3293,16 @@ ws-checkpoint: "0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf037288
 
 <!--/tabs-->
 
-A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using `<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`.
+A recent checkpoint within the [weak subjectivity period].
+Accepts the checkpoint using `<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`.
 
-The weak subjectivity checkpoint is a recent, finalized checkpoint on the correct chain. By supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long period follow the correct chain. It protects the node from long-range attacks by malicious actors.
+The weak subjectivity checkpoint is a recent, finalized checkpoint on the correct chain.
+By supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long
+period follow the correct chain.
+It protects the node from long-range attacks by malicious actors.
 
-Use the [`admin weak-subjectivity`](subcommands/admin.md#weak-subjectivity) subcommand to display or clear your weak subjectivity settings.
+Use the [`admin weak-subjectivity`](subcommands/admin.md#weak-subjectivity) subcommand to display or
+clear your weak subjectivity settings.
 
 <!-- links -->
 
