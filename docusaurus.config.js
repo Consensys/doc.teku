@@ -8,7 +8,7 @@ const baseUrl = isDev ? "/" : "/";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Teku documentation",
-  url: "https://docs.teku.consensys.net",
+  url: "https://docs.teku.consensys.io",
   baseUrl,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
