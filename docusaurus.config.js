@@ -1,6 +1,6 @@
 const fs = require("fs");
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require("prism-react-renderer").themes.github;
+const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 
 const isDev = process.env.NODE_ENV === "development";
 const baseUrl = isDev ? "/" : "/";
@@ -44,7 +44,6 @@ const config = {
           versions: {}, // defined at ./versions-preset.json
           // @ts-ignore
           // eslint-disable-next-line global-require
-          remarkPlugins: [require("remark-docusaurus-tabs")],
           include: ["**/*.md", "**/*.mdx"],
           exclude: [
             "**/_*.{js,jsx,ts,tsx,md,mdx}",
