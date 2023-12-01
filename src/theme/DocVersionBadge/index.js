@@ -1,3 +1,3 @@
-export default function DocVersionBadge({className}) {
+export default function DocVersionBadge({ className }) {
   return null;
 }
