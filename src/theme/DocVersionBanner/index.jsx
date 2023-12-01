@@ -98,8 +98,6 @@ function DocVersionBannerEnabled({ className, versionMetadata }) {
       role="alert">
       <div>
         <BannerLabel siteTitle={siteTitle} versionMetadata={versionMetadata} />
-      </div>
-      <div className="margin-top--md">
         <LatestVersionSuggestionLabel
           versionLabel={latestVersionSuggestion.name}
           to={latestVersionSuggestedDoc.path}
