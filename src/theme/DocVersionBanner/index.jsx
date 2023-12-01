@@ -37,7 +37,7 @@ function UnmaintainedVersionLabel({ siteTitle, versionMetadata }) {
         versionLabel: <b>{versionMetadata.label}</b>,
       }}>
       {
-        "This is documentation for {siteTitle} {versionLabel}, which is no longer actively maintained."
+        "This is documentation for Teku version {versionLabel}, which is no longer actively maintained."
       }
     </Translate>
   );
@@ -98,8 +98,6 @@ function DocVersionBannerEnabled({ className, versionMetadata }) {
       role="alert">
       <div>
         <BannerLabel siteTitle={siteTitle} versionMetadata={versionMetadata} />
-      </div>
-      <div className="margin-top--md">
         <LatestVersionSuggestionLabel
           versionLabel={latestVersionSuggestion.name}
           to={latestVersionSuggestedDoc.path}
