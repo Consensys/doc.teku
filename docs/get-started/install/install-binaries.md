@@ -4,6 +4,9 @@ description: Install Teku from binary distribution.
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Install binary distribution
 
 ## Linux / Unix / macOS / Windows
@@ -30,21 +33,22 @@ Unpack the downloaded files and change into the `teku-<release>` directory.
 
 Display Teku command line help to confirm installation:
 
-<!--tabs-->
-
-# Linux/macOS
+<Tabs>
+  <TabItem value="Linux/macOS" label="Linux/macOS" default>
 
 ```bash
 ./bin/teku --help
 ```
 
-# Windows
+  </TabItem>
+  <TabItem value="Windows" label="Windows" >
 
 ```bat
 bin\teku --help
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 ## macOS with Homebrew
 

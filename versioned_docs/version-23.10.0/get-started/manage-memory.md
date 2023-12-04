@@ -4,6 +4,9 @@ description: Manage Teku's JVM memory usage.
 sidebar_position: 5
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Manage memory
 
 Manage Teku's Java Virtual Machine (JVM) memory usage by setting a maximum heap size using the `JAVA_OPTS` environment variable.
@@ -12,21 +15,22 @@ We recommend setting the maximum heap size to 5GB or more.
 
 Set the heap size using the environment variable, or using the command line when starting Teku.
 
-<!--tabs-->
-
-# Environment variable
+<Tabs>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 export JAVA_OPTS=-Xmx5g
 ```
 
-# Command line
+  </TabItem>
+  <TabItem value="Command line" label="Configuration file" >
 
 ```bash
 JAVA_OPTS=-Xmx5g ./teku [options]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 :::note
 
@@ -38,36 +42,38 @@ The node uses more RAM to perform better if it’s available, especially during 
 
 If an out of memory error occurs, the heap dump file is placed in the directory that Teku runs from. The heap dump file is potentially large (1-2GB), to specify the directory to place the file, set the `-XX:HeapDumpPath` Java option to the required path.
 
-<!--tabs-->
-
-# Environment variable
+<Tabs>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 export TEKU_OPTS="-XX:HeapDumpPath=/home/me/me_node/dumps"
 ```
 
-# Command line
+  </TabItem>
+  <TabItem value="Command line" label="Configuration file" >
 
 ```bash
 TEKU_OPTS="-XX:HeapDumpPath=/home/me/me_node/dumps" ./teku [options]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 To disable the heap dump file generation, set the `-XX:-HeapDumpOnOutOfMemoryError` Java option.
 
-<!--/tabs-->
-
-# Environment variable
+<Tabs>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 export TEKU_OPTS="-XX:-HeapDumpOnOutOfMemoryError"
 ```
 
-# Command line
+  </TabItem>
+  <TabItem value="Command line" label="Configuration file" >
 
 ```bash
 TEKU_OPTS="-XX:-HeapDumpOnOutOfMemoryError" ./teku [options]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>

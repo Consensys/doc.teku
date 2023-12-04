@@ -4,6 +4,9 @@ description: Run Teku using the official Docker image.
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Run Teku from a Docker image
 
 Use the Teku Docker image to run a node without installing Teku.
@@ -79,9 +82,8 @@ The example assumes the validators specified in [`--validator-keys`](../../refer
 
 Run `docker-compose up` in the directory containing the `docker-compose.yml` file to start the container.
 
-<!--tabs-->
-
-# Goerli
+<Tabs>
+  <TabItem value="Goerli" label="Goerli" default>
 
 ```yaml
 ---
@@ -138,7 +140,8 @@ services:
       - "5051:5051"
 ```
 
-# Mainnet
+  </TabItem>
+  <TabItem value="Mainnet" label="Mainnet" >
 
 ```yaml
 ---
@@ -192,7 +195,8 @@ services:
       - "5051:5051"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 <!-- Links -->
 

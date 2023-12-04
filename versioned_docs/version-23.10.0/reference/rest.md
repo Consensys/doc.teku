@@ -2,6 +2,10 @@
 description: Teku RESTful API
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # Use the REST API
 
 :::tip View the REST API
@@ -31,15 +35,16 @@ The default location is `http://localhost:5051/swagger-ui`.
 
 You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
 
-<!--tabs-->
+<Tabs>
 
-# cURL request
+  <TabItem value="cURL request" label="cURL request" default>
 
 ```bash
 curl -X GET "http://localhost:5051/eth/v1/node/identity"
 ```
 
-# JSON Result
+  </TabItem>
+  <TabItem value="JSON Result" label="JSON Result" >
 
 ```json
 {
@@ -60,7 +65,8 @@ curl -X GET "http://localhost:5051/eth/v1/node/identity"
 }
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 ## Enable the validator client API
 

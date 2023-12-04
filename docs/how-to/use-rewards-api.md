@@ -3,6 +3,9 @@ description: Use the rewards API to view validator rewards.
 sidebar_position: 13
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # View block rewards
 
 Use the [rewards API](https://consensys.github.io/teku/#tag/Rewards) to view the validator rewards.
@@ -49,15 +52,15 @@ You can consider tuning your data storage to access data quicker, by storing mor
 
 Query all the rewards from the block currently at head.
 
-<!--tabs-->
-
-# Example
+<Tabs>
+  <TabItem value="Example" label="Example" default>
 
 ```bash
 curl http://localhost:5051/eth/v1/beacon/rewards/blocks/head |jq
 ```
 
-# Result
+  </TabItem>
+  <TabItem value="Result" label="Result" >
 
 ```json
 {
@@ -74,13 +77,13 @@ curl http://localhost:5051/eth/v1/beacon/rewards/blocks/head |jq
 }
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Query all the sync committee rewards from the block at head for validator index 1.
 
-<!--tabs-->
-
-# Example
+<Tabs>
+  <TabItem value="Example" label="Example" default>
 
 ```bash
 curl -X POST \
@@ -90,7 +93,8 @@ curl -X POST \
      -d '["1"]' |jq
 ```
 
-# Result
+  </TabItem>
+  <TabItem value="Result" label="Result" >
 
 ```json
 {
@@ -105,13 +109,13 @@ curl -X POST \
 }
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Query attestation rewards from epoch 204644, just for validator index 0.
 
-<!--tabs-->
-
-# Example
+<Tabs>
+  <TabItem value="Example" label="Example" default>
 
 ```bash
 curl -X POST \
@@ -121,7 +125,8 @@ curl -X POST \
      -d '["0"]' |jq
 ```
 
-# Result
+  </TabItem>
+  <TabItem value="Result" label="Result" >
 
 ```json
  {
@@ -140,3 +145,5 @@ curl -X POST \
   }
 }
 ```
+  </TabItem>
+</Tabs>

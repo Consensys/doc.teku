@@ -4,6 +4,9 @@ description: Update your BLS withdrawal address to an Ethereum address.
 sidebar_position: 12
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Update your withdrawal credentials
 
 When you create a validator, it’s possible to set its
@@ -24,22 +27,22 @@ Capella upgrade.
 The following shell script allows you to determine the withdrawal address of a
 given validator ID.
 
-<!--tabs-->
-
-# Script
+<Tabs>
+  <TabItem value="Script" label="Script" default>
 
 ```bash
 VALIDATOR=<VALIDATOR_INDEX> \
 curl http://localhost:5051/eth/v1/beacon/states/finalized/validators/$VALIDATOR | jq '.data | .validator.withdrawal_credentials'
 ```
 
-# Example output
-
+  </TabItem>
+  <TabItem value="Example output" label="Example output" >
 ```
 "0x00fc40352b0a186d83267fc1342ec5da49dbb78e1099a4bd8db16d2c0d223594"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 In the script, specify the `<VALIDATOR_INDEX>` (for example, `1`) that was
 provided when you joined the network.
