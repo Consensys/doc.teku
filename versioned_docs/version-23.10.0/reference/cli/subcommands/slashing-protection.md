@@ -3,6 +3,10 @@ title: slashing-protection
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # `slashing-protection`
 
 Manage the local [slashing protection data] used by the validator.
@@ -19,47 +23,52 @@ Before running the import, you must stop the validator and confirm the process h
 
 ### `config-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection import --config-file=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection import --config-file=/home/me/me_node/config.yaml
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the YAML configuration file. The default is `none`.
 
 ### `data-path`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection import --data-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection import --data-path=/home/me/me_node
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
@@ -69,33 +78,37 @@ Path to the Teku data directory. The default directory is OS-dependent:
 
 ### `data-validator-path`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection import --data-validator-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection import --data-validator-path=/home/me/me_validator
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 data-validator-path: "/home/me/me_validator"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the validator client data. The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
 
@@ -107,21 +120,23 @@ Teku imports slashing protection data into a `slashprotection` directory under t
 
 ### `from`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection import --from=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection import --from=/home/slash/b845...23bed.json
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The file to import the slashing protection database from.
 
@@ -135,47 +150,52 @@ Exports the slashing protection database in the [validator client interchange fo
 
 ### `config-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection export --config-file=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection export --config-file=/home/me/me_node/config.yaml
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the YAML configuration file. The default is `none`.
 
 ### `data-path`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection export --data-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection export --data-path=/home/me/me_node
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
@@ -185,33 +205,37 @@ Path to the Teku data directory. The default directory is OS-dependent:
 
 ### `data-validator-path`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection export --data-validator-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection export --data-validator-path=/home/me/me_validator
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 data-validator-path: "/home/me/me_validator"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the validator client data. The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
 
@@ -223,21 +247,23 @@ Teku exports slashing protection data from the `slashprotection` directory under
 
 ### `to`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection export --to=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection export --to=/home/slash/b845...23bed.json
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The file to export the slashing protection database to.
 
@@ -249,61 +275,67 @@ Repairs corrupted slashing protection data files used by Teku.
 
 ### `check-only-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection repair --checking-only-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection repair --checking-only-enabled=false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Reads and reports potential slashing protection file problems, but doesn't update any files. You can specify which files are checked using [`--config-file`](#config-file_2), [`--data-base-path`](#data-base-path-data-path).
 
 ### `config-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection repair --config-file=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection repair --config-file=/home/me/me_node/config.yaml
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the YAML configuration file. The default is `none`.
 
 ### `data-path`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection repair --data-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection repair --data-path=/home/me/me_node
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
@@ -315,21 +347,23 @@ The default Docker image location is `/root/.local/share/teku`.
 
 ### `data-validator-path`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection repair --data-validator-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection repair --data-validator-path=/home/me/me_validator
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to validator client data. The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
 
@@ -341,21 +375,23 @@ The slashing protection data is stored in a `slashprotection` directory under th
 
 ### `network`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection repair --network=<NETWORK>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection repair --network=mainnet
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. The default is `mainnet`.
 
@@ -376,21 +412,23 @@ Predefined networks can provide defaults such the initial state of the network, 
 
 ### `slot`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection repair --slot=<INTEGER>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection repair --slot=1028
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Updates slashing protection files to contain the specified slot as a minimum. The value should be a future slot, or after when the validators stopped performing duties.
 
@@ -402,21 +440,23 @@ This can be automatically calculated for most networks, and is generally not req
 
 ### `update-all-enabled`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku slashing-protection repair --update-all-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku slashing-protection repair --update-all-enabled=false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Enables all slashing protection records to be updated. The default is `false`.
 

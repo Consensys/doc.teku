@@ -4,6 +4,10 @@ description: Teku command line interface reference
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # Teku command line options
 
 This reference describes the syntax of the Teku command line interface (CLI) options.
@@ -52,65 +56,73 @@ teku --Tab+Tab
 
 ### beacon-liveness-tracking-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --beacon-liveness-tracking-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --beacon-liveness-tracking-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_BEACON_LIVENESS_TRACKING_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 beacon-liveness-tracking-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Enables or disables validator liveness tracking. Used by [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
 
 ### builder-bid-compare-factor
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --builder-bid-compare-factor=<STRING>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --builder-bid-compare-factor=50
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_BUILDER_BID_COMPARE_FACTOR=50
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 builder-bid-compare-factor: 50
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The builder bid compare factor. The default is 100 (100%).
 
@@ -122,123 +134,138 @@ Set this option to `BUILDER_ALWAYS` to always use the builder bid, unless the bi
 
 ### builder-endpoint
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --builder-endpoint=<URL>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --builder-endpoint=http://127.0.0.1:18550
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_BUILDER_ENDPOINT=http://127.0.0.1:18550
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 builder-endpoint: "http://127.0.0.1:18550"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The address for an external [builder endpoint](../../how-to/configure/builder-network.md).
 
 ### builder-set-user-agent-header
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --builder-set-user-agent-header[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --builder-set-user-agent-header=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_BUILDER_SET_USER_AGENT_HEADER=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 builder-set-user-agent-header: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`) when making a builder bid request to help builders identify clients and versions. The default is `true`.
 
 ### config-file
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --config-file=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --config-file=/home/me/me_node/config.yaml
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the [YAML configuration file](../../how-to/configure/use-config-file.md). The default is `none`.
 
 ### data-base-path, data-path
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --data-base-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --data-base-path=/home/me/me_node
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DATA_BASE_PATH=/home/me/me_node
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 data-base-path: "/home/me/me_node"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
@@ -250,65 +277,73 @@ The default Docker image location is `/root/.local/share/teku`.
 
 ### data-beacon-path
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --data-beacon-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --data-beacon-path=/home/me/me_beacon
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DATA_BEACON_PATH=/home/me/me_beacon
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 data-beacon-path: "/home/me/me_beaon"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### data-storage-archive-frequency
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --data-storage-archive-frequency=<NUMBER>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --data-storage-archive-frequency=1028
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DATA_STORAGE_ARCHIVE_FREQUENCY=1028
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 data-storage-archive-frequency: 1028
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
@@ -324,33 +359,37 @@ For example, `--data-storage-archive-frequency=1` uses maximum disk space but ha
 
 ### data-storage-mode
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --data-storage-mode=<STORAGE_MODE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --data-storage-mode=archive
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DATA_STORAGE_MODE=archive
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 data-storage-mode: "archive"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set the strategy for handling historical chain data. Valid options are:
 
@@ -362,193 +401,217 @@ The default is `minimal`.
 
 ### data-storage-non-canonical-blocks-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --data-storage-non-canonical-blocks-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --data-storage-non-canonical-blocks-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DATA_STORAGE_NON_CANONICAL_BLOCKS_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 data-storage-non-canonical-blocks-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specify whether to store non-canonical blocks and blob sidecars. The default is `false`.
 
 ### data-validator-path
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --data-validator-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --data-validator-path=/home/me/me_validator
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 data-validator-path: "/home/me/me_validator"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### doppelganger-detection-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --doppelganger-detection-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --doppelganger-detection-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DOPPELGANGER_DETECTION_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 doppelganger-detection-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Enables or disables [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
 
 ### ee-endpoint
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --ee-endpoint=<URL>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --ee-endpoint=http://localhost:8550
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_EE_ENDPOINT=http://localhost:8550
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 ee-endpoint: "http://localhost:8550"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 URL of the [execution client's](../../concepts/merge.md#execution-clients) Engine JSON-RPC APIs. This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after [The Merge](../../concepts/merge.md).
 
 ### ee-jwt-secret-file
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --ee-jwt-secret-file=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --ee-jwt-secret-file=ee-jwt-secret.hex
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_EE_JWT_SECRET_FILE=ee-jwt-secret.hex
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 ee-jwt-secret-file: "ee-jwt-secret.hex"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Shared secret used to authenticate [execution clients](../../concepts/merge.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
 ### eth1-deposit-contract-address
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --eth1-deposit-contract-address=<ADDRESS>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_ETH1_DEPOSIT_CONTRACT_ADDRESS=0x77f7bED277449F51505a4C54550B074030d989bC
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 eth1-deposit-contract-address: "0x77f7bED277449F51505a4C54550B074030d989bC"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The address of the deposit contract. Only required when creating a custom network.
 
@@ -559,33 +622,37 @@ The deposit contract address can also be defined in:
 
 ### eth1-deposit-contract-max-request-size
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --eth1-deposit-contract-max-request-size=<INTEGER>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --eth1-deposit-contract-max-request-size=8000
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_ETH1_DEPOSIT_CONTRACT_MAX_REQUEST_SIZE=8000
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 eth1-deposit-contract-max-request-size: 8000
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The maximum number of blocks to request deposit contract event logs for in a single request. The default is 10000.
 
@@ -593,33 +660,37 @@ Setting a smaller max size may help if your ETH1 node is slow at loading deposit
 
 ### eth1-endpoint, eth1-endpoints
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --eth1-endpoint=<URL>[,<URL>...]...
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --eth1-endpoint=http://localhost:8545,https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_ETH1_ENDPOINT=http://localhost:8545,https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111"]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds the first provider in the list that is available, on the right chain, and in sync. This option must be specified if running a validator.
 
@@ -635,33 +706,37 @@ After [The Merge](../../concepts/merge.md), you can't use `eth1-endpoint` to spe
 
 ### deposit-snapshot-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --deposit-snapshot-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --deposit-snapshot-enabled=false
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DEPOSIT_SNAPSHOT_ENABLED=false
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 deposit-snapshot-enabled: false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Enables or disables using a bundled deposit contract tree snapshot and persisting the tree after finalization. The default is `true`.
 
@@ -680,66 +755,74 @@ deposit tree snapshot.
 
 ### exchange-capabilities-monitoring-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --exchange-capabilities-monitoring-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --exchange-capabilities-monitoring-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_EXCHANGE_CAPABILITIES_MONITORING_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 exchange-capabilities-monitoring-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Enables or disables querying the [execution client](../../concepts/merge.md#execution-clients) periodically for the Engine API methods it supports. If enabled and incompatibility is detected, a warning is raised in the logs. The default is `true`.
 
 
 ### genesis-state
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --genesis-state=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --genesis-state=/home/me/genesis.ssz
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_GENESIS_STATE=/home/me/genesis.ssz
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 genesis-state: "/home/me/genesis.ssz"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state, or a [recent finalized checkpoint state from which to sync].
 
@@ -767,33 +850,37 @@ Show the help message and exit.
 
 ### initial-state
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --initial-state=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --initial-state=/home/me/genesis.ssz
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_INITIAL_STATE=/home/me/genesis.ssz
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 initial-state: "/home/me/genesis.ssz"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state, or a [recent finalized checkpoint state from which to sync].
 
@@ -813,97 +900,109 @@ See [this community-maintained list of checkpoint state endpoints](https://eth-c
 
 ### logging
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 -l, --logging=<LEVEL>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --logging=DEBUG
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_LOGGING=DEBUG
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 logging: "DEBUG"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Sets the logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. Default is `INFO`.
 
 ### log-color-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --log-color-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --log-color-enabled=false
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_LOG_COLOR_ENABLED=false
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 log-color-enabled: false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specify whether status and event log messages include a console color display code. The default is `true`.
 
 ### log-destination
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --log-destination=<LOG_DESTINATION>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --log-destination=CONSOLE
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_LOG_DESTINATION=CONSOLE
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 log-destination: "CONSOLE"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specify where to output log information. Valid options are:
 
@@ -924,33 +1023,37 @@ Use `DEFAULT_BOTH` when using a [custom Log4J2 configuration file](../../how-to/
 
 ### log-file
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --log-file=<FILENAME>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --log-file=teku_2020-01-01.log
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_LOG_FILE=teku_2020-01-01.log
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 log-file: "teku_2020-01-01.log"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Relative or absolute location, and filename of the log file.
 
@@ -964,97 +1067,109 @@ The default Docker image location is `/root/.local/share/teku/logs`.
 
 ### log-file-name-pattern
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --log-file-name-pattern=<REGEX>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --log-file-name-pattern=tekuL_%d{yyyy-MM-dd}.log
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_LOG_FILE_NAME_PATTERN=tekuL_%d{yyyy-MM-dd}.log
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 log-file-name-pattern: "tekuL_%d{yyyy-MM-dd}.log"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Filename pattern to apply when creating log files. The default pattern is `teku_%d{yyyy-MM-dd}.log`
 
 ### log-include-events-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --log-include-events-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --log-include-events-enabled=false
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_LOG_INCLUDE_EVENTS_ENABLED=false
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 log-include-events-enabled: false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specify whether to log frequent update events. For example every slot event with validators and attestations. The default is `true`.
 
 ### log-include-validator-duties-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --log-include-validator-duties-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --log-include-validator-duties-enabled=false
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_LOG_INCLUDE_VALIDATOR_DUTIES_ENABLED=false
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 log-include-validator-duties-enabled: false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specify whether to log details of validator event duties. The default is `true`.
 
@@ -1066,97 +1181,109 @@ Logs could become noisy when running many validators.
 
 ### metrics-block-timing-tracking-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --metrics-block-timing-tracking-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --metrics-block-timing-tracking-enabled=false
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_METRICS_BLOCK_TIMING_TRACKING_ENABLED=false
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 metrics-block-timing-tracking-enabled: false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Enables or disables block timing metrics. The default is `true`.
 
 ### metrics-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --metrics-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --metrics-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_METRICS_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 metrics-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set to `true` to enable the metrics exporter. The default is `false`.
 
 ### metrics-host-allowlist
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --metrics-host-allowlist=<hostname>[,<hostname>...]... or "*"
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --metrics-host-allowlist=medomain.com,meotherdomain.com
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_METRICS_HOST_ALLOWLIST=medomain.com,meotherdomain.com
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 metrics-host-allowlist: ["medomain.com", "meotherdomain.com"]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 A comma-separated list of hostnames to allow access to the [Teku metrics]. By default, Teku accepts access from `localhost` and `127.0.0.1`.
 
@@ -1168,193 +1295,217 @@ To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for
 
 ### metrics-categories
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --metrics-categories=<CATEGORY>[,<CATEGORY>...]...
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --metrics-categories=BEACON,JVM,PROCESS
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 metrics-categories: ["BEACON", "JVM", "PROCESS"]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`. All categories are enabled by default.
 
 ### metrics-interface
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --metrics-interface=<HOST>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --metrics-interface=192.168.10.101
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_METRICS_INTERFACE=192.168.10.101
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 metrics-interface: "192.168.10.101"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
 
 ### metrics-port
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --metrics-port=<PORT>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --metrics-port=6174
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_METRICS_PORT=6174
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 metrics-port: 6174
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specifies the port (TCP) on which [Prometheus](https://prometheus.io/) accesses Teku metrics. The default is `8008`.
 
 ### metrics-publish-endpoint
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --metrics-publish-endpoint=<URL>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --metrics-publish-endpoint=https://beaconcha.in/api/v1/client/metrics?apikey={apikey}
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_METRICS_PUBLISH_ENDPOINT=https://beaconcha.in/api/v1/client/metrics?apikey={apikey}
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 metrics-publish-endpoint: "https://beaconcha.in/api/v1/client/metrics?apikey={apikey}"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Endpoint URL of an external service such as [beaconcha.in](https://beaconcha.in/) to which Teku publishes metrics for node monitoring.
 
 ### metrics-publish-interval
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --metrics-publish-interval=<INTEGER>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --metrics-publish-interval=60
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_METRICS_PUBLISH_INTERVAL=60
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 metrics-publish-interval: "60"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Interval between metric publications to the external service defined in [metrics-publish-endpoint](#metrics-publish-endpoint), measured in seconds. The default is `60`.
 
 ### network
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --network=<NETWORK>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --network=mainnet
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_NETWORK=mainnet
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 network: "mainnet"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. See the [consensus specification] for examples.
 
@@ -1377,129 +1528,145 @@ Predefined networks can provide defaults such as the initial state of the networ
 
 ### p2p-advertised-ip
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-advertised-ip=<IP_ADDRESS>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-advertised-ip=192.168.1.132
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_ADVERTISED_IP=192.168.1.132
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-advertised-ip: "192.168.1.132"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Advertised peer-to-peer IP address. The default is `127.0.0.1`.
 
 ### p2p-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-enabled=false
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_ENABLED=false
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-enabled: false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Enables or disables all P2P communication. The default is `true`.
 
 ### p2p-interface
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-interface=<HOST>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-interface=192.168.1.132
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_INTERFACE=192.168.1.132
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-interface: "192.168.1.132"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specifies the network interface on which the node listens for P2P communication. The default is `0.0.0.0` (all interfaces).
 
 ### p2p-nat-method
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-nat-method=<STRING>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-nat-method=UPNP
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_NAT_METHOD=UPNP
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-nat-method: "UPNP"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specify the method for handling [NAT environments](../../how-to/find-and-connect/specify-nat.md). Valid options are `NONE` and `UPNP`.
 
@@ -1513,163 +1680,183 @@ UPnP support is often disabled by default in networking firmware. If disabled by
 
 ### p2p-peer-lower-bound
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-peer-lower-bound=<INTEGER>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-peer-lower-bound=25
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_PEER_LOWER_BOUND=25
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-peer-lower-bound: 25
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Lower bound on the target number of peers. Teku will actively seek new peers if the number of peers falls below this value. The default is `64`.
 
 ### p2p-peer-upper-bound
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-peer-upper-bound=<INTEGER>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-peer-upper-bound=40
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_PEER_UPPER_BOUND=40
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-peer-upper-bound: 40
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `100`.
 
 ### p2p-port
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-port=<PORT>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 # to listen on port 1789
 --p2p-port=1789
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 # to listen on port 1789
 TEKU_P2P_PORT=1789
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-port: 1789
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specifies the P2P listening ports (UDP and TCP). The default is `9000`.
 
 ### p2p-discovery-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-discovery-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-discovery-enabled=false
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_DISCOVERY_ENABLED=false
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-discovery-enabled: false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Enables or disables P2P peer discovery. If disabled, [`p2p-static-peers`](#p2p-static-peers) defines the peer connections. The default is `true`.
 
 ### p2p-discovery-site-local-addresses-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-discovery-site-local-addresses-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-discovery-site-local-addresses-enabled
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_DISCOVERY_SITE_LOCAL_ADDRESSES_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-discovery-site-local-addresses-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Enables or disables discovery of the following local network (RFC1918) addresses. The default is `false`.
 
@@ -1685,66 +1872,74 @@ In test or private networks, operators might need to enable discovery of local a
 
 ### p2p-discovery-bootnodes
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-discovery-bootnodes=<ENR_ADDRESS>[,<ENR_ADDRESS>...]...
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-discovery-bootnodes=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_DISCOVERY_BOOTNODES=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
                           "enr:-Iu4QL...wgiMo"]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
 
 ### p2p-advertised-port
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-advertised-port=<PORT>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-advertised-port=1789
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_ADVERTISED_PORT=1789
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-advertised-port: 1789
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2p-port).
 
@@ -1752,162 +1947,182 @@ The advertised port can differ from the [`--p2p-port`](#p2p-port). For example, 
 
 ### p2p-udp-port
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-udp-port=<PORT>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-udp-port=1789
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_UDP_PORT=1789
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-udp-port: 1789
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The UDP port used for discovery. The default is the port specified in [`--p2p-port`](#p2p-port).
 
 ### p2p-advertised-udp-port
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-advertised-udp-port=<PORT>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-advertised-udp-port=1789
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_ADVERTISED_UDP_PORT=1789
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-advertised-udp-port: 1789
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The advertised UDP port to external peers. The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set. Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
 
 ### p2p-private-key-file
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-private-key-file=<PATH_TO_FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-private-key-file=/home/me/me_node/key
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_PRIVATE_KEY_FILE=/home/me/me_node/key
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-private-key-file: "/home/me/me_node/key"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 File containing the [node's private key](../../concepts/p2p-private-key.md).
 
 ### p2p-static-peers
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-static-peers=<ADDRESS>[,<ADDRESS>...]...
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-static-peers=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_STATIC_PEERS=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
                     "/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1"]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers.
 
 ### p2p-subscribe-all-subnets-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --p2p-subscribe-all-subnets-enabled=<BOOLEAN>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --p2p-subscribe-all-subnets-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_P2P_SUBSCRIBE_ALL_SUBNETS_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 p2p-subscribe-all-subnets-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Forces the beacon node to stay subscribed to all subnets regardless of the number of validators. The default is `false`.
 
@@ -1923,33 +2138,37 @@ When set to `true`, Teku uses more CPU and bandwidth, and for most users thereâ€
 
 ### reconstruct-historic-states
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --reconstruct-historic-states=<BOOLEAN>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --reconstruct-historic-states=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_RECONSTRUCT_HISTORIC_STATES=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 reconstruct-historic-states: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 When set to `true` the [Reconstruct Historical States Service](../../how-to/reconstruct-historical-states.md), is enabled where an archive node is able to reconstruct historical states from genesis up to the current checkpoint, running during start up.
 
@@ -1957,33 +2176,37 @@ When set to `false` this service is not enabled.
 
 ### rest-api-cors-origins
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --rest-api-cors-origins[=<url>[,<url>...]...] or "*"
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --rest-api-cors-origins="http://medomain.com","https://meotherdomain.com"
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_REST_API_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 rest-api-cors-origins: ["http://medomain.com","https://meotherdomain.com"]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 A list of domain URLs for CORS validation. You must enclose the URLs in double quotes and separate them with commas.
 
@@ -1999,33 +2222,37 @@ For testing and development purposes, use `*` to accept requests from any domain
 
 ### rest-api-docs-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --rest-api-docs-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --rest-api-docs-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_REST_API_DOCS_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 rest-api-docs-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set to `true` to enable the REST API documentation. The default is `false`.
 
@@ -2036,33 +2263,37 @@ The documentation can be accessed at `http://<interface>:<port>/swagger-ui` wher
 
 ### rest-api-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --rest-api-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --rest-api-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_REST_API_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 rest-api-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set to `true` to enable the [REST API service](../rest.md). The default is `false`.
 
@@ -2070,33 +2301,37 @@ If set to `true`, then use [`--rest-api-host-allowlist`](#rest-api-host-allowlis
 
 ### rest-api-host-allowlist
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --rest-api-host-allowlist=<hostname>[,<hostname>...]... or "*"
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --rest-api-host-allowlist=medomain.com,meotherdomain.com
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_REST_API_HOST_ALLOWLIST=medomain.com,meotherdomain.com
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 rest-api-host-allowlist: ["medomain.com", "meotherdomain.com"]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 A comma-separated list of hostnames to allow access to the REST API. By default, Teku accepts access from `localhost` and `127.0.0.1`.
 
@@ -2110,93 +2345,104 @@ We don't recommend allowing all hostnames (`"*"`) for production environments.
 
 ### rest-api-interface
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --rest-api-interface=<HOST>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 # to listen on all interfaces
 --rest-api-interface=0.0.0.0
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_REST_API_INTERFACE=0.0.0.0
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 rest-api-interface: "0.0.0.0"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specifies the interface on which the REST API listens. The default is `127.0.0.1`.
 
 ### rest-api-port
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --rest-api-port=<PORT>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 # to listen on port 3435
 --rest-api-port=3435
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_REST_API_PORT=3435
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 rest-api-port: 3435
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specifies REST API listening port (HTTP). The default is 5051.
 
 ### sentry-config-file
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --sentry-config-file=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --sentry-config-file=/etc/sentry-node-config.json
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_SENTRY-CONFIG_FILE=/etc/sentry-node-config.json
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the [sentry node](../../how-to/use-sentry-nodes.md) configuration file. The default is `none`.
 
@@ -2216,33 +2462,37 @@ Displays the version and exits.
 
 ### validator-api-cors-origins
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validator-api-cors-origins="<URL>"[,"<URL>",...] or "*"
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validator-api-cors-origins="http://medomain.com","https://meotherdomain.com"
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATOR_API_CORS_ORIGINS="http://medomain.com","https://meotherdomain.com"
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validator-api-cors-origins: ["http://medomain.com","https://meotherdomain.com"]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 A comma-separated list of domain URLs for CORS validation.
 
@@ -2258,33 +2508,37 @@ For testing and development purposes, use `*` to accept requests from any domain
 
 ### validator-api-docs-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validator-api-docs-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validator-api-docs-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATOR_API_DOCS_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validator-api-docs-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set to `true` to enable the [validator REST API documentation](../rest.md#enable-the-validator-client-api). The default is `false`.
 
@@ -2295,33 +2549,37 @@ When enabling the API documentation endpoint, you must also specify:
 
 ### validator-api-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validator-api-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validator-api-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATOR_API_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validator-api-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set to `true` to enable the [validator client API](../rest.md#enable-the-validator-client-api). The default is `false`.
 
@@ -2329,33 +2587,37 @@ If set to `true`, then use [`--validator-api-host-allowlist`](#validator-api-hos
 
 ### validator-api-host-allowlist
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validator-api-host-allowlist=<hostname>[,<hostname>...]... or "*"
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validator-api-host-allowlist=medomain.com,meotherdomain.com
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATOR_API_HOST_ALLOWLIST=medomain.com,meotherdomain.com
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validator-api-host-allowlist: ["medomain.com", "meotherdomain.com"]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 A comma-separated list of hostnames to allow access to the [validator REST API](../rest.md#enable-the-validator-client-api). By default, Teku accepts access from `localhost` and `127.0.0.1`.
 
@@ -2369,168 +2631,189 @@ We don't recommend allowing all hostnames (`"*"`) for production environments.
 
 ### validator-api-interface
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validator-api-interface=<HOST>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 # to listen on all interfaces
 --validator-api-interface=0.0.0.0
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATOR_API_INTERFACE=0.0.0.0
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validator-api-interface: "0.0.0.0"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The interface on which the [validator REST API](../rest.md#enable-the-validator-client-api) listens. The default is `127.0.0.1`.
 
 ### validator-api-keystore-file
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validator-api-keystore-file=<keystoreFile>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validator-api-keystore-file=validator_keystorstore.p12
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATOR_API_KEYSTORE_FILE=validator_keystore.p12
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validator-api-keystore-file: "validator_keystore.p12"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Keystore file for the [validator REST API](../rest.md#enable-the-validator-client-api). Teku can use PKCS12 or JKS keystore types. You must [create a keystore](../../how-to/use-external-signer/manage-keys.md#create-a-keystore) to enable access.
 
 ### validator-api-keystore-password-file
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validator-api-keystore-password-file=<keystorePasswordFile>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validator-api-keystore-password-file=validator_keystore_pass.txt
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATOR_API_KEYSTORE_PASSWORD_FILE=validator_keystore_pass.txt
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validator-api-keystore-password-file: "validator_keystore_pass.txt"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Password used to decrypt the keystore for the [validator REST API](../rest.md#enable-the-validator-client-api).
 
 ### validator-api-port
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validator-api-port=<PORT>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validator-api-port=5052
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATOR_API_PORT=5052
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validator-api-port: 5052
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The [validator REST API](../rest.md#enable-the-validator-client-api) listening port (HTTP). The default is 5052.
 
 ### validator-keys
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validator-keys=<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>[,<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>...]...
 ```
 
-# Example for directory
+  </TabItem>
+  <TabItem value="Example for directory" label="Example for directory" >
 
 ```bash
 --validator-keys=/home/validator/keys:home/validator/passwords
 ```
 
-# Example for file
+  </TabItem>
+  <TabItem value="Example for file" label="Example for file" >
 
 ```bash
 --validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATOR_KEYS=/home/validator/keys:home/validator/passwords
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validator-keys: "/home/validator/keys:home/validator/passwords"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Directory or file to load the encrypted keystore file(s) and associated password file(s) from. Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
 
@@ -2552,65 +2835,73 @@ The path separator is operating system dependent, and should be `;` in Windows r
 
 ### validators-builder-registration-default-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-builder-registration-default-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-builder-registration-default-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_BUILDER_REGISTRATION_DEFAULT_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-builder-registration-default-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set to `true` to have all validators managed by the validator client register to the [builder endpoint](../../how-to/configure/builder-network.md) when proposing a block.
 
 ### validators-early-attestations-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-early-attestations-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-early-attestations-enabled=false
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_EARLY_ATTESTATIONS_ENABLED=false
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-early-attestations-enabled: false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specify whether to use Teku's built-in early attestation production, which creates an attestation as soon as a block is received. The default is `true`.
 
@@ -2624,33 +2915,37 @@ Delaying attestation production increases the chances of generating a correct at
 
 ### validators-external-signer-keystore
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-external-signer-keystore=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-external-signer-keystore=teku_client_keystore.p12
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_EXTERNAL_KEYSTORE=teku_client_keystore.p12
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-external-signer-keystore: "teku_client_keystore.p12"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 The keystore that Teku presents to the external signer for TLS authentication. Teku can use PKCS12 or JKS keystore types.
 
@@ -2658,65 +2953,73 @@ Use the PKCS12 keystore type if connecting to Web3Signer.
 
 ### validators-external-signer-keystore-password-file
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-external-signer-keystore-password-file=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-external-signer-keystore-password-file=keystore_pass.txt
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_EXTERNAL_KEYSTORE_PASSWORD_FILE=keystore_pass.txt
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-external-signer-keystore-password-file: "keystore_pass.txt"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Password file used to decrypt the keystore.
 
 ### validators-external-signer-public-keys
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-external-signer-public-keys=<KEY>[,<KEY>...]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_EXTERNAL_SIGNER_PUBLIC_KEYS=0xa99a...e44c,0xb89b...4a0b
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 List or URL of validator public keys used by an external signer (for example, Web3Signer).
 
@@ -2742,33 +3045,37 @@ Ensure the external signer is running before starting Teku.
 
 ### validators-external-signer-slashing-protection-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-external-signer-slashing-protection-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-external-signer-slashing-protection-enabled=false
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_EXTERNAL_SIGNER_SLASHING_PROTECTION_ENABLED=false
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-external-signer-slashing-protection-enabled: false
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specify whether to use Teku's built-in [slashing protection] when using an external signer such as [Web3Signer]. The default is `true`.
 
@@ -2784,161 +3091,181 @@ Built-in slashing protection can only be disabled for validators using external 
 
 ### validators-external-signer-timeout
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-external-signer-timeout=<INTEGER>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-external-signer-timeout=2000
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_EXTERNAL_SIGNER_TIMEOUT=2000
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-external-signer-timeout: 2000
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Timeout in milliseconds for requests to the external signer. The default is 5000.
 
 ### validators-external-signer-truststore
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-external-signer-truststore=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-external-signer-truststore=websigner_truststore.p12
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE=websigner_truststore.p12
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-external-signer-truststore: "websigner_truststore.p12"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate which signs the external signer's certificate.
 
 ### validators-external-signer-truststore-password-file
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-external-signer-truststore-password-file=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-external-signer-truststore-password-file=truststore_pass.txt
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_EXTERNAL_TRUSTSTORE_PASSWORD_FILE=truststore_pass.txt
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-external-signer-truststore-password-file: "truststore_pass.txt"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Password file used to decrypt the keystore.
 
 ### validators-external-signer-url
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-external-signer-url=<URL>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-external-signer-url=http://localhost:9000
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_EXTERNAL_SIGNER_URL=http://localhost:9000
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-external-signer-url: "http://localhost:9000"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 URL on which the external signer (for example, Web3Signer) is running.
 
 ### validators-graffiti
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-graffiti=<STRING>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-graffiti="Teku validator"
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_GRAFFITI="Teku validator"
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-graffiti: "Teku validator"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Graffiti to add when creating a block. Gets converted to bytes and padded to Bytes32.
 
@@ -2948,33 +3275,37 @@ The same graffiti is used for all validators started with this beacon node.
 
 ### validators-graffiti-file
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-graffiti-file=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-graffiti-file=/Users/me/mynode/graffiti.txt
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_GRAFFITI_FILE=/Users/me/mynode/graffiti.txt
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-graffiti-file: "/Users/me/mynode/graffiti.txt"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 File containing the validator graffiti to add when creating a block. The file contents is converted to `bytes` and padded to `Bytes32`. The same graffiti is used for all validators started with this beacon node.
 
@@ -2984,33 +3315,37 @@ This option takes precedence over [`--validators-graffiti`](#validators-graffiti
 
 ### validators-keystore-locking-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-keystore-locking-enabled=<BOOLEAN>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-keystore-locking-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_KEYSTORE_LOCKING_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-keystore-locking-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Locks the keystore files listed in [`--validator-keys`](#validator-keys). The default is `true`.
 
@@ -3018,33 +3353,37 @@ Attempts to lock all keystores in a directory if a directory is specified in [`-
 
 ### validators-performance-tracking-mode
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-performance-tracking-mode=<STRING>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-performance-tracking-mode=LOGGING
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_PERFORMANCE_TRACKING_MODE=LOGGING
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-performance-tracking-mode: LOGGING
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set the validator performance tracking strategy. Valid options are `LOGGING`, `METRICS`, `ALL`, and `NONE`. The default is `ALL`.
 
@@ -3052,129 +3391,145 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
 
 ### validators-proposer-blinded-blocks-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-proposer-blinded-blocks-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-proposer-blinded-blocks-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_PROPOSER_BLINDED_BLOCKS_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-proposer-blinded-blocks-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set to `true` to enable blinded blocks production, a prerequisite for the [builder network](../../how-to/configure/builder-network.md). When [`--validators-builder-registration-default-enabled`](#validators-builder-registration-default-enabled) is enabled this option is enabled automatically. The default is `false`.
 
 ### validators-proposer-config
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-proposer-config=<STRING>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-proposer-config=/home/me/node/proposerConfig.json
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_PROPOSER_CONFIG=/home/me/node/proposerConfig.json
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-proposer-config: "/home/me/node/proposerConfig.json"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Remote URL or local file path to the [proposer configuration file](../../how-to/configure/use-proposer-config-file.md).
 
 ### validators-proposer-config-refresh-enabled
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-proposer-config-refresh-enabled[=<BOOLEAN>]
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-proposer-config-refresh-enabled=true
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_PROPOSER_CONFIG_REFRESH_ENABLED=true
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-proposer-config-refresh-enabled: true
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Set to `true` to enable reloading the [proposer configuration](../../how-to/configure/use-proposer-config-file.md) on every proposer preparation (once per epoch). The default is `false`.
 
 ### validators-proposer-default-fee-recipient
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --validators-proposer-default-fee-recipient=<ADDRESS>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --validators-proposer-default-fee-recipient=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_VALIDATORS_PROPOSER_DEFAULT_FEE_RECIPIENT=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 validators-proposer-default-fee-recipient: "0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Default recipient of transaction fees for all validator keys. When running a validator, this is an alternative to the `fee_recipient` in the [default proposer configuration](../../how-to/configure/use-proposer-config-file.md).
 
@@ -3188,33 +3543,37 @@ The specified fee recipient is used in rare cases when a validator requests a bl
 
 ### ws-checkpoint
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --ws-checkpoint=<BLOCK_ROOT>:<EPOCH_NUMBER>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 --ws-checkpoint=0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_WS_CHECKPOINT=0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 ws-checkpoint: "0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using `<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`.
 
