@@ -456,6 +456,40 @@ doppelganger-detection-enabled: true
 
 Enables or disables [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
 
+## exit-when-no-validator-keys-enabled
+
+<!--tabs-->
+
+# Syntax
+
+```bash
+--exit-when-no-validator-keys-enabled[=<BOOLEAN>]
+```
+
+# Example
+
+```bash
+--exit-when-no-validator-keys-enabled=true
+```
+
+# Environment variable
+
+```bash
+TEKU_EXIT_WHEN_NO_VALIDATOR_KEYS_ENABLED=true
+```
+
+# Configuration file
+
+```bash
+exit-when-no-validator-keys-enabled: true
+```
+
+<!--/tabs-->
+
+When set to `true` Teku will fail to start when no validators have been loaded, and there are no active validators.
+
+Note: If the validator client and beacon node are being run seperately it only makes sense to add this option to the validator client side. This option should be used where you are loading the validator keys
+
 ### ee-endpoint
 
 <!--tabs-->
