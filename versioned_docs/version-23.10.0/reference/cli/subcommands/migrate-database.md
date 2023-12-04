@@ -4,6 +4,10 @@ description: Database migration subcommand options
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # `migrate-database`
 
 [Migrate the database to a LevelDB2 database](../../../how-to/migrate-database.md).
@@ -22,59 +26,66 @@ Before running the database migration, you must shut down the local Teku instanc
 
 ## `config-file`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku migrate-database --config-file=<FILE>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku migrate-database --config-file=/home/me/me_node/config.yaml
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the [YAML configuration file](../../../how-to/configure/use-config-file.md). The default is `none`.
 
 ## `data-base-path`, `data-path`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku migrate-database --data-base-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku migrate-database --data-base-path=/home/me/me_node
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DATA_BASE_PATH=/home/me/me_node
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 data-base-path: "/home/me/me_node"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the Teku data directory. The default directory is OS-dependent:
 
@@ -86,65 +97,73 @@ The default Docker image location is `/root/.local/share/teku`.
 
 ## `data-beacon-path`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku migrate-database --data-beacon-path=<PATH>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku migrate-database --data-beacon-path=/home/me/me_node
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_DATA_BEACON_PATH=/home/me/me_node
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 data-beacon-path: "/home/me/me_node"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ## `network`
 
-<!--tabs-->
+<Tabs>
 
-# Syntax
+  <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 teku migrate-database --network=<NETWORK>
 ```
 
-# Example
+  </TabItem>
+  <TabItem value="Example" label="Example" >
 
 ```bash
 teku migrate-database --network=mainnet
 ```
 
-# Environment variable
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_NETWORK=mainnet
 ```
 
-# Configuration file
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 network: "mainnet"
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. See the [consensus specification](https://github.com/ethereum/consensus-specs/tree/master/configs) for examples.
 

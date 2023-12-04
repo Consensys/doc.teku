@@ -1,5 +1,6 @@
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const fs = require("fs");
+const lightCodeTheme = require("prism-react-renderer").themes.github;
+const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 
 const isDev = process.env.NODE_ENV === "development";
 const baseUrl = isDev ? "/" : "/";
@@ -7,7 +8,7 @@ const baseUrl = isDev ? "/" : "/";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Teku documentation",
-  url: "https://docs.teku.consensys.net",
+  url: "https://docs.teku.consensys.io",
   baseUrl,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
@@ -39,28 +40,10 @@ const config = {
           routeBasePath: "/",
           path: "./docs",
           includeCurrentVersion: true,
-          lastVersion: "23.10.0",
-          versions: {
-            //defaults to the ./docs folder
-            // using 'development' instead of 'next' as path
-            current: {
-              label: "development",
-              path: "development",
-            },
-            //the last stable release in the versioned_docs/version-stable
-            "23.10.0": {
-              label: "stable (23.10.0)",
-            },
-            "23.9.1": {
-              label: "23.9.1",
-            },
-            "23.8.0": {
-              label: "23.8.0",
-            },
-          },
+          lastVersion: "", // defined further down in this file
+          versions: {}, // defined at ./versions-preset.json
           // @ts-ignore
           // eslint-disable-next-line global-require
-          remarkPlugins: [require("remark-docusaurus-tabs")],
           include: ["**/*.md", "**/*.mdx"],
           exclude: [
             "**/_*.{js,jsx,ts,tsx,md,mdx}",
@@ -451,5 +434,23 @@ const config = {
     ],
   ],
 };
+
+const data = fs.readFileSync("./versions-preset.json", {
+  encoding: "utf8",
+  flag: "r",
+});
+
+let versions = JSON.parse(data);
+// Injecting preset versions into config object
+config.presets[0][1].docs.versions = versions;
+config.presets[0][1].docs.versions.current = {
+  label: "development",
+  path: "development",
+};
+
+let stableVersion = Object.keys(versions).find((key) =>
+  versions[key].label.includes("stable"),
+);
+config.presets[0][1].docs.lastVersion = stableVersion;
 
 module.exports = config;

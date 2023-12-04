@@ -4,6 +4,9 @@ description: Manage validator keys using the key manager API endpoints.
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Manage validator signing keys
 
 You can manage the signing keys of validators using the
@@ -29,21 +32,22 @@ When enabling the validator client API, you must create a keystore.
     the validator API.
     Keytool sets this based on the answer to `What is your first and last name?`.
 
-    <!--tabs-->
-
-    # Syntax
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     keytool -genkeypair -keystore <keystore> -storetype PKCS12 -storepass <password>
     ```
 
-    # Example
+  </TabItem>
+  <TabItem value="Example" label="Example" default>
 
     ```bash
     keytool -genkeypair -keystore validator_keystore.p12 -storetype PKCS12 -storepass changeit
     ```
 
-    <!--/tabs-->
+  </TabItem>
+</Tabs>
 
 2. Create a plain text file (for example, `validator_keystore_pass.txt`) that
     stores the password you defined in the keystore.
@@ -111,21 +115,22 @@ Multiple addresses can be specified when using openSSL to generate the certifica
 3. Generate an x509 certificate from the configuration and convert it to PKCS12
     format:
 
-    <!--tabs-->
-
-    # Syntax
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
 
     ```bash
     openssl req -x509 -nodes -days <expiry> -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out <keystore> -passout file:<password-file>
     ```
 
-    # Example
+  </TabItem>
+  <TabItem value="Example" label="Example">
 
     ```bash
     openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -config openssl.cnf | openssl pkcs12 -export -out validator_keystore.p12 -passout file:validator_keystore_pass.txt
     ```
 
-    <!--/tabs-->
+  </TabItem>
+</Tabs>
 
 ### Authentication
 

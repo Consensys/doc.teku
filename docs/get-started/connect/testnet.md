@@ -4,6 +4,9 @@ description: Connect Teku to a testnet.
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Connect to a testnet
 
 Run Teku as a consensus client with any execution client on a testnet (for example [Goerli](https://github.com/eth-clients/goerli) or
@@ -85,9 +88,8 @@ Open a new terminal window.
 
 To run Teku as a beacon node only (without validator duties), run the following command or [specify the options in a configuration file](../../how-to/configure/use-config-file.md):
 
-<!--tabs-->
-
-# Goerli
+<Tabs>
+  <TabItem value="Goerli" label="Goerli" default>
 
 ```bash
 teku \
@@ -95,10 +97,12 @@ teku \
     --ee-endpoint=http://localhost:8551          \
     --ee-jwt-secret-file=<path to jwtsecret.hex> \
     --metrics-enabled=true                       \
-    --rest-api-enabled=true
+    --rest-api-enabled=true                      \
+    --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
-# Sepolia
+  </TabItem>
+  <TabItem value="Sepolia" label="Sepolia" >
 
 ```bash
 teku \
@@ -106,12 +110,19 @@ teku \
     --ee-endpoint=http://localhost:8551          \
     --ee-jwt-secret-file=<path to jwtsecret.hex> \
     --metrics-enabled=true                       \
-    --rest-api-enabled=true
+    --rest-api-enabled=true                      \
+    --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
-Specify the path to the `jwtsecret.hex` file generated in [step 1] using the [`--ee-jwt-secret-file`](../../reference/cli/index.md#ee-jwt-secret-file) option.
+Specify:
+
+- The path to the `jwtsecret.hex` file generated in [step 1] using the
+  [`--ee-jwt-secret-file`](../../reference/cli/index.md#ee-jwt-secret-file) option.
+- The URL of a checkpoint sync endpoint using the
+  [`--checkpoint-sync-url`](../../reference/cli/index.md#checkpoint-sync-url) option.
 
 You can modify the option values and add other [command line options](../../reference/cli/index.md) as needed.
 
@@ -128,9 +139,8 @@ You can also use [Prometheus and Grafana](../../how-to/monitor/use-metrics.md) t
 To run the Teku beacon node and validator client in a single process, run the following command or
 [specify the options in the configuration file](../../how-to/configure/use-config-file.md):
 
-<!--tabs-->
-
-# Goerli
+<Tabs>
+  <TabItem value="Goerli" label="Goerli" default>
 
 ```bash
 teku \
@@ -139,19 +149,24 @@ teku \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
+  --checkpoint-sync-url=<checkpoint sync URL>              \
   --validators-proposer-default-fee-recipient=<ETH address> \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
 
-# Sepolia
+  </TabItem>
+  <TabItem value="Sepolia" label="Sepolia" >
 
 Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 1] using the [`--ee-jwt-secret-file`](../../reference/cli/index.md#ee-jwt-secret-file) option.
+- The URL of a checkpoint sync endpoint using the
+  [`--checkpoint-sync-url`](../../reference/cli/index.md#checkpoint-sync-url) option.
 - An Ethereum address you own as the default fee recipient using the [`--validators-proposer-default-fee-recipient`](../../reference/cli/index.md#validators-proposer-default-fee-recipient) option.
 - The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key) for each validator using the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option. Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas. Alternatively, specify paths to directories to load multiple keys and passwords from.
 
@@ -163,9 +178,8 @@ To run the Teku beacon node and validator client as separate processes, first [s
 
 On a separate machine, run Teku using the [`validator-client`](../../reference/cli/subcommands/validator-client.md) subcommand:
 
-<!--tabs-->
-
-# Goerli
+<Tabs>
+  <TabItem value="Goerli" label="Goerli" default>
 
 ```bash
 teku validator-client \
@@ -174,11 +188,13 @@ teku validator-client \
     --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
 
-# Sepolia
+  </TabItem>
+  <TabItem value="Sepolia" label="Sepolia" >
 
 Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 Specify:
 

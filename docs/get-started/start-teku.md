@@ -4,6 +4,9 @@ description: Run Teku as a beacon node and/or validator.
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Start Teku
 
 You can run Teku as a beacon node and validator in a single process, or as separate processes.
@@ -32,6 +35,7 @@ teku \
   --ee-jwt-secret-file=jwtsecret.hex                        \
   --metrics-enabled=true                                    \
   --rest-api-enabled=true                                   \
+  --checkpoint-sync-url=https://beaconstate.ethstaker.cc    \
   --validators-proposer-default-fee-recipient=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73 \
   --validator-keys=validator/keys/validator_888eef.json:validator/passwords/validator_888eef.txt
 ```
@@ -48,10 +52,11 @@ Run Teku as a beacon node.
 
 ```bash title="Example"
 teku \
-    --ee-endpoint=http://localhost:8551 \
-    --ee-jwt-secret-file=jwtsecret.hex  \
-    --metrics-enabled=true              \
-    --rest-api-enabled=true
+    --ee-endpoint=http://localhost:8551                    \
+    --ee-jwt-secret-file=jwtsecret.hex                     \
+    --metrics-enabled=true                                 \
+    --rest-api-enabled=true                                \
+    --checkpoint-sync-url=https://beaconstate.ethstaker.cc \
 ```
 
 Specify [`--rest-api-enabled`](../reference/cli/index.md#rest-api-enabled) to allow validators to connect to the beacon node.
@@ -98,15 +103,15 @@ Use the [`/liveness`](https://consensys.github.io/teku/#operation/getTekuV1Admin
 
 The endpoint returns the status `200 OK` if the node is up or syncing.
 
-<!--tabs-->
-
-# curl HTTP request
+<Tabs>
+  <TabItem value="curl HTTP request" label="curl HTTP request" default>
 
 ```bash
 curl -I -X GET "http://192.10.10.101:5051/teku/v1/admin/liveness"
 ```
 
-# Result
+  </TabItem>
+  <TabItem value="Result" label="Result" >
 
 ```bash
 HTTP/1.1 200 OK
@@ -117,7 +122,8 @@ Cache-Control: max-age=0
 Content-Length: 0
 ```
 
-<!--/tabs-->
+  </TabItem>
+</Tabs>
 
 <!-- links -->
 
