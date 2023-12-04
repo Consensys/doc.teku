@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
+import Heading from '@theme/Heading'
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageCards from "@site/src/components/HomepageCards";
@@ -12,9 +13,9 @@ function HomepageHeader() {
   return (
     <header className={clsx(styles.introductionBlock)}>
       <div className="container">
-        <h1 className={clsx("hero__title", styles.title, styles.forceColor)}>
+        <Heading as='h1' className={clsx("hero__title", styles.title, styles.forceColor)}>
           {siteConfig.title}
-        </h1>
+        </Heading>
         <p
           className={clsx(
             "hero__subtitle",
