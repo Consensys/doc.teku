@@ -574,7 +574,7 @@ If set to `true` Teku won't start if validators have not been loaded, or there a
 
 :::important
 
-If the validator client and beacon node are run seperately, then add this option to the validator client side only.
+If the validator client and beacon node are run separately, then add this option to the validator client side only.
 This option should be used on the client loading the validator keys.
 
 :::
