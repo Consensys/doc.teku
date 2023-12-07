@@ -1420,7 +1420,9 @@ metrics-categories: ["BEACON", "JVM", "PROCESS"]
   </TabItem>
 </Tabs>
 
-Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`. All categories are enabled by default.
+Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`.  All but `VALIDATOR_DUTY` categories are enabled by default.
+
+When `metrics-categories` is used, only the categories specified in this option will be enabled (all other categories will be disabled).
 
 ### metrics-interface
 
@@ -2840,14 +2842,14 @@ The [validator REST API](../rest.md#enable-the-validator-client-api) listening p
 ```
 
   </TabItem>
-  <TabItem value="Example for directory" label="Example for directory" > 
+  <TabItem value="Example for directory" label="Example for directory" >
 
 ```bash
 --validator-keys=/home/validator/keys:home/validator/passwords
 ```
 
   </TabItem>
-  <TabItem value="Example for file" label="Example for file" > 
+  <TabItem value="Example for file" label="Example for file" >
 
 ```bash
 --validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt
