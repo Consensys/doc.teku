@@ -241,6 +241,9 @@ If it can't download the finalized state, it tries to download the genesis state
 See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 :::
 
+When this option is set, and `--deposit-snapshot-enabled` is also not set or disabled, 
+the `--checkpoint-sync-url` value will be used to determine the deposit snapshot.
+
 ### config-file
 
 <Tabs>
@@ -818,6 +821,8 @@ If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsE
 from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect
 deposit tree snapshot.
 :::
+
+When this option is not set or is disabled, the `--checkpoint-sync-url` value will be used if provided to find the deposit snapshot URL.
 
 ### exchange-capabilities-monitoring-enabled
 
