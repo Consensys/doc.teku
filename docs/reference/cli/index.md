@@ -2616,7 +2616,7 @@ Set to `true` to enable the validators slashing monitoring and shut down the VC 
 
 :::caution
 
-When running a remote BN, this option can only be used with a BN that supports the `attester_slashing` and `proposer_slashing` SEE event streams.
+When running a remote BN different than Teku, this option can only be used with a BN that supports the `attester_slashing` and `proposer_slashing` SEE event streams.
 
 :::
 
