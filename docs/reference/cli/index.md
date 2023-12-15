@@ -2578,6 +2578,57 @@ This option can't be used with [`--beacon-node-api-endpoint`](subcommands/valida
 
 :::
 
+### stop-vc-when-validator-slashed-enabled
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--stop-vc-when-validator-slashed-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--stop-vc-when-validator-slashed-enabled=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_STOP_VC_WHEN_VALIDATOR_SLASHED_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+stop-vc-when-validator-slashed-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+
+Set to `true` to enable the validators slashing monitoring and shut down the VC when a validator gets slashed. The default is `false`.
+
+:::caution
+
+When running a remote BN, this option can only be used with a BN that supports the `attester_slashing` and `proposer_slashing` SEE event streams.
+
+:::
+
+
+### version
+
+```bash title="Syntax"
+-V, --version
+```
+
+Displays the version and exits.
+
 ### `validator-api-cors-origins`
 
 <Tabs>
