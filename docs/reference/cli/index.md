@@ -504,6 +504,57 @@ data-validator-path: "/home/me/me_validator"
 
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
+
+### deposit-snapshot-enabled
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--deposit-snapshot-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--deposit-snapshot-enabled=false
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_DEPOSIT_SNAPSHOT_ENABLED=false
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+deposit-snapshot-enabled: false
+```
+
+  </TabItem>
+</Tabs>
+
+Enables or disables using a bundled deposit contract tree snapshot and persisting the tree after finalization. The default is `true`.
+
+Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku
+loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources
+and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both
+operations by bundling deposit tree snapshots in the Teku distribution for all major
+networks (Mainnet, Gnosis, Goerli, and Sepolia) and persisting the current tree after finalization. Instead of
+replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one, whichever is the latest.
+
+:::info Security considerations
+If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received
+from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect
+deposit tree snapshot.
+:::
+
+When this option is not set or is disabled, the `--checkpoint-sync-url` value will be used if provided to find the deposit snapshot URL.
+
 ### doppelganger-detection-enabled
 
 <Tabs>
@@ -539,48 +590,6 @@ doppelganger-detection-enabled: true
 
 Enables or disables [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
 
-### exit-when-no-validator-keys-enabled
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-
-```bash
---exit-when-no-validator-keys-enabled[=<BOOLEAN>]
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---exit-when-no-validator-keys-enabled=true
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_EXIT_WHEN_NO_VALIDATOR_KEYS_ENABLED=true
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-exit-when-no-validator-keys-enabled: true
-```
-
-  </TabItem>
-</Tabs>
-
-If set to `true` Teku won't start if validators have not been loaded, or there are no active validators. The default is `false`.
-
-:::important
-
-If the validator client and beacon node are run separately, then add this option to the validator client side only.
-This option should be used on the client loading the validator keys.
-
-:::
 
 ### ee-endpoint
 
@@ -774,56 +783,6 @@ After [The Merge](../../concepts/merge.md), you can't use `eth1-endpoint` to spe
 
 :::
 
-### deposit-snapshot-enabled
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---deposit-snapshot-enabled[=<BOOLEAN>]
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---deposit-snapshot-enabled=false
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_DEPOSIT_SNAPSHOT_ENABLED=false
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-deposit-snapshot-enabled: false
-```
-
-  </TabItem>
-</Tabs>
-
-Enables or disables using a bundled deposit contract tree snapshot and persisting the tree after finalization. The default is `true`.
-
-Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku
-loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources
-and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both
-operations by bundling deposit tree snapshots in the Teku distribution for all major
-networks (Mainnet, Gnosis, Goerli, and Sepolia) and persisting the current tree after finalization. Instead of
-replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one, whichever is the latest.
-
-:::info Security considerations
-If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received
-from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect
-deposit tree snapshot.
-:::
-
-When this option is not set or is disabled, the `--checkpoint-sync-url` value will be used if provided to find the deposit snapshot URL.
-
 ### exchange-capabilities-monitoring-enabled
 
 <Tabs>
@@ -859,6 +818,48 @@ exchange-capabilities-monitoring-enabled: true
 
 Enables or disables querying the [execution client](../../concepts/merge.md#execution-clients) periodically for the Engine API methods it supports. If enabled and incompatibility is detected, a warning is raised in the logs. The default is `true`.
 
+### exit-when-no-validator-keys-enabled
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+
+```bash
+--exit-when-no-validator-keys-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--exit-when-no-validator-keys-enabled=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_EXIT_WHEN_NO_VALIDATOR_KEYS_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+exit-when-no-validator-keys-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+If set to `true` Teku won't start if validators have not been loaded, or there are no active validators. The default is `false`.
+
+:::important
+
+If the validator client and beacon node are run separately, then add this option to the validator client side only.
+This option should be used on the client loading the validator keys.
+
+:::
 
 ### genesis-state
 
@@ -1006,41 +1007,6 @@ The default is `false`.
 :::caution
 Syncing from outside the weak subjectivity period is considered unsafe.
 :::
-
-### logging
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
--l, --logging=<LEVEL>
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---logging=DEBUG
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_LOGGING=DEBUG
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-logging: "DEBUG"
-```
-
-  </TabItem>
-</Tabs>
-
-Sets the logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. Default is `INFO`.
 
 ### log-color-enabled
 
@@ -1281,6 +1247,41 @@ Logs could become noisy when running many validators.
 
 :::
 
+### logging
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+-l, --logging=<LEVEL>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--logging=DEBUG
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_LOGGING=DEBUG
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+logging: "DEBUG"
+```
+
+  </TabItem>
+</Tabs>
+
+Sets the logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. Default is `INFO`.
+
 ### metrics-block-timing-tracking-enabled
 
 <Tabs>
@@ -1315,6 +1316,43 @@ metrics-block-timing-tracking-enabled: false
 </Tabs>
 
 Enables or disables block timing metrics. The default is `true`.
+
+### metrics-categories
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--metrics-categories=<CATEGORY>[,<CATEGORY>...]...
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--metrics-categories=BEACON,JVM,PROCESS
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+metrics-categories: ["BEACON", "JVM", "PROCESS"]
+```
+
+  </TabItem>
+</Tabs>
+
+Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`.  All but `VALIDATOR_DUTY` categories are enabled by default.
+
+When `metrics-categories` is used, only the categories specified in this option are enabled (all other categories are disabled).
 
 ### metrics-enabled
 
@@ -1391,43 +1429,6 @@ A comma-separated list of hostnames to allow access to the [Teku metrics]. By de
 To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production environments.
 
 :::
-
-### metrics-categories
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---metrics-categories=<CATEGORY>[,<CATEGORY>...]...
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---metrics-categories=BEACON,JVM,PROCESS
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-metrics-categories: ["BEACON", "JVM", "PROCESS"]
-```
-
-  </TabItem>
-</Tabs>
-
-Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`.  All but `VALIDATOR_DUTY` categories are enabled by default.
-
-When `metrics-categories` is used, only the categories specified in this option are enabled (all other categories are disabled).
 
 ### metrics-interface
 
@@ -1656,6 +1657,196 @@ p2p-advertised-ip: "192.168.1.132"
 
 Advertised peer-to-peer IP address. The default is `127.0.0.1`.
 
+### p2p-advertised-port
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-advertised-port=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-advertised-port=1789
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_ADVERTISED_PORT=1789
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-advertised-port: 1789
+```
+
+  </TabItem>
+</Tabs>
+
+The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2p-port).
+
+The advertised port can differ from the [`--p2p-port`](#p2p-port). For example, you can set the advertised port to 9010, and the `--p2p-port` value to 9009, then manually configure the firewall to forward external incoming requests on port 9010 to port 9009 on the Teku node.
+
+### p2p-advertised-udp-port
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-advertised-udp-port=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-advertised-udp-port=1789
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_ADVERTISED_UDP_PORT=1789
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-advertised-udp-port: 1789
+```
+
+  </TabItem>
+</Tabs>
+
+The advertised UDP port to external peers. The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set. Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
+
+
+
+### p2p-discovery-enabled
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-discovery-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-discovery-enabled=false
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_DISCOVERY_ENABLED=false
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-discovery-enabled: false
+```
+
+  </TabItem>
+</Tabs>
+
+Enables or disables P2P peer discovery. If disabled, [`p2p-static-peers`](#p2p-static-peers) defines the peer connections. The default is `true`.
+
+### p2p-discovery-site-local-addresses-enabled
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-discovery-site-local-addresses-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-discovery-site-local-addresses-enabled
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_DISCOVERY_SITE_LOCAL_ADDRESSES_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-discovery-site-local-addresses-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+Enables or disables discovery of the following local network (RFC1918) addresses. The default is `false`.
+
+```text
+10.0.0.0    	-   10.255.255.255  (10/8 prefix)
+172.16.0.0  	-   172.31.255.255  (172.16/12 prefix)
+192.168.0.0 	-   192.168.255.255 (192.168/16 prefix)
+```
+
+Normal Teku operation shouldn't send traffic to these local network addresses.
+
+In test or private networks, operators might need to enable discovery of local addresses. For example, when you run multiple consensus layer nodes in one local network, these nodes are not discovered on the public internet and are advertised with local (RFC1918) addresses.
+
+### p2p-discovery-bootnodes
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-discovery-bootnodes=<ENR_ADDRESS>[,<ENR_ADDRESS>...]...
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-discovery-bootnodes=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_DISCOVERY_BOOTNODES=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
+                          "enr:-Iu4QL...wgiMo"]
+```
+
+  </TabItem>
+</Tabs>
+
+List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
+
 ### p2p-enabled
 
 <Tabs>
@@ -1876,228 +2067,6 @@ p2p-port: 1789
 
 Specifies the P2P listening ports (UDP and TCP). The default is `9000`.
 
-### p2p-discovery-enabled
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---p2p-discovery-enabled[=<BOOLEAN>]
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---p2p-discovery-enabled=false
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_P2P_DISCOVERY_ENABLED=false
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-p2p-discovery-enabled: false
-```
-
-  </TabItem>
-</Tabs>
-
-Enables or disables P2P peer discovery. If disabled, [`p2p-static-peers`](#p2p-static-peers) defines the peer connections. The default is `true`.
-
-### p2p-discovery-site-local-addresses-enabled
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---p2p-discovery-site-local-addresses-enabled[=<BOOLEAN>]
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---p2p-discovery-site-local-addresses-enabled
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_P2P_DISCOVERY_SITE_LOCAL_ADDRESSES_ENABLED=true
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-p2p-discovery-site-local-addresses-enabled: true
-```
-
-  </TabItem>
-</Tabs>
-
-Enables or disables discovery of the following local network (RFC1918) addresses. The default is `false`.
-
-```text
-10.0.0.0    	-   10.255.255.255  (10/8 prefix)
-172.16.0.0  	-   172.31.255.255  (172.16/12 prefix)
-192.168.0.0 	-   192.168.255.255 (192.168/16 prefix)
-```
-
-Normal Teku operation shouldn't send traffic to these local network addresses.
-
-In test or private networks, operators might need to enable discovery of local addresses. For example, when you run multiple consensus layer nodes in one local network, these nodes are not discovered on the public internet and are advertised with local (RFC1918) addresses.
-
-### p2p-discovery-bootnodes
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---p2p-discovery-bootnodes=<ENR_ADDRESS>[,<ENR_ADDRESS>...]...
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---p2p-discovery-bootnodes=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_P2P_DISCOVERY_BOOTNODES=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
-                          "enr:-Iu4QL...wgiMo"]
-```
-
-  </TabItem>
-</Tabs>
-
-List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
-
-### p2p-advertised-port
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---p2p-advertised-port=<PORT>
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---p2p-advertised-port=1789
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_P2P_ADVERTISED_PORT=1789
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-p2p-advertised-port: 1789
-```
-
-  </TabItem>
-</Tabs>
-
-The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2p-port).
-
-The advertised port can differ from the [`--p2p-port`](#p2p-port). For example, you can set the advertised port to 9010, and the `--p2p-port` value to 9009, then manually configure the firewall to forward external incoming requests on port 9010 to port 9009 on the Teku node.
-
-### p2p-udp-port
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---p2p-udp-port=<PORT>
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---p2p-udp-port=1789
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_P2P_UDP_PORT=1789
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-p2p-udp-port: 1789
-```
-
-  </TabItem>
-</Tabs>
-
-The UDP port used for discovery. The default is the port specified in [`--p2p-port`](#p2p-port).
-
-### p2p-advertised-udp-port
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---p2p-advertised-udp-port=<PORT>
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---p2p-advertised-udp-port=1789
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_P2P_ADVERTISED_UDP_PORT=1789
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-p2p-advertised-udp-port: 1789
-```
-
-  </TabItem>
-</Tabs>
-
-The advertised UDP port to external peers. The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set. Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
 
 ### p2p-private-key-file
 
@@ -2170,6 +2139,9 @@ p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
 
 List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers.
 
+
+
+
 ### p2p-subscribe-all-subnets-enabled
 
 <Tabs>
@@ -2214,6 +2186,41 @@ This option is primarily for users running an external validator client and load
 When set to `true`, Teku uses more CPU and bandwidth, and for most users there’s no need to use this option.
 
 :::
+
+### p2p-udp-port
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-udp-port=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-udp-port=1789
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_UDP_PORT=1789
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-udp-port: 1789
+```
+
+  </TabItem>
+</Tabs>
+
+The UDP port used for discovery. The default is the port specified in [`--p2p-port`](#p2p-port).
 
 ### reconstruct-historic-states
 
@@ -2523,13 +2530,7 @@ This option can't be used with [`--beacon-node-api-endpoint`](subcommands/valida
 
 :::
 
-### version
 
-```bash title="Syntax"
--V, --version
-```
-
-Displays the version and exits.
 
 ### validator-api-cors-origins
 
@@ -3584,6 +3585,14 @@ We recommend using this option when running a beacon node serving APIs to other 
 The specified fee recipient is used in rare cases when a validator requests a block production but its fee recipient is still unknown for the beacon node.
 
 :::
+
+### version
+
+```bash title="Syntax"
+-V, --version
+```
+
+Displays the version and exits.
 
 ### ws-checkpoint
 
