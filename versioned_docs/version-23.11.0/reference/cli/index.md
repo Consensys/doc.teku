@@ -2357,7 +2357,13 @@ Specifies REST API listening port (HTTP). The default is 5051.
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-TEKU_SENTRY-CONFIG_FILE=/etc/sentry-node-config.json
+TEKU_SENTRY_CONFIG_FILE=/etc/sentry-node-config.json
+```
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+sentry-config-file: true
 ```
 
   </TabItem>
