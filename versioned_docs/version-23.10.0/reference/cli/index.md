@@ -2445,7 +2445,7 @@ TEKU_SENTRY_CONFIG_FILE=/etc/sentry-node-config.json
   <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
-sentry-config-file: true
+sentry-config-file: "/etc/sentry-node-config.json"
 ```
 
   </TabItem>
