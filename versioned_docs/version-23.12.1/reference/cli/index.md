@@ -685,7 +685,7 @@ ee-jwt-claim-id: "foobar"
   </TabItem>
 </Tabs>
 
-A unique identifier for the consensus layer client. This identifier will be added to the JWT claims as an 'id' claim when using the Engine JSON-RPC API.
+A unique identifier for the consensus layer client. This identifier will be added to the JWT claims as an `id` claim when using the Engine JSON-RPC API.
 
 ### eth1-deposit-contract-address
 
