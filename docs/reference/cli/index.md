@@ -918,6 +918,47 @@ If overriding the genesis state in a custom network, you must supply the genesis
 
 Show the help message and exit.
 
+### ignore-weak-subjectivity-period-enabled
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--ignore-weak-subjectivity-period-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--ignore-weak-subjectivity-period-enabled=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_IGNORE_WEAK_SUBJECTIVITY_PERIOD_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+ignore-weak-subjectivity-period-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+Ignores the [weak subjectivity](../../concepts/weak-subjectivity.md) period verification that Teku
+performs at startup.
+The default is `false`.
+
+:::caution
+Syncing from outside the weak subjectivity period is considered unsafe.
+:::
+
 ### initial-state
 
 <Tabs>
@@ -965,47 +1006,6 @@ If overriding the initial state in a custom network, you must supply the initial
 
 See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 
-:::
-
-### ignore-weak-subjectivity-period-enabled
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---ignore-weak-subjectivity-period-enabled[=<BOOLEAN>]
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---ignore-weak-subjectivity-period-enabled=true
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_IGNORE_WEAK_SUBJECTIVITY_PERIOD_ENABLED=true
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-ignore-weak-subjectivity-period-enabled: true
-```
-
-  </TabItem>
-</Tabs>
-
-Ignores the [weak subjectivity](../../concepts/weak-subjectivity.md) period verification that Teku
-performs at startup.
-The default is `false`.
-
-:::caution
-Syncing from outside the weak subjectivity period is considered unsafe.
 :::
 
 ### log-color-enabled
@@ -1730,6 +1730,43 @@ p2p-advertised-udp-port: 1789
 The advertised UDP port to external peers. The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set. Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
 
 
+### p2p-discovery-bootnodes
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-discovery-bootnodes=<ENR_ADDRESS>[,<ENR_ADDRESS>...]...
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-discovery-bootnodes=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_DISCOVERY_BOOTNODES=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
+                          "enr:-Iu4QL...wgiMo"]
+```
+
+  </TabItem>
+</Tabs>
+
+List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
+
+
 
 ### p2p-discovery-enabled
 
@@ -1810,42 +1847,6 @@ Enables or disables discovery of the following local network (RFC1918) addresses
 Normal Teku operation shouldn't send traffic to these local network addresses.
 
 In test or private networks, operators might need to enable discovery of local addresses. For example, when you run multiple consensus layer nodes in one local network, these nodes are not discovered on the public internet and are advertised with local (RFC1918) addresses.
-
-### p2p-discovery-bootnodes
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---p2p-discovery-bootnodes=<ENR_ADDRESS>[,<ENR_ADDRESS>...]...
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---p2p-discovery-bootnodes=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_P2P_DISCOVERY_BOOTNODES=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
-                          "enr:-Iu4QL...wgiMo"]
-```
-
-  </TabItem>
-</Tabs>
-
-List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
 
 ### p2p-enabled
 
@@ -2845,63 +2846,6 @@ validator-api-port: 5052
 
 The [validator REST API](../rest.md#enable-the-validator-client-api) listening port (HTTP). The default is 5052.
 
-### validator-keys
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---validator-keys=<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>[,<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>...]...
-```
-
-  </TabItem>
-  <TabItem value="Example for directory" label="Example for directory" >
-
-```bash
---validator-keys=/home/validator/keys:home/validator/passwords
-```
-
-  </TabItem>
-  <TabItem value="Example for file" label="Example for file" >
-
-```bash
---validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_VALIDATOR_KEYS=/home/validator/keys:home/validator/passwords
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-validator-keys: "/home/validator/keys:home/validator/passwords"
-```
-
-  </TabItem>
-</Tabs>
-
-Directory or file to load the encrypted keystore file(s) and associated password file(s) from. Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
-
-When specifying directories, Teku expects to find identically named keystore and password files. For example `validator_217179e.json` and `validator_217179e.txt`.
-
-:::tip
-
-You can [load new validators without restarting Teku] if you specify a directory from which to load the keystore files.
-
-:::
-
-When specifying file names, Teku expects that the files exist.
-
-:::note
-
-The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
-
-:::
 
 ### validators-builder-registration-default-enabled
 
@@ -3370,6 +3314,64 @@ File containing the validator graffiti to add when creating a block. The file co
 You can overwrite the file while Teku is running to update the graffiti.
 
 This option takes precedence over [`--validators-graffiti`](#validators-graffiti).
+
+### validator-keys
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--validator-keys=<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>[,<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>...]...
+```
+
+  </TabItem>
+  <TabItem value="Example for directory" label="Example for directory" >
+
+```bash
+--validator-keys=/home/validator/keys:home/validator/passwords
+```
+
+  </TabItem>
+  <TabItem value="Example for file" label="Example for file" >
+
+```bash
+--validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_VALIDATOR_KEYS=/home/validator/keys:home/validator/passwords
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+validator-keys: "/home/validator/keys:home/validator/passwords"
+```
+
+  </TabItem>
+</Tabs>
+
+Directory or file to load the encrypted keystore file(s) and associated password file(s) from. Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
+
+When specifying directories, Teku expects to find identically named keystore and password files. For example `validator_217179e.json` and `validator_217179e.txt`.
+
+:::tip
+
+You can [load new validators without restarting Teku] if you specify a directory from which to load the keystore files.
+
+:::
+
+When specifying file names, Teku expects that the files exist.
+
+:::note
+
+The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
+
+:::
 
 ### validators-keystore-locking-enabled
 
