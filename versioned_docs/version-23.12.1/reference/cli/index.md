@@ -652,6 +652,41 @@ ee-jwt-secret-file: "ee-jwt-secret.hex"
 
 Shared secret used to authenticate [execution clients](../../concepts/merge.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
+### ee-jwt-claim-id
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--ee-jwt-claim-id=<STRING>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--ee-jwt-claim-id=foobar
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_EE_JWT_CLAIM_ID=foobar
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+ee-jwt-claim-id: "foobar"
+```
+
+  </TabItem>
+</Tabs>
+
+A unique identifier for the consensus layer client. This identifier will be added to the JWT claims as an 'id' claim when using the Engine JSON-RPC API.
+
 ### eth1-deposit-contract-address
 
 <Tabs>
