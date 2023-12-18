@@ -2512,7 +2512,7 @@ Specifies REST API listening port (HTTP). The default is 5051.
 TEKU_SENTRY_CONFIG_FILE=/etc/sentry-node-config.json
 ```
 
-  </TabItem>
+</TabItem>
   <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
