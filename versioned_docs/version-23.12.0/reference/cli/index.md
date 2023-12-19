@@ -232,7 +232,7 @@ checkpoint-sync-url: "https://beaconstate.ethstaker.cc"
   </TabItem>
 </Tabs>
 
-URL of a Checkpointz endpoint used to [start Teku from a recent state](../../get-started/checkpoint-start.md).
+URL of a checkpoint endpoint used to [start Teku from a recent state](../../get-started/checkpoint-start.md).
 
 By default, Teku tries to download the finalized state from the endpoint.
 If it can't download the finalized state, it tries to download the genesis state.

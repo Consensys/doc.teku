@@ -70,7 +70,7 @@ certfile
 chaindata
 changefreq
 changeit
-checkpointz
+checkpoint
 chedeau
 cheng
 chiado
