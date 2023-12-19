@@ -1389,7 +1389,7 @@ metrics-enabled: true
 
 Set to `true` to enable the metrics exporter. The default is `false`.
 
-### `metrics-host-allowlist
+### `metrics-host-allowlist`
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
