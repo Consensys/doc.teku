@@ -590,7 +590,6 @@ doppelganger-detection-enabled: true
 
 Enables or disables [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
 
-
 ### `ee-endpoint`
 
 <Tabs>
@@ -626,6 +625,41 @@ ee-endpoint: "http://localhost:8550"
 
 URL of the [execution client's](../../concepts/merge.md#execution-clients) Engine JSON-RPC APIs. This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after [The Merge](../../concepts/merge.md).
 
+### ee-jwt-claim-id
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--ee-jwt-claim-id=<STRING>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--ee-jwt-claim-id=foobar
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_EE_JWT_CLAIM_ID=foobar
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+ee-jwt-claim-id: "foobar"
+```
+
+  </TabItem>
+</Tabs>
+
+A unique identifier for the consensus layer client. When using the JSON-RPC API engine, this identifier is added to JWT claims as an `id` claim.
+  
 ### `ee-jwt-secret-file`
 
 <Tabs>
@@ -661,7 +695,7 @@ ee-jwt-secret-file: "ee-jwt-secret.hex"
 
 Shared secret used to authenticate [execution clients](../../concepts/merge.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
-### `eth1-deposit-contract-address`
+### eth1-deposit-contract-address
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
