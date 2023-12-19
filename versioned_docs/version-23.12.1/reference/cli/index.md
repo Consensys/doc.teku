@@ -64,6 +64,7 @@ teku --Tab+Tab
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --beacon-liveness-tracking-enabled=true
 ```
@@ -98,6 +99,7 @@ Enables or disables validator liveness tracking. Used by [doppelganger detection
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --builder-bid-compare-factor=50
 ```
@@ -138,6 +140,7 @@ Set this option to `BUILDER_ALWAYS` to always use the builder bid, unless the bi
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --builder-endpoint=http://127.0.0.1:18550
 ```
@@ -172,6 +175,7 @@ The address for an external [builder endpoint](../../how-to/configure/builder-ne
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --builder-set-user-agent-header=true
 ```
@@ -195,6 +199,51 @@ builder-set-user-agent-header: true
 
 Set the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`) when making a builder bid request to help builders identify clients and versions. The default is `true`.
 
+### checkpoint-sync-url
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--checkpoint-sync-url=<URL>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--checkpoint-sync-url="https://beaconstate.ethstaker.cc"
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_CHECKPOINT_SYNC_URL="https://beaconstate.ethstaker.cc"
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+checkpoint-sync-url: "https://beaconstate.ethstaker.cc"
+```
+
+  </TabItem>
+</Tabs>
+
+URL of a Checkpointz endpoint used to [start Teku from a recent state](../../get-started/checkpoint-start.md).
+
+By default, Teku tries to download the finalized state from the endpoint.
+If it can't download the finalized state, it tries to download the genesis state.
+
+:::tip
+See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
+:::
+
+When this option is set, and `--deposit-snapshot-enabled` is also not set or disabled, 
+the `--checkpoint-sync-url` value will be used to determine the deposit snapshot.
+
 ### config-file
 
 <Tabs>
@@ -206,6 +255,7 @@ Set the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`) whe
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --config-file=/home/me/me_node/config.yaml
 ```
@@ -233,6 +283,7 @@ Path to the [YAML configuration file](../../how-to/configure/use-config-file.md)
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --data-base-path=/home/me/me_node
 ```
@@ -273,6 +324,7 @@ The default Docker image location is `/root/.local/share/teku`.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --data-beacon-path=/home/me/me_beacon
 ```
@@ -307,6 +359,7 @@ Path to the beacon node data. The default is `<data-base-path>/beacon` where `<d
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --data-storage-archive-frequency=1028
 ```
@@ -351,6 +404,7 @@ For example, `--data-storage-archive-frequency=1` uses maximum disk space but ha
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --data-storage-mode=archive
 ```
@@ -391,6 +445,7 @@ The default is `minimal`.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --data-storage-non-canonical-blocks-enabled=true
 ```
@@ -425,6 +480,7 @@ Specify whether to store non-canonical blocks and blob sidecars. The default is 
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --data-validator-path=/home/me/me_validator
 ```
@@ -459,6 +515,7 @@ Path to the validator client data. The default is `<data-base-path>/validator` w
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --doppelganger-detection-enabled=true
 ```
@@ -482,6 +539,49 @@ doppelganger-detection-enabled: true
 
 Enables or disables [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
 
+### exit-when-no-validator-keys-enabled
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+
+```bash
+--exit-when-no-validator-keys-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--exit-when-no-validator-keys-enabled=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_EXIT_WHEN_NO_VALIDATOR_KEYS_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+exit-when-no-validator-keys-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+If set to `true` Teku won't start if validators have not been loaded, or there are no active validators. The default is `false`.
+
+:::important
+
+If the validator client and beacon node are run separately, then add this option to the validator client side only.
+This option should be used on the client loading the validator keys.
+
+:::
+
 ### ee-endpoint
 
 <Tabs>
@@ -493,6 +593,7 @@ Enables or disables [doppelganger detection](../../how-to/enable-doppelganger-de
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --ee-endpoint=http://localhost:8550
 ```
@@ -527,6 +628,7 @@ URL of the [execution client's](../../concepts/merge.md#execution-clients) Engin
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --ee-jwt-secret-file=ee-jwt-secret.hex
 ```
@@ -550,6 +652,41 @@ ee-jwt-secret-file: "ee-jwt-secret.hex"
 
 Shared secret used to authenticate [execution clients](../../concepts/merge.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
+### ee-jwt-claim-id
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--ee-jwt-claim-id=<STRING>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--ee-jwt-claim-id=foobar
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_EE_JWT_CLAIM_ID=foobar
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+ee-jwt-claim-id: "foobar"
+```
+
+  </TabItem>
+</Tabs>
+
+A unique identifier for the consensus layer client. When using the JSON-RPC API engine, this identifier is added to JWT claims as an `id` claim.
+
 ### eth1-deposit-contract-address
 
 <Tabs>
@@ -561,6 +698,7 @@ Shared secret used to authenticate [execution clients](../../concepts/merge.md#e
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --eth1-deposit-contract-address=0x77f7bED277449F51505a4C54550B074030d989bC
 ```
@@ -600,6 +738,7 @@ The deposit contract address can also be defined in:
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --eth1-deposit-contract-max-request-size=8000
 ```
@@ -636,6 +775,7 @@ Setting a smaller max size may help if your ETH1 node is slow at loading deposit
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --eth1-endpoint=http://localhost:8545,https://mainnet.infura.io/v3/d0e21ccd0b1e4eef7784422eabc51111
 ```
@@ -680,6 +820,7 @@ After [The Merge](../../concepts/merge.md), you can't use `eth1-endpoint` to spe
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --deposit-snapshot-enabled=false
 ```
@@ -716,6 +857,8 @@ from the execution layer. The malicious peer can't follow up the chain, and so c
 deposit tree snapshot.
 :::
 
+When this option is not set or is disabled, the `--checkpoint-sync-url` value will be used if provided to find the deposit snapshot URL.
+
 ### exchange-capabilities-monitoring-enabled
 
 <Tabs>
@@ -727,6 +870,7 @@ deposit tree snapshot.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --exchange-capabilities-monitoring-enabled=true
 ```
@@ -762,6 +906,7 @@ Enables or disables querying the [execution client](../../concepts/merge.md#exec
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --genesis-state=/home/me/genesis.ssz
 ```
@@ -818,6 +963,7 @@ Show the help message and exit.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --initial-state=/home/me/genesis.ssz
 ```
@@ -855,46 +1001,45 @@ See [this community-maintained list of checkpoint state endpoints](https://eth-c
 
 :::
 
-### checkpoint-sync-url
+### ignore-weak-subjectivity-period-enabled
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---checkpoint-sync-url=<URL>
+--ignore-weak-subjectivity-period-enabled[=<BOOLEAN>]
 ```
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
---checkpoint-sync-url="https://beaconstate.ethstaker.cc"
+--ignore-weak-subjectivity-period-enabled=true
 ```
 
   </TabItem>
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-TEKU_CHECKPOINT_SYNC_URL="https://beaconstate.ethstaker.cc"
+TEKU_IGNORE_WEAK_SUBJECTIVITY_PERIOD_ENABLED=true
 ```
 
   </TabItem>
   <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
-checkpoint-sync-url: "https://beaconstate.ethstaker.cc"
+ignore-weak-subjectivity-period-enabled: true
 ```
 
   </TabItem>
 </Tabs>
 
-URL of a checkpoint endpoint used to [start Teku from a recent state](../../get-started/checkpoint-start.md).
+Ignores the [weak subjectivity](../../concepts/weak-subjectivity.md) period verification that Teku
+performs at startup.
+The default is `false`.
 
-By default, Teku tries to download the finalized state from the endpoint. If it can't download the finalized state, it tries to download the genesis state.
-
-:::tip
-
-See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
-
+:::caution
+Syncing from outside the weak subjectivity period is considered unsafe.
 :::
 
 ### logging
@@ -908,6 +1053,7 @@ See [this community-maintained list of checkpoint state endpoints](https://eth-c
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --logging=DEBUG
 ```
@@ -942,6 +1088,7 @@ Sets the logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INF
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --log-color-enabled=false
 ```
@@ -976,6 +1123,7 @@ Specify whether status and event log messages include a console color display co
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --log-destination=CONSOLE
 ```
@@ -1025,6 +1173,7 @@ Use `DEFAULT_BOTH` when using a [custom Log4J2 configuration file](../../how-to/
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --log-file=teku_2020-01-01.log
 ```
@@ -1067,6 +1216,7 @@ The default Docker image location is `/root/.local/share/teku/logs`.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --log-file-name-pattern=tekuL_%d{yyyy-MM-dd}.log
 ```
@@ -1101,6 +1251,7 @@ Filename pattern to apply when creating log files. The default pattern is `teku_
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --log-include-events-enabled=false
 ```
@@ -1135,6 +1286,7 @@ Specify whether to log frequent update events. For example every slot event with
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --log-include-validator-duties-enabled=false
 ```
@@ -1175,6 +1327,7 @@ Logs could become noisy when running many validators.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --metrics-block-timing-tracking-enabled=false
 ```
@@ -1209,6 +1362,7 @@ Enables or disables block timing metrics. The default is `true`.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --metrics-enabled=true
 ```
@@ -1243,6 +1397,7 @@ Set to `true` to enable the metrics exporter. The default is `false`.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --metrics-host-allowlist=medomain.com,meotherdomain.com
 ```
@@ -1283,6 +1438,7 @@ To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --metrics-categories=BEACON,JVM,PROCESS
 ```
@@ -1304,7 +1460,9 @@ metrics-categories: ["BEACON", "JVM", "PROCESS"]
   </TabItem>
 </Tabs>
 
-Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`. All categories are enabled by default.
+Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`.  All but `VALIDATOR_DUTY` categories are enabled by default.
+
+When `metrics-categories` is used, only the categories specified in this option are enabled (all other categories are disabled).
 
 ### metrics-interface
 
@@ -1317,6 +1475,7 @@ Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --metrics-interface=192.168.10.101
 ```
@@ -1351,6 +1510,7 @@ Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --metrics-port=6174
 ```
@@ -1385,6 +1545,7 @@ Specifies the port (TCP) on which [Prometheus](https://prometheus.io/) accesses 
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --metrics-publish-endpoint=https://beaconcha.in/api/v1/client/metrics?apikey={apikey}
 ```
@@ -1419,6 +1580,7 @@ Endpoint URL of an external service such as [beaconcha.in](https://beaconcha.in/
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --metrics-publish-interval=60
 ```
@@ -1453,6 +1615,7 @@ Interval between metric publications to the external service defined in [metrics
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --network=mainnet
 ```
@@ -1504,6 +1667,7 @@ Predefined networks can provide defaults such as the initial state of the networ
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-advertised-ip=192.168.1.132
 ```
@@ -1538,6 +1702,7 @@ Advertised peer-to-peer IP address. The default is `127.0.0.1`.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-enabled=false
 ```
@@ -1572,6 +1737,7 @@ Enables or disables all P2P communication. The default is `true`.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-interface=192.168.1.132
 ```
@@ -1606,6 +1772,7 @@ Specifies the network interface on which the node listens for P2P communication.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-nat-method=UPNP
 ```
@@ -1648,6 +1815,7 @@ UPnP support is often disabled by default in networking firmware. If disabled by
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-peer-lower-bound=25
 ```
@@ -1682,6 +1850,7 @@ Lower bound on the target number of peers. Teku will actively seek new peers if 
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-peer-upper-bound=40
 ```
@@ -1716,6 +1885,7 @@ Upper bound on the target number of peers. Teku will refuse new peer requests th
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 # to listen on port 1789
 --p2p-port=1789
@@ -1752,6 +1922,7 @@ Specifies the P2P listening ports (UDP and TCP). The default is `9000`.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-discovery-enabled=false
 ```
@@ -1786,6 +1957,7 @@ Enables or disables P2P peer discovery. If disabled, [`p2p-static-peers`](#p2p-s
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-discovery-site-local-addresses-enabled
 ```
@@ -1830,6 +2002,7 @@ In test or private networks, operators might need to enable discovery of local a
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-discovery-bootnodes=enr:-Iu4QG...wgiMo,enr:-Iu4QL...wgiMo
 ```
@@ -1865,6 +2038,7 @@ List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-advertised-port=1789
 ```
@@ -1901,6 +2075,7 @@ The advertised port can differ from the [`--p2p-port`](#p2p-port). For example, 
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-udp-port=1789
 ```
@@ -1935,6 +2110,7 @@ The UDP port used for discovery. The default is the port specified in [`--p2p-po
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-advertised-udp-port=1789
 ```
@@ -1969,6 +2145,7 @@ The advertised UDP port to external peers. The default is the port specified in 
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-private-key-file=/home/me/me_node/key
 ```
@@ -2003,6 +2180,7 @@ File containing the [node's private key](../../concepts/p2p-private-key.md).
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-static-peers=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
 ```
@@ -2038,6 +2216,7 @@ List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendi
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --p2p-subscribe-all-subnets-enabled=true
 ```
@@ -2082,6 +2261,7 @@ When set to `true`, Teku uses more CPU and bandwidth, and for most users thereâ€
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --reconstruct-historic-states=true
 ```
@@ -2118,6 +2298,7 @@ When set to `false` this service is not enabled.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --rest-api-cors-origins="http://medomain.com","https://meotherdomain.com"
 ```
@@ -2162,6 +2343,7 @@ For testing and development purposes, use `*` to accept requests from any domain
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --rest-api-docs-enabled=true
 ```
@@ -2201,6 +2383,7 @@ The documentation can be accessed at `http://<interface>:<port>/swagger-ui` wher
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --rest-api-enabled=true
 ```
@@ -2237,6 +2420,7 @@ If set to `true`, then use [`--rest-api-host-allowlist`](#rest-api-host-allowlis
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --rest-api-host-allowlist=medomain.com,meotherdomain.com
 ```
@@ -2279,6 +2463,7 @@ We don't recommend allowing all hostnames (`"*"`) for production environments.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 # to listen on all interfaces
 --rest-api-interface=0.0.0.0
@@ -2314,6 +2499,7 @@ Specifies the interface on which the REST API listens. The default is `127.0.0.1
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 # to listen on port 3435
 --rest-api-port=3435
@@ -2349,6 +2535,7 @@ Specifies REST API listening port (HTTP). The default is 5051.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --sentry-config-file=/etc/sentry-node-config.json
 ```
@@ -2359,7 +2546,8 @@ Specifies REST API listening port (HTTP). The default is 5051.
 ```bash
 TEKU_SENTRY_CONFIG_FILE=/etc/sentry-node-config.json
 ```
-  </TabItem>
+
+</TabItem>
   <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
@@ -2396,6 +2584,7 @@ Displays the version and exits.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validator-api-cors-origins="http://medomain.com","https://meotherdomain.com"
 ```
@@ -2440,6 +2629,7 @@ For testing and development purposes, use `*` to accept requests from any domain
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validator-api-docs-enabled=true
 ```
@@ -2479,6 +2669,7 @@ When enabling the API documentation endpoint, you must also specify:
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validator-api-enabled=true
 ```
@@ -2515,6 +2706,7 @@ If set to `true`, then use [`--validator-api-host-allowlist`](#validator-api-hos
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validator-api-host-allowlist=medomain.com,meotherdomain.com
 ```
@@ -2557,6 +2749,7 @@ We don't recommend allowing all hostnames (`"*"`) for production environments.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 # to listen on all interfaces
 --validator-api-interface=0.0.0.0
@@ -2592,6 +2785,7 @@ The interface on which the [validator REST API](../rest.md#enable-the-validator-
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validator-api-keystore-file=validator_keystorstore.p12
 ```
@@ -2626,6 +2820,7 @@ Keystore file for the [validator REST API](../rest.md#enable-the-validator-clien
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validator-api-keystore-password-file=validator_keystore_pass.txt
 ```
@@ -2660,6 +2855,7 @@ Password used to decrypt the keystore for the [validator REST API](../rest.md#en
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validator-api-port=5052
 ```
@@ -2692,13 +2888,15 @@ The [validator REST API](../rest.md#enable-the-validator-client-api) listening p
 --validator-keys=<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>[,<KEY_DIR>:<PASS_DIR> | <KEY_FILE>:<PASS_FILE>...]...
 ```
 
-# Example for directory
+  </TabItem>
+  <TabItem value="Example for directory" label="Example for directory" >
 
 ```bash
 --validator-keys=/home/validator/keys:home/validator/passwords
 ```
 
-# Example for file
+  </TabItem>
+  <TabItem value="Example for file" label="Example for file" >
 
 ```bash
 --validator-keys=/home/validator/keys/validator_217179e.json:/home/validator/passwords/validator_217179e.txt
@@ -2750,6 +2948,7 @@ The path separator is operating system dependent, and should be `;` in Windows r
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-builder-registration-default-enabled=true
 ```
@@ -2784,6 +2983,7 @@ Set to `true` to have all validators managed by the validator client register to
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-early-attestations-enabled=false
 ```
@@ -2826,6 +3026,7 @@ Delaying attestation production increases the chances of generating a correct at
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-external-signer-keystore=teku_client_keystore.p12
 ```
@@ -2862,6 +3063,7 @@ Use the PKCS12 keystore type if connecting to Web3Signer.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-external-signer-keystore-password-file=keystore_pass.txt
 ```
@@ -2896,6 +3098,7 @@ Password file used to decrypt the keystore.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b
 ```
@@ -2950,6 +3153,7 @@ Ensure the external signer is running before starting Teku.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-external-signer-slashing-protection-enabled=false
 ```
@@ -2994,6 +3198,7 @@ Built-in slashing protection can only be disabled for validators using external 
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-external-signer-timeout=2000
 ```
@@ -3028,6 +3233,7 @@ Timeout in milliseconds for requests to the external signer. The default is 5000
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-external-signer-truststore=websigner_truststore.p12
 ```
@@ -3062,6 +3268,7 @@ PKCS12 or JKS keystore used to trust external signer's self-signed certificate o
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-external-signer-truststore-password-file=truststore_pass.txt
 ```
@@ -3096,6 +3303,7 @@ Password file used to decrypt the keystore.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-external-signer-url=http://localhost:9000
 ```
@@ -3130,6 +3338,7 @@ URL on which the external signer (for example, Web3Signer) is running.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-graffiti="Teku validator"
 ```
@@ -3168,6 +3377,7 @@ The same graffiti is used for all validators started with this beacon node.
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-graffiti-file=/Users/me/mynode/graffiti.txt
 ```
@@ -3206,6 +3416,7 @@ This option takes precedence over [`--validators-graffiti`](#validators-graffiti
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-keystore-locking-enabled=true
 ```
@@ -3242,6 +3453,7 @@ Attempts to lock all keystores in a directory if a directory is specified in [`-
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-performance-tracking-mode=LOGGING
 ```
@@ -3278,6 +3490,7 @@ When `LOGGING` is enabled, attestation and block performance is reported as log 
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-proposer-blinded-blocks-enabled=true
 ```
@@ -3312,6 +3525,7 @@ Set to `true` to enable blinded blocks production, a prerequisite for the [build
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-proposer-config=/home/me/node/proposerConfig.json
 ```
@@ -3346,6 +3560,7 @@ Remote URL or local file path to the [proposer configuration file](../../how-to/
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-proposer-config-refresh-enabled=true
 ```
@@ -3380,6 +3595,7 @@ Set to `true` to enable reloading the [proposer configuration](../../how-to/conf
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --validators-proposer-default-fee-recipient=0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73
 ```
@@ -3422,6 +3638,7 @@ The specified fee recipient is used in rare cases when a validator requests a bl
 
   </TabItem>
   <TabItem value="Example" label="Example" >
+
 ```bash
 --ws-checkpoint=0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf0372883a:3600
 ```
@@ -3443,11 +3660,16 @@ ws-checkpoint: "0x5a642bb8f367e98c0d11426d98d28c465f8988fc960500886cb49faf037288
   </TabItem>
 </Tabs>
 
-A recent checkpoint within the [weak subjectivity period]. Accepts the checkpoint using `<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`.
+A recent checkpoint within the [weak subjectivity period].
+Accepts the checkpoint using `<blockRoot>:<epochNumber>`, where `<blockRoot>` must start with `0x`.
 
-The weak subjectivity checkpoint is a recent, finalized checkpoint on the correct chain. By supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long period follow the correct chain. It protects the node from long-range attacks by malicious actors.
+The weak subjectivity checkpoint is a recent, finalized checkpoint on the correct chain.
+By supplying a weak subjectivity checkpoint, you ensure that nodes that have been offline for a long
+period follow the correct chain.
+It protects the node from long-range attacks by malicious actors.
 
-Use the [`admin weak-subjectivity`](subcommands/admin.md#weak-subjectivity) subcommand to display or clear your weak subjectivity settings.
+Use the [`admin weak-subjectivity`](subcommands/admin.md#weak-subjectivity) subcommand to display or
+clear your weak subjectivity settings.
 
 <!-- links -->
 

@@ -8,6 +8,22 @@ sidebar_position: 7
 
 The following subcommands are used for development and testing purposes.
 
+## `transition`
+
+Manually run state transitions for blocks or slots for debugging.
+
+```bash
+teku transition
+```
+
+## `peer`
+
+Generate a list of peer IDs, including the private key, public key, and peer ID.
+
+```bash
+teku peer
+```
+
 ## `genesis`
 
 Generate a genesis state for a network.
@@ -20,19 +36,3 @@ teku genesis
 
 [environment variables]: ../index.md##teku-environment-variables
 [configuration file]: ../../../how-to/configure/use-config-file.md
-
-## `peer`
-
-Generate a list of peer IDs, including the private key, public key, and peer ID.
-
-```bash
-teku peer
-```
-
-## `transition`
-
-Manually run state transitions for blocks or slots for debugging.
-
-```bash
-teku transition
-```
