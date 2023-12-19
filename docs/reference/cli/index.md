@@ -885,9 +885,10 @@ exit-when-no-validator-keys-enabled: true
   </TabItem>
 </Tabs>
 
-The default setting is `false`. If `exit-when-no-validator-keys-enabled` is set to `false`, Teku continues running even when no validator keys are loaded. 
+The default setting is `false`.
+If this option is set to `false`, Teku continues running even when no validator keys are loaded. 
 
-When `exit-when-no-validator-keys-enabled` is set to `true`, Teku will automatically exit if no validator keys are loaded, or there are no active validators.
+If this option is set to `true`, Teku automatically exits if no validator keys are loaded, or there are no active validators.
 
 :::important
 
