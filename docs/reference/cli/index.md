@@ -891,7 +891,7 @@ When `exit-when-no-validator-keys-enabled` is set to `true`, Teku will automatic
 
 :::important
 
-If running the validator client and beacon node separately, set this option only on the validator client side. This setting is meant for the client that deals with loading and handling the validator keys.
+If running the validator client and beacon node separately, set this option only on the validator client side. This setting is meant for the client that loads and handles the validator keys.
 
 :::
 
