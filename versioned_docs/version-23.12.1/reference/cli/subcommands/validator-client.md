@@ -433,43 +433,6 @@ Logs could become noisy when running many validators.
 
 :::
 
-## `metrics-categories`
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
-teku vc --metrics-categories=<CATEGORY>[,<CATEGORY>...]...
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
-teku vc --metrics-categories=BEACON,JVM,PROCESS
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-metrics-categories: ["BEACON", "JVM", "PROCESS"]
-```
-
-  </TabItem>
-</Tabs>
-
-Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`.  All but `VALIDATOR_DUTY` categories are enabled by default.
-
-When `metrics-categories` is used, only the categories specified in this option are enabled (all other categories are disabled).
-
 ## `metrics-enabled`
 
 <Tabs>
@@ -545,6 +508,43 @@ A comma-separated list of hostnames to allow access to the [Teku metrics]. By de
 To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production environments.
 
 :::
+
+## `metrics-categories`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+teku vc --metrics-categories=<CATEGORY>[,<CATEGORY>...]...
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+teku vc --metrics-categories=BEACON,JVM,PROCESS
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_METRICS_CATEGORIES=BEACON,JVM,PROCESS
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+metrics-categories: ["BEACON", "JVM", "PROCESS"]
+```
+
+  </TabItem>
+</Tabs>
+
+Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`.  All but `VALIDATOR_DUTY` categories are enabled by default.
+
+When `metrics-categories` is used, only the categories specified in this option are enabled (all other categories are disabled).
 
 ## `metrics-interface`
 
