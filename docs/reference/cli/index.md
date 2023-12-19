@@ -625,7 +625,7 @@ ee-endpoint: "http://localhost:8550"
 
 URL of the [execution client's](../../concepts/merge.md#execution-clients) Engine JSON-RPC APIs. This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after [The Merge](../../concepts/merge.md).
 
-### ee-jwt-claim-id
+### `ee-jwt-claim-id`
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
@@ -695,7 +695,7 @@ ee-jwt-secret-file: "ee-jwt-secret.hex"
 
 Shared secret used to authenticate [execution clients](../../concepts/merge.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
-### eth1-deposit-contract-address
+### `eth1-deposit-contract-address`
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
