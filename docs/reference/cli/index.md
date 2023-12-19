@@ -590,7 +590,7 @@ doppelganger-detection-enabled: true
 
 Enables or disables [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
 
-### ee-endpoint
+### `ee-endpoint`
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
