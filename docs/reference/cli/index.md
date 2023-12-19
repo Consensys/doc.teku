@@ -588,25 +588,7 @@ doppelganger-detection-enabled: true
   </TabItem>
 </Tabs>
 
-The `--exit-when-no-validator-keys-enabled` flag is a configuration option in the Teku client.
-
-* When set to `true``, Teku will automatically exit if no validator keys are loaded (configured).
-
-* If set to `false``, Teku continues running even when no validator keys are loaded.
-
-The default setting is `false`. If set to `true` Teku won't start if validators have not been loaded, or there are no active validators.
-
-:::important
-
-If the validator client and beacon node are run separately, then add this option to the validator client side only.
-
-This option should be used on the client loading the validator keys.
-
-:::
-
-The `--exit-when-no-validator-keys-enabled` flag's value is stored in the `ValidatorConfig` class.
-
-Upon creating the `ValidatorClientService`, it verifies whether `exitWhenNoValidatorKeysEnabled` is set to `true`. If it is and there are no loaded validator keys, it triggers an exception (`NoValidatorKeysStateException`) along with an error message.
+Enables or disables [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
 
 ### ee-endpoint
 
@@ -875,7 +857,6 @@ Enables or disables querying the [execution client](../../concepts/merge.md#exec
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
 
-
 ```bash
 --exit-when-no-validator-keys-enabled[=<BOOLEAN>]
 ```
@@ -904,12 +885,13 @@ exit-when-no-validator-keys-enabled: true
   </TabItem>
 </Tabs>
 
-The default is `false`. If set to `true` Teku won't start if validators have not been loaded, or there are no active validators.
+The default setting is `false`. If `exit-when-no-validator-keys-enabled` is set to `false`, Teku continues running even when no validator keys are loaded. 
+
+If `exit-when-no-validator-keys-enabled` is set to `true`, Teku will automatically exit if no validator keys are loaded, or there are no active validators.
 
 :::important
 
-If the validator client and beacon node are run separately, then add this option to the validator client side only.
-This option should be used on the client loading the validator keys.
+If running the validator client and beacon node separately, set this option only on the validator client side. This setting is meant for the client that deals with loading and handling the validator keys.
 
 :::
 
