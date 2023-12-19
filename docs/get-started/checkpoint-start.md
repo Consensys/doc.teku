@@ -17,7 +17,7 @@ When starting from a recent checkpoint, Teku downloads historic chain data in th
 You need access to a beacon node with [REST API enabled] (for example, Teku) to download the
 finalized checkpoint state file.
 
-Alternatively, you can use a Checkpointz endpoint from
+Alternatively, you can use a checkpoint state endpoint from
 [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 :::
 
