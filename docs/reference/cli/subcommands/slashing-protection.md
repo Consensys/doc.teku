@@ -10,6 +10,127 @@ import TabItem from '@theme/TabItem';
 
 Manage the local [slashing protection data] used by the validator.
 
+## `export`
+
+Exports the slashing protection database in the [validator client interchange format] format.
+
+### `config-file`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+teku slashing-protection export --config-file=<FILE>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+teku slashing-protection export --config-file=/home/me/me_node/config.yaml
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
+```
+
+  </TabItem>
+</Tabs>
+
+Path to the YAML configuration file. The default is `none`.
+
+### `data-path`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+teku slashing-protection export --data-path=<PATH>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+teku slashing-protection export --data-path=/home/me/me_node
+```
+
+  </TabItem>
+</Tabs>
+
+Path to the Teku data directory. The default directory is OS-dependent:
+
+- macOS: `~/Library/teku`
+- Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
+- Windows: `%localappdata%\teku`.
+
+### `data-validator-path`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+teku slashing-protection export --data-validator-path=<PATH>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+teku slashing-protection export --data-validator-path=/home/me/me_validator
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+data-validator-path: "/home/me/me_validator"
+```
+
+  </TabItem>
+</Tabs>
+
+Path to the validator client data. The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
+
+:::info
+
+Teku exports slashing protection data from the `slashprotection` directory under the validator client data directory.
+
+:::
+
+### `to`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+teku slashing-protection export --to=<FILE>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+teku slashing-protection export --to=/home/slash/b845...23bed.json
+```
+
+  </TabItem>
+</Tabs>
+
+The file to export the slashing protection database to.
+
+Exports the database in the [validator client interchange format] format.
+
 ## `import`
 
 Imports the slashing protection database using the [validator client interchange format].
@@ -139,126 +260,6 @@ Teku imports the file to the `<data-path>/validators/slashprotection/` directory
 
 `<data-path>` is defined using [`--data-path`](#data-path).
 
-## `export`
-
-Exports the slashing protection database in the [validator client interchange format] format.
-
-### `config-file`
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
-teku slashing-protection export --config-file=<FILE>
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
-teku slashing-protection export --config-file=/home/me/me_node/config.yaml
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
-```
-
-  </TabItem>
-</Tabs>
-
-Path to the YAML configuration file. The default is `none`.
-
-### `data-path`
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
-teku slashing-protection export --data-path=<PATH>
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
-teku slashing-protection export --data-path=/home/me/me_node
-```
-
-  </TabItem>
-</Tabs>
-
-Path to the Teku data directory. The default directory is OS-dependent:
-
-- macOS: `~/Library/teku`
-- Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-- Windows: `%localappdata%\teku`.
-
-### `data-validator-path`
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
-teku slashing-protection export --data-validator-path=<PATH>
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
-teku slashing-protection export --data-validator-path=/home/me/me_validator
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_DATA_VALIDATOR_PATH=/home/me/me_validator
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-data-validator-path: "/home/me/me_validator"
-```
-
-  </TabItem>
-</Tabs>
-
-Path to the validator client data. The default is `<data-path>/validator` where `<data-path>` is specified using [`--data-path`](#data-path).
-
-:::info
-
-Teku exports slashing protection data from the `slashprotection` directory under the validator client data directory.
-
-:::
-
-### `to`
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
-teku slashing-protection export --to=<FILE>
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
-teku slashing-protection export --to=/home/slash/b845...23bed.json
-```
-
-  </TabItem>
-</Tabs>
-
-The file to export the slashing protection database to.
-
-Exports the database in the [validator client interchange format] format.
 
 ## `repair`
 
