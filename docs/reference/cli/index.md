@@ -573,14 +573,25 @@ exit-when-no-validator-keys-enabled: true
   </TabItem>
 </Tabs>
 
-If set to `true` Teku won't start if validators have not been loaded, or there are no active validators. The default is `false`.
+The `--exit-when-no-validator-keys-enabled` flag is a configuration option in the Teku client.
+
+* When set to `true``, Teku will automatically exit if no validator keys are loaded (configured).
+
+* If set to `false``, Teku continues running even when no validator keys are loaded.
+
+The default setting is `false`. If set to `true` Teku won't start if validators have not been loaded, or there are no active validators.
 
 :::important
 
 If the validator client and beacon node are run separately, then add this option to the validator client side only.
+
 This option should be used on the client loading the validator keys.
 
 :::
+
+The `--exit-when-no-validator-keys-enabled` flag's value is stored in the `ValidatorConfig` class.
+
+Upon creating the `ValidatorClientService`, it verifies whether `exitWhenNoValidatorKeysEnabled` is set to `true`. If it is and there are no loaded validator keys, it triggers an exception (`NoValidatorKeysStateException`) along with an error message.
 
 ### ee-endpoint
 
