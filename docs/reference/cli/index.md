@@ -857,7 +857,6 @@ Enables or disables querying the [execution client](../../concepts/merge.md#exec
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
 
-
 ```bash
 --exit-when-no-validator-keys-enabled[=<BOOLEAN>]
 ```
@@ -886,12 +885,14 @@ exit-when-no-validator-keys-enabled: true
   </TabItem>
 </Tabs>
 
-The default is `false`. If set to `true` Teku won't start if validators have not been loaded, or there are no active validators.
+The default setting is `false`.
+If this option is set to `false`, Teku continues running even when no validator keys are loaded. 
+
+If this option is set to `true`, Teku automatically exits if no validator keys are loaded, or there are no active validators.
 
 :::important
 
-If the validator client and beacon node are run separately, then add this option to the validator client side only.
-This option should be used on the client loading the validator keys.
+If running the validator client and beacon node separately, set this option only on the validator client side. This setting is meant for the client that loads and handles the validator keys.
 
 :::
 
