@@ -27,7 +27,7 @@ Your validator client must be connected to a beacon node that supports the `prop
 
 ## Side effects
 
-The validator slashing protection is intended to prevent a massive slashing. When triggered the validator client will terminate and all the running validator will stop performing their duties.
+The validator slashing protection is intended to prevent a massive slashing. When triggered, the validator client will terminate and all the running validator will stop performing their duties.
 
 :::warning
 
@@ -47,6 +47,6 @@ You might still consider these side effects a worthwhile trade-off of the valida
 
 When enabled, the validator slashing protection prints the following log when an owned validator is slashed:
 
-```bash title="Example validator protection log when a validator is slashed"
+```bash title="Example validator protection log when two owned validators are slashed"
 Validator(s) with public key(s) {} got slashed: 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001, 0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002.  Shutting down validator client...
 ```
