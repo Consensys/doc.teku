@@ -47,5 +47,5 @@ You might still consider these side effects a worthwhile trade-off since they ca
 When enabled, the following log will be printed when any owned validator is slashed:
 
 ```bash title="Example validator client shut down when an owned validator is slashed"
-Validator(s) with public key(s) {} got slashed: b28ab22.  Shutting down validator client...
+Validator(s) with public key(s) b28ab22 got slashed.  Shutting down validator client...
 ```
