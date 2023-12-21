@@ -2612,7 +2612,7 @@ stop-vc-when-validator-slashed-enabled: true
 </Tabs>
 
 
-Set to `true` to enable the [validators slashing protection](../../how-to/stop-vc-when-validator-slashed.md) and shut down the Validator Client when any owned validator is slashed. The default is `false`.
+Set to `true` to [stop the Validator Client when any owned validator is slashed](../../how-to/stop-vc-when-validator-slashed.md). The default is `false`.
 
 
 ### version
