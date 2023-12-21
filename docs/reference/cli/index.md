@@ -2578,41 +2578,41 @@ This option can't be used with [`--beacon-node-api-endpoint`](subcommands/valida
 
 :::
 
-### `validator-slashing-protection-enabled`
+### `stop-vc-when-validator-slashed-enabled`
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---validator-slashing-protection-enabled[=<BOOLEAN>]
+--stop-vc-when-validator-slashed-enabled[=<BOOLEAN>]
 ```
 
   </TabItem>
   <TabItem value="Example" label="Example" >
 
 ```bash
---validator-slashing-protection-enabled=true
+--stop-vc-when-validator-slashed-enabled=true
 ```
 
   </TabItem>
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-TEKU_VALIDATOR_SLASHING_PROTECTION_ENABLED=true
+TEKU_STOP_VC_WHEN_VALIDATOR_SLASHED_ENABLED=true
 ```
 
   </TabItem>
   <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
-validator-slashing-protection-enabled: true
+stop-vc-when-validator-slashed-enabled: true
 ```
 
   </TabItem>
 </Tabs>
 
 
-Set to `true` to enable the [validators slashing protection](../../how-to/enable-validator-slashing-protection.md) and shut down the Validator Client when any owned validator is slashed. The default is `false`.
+Set to `true` to enable the [validators slashing protection](../../how-to/stop-vc-when-validator-slashed.md) and shut down the Validator Client when any owned validator is slashed. The default is `false`.
 
 
 ### version
