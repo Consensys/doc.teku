@@ -8,7 +8,7 @@ sidebar_position: 8
 
 When enabled, this feature will monitor the validators slashing and shut down the validator client when any of the owned validator is slashed.
 
-When enabled, the validator client will shut down with exit code `2` if any owned validator is slashed (based on the attester and proposer slashing events received through the peer to peer network).
+If any owned validator is slashed,  the validator client will shut down with exit code `2` (based on the attester and proposer slashing events received through the peer to peer network).
 When that happens, the validator client should not be restarted by default because more slashing are likely to happen. We recommend restarting the validator client with the [Doppelganger Detection](./enable-doppelganger-detection.md) enabled.
 
 :::warning
