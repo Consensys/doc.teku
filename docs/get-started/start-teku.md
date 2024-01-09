@@ -137,6 +137,8 @@ Example: If the beacon chain controller has issues starting P2P services on a pa
 
 This code indicates a scenario where Teku has exited with a fatal error, but will not be corrected by itself if Teku is restarted.
 
+It is important to note that most user configuration errors fall into this category.
+
 Example: Within the migrate database command, if an invalid database version has been specified, Teku will exit with a fatal error code of 2. This error will not correct itself after a restart unless changes have been made to the set up.
 
 **Usages**
