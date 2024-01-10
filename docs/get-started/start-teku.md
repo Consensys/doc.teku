@@ -133,7 +133,7 @@ This code indicates a scenario where Teku has exited with a fatal error, however
 
 Example: If the beacon chain controller has issues starting P2P services on a particular port, the system will exit with a fatal error code of 1. This could correct itself with a restart.
 
-Example 2: If there is an issue migrating the database in the migrate database command, the system will exit with a fatal error code of 1. This issue has the potential to correct itself with a restart.
+Example 2: If the migrate database command does not successfully migrate the database, Teku will exit with a code 1 fatal error. Restarting Teku should correct this.
 
 **Exit Code 2**
 
