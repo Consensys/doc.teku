@@ -129,11 +129,11 @@ Content-Length: 0
 
 **Exit Code 1**
 
-This code indicates a scenario where Teku has exited with a fatal error, however restarting Teku without changes is a logical step in correcting it. This code represents the error is related to something external to Teku.
+This code indicates a scenario where Teku has exited with a fatal error; however, restarting Teku without changes is a logical step in correcting it. This code represents the error is related to something external to Teku.
 
 Example: If the beacon chain controller has issues starting P2P services on a particular port, the system will exit with a fatal error code of 1. This could correct itself with a restart.
 
-Example 2: If the migrate database command does not successfully migrate the database, Teku will exit with a code 1 fatal error. Restarting Teku should correct this.
+Example 2: If the migrate database command does not successfully migrate the database, Teku will exit with a code 1 fatal error. Restarting the system could correct this.
 
 **Exit Code 2**
 
