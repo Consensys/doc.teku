@@ -137,11 +137,11 @@ Example 2: If the migrate database command does not successfully migrate the dat
 
 **Exit Code 2**
 
-This code indicates a scenario where Teku has exited with a fatal error, but will not be corrected by itself if Teku is restarted.
+This code indicates a scenario where Teku has exited with a fatal error. Restarting Teku will not correct this.
 
-It is important to note that most user configuration errors fall into this category.
+Note that most user configuration errors fall into this category.
 
-Example: Within the migrate database command, if an invalid database version has been specified, Teku will exit with a fatal error code of 2. This error will not correct itself after a restart unless changes have been made to the set up.
+Example: If you specify an invalid database version in the migrate database command, Teku will exit with a code 2 fatal error. To correct this, make the appropriate changes to the setup and then restart Teku.
 
 **Usages**
 
