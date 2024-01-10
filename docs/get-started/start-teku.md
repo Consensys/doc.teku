@@ -145,9 +145,9 @@ Example: If you specify an invalid database version in the migrate database comm
 
 **Usages**
 
-The exit codes for Teku are useful to understand so that you understand how to approach a restart and understanding how to mitigate the issue.
+The exit codes for Teku are important to understand so that you know how to approach a restart and mitigate the issue.
 
-An example of how these status codes can be uses, is in a **service unit configuration** file. `RestartPreventExitStatus=` and `RestartForceExitStatus=` can be used to control the behaviour of restarting Teku automatically, or stopping this in case of failure.
+The **service unit configuration** file is an example of how status codes can be used. `RestartPreventExitStatus=` and `RestartForceExitStatus=` can be used to automatically restart Teku or stop it in case of failure.
 
 [systemd.service](https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html) File Example
 ```
