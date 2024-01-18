@@ -1,0 +1,34 @@
+name: Fix Content
+description: Report typos or minor documentation issues
+title: '[FIX]: '
+labels: ['update']
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to submit this issue. Your input is appreciated.
+  - type: textarea
+    id: issue-location
+    attributes:
+      label: Where is the issue?
+      description: Link to the documentation page(s) where you identified this issue.
+      placeholder: 
+  - type: textarea
+    id: issue-text
+    attributes:
+      label: What's in the docs?
+      description: Provide the text or content currently in the docs.
+      placeholder:
+    validations:
+      required: true
+  - type: textarea
+    id: text-resolution
+    attributes:
+      label: What should be in the docs?
+      description: Provide a suggested resolution if available.
+      placeholder:
+  - type: textarea
+    id: information
+    attributes:
+      label: Additional information
+      description: Add any other context about the problem here.
+      placeholder: Leave this section blank if it does not apply.

@@ -1,0 +1,55 @@
+name: New Content
+description: For new features or content suggestions
+title: '[NEW]: '
+labels: ['new content']
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to submit this issue. Your input is really appreciated.
+  - type: dropdown
+    id: issue-priority
+    attributes:
+      label: Priority
+      description: Choose one of the options
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Description
+      description: Outline what needs to be changed.
+      placeholder:
+    validations:
+      required: true
+  - type: textarea
+    id: issue-impact
+    attributes:
+      label: How will this impact users?
+      description: Outline how this document change will affect users.
+      placeholder:
+    validations:
+      required: true
+  - type: textarea
+    id: issue-context
+    attributes:
+      label: Context
+      description: Provide any applicable background information.
+      placeholder:
+    validations:
+      required: true
+  - type: textarea
+    id: resolution
+    attributes:
+      label: Suggested resolution
+      description: Do you have thoughts on how this should be addressed?
+      placeholder: Leave this section blank if this does not apply or you have nothing to add.
+  - type: textarea
+    id: information
+    attributes:
+      label: Additional information
+      description: Add any other context about the problem here.
+      placeholder: Leave blank if this does not apply or you have nothing to add.
