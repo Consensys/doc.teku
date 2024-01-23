@@ -1,7 +1,7 @@
-name: Site Bug
-description: Report a bug in docs
+name: Site
+description: Report a platform or site problem - an issue that affects the rendering of the docs site
 title: '[BUG]: '
-labels: ['bug']
+labels: ['platform']
 body:
   - type: markdown
     attributes:
