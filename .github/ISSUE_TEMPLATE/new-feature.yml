@@ -14,14 +14,6 @@ body:
     validations:
       required: true
   - type: textarea
-    id: issue-impact
-    attributes:
-      label: How will this impact users?
-      description: Outline how this document change will affect users.
-      placeholder:
-    validations:
-      required: true
-  - type: textarea
     id: issue-context
     attributes:
       label: Context
