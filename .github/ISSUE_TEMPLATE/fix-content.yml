@@ -11,13 +11,24 @@ body:
       label: Where is the issue?
       description: Link to the documentation page(s) where you identified this issue.
       placeholder: 
-  - type: textarea
-    id: issue-text
+  - type: checkboxes
+    id: issue-type
     attributes:
-      label: What's in the docs?
-      description: Provide the text or content currently in the docs.
-      placeholder:
-    validations:
+      label: Issue type
+      description: Select the type(s) of issue you are reporting.
+      options:
+        - label: Missing content
+          required: false
+        - label: Outdated content
+          required: false
+        - label: Inaccurate information
+          required: false
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Detailed issue description
+      description: Describe the issue in more detail.
+      placeholder: What needs to change?
       required: true
   - type: textarea
     id: text-resolution
