@@ -1,6 +1,5 @@
 name: Site
 description: Report a platform or site problem - an issue that affects the rendering of the docs site
-title: '[BUG]: '
 labels: ['platform']
 body:
   - type: markdown
