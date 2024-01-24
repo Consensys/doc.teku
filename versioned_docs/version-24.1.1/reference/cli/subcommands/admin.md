@@ -317,7 +317,7 @@ Possible values are:
 | `goerli` | Consensus layer | Test | Multi-client testnet |
 | `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/) |
 | `sepolia` | Consensus layer | Test | Multi-client testnet |
-| `chiado` | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
+| `chiado` | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/concepts/networks/chiado) |
 | `lukso` | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/) |
 
 Predefined networks can provide defaults such the initial state of the network, bootnodes, and the address of the deposit contract.

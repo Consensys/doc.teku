@@ -8,7 +8,8 @@ sidebar_position: 3
 
 [The Merge](merge.md) transitioned Ethereum Mainnet to [proof of stake (PoS)](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/) consensus.
 
-In Ethereum's PoS, you must run a [full node](merge.md#execution-and-consensus-clients) and [stake 32 ETH](https://ethereum.org/en/staking/) to become a validator.
+In Ethereum's PoS, you must run a [full node](merge.md#execution-and-consensus-clients) and
+[stake 32 ETH](https://ethereum.org/staking) to become a validator.
 
 :::note
 
