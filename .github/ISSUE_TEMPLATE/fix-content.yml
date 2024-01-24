@@ -1,6 +1,5 @@
 name: Fix Content
 description: Report issues with the documentation content
-title: '[FIX]: '
 labels: ['update']
 body:
   - type: markdown
