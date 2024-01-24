@@ -5,17 +5,6 @@ body:
   - type: markdown
     attributes:
       value: Thanks for taking the time to submit this issue. Your input is really appreciated.
-  - type: dropdown
-    id: issue-priority
-    attributes:
-      label: Priority
-      description: Choose one of the options
-      options:
-        - Low
-        - Medium
-        - High
-    validations:
-      required: true
   - type: textarea
     id: issue-description
     attributes:
