@@ -8,8 +8,8 @@ sidebar_position: 5
 
 You can load validators into a running Teku process, only if you started Teku by:
 
-- Specifying a directory using [`--validator-keys`](../reference/cli/index.md#validator-keys), or
-- Specifying a URL using [`--validators-external-signer-public-keys`](../reference/cli/index.md#validators-external-signer-public-keys).
+- specifying a directory using [`--validator-keys`](../reference/cli/index.md#validator-keys), or
+- specifying a URL using [`--validators-external-signer-public-keys`](../reference/cli/index.md#validators-external-signer-public-keys).
 
 :::caution
 
