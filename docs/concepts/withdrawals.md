@@ -9,8 +9,8 @@ sidebar_position: 8
 Validators staking ether on Mainnet after [The Merge](merge.md), accrue two
 forms of rewards:
 
-- execution layer rewards paid directly to a withdrawal address (Ethereum address)
-- consensus layer rewards for performing actions each epoch
+- Execution layer rewards paid directly to a withdrawal address (Ethereum address).
+- Consensus layer rewards for performing actions each epoch.
 
 The
 [Capella network upgrade](https://notes.ethereum.org/@launchpad/withdrawals-faq#Q-What-is-ShanghaiCapella)
@@ -66,7 +66,11 @@ of Capella), there's no mechanism for recycling the validator ID that has been e
 From the first Capella slot, block proposers provide up to 16 withdrawals per
 proposed block.
 
-Proposers start with validator 1 and search for validators that meet any of these criteria: they have an Ethereum address as a withdrawal address, possess an excess balance, or have exited.
+Proposers start with validator 1, and find validators that have an Ethereum address as a withdrawal address, and meet one of these criteria:
+
+- They have an Ethereum address as a withdrawal address.
+- They have an excess balance.
+- They have exited.
 
 Block proposers select the withdrawals that go into the block.
 In each block, up to 16 changes to withdrawal credentials are also allowed,

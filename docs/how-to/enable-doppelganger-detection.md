@@ -41,9 +41,9 @@ This means that the validators being checked are inactive for at most two epochs
 
 Keeping the validators inactive might cause:
 
-- Missed attestations
-- Missed sync committee contributions
-- Missed block proposals
+- Missed attestations.
+- Missed sync committee contributions.
+- Missed block proposals.
 
 These side effects result in penalties and missed rewards.
 

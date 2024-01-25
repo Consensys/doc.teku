@@ -16,9 +16,9 @@ finalized `BeaconState`. Any synchronized beacon node can provide this from the 
 The [`--initial-state`](../../reference/cli/index.md#initial-state) option is only used when you first create a database. To
 restart an existing sync process with checkpoint sync, do the following:
 
-1. Stop the current Teku sync process
-1. Delete the `beacon` directory under your [data path](../../reference/cli/index.md#data-base-path-data-path)
-1. Start teku with the [`--initial-state`](../../reference/cli/index.md#initial-state) option 
+1. Stop the current Teku sync process.
+1. Delete the `beacon` directory under your [data path](../../reference/cli/index.md#data-base-path-data-path).
+1. Start teku with the [`--initial-state`](../../reference/cli/index.md#initial-state) option .
 
 Teku will sync within a few minutes, and downloads historic blocks in the background, so it can
 help any peers that are syncing from genesis. Teku can run validators and attest while while historic blocks are being downloaded.

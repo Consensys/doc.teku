@@ -10,8 +10,8 @@ Teku supports the [Web3Signer] external signing client.
 
 **Prerequisites**:
 
-- Web3Signer installed and running.
-- [Signing key configuration files].
+- Web3Signer installed and running
+- [Signing key configuration files]
 
 ## Start Teku
 
@@ -26,8 +26,8 @@ teku --network=goerli \
 
 The command line specifies the following:
 
-- the validator public keys for which Web3Signer signs attestations and blocks using [`--validators-external-signer-public-keys`](../../reference/cli/index.md#validators-external-signer-public-keys)
-- the URL of the Web3Signer client using [`--validators-external-signer-url`](../../reference/cli/index.md#validators-external-signer-url)
+- The validator public keys for which Web3Signer signs attestations and blocks using [`--validators-external-signer-public-keys`](../../reference/cli/index.md#validators-external-signer-public-keys).
+- The URL of the Web3Signer client using [`--validators-external-signer-url`](../../reference/cli/index.md#validators-external-signer-url).
 
 :::note
 

@@ -16,10 +16,10 @@ The Merge was executed on **September 15, 2022**.
 
 You can run Teku as a consensus client with:
 
-- Any execution client on Mainnet
-- Any execution client on a testnet
-- Besu on Mainnet
-- Besu on a testnet
+- Any execution client on Mainnet.
+- Any execution client on a testnet.
+- Besu on Mainnet.
+- Besu on a testnet.
 
 ## Execution and consensus clients
 
