@@ -2,9 +2,6 @@ name: New Content
 description: For new features or content suggestions
 labels: ['new content']
 body:
-  - type: markdown
-    attributes:
-      value: Thanks for taking the time to submit this issue. Your input is really appreciated.
   - type: textarea
     id: issue-description
     attributes:
