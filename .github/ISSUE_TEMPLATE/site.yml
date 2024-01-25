@@ -1,5 +1,5 @@
 name: Site
-description: Report a platform or site problem - an issue that affects the rendering of the docs site
+description: Request updates to the documentation site that impact its user interface or functionality.
 labels: ['platform']
 body:
   - type: markdown
