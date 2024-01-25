@@ -1,5 +1,5 @@
 name: New Content
-description: For new features or content suggestions
+description: Add documentation for a new feature or apply content suggestions
 labels: ['new content']
 body:
   - type: textarea
