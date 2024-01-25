@@ -68,7 +68,6 @@ proposed block.
 
 Proposers start with validator 1, and find validators that have an Ethereum address as a withdrawal address, and meet one of these criteria:
 
-- They have an Ethereum address as a withdrawal address.
 - They have an excess balance.
 - They have exited.
 
