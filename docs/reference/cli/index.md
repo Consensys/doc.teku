@@ -2139,7 +2139,7 @@ p2p-private-key-file: "/home/me/me_node/key"
 
 File containing the [node's private key](../../concepts/p2p-private-key.md).
 
-If there is not a file present at the path provided, one will be created with a new p2p private key generated and stored inside.
+If a file doesn't exist at the specified path, Teku creates a new file and p2p private key to store inside.
 
 :::important
 
