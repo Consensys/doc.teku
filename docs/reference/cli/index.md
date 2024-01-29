@@ -2139,6 +2139,14 @@ p2p-private-key-file: "/home/me/me_node/key"
 
 File containing the [node's private key](../../concepts/p2p-private-key.md).
 
+If there is not a file present at the path provided, one will be created with a new p2p private key generated and stored inside.
+
+:::important
+
+Ensure you provide a file path and not a directory as no file will be read or created.
+
+:::
+
 ### `p2p-static-peers`
 
 <Tabs>
