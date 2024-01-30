@@ -46,8 +46,8 @@ lastSignedAttestationTargetEpoch: 3247
 
 The following rules apply to the file:
 
-- A validator signs a block only if the slot number is greater than `lastSignedBlockSlot`.
-- A validator signs an attestation when the source epoch of the attestation is equal to or exceeds `lastSignedAttestationSourceEpoch`, and the target epoch of the attestation is greater than `lastSignedAttestationTargetEpoch`.
+- A validator will not sign a block unless the slot is greater than `lastSignedBlockSlot`.
+- A validator will not sign an attestation unless the attestation source is greater than or equal to `lastSignedAttestationSourceEpoch`, and the attestation target epoch is greater than `lastSignedAttestationTargetEpoch`.
 - `genesisValidatorsRoot` is a hash of the validators active at genesis, and is used to differentiate between different chains. Teku does not require this field to be present, but if it is present and differs from the required value, then Teku returns an error.
 
 :::info
@@ -60,7 +60,7 @@ These rules guarantee the validator does not sign anything that is slashable.
 
 ## Migrate the slashing protection file
 
-Use the Teku command line options to [import] or [export] the slashing protection file. Alternatively, you can manually migrate or create the database.
+Use the Teku command line options to [import] or [export] the slashing protection file. Alternatively you can manually migrate or create the database.
 
 ### Between Teku nodes
 
@@ -68,11 +68,11 @@ If moving a validator from one Teku node to another, you can manually migrate th
 
 For example, to manually move the file from node A to node B:
 
-1. Stop Teku node A and confirm the process has fully exited and won't be restarted.
-1. Remove the validator key from node A, for example from the [`--validator-keys`](../reference/cli/index.md#validator-keys) option.
-1. Copy the file from `<nodeA-data-path>/validators/slashprotection/` to `<nodeB-data-path>/validators/slashprotection/`.
-1. Start node B with the migrated validator key.
-1. Restart node A if required.
+- Stop Teku node A and confirm the process has fully exited and won't be restarted.
+- Remove the validator key from node A, for example from the [`--validator-keys`](../reference/cli/index.md#validator-keys) option.
+- Copy the file from `<nodeA-data-path>/validators/slashprotection/` to `<nodeB-data-path>/validators/slashprotection/`.
+- Start node B with the migrated validator key.
+- Restart node A if required.
 
 ### From a non-Teku node
 
