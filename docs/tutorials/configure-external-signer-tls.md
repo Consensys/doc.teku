@@ -22,9 +22,9 @@ This tutorial configures TLS between Teku and Web3Signer, and use the [`keytool`
 - [Web3Signer signing key files](https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/) for validators on the testnet.
 - [Teku Installed](../get-started/install/install-binaries.md).
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
-- A running execution client such as [Hyperledger Besu], or cloud-based service synced to the Goerli testnet.
+- A running execution client such as [Hyperledger Besu], or cloud-based service synced to the holesky testnet.
 
-This tutorial connects to an Ethereum testnet for the consensus layer and accesses the Goerli testnet for the execution layer. You can set up your own [Goerli node] for the execution layer. 
+This tutorial connects to an Ethereum testnet for the consensus layer and accesses the Holesky testnet for the execution layer. You can set up your own [Holesky node] for the execution layer. 
 
 ## 1. Create keystores
 
@@ -153,7 +153,7 @@ Start Teku and specify the [keystore](#teku-keystore-and-password-file) and [tru
 
 
 ```bash
-teku --network=goerli \
+teku --network=holesky \
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
 --validators-external-signer-url=https://localhost:9000 \
 --validators-external-signer-truststore=/Users/me/certs/web3signer_truststore.p12 \
@@ -167,5 +167,5 @@ teku --network=goerli \
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [Hyperledger Besu]: https://besu.hyperledger.org/development/public-networks/get-started/install
 [Infura]: https://infura.io/
-[Goerli node]: https://besu.hyperledger.org/development/public-networks/get-started/start-node#run-a-node-on-goerli-testnet
+[Holesky node]: https://besu.hyperledger.org/development/public-networks/get-started/start-node#run-a-node-on-holesky-testnet
 [Web3Signer slashing protection]: https://docs.web3signer.consensys.net/en/latest/concepts/slashing-protection/
