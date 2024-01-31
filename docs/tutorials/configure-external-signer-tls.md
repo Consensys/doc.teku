@@ -22,9 +22,9 @@ This tutorial configures TLS between Teku and Web3Signer, and use the [`keytool`
 - [Web3Signer signing key files](https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/) for validators on the testnet.
 - [Teku Installed](../get-started/install/install-binaries.md).
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
-- A running execution client such as [Hyperledger Besu], or cloud-based service such as [Infura] synced to the Goerli testnet.
+- A running execution client such as [Hyperledger Besu], or cloud-based service synced to the Goerli testnet.
 
-This tutorial connects to an Ethereum testnet for the consensus layer and uses Infura to access the Goerli testnet for the execution layer. You can sign up for a free [Infura] account, or you can set up your own [Goerli node] node for the execution layer, which uses [Infura] to access the Goerli testnet.
+This tutorial connects to an Ethereum testnet for the consensus layer and accesses the Goerli testnet for the execution layer. You can set up your own [Goerli node] for the execution layer. 
 
 ## 1. Create keystores
 
@@ -145,7 +145,6 @@ web3signer --key-store-path=/Users/me/keyFiles/ \
 --tls-keystore-file=/Users/me/certs/web3signer_keystore.p12 \
 --tls-keystore-password-file=/Users/me/certs/web3signer_keystore_password.txt \
 --tls-known-clients-file=/Users/me/certs/knownClients.txt \
-eth2 --slashing-protection-enabled=false
 ```
 
 ## 5. Start Teku
