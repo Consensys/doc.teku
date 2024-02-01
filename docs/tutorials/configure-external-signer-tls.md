@@ -151,6 +151,7 @@ web3signer --key-store-path=/Users/me/keyFiles/ \
 
 Start Teku and specify the [keystore](#teku-keystore-and-password-file) and [truststore](#2-create-the-truststore-and-password-file) created earlier, with the accompanying password files.
 
+A [Holesky node] is the result of an execution layer client and a consensus layer client working together.
 
 ```bash
 teku --network=holesky \
