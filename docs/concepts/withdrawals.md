@@ -66,8 +66,10 @@ of Capella), there's no mechanism for recycling the validator ID that has been e
 From the first Capella slot, block proposers provide up to 16 withdrawals per
 proposed block.
 
-Proposers start from validator 1, and find validators that qualify: must have an
-Ethereum address as a withdrawal address, must have an excess balance, or have exited.
+Proposers start with validator 1, and find validators that have an Ethereum address as a withdrawal address, and meet one of these criteria:
+
+- They have an excess balance.
+- They have exited.
 
 Block proposers select the withdrawals that go into the block.
 In each block, up to 16 changes to withdrawal credentials are also allowed,
