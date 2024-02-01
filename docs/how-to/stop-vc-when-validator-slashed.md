@@ -6,20 +6,21 @@ sidebar_position: 8
 
 # Shut down Teku if any owned validator is slashed
 
-When enabled, this feature will monitor the validators slashing and shut down the Teku client when any of the owned validator is slashed.
+When enabled, this feature will monitor the validators slashings and shut down the Teku client when any of the owned validator is slashed.
 
-If any owned validator is slashed,  the Teku client will shut down with exit code `2` (based on the attester and proposer slashing events received through the peer to peer network).
+If any owned validator is slashed,  the Teku client will shut down with exit code `2`.
 When that happens, the Teku client should not be restarted by default because more slashing are likely to happen. We recommend restarting the Teku client with the [Doppelganger Detection](./enable-doppelganger-detection.md) enabled.
 
 :::warning
 
+The validator slashing detection is an **early access and experimental** feature.
 This feature is imperfect and might fail to detect slashing events rapidly. Use it as a last resort option that might prevent validators from being slashed.
 
 :::
 
 ## Enable shut down Teku if any owned validator is slashed
 
-Enable this feature by setting the [`--shut-down-when-validator-slashed-enabled`](../reference/cli/index.md#stop-vc-when-validator-slashed-enabled) option to `true`.
+Enable this feature by setting the `--Xshut-down-when-validator-slashed-enabled` option to `true`.
 
 :::warning
 
