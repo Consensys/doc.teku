@@ -22,9 +22,9 @@ This tutorial configures TLS between Teku and Web3Signer, and use the [`keytool`
 - [Web3Signer signing key files](https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/) for validators on the testnet.
 - [Teku Installed](../get-started/install/install-binaries.md).
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
-- A running execution client such as [Hyperledger Besu], or cloud-based service synced to the holesky testnet.
+- A running execution client such as [Hyperledger Besu], or cloud-based service synced to the [Holesky node].
 
-This tutorial connects to an Ethereum testnet for the consensus layer and accesses the Holesky testnet for the execution layer. You can set up your own [Holesky node] for the execution layer. 
+This tutorial walks you through process of securely connecting Teku and Web3Signer using TLS, with a focus on creating keystores and truststores for the Ethereum Holesky testnet. 
 
 ## 1. Create keystores
 
