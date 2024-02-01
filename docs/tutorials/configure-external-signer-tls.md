@@ -24,7 +24,7 @@ This tutorial configures TLS between Teku and Web3Signer, and use the [`keytool`
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
 - A running execution client such as [Hyperledger Besu].
 
-This tutorial walks you through process of securely connecting Teku and Web3Signer using TLS, with a focus on creating keystores and truststores for the Ethereum Holesky testnet. 
+This tutorial walks you through the process of securely connecting Teku and Web3Signer using TLS, with a focus on creating a keystore and truststore for the Ethereum Holesky testnet. 
 
 ## 1. Create keystores
 
