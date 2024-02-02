@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Configure TLS communication with an external signer such as [Web3Signer] which accepts connections from clients that use trusted CA certificates or self-signed certificates.
 
-This tutorial configures TLS between Teku and Web3Signer, and use the [`keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html) utility to generate keystores and the truststore that contain self-signed certificates.
+This tutorial configures TLS between Teku and Web3Signer, and uses the [`keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html) utility to generate keystores and the truststore that contain self-signed certificates.
 
 :::info
 
@@ -23,8 +23,6 @@ This tutorial configures TLS between Teku and Web3Signer, and use the [`keytool`
 - [Teku Installed](../get-started/install/install-binaries.md).
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
 - A running execution client such as [Hyperledger Besu].
-
-This tutorial walks you through the process of securely connecting Teku and Web3Signer using TLS, with a focus on creating a keystore and truststore for the Ethereum Holesky testnet. 
 
 ## 1. Create keystores
 
@@ -151,10 +149,9 @@ web3signer --key-store-path=/Users/me/keyFiles/ \
 
 Start Teku and specify the [keystore](#teku-keystore-and-password-file) and [truststore](#2-create-the-truststore-and-password-file) created earlier, with the accompanying password files.
 
-A [Holesky node] is the result of an execution layer client and a consensus layer client working together.
-
 ```bash
 teku --network=holesky \
+--ee-endpoint=http://127.0.0.1:8551 \
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
 --validators-external-signer-url=https://localhost:9000 \
 --validators-external-signer-truststore=/Users/me/certs/web3signer_truststore.p12 \
