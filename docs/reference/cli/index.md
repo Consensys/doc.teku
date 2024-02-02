@@ -2142,7 +2142,7 @@ If a file doesn't exist at the specified path, Teku creates a new file and p2p p
 
 :::important
 
-Ensure you provide a file path and not a directory as no file will be read or created.
+Ensure you specify the complete file path, including the file name, and not only the directory location.
 
 :::
 
