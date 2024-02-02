@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Configure TLS communication with an external signer such as [Web3Signer] which accepts connections from clients that use trusted CA certificates or self-signed certificates.
 
-This tutorial configures TLS between Teku and Web3Signer, and uses the [`keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html) utility to generate keystores and the truststore that contain self-signed certificates.
+This tutorial configures TLS between Teku and Web3Signer, and uses the [`keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html) utility to generate keystores and a truststore that contain self-signed certificates.
 
 :::info
 
