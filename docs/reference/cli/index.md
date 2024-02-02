@@ -1652,7 +1652,6 @@ Possible values are:
 | `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/) |
 | `holesky` | Consensus layer | Test | Multi-client testnet |
 | `sepolia` | Consensus layer | Test | Multi-client testnet |
-| `chiado` | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
 | `lukso` | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/) |
 
 Predefined networks can provide defaults such as the initial state of the network, bootnodes, and the address of the deposit contract.
