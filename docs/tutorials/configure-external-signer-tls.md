@@ -164,5 +164,5 @@ teku --network=holesky \
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [Hyperledger Besu]: https://besu.hyperledger.org/development/public-networks/get-started/install
-[Holesky node]: https://besu.hyperledger.org/development/public-networks/get-started/start-node#run-a-node-on-holesky-testnet
+[Configure Besu on Holesky]: https://besu.hyperledger.org/development/public-networks/get-started/start-node#run-a-node-on-holesky-testnet
 [Web3Signer slashing protection]: https://docs.web3signer.consensys.net/en/latest/concepts/slashing-protection/
