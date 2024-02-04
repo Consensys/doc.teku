@@ -1,10 +1,7 @@
 name: Fix Content
 description: Report issues with the documentation content
-labels: ['update']
+labels: ['fix-content']
 body:
-  - type: markdown
-    attributes:
-      value: Thanks for taking the time to submit this issue. Your input is appreciated.
   - type: textarea
     id: issue-location
     attributes:
@@ -26,19 +23,14 @@ body:
   - type: textarea
     id: issue-description
     attributes:
-      label: Detailed issue description
+      label: Description
       description: Describe the issue in more detail.
-      placeholder: What needs to change?
+      placeholder: Provide a detailed description of the issue, including any context.
       required: true
   - type: textarea
     id: text-resolution
     attributes:
       label: What should be in the docs?
-      description: Provide a suggested resolution if available.
-      placeholder:
-  - type: textarea
-    id: information
-    attributes:
-      label: Additional information
-      description: Add any other context about the problem here.
+      description: Provide a suggested resolution if available. 
       placeholder: Leave this section blank if it does not apply.
+  
