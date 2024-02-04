@@ -1,6 +1,6 @@
 name: New Content
 description: Add documentation for a new feature or apply content suggestions
-labels: ['new content']
+labels: ['new-content']
 body:
   - type: textarea
     id: issue-description
@@ -24,9 +24,3 @@ body:
       label: Suggested resolution
       description: Do you have thoughts on how this should be addressed?
       placeholder: Leave this section blank if this does not apply or you have nothing to add.
-  - type: textarea
-    id: information
-    attributes:
-      label: Additional information
-      description: Add any other context about the problem here.
-      placeholder: Leave blank if this does not apply or you have nothing to add.
