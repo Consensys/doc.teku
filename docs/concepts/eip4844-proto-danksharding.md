@@ -6,7 +6,7 @@ sidebar_position: 4
 
 # What is Proto-Danksharding (EIP4844)
 
-EIP-4844, also known as Proto-Danksharding, is part of the next Ethereum's hard fork named `Dancun` (`Electra` CL fork + `Cancun` EL fork).
+EIP-4844, also known as Proto-Danksharding, is part of the next Ethereum's hard fork named `Dencun` (`Deneb` CL fork + `Cancun` EL fork).
 
 EIP-4844, is a proposal to scale Ethereum by introducing a new "blob-carrying" transaction type. This new transaction type allows data to be posted to the Ethereum mainnet more cheaply than currently possible, thus improving scalability while preserving decentralization.
 
