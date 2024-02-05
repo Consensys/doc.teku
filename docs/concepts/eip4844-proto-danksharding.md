@@ -18,7 +18,7 @@ EIP-4844 introduces blobs, which are vectors of data that are made up of 4096 fi
 
 The blobs' fee market structure is designed to target an `average of 3 blobs` attached to beacon block, with a `maximum of 6`. Each blob holds 128KB of temporary data. This means that EIP-4844 may increase the data associated with a block by 384KB on average (128KB per blob x 3 possible blobs) with a maximum of  768KB (6 blobs per block).
 
-Consesus Layer clients:
+Consensus Layer clients:
 - will use more network bandwidth in the peer-to-peer layer to receive and distribute the blobs.
 - will require roughly 48GiB more storage space for blobs, with a theoretical maximum of 96GiB. The estimation comes from the following:
   - Target 3 blobs at 128KB each: `384KB per block`
