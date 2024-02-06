@@ -146,6 +146,7 @@ web3signer --key-store-path=/Users/me/keyFiles/ \
 --tls-keystore-file=/Users/me/certs/web3signer_keystore.p12 \
 --tls-keystore-password-file=/Users/me/certs/web3signer_keystore_password.txt \
 --tls-known-clients-file=/Users/me/certs/knownClients.txt \
+eth2 --slashing-protection-enabled=false
 ```
 
 ## 5. Start Teku
