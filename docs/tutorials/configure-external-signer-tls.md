@@ -23,6 +23,9 @@ This tutorial configures TLS between Teku and Web3Signer, and uses the [`keytool
 - [Teku Installed](../get-started/install/install-binaries.md).
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
 - A running execution client such as [Hyperledger Besu].
+ 
+ This tutorial connects to the Holesky testnet.
+ You can [run a Besu node on Holesky](https://besu.hyperledger.org/development/public-networks/get-started/start-node#run-a-node-on-holesky-testnet).
 
 ## 1. Create keystores
 
@@ -148,6 +151,10 @@ web3signer --key-store-path=/Users/me/keyFiles/ \
 ## 5. Start Teku
 
 Start Teku and specify the [keystore](#teku-keystore-and-password-file) and [truststore](#2-create-the-truststore-and-password-file) created earlier, with the accompanying password files.
+
+:::note
+This example connects to the Holesky testnet, and connects to the execution client's JSON-RPC URL at `http://127.0.0.1:8551`.
+:::
 
 ```bash
 teku --network=holesky \
