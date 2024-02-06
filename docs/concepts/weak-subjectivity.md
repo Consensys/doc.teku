@@ -1,7 +1,7 @@
 ---
 title: Weak subjectivity
 description: Learn about the weak subjectivity period.
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Weak subjectivity

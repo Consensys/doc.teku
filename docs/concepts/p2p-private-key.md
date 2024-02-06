@@ -1,7 +1,7 @@
 ---
 title: Peer-to-peer private key
 description: Learn about the peer-to-peer private key.
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Peer-to-peer private key

@@ -1,7 +1,7 @@
 ---
 title: Slashing protection
 description: Learn about Teku's slashing protection.
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Slashing protection
