@@ -1,5 +1,5 @@
 name: Fix Content
-description: Report issues with the documentation content
+description: Report issues with the current documentation content.
 labels: ['fix-content']
 body:
   - type: textarea
