@@ -1,7 +1,7 @@
 ---
 title: Withdrawals
 description: Learn about validator reward withdrawals.
-sidebar_position: 8
+sidebar_position: 9
 ---
 
 # Withdrawals
