@@ -24,8 +24,8 @@ body:
     id: issue-description
     attributes:
       label: Description
-      description: Describe the issue in more detail.
-      placeholder: Provide a detailed description of the issue, including any context.
+      description: Provide a detailed description of the issue, including any context.
+      placeholder:
       required: true
   - type: textarea
     id: suggested-change
