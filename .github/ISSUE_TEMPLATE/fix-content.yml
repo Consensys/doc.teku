@@ -28,9 +28,9 @@ body:
       placeholder: Provide a detailed description of the issue, including any context.
       required: true
   - type: textarea
-    id: text-resolution
+    id: suggested-change
     attributes:
       label: What should be in the docs?
-      description: Provide a suggested resolution if available. 
+      description: Provide a suggested change if available. 
       placeholder: Leave this section blank if it does not apply.
   
