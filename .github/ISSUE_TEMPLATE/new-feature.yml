@@ -1,26 +1,18 @@
 name: New Content
-description: Add documentation for a new feature or apply content suggestions
+description: Suggest new content or a report documentation needed for a new feature.
 labels: ['new-content']
 body:
   - type: textarea
     id: issue-description
     attributes:
       label: Description
-      description: Outline what needs to be changed.
+      description: Provide a detailed description of the content suggestion or new feature documentation, including any context.
       placeholder:
     validations:
       required: true
   - type: textarea
-    id: issue-context
+    id: issue-location
     attributes:
-      label: Context
-      description: Provide any applicable background information.
+      label: Where should this content be added?
+      description: Link to or describe the documentation section(s) where this new content should be added.
       placeholder:
-    validations:
-      required: true
-  - type: textarea
-    id: resolution
-    attributes:
-      label: Suggested resolution
-      description: Do you have thoughts on how this should be addressed?
-      placeholder: Leave this section blank if this does not apply or you have nothing to add.

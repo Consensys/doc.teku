@@ -20,8 +20,17 @@ body:
         - label: Other
           description: Issues related to other site functionality or appearance.
           required: false
-    id: resolution
+- type: textarea
+    id: issue-description
     attributes:
-      label: Suggested resolution
-      description: Do you have thoughts on how this should be addressed?
+      label: Description
+      description: Provide a detailed description of the issue, including any context.
+      placeholder: 
+    validations:
+      required: true
+- type: textarea
+    id: suggested-change
+    attributes:
+      label: How should this issue be addressed?
+      description: Provide a suggested change if available.
       placeholder: Leave blank if this does not apply.
