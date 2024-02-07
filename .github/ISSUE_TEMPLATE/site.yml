@@ -9,16 +9,12 @@ body:
       description: Select the type(s) of issue you are reporting.
       options:
         - label: Configuration and plugins
-          description: Issues related to Docusaurus configuration or plugins
           required: false
         - label: UI/UX
-          description: Issues related to the look and feel or user experience of the site.
           required: false
         - label: Site infrastructure
-          description: Issues related to backend site infrastructure.
           required: false
         - label: Other
-          description: Issues related to other site functionality or appearance.
           required: false
 - type: textarea
     id: issue-description
