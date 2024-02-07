@@ -18,7 +18,7 @@ body:
           required: false
         - label: Outdated content
           required: false
-        - label: Inaccurate information
+        - label: Inaccurate content
           required: false
   - type: textarea
     id: issue-description
