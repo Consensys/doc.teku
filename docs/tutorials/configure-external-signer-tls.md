@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Configure TLS communication with an external signer such as [Web3Signer] which accepts connections from clients that use trusted CA certificates or self-signed certificates.
 
-This tutorial configures TLS between Teku and Web3Signer, and use the [`keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html) utility to generate keystores and the truststore that contain self-signed certificates.
+This tutorial configures TLS between Teku and Web3Signer, and uses the [`keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html) utility to generate keystores and a truststore that contain self-signed certificates.
 
 :::info
 
@@ -22,9 +22,10 @@ This tutorial configures TLS between Teku and Web3Signer, and use the [`keytool`
 - [Web3Signer signing key files](https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/) for validators on the testnet.
 - [Teku Installed](../get-started/install/install-binaries.md).
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
-- A running execution client such as [Hyperledger Besu], or cloud-based service such as [Infura] synced to the Goerli testnet.
-
-This tutorial connects to an ETH2 testnet, and uses [Infura] to access the Goerli ETH1 testnet. You can sign up for a free [Infura] account, or you can start your own [ETH1 Goerli node].
+- A running execution client such as [Hyperledger Besu].
+ 
+ This tutorial connects to the Holesky testnet.
+ You can [run a Besu node on Holesky](https://besu.hyperledger.org/development/public-networks/get-started/start-node#run-a-node-on-holesky-testnet).
 
 ## 1. Create keystores
 
@@ -152,15 +153,13 @@ eth2 --slashing-protection-enabled=false
 
 Start Teku and specify the [keystore](#teku-keystore-and-password-file) and [truststore](#2-create-the-truststore-and-password-file) created earlier, with the accompanying password files.
 
-:::caution
-
-This example connects to an [Infura] ETH1 endpoint, if running your own client, like [Hyperledger Besu], then add the JSON-RPC URL of the ETH1 node to the [`--eth1-endpoint`](../reference/cli/index.md#eth1-endpoint-eth1-endpoints) command line option.
-
+:::note
+This example connects to the Holesky testnet, and connects to the execution client's JSON-RPC URL at `http://127.0.0.1:8551`.
 :::
 
 ```bash
-teku --network=goerli \
---eth1-endpoint=https://goerli.infura.iov3/d0f36ceb0c324eef9984422efbc51f21 \
+teku --network=holesky \
+--ee-endpoint=http://127.0.0.1:8551 \
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
 --validators-external-signer-url=https://localhost:9000 \
 --validators-external-signer-truststore=/Users/me/certs/web3signer_truststore.p12 \
@@ -173,6 +172,4 @@ teku --network=goerli \
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [Hyperledger Besu]: https://besu.hyperledger.org/development/public-networks/get-started/install
-[Infura]: https://infura.io/
-[ETH1 Goerli node]: https://besu.hyperledger.org/development/public-networks/get-started/start-node#run-a-node-on-goerli-testnet
 [Web3Signer slashing protection]: https://docs.web3signer.consensys.net/en/latest/concepts/slashing-protection/

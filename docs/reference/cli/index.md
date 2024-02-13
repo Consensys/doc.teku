@@ -1652,7 +1652,7 @@ Possible values are:
 | `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/) |
 | `holesky` | Consensus layer | Test | Multi-client testnet |
 | `sepolia` | Consensus layer | Test | Multi-client testnet |
-| `chiado` | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
+| `chiado`  | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/concepts/networks/chiado) |
 | `lukso` | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/) |
 
 Predefined networks can provide defaults such as the initial state of the network, bootnodes, and the address of the deposit contract.
@@ -2138,6 +2138,14 @@ p2p-private-key-file: "/home/me/me_node/key"
 </Tabs>
 
 File containing the [node's private key](../../concepts/p2p-private-key.md).
+
+If a file doesn't exist at the specified path, Teku creates a new file and p2p private key to store inside.
+
+:::important
+
+Ensure you specify the complete file path, including the file name, and not only the directory location.
+
+:::
 
 ### `p2p-static-peers`
 
