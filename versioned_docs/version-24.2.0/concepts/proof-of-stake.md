@@ -6,9 +6,9 @@ sidebar_position: 3
 
 # Proof of stake
 
-[The Merge](merge.md) transitioned Ethereum Mainnet to [proof of stake (PoS)](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/) consensus.
+[The Merge](merge.md) transitioned Ethereum Mainnet to [proof of stake (PoS)](https://ethereum.org/developers/docs/consensus-mechanisms/pos/) consensus.
 
-In Ethereum's PoS, you must run a [full node](merge.md#execution-and-consensus-clients) and [stake 32 ETH](https://ethereum.org/en/staking/) to become a validator.
+In Ethereum's PoS, you must run a [full node](merge.md#execution-and-consensus-clients) and [stake 32 ETH](https://ethereum.org/staking/) to become a validator.
 
 :::note
 
@@ -16,7 +16,7 @@ You must run a beacon node and an execution client to operate a node on Mainnet.
 
 :::
 
-The PoS mechanism randomly chooses validators to propose or validate blocks on the [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) in defined time frames.
+The PoS mechanism randomly chooses validators to propose or validate blocks on the [Beacon Chain](https://ethereum.org/upgrades/beacon-chain/) in defined time frames.
 
 Proposers are responsible for proposing new consensus blocks, and non-proposing validators are responsible for validating (attesting to) proposed blocks. Validators are rewarded for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and penalized for malicious behavior. Validators also receive transaction fees for included blocks.
 
