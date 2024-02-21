@@ -359,8 +359,8 @@ const config = {
             to: "/how-to/update-withdrawal-keys",
           },
           {
-            from: "/HowTo/Doppelganger-Detection",
-            to: "/how-to/enable-doppelganger-detection",
+            from: ["/HowTo/Doppelganger-Detection", "/how-to/enable-doppelganger-detection"],
+            to: "/how-to/prevent-slashing/detect-doppelgangers",
           },
           {
             from: "/HowTo/Migrate-Database",
