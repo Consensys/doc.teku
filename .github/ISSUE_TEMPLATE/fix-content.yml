@@ -7,7 +7,7 @@ body:
     attributes:
       label: Where is the issue?
       description: Link to the documentation page(s) where you identified this issue.
-      placeholder: 
+      placeholder: The issue is at https://docs.teku.consensys.io/<page>
   - type: checkboxes
     id: issue-type
     attributes:
@@ -26,7 +26,6 @@ body:
       label: Description
       description: Provide a detailed description of the issue, including any context.
       placeholder:
-      required: true
   - type: textarea
     id: suggested-change
     attributes:
