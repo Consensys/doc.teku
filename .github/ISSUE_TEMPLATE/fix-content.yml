@@ -1,0 +1,36 @@
+name: Fix Content
+description: Report issues with the current documentation content.
+labels: ['fix-content']
+body:
+  - type: textarea
+    id: issue-location
+    attributes:
+      label: Where is the issue?
+      description: Link to the documentation page(s) where you identified this issue.
+      placeholder: 
+  - type: checkboxes
+    id: issue-type
+    attributes:
+      label: Issue type
+      description: Select the type(s) of issue you are reporting.
+      options:
+        - label: Missing content
+          required: false
+        - label: Outdated content
+          required: false
+        - label: Inaccurate content
+          required: false
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Description
+      description: Provide a detailed description of the issue, including any context.
+      placeholder:
+      required: true
+  - type: textarea
+    id: suggested-change
+    attributes:
+      label: What should be in the docs?
+      description: Provide a suggested change if available. 
+      placeholder: Leave this section blank if it does not apply.
+  

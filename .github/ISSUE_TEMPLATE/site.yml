@@ -1,0 +1,33 @@
+name: Site
+description: Request updates to the documentation site that impact its user interface or functionality.
+title:''
+labels: ['site']
+body:
+  - type: checkboxes
+    id: issue-type
+    attributes:
+      label: Site issue type
+      description: Select the type(s) of issue you are reporting.
+      options:
+        - label: Configuration and plugins
+          required: false
+        - label: UI/UX
+          required: false
+        - label: Site infrastructure
+          required: false
+        - label: Other
+          required: false
+- type: textarea
+    id: issue-description
+    attributes:
+      label: Description
+      description: Provide a detailed description of the issue, including any context.
+      placeholder: 
+    validations:
+      required: true
+- type: textarea
+    id: suggested-change
+    attributes:
+      label: How should this issue be addressed?
+      description: Provide a suggested change if available.
+      placeholder: Leave blank if this does not apply.
