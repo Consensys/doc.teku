@@ -1,4 +1,4 @@
-name: Site
+name: "Site"
 description: Request updates to the documentation site that impact its user interface or functionality.
 labels: ['site']
 body:
