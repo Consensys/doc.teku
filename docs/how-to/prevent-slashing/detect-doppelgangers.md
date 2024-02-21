@@ -15,7 +15,7 @@ When enabled, doppelganger detection is triggered from two entry points:
 :::warning
 
 Doppelganger detection is an **early access feature**.
-This feature is imprefect and might fail to detect doppelgangers.
+This feature is imperfect and might fail to detect doppelgangers.
 Use this as a last resort option that might prevent validators from being slashed.
 
 :::
