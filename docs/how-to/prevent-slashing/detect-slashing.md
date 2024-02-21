@@ -3,13 +3,13 @@ description: Shut down Teku if a validator is slashed.
 sidebar_position: 3
 ---
 
-# Stop Teku if a validator is slashed
+# Stop Teku when a validator is slashed
 
-Validator slashing detection monitors validator slashing and shuts down the Teku client when any
-owned validator is slashed.
+Validator slashing detection monitors slashing and shuts down Teku when any owned validator is slashed.
+This can help prevent further slashing offenses.
 
-If a validator is slashed, Teku shuts down with exit code `2`.
-When that happens, you should not restart Teku by default because validators will likely continue to
+When a validator is slashed, the Teku validator client shuts down with exit code `2`.
+When this happens, you should not restart Teku by default because validators will likely continue to
 be slashed.
 We recommend restarting Teku with [doppelganger detection](detect-doppelgangers.md) enabled.
 
