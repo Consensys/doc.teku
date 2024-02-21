@@ -360,7 +360,7 @@ const config = {
           },
           {
             from: ["/HowTo/Doppelganger-Detection", "/how-to/enable-doppelganger-detection"],
-            to: "/how-to/prevent-slashing/detect-doppelgangers",
+            to: "/development/how-to/prevent-slashing/detect-doppelgangers",
           },
           {
             from: "/HowTo/Migrate-Database",
