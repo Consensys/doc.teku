@@ -7,7 +7,7 @@ body:
     attributes:
       label: Where is the issue?
       description: Link to the documentation page(s) where you identified this issue.
-      placeholder: The issue is at https://docs.teku.consensys.io/<page>
+      placeholder: The issue is at https://docs.teku.consensys.io/<page>. The issue is in the Run Teku Docker image section of the Install Teku docs.  
   - type: checkboxes
     id: issue-type
     attributes:
@@ -25,7 +25,7 @@ body:
     attributes:
       label: Description
       description: Provide a detailed description of the issue, including any context.
-      placeholder:
+      placeholder:"" 
   - type: textarea
     id: suggested-change
     attributes:
