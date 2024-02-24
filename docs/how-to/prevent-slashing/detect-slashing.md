@@ -16,7 +16,6 @@ We recommend restarting Teku with [doppelganger detection](detect-doppelgangers.
 
 :::warning
 
-Validator slashing detection is an **early access feature**.
 This feature is imperfect and might fail to detect slashing events rapidly.
 Use it as a last resort option that might prevent validators from being slashed.
 
