@@ -24,7 +24,7 @@ Use it as a last resort option that might prevent validators from being slashed.
 
 ## Enable validator slashing detection
 
-Enable validator slashing detection by setting the `--Xshut-down-when-validator-slashed-enabled`
+Enable validator slashing detection by setting the `--shut-down-when-validator-slashed-enabled`
 option to `true`.
 
 :::warning
