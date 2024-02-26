@@ -41,6 +41,9 @@ their duties.
 
 :::warning
 
+When a validator is slashed, it must be removed from the owned validators before restarting Teku with the validator slashing detection enabled otherwise, the validator will still be detected as slashed and Teku will shut down.
+The duties performed by a slashed validator are ignored, and it's queued for exit after being slashed. If you wish to keep it running, the validator slashing detection should be disabled.
+
 Stopping the validators might cause:
 
 - Missed attestations.

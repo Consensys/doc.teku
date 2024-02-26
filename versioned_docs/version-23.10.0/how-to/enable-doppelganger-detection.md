@@ -6,7 +6,7 @@ sidebar_position: 7
 
 # Enable doppelganger detection
 
-Doppelganger detection checks if the validators' keys are already active before scheduling any of their duties (the validators stay inactive for at most two epochs). This can help prevent slashing offences.
+Doppelganger detection checks if the validators' keys are already active before scheduling any of their duties (the validators stay inactive for at most two epochs). This can help prevent slashing offenses.
 
 When enabled, doppelganger detection is triggered from two entry points:
 
