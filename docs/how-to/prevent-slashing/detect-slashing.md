@@ -26,6 +26,11 @@ Use it as a last resort option that might prevent validators from being slashed.
 Enable validator slashing detection by setting the `--shut-down-when-validator-slashed-enabled`
 option to `true`.
 
+When a validator is slashed, you must remove it from the owned validators before restarting Teku with validator slashing detection enabled.
+Otherwise, the validator will still be detected as slashed and Teku will shut down again.
+The duties performed by a slashed validator are ignored, and it's queued for exit after being slashed.
+If you wish to keep it running, you should disable validator slashing detection before restarting Teku.
+
 :::warning
 
 When running a separate validator client, it must be connected to a beacon node that supports the
@@ -40,9 +45,6 @@ When triggered, the Teku validator client terminates and all its running validat
 their duties.
 
 :::warning
-
-When a validator is slashed, it must be removed from the owned validators before restarting Teku with the validator slashing detection enabled otherwise, the validator will still be detected as slashed and Teku will shut down.
-The duties performed by a slashed validator are ignored, and it's queued for exit after being slashed. If you wish to keep it running, the validator slashing detection should be disabled.
 
 Stopping the validators might cause:
 
