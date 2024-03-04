@@ -14,6 +14,10 @@ When this happens, you should not restart Teku by default because validators wil
 be slashed.
 We recommend restarting Teku with [doppelganger detection](detect-doppelgangers.md) enabled.
 
+If you are using `systemd` to manage the Teku service, you might need to add `Restart=on-success` to
+your service config in order to prevent the auto restart.  
+Please check [the systemd config documentation](https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html#Restart=) for more details.
+
 :::warning
 
 This feature is imperfect and might fail to detect slashing events rapidly.
