@@ -80,6 +80,8 @@ If you use a proposer configuration, you must enable blinded block production us
 
 ## Example builder configurations
 
+In this example, teku is running in combined mode with the beacon node and validator client running in a single process.
+
 ```bash title="Validator client and beacon node in a single process"
 teku \
     --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A" \
@@ -88,6 +90,8 @@ teku \
     --validators-builder-registration-default-enabled=true \
     --builder-endpoint="http://127.0.0.1:18550"
 ```
+
+In this example, teku is running as a beacon node with no validators in one process, and the validator client maintaining keys is in a separate process. Proposer configuration is managed through a file, and the validator client communicates via rest-api to the beacon node.
 
 ```bash title="Validator client parameters"
 teku validator-client \
@@ -114,7 +118,26 @@ teku validator-client \
 ```bash title="Beacon node parameters"
 teku \
     --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A" \
+    --rest-api-enabled=true \
     --ee-endpoint="http://127.0.0.1:8551" \
     --ee-jwt-secret-file="/etc/jwt-secret.hex" \
     --builder-endpoint="http://127.0.0.1:18550"
+```
+
+In this example, a validator client is connected to a beacon-node that is using the builder flow, and all keys are defaulted to use a specified fee recipient from the validator client. Each epoch the validator client will register all of its keys to the specified fee recipient with the beacon node.
+
+```bash title="Beacon Node"
+teku 
+    --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A" \
+    --rest-api-enabled=true \
+    --ee-endpoint="http://127.0.0.1:8551" \
+    --ee-jwt-secret-file="/etc/jwt-secret.hex" \
+    --builder-endpoint="http://127.0.0.1:18550" 
+```
+
+```bash title="Validator client parameters"
+teku validator-client \
+    --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A" \
+    --validators-proposer-blinded-blocks-enabled=true \
+    --validators-builder-registration-default-enabled=true 
 ```
