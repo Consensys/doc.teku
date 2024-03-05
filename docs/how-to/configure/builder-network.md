@@ -46,7 +46,7 @@ You can also use external software such as [MEV-Boost](https://github.com/flashb
 
 ## 3. Register the validator
 
-You must register your validator with the builder before proposing a block. Enable registration for all validators using the [`--validators-builder-registration-default-enabled`](../../reference/cli/index.md#validators-builder-registration-default-enabled) command line option.
+You must register your validator with the builder before proposing a block. Enable registration for all validators using the [`--validators-builder-registration-default-enabled`](../../reference/cli/index.md#validators-builder-registration-default-enabled) command line option on the validator client.
 
 To enable registration for specific validators only, use the [`--validators-proposal-config`](../../reference/cli/index.md#validators-proposer-config) option and specify the enabled validators in the `proposer_config` field of the [proposer configuration file](use-proposer-config-file.md).
 
