@@ -372,7 +372,7 @@ nprogress
 ntfs
 nuxt
 nwgi
-offences
+offenses
 omitempty
 onboarded
 openapi
@@ -642,6 +642,7 @@ xclip
 xdoppelganger
 xirzc
 xplorer
+Xshut
 xsoar
 yacop
 yangshun

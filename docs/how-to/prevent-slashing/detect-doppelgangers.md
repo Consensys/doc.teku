@@ -1,32 +1,35 @@
 ---
-title: Enable doppelganger detection
 description: Check if your validators' keys are already active.
-sidebar_position: 7
+sidebar_position: 2
 ---
 
-# Enable doppelganger detection
+# Detect doppelgangers
 
-Doppelganger detection checks if the validators' keys are already active before scheduling any of their duties (the validators stay inactive for at most two epochs). This can help prevent slashing offences.
+Doppelganger detection checks if the validators' keys are already active before scheduling any of their duties (the validators stay inactive for at most two epochs). This can help prevent slashing offenses.
 
 When enabled, doppelganger detection is triggered from two entry points:
 
-1. At [validator client startup](../get-started/start-teku.md#start-teku): If at least one doppelganger is detected, the validator client shuts down after it finishes the check.
+1. At [validator client startup](../../get-started/start-teku.md#start-teku): If at least one
+    doppelganger is detected, the Teku validator client shuts down after it finishes the check with
+    exit code `2`.
+    When this happens, you should not restart Teku by default because validators will likely be slashed.
 2. When importing keys via the [key manager API](https://ethereum.github.io/keymanager-APIs/): Any detected doppelganger's keys are ignored (not imported). The other keys are imported and the validators start performing their duties after it finishes the check.
 
 :::warning
 
-Doppelganger detection is imperfect and might fail to detect doppelgangers. Use this as a last resort option that might prevent validators from being slashed.
+Doppelganger detection is imperfect and might fail to detect doppelgangers.
+Use this as a last resort option that might prevent validators from being slashed.
 
 :::
 
 ## Enable doppelganger detection
 
 Enable doppelganger detection by setting the
-[`--doppelganger-detection-enabled`](../reference/cli/index.md#doppelganger-detection-enabled)
+[`--doppelganger-detection-enabled`](../../reference/cli/index.md#doppelganger-detection-enabled)
 option to `true`.
 
 Your validator client must be connected to a beacon node with validator liveness tracking enabled.
-Enable validator liveness tracking by setting the [`--beacon-liveness-tracking-enabled`](../reference/cli/index.md#beacon-liveness-tracking-enabled) option to `true`.
+Enable validator liveness tracking by setting the [`--beacon-liveness-tracking-enabled`](../../reference/cli/index.md#beacon-liveness-tracking-enabled) option to `true`.
 
 ## Side effects
 
