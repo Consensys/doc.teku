@@ -4,51 +4,63 @@ description: Connect to a builder network to generate execution payloads.
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configure Teku to use a builder network
 
-You can connect to a [builder network](../../concepts/builder-network.md) to generate execution payloads for the [consensus client](../../concepts/merge.md#consensus-clients).
+You can connect to a [builder network](../../concepts/builder-network.md) to generate execution
+payloads for the [consensus client](../../concepts/merge.md#consensus-clients).
 
-The builder recommends new blocks that are validated by the consensus client. If the builder goes down, the local execution client proposes a block instead.
+The builder recommends new blocks that are validated by the consensus client.
+If the builder goes down, the local execution client proposes a block instead.
 
-To configure Teku to use a builder network:
-
-- [Configure Teku to use a builder network](#configure-teku-to-use-a-builder-network)
-  - [1. Enable blinded block production](#1-enable-blinded-block-production)
-  - [2. Specify the builder endpoint](#2-specify-the-builder-endpoint)
-  - [3. Register the validator](#3-register-the-validator)
-  - [Example builder configurations](#example-builder-configurations)
+Use the following steps to configure Teku to use a builder network.
 
 ## 1. Enable blinded block production
 
-Enable blinded block production using the [`--validators-proposer-blinded-blocks-enabled`](../../reference/cli/index.md#validators-proposer-blinded-blocks-enabled) command line option.
+Enable blinded block production using the
+[`--validators-proposer-blinded-blocks-enabled`](../../reference/cli/index.md#validators-proposer-blinded-blocks-enabled)
+command line option.
 
 :::note
 
-If [--validators-builder-registration-default-enabled](../../reference/cli/index.md#validators-builder-registration-default-enabled) is set to `true`, then `--validators-proposer-blinded-blocks-enabled` is automatically enabled.
+If [--validators-builder-registration-default-enabled](../../reference/cli/index.md#validators-builder-registration-default-enabled)
+is set to `true`, then `--validators-proposer-blinded-blocks-enabled` is automatically enabled.
 
 :::
 
 ## 2. Specify the builder endpoint
 
-Specify the builder endpoint using the [`--builder-endpoint`](../../reference/cli/index.md#builder-endpoint) command line option.
+Specify the builder endpoint using the [`--builder-endpoint`](../../reference/cli/index.md#builder-endpoint)
+command line option.
+For example:
 
-```bash title="Example"
+```bash
 --builder-endpoint="https://builder-relay-sepolia.flashbots.net/"
 ```
 
 View the [list of relay endpoints](https://github.com/flashbots/mev-boost#usage) for available endpoints.
 
-You can also use external software such as [MEV-Boost](https://github.com/flashbots/mev-boost) to connect to multiple relays.
+You can also use external software such as [MEV-Boost](https://github.com/flashbots/mev-boost) to
+connect to multiple relays.
+For example:
 
-```bash title="Example"
+```bash
 --builder-endpoint=http://127.0.0.1:18550
 ```
 
 ## 3. Register the validator
 
-You must register your validator with the builder before proposing a block. On the validator client, enable registration for all validators using the [`--validators-builder-registration-default-enabled`](../../reference/cli/index.md#validators-builder-registration-default-enabled) command line option.
+You must register your validator with the builder before proposing a block.
+On the validator client, enable registration for all validators using the
+[`--validators-builder-registration-default-enabled`](../../reference/cli/index.md#validators-builder-registration-default-enabled)
+command line option.
 
-To enable registration for specific validators only, use the [`--validators-proposal-config`](../../reference/cli/index.md#validators-proposer-config) option and specify the enabled validators in the `proposer_config` field of the [proposer configuration file](use-proposer-config-file.md).
+To enable registration for specific validators only, use the
+[`--validators-proposal-config`](../../reference/cli/index.md#validators-proposer-config) option and
+specify the enabled validators in the `proposer_config` field of the
+[proposer configuration file](use-proposer-config-file.md).
 
 ```json title="proposerConfig.json"
 {
@@ -70,32 +82,60 @@ To enable registration for specific validators only, use the [`--validators-prop
 }
 ```
 
-In this example, validator `0xa057816...` is registered with the builder, but any validator using the default configuration isn't.
+In this example, validator `0xa057816...` is registered with the builder, but any validator using
+the default configuration isn't.
 
 :::note
 
-If you use a proposer configuration, you must enable blinded block production using [`--validators-proposer-blinded-blocks-enabled`](../../reference/cli/index.md#validators-proposer-blinded-blocks-enabled).
+If you use a proposer configuration, you must enable blinded block production using
+[`--validators-proposer-blinded-blocks-enabled`](../../reference/cli/index.md#validators-proposer-blinded-blocks-enabled).
 
 :::
 
 ## Example builder configurations
 
-```bash title="Validator client and beacon node in a single process"
+In the following example, Teku is running with the beacon node and validator client in a single process.
+
+```bash
 teku \
-    --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A" \
     --ee-endpoint="http://127.0.0.1:8551"                  \
     --ee-jwt-secret-file="/etc/jwt-secret.hex"             \
     --validators-builder-registration-default-enabled=true \
-    --builder-endpoint="http://127.0.0.1:18550"
+    --builder-endpoint="http://127.0.0.1:18550"            \
+    --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
 ```
 
-```bash title="Validator client parameters"
+In the following example, Teku is running with the beacon node and validator client in separate processes.
+The beacon node runs with no validators in a single process, and the validator client maintains keys
+in a separate process.
+The proposer configuration is managed using a [proposer configuration file](use-proposer-config-file.md),
+and the validator client communicates with the beacon node using REST API.
+
+<Tabs>
+<TabItem value="Beacon node">
+
+```bash
+teku \
+    --rest-api-enabled=true                     \
+    --ee-endpoint="http://127.0.0.1:8551"       \
+    --ee-jwt-secret-file="/etc/jwt-secret.hex"  \
+    --builder-endpoint="http://127.0.0.1:18550" \
+    --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+```
+
+</TabItem>
+<TabItem value="Validator client">
+
+```bash
 teku validator-client \
     --validators-proposer-blinded-blocks-enabled=true \
     --validators-proposer-config="/etc/teku/proposerConfig.json"
 ```
 
-```json title="Proposer configuration"
+</TabItem>
+<TabItem value="Proposer configuration">
+
+```json title="proposerConfig.json"
 {
   "proposer_config": {
     "0xa057816155ad77931185101128655c0191bd0214c201ca48ed887f6c4c6adf334070efcd75140eada5ac83a92506dd7a": {
@@ -111,10 +151,35 @@ teku validator-client \
 }
 ```
 
-```bash title="Beacon node parameters"
+</TabItem>
+</Tabs>
+
+In the following example, a validator client is connected to a beacon node that is using the builder
+flow, and all keys use a specified fee recipient from the validator client by default.
+Each epoch, the validator client will register all of its keys to the specified fee recipient with
+the beacon node.
+
+<Tabs>
+<TabItem value="Beacon node">
+
+```bash
 teku \
-    --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A" \
-    --ee-endpoint="http://127.0.0.1:8551" \
-    --ee-jwt-secret-file="/etc/jwt-secret.hex" \
-    --builder-endpoint="http://127.0.0.1:18550"
+    --rest-api-enabled=true                     \
+    --ee-endpoint="http://127.0.0.1:8551"       \
+    --ee-jwt-secret-file="/etc/jwt-secret.hex"  \
+    --builder-endpoint="http://127.0.0.1:18550" \
+    --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
 ```
+
+</TabItem>
+<TabItem value="Validator client">
+
+```bash
+teku validator-client \
+    --validators-proposer-blinded-blocks-enabled=true      \
+    --validators-builder-registration-default-enabled=true \
+    --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
+```
+
+</TabItem>
+</Tabs>
