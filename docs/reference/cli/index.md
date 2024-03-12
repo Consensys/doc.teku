@@ -86,7 +86,7 @@ beacon-liveness-tracking-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables validator liveness tracking. Used by [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
+Enables or disables validator liveness tracking. Used by [doppelganger detection](../../how-to/prevent-slashing/detect-doppelgangers.md). The default is `false`.
 
 ### `builder-bid-compare-factor`
 
@@ -588,7 +588,7 @@ doppelganger-detection-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables [doppelganger detection](../../how-to/enable-doppelganger-detection.md). The default is `false`.
+Enables or disables [doppelganger detection](../../how-to/prevent-slashing/detect-doppelgangers.md). The default is `false`.
 
 ### `ee-endpoint`
 
@@ -2577,6 +2577,41 @@ Path to the [sentry node](../../how-to/use-sentry-nodes.md) configuration file. 
 This option can't be used with [`--beacon-node-api-endpoint`](subcommands/validator-client.md#beacon-node-api-endpoint-beacon-node-api-endpoints).
 
 :::
+
+### `shut-down-when-validator-slashed-enabled`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--shut-down-when-validator-slashed-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--shut-down-when-validator-slashed-enabled=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_SHUT_DOWN_WHEN_VALIDATOR_SLASHED_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+shut-down-when-validator-slashed-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+Enables or disables [validators slashing detection](../../how-to/prevent-slashing/detect-slashing.md). The default is `false`.
 
 ### `validator-api-cors-origins`
 

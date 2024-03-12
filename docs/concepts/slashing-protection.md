@@ -28,7 +28,10 @@ Teku provides command line options to [import] or [export] the slashing protecti
 
 :::tip
 
-Teku also supports [doppelganger detection](../how-to/enable-doppelganger-detection.md) to help prevent slashing. This is an early access feature.
+Teku also supports [doppelganger detection](../how-to/prevent-slashing/detect-doppelgangers.md)
+and [validator slashing detection](../how-to/prevent-slashing/detect-slashing.md) to help
+prevent slashing.
+These are early access features.
 
 :::
 
@@ -89,5 +92,5 @@ Start the Teku node with the validator key.
 
 [YAML file is stored per validator]: #validator-slashing-protection-file
 [create a new slashing protection file]: #validator-slashing-protection-file
-[import]: ../how-to/prevent-slashing.md#import-a-slashing-protection-file
-[export]: ../how-to/prevent-slashing.md#export-a-slashing-protection-file
+[import]: ../how-to/prevent-slashing/use-a-slashing-protection-file.md#import-a-slashing-protection-file
+[export]: ../how-to/prevent-slashing/use-a-slashing-protection-file.md#export-a-slashing-protection-file

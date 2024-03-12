@@ -1,6 +1,6 @@
 ---
 description: Use the rewards API to view validator rewards.
-sidebar_position: 13
+sidebar_position: 12
 ---
 
 import Tabs from '@theme/Tabs';
