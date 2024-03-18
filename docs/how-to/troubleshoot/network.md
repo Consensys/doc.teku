@@ -125,7 +125,7 @@ This is why it is important to use a service like NTPD or Chrony to keep your se
 If you suspect that your server clock might be out-of-sync, you could use a dashboard like [Grafana Node Exporter Dashboard](https://grafana.com/grafana/dashboards/1860-node-exporter-full/) to check.
 Find the **System Timesync** panel and check the **Time Synchronized Drift** chart.
 The Time Synchronized Drift chart shows how much your server clock is drifting.
-The higher the drift, the higher the deviation between your system clock and other nodes in the network, pottentially causing issues to Teku.
+The higher the drift, the higher the deviation between your system clock and other nodes in the network, potentially causing issues to Teku.
 
 Here is an image that shows the **Time Synchronized Drift** chart before and after the server clock being adjusted using Chrony:
 
