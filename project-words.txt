@@ -569,6 +569,7 @@ templating
 temurin
 thanos
 therox
+timesync
 tmpdir
 toolset
 toplevel
