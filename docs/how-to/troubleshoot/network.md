@@ -106,38 +106,48 @@ Common issues include:
     misses, typically anything over 10 Mbps upstream is acceptable.
 
 
-## Excessive Late Block Import warnings due to time skew
+## Excessive late block import warnings due to time skew
 
-In Ethereum, every proposed block is expected to propagate through the network and reach every beacon node within four seconds into the current slot.
-Whenever Teku receives a block after the expected period, it prints a warning to the logs that looks like:
+In Ethereum, every proposed block is expected to propagate through the network and reach every beacon node within
+four seconds into the current slot. Whenever Teku receives a block after the expected period, it prints a warning to
+the logs that looks like:
 
 ```
 2024-03-18 17:32:27.363 WARN  - Late Block Import *** Block: a0ad54151e1e629ac4a3c23d768e100a9f017b229c927c23ea90111f6399cbdf (8659360) proposer 858815 arrival 4083ms, gossip_validation +4ms, pre-state_retrieved +3ms, processed +259ms, execution_payload_result_received +0ms, begin_importing +1ms, transaction_prepared +0ms, transaction_committed +0ms, completed +13ms
 ```
 
-Note the `arrival` value in the message. This is an indication of the time the block was received by the node. In this particular case, the block arrived 4083ms after the start of the slot (more than four seconds). Therefore, Teku printed the warning message.
+The `arrival` value in the message indicates the time the block was received by the node. In this particular
+case, the block arrived 4083ms after the start of the slot (more than four seconds). Therefore, Teku printed
+the warning message.
 
-Even on a healthy network, it is expected to see some late blocks.
-It is impossible to completely get rid of them as most of the time the block being late has nothing to do your your node specifically.
-However, if you are seeing multiple late block warnings in the logs, it is possible that your timing configuration in the server is not correct, making your node think that a block is late, when is reality the clock in the server is misaligned with the rest of the nodes in the network.
-This is why it is important to use a service like NTPD or Chrony to keep your server clock in sync.
+Even on a healthy network, some late blocks are expected. It's impossible to completely eliminate them, as most of
+the time, a block being late has nothing to do with your node specifically. However, if you're seeing multiple late
+block warnings in the logs, it's possible that your server's timing configuration is incorrect, causing your node
+to perceive blocks as late when, in reality, the server's clock is misaligned with the rest of the network. This
+is why it's important to use a service like NTPD or Chrony to keep your server's clock synchronized.
 
-If you suspect that your server clock might be out-of-sync, you could use a dashboard like [Grafana Node Exporter Dashboard](https://grafana.com/grafana/dashboards/1860-node-exporter-full/) to check.
-Find the **System Timesync** panel and check the **Time Synchronized Drift** chart.
-The Time Synchronized Drift chart shows how much your server clock is drifting.
-The higher the drift, the higher the deviation between your system clock and other nodes in the network, potentially causing issues to Teku.
+If you suspect your server clock is out-of-sync, use a dashboard like the
+[Grafana Node Exporter Dashboard](https://grafana.com/grafana/dashboards/1860-node-exporter-full/) to check.
+Look for the **System Timesync** panel and examine the **Time Synchronized Drift** chart, which shows how much
+your server clock is drifting from other nodes in the network. A higher drift indicates a greater deviation between
+your system clock and other nodes, potentially causing issues for Teku.
 
-Here is an image that shows the **Time Synchronized Drift** chart before and after the server clock being adjusted using Chrony:
+Here is an image that shows the **Time Synchronized Drift** chart before and after the server clock being
+adjusted using Chrony:
 
 ![Time Synchronized Drift](../../images/time_synchronized_drift_chart.png)
 
-Note that having zero time drift is impossible in practice.
-The Ethereum protocol has been designed to withstand up to 500ms of variance between nodes.
+:::note
+
+Having zero time drift is impossible in practice. The Ethereum protocol has been designed to withstand up to
+500ms of variance between nodes.
+
+:::
 
 References:
-- [Monitoring a Linux hos t with Prometheus and node_exporter](https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/prometheus-config-examples/noagent_linuxnode/)
+- [Monitoring a Linux host with Prometheus and node_exporter](https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/prometheus-config-examples/noagent_linuxnode/)
 - [Node Exporter Grafana Dashboard](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)
-- [Using chrony to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp)
+- [Using `chrony`` to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp)
 - [Why clock sync matters in Ethereum 2.0](https://hackmd.io/@ericsson49/BJfLjEX-8)
 
 ## Address missing attestations or non-inclusion issues
