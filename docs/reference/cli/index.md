@@ -3422,9 +3422,14 @@ validator-is-local-slashing-protection-synchronized-enabled: true
   </TabItem>
 </Tabs>
 
-By default, slashing protection checks in teku are performed in sequence (where this flag is true). This restricts throughput of duties, and under some scenarios it can improve performance to allow more granular in-process locking of slashing protection data.
+Controls whether Teku performs slashing protection checks in a sequential or concurrent manner. The default is
+`true`, meaning slashing protection checks in Teku are performed sequentially.
 
-If set to false, the local slashing protection process will be able to check if signing is safe for multiple keys concurrently, reducing latencies experienced while performing these checks.
+Sequential checks restrict the throughput of duties, and under some scenarios, can improve performance to allow
+more granular in-process locking of slashing protection data.
+
+If set to `false`, the local slashing protection process will be able to check if signing is safe for multiple
+keys concurrently, reducing latencies experienced while performing these checks.
 
 ### `validator-keys`
 
