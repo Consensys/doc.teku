@@ -136,6 +136,11 @@ const config = {
             position: "right",
             dropdownActiveClassDisabled: true,
           },
+{
+            href: "/chatbot",
+            className: "header-chatbot-link",
+            position: "right",
+          },
           {
             href: "https://github.com/ConsenSys/teku",
             className: "header-github-link",

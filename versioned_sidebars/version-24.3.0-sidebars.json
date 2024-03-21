@@ -57,6 +57,11 @@
           "dirName": "tutorials"
         }
       ]
+    },
+    {
+      "type": "link",
+      "label": "Chatbot",
+      "href": "/chatbot"      
     }
   ],
   "referenceSidebar": [
