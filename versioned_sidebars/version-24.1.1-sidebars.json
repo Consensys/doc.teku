@@ -58,11 +58,7 @@
         }
       ]
     },
-    {
-      "type": "link",
-      "label": "Chatbot",
-      "href": "/chatbot"      
-    }
+    "chatbot"
   ],
   "referenceSidebar": [
     {

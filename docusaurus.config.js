@@ -136,7 +136,7 @@ const config = {
             position: "right",
             dropdownActiveClassDisabled: true,
           },
-{
+          {
             href: "/chatbot",
             className: "header-chatbot-link",
             position: "right",

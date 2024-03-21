@@ -32,12 +32,12 @@ const CardList: CardItem[] = [
     buttonType: "success",
   },
   {
-    title: "💭 Learn",
-    link: "/concepts",
+    title: "🤖 Chatbot",
+    link: "/chatbot",
     // prettier-ignore
     description: (
       <>
-        Learn about Teku concepts such as proof of stake and weak subjectivity.
+        Use the Documentation Chatbot to get assistance with questions about Teku or usage instructions.
       </>
     ),
     buttonName: "Continue",
