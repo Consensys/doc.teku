@@ -3395,7 +3395,7 @@ This option takes precedence over [`--validators-graffiti`](#validators-graffiti
   <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---validator-is-local-slashing-protection-synchronized-enabled=<BOOLEAN>
+--validator-is-local-slashing-protection-synchronized-enabled[=<BOOLEAN>]
 ```
 
   </TabItem>
