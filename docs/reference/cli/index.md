@@ -3422,6 +3422,49 @@ You can overwrite the file while Teku is running to update the graffiti.
 
 This option takes precedence over [`--validators-graffiti`](#validators-graffiti).
 
+
+### `validator-is-local-slashing-protection-synchronized-enabled`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--validator-is-local-slashing-protection-synchronized-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--validator-is-local-slashing-protection-synchronized-enabled=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_VALIDATOR_IS_LOCAL_SLASHING_PROTECTION_SYNCHRONIZED_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+validator-is-local-slashing-protection-synchronized-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+Controls whether Teku performs slashing protection checks in a sequential or concurrent manner. The default is
+`true`, meaning slashing protection checks in Teku are performed sequentially.
+
+Sequential checks restrict the throughput of duties, and under some scenarios, can improve performance to allow
+more granular in-process locking of slashing protection data.
+
+If set to `false`, the local slashing protection process will be able to check if signing is safe for multiple
+keys concurrently, reducing latencies experienced while performing these checks.
+
 ### `validator-keys`
 
 <Tabs>
