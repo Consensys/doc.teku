@@ -67,7 +67,7 @@ View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip
 
 :::
 
-### Advertised IP address issues 
+### Advertised IP address issues
 
 A possible reason for incoming peers being unable to connect could be an incorrect address specified using the
 [`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip) option. Teku auto-detects the address to use by
@@ -78,7 +78,7 @@ correct firewall and forwarding settings, this could potentially be the cause.
 ### Network gateway issues
 
 A potential reason for incoming peers not being able to connect could be the use of a different port on your network
-gateway (router or modem). 
+gateway (router or modem).
 This usually happens because only one service can listen on a port. Therefore, if you're running multiple beacon nodes, you'll
 need to open multiple ports on your gateway. The simplest solution is to use the same port on your gateway as specified
 in your [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default). However, if necessary, users can also
@@ -105,6 +105,50 @@ Common issues include:
 * **Poor internet speed**. An example is someone was on an ADSL link with only about 2.5 Mbps upstream which led to
     misses, typically anything over 10 Mbps upstream is acceptable.
 
+
+## Excessive late block import warnings due to time skew
+
+In Ethereum, every proposed block is expected to propagate through the network and reach every beacon node within
+four seconds into the current slot. Whenever Teku receives a block after the expected period, it prints a warning to
+the logs that looks like:
+
+```
+2024-03-18 17:32:27.363 WARN  - Late Block Import *** Block: a0ad54151e1e629ac4a3c23d768e100a9f017b229c927c23ea90111f6399cbdf (8659360) proposer 858815 arrival 4083ms, gossip_validation +4ms, pre-state_retrieved +3ms, processed +259ms, execution_payload_result_received +0ms, begin_importing +1ms, transaction_prepared +0ms, transaction_committed +0ms, completed +13ms
+```
+
+The `arrival` value in the message indicates the time the block was received by the node. In this particular
+case, the block arrived 4083ms after the start of the slot (more than four seconds). Therefore, Teku printed
+the warning message.
+
+Even on a healthy network, some late blocks are expected. It's impossible to completely eliminate them, as most of
+the time, a block being late has nothing to do with your node specifically. However, if you're seeing multiple late
+block warnings in the logs, it's possible that your server's timing configuration is incorrect, causing your node
+to perceive blocks as late when, in reality, the server's clock is misaligned with the rest of the network. This
+is why it's important to use a service like NTPD or Chrony to keep your server's clock synchronized.
+
+If you suspect your server clock is out-of-sync, use a dashboard like the
+[Grafana Node Exporter Dashboard](https://grafana.com/grafana/dashboards/1860-node-exporter-full/) to check.
+Look for the **System Timesync** panel and examine the **Time Synchronized Drift** chart, which shows how much
+your server clock is drifting from other nodes in the network. A higher drift indicates a greater deviation between
+your system clock and other nodes, potentially causing issues for Teku.
+
+Here is an image that shows the **Time Synchronized Drift** chart before and after the server clock being
+adjusted using Chrony:
+
+![Time Synchronized Drift](../../images/time_synchronized_drift_chart.png)
+
+:::note
+
+Having zero time drift is impossible in practice. The Ethereum protocol has been designed to withstand up to
+500ms of variance between nodes.
+
+:::
+
+References:
+- [Monitoring a Linux host with Prometheus and node_exporter](https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/prometheus-config-examples/noagent_linuxnode/)
+- [Node Exporter Grafana Dashboard](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)
+- [Using `chrony`` to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp)
+- [Why clock sync matters in Ethereum 2.0](https://hackmd.io/@ericsson49/BJfLjEX-8)
 
 ## Address missing attestations or non-inclusion issues
 
