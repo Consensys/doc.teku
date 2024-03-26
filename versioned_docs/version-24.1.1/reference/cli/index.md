@@ -538,7 +538,7 @@ deposit-snapshot-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables using a bundled or checkpoint-sync deposit contract tree snapshot and persisting the tree after finalization. The default is `true`.
+Enables or disables using a deposit tree snapshot from checkpoint-sync or distributed as part of Teku's binary and persisting the tree after finalization. The default is `true`.
 
 Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku
 loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources
