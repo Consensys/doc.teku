@@ -3464,8 +3464,8 @@ Default value is `AUTO`.
 Following options are available:
 - `AUTO`: If user's graffiti is empty sets graffiti to reveal
   consensus and execution clients information using its codes and build commits
-  like "TK508459f2BUbb9ba13c", where "TK" is Teku, followed by build commit,
-  execution layer client 2 characters code, "BU" for Besu in example, and it
+  like `TK508459f2BUbb9ba13c`, where `TK` is Teku, followed by build commit,
+  execution layer client 2 characters code, `BU` for Besu in example, and it
   ends with EL build 4 bytes commit in hexadecimal representation.
 
   If user's graffiti is set, this option will calculate space left
@@ -3474,7 +3474,7 @@ Following options are available:
   4 characters (client codes only). So, if your graffiti is
   "It's my first block!", block will be proposed with the graffiti like
   "It's my first block TK50BUbb".
-- `CLIENT_CODES`: Appends only CL/EL client codes like "TKBU". It's useful if
+- `CLIENT_CODES`: Appends only CL/EL client codes like `TKBU`. It's useful if
   you are not sure that version information cannot be used to exploit
   vulnerabilities or just don't want to share any extra information.
 - `DISABLED`: Client information is not appended. If user's graffiti is set it
