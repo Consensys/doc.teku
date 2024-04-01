@@ -3455,18 +3455,22 @@ validators-graffiti-client-append-format: CLIENT_CODES
   </TabItem>
 </Tabs>
 
-Appends consensus layer and execution layer clients' information with a space, to the user's graffiti.
-a separate BN/VC setup should be set on a Beacon Node. This feature helps
-developers and community to analyze client diversity and block anomalies.
+Appends consensus layer and execution layer clients' information with a space, 
+to the user's graffiti. On a separate BN/VC setup should be set on a Beacon 
+Node. This feature helps developers and community to analyze client diversity 
+and block anomalies.
 
 The default value is set to `AUTO`.
 
 The following options are available:
-- `AUTO`: If user's graffiti is empty sets graffiti to reveal
-  consensus and execution clients information using its codes and build commits
-  like `TK508459f2BUbb9ba13c`, where `TK` is Teku, followed by build commit,
-  execution layer client 2 characters code, `BU` for Besu in example, and it
-  ends with EL build 4 bytes commit in hexadecimal representation.
+- `AUTO`: If user's graffiti is empty, it automatically updates to reveal 
+  information about the consensus and execution clients. This includes their 
+  codes and build commits, for example `TK508459f2BUbb9ba13c`, with the 
+  structure as follows:
+    + `TK` represents the Teku consensus client.
+    + `508459f2` is the Teku build commit in a 4-byte hexadecimal format.
+    + `BU` indicates the Besu execution layer client.
+    + `bb9ba13c` displays the Besu build commit in a 4-byte hexadecimal format.
 
   If user's graffiti is set, this option will calculate space left
   (graffiti size is 32 bytes) and if it's more than 5 characters left, appends
