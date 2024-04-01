@@ -3455,7 +3455,7 @@ validators-graffiti-client-append-format: CLIENT_CODES
   </TabItem>
 </Tabs>
 
-Appends CL and EL clients information with a space to user's graffiti. On
+Appends consensus layer and execution layer clients' information with a space, to the user's graffiti.
 a separate BN/VC setup should be set on a Beacon Node. This feature helps
 developers and community to analyze client diversity and block anomalies.
 
