@@ -3459,7 +3459,7 @@ Appends consensus layer and execution layer clients' information with a space, t
 a separate BN/VC setup should be set on a Beacon Node. This feature helps
 developers and community to analyze client diversity and block anomalies.
 
-Default value is `AUTO`.
+The default value is set to `AUTO`.
 
 The following options are available:
 - `AUTO`: If user's graffiti is empty sets graffiti to reveal
