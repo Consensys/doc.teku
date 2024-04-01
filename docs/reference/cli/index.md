@@ -3461,7 +3461,7 @@ developers and community to analyze client diversity and block anomalies.
 
 Default value is `AUTO`.
 
-Following options are available:
+The following options are available:
 - `AUTO`: If user's graffiti is empty sets graffiti to reveal
   consensus and execution clients information using its codes and build commits
   like `TK508459f2BUbb9ba13c`, where `TK` is Teku, followed by build commit,
