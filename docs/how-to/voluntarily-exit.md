@@ -47,6 +47,19 @@ teku voluntary-exit --beacon-node-api-endpoint=http://127.0.0.1:5051 \
 
 Use the [`/eth/v1/beacon/pool/voluntary_exits`](https://consensys.github.io/teku/#operation/getEthV1BeaconPoolVoluntary_exits) API to check the pending exit queue.
 
+## Create but don't submit an exit
+
+Use the [`voluntary-exit`](../reference/cli/subcommands/voluntary-exit.md) subcommand to create a signed exit for the specified validators, but not submit it to the beacon node.
+
+
+```bash title="Example"
+teku voluntary-exit --beacon-node-api-endpoint=http://127.0.0.1:5051 \
+--validator-keys=validator/keys/validator_1e9f2a.json:validator/passwords/validator_1e9f2a.txt
+--save-exits-path=.
+```
+
+In the command, a `json` file will be written to the current folder(`.`) containing a signed exit message for validator `1e9f2a`. At a future time when this exit needs to be processed, you can then use the beacon api to submit this message via a POST to `/eth/v1/beacon/voluntary_exits`.
+
 <!-- links -->
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/

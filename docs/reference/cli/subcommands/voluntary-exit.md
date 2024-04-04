@@ -211,6 +211,41 @@ network: "mainnet"
 
 Predefined network configuration. There is no default value, because Teku reads the network specification from the Beacon API unless specified.
 
+## `save-exits-path`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+teku voluntary-exit --save-exits-path=<PATH>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+teku voluntary-exit --save-exits-path=signedExitsPath
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_SAVE_EXITS_PATH=signedExitsPath
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+save-exits-path: "signedExitsPath"
+```
+
+  </TabItem>
+</Tabs>
+
+Save the generated exit messages to the specified path, don't validate exit epoch, and skip publishing them.
+
 ## `validator-keys`
 
 <Tabs>
