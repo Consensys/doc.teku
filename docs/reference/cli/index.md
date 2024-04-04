@@ -3455,34 +3455,35 @@ validators-graffiti-client-append-format: CLIENT_CODES
   </TabItem>
 </Tabs>
 
-Appends consensus layer and execution layer clients' information with a space, 
-to the user's graffiti. On a separate BN/VC setup should be set on a Beacon 
-Node. This feature helps developers and community to analyze client diversity 
-and block anomalies.
+Appends consensus layer (CL) and execution layer (EL) clients' information to the validator graffiti.
+When running a beacon node and validator client separately, set this option on the beacon node.
+This feature helps developers and community members analyze client diversity and block anomalies.
 
-The default value is set to `AUTO`.
+The default is `AUTO`.
 
-The following options are available:
-- `AUTO`: If user's graffiti is empty, it automatically updates to reveal 
-  information about the consensus and execution clients. This includes their 
-  codes and build commits, for example `TK508459f2BUbb9ba13c`, with the 
-  structure as follows:
-    + `TK` represents the Teku consensus client.
-    + `508459f2` is the Teku build commit in a 4-byte hexadecimal format.
-    + `BU` indicates the Besu execution layer client.
-    + `bb9ba13c` displays the Besu build commit in a 4-byte hexadecimal format.
+Possible values are:
 
-  If user's graffiti is set, this option will calculate space left
-  (graffiti size is 32 bytes) and if it's more than 5 characters left, appends
-  either full CL/EL version information or one of its compact forms right up to
-  4 characters (client codes only). So, if your graffiti is
-  "It's my first block!", block will be proposed with the graffiti like
-  "It's my first block TK50BUbb".
-- `CLIENT_CODES`: Appends only CL/EL client codes like `TKBU`. It's useful if
-  you are not sure that version information cannot be used to exploit
-  vulnerabilities or just don't want to share any extra information.
-- `DISABLED`: Client information is not appended. If user's graffiti is set it
-  goes as is in a block, otherwise empty graffiti is used.
+- `AUTO`: If validator graffiti is empty, it automatically updates to include information about the
+  CL/EL clients, including their codes and build commits.
+  For example, `TK508459f2BUbb9ba13c`:
+
+  - `TK` represents the Teku consensus layer client.
+  - `508459f2` is the Teku build commit.
+  - `BU` represents the Besu execution layer client.
+  - `bb9ba13c` is the Besu build commit.
+
+  If the graffiti is set, this option calculates the space left (graffiti size is 32 bytes).
+  If there are more than five characters left, it appends either the full CL/EL version information
+  or one of its compact forms up to four characters (client codes only).
+  For example, if the graffiti is `It's my first block`, it's updated to something similar to
+  `It's my first block TK50BUbb`.
+
+- `CLIENT_CODES`: Appends only CL/EL client codes such as `TKBU`.
+  This option is useful if you're not sure if version information can be used to exploit
+  vulnerabilities, or if you just don't want to share any extra information.
+
+- `DISABLED`: Client information is not appended.
+  If the graffiti is set, it goes as-is in a block, otherwise empty graffiti is used.
 
 ### `validator-is-local-slashing-protection-synchronized-enabled`
 
