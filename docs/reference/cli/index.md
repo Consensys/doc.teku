@@ -3422,6 +3422,68 @@ You can overwrite the file while Teku is running to update the graffiti.
 
 This option takes precedence over [`--validators-graffiti`](#validators-graffiti).
 
+### `validators-graffiti-client-append-format`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--validators-graffiti-client-append-format=<STRING>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--validators-graffiti-client-append-format=CLIENT_CODES
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_VALIDATORS_GRAFFITI_CLIENT_APPEND_FORMAT=CLIENT_CODES
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+validators-graffiti-client-append-format: CLIENT_CODES
+```
+
+  </TabItem>
+</Tabs>
+
+Appends consensus layer (CL) and execution layer (EL) clients' information to the validator graffiti.
+When running a beacon node and validator client separately, set this option on the beacon node.
+This feature helps developers and community members analyze client diversity and block anomalies.
+
+The default is `AUTO`.
+
+Possible values are:
+
+- `AUTO`: If validator graffiti is empty, it automatically updates to include information about the
+  CL/EL clients, including their codes and build commits.
+  For example, `TK508459f2BUbb9ba13c`:
+
+  - `TK` represents the Teku consensus layer client.
+  - `508459f2` is the Teku build commit.
+  - `BU` represents the Besu execution layer client.
+  - `bb9ba13c` is the Besu build commit.
+
+  If the graffiti is set, this option calculates the space left (graffiti size is 32 bytes).
+  If there are more than five characters left, it appends either the full CL/EL version information
+  or one of its compact forms up to four characters (client codes only).
+  For example, if the graffiti is `It's my first block`, it's updated to something similar to
+  `It's my first block TK50BUbb`.
+
+- `CLIENT_CODES`: Appends only CL/EL client codes such as `TKBU`.
+  This option is useful if you're not sure if version information can be used to exploit
+  vulnerabilities, or if you just don't want to share any extra information.
+
+- `DISABLED`: Client information is not appended.
+  If the graffiti is set, it goes as-is in a block, otherwise empty graffiti is used.
 
 ### `validator-is-local-slashing-protection-synchronized-enabled`
 
