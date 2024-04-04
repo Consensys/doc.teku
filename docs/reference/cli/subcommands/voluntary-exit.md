@@ -244,7 +244,9 @@ save-exits-path: "signedExitsPath"
   </TabItem>
 </Tabs>
 
-Save the generated exit messages to the specified path, don't validate exit epoch, and skip publishing them.
+Path at which to save the generated exit messages.
+This option [creates but doesn't submit an exit](../../../how-to/voluntarily-exit.md#create-but-dont-submit-an-exit).
+It doesn't validate the exit epoch, and doesn't publish the exit messages.
 
 ## `validator-keys`
 
