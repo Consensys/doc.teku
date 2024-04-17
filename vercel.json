@@ -3,12 +3,12 @@
   "redirects": [
     {
       "source": "/en/latest",
-      "destination": "/development/public-networks",
+      "destination": "/development/introduction",
       "permanent": true
     },
     {
       "source": "/en/latest/",
-      "destination": "/development/public-networks",
+      "destination": "/development/introduction",
       "permanent": true
     },
     {
@@ -33,12 +33,12 @@
     },
     {
       "source": "/development",
-      "destination": "/development/public-networks",
+      "destination": "/development/introduction",
       "permanent": true
     },
     {
       "source": "/:path(\\d*\\.\\d*\\.\\d*)",
-      "destination": "/:path*/public-networks",
+      "destination": "/:path*/introduction",
       "permanent": true
     }
   ]
