@@ -29,14 +29,14 @@ The [command line reference](../../reference/cli/index.md) includes configuratio
 
 ```yaml title="Sample YAML configuration file"
 # network
-network: "goerli"
+network: "holesky"
 
 # p2p
 p2p-enabled: true
 p2p-port: 9000
 
 # validators
-validator-keys: "/Users/me/node/goerli/validator/keys:/Users/me/node/goerli/validator/passwords"
+validator-keys: "/Users/me/node/holesky/validator/keys:/Users/me/node/holesky/validator/passwords"
 validators-graffiti: "Teku validator"
 
 # Eth 1
