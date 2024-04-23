@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 # Connect to a testnet
 
 Run Teku as a consensus client with any execution client on a testnet (for example [Holesky](https://github.com/eth-clients/holesky) or
-[Sepolia](https://github.com/eth-clients/sepolia).
+[Sepolia](https://github.com/eth-clients/sepolia)).
 
 If you're using [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can follow the
 [Besu and Teku testnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-testnet/).
