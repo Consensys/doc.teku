@@ -26,7 +26,7 @@ docker run consensys/teku:latest --help
 You can specify [Teku environment variables](../../reference/cli/index.md#teku-environment-variables) with the docker image instead of the command line options.
 
 ```bash title="Example using Environment variables and CLI options"
-docker run -d -p 9000:9000/tcp -p 9000:9000/udp -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=goerli --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --data-path=/var/lib/teku --log-destination=CONSOLE
+docker run -d -p 9000:9000/tcp -p 9000:9000/udp -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=holesky --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --data-path=/var/lib/teku --log-destination=CONSOLE
 ```
 
 :::tip
@@ -44,7 +44,7 @@ If using a local volume to mount data, ensure the permissions on the directory a
 Use the Docker [`--user`](https://docs.docker.com/engine/reference/commandline/run/) option to run the container for the specified user. Use the UID because the username may not exist inside the docker container.
 
 ```bash title="Example"
-docker run -p 9000:9000/tcp -p 9000:9000/udp --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --data-base-path=/var/lib/teku --network=goerli --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords
+docker run -p 9000:9000/tcp -p 9000:9000/udp --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --data-base-path=/var/lib/teku --network=holesky --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords
 ```
 
 ## Exposing ports
@@ -63,7 +63,7 @@ docker run -p <localportP2P>:30303/tcp -p <localportP2P>:30303/udp -p <localport
 ```
 
 ```bash title="Example"
-docker run -p 30303:30303/tcp -p 30303:30303/udp -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=goerli --data-base-path=/var/lib/teku --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --rest-api-enabled=true
+docker run -p 30303:30303/tcp -p 30303:30303/udp -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=holesky --data-base-path=/var/lib/teku --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --rest-api-enabled=true
 ```
 
 ## Run Teku using Docker Compose
@@ -83,7 +83,7 @@ The example assumes the validators specified in [`--validator-keys`](../../refer
 Run `docker-compose up` in the directory containing the `docker-compose.yml` file to start the container.
 
 <Tabs>
-  <TabItem value="Goerli" label="Goerli" default>
+  <TabItem value="Holesky" label="Holesky" default>
 
 ```yaml
 ---
@@ -93,7 +93,7 @@ services:
     image: hyperledger/besu:latest
     command:
       [
-        "--network=goerli",
+        "--network=holesky",
         "--data-path=/var/lib/besu/data",
         "--host-allowlist=*",
         "--sync-mode=FAST",
@@ -119,7 +119,7 @@ services:
     image: consensys/teku:latest
     command:
       [
-        "--network=goerli",
+        "--network=holesky",
         "--data-base-path=/var/lib/teku/data",
         "--validators-proposer-default-fee-recipient=YOUR_WALLET",
         "--ee-endpoint=http://besu_node:8551",

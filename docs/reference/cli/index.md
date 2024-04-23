@@ -543,7 +543,7 @@ Normally, at sync, Teku requests all deposit logs from the execution layer up to
 loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources
 and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both
 operations by bundling deposit tree snapshots in the Teku distribution for all major
-networks (Mainnet, Gnosis, Goerli, and Sepolia) and persisting the current tree after finalization. Instead of
+networks (Mainnet, Gnosis, Holesky, and Sepolia) and persisting the current tree after finalization. Instead of
 replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one.
 
 :::info Security considerations
@@ -806,9 +806,7 @@ eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b
 
 Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds the first provider in the list that is available, on the right chain, and in sync. This option must be specified if running a validator.
 
-If not specified (that is, you're running a beacon node only), then provide an initial state using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to provide an initial state if running a public network which has already started (for example, Mainnet or Goerli).
-
-If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL. For example, `https://goerli.infura.io/v3/<Project_ID>`.
+If not specified (that is, you're running a beacon node only), then provide an initial state using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to provide an initial state if running a public network which has already started (for example, Mainnet or Holesky).
 
 :::caution
 
@@ -1647,7 +1645,6 @@ Possible values are:
 | :-------- | :-------------- | :--------- | :---------------------------------------------------------------------- |
 | `mainnet` | Consensus layer | Production | Main network                                                            |
 | `minimal` | Consensus layer | Test       | Used for local testing and development networks                         |
-| `goerli`  | Consensus layer | Test       | Multi-client testnet                                                    |
 | `gnosis`  | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/)                  |
 | `holesky` | Consensus layer | Test       | Multi-client testnet                                                    |
 | `sepolia` | Consensus layer | Test       | Multi-client testnet                                                    |

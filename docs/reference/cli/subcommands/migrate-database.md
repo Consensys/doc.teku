@@ -170,7 +170,6 @@ Possible values are:
 | :-- | :-- | :-- | :-- |
 | `mainnet` | Consensus layer | Production | Main network |
 | `minimal` | Consensus layer | Test | Used for local testing and development networks |
-| `goerli` | Consensus layer | Test | Multi-client testnet |
 | `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/) |
 | `holesky` | Consensus layer | Test | Multi-client testnet |
 | `sepolia` | Consensus layer | Test | Multi-client testnet |
