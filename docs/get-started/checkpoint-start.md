@@ -30,7 +30,7 @@ teku --eth1-endpoint=http://localhost:8545 \
 ```
 
 The command uses the [`--checkpoint-sync-url`](../reference/cli/index.md#checkpoint-sync-url) option
-to download the finalized checkpoint state.
+to download the finalized checkpoint state. Please note that when using this option, you must delete your existing beacon node database (e.g. `<data-path>/beacon/db`) so Teku can download the new finalized state that will be used for your node.
 
 :::note
 You can also download a finalized checkpoint state file, and specify the location using the
