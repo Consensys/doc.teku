@@ -3470,7 +3470,7 @@ Possible values are:
   - `bb9ba13c` is the Besu build commit.
 
   If the graffiti is set, this option calculates the space left (graffiti size is 32 bytes).
-  If there are more than five characters left, it appends either the full CL/EL version information
+  If there are more than 4 characters left, it appends either the full CL/EL version information
   or one of its compact forms up to four characters (client codes only).
   For example, if the graffiti is `It's my first block`, it's updated to something similar to
   `It's my first block TK50BUbb`.
