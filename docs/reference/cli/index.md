@@ -121,7 +121,7 @@ builder-bid-compare-factor: 50
   </TabItem>
 </Tabs>
 
-The builder bid compare factor. The default is 100 (100%).
+The builder bid compare factor. The default is 90 (90%).
 
 Execution layer clients in [Capella-enabled networks](https://notes.ethereum.org/@launchpad/withdrawals-faq#Q-What-is-ShanghaiCapella) provide the execution payload and the payload value. The beacon node compares this value against the builder bid to maximize the validator's profit or decrease network censorship at a low or no cost.
 
@@ -241,7 +241,7 @@ If it can't download the finalized state, it tries to download the genesis state
 See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 :::
 
-When this option is set, and `--deposit-snapshot-enabled` is also not set or disabled, 
+When this option is set, and `--deposit-snapshot-enabled` is also not set or disabled,
 the `--checkpoint-sync-url` value will be used to determine the deposit snapshot.
 
 ### `config-file`
@@ -504,7 +504,6 @@ data-validator-path: "/home/me/me_validator"
 
 Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
-
 ### `deposit-snapshot-enabled`
 
 <Tabs>
@@ -538,14 +537,14 @@ deposit-snapshot-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables using a bundled deposit contract tree snapshot and persisting the tree after finalization. The default is `true`.
+Enables or disables using a deposit tree snapshot from checkpoint sync or distributed as part of Teku's binary and persisting the tree after finalization. The default is `true`.
 
 Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku
 loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources
 and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both
 operations by bundling deposit tree snapshots in the Teku distribution for all major
-networks (Mainnet, Gnosis, Goerli, and Sepolia) and persisting the current tree after finalization. Instead of
-replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one, whichever is the latest.
+networks (Mainnet, Gnosis, Holesky, and Sepolia) and persisting the current tree after finalization. Instead of
+replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one.
 
 :::info Security considerations
 If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received
@@ -659,7 +658,7 @@ ee-jwt-claim-id: "foobar"
 </Tabs>
 
 A unique identifier for the consensus layer client. When using the JSON-RPC API engine, this identifier is added to JWT claims as an `id` claim.
-  
+
 ### `ee-jwt-secret-file`
 
 <Tabs>
@@ -807,9 +806,7 @@ eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b
 
 Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds the first provider in the list that is available, on the right chain, and in sync. This option must be specified if running a validator.
 
-If not specified (that is, you're running a beacon node only), then provide an initial state using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to provide an initial state if running a public network which has already started (for example, Mainnet or Goerli).
-
-If using a cloud-based service such as [Infura], then set the endpoint to the supplied URL. For example, `https://goerli.infura.io/v3/<Project_ID>`.
+If not specified (that is, you're running a beacon node only), then provide an initial state using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to provide an initial state if running a public network which has already started (for example, Mainnet or Holesky).
 
 :::caution
 
@@ -886,7 +883,7 @@ exit-when-no-validator-keys-enabled: true
 </Tabs>
 
 The default setting is `false`.
-If this option is set to `false`, Teku continues running even when no validator keys are loaded. 
+If this option is set to `false`, Teku continues running even when no validator keys are loaded.
 
 If this option is set to `true`, Teku automatically exits if no validator keys are loaded, or there are no active validators.
 
@@ -1385,7 +1382,7 @@ metrics-categories: ["BEACON", "JVM", "PROCESS"]
   </TabItem>
 </Tabs>
 
-Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`.  All but `VALIDATOR_DUTY` categories are enabled by default.
+Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`. All but `VALIDATOR_DUTY` categories are enabled by default.
 
 When `metrics-categories` is used, only the categories specified in this option are enabled (all other categories are disabled).
 
@@ -1644,16 +1641,15 @@ The default is `mainnet`.
 
 Possible values are:
 
-| Network | Chain | Type | Description |
-| :-- | :-- | :-- | :-- |
-| `mainnet` | Consensus layer | Production | Main network |
-| `minimal` | Consensus layer | Test | Used for local testing and development networks |
-| `goerli` | Consensus layer | Test | Multi-client testnet |
-| `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/) |
-| `holesky` | Consensus layer | Test | Multi-client testnet |
-| `sepolia` | Consensus layer | Test | Multi-client testnet |
-| `chiado`  | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/concepts/networks/chiado) |
-| `lukso` | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/) |
+| Network   | Chain           | Type       | Description                                                             |
+| :-------- | :-------------- | :--------- | :---------------------------------------------------------------------- |
+| `mainnet` | Consensus layer | Production | Main network                                                            |
+| `minimal` | Consensus layer | Test       | Used for local testing and development networks                         |
+| `gnosis`  | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/)                  |
+| `holesky` | Consensus layer | Test       | Multi-client testnet                                                    |
+| `sepolia` | Consensus layer | Test       | Multi-client testnet                                                    |
+| `chiado`  | Consensus layer | Test       | Gnosis [testnet](https://docs.gnosischain.com/concepts/networks/chiado) |
+| `lukso`   | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/)                   |
 
 Predefined networks can provide defaults such as the initial state of the network, bootnodes, and the address of the deposit contract.
 
@@ -1764,6 +1760,44 @@ p2p-advertised-udp-port: 1789
 
 The advertised UDP port to external peers. The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set. Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
 
+### `p2p-direct-peers`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-direct-peers=<ADDRESS>[,<ADDRESS>...]...
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-direct-peers=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_DIRECT_PEERS=/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz,/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-direct-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
+                    "/ip4/151.150.191.80/tcp/9000/p2p/16Ui...q6f1"]
+```
+
+  </TabItem>
+</Tabs>
+
+List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers
+with which to establish and maintain connections. Direct peers are static peers with which this node will always
+exchange full messages, regardless of peer scoring mechanisms. Such peers will also need to enable you as direct
+in order to work.
 
 ### `p2p-discovery-bootnodes`
 
@@ -1800,8 +1834,6 @@ p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
 </Tabs>
 
 List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
-
-
 
 ### `p2p-discovery-enabled`
 
@@ -2103,7 +2135,6 @@ p2p-port: 1789
 
 Specifies the P2P listening ports (UDP and TCP). The default is `9000`.
 
-
 ### `p2p-private-key-file`
 
 <Tabs>
@@ -2181,7 +2212,8 @@ p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
   </TabItem>
 </Tabs>
 
-List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers.
+List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers
+with which to establish and maintain connections.
 
 ### `p2p-subscribe-all-subnets-enabled`
 
@@ -2919,7 +2951,6 @@ validator-api-port: 5052
 
 The [validator REST API](../rest.md#enable-the-validator-client-api) listening port (HTTP). The default is 5052.
 
-
 ### `validators-builder-registration-default-enabled`
 
 <Tabs>
@@ -3387,6 +3418,111 @@ File containing the validator graffiti to add when creating a block. The file co
 You can overwrite the file while Teku is running to update the graffiti.
 
 This option takes precedence over [`--validators-graffiti`](#validators-graffiti).
+
+### `validators-graffiti-client-append-format`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--validators-graffiti-client-append-format=<STRING>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--validators-graffiti-client-append-format=CLIENT_CODES
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_VALIDATORS_GRAFFITI_CLIENT_APPEND_FORMAT=CLIENT_CODES
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+validators-graffiti-client-append-format: CLIENT_CODES
+```
+
+  </TabItem>
+</Tabs>
+
+Appends consensus layer (CL) and execution layer (EL) clients' information to the validator graffiti.
+When running a beacon node and validator client separately, set this option on the beacon node.
+This feature helps developers and community members analyze client diversity and block anomalies.
+
+The default is `AUTO`.
+
+Possible values are:
+
+- `AUTO`: If validator graffiti is empty, it automatically updates to include information about the
+  CL/EL clients, including their codes and build commits.
+  For example, `TK508459f2BUbb9ba13c`:
+
+  - `TK` represents the Teku consensus layer client.
+  - `508459f2` is the Teku build commit.
+  - `BU` represents the Besu execution layer client.
+  - `bb9ba13c` is the Besu build commit.
+
+  If the graffiti is set, this option calculates the space left (graffiti size is 32 bytes).
+  If there are more than four characters left, it appends either the full CL/EL version information
+  or one of its compact forms up to four characters (client codes only).
+  For example, if the graffiti is `It's my first block`, it's updated to something similar to
+  `It's my first block TK50BUbb`.
+
+- `CLIENT_CODES`: Appends only CL/EL client codes such as `TKBU`.
+  This option is useful if you're not sure if version information can be used to exploit
+  vulnerabilities, or if you just don't want to share any extra information.
+
+- `DISABLED`: Client information is not appended.
+  If the graffiti is set, it goes as-is in a block, otherwise empty graffiti is used.
+
+### `validator-is-local-slashing-protection-synchronized-enabled`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--validator-is-local-slashing-protection-synchronized-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--validator-is-local-slashing-protection-synchronized-enabled=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_VALIDATOR_IS_LOCAL_SLASHING_PROTECTION_SYNCHRONIZED_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+validator-is-local-slashing-protection-synchronized-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+Controls whether Teku performs slashing protection checks in a sequential or concurrent manner. The default is
+`true`, meaning slashing protection checks in Teku are performed sequentially.
+
+Sequential checks restrict the throughput of duties, and under some scenarios, can improve performance to allow
+more granular in-process locking of slashing protection data.
+
+If set to `false`, the local slashing protection process will be able to check if signing is safe for multiple
+keys concurrently, reducing latencies experienced while performing these checks.
 
 ### `validator-keys`
 
