@@ -6,8 +6,7 @@ sidebar_position: 9
 
 # Withdrawals
 
-Validators staking ether on Mainnet after [The Merge](merge.md), accrue two
-forms of rewards:
+Validators staking ether on Mainnet, accrue two forms of rewards:
 
 - Execution layer rewards paid directly to a withdrawal address (Ethereum address).
 - Consensus layer rewards for performing actions each epoch.

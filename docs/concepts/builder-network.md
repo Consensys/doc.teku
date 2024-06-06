@@ -6,9 +6,9 @@ sidebar_position: 2
 
 # Builder network and MEV-Boost
 
-[Consensus clients](merge.md#consensus-clients) are responsible for proposing
+[Consensus clients](./node-types.md#consensus-clients) are responsible for proposing
 blocks containing an execution payload obtained from their local
-[execution clients](merge.md#execution-clients) via the Engine API.
+[execution clients](./node-types.md#execution-clients) via the Engine API.
 
 A consensus client can optionally configure an external builder and delegate the
 execution payload construction to it, instead of using the execution client.

@@ -8,15 +8,15 @@ sidebar_position: 1
 
 :::info
 
-[The Merge](../../concepts/merge.md) was executed on **September 15, 2022**.
-
-Ethereum is now a [proof of stake](../../concepts/proof-of-stake.md) network, and a full Ethereum node requires both [an execution client and a consensus client](../../concepts/merge.md#execution-and-consensus-clients).
+Ethereum is a [proof-of-stake](../../concepts/proof-of-stake.md) network, and a full Ethereum node requires
+both [an execution client and a consensus client](../../concepts/node-types.md#execution-and-consensus-clients).
 
 :::
 
 Run Teku as a consensus client with any execution client on Ethereum Mainnet.
 
-If you're using [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can follow the [Besu and Teku Mainnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-mainnet/).
+If you're using [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can
+follow the [Besu and Teku Mainnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-mainnet/).
 
 ## Prerequisites
 

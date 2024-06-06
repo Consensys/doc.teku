@@ -6,13 +6,14 @@ sidebar_position: 3
 
 # Proof of stake
 
-[The Merge](merge.md) transitioned Ethereum Mainnet to [proof of stake (PoS)](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/) consensus.
-
-In Ethereum's PoS, you must run a [full node](merge.md#execution-and-consensus-clients) and [stake 32 ETH](https://ethereum.org/en/staking/) to become a validator.
+In Ethereum's [proof of stake (PoS)](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/), you
+must run a [full node](node-types.md#execution-and-consensus-clients) and
+[stake 32 ETH](https://ethereum.org/en/staking/) to become a validator.
 
 :::note
 
-You must run a beacon node and an execution client to operate a node on Mainnet. To become a validator, you must also run a validator client (either [in the same process as the beacon node](../get-started/start-teku.md#start-the-clients-in-a-single-process) or [separately](../get-started/start-teku.md#run-the-clients-separately).
+You must run a beacon node and an execution client to operate a node on Mainnet. To become a validator, you
+must also run a validator client either [in the same process as the beacon node](../get-started/start-teku.md#start-the-clients-in-a-single-process) or [separately](../get-started/start-teku.md#run-the-clients-separately).
 
 :::
 
@@ -22,7 +23,7 @@ Proposers are responsible for proposing new consensus blocks, and non-proposing 
 
 Each consensus block contains an execution payload, which contains a list of transactions and other data required to execute and validate the payload.
 
-When a node validates a consensus block, its [consensus client](merge.md#execution-and-consensus-clients) processes the block and sends the execution payload to the [execution client](merge.md#execution-and-consensus-clients), which:
+When a node validates a consensus block, its [consensus client](node-types.md#execution-and-consensus-clients) processes the block and sends the execution payload to the [execution client](node-types.md#execution-and-consensus-clients), which:
 
 1. Assembles a block on the execution layer.
 1. Verifies pre-conditions.
