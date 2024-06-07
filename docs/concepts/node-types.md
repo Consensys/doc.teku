@@ -12,7 +12,7 @@ An Ethereum node is an instance of an Ethereum client, which consists of:
 :::info
 
 Before The Merge, execution clients were known as
-[Eth1 clients]((https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/)), and consensus clients
+[Eth1 clients](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/), and consensus clients
 were called [Eth2 clients](https://blog.ethereum.org/2022/01/24/the-great-eth2-renaming/).
 
 The Merge, completed on **September 15, 2022**, transitioned Ethereum from
