@@ -423,6 +423,10 @@ const config = {
             from: "/category/tutorials",
             to: "/tutorials",
           },
+          {
+            from: "/concepts/merge",
+            to: "/concepts/node-types",
+          },
         ],
       },
     ],
