@@ -27,7 +27,7 @@ Below is a table with the old and new names of the metrics changed in the releas
 | executor_signature_verifications_batch_count | executor_signature_verifications_batch_count_total |
 | executor_signature_verifications_task_count  | executor_signature_verifications_task_count_total  |
 | network_peer_chain_validation_attempts       | network_peer_chain_validation_attempts_total       |
-| network_peer_connection_attempt_count        | peer_connection_attempt_count_total                |
+| network_peer_connection_attempt_count        | network_peer_connection_attempt_count_total        |
 | storage_finalized_state_branch_nodes         | storage_finalized_state_branch_nodes_total         |
 | storage_finalized_state_leaf_nodes           | storage_finalized_state_leaf_nodes_total           |
 | storage_finalized_states_stored              | storage_finalized_states_stored_total              |
