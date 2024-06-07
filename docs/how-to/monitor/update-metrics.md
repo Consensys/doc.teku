@@ -14,7 +14,7 @@ If you are using a custom dashboard, you need to update the metrics names used i
 
 Below is a table with the old and new names of the metrics changed in the release:
 
-| Old Name                                     | New Name                                           |
+| Old name                                     | New name                                           |
 |----------------------------------------------|----------------------------------------------------|
 | beacon_block_blobs_trackers_pool_size        | beacon_block_blobs_trackers_pool_size_total        |
 | beacon_block_blobs_trackers_pool_stats       | beacon_block_blobs_trackers_pool_stats_total       |
