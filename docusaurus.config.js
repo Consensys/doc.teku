@@ -425,7 +425,7 @@ const config = {
           },
           {
             from: "/concepts/merge",
-            to: "/concepts/node-types",
+            to: "/concepts",
           },
         ],
       },
