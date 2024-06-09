@@ -622,7 +622,7 @@ ee-endpoint: "http://localhost:8550"
   </TabItem>
 </Tabs>
 
-URL of the [execution client's](../../concepts/merge.md#execution-clients) Engine JSON-RPC APIs. This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after [The Merge](../../concepts/merge.md).
+URL of the [execution client's](../../concepts/node-types.md#execution-clients) Engine JSON-RPC APIs. This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after [The Merge](../../concepts/node-types.md).
 
 ### `ee-jwt-claim-id`
 
@@ -692,7 +692,7 @@ ee-jwt-secret-file: "ee-jwt-secret.hex"
   </TabItem>
 </Tabs>
 
-Shared secret used to authenticate [execution clients](../../concepts/merge.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
+Shared secret used to authenticate [execution clients](../../concepts/node-types.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
 ### `eth1-deposit-contract-address`
 
@@ -810,7 +810,7 @@ If not specified (that is, you're running a beacon node only), then provide an i
 
 :::caution
 
-After [The Merge](../../concepts/merge.md), you can't use `eth1-endpoint` to specify an external execution layer provider. This option is replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
+After [The Merge](../../concepts/node-types.md), you can't use `eth1-endpoint` to specify an external execution layer provider. This option is replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
 
 :::
 
@@ -847,7 +847,7 @@ exchange-capabilities-monitoring-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables querying the [execution client](../../concepts/merge.md#execution-clients) periodically for the Engine API methods it supports. If enabled and incompatibility is detected, a warning is raised in the logs. The default is `true`.
+Enables or disables querying the [execution client](../../concepts/node-types.md#execution-clients) periodically for the Engine API methods it supports. If enabled and incompatibility is detected, a warning is raised in the logs. The default is `true`.
 
 ### `exit-when-no-validator-keys-enabled`
 

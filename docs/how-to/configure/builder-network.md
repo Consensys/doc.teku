@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 # Configure Teku to use a builder network
 
 You can connect to a [builder network](../../concepts/builder-network.md) to generate execution
-payloads for the [consensus client](../../concepts/merge.md#consensus-clients).
+payloads for the [consensus client](../../concepts/node-types.md#consensus-clients).
 
 The builder recommends new blocks that are validated by the consensus client.
 If the builder goes down, the local execution client proposes a block instead.
