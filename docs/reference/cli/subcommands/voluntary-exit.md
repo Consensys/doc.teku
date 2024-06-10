@@ -431,13 +431,13 @@ List of public keys of validators that you wish to voluntarily exit when using a
 Use the URL to load the public keys from a remote service. For example:
 
 ```bash
---validators-external-signer-public-keys=http://localhost:9900/api/v1/eth2/publicKeys
+teku voluntary-exit --validators-external-signer-public-keys=http://localhost:9900/api/v1/eth2/publicKeys
 ```
 
 Use the value `external-signer` to load all public keys managed by the external signer. Teku automatically queries the external signer's [public keys endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
 
 ```bash
---validators-external-signer-public-keys=external-signer
+teku voluntary-exit --validators-external-signer-public-keys=external-signer
 ```
 
 ## `validators-external-signer-slashing-protection-enabled`
