@@ -428,6 +428,63 @@ validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
 
 List of public keys of validators that you wish to voluntarily exit when using an external signer (for example, [Web3Signer]).
 
+Use the URL to load the public keys from a remote service. For example:
+
+```bash
+--validators-external-signer-public-keys=http://localhost:9900/api/v1/eth2/publicKeys
+```
+
+Use the value `external-signer` to load all public keys managed by the external signer. Teku automatically queries the external signer's [public keys endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
+
+```bash
+--validators-external-signer-public-keys=external-signer
+```
+
+## `validators-external-signer-slashing-protection-enabled`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+teku voluntary-exit --validators-external-signer-slashing-protection-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+teku voluntary-exit --validators-external-signer-slashing-protection-enabled=false
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_VALIDATORS_EXTERNAL_SIGNER_SLASHING_PROTECTION_ENABLED=false
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+validators-external-signer-slashing-protection-enabled: false
+```
+
+  </TabItem>
+</Tabs>
+
+Specify whether to use Teku's built-in [slashing protection] when using an external signer such as [Web3Signer]. The default is `true`.
+
+Set this option to `false` if using the slashing protection implemented by an external signer.
+
+:::warning
+
+Ensure the external signer has slashing protection enabled before disabling Teku slashing protection, otherwise a validator may get slashed.
+
+:::
+
+Built-in slashing protection can only be disabled for validators using external signers. Validators using Teku to sign blocks and attestations always uses its built-in slashing protection.
+
 ## `validators-external-signer-timeout`
 
 <Tabs>
