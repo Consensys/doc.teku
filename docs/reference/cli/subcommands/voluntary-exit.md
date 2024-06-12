@@ -440,51 +440,6 @@ Use the value `external-signer` to load all public keys managed by the external 
 teku voluntary-exit --validators-external-signer-public-keys=external-signer
 ```
 
-## `validators-external-signer-slashing-protection-enabled`
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
-teku voluntary-exit --validators-external-signer-slashing-protection-enabled[=<BOOLEAN>]
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
-teku voluntary-exit --validators-external-signer-slashing-protection-enabled=false
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_VALIDATORS_EXTERNAL_SIGNER_SLASHING_PROTECTION_ENABLED=false
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-validators-external-signer-slashing-protection-enabled: false
-```
-
-  </TabItem>
-</Tabs>
-
-Specify whether to use Teku's built-in [slashing protection] when using an external signer such as [Web3Signer]. The default is `true`.
-
-Set this option to `false` if using the slashing protection implemented by an external signer.
-
-:::warning
-
-Ensure the external signer has slashing protection enabled before disabling Teku slashing protection, otherwise a validator may get slashed.
-
-:::
-
-Built-in slashing protection can only be disabled for validators using external signers. Validators using Teku to sign blocks and attestations always uses its built-in slashing protection.
-
 ## `validators-external-signer-timeout`
 
 <Tabs>
