@@ -584,5 +584,4 @@ URL of the external signer (for example, [Web3Signer]).
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [REST API enabled]: ../index.md#rest-api-enabled
-[slashing protection]: ../../../concepts/slashing-protection.md
 [voluntary exit]: ../../../how-to/voluntarily-exit.md
