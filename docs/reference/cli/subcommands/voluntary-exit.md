@@ -428,6 +428,18 @@ validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
 
 List of public keys of validators that you wish to voluntarily exit when using an external signer (for example, [Web3Signer]).
 
+Use the URL to load the public keys from a remote service. For example:
+
+```bash
+teku voluntary-exit --validators-external-signer-public-keys=http://localhost:9900/api/v1/eth2/publicKeys
+```
+
+Use the value `external-signer` to load all public keys managed by the external signer. Teku automatically queries the external signer's [public keys endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
+
+```bash
+teku voluntary-exit --validators-external-signer-public-keys=external-signer
+```
+
 ## `validators-external-signer-timeout`
 
 <Tabs>
