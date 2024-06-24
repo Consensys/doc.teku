@@ -23,7 +23,7 @@ If Teku fails to start with an `Unexpected error when trying to lock a keystore 
 
 Teku uses a file locking mechanism for the keystores to prevent two validator clients using the same keystores at the same time.
 
-To resolve this issue, try the one of the following:
+To resolve this issue, try one of the following:
 
 - Set the permissions of the directory holding the keystores so that it is writable by Teku.
 - Set [`--validators-keystore-locking-enabled`](../../reference/cli/index.md#validators-keystore-locking-enabled) to `false` to disable the locking functionality.
@@ -40,7 +40,7 @@ If Teku fails to start with a `Keystore file <keystore_file>.lock already in use
 
 Teku uses a file locking mechanism for the keystores to prevent two validator clients using the same keystores at the same time.
 
-To resolve this issue, try the one of the following:
+To resolve this issue, try one of the following:
 
 - Manually remove the lock files that are created alongside your keystore files, with `.lock` appended to the filename. Take care not to delete your keystores.
 - Set [`--validators-keystore-locking-enabled`](../../reference/cli/index.md#validators-keystore-locking-enabled) to `false` to disable the locking functionality.
