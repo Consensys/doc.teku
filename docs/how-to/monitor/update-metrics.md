@@ -8,7 +8,7 @@ sidebar_position: 3
 
 If you are using a custom dashboard to monitor Teku metrics, you might need to update the metrics manually when breaking changes are introduced.
 
-Teku release 24.7.0 has introduced breaking changes to metrics names. To summarise every counter metric has had the suffix `_total` added to it. 
+This release of Teku has introduced breaking changes to metrics names. To summarise every counter metric that did not have the suffix `_total` has incorporated the suffix. 
 
 If you are using a custom dashboard, you need to update the metrics names used in your dashboard to reflect the changes.
 
