@@ -21,7 +21,7 @@ restart an existing sync process with checkpoint sync, do the following:
 1. Start teku with the [`--initial-state`](../../reference/cli/index.md#initial-state) option .
 
 Teku will sync within a few minutes, and downloads historic blocks in the background, so it can
-help any peers that are syncing from genesis. Teku can run validators and attest while while historic blocks are being downloaded.
+help any peers that are syncing from genesis. Teku can run validators and attest while historic blocks are being downloaded.
 
 ## Locate the multiaddress and/or ENR of a Teku beacon node
 
@@ -223,5 +223,5 @@ Set [`--data-storage-mode`](../../reference/cli/index.md#data-storage-mode) to `
 [`--reconstruct-historic-states`](../../reference/cli/index.md#reconstruct-historic-states) to rebuild
 all the old states once blocks have been downloaded.
 
-It will take a while to build up the node, but you'll be able to access all state an block information back to genesis
+It will take a while to build up the node, but you'll be able to access all state and block information back to genesis
 after it is completed.
