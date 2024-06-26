@@ -85,7 +85,7 @@ teku validator-client \
 
 :::warning
 
-Ensure that the validator keys are only provided to the validator. Don't pass the validator keys as command line options to both the beacon node and validator client. This can a cause a [slashable offense].
+Ensure that the validator keys are only provided to the validator. Don't pass the validator keys as command line options to both the beacon node and validator client. This can cause a [slashable offense].
 
 :::
 
