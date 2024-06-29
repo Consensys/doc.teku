@@ -64,17 +64,16 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // revisit this in v3 of docusaurus that is due to go GA
       // algolia: {
       //   // The application ID provided by Algolia
       //   appId: "NSRFPEJ4NC",
       //   // Public API key: it is safe to commit it
       //   apiKey: "cea41b975ad6c9a01408dfda6e0061d3",
       //   indexName: "teku",
-      //   // Optional: see doc section below
+      //   // ensures that search results are relevant to the current language and version.
       //   contextualSearch: true,
       //   // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-      //   externalUrlRegex: "external\\.com|domain\\.com",
+      //   // externalUrlRegex: "external\\.com|domain\\.com",
       //   // Optional: Algolia search parameters
       //   searchParameters: {},
       //   // Optional: path for search page that enabled by default (`false` to disable it)
@@ -434,12 +433,11 @@ const config = {
   themes: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
-      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
-      ({
-        hashed: true,
+      {
         docsRouteBasePath: "/",
+        hashed: true,
         indexBlog: false,
-      }),
+      },
     ],
   ],
 };
