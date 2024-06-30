@@ -1,38 +1,38 @@
 ---
 title: Update metrics
-description: Update metrics manually if you're using a custom dashboard.
+description: Manually update metrics for your custom dashboard.
 sidebar_position: 3
 ---
 
-# Update metrics manually
+# Update metrics
 
-If you are using a custom dashboard to monitor Teku metrics, you might need to update the metrics manually when breaking changes are introduced.
+Manually update Teku metrics for your custom dashboard.
 
-This release of Teku has introduced breaking changes to metrics names. Every counter metric that did not have the suffix `_total` has incorporated the suffix. 
+Teku has introduced changes to metric names, adding the `_total` suffix to counter metrics that previously did not have it.
 
-If you are using a custom dashboard, you need to update the metrics names used in your dashboard to reflect the changes.
+If you are using a custom dashboard, you must update the metric names to reflect these changes.  
 
-Below is a table with the old and new names of the metrics changed in the release:
+The following table lists the name changes for Teku metrics:
 
-| Old name                                     | New name                                           |
-|----------------------------------------------|----------------------------------------------------|
-| beacon_block_blobs_trackers_pool_size        | beacon_block_blobs_trackers_pool_size_total        |
-| beacon_block_blobs_trackers_pool_stats       | beacon_block_blobs_trackers_pool_stats_total       |
-| beacon_eth1_request_queue_size               | beacon_eth1_request_queue_size_total               |
-| beacon_execution_payload_source              | beacon_execution_payload_source_total              |
-| beacon_teku_version                          | beacon_teku_version_total                          |
-| eventbus_event_consumed_count                | eventbus_event_consumed_count_total                |
-| eventbus_event_failed_count                  | eventbus_event_failed_count_total                  |
-| eventbus_event_published_count               | eventbus_event_published_count_total               |
-| executor_signature_verifications_batch_count | executor_signature_verifications_batch_count_total |
-| executor_signature_verifications_task_count  | executor_signature_verifications_task_count_total  |
-| network_peer_chain_validation_attempts       | network_peer_chain_validation_attempts_total       |
-| network_peer_connection_attempt_count        | network_peer_connection_attempt_count_total        |
-| storage_finalized_state_branch_nodes         | storage_finalized_state_branch_nodes_total         |
-| storage_finalized_state_leaf_nodes           | storage_finalized_state_leaf_nodes_total           |
-| storage_finalized_states_stored              | storage_finalized_states_stored_total              |
-| validator_duties_performed                   | validator_duties_performed_total                   |
-| validator_external_signer_requests           | validator_external_signer_requests_total           |
+| Previous Teku metric name                      | New Teku metric name                                 |
+|------------------------------------------------|------------------------------------------------------|
+| `beacon_block_blobs_trackers_pool_size`        | `beacon_block_blobs_trackers_pool_size_total`        |
+| `beacon_block_blobs_trackers_pool_stats`       | `beacon_block_blobs_trackers_pool_stats_total`       |
+| `beacon_eth1_request_queue_size`               | `beacon_eth1_request_queue_size_total`               |
+| `beacon_execution_payload_source`              | `beacon_execution_payload_source_total`              |
+| `beacon_teku_version`                          | `beacon_teku_version_total`                          |
+| `eventbus_event_consumed_count`                | `eventbus_event_consumed_count_total`                |
+| `eventbus_event_failed_count`                  | `eventbus_event_failed_count_total`                  |
+| `eventbus_event_published_count`               | `eventbus_event_published_count_total`               |
+| `executor_signature_verifications_batch_count` | `executor_signature_verifications_batch_count_total` |
+| `executor_signature_verifications_task_count`  | `executor_signature_verifications_task_count_total`  |
+| `network_peer_chain_validation_attempts`       | `network_peer_chain_validation_attempts_total`       |
+| `network_peer_connection_attempt_count`        | `network_peer_connection_attempt_count_total`        |
+| `storage_finalized_state_branch_nodes`         | `storage_finalized_state_branch_nodes_total`         |
+| `storage_finalized_state_leaf_nodes`           | `storage_finalized_state_leaf_nodes_total`           |
+| `storage_finalized_states_stored`              | `storage_finalized_states_stored_total`              |
+| `validator_duties_performed`                   | `validator_duties_performed_total`                   |
+| `validator_external_signer_requests`           | `validator_external_signer_requests_total`           |
 
 
 
