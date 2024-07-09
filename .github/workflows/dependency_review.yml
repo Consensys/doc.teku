@@ -1,18 +1,24 @@
-name: 'Dependency Review'
+---
+name: Check file name case
 
-on: [pull_request]
-
-permissions:
-  contents: read
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  dependency-review:
+  case:
+    name: Check for licences not being allowed
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        folder: ["docs"]
+    permissions:
+      contents: read
     steps:
-      - name: 'Checkout Repository'
-        uses: actions/checkout@v4
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v3
+      - uses: actions/checkout@v3
+
+      - name: Dependency review
+        uses: ConsenSys/docs-gha/dependency-review@main
         with:
-          fail-on-severity: high
-          deny-licenses: LGPL-2.0, BSD-2-Clause
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
