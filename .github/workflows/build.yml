@@ -2,6 +2,7 @@
 name: Build
 
 on:
+  workflow_call:
   pull_request:
     branches:
       - main
@@ -13,7 +14,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Build
         uses: ConsenSys/docs-gha/build@main
