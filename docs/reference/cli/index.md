@@ -1686,7 +1686,8 @@ p2p-advertised-ip: "192.168.1.132"
   </TabItem>
 </Tabs>
 
-Advertised peer-to-peer IP address(es). You can define up to 2 addresses, with one being IPv4 and the other IPv6. The default is `127.0.0.1`.
+Advertises the peer-to-peer IP address(es). You can define up to two addresses: one IPv4 and one IPv6. 
+The default address is `127.0.0.1`.
 
 ### `p2p-advertised-port`
 
@@ -1721,9 +1722,10 @@ p2p-advertised-port: 1789
   </TabItem>
 </Tabs>
 
-The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2p-port).
+Advertises the P2P port. The default is the port specified in [`--p2p-port`](#p2p-port).
 
-The advertised port can differ from the [`--p2p-port`](#p2p-port). For example, you can set the advertised port to 9010, and the `--p2p-port` value to 9009, then manually configure the firewall to forward external incoming requests on port 9010 to port 9009 on the Teku node.
+The advertised port can differ from the [`--p2p-port`](#p2p-port). 
+For example, you can set the advertised port to `9010`, and the `--p2p-port` value to `9009`, then manually configure the firewall to forward external incoming requests on port `9010` to port `9009` on the Teku node.
 
 ### `p2p-advertised-port-ipv6`
 
@@ -1758,7 +1760,8 @@ p2p-advertised-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The advertised P2P IPv6 port. This port is only used when advertising both IPv4 and IPv6 addresses. The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
+Advertises the P2P IPv6 port. Use this port only when advertising both IPv4 and IPv6 addresses. 
+The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `p2p-advertised-udp-port`
 
@@ -1793,7 +1796,9 @@ p2p-advertised-udp-port: 1789
   </TabItem>
 </Tabs>
 
-The advertised UDP port to external peers. The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set. Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
+Advertises the UDP port to external peers. 
+The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set. 
+Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
 
 ### `p2p-advertised-udp-port-ipv6`
 
@@ -1828,7 +1833,9 @@ p2p-advertised-udp-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The advertised IPv6 UDP port to external peers. This port is only used when advertising both IPv4 and IPv6 addresses. The default is the port specified in [`--p2p-advertised-port-ipv6`](#p2p-advertised-port-ipv6) if it is set. Otherwise, the default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
+Advertises IPv6 UDP port to external peers. This port is only used when advertising both IPv4 and IPv6 addresses. 
+The default is the port specified in [`--p2p-advertised-port-ipv6`](#p2p-advertised-port-ipv6) if it is set. 
+Otherwise, the default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `p2p-direct-peers`
 
@@ -1864,7 +1871,7 @@ p2p-direct-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
   </TabItem>
 </Tabs>
 
-List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers
+Lists comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers
 with which to establish and maintain connections. Direct peers are static peers with which this node will always
 exchange full messages, regardless of peer scoring mechanisms. Such peers will also need to enable you as direct
 in order to work.
@@ -1903,7 +1910,7 @@ p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
   </TabItem>
 </Tabs>
 
-List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
+Lists comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
 
 ### `p2p-discovery-enabled`
 
