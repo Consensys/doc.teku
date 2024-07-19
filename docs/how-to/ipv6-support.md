@@ -1,7 +1,7 @@
 ---
 title: IPv6 support
 description: IPv6 support
-sidebar_position: 6
+sidebar_position: 13
 ---
 
 # IPv6 support
