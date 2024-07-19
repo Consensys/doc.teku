@@ -502,7 +502,7 @@ data-validator-path: "/home/me/me_validator"
   </TabItem>
 </Tabs>
 
-Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
+Specifies the path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### `deposit-snapshot-enabled`
 
@@ -2442,7 +2442,8 @@ p2p-udp-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The IPv6 UDP port used for discovery. This port is only used when listening over both IPv4 and IPv6. The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
+Specifies the IPv6 UDP port used for discovery. Use this port only when listening over both IPv4 and IPv6.
+The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `reconstruct-historic-states`
 
