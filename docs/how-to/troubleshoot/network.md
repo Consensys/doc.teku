@@ -70,7 +70,7 @@ View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip
 ### Advertised IP address issues
 
 A possible reason for incoming peers being unable to connect could be an incorrect address specified using the
-[`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip) option. Teku auto-detects the address to use by
+[`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips) option. Teku auto-detects the address to use by
 default, so most users won't need to use this option. If you're experiencing issues with incoming peers despite having
 correct firewall and forwarding settings, this could potentially be the cause.
 
