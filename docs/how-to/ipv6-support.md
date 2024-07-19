@@ -14,10 +14,10 @@ To configure Teku to listen only on IPv6, set the [`--p2p-interface`](../referen
 
 ## Listen over both IPv4 and IPv6 
 
-To configure Teku to listen over both IPv4 and IPv6 also known as dual-stack support, configure the [`--p2p-interface`](../reference/cli/index.md#p2p-interface-p2p-interfaces) CLI option to `0.0.0.0,::` for both IPv4 and IPv6 listening addresses. 
-In this setup, the [`--p2p-port`](../reference/cli/index.md#p2p-port) and [`--p2p-udp-port`](../reference/cli/index.md#p2p-udp-port) options apply to the IPv4 address, while the [`--p2p-port-ipv6`](../reference/cli/index.md#p2p-port-ipv6) and [`--p2p-udp-port-ipv6`](../reference/cli/index.md#p2p-udp-port-ipv6) options apply to the IPv6 address.
+To configure Teku to listen over both IPv4 and IPv6, also known as dual-stack support, set the [`--p2p-interface`](../reference/cli/index.md#p2p-interface-p2p-interfaces) CLI option to `0.0.0.0,::` for both IPv4 and IPv6 listening addresses. 
+In this setup, the [`--p2p-port`](../reference/cli/index.md#p2p-port) and [`--p2p-udp-port`](../reference/cli/index.md#p2p-udp-port) options apply to the IPv4 address. The [`--p2p-port-ipv6`](../reference/cli/index.md#p2p-port-ipv6) and [`--p2p-udp-port-ipv6`](../reference/cli/index.md#p2p-udp-port-ipv6) options apply to the IPv6 address.
 
-After dual-stack is enabled, Teku uses port `9000` for both TCP and UDP on IPv4, and port `9090` for both TCP and UDP on IPv6 by default.
+After dual-stack support is enabled, Teku uses port `9000` for both TCP and UDP on IPv4, and port `9090` for both TCP and UDP on IPv6 by default.
 
 ## Advertise only IPv6 address
 
