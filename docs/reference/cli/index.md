@@ -1653,7 +1653,7 @@ Possible values are:
 
 Predefined networks can provide defaults such as the initial state of the network, bootnodes, and the address of the deposit contract.
 
-### `p2p-advertised-ip`
+### `p2p-advertised-ip`, `p2p-advertised-ips`
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
@@ -1686,7 +1686,7 @@ p2p-advertised-ip: "192.168.1.132"
   </TabItem>
 </Tabs>
 
-Advertised peer-to-peer IP address. The default is `127.0.0.1`.
+Advertised peer-to-peer IP address(es). You can define up to 2 addresses, with one being IPv4 and the other IPv6. The default is `127.0.0.1`.
 
 ### `p2p-advertised-port`
 
@@ -1725,6 +1725,41 @@ The advertised P2P port. The default is the port specified in [`--p2p-port`](#p2
 
 The advertised port can differ from the [`--p2p-port`](#p2p-port). For example, you can set the advertised port to 9010, and the `--p2p-port` value to 9009, then manually configure the firewall to forward external incoming requests on port 9010 to port 9009 on the Teku node.
 
+### `p2p-advertised-port-ipv6`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-advertised-port-ipv6=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-advertised-port-ipv6=1790
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_ADVERTISED_PORT_IPV6=1790
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-advertised-port-ipv6: 1790
+```
+
+  </TabItem>
+</Tabs>
+
+The advertised P2P IPv6 port. This port is only used when advertising both IPv4 and IPv6 addresses. The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
+
 ### `p2p-advertised-udp-port`
 
 <Tabs>
@@ -1759,6 +1794,41 @@ p2p-advertised-udp-port: 1789
 </Tabs>
 
 The advertised UDP port to external peers. The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set. Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
+
+### `p2p-advertised-udp-port-ipv6`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-advertised-udp-port-ipv6=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-advertised-udp-port-ipv6=1790
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_ADVERTISED_UDP_PORT_IPV6=1790
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-advertised-udp-port-ipv6: 1790
+```
+
+  </TabItem>
+</Tabs>
+
+The advertised IPv6 UDP port to external peers. This port is only used when advertising both IPv4 and IPv6 addresses. The default is the port specified in [`--p2p-advertised-port-ipv6`](#p2p-advertised-port-ipv6) if it is set. Otherwise, the default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `p2p-direct-peers`
 
@@ -1950,7 +2020,7 @@ p2p-enabled: false
 
 Enables or disables all P2P communication. The default is `true`.
 
-### `p2p-interface`
+### `p2p-interface`, `p2p-interfaces`
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
@@ -1983,7 +2053,7 @@ p2p-interface: "192.168.1.132"
   </TabItem>
 </Tabs>
 
-Specifies the network interface on which the node listens for P2P communication. The default is `0.0.0.0` (all interfaces).
+Specifies the network interface(s) on which the node listens for P2P communication. The default is `0.0.0.0` (all interfaces). You can define up to 2 interfaces, with one being IPv4 and the other IPv6.
 
 ### `p2p-nat-method`
 
@@ -2134,6 +2204,43 @@ p2p-port: 1789
 </Tabs>
 
 Specifies the P2P listening ports (UDP and TCP). The default is `9000`.
+
+### `p2p-port-ipv6`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-port-ipv6=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+# to listen on port 1790
+--p2p-port-ipv6=1790
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+# to listen on port 1790
+TEKU_P2P_PORT_IPV6=1790
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-port-ipv6: 1790
+```
+
+  </TabItem>
+</Tabs>
+
+Specifies the P2P listening ports (UDP and TCP) for IPv6 when listening over both IPv4 and IPv6. The default is `9090`.
 
 ### `p2p-private-key-file`
 
@@ -2294,6 +2401,41 @@ p2p-udp-port: 1789
 </Tabs>
 
 The UDP port used for discovery. The default is the port specified in [`--p2p-port`](#p2p-port).
+
+### `p2p-udp-port-ipv6`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-udp-port-ipv6=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-udp-port-ipv6=1790
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_UDP_PORT_IPV6=1790
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-udp-port-ipv6: 1790
+```
+
+  </TabItem>
+</Tabs>
+
+The IPv6 UDP port used for discovery. This port is only used when listening over both IPv4 and IPv6. The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `reconstruct-historic-states`
 
