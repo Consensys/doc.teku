@@ -18,7 +18,7 @@ If you want to use the latest development version of Teku or a specific commit, 
 
 :::caution
 
-Teku requires Java 17+; earlier versions are not supported.
+Teku requires Java 21+; earlier versions are not supported.
 
 :::
 
