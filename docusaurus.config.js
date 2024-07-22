@@ -150,6 +150,11 @@ const config = {
             className: "header-discord-link",
             position: "right",
           },
+          {
+            href: "https://x.com/Teku_Consensys",
+            className: "header-twitter-link",
+            position: "right",
+          },
         ],
       },
       footer: {
@@ -203,6 +208,10 @@ const config = {
               {
                 label: "Teku documentation GitHub",
                 href: "https://github.com/ConsenSys/doc.teku",
+              },
+              {
+                label: "Subscribe to Teku releases",
+                href: "https://share.hsforms.com/1bkXI6uLpSROGBRVig4KeIQ2urwb",
               },
             ],
           },
