@@ -197,7 +197,7 @@ builder-set-user-agent-header: true
   </TabItem>
 </Tabs>
 
-Set the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`) when making a builder bid request to help builders identify clients and versions. The default is `true`.
+Enables or disables setting the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`) when making a builder bid request, to help builders identify clients and versions. The default is `true`.
 
 ### `checkpoint-sync-url`
 
@@ -232,7 +232,7 @@ checkpoint-sync-url: "https://beaconstate.ethstaker.cc"
   </TabItem>
 </Tabs>
 
-URL of a [Checkpointz](https://github.com/ethpandaops/checkpointz) endpoint used to [start Teku from a recent state](../../get-started/checkpoint-start.md).
+The URL of a [Checkpointz](https://github.com/ethpandaops/checkpointz) endpoint used to [start Teku from a recent state](../../get-started/checkpoint-start.md).
 
 By default, Teku tries to download the finalized state from the endpoint.
 If it can't download the finalized state, it tries to download the genesis state.
@@ -270,7 +270,7 @@ TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
   </TabItem>
 </Tabs>
 
-Path to the [YAML configuration file](../../how-to/configure/use-config-file.md). The default is `none`.
+The path to the [YAML configuration file](../../how-to/configure/use-config-file.md). The default is `none`.
 
 ### `data-base-path`, `data-path`
 
@@ -305,7 +305,7 @@ data-base-path: "/home/me/me_node"
   </TabItem>
 </Tabs>
 
-Path to the Teku data directory. The default directory is OS-dependent:
+The path to the Teku data directory. The default directory is OS-dependent:
 
 - macOS: `~/Library/teku`
 - Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
@@ -346,7 +346,7 @@ data-beacon-path: "/home/me/me_beaon"
   </TabItem>
 </Tabs>
 
-Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
+The path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### `data-storage-archive-frequency`
 
@@ -381,7 +381,7 @@ data-storage-archive-frequency: 1028
   </TabItem>
 </Tabs>
 
-Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
+The frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is not set to `archive`.
 
@@ -426,7 +426,7 @@ data-storage-mode: "archive"
   </TabItem>
 </Tabs>
 
-Set the strategy for handling historical chain data. Valid options are:
+The strategy for handling historical chain data. Valid options are:
 
 - `minimal` - Stores the minimal required data to follow the chain and run validators. Finalized states and historic blocks are pruned.
 - `prune` - Stores all blocks, but finalized states are pruned.
@@ -467,7 +467,7 @@ data-storage-non-canonical-blocks-enabled: true
   </TabItem>
 </Tabs>
 
-Specify whether to store non-canonical blocks and blob sidecars. The default is `false`.
+Enables or disables storing non-canonical blocks and blob sidecars. The default is `false`.
 
 ### `data-validator-path`
 
@@ -502,7 +502,7 @@ data-validator-path: "/home/me/me_validator"
   </TabItem>
 </Tabs>
 
-Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
+The path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### `deposit-snapshot-enabled`
 
@@ -622,7 +622,7 @@ ee-endpoint: "http://localhost:8550"
   </TabItem>
 </Tabs>
 
-URL of the [execution client's](../../concepts/node-types.md#execution-clients) Engine JSON-RPC APIs. This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after [The Merge](../../concepts/node-types.md).
+The URL of the [execution client's](../../concepts/node-types.md#execution-clients) Engine JSON-RPC APIs. This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after [The Merge](../../concepts/node-types.md).
 
 ### `ee-jwt-claim-id`
 
@@ -692,7 +692,7 @@ ee-jwt-secret-file: "ee-jwt-secret.hex"
   </TabItem>
 </Tabs>
 
-Shared secret used to authenticate [execution clients](../../concepts/node-types.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
+The shared secret used to authenticate [execution clients](../../concepts/node-types.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
 ### `eth1-deposit-contract-address`
 
@@ -804,7 +804,7 @@ eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b
   </TabItem>
 </Tabs>
 
-Comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds the first provider in the list that is available, on the right chain, and in sync. This option must be specified if running a validator.
+A comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds the first provider in the list that is available, on the right chain, and in sync. This option must be specified if running a validator.
 
 If not specified (that is, you're running a beacon node only), then provide an initial state using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to provide an initial state if running a public network which has already started (for example, Mainnet or Holesky).
 
@@ -882,10 +882,12 @@ exit-when-no-validator-keys-enabled: true
   </TabItem>
 </Tabs>
 
-The default setting is `false`.
-If this option is set to `false`, Teku continues running even when no validator keys are loaded.
+Enables or disables automatically exiting when no validator keys are loaded.
 
-If this option is set to `true`, Teku automatically exits if no validator keys are loaded, or there are no active validators.
+If set to `false`, Teku continues running even when no validator keys are loaded.
+If set to `true`, Teku automatically exits if no validator keys are loaded, or there are no active validators.
+
+The default is `false`.
 
 :::important
 
@@ -926,7 +928,7 @@ genesis-state: "/home/me/genesis.ssz"
   </TabItem>
 </Tabs>
 
-Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state, or a [recent finalized checkpoint state from which to sync].
+The path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state, or a [recent finalized checkpoint state from which to sync].
 
 This option does not need to be specified if the genesis state is provided by the network specified using the [`--network`](#network) option. It also is not required if the Reconstruct Historical States Service is not being utilised.
 
@@ -983,7 +985,7 @@ ignore-weak-subjectivity-period-enabled: true
   </TabItem>
 </Tabs>
 
-Ignores the [weak subjectivity](../../concepts/weak-subjectivity.md) period verification that Teku
+Enables or disables ignoring the [weak subjectivity](../../concepts/weak-subjectivity.md) period verification that Teku
 performs at startup.
 The default is `false`.
 
@@ -1024,7 +1026,7 @@ initial-state: "/home/me/genesis.ssz"
   </TabItem>
 </Tabs>
 
-Path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state, or a [recent finalized checkpoint state from which to sync].
+The path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state, or a [recent finalized checkpoint state from which to sync].
 
 This option does not need to be specified if the genesis state is provided by the network specified using the [`--network`](#network) option.
 
@@ -1073,7 +1075,7 @@ log-color-enabled: false
   </TabItem>
 </Tabs>
 
-Specify whether status and event log messages include a console color display code. The default is `true`.
+Enables or disables including a console color display code in status and event log messages. The default is `true`.
 
 ### `log-destination`
 
@@ -1108,7 +1110,7 @@ log-destination: "CONSOLE"
   </TabItem>
 </Tabs>
 
-Specify where to output log information. Valid options are:
+The location to output log information. Valid options are:
 
 - `BOTH`
 - `CONSOLE`
@@ -1158,7 +1160,7 @@ log-file: "teku_2020-01-01.log"
   </TabItem>
 </Tabs>
 
-Relative or absolute location, and filename of the log file.
+The relative or absolute location and filename of the log file.
 
 The default directory is OS-dependent:
 
@@ -1201,7 +1203,7 @@ log-file-name-pattern: "tekuL_%d{yyyy-MM-dd}.log"
   </TabItem>
 </Tabs>
 
-Filename pattern to apply when creating log files. The default pattern is `teku_%d{yyyy-MM-dd}.log`
+The filename pattern to apply when creating log files. The default pattern is `teku_%d{yyyy-MM-dd}.log`
 
 ### `log-include-events-enabled`
 
@@ -1236,7 +1238,7 @@ log-include-events-enabled: false
   </TabItem>
 </Tabs>
 
-Specify whether to log frequent update events. For example every slot event with validators and attestations. The default is `true`.
+Enables or disables logging frequent update events. For example, every slot event with validators and attestations. The default is `true`.
 
 ### `log-include-validator-duties-enabled`
 
@@ -1271,7 +1273,7 @@ log-include-validator-duties-enabled: false
   </TabItem>
 </Tabs>
 
-Specify whether to log details of validator event duties. The default is `true`.
+Enables or disables logging details of validator event duties. The default is `true`.
 
 :::note
 
@@ -1312,7 +1314,7 @@ logging: "DEBUG"
   </TabItem>
 </Tabs>
 
-Sets the logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. Default is `INFO`.
+The logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. Default is `INFO`.
 
 ### `metrics-block-timing-tracking-enabled`
 
@@ -1382,7 +1384,7 @@ metrics-categories: ["BEACON", "JVM", "PROCESS"]
   </TabItem>
 </Tabs>
 
-Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`. All but `VALIDATOR_DUTY` categories are enabled by default.
+A comma-separate list of categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`. All but `VALIDATOR_DUTY` categories are enabled by default.
 
 When `metrics-categories` is used, only the categories specified in this option are enabled (all other categories are disabled).
 
@@ -1419,7 +1421,7 @@ metrics-enabled: true
   </TabItem>
 </Tabs>
 
-Set to `true` to enable the metrics exporter. The default is `false`.
+Enables or disables the metrics exporter. The default is `false`.
 
 ### `metrics-host-allowlist`
 
@@ -1495,7 +1497,7 @@ metrics-interface: "192.168.10.101"
   </TabItem>
 </Tabs>
 
-Host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
+The host on which Prometheus accesses Teku metrics. The default is `127.0.0.1`.
 
 ### `metrics-port`
 
@@ -1530,7 +1532,7 @@ metrics-port: 6174
   </TabItem>
 </Tabs>
 
-Specifies the port (TCP) on which [Prometheus](https://prometheus.io/) accesses Teku metrics. The default is `8008`.
+The port (TCP) on which [Prometheus](https://prometheus.io/) accesses Teku metrics. The default is `8008`.
 
 ### `metrics-publish-endpoint`
 
@@ -1565,7 +1567,7 @@ metrics-publish-endpoint: "https://beaconcha.in/api/v1/client/metrics?apikey={ap
   </TabItem>
 </Tabs>
 
-Endpoint URL of an external service such as [beaconcha.in](https://beaconcha.in/) to which Teku publishes metrics for node monitoring.
+The endpoint URL of an external service such as [beaconcha.in](https://beaconcha.in/) to which Teku publishes metrics for node monitoring.
 
 ### `metrics-publish-interval`
 
@@ -1600,7 +1602,7 @@ metrics-publish-interval: "60"
   </TabItem>
 </Tabs>
 
-Interval between metric publications to the external service defined in [metrics-publish-endpoint](#metrics-publish-endpoint), measured in seconds. The default is `60`.
+The interval between metric publications to the external service defined in [metrics-publish-endpoint](#metrics-publish-endpoint), measured in seconds. The default is `60`.
 
 ### `network`
 
@@ -1635,7 +1637,7 @@ network: "mainnet"
   </TabItem>
 </Tabs>
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. See the [consensus specification] for examples.
+The predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. See the [consensus specification] for examples.
 
 The default is `mainnet`.
 
@@ -1794,7 +1796,7 @@ p2p-direct-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
   </TabItem>
 </Tabs>
 
-List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers
+A comma-separated list of [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers
 with which to establish and maintain connections. Direct peers are static peers with which this node will always
 exchange full messages, regardless of peer scoring mechanisms. Such peers will also need to enable you as direct
 in order to work.
@@ -1833,7 +1835,7 @@ p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
   </TabItem>
 </Tabs>
 
-List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
+A comma-separated list of Ethereum Node Records (ENRs) for P2P discovery bootstrap.
 
 ### `p2p-discovery-enabled`
 
@@ -2018,7 +2020,7 @@ p2p-nat-method: "UPNP"
   </TabItem>
 </Tabs>
 
-Specify the method for handling [NAT environments](../../how-to/find-and-connect/specify-nat.md). Valid options are `NONE` and `UPNP`.
+The method for handling [NAT environments](../../how-to/find-and-connect/specify-nat.md). Valid options are `NONE` and `UPNP`.
 
 The default is `NONE`, which disables NAT functionality.
 
@@ -2061,7 +2063,7 @@ p2p-peer-lower-bound: 25
   </TabItem>
 </Tabs>
 
-Lower bound on the target number of peers. Teku will actively seek new peers if the number of peers falls below this value. The default is `64`.
+The lower bound on the target number of peers. Teku will actively seek new peers if the number of peers falls below this value. The default is `64`.
 
 ### `p2p-peer-upper-bound`
 
@@ -2096,7 +2098,7 @@ p2p-peer-upper-bound: 40
   </TabItem>
 </Tabs>
 
-Upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `100`.
+The upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `100`.
 
 ### `p2p-port`
 
@@ -2133,7 +2135,7 @@ p2p-port: 1789
   </TabItem>
 </Tabs>
 
-Specifies the P2P listening ports (UDP and TCP). The default is `9000`.
+The P2P listening ports (UDP and TCP). The default is `9000`.
 
 ### `p2p-private-key-file`
 
@@ -2168,7 +2170,7 @@ p2p-private-key-file: "/home/me/me_node/key"
   </TabItem>
 </Tabs>
 
-File containing the [node's private key](../../concepts/p2p-private-key.md).
+The file containing the [node's private key](../../concepts/p2p-private-key.md).
 
 If a file doesn't exist at the specified path, Teku creates a new file and p2p private key to store inside.
 
@@ -2212,7 +2214,7 @@ p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
   </TabItem>
 </Tabs>
 
-List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers
+A comma-separated list of [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers
 with which to establish and maintain connections.
 
 ### `p2p-subscribe-all-subnets-enabled`
@@ -2248,7 +2250,7 @@ p2p-subscribe-all-subnets-enabled: true
   </TabItem>
 </Tabs>
 
-Forces the beacon node to stay subscribed to all subnets regardless of the number of validators. The default is `false`.
+Enables or disables forcing the beacon node to stay subscribed to all subnets regardless of the number of validators. The default is `false`.
 
 When set to `false`, Teku subscribes to two persistent subnets regardless of the number of validators. Teku also subscribes and unsubscribes from subnets as needed for the running validators.
 
@@ -2328,9 +2330,10 @@ reconstruct-historic-states: true
   </TabItem>
 </Tabs>
 
-When set to `true` the [Reconstruct Historical States Service](../../how-to/reconstruct-historical-states.md), is enabled where an archive node is able to reconstruct historical states from genesis up to the current checkpoint, running during start up.
+Enables or disables [reconstructing historical states](../../how-to/reconstruct-historical-states.md).
 
-When set to `false` this service is not enabled.
+When set to `true`, an archive node can reconstruct historical states from genesis up to the current checkpoint, running during start up.
+When set to `false`, this function is disabled.
 
 ### `rest-api-cors-origins`
 
@@ -2369,7 +2372,7 @@ A list of domain URLs for CORS validation. You must enclose the URLs in double q
 
 Listed domains can access the node using HTTP REST API calls. If your client interacts with Teku using a browser app (such as a block explorer), add the client domain to the list.
 
-The default is "none." If you don't list any domains, browser apps can't interact with your Teku node.
+The default is `none`. If you don't list any domains, browser apps can't interact with your Teku node.
 
 :::tip
 
@@ -2410,7 +2413,7 @@ rest-api-docs-enabled: true
   </TabItem>
 </Tabs>
 
-Set to `true` to enable the REST API documentation. The default is `false`.
+Enables or disables the REST API documentation. The default is `false`.
 
 The documentation can be accessed at `http://<interface>:<port>/swagger-ui` where:
 
@@ -2450,7 +2453,7 @@ rest-api-enabled: true
   </TabItem>
 </Tabs>
 
-Set to `true` to enable the [REST API service](../rest.md). The default is `false`.
+Enables or disables the [REST API service](../rest.md). The default is `false`.
 
 If set to `true`, then use [`--rest-api-host-allowlist`](#rest-api-host-allowlist) to limit access to trusted parties.
 
@@ -2531,7 +2534,7 @@ rest-api-interface: "0.0.0.0"
   </TabItem>
 </Tabs>
 
-Specifies the interface on which the REST API listens. The default is `127.0.0.1`.
+The interface on which the REST API listens. The default is `127.0.0.1`.
 
 ### `rest-api-port`
 
@@ -2567,7 +2570,7 @@ rest-api-port: 3435
   </TabItem>
 </Tabs>
 
-Specifies REST API listening port (HTTP). The default is 5051.
+The REST API listening port (HTTP). The default is `5051`.
 
 ### `sentry-config-file`
 
@@ -2602,7 +2605,7 @@ sentry-config-file: "/etc/sentry-node-config.json"
   </TabItem>
 </Tabs>
 
-Path to the [sentry node](../../how-to/use-sentry-nodes.md) configuration file. The default is `none`.
+The path to the [sentry node](../../how-to/use-sentry-nodes.md) configuration file. The default is `none`.
 
 :::caution
 
@@ -2682,7 +2685,7 @@ A comma-separated list of domain URLs for CORS validation.
 
 Listed domains can access the node using validator API calls. If your client interacts with Teku using a browser app (such as a block explorer), add the client domain to the list.
 
-The default is "none." If you don't list any domains, browser apps can't interact with your Teku node.
+The default is `none`. If you don't list any domains, browser apps can't interact with your Teku node.
 
 :::tip
 
@@ -2723,7 +2726,7 @@ validator-api-docs-enabled: true
   </TabItem>
 </Tabs>
 
-Set to `true` to enable the [validator REST API documentation](../rest.md#enable-the-validator-client-api). The default is `false`.
+Enables or disables the [validator REST API documentation](../rest.md#enable-the-validator-client-api). The default is `false`.
 
 When enabling the API documentation endpoint, you must also specify:
 
@@ -2879,7 +2882,7 @@ validator-api-keystore-file: "validator_keystore.p12"
   </TabItem>
 </Tabs>
 
-Keystore file for the [validator REST API](../rest.md#enable-the-validator-client-api). Teku can use PKCS12 or JKS keystore types. You must [create a keystore](../../how-to/use-external-signer/manage-keys.md#create-a-keystore) to enable access.
+The keystore file for the [validator REST API](../rest.md#enable-the-validator-client-api). Teku can use PKCS12 or JKS keystore types. You must [create a keystore](../../how-to/use-external-signer/manage-keys.md#create-a-keystore) to enable access.
 
 ### `validator-api-keystore-password-file`
 
@@ -2914,7 +2917,7 @@ validator-api-keystore-password-file: "validator_keystore_pass.txt"
   </TabItem>
 </Tabs>
 
-Password used to decrypt the keystore for the [validator REST API](../rest.md#enable-the-validator-client-api).
+The password used to decrypt the keystore for the [validator REST API](../rest.md#enable-the-validator-client-api).
 
 ### `validator-api-port`
 
@@ -2984,7 +2987,7 @@ validators-builder-registration-default-enabled: true
   </TabItem>
 </Tabs>
 
-Set to `true` to have all validators managed by the validator client register to the [builder endpoint](../../how-to/configure/builder-network.md) when proposing a block.
+Enables or disables registering all validators managed by the validator client to the [builder endpoint](../../how-to/configure/builder-network.md) when proposing a block.
 
 ### `validators-early-attestations-enabled`
 
@@ -3019,7 +3022,7 @@ validators-early-attestations-enabled: false
   </TabItem>
 </Tabs>
 
-Specify whether to use Teku's built-in early attestation production, which creates an attestation as soon as a block is received. The default is `true`.
+Enables or disables using Teku's built-in early attestation production, which creates an attestation as soon as a block is received. The default is `true`.
 
 Set this option to `false` if running a validator client connected to a load balanced beacon node (including most hosted beacon nodes such as [Infura]), and validator effectiveness is poor.
 
@@ -3099,7 +3102,7 @@ validators-external-signer-keystore-password-file: "keystore_pass.txt"
   </TabItem>
 </Tabs>
 
-Password file used to decrypt the keystore.
+The password file used to decrypt the keystore.
 
 ### `validators-external-signer-public-keys`
 
@@ -3134,7 +3137,7 @@ validators-external-signer-public-keys: ["0xa99a...e44c","0xb89b...4a0b"]
   </TabItem>
 </Tabs>
 
-List or URL of validator public keys used by an external signer (for example, Web3Signer).
+A list or URL of validator public keys used by an external signer (for example, Web3Signer).
 
 Use the URL to load the public keys from a remote service. For example:
 
@@ -3189,7 +3192,7 @@ validators-external-signer-slashing-protection-enabled: false
   </TabItem>
 </Tabs>
 
-Specify whether to use Teku's built-in [slashing protection] when using an external signer such as [Web3Signer]. The default is `true`.
+Enables or disables using Teku's built-in [slashing protection] when using an external signer such as [Web3Signer]. The default is `true`.
 
 Set this option to `false` if using the slashing protection implemented by an external signer.
 
@@ -3234,7 +3237,7 @@ validators-external-signer-timeout: 2000
   </TabItem>
 </Tabs>
 
-Timeout in milliseconds for requests to the external signer. The default is 5000.
+The timeout in milliseconds for requests to the external signer. The default is `5000`.
 
 ### `validators-external-signer-truststore`
 
@@ -3269,7 +3272,7 @@ validators-external-signer-truststore: "websigner_truststore.p12"
   </TabItem>
 </Tabs>
 
-PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate which signs the external signer's certificate.
+The PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate which signs the external signer's certificate.
 
 ### `validators-external-signer-truststore-password-file`
 
@@ -3304,7 +3307,7 @@ validators-external-signer-truststore-password-file: "truststore_pass.txt"
   </TabItem>
 </Tabs>
 
-Password file used to decrypt the keystore.
+The password file used to decrypt the keystore.
 
 ### `validators-external-signer-url`
 
@@ -3339,7 +3342,7 @@ validators-external-signer-url: "http://localhost:9000"
   </TabItem>
 </Tabs>
 
-URL on which the external signer (for example, Web3Signer) is running.
+The URL on which the external signer (for example, Web3Signer) is running.
 
 ### `validators-graffiti`
 
@@ -3374,7 +3377,7 @@ validators-graffiti: "Teku validator"
   </TabItem>
 </Tabs>
 
-Graffiti to add when creating a block. Gets converted to bytes and padded to Bytes32.
+The graffiti to add when creating a block. This is converted to bytes and padded to `Bytes32`.
 
 The same graffiti is used for all validators started with this beacon node.
 
@@ -3413,7 +3416,7 @@ validators-graffiti-file: "/Users/me/mynode/graffiti.txt"
   </TabItem>
 </Tabs>
 
-File containing the validator graffiti to add when creating a block. The file contents is converted to `bytes` and padded to `Bytes32`. The same graffiti is used for all validators started with this beacon node.
+The file containing the validator graffiti to add when creating a block. The file contents are converted to bytes and padded to `Bytes32`. The same graffiti is used for all validators started with this beacon node.
 
 You can overwrite the file while Teku is running to update the graffiti.
 
@@ -3515,14 +3518,17 @@ validator-is-local-slashing-protection-synchronized-enabled: true
   </TabItem>
 </Tabs>
 
-Controls whether Teku performs slashing protection checks in a sequential or concurrent manner. The default is
-`true`, meaning slashing protection checks in Teku are performed sequentially.
+Enables or disables performing slashing protection checks in a sequential manner.
 
+When set to `true`, Teku performs slashing protection checks sequentially.
 Sequential checks restrict the throughput of duties, and under some scenarios, can improve performance to allow
 more granular in-process locking of slashing protection data.
 
-If set to `false`, the local slashing protection process will be able to check if signing is safe for multiple
+When set to `false`, Teku performs slashing protection checks concurrently.
+The local slashing protection process can check if signing is safe for multiple
 keys concurrently, reducing latencies experienced while performing these checks.
+
+The default is `true`.
 
 ### `validator-keys`
 
@@ -3564,7 +3570,7 @@ validator-keys: "/home/validator/keys:home/validator/passwords"
   </TabItem>
 </Tabs>
 
-Directory or file to load the encrypted keystore file(s) and associated password file(s) from. Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
+The directory or file to load the encrypted keystore file(s) and associated password file(s) from. Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
 
 When specifying directories, Teku expects to find identically named keystore and password files. For example `validator_217179e.json` and `validator_217179e.txt`.
 
@@ -3615,7 +3621,7 @@ validators-keystore-locking-enabled: true
   </TabItem>
 </Tabs>
 
-Locks the keystore files listed in [`--validator-keys`](#validator-keys). The default is `true`.
+Enables or disables locking the keystore files listed in [`--validator-keys`](#validator-keys). The default is `true`.
 
 Attempts to lock all keystores in a directory if a directory is specified in [`--validator-keys`](#validator-keys).
 
@@ -3652,9 +3658,9 @@ validators-performance-tracking-mode: LOGGING
   </TabItem>
 </Tabs>
 
-Set the validator performance tracking strategy. Valid options are `LOGGING`, `METRICS`, `ALL`, and `NONE`. The default is `ALL`.
+The validator performance tracking strategy. Valid options are `LOGGING`, `METRICS`, `ALL`, and `NONE`. The default is `ALL`.
 
-When `LOGGING` is enabled, attestation and block performance is reported as log messages. When `METRICS` is enabled, attestation and block performance is reported using [metrics] in the [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
+When set to `LOGGING`, attestation and block performance are reported as log messages. When set to `METRICS`, attestation and block performance are reported using [metrics] in the [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
 
 ### `validators-proposer-blinded-blocks-enabled`
 
@@ -3689,7 +3695,7 @@ validators-proposer-blinded-blocks-enabled: true
   </TabItem>
 </Tabs>
 
-Set to `true` to enable blinded blocks production, a prerequisite for the [builder network](../../how-to/configure/builder-network.md). When [`--validators-builder-registration-default-enabled`](#validators-builder-registration-default-enabled) is enabled this option is enabled automatically. The default is `false`.
+Enables or disables blinded blocks production, a prerequisite for the [builder network](../../how-to/configure/builder-network.md). When [`--validators-builder-registration-default-enabled`](#validators-builder-registration-default-enabled) is enabled, this option is enabled automatically. The default is `false`.
 
 ### `validators-proposer-config`
 
@@ -3724,7 +3730,7 @@ validators-proposer-config: "/home/me/node/proposerConfig.json"
   </TabItem>
 </Tabs>
 
-Remote URL or local file path to the [proposer configuration file](../../how-to/configure/use-proposer-config-file.md).
+The remote URL or local file path to the [proposer configuration file](../../how-to/configure/use-proposer-config-file.md).
 
 ### `validators-proposer-config-refresh-enabled`
 
@@ -3759,7 +3765,7 @@ validators-proposer-config-refresh-enabled: true
   </TabItem>
 </Tabs>
 
-Set to `true` to enable reloading the [proposer configuration](../../how-to/configure/use-proposer-config-file.md) on every proposer preparation (once per epoch). The default is `false`.
+Enables or disables reloading the [proposer configuration](../../how-to/configure/use-proposer-config-file.md) on every proposer preparation (once per epoch). The default is `false`.
 
 ### `validators-proposer-default-fee-recipient`
 
@@ -3794,7 +3800,7 @@ validators-proposer-default-fee-recipient: "0xFE3B557E8Fb62b89F4916B721be55cEb82
   </TabItem>
 </Tabs>
 
-Default recipient of transaction fees for all validator keys. When running a validator, this is an alternative to the `fee_recipient` in the [default proposer configuration](../../how-to/configure/use-proposer-config-file.md).
+The default recipient of transaction fees for all validator keys. When running a validator, this is an alternative to the `fee_recipient` in the [default proposer configuration](../../how-to/configure/use-proposer-config-file.md).
 
 :::tip
 
