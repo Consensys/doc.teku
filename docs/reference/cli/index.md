@@ -1686,7 +1686,8 @@ p2p-advertised-ip: "192.168.1.132"
   </TabItem>
 </Tabs>
 
-Advertises the peer-to-peer IP address(es). You can define up to two addresses: one IPv4 and one IPv6. 
+The peer-to-peer IP address(es) to advertise.
+You can define up to two addresses: one IPv4 and one [IPv6](../../how-to/find-and-connect/configure-ipv6.md). 
 The default address is `127.0.0.1`.
 
 ### `p2p-advertised-port`
@@ -1722,7 +1723,7 @@ p2p-advertised-port: 1789
   </TabItem>
 </Tabs>
 
-Advertises the P2P port. The default is the port specified in [`--p2p-port`](#p2p-port).
+The P2P port to advertise. The default is the port specified in [`--p2p-port`](#p2p-port).
 
 The advertised port can differ from the [`--p2p-port`](#p2p-port). 
 For example, you can set the advertised port to `9010`, and the `--p2p-port` value to `9009`, then manually configure the firewall to forward external incoming requests on port `9010` to port `9009` on the Teku node.
@@ -1760,7 +1761,7 @@ p2p-advertised-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-Advertises the P2P IPv6 port. Use this port only when advertising both IPv4 and IPv6 addresses. 
+The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) port to advertise. Use this port only when advertising both IPv4 and IPv6 addresses. 
 The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `p2p-advertised-udp-port`
@@ -1796,7 +1797,7 @@ p2p-advertised-udp-port: 1789
   </TabItem>
 </Tabs>
 
-Advertises the UDP port to external peers. 
+The UDP port to advertise to external peers. 
 The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set. 
 Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
 
@@ -1833,7 +1834,7 @@ p2p-advertised-udp-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-Advertises IPv6 UDP port to external peers. This port is only used when advertising both IPv4 and IPv6 addresses. 
+The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port to advertise external peers. This port is only used when advertising both IPv4 and IPv6 addresses. 
 The default is the port specified in [`--p2p-advertised-port-ipv6`](#p2p-advertised-port-ipv6) if it is set. 
 Otherwise, the default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
@@ -2060,7 +2061,7 @@ p2p-interface: "192.168.1.132"
   </TabItem>
 </Tabs>
 
-Specifies the network interface(s) on which the node listens for P2P communication. The default is `0.0.0.0` (all interfaces). You can define up to 2 interfaces, with one being IPv4 and the other IPv6.
+The network interface(s) on which the node listens for P2P communication. The default is `0.0.0.0` (all interfaces). You can define up to 2 interfaces, with one being IPv4 and the other IPv6.
 
 ### `p2p-nat-method`
 
@@ -2247,7 +2248,7 @@ p2p-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-Specifies the P2P listening ports (UDP and TCP) for IPv6 when listening over both IPv4 and IPv6. The default is `9090`.
+The P2P listening ports (UDP and TCP) for [IPv6](../../how-to/find-and-connect/configure-ipv6.md) when listening over both IPv4 and IPv6. The default is `9090`.
 
 ### `p2p-private-key-file`
 
@@ -2442,7 +2443,7 @@ p2p-udp-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-Specifies the IPv6 UDP port used for discovery. Use this port only when listening over both IPv4 and IPv6.
+The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port used for discovery. Use this port only when listening over both IPv4 and IPv6.
 The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `reconstruct-historic-states`
