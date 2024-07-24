@@ -502,7 +502,7 @@ data-validator-path: "/home/me/me_validator"
   </TabItem>
 </Tabs>
 
-Specifies the path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
+Path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ### `deposit-snapshot-enabled`
 
@@ -1872,7 +1872,7 @@ p2p-direct-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
   </TabItem>
 </Tabs>
 
-Lists comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers
+List of comma-separated [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers
 with which to establish and maintain connections. Direct peers are static peers with which this node will always
 exchange full messages, regardless of peer scoring mechanisms. Such peers will also need to enable you as direct
 in order to work.
@@ -1911,7 +1911,7 @@ p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
   </TabItem>
 </Tabs>
 
-Lists comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
+List of comma-separated Ethereum Node Records (ENRs) for P2P discovery bootstrap.
 
 ### `p2p-discovery-enabled`
 
