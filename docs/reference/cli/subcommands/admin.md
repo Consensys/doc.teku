@@ -157,7 +157,7 @@ data-storage-archive-frequency: 1028
 
 Set the frequency (in slots) at which to store finalized states to disk. The default is 2048.
 
-This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `prune`.
+This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to `minimal`.
 
 :::note
 
@@ -200,7 +200,7 @@ data-storage-mode: "archive"
   </TabItem>
 </Tabs>
 
-Set the strategy for handling historical chain data. Valid options are `minimal`, `prune` and `archive`. The default is `prune`.
+Set the strategy for handling historical chain data. Valid options are `minimal` and `archive`. The default is `minimal`.
 
 #### `data-validator-path`
 
@@ -507,7 +507,7 @@ data-storage-mode: "archive"
   </TabItem>
 </Tabs>
 
-Set the strategy for handling historical chain data. Valid options are `minimal`, `prune` and `archive`. The default is `minimal`.
+Set the strategy for handling historical chain data. Valid options are `minimal` and `archive`. The default is `minimal`.
 
 #### `data-validator-path`
 

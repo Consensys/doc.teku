@@ -32,7 +32,7 @@ The following limitations apply:
 
 - The rewards API relies on state and block data to retrieve the reward information, meaning you'll receive limited data if the beacon node being queried is not an archive node.
 
-- You can only query blocks from finalized to head if you are in `prune` storage mode.
+- You can only query blocks from finalized to head if you are in `minimal` storage mode.
 
 ## Impact of data storage modes
 
