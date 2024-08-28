@@ -1,4 +1,4 @@
----
+x---
 title: Migrate the database
 description: Migrate a RocksDB database to a LevelDB2 database.
 sidebar_position: 10
@@ -56,7 +56,7 @@ If migration fails, resolve any issues and retry. Contact support on the [Teku D
 
 ## Manual migration
 
-Users can manually migrate Teku nodes running a RocksDB database to a LevelDB2 database if the Teku node runs in [`minimal` mode].
+Users can manually migrate Teku nodes running a RocksDB database to a LevelDB2 database if the Teku node runs in [`prune` mode].
 
 :::caution
 
@@ -64,7 +64,7 @@ Teku nodes running in [archive mode] must resynchronize from genesis to migrate.
 
 :::
 
-To migrate a RocksDB database in [`minimal` mode] to a LevelDB2 database:
+To migrate a RocksDB database in [`prune` mode] to a LevelDB2 database:
 
 1.  [Download the latest finalized state] from a beacon node:
 
@@ -95,7 +95,7 @@ Teku creates a LevelDB2 database, and starts from the specified recent state. Te
 <!-- links -->
 
 [Download the latest finalized state]: https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id
-[`minimal` mode]: ../reference/cli/index.md#data-storage-mode
+[`prune` mode]: ../reference/cli/index.md#data-storage-mode
 [archive mode]: ../reference/cli/index.md#data-storage-mode
 [supply the finalized checkpoint state]: ../get-started/checkpoint-start.md
 [Teku Discord channel]: https://discord.com/invite/consensys
