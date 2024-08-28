@@ -432,6 +432,8 @@ The strategy for handling historical chain data. Valid options are:
 
 - `minimal` - Stores the minimal required data to follow the chain and run validators. Finalized states and historic blocks are pruned.
 
+- `prune` - Stores all blocks, but finalized states are pruned.
+
 The default is `minimal`.
 
 ### `data-storage-non-canonical-blocks-enabled`
