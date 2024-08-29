@@ -1,4 +1,4 @@
-x---
+---
 title: Migrate the database
 description: Migrate a RocksDB database to a LevelDB2 database.
 sidebar_position: 10
@@ -6,7 +6,8 @@ sidebar_position: 10
 
 # Migrate the database
 
-As of v21.5.0, new Teku installations use a LevelDB2 database. Previous Teku versions use RocksDB which continues to be supported.
+Teku version 21.5.0 and later use LevelDB2 as the default database for new installations. 
+Earlier Teku versions use RocksDB. Teku continues to support RocksDB in all versions.
 
 LevelDB2 databases use less memory and proves to be more stable with Teku.
 
