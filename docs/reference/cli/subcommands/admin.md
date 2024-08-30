@@ -200,7 +200,7 @@ data-storage-mode: "archive"
   </TabItem>
 </Tabs>
 
-Set the strategy for handling historical chain data. Valid options are `archive`, `minimal` and `prune`. The default is `minimal`.
+Set the strategy for handling historical chain data. Valid options are `archive`, `minimal` and `prune`. The default is [`minimal`](#data-storage-mode).
 
 #### `data-validator-path`
 
