@@ -125,7 +125,7 @@ The builder bid compare factor. The default is 90 (90%).
 
 Execution layer clients in [Capella-enabled networks](https://notes.ethereum.org/@launchpad/withdrawals-faq#Q-What-is-ShanghaiCapella) provide the execution payload and the payload value. The beacon node compares this value against the builder bid to maximize the validator's profit or decrease network censorship at a low or no cost.
 
-Use this option to set the compare factor applied to the builder bid value when comparing it to the locally produced payload. The factor is expressed in a percentage. For example, a builder bid compare factor of `80` means the local payload is chosen when its value is at least 80% of the builder bid value.
+Use this option to set the comparison factor applied to the builder bid value when comparing it to the locally produced payload. The factor is expressed as a percentage. For example, a builder bid comparison factor of 90 means the builder’s payload is chosen when its value is at least 10% greater than what can be built locally.
 
 Set this option to `BUILDER_ALWAYS` to always use the builder bid, unless the bid is invalid.
 
