@@ -31,5 +31,7 @@ The following table lists the name changes for Teku metrics:
 | `storage_finalized_state_branch_nodes`         | `storage_finalized_state_branch_nodes_total`         |
 | `storage_finalized_state_leaf_nodes`           | `storage_finalized_state_leaf_nodes_total`           |
 | `storage_finalized_states_stored`              | `storage_finalized_states_stored_total`              |
+| `validator_attestation_publication_delay`      | `validator_attestation_publication_delay_total`      |
+| `validator_block_publication_delay`            | `validator_block_publication_delay_total`            |
 | `validator_duties_performed`                   | `validator_duties_performed_total`                   |
 | `validator_external_signer_requests`           | `validator_external_signer_requests_total`           |
