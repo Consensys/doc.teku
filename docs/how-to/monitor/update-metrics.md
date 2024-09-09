@@ -18,6 +18,7 @@ The following table lists the name changes for Teku metrics:
 |------------------------------------------------|------------------------------------------------------|
 | `beacon_block_blobs_trackers_pool_size`        | `beacon_block_blobs_trackers_pool_size_total`        |
 | `beacon_block_blobs_trackers_pool_stats`       | `beacon_block_blobs_trackers_pool_stats_total`       |
+| `beacon_block_import_delay_counter`            | `beacon_block_import_delay_counter_total`            |
 | `beacon_eth1_request_queue_size`               | `beacon_eth1_request_queue_size_total`               |
 | `beacon_execution_payload_source`              | `beacon_execution_payload_source_total`              |
 | `beacon_teku_version`                          | `beacon_teku_version_total`                          |
