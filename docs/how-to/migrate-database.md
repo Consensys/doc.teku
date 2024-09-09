@@ -6,13 +6,14 @@ sidebar_position: 10
 
 # Migrate the database
 
-As of v21.5.0, new Teku installations use a LevelDB2 database. Previous Teku versions use RocksDB which continues to be supported.
+Teku version 21.5.0 and later use LevelDB2 as the default database for new installations. 
+Earlier Teku versions use RocksDB. Teku continues to support RocksDB in all versions.
 
 LevelDB2 databases use less memory and proves to be more stable with Teku.
 
 :::caution
 
-We recommend Teku nodes running in [archive mode] use the [automatic migration](#automatic-migration) method, and Teku nodes running in [prune mode] use the [manual migration](#manual-migration).
+We recommend Teku nodes running in [`archive` mode] use the [automatic migration](#automatic-migration) method, and Teku nodes running in [`prune` mode] use the [manual migration](#manual-migration).
 
 :::
 
@@ -56,7 +57,7 @@ If migration fails, resolve any issues and retry. Contact support on the [Teku D
 
 ## Manual migration
 
-Users can manually migrate Teku nodes running a RocksDB database to a LevelDB2 database if the Teku node runs in [prune mode].
+Users can manually migrate Teku nodes running a RocksDB database to a LevelDB2 database if the Teku node runs in [`prune` mode].
 
 :::caution
 
@@ -64,7 +65,7 @@ Teku nodes running in [archive mode] must resynchronize from genesis to migrate.
 
 :::
 
-To migrate a RocksDB database in [prune mode] to a LevelDB2 database:
+To migrate a RocksDB database in [`prune` mode] to a LevelDB2 database:
 
 1.  [Download the latest finalized state] from a beacon node:
 
@@ -95,7 +96,7 @@ Teku creates a LevelDB2 database, and starts from the specified recent state. Te
 <!-- links -->
 
 [Download the latest finalized state]: https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id
-[prune mode]: ../reference/cli/index.md#data-storage-mode
-[archive mode]: ../reference/cli/index.md#data-storage-mode
+[`prune` mode]: ../reference/cli/index.md#data-storage-mode
+[`archive` mode]: ../reference/cli/index.md#data-storage-mode
 [supply the finalized checkpoint state]: ../get-started/checkpoint-start.md
 [Teku Discord channel]: https://discord.com/invite/consensys
