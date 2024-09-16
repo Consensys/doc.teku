@@ -1,20 +1,21 @@
 ---
-name: Build
+name: Check for spelling with vale
 
 on:
-  workflow_call:
   pull_request:
     branches:
       - main
 
 jobs:
-  build:
-    name: Build
+  vale:
+    name: Spelling
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build
-        uses: ConsenSys/docs-gha/build@main
+      - name: Vale
+        uses: Consensys/docs-gha/spelling@main
+        with:
+          FILEPATHS: "docs"
