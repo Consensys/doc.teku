@@ -18,5 +18,3 @@ jobs:
 
       - name: Build
         uses: ConsenSys/docs-gha/build@main
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
