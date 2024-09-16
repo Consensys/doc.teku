@@ -17,10 +17,7 @@ jobs:
 
       - name: Lint code
         uses: ConsenSys/docs-gha/lint@main
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Lint markdown
         uses: ConsenSys/docs-gha/lint-markdown@main
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
