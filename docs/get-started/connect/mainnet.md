@@ -15,7 +15,7 @@ both [an execution client and a consensus client](../../concepts/node-types.md#e
 
 Run Teku as a consensus client with any execution client on Ethereum Mainnet.
 
-If you're using [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can
+If you're using [Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can
 follow the [Besu and Teku Mainnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-mainnet/).
 
 ## Prerequisites

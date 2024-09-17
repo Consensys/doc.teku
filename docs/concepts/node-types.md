@@ -7,7 +7,7 @@ sidebar_position: 5
 An Ethereum node is an instance of an Ethereum client, which consists of:
 
 - A consensus client (for example, Teku)
-- An execution client (for example, Hyperledger Besu)
+- An execution client (for example, Besu)
 
 :::info
 
