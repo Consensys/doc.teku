@@ -133,7 +133,7 @@ You can modify the option values and add other [command line options](../../refe
 You can run the Teku beacon node and validator client as a [single process](#single-process) or as [separate processes](#separate-processes).
 
 You can check your validator status by searching your Ethereum address on the [Holesky Beacon Chain explorer](https://holesky.beaconcha.in/). 
-It may take up to multiple days for your validator to be activated and start proposing blocks.
+Your validator might take multiple days to activate and start proposing blocks.
 
 You can also use [Prometheus and Grafana](../../how-to/monitor/use-metrics.md) to monitor your nodes.
 
