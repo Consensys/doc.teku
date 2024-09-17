@@ -9,8 +9,9 @@ import {
 } from "@docusaurus/plugin-content-docs/client";
 import { ThemeClassNames } from "@docusaurus/theme-common";
 import {
-  useDocsPreferredVersion
-} from "@docusaurus/theme-common/internal";
+  useDocsPreferredVersion,
+  useDocsVersion,
+} from '@docusaurus/plugin-content-docs/client';
 function UnreleasedVersionLabel({ siteTitle, versionMetadata }) {
   return (
     <Translate
@@ -107,7 +108,7 @@ function DocVersionBannerEnabled({ className, versionMetadata }) {
   );
 }
 export default function DocVersionBanner({ className }) {
-  const versionMetadata = useDocsPreferredVersion();
+  const versionMetadata = useDocsVersion();
   if (versionMetadata.banner) {
     return (
       <DocVersionBannerEnabled
