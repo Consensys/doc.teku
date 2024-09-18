@@ -25,7 +25,7 @@ The [Teku and Web3Signer TLS configuration tutorial] provides instructions to cr
 
 - [Teku's password-protected PKCS12 or JKS keystore and password file].
 - [Web3Signer's password-protected PKCS12 or JKS truststore and password file].
-- ETH1 client (for example [Hyperledger Besu]) synced to the required network.
+- ETH1 client (for example [Besu]) synced to the required network.
 
 ## Start Web3Signer
 
@@ -76,6 +76,6 @@ In the command:
 [Known clients file]: ../../tutorials/configure-external-signer-tls.md#3-create-the-known-clients-file
 [Teku's password-protected PKCS12 or JKS keystore and password file]: ../../tutorials/configure-external-signer-tls.md#teku-keystore-and-password-file
 [Web3Signer's password-protected PKCS12 or JKS truststore and password file]: ../../tutorials/configure-external-signer-tls.md#2-create-the-truststore-and-password-file
-[Hyperledger Besu]: https://besu.hyperledger.org/stable/public-networks/get-started/install
+[Besu]: https://besu.hyperledger.org/stable/public-networks/get-started/install
 [Slashing protection]: https://docs.web3signer.consensys.net/en/latest/concepts/slashing-protection/
 [configure your slashing protection database]: https://docs.web3signer.consensys.net/en/latest/HowTo/Configure-Slashing-Protection/

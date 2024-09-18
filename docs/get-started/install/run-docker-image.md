@@ -72,7 +72,7 @@ docker run -p 30303:30303/tcp -p 30303:30303/udp -p 5051:5051 --mount type=bind,
 
 - [Docker Compose](https://docs.docker.com/compose/)
 
-The following `docker-compose.yml` file starts a [Hyperledger Besu] and Teku node.
+The following `docker-compose.yml` file starts a [Besu] and Teku node.
 
 :::note
 
@@ -200,4 +200,4 @@ services:
 
 <!-- Links -->
 
-[Hyperledger Besu]: https://besu.hyperledger.org/en/stable/
+[Besu]: https://besu.hyperledger.org/en/stable/

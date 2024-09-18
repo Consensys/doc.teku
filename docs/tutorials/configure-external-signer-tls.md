@@ -22,7 +22,7 @@ This tutorial configures TLS between Teku and Web3Signer, and uses the [`keytool
 - [Web3Signer signing key files](https://docs.web3signer.consensys.net/en/latest/HowTo/Use-Signing-Keys/) for validators on the testnet.
 - [Teku Installed](../get-started/install/install-binaries.md).
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
-- A running execution client such as [Hyperledger Besu].
+- A running execution client such as [Besu].
  
  This tutorial connects to the Holesky testnet.
  You can [run a Besu node on Holesky](https://besu.hyperledger.org/development/public-networks/get-started/start-node#run-a-node-on-holesky-testnet).
@@ -171,5 +171,5 @@ teku --network=holesky \
 <!-- links -->
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
-[Hyperledger Besu]: https://besu.hyperledger.org/development/public-networks/get-started/install
+[Besu]: https://besu.hyperledger.org/development/public-networks/get-started/install
 [Web3Signer slashing protection]: https://docs.web3signer.consensys.net/en/latest/concepts/slashing-protection/
