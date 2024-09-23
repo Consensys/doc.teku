@@ -2065,7 +2065,7 @@ p2p-flood-publish-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables the flood publishing behaviour for all p2p subnets. When enabled, the mesh is used when propagating messages from other peers, but a peer's own messages will always be published to all known peers in the topic in. The default is `true`.
+Enables or disables the flood publishing behavior for all p2p subnets. When enabled, the mesh is used when propagating messages from other peers, but a peer's own messages will always be published to all known peers in the topic in. The default is `true`.
 
 ### `p2p-interface`, `p2p-interfaces`
 
