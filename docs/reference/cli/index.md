@@ -35,11 +35,13 @@ You can specify Teku options:
 
 - In a [YAML configuration file](../../how-to/configure/use-config-file.md).
 
-If an option is specified in multiple places, the order of priority is command line, environment variable, configuration file.
+If an option is specified in multiple places, the order of priority is command line, environment
+variable, configuration file.
 
 ## Using autocomplete
 
-If using Bash or Z shell, you can enable autocomplete support by navigating to the `build` folder and running:
+If using Bash or Z shell, you can enable autocomplete support by navigating to the `build` folder
+and running:
 
 ```bash
 source teku.autocomplete.sh
@@ -86,7 +88,9 @@ beacon-liveness-tracking-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables validator liveness tracking. Used by [doppelganger detection](../../how-to/prevent-slashing/detect-doppelgangers.md). The default is `false`.
+Enables or disables validator liveness tracking.
+Used by [doppelganger detection](../../how-to/prevent-slashing/detect-doppelgangers.md).
+The default is `false`.
 
 ### `builder-bid-compare-factor`
 
@@ -123,9 +127,17 @@ builder-bid-compare-factor: 50
 
 The builder bid compare factor. The default is 90 (90%).
 
-Execution layer clients in [Capella-enabled networks](https://notes.ethereum.org/@launchpad/withdrawals-faq#Q-What-is-ShanghaiCapella) provide the execution payload and the payload value. The beacon node compares this value against the builder bid to maximize the validator's profit or decrease network censorship at a low or no cost.
+Execution layer clients in
+[Capella-enabled networks](https://notes.ethereum.org/@launchpad/withdrawals-faq#Q-What-is-ShanghaiCapella)
+provide the execution payload and the payload value.
+The beacon node compares this value against the builder bid to maximize the validator's profit or
+decrease network censorship at a low or no cost.
 
-Use this option to set the comparison factor applied to the builder bid value when comparing it to the locally produced payload. The factor is expressed as a percentage. For example, a builder bid comparison factor of 90 means the builder’s payload is chosen when its value is at least 10% greater than what can be built locally.
+Use this option to set the comparison factor applied to the builder bid value when comparing it to
+the locally produced payload.
+The factor is expressed as a percentage.
+For example, a builder bid comparison factor of 90 means the builder's payload is chosen when its
+value is at least 10% greater than what can be built locally.
 
 Set this option to `BUILDER_ALWAYS` to always use the builder bid, unless the bid is invalid.
 
@@ -197,7 +209,9 @@ builder-set-user-agent-header: true
   </TabItem>
 </Tabs>
 
-Enables or disables setting the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`) when making a builder bid request, to help builders identify clients and versions. The default is `true`.
+Enables or disables setting the User-Agent header to `teku/v<version>` (for example, `teku/v23.4.0`)
+when making a builder bid request, to help builders identify clients and versions.
+The default is `true`.
 
 ### `checkpoint-sync-url`
 
@@ -232,13 +246,15 @@ checkpoint-sync-url: "https://beaconstate.ethstaker.cc"
   </TabItem>
 </Tabs>
 
-The URL of a [Checkpointz](https://github.com/ethpandaops/checkpointz) endpoint used to [start Teku from a recent state](../../get-started/checkpoint-start.md).
+The URL of a [Checkpointz](https://github.com/ethpandaops/checkpointz) endpoint used to
+[start Teku from a recent state](../../get-started/checkpoint-start.md).
 
 By default, Teku tries to download the finalized state from the endpoint.
 If it can't download the finalized state, it tries to download the genesis state.
 
 :::tip
-See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
+See
+[this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 :::
 
 When this option is set, and `--deposit-snapshot-enabled` is also not set or disabled,
@@ -270,7 +286,8 @@ TEKU_CONFIG_FILE=/home/me/me_node/config.yaml
   </TabItem>
 </Tabs>
 
-The path to the [YAML configuration file](../../how-to/configure/use-config-file.md). The default is `none`.
+The path to the [YAML configuration file](../../how-to/configure/use-config-file.md).
+The default is `none`.
 
 ### `data-base-path`, `data-path`
 
@@ -346,7 +363,9 @@ data-beacon-path: "/home/me/me_beaon"
   </TabItem>
 </Tabs>
 
-The path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
+The path to the beacon node data.
+The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using
+[`--data-base-path`](#data-base-path-data-path).
 
 ### `data-storage-archive-frequency`
 
@@ -381,17 +400,23 @@ data-storage-archive-frequency: 1028
   </TabItem>
 </Tabs>
 
-The frequency (in slots) at which to store finalized states to disk. The default is 2048.
+The frequency (in slots) at which to store finalized states to disk.
+The default is 2048.
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is not set to `archive`.
 
 :::note
 
-Specifying a larger number of slots as the archive frequency has a potentially higher overhead for retrieving finalized states since more states may need to be regenerated to get to the requested state. Specifying a lower number of slots as the frequency increases the disk space usage.
+Specifying a larger number of slots as the archive frequency has a potentially higher overhead for
+retrieving finalized states since more states may need to be regenerated to get to the requested state.
+Specifying a lower number of slots as the frequency increases the disk space usage.
 
 :::
 
-For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest response time for retrieving a finalized state since each slot state is saved, whereas `--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the state because every 2048th slot state is saved.
+For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest
+response time for retrieving a finalized state since each slot state is saved, whereas
+`--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the state
+because every 2048th slot state is saved.
 
 ### `data-storage-mode`
 
@@ -430,7 +455,8 @@ The strategy for handling historical chain data. Valid options are:
 
 - `archive` - Stores all blocks and states.
 
-- `minimal` - Stores the minimal required data to follow the chain and run validators. Finalized states and historic blocks are pruned.
+- `minimal` - Stores the minimal required data to follow the chain and run validators.
+  Finalized states and historic blocks are pruned.
 
 - `prune` - Stores all blocks, but finalized states are pruned.
 
@@ -504,7 +530,9 @@ data-validator-path: "/home/me/me_validator"
   </TabItem>
 </Tabs>
 
-The path to the validator client data. The default is `<data-base-path>/validator` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
+The path to the validator client data.
+The default is `<data-base-path>/validator` where `<data-base-path>` is specified using
+[`--data-base-path`](#data-base-path-data-path).
 
 ### `deposit-snapshot-enabled`
 
@@ -539,22 +567,26 @@ deposit-snapshot-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables using a deposit tree snapshot from checkpoint sync or distributed as part of Teku's binary and persisting the tree after finalization. The default is `true`.
+Enables or disables using a deposit tree snapshot from checkpoint sync or distributed as part of
+Teku's binary and persisting the tree after finalization.
+The default is `true`.
 
-Normally, at sync, Teku requests all deposit logs from the execution layer up to the head. At each startup, Teku
-loads all deposits from the disk and replays them to recreate the merkle tree. Both operations consume peer resources
-and delay node availability on restart. The feature enabled by this option dramatically decreases the time of both
-operations by bundling deposit tree snapshots in the Teku distribution for all major
-networks (Mainnet, Gnosis, Holesky, and Sepolia) and persisting the current tree after finalization. Instead of
-replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one.
+Normally, at sync, Teku requests all deposit logs from the execution layer up to the head.
+At each startup, Teku loads all deposits from the disk and replays them to recreate the merkle tree.
+Both operations consume peer resources and delay node availability on restart.
+The feature enabled by this option dramatically decreases the time of both operations by bundling
+deposit tree snapshots in the Teku distribution for all major networks (Mainnet, Gnosis, Holesky,
+and Sepolia) and persisting the current tree after finalization.
+Instead of replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one.
 
 :::info Security considerations
-If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the next deposit received
-from the execution layer. The malicious peer can't follow up the chain, and so can't propose with an incorrect
-deposit tree snapshot.
+If a malicious peer changes the bundled tree, Teku throws `InvalidDepositEventsException` on the
+next deposit received from the execution layer.
+The malicious peer can't follow up the chain, and so can't propose with an incorrect deposit tree snapshot.
 :::
 
-When this option is not set or is disabled, the `--checkpoint-sync-url` value will be used if provided to find the deposit snapshot URL.
+When this option is not set or is disabled, the `--checkpoint-sync-url` value will be used if
+provided to find the deposit snapshot URL.
 
 ### `doppelganger-detection-enabled`
 
@@ -589,7 +621,8 @@ doppelganger-detection-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables [doppelganger detection](../../how-to/prevent-slashing/detect-doppelgangers.md). The default is `false`.
+Enables or disables [doppelganger detection](../../how-to/prevent-slashing/detect-doppelgangers.md).
+The default is `false`.
 
 ### `ee-endpoint`
 
@@ -624,7 +657,9 @@ ee-endpoint: "http://localhost:8550"
   </TabItem>
 </Tabs>
 
-The URL of the [execution client's](../../concepts/node-types.md#execution-clients) Engine JSON-RPC APIs. This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after [The Merge](../../concepts/node-types.md).
+The URL of the [execution client's](../../concepts/node-types.md#execution-clients) Engine JSON-RPC APIs.
+This replaces [`eth1-endpoint`](#eth1-endpoint-eth1-endpoints) after
+[The Merge](../../concepts/node-types.md).
 
 ### `ee-jwt-claim-id`
 
@@ -659,7 +694,8 @@ ee-jwt-claim-id: "foobar"
   </TabItem>
 </Tabs>
 
-A unique identifier for the consensus layer client. When using the JSON-RPC API engine, this identifier is added to JWT claims as an `id` claim.
+A unique identifier for the consensus layer client.
+When using the JSON-RPC API engine, this identifier is added to JWT claims as an `id` claim.
 
 ### `ee-jwt-secret-file`
 
@@ -694,7 +730,11 @@ ee-jwt-secret-file: "ee-jwt-secret.hex"
   </TabItem>
 </Tabs>
 
-The shared secret used to authenticate [execution clients](../../concepts/node-types.md#execution-and-consensus-clients) when using the Engine JSON-RPC API. Contents of file must be 32 hex-encoded bytes. May be a relative or absolute path. See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
+The shared secret used to authenticate
+[execution clients](../../concepts/node-types.md#execution-clients) when using the Engine JSON-RPC API.
+Contents of file must be 32 hex-encoded bytes.
+This can be a relative or absolute path.
+See an [example of how to generate this](../../get-started/connect/mainnet.md#1-generate-the-shared-secret).
 
 ### `eth1-deposit-contract-address`
 
@@ -769,9 +809,11 @@ eth1-deposit-contract-max-request-size: 8000
   </TabItem>
 </Tabs>
 
-The maximum number of blocks to request deposit contract event logs for in a single request. The default is 10000.
+The maximum number of blocks to request deposit contract event logs for in a single request.
+The default is `10000`.
 
-Setting a smaller max size may help if your ETH1 node is slow at loading deposit event logs, or when receiving warnings that the ETH1 node is unavailable.
+Setting a smaller max size may help if your execution layer client is slow at loading deposit event
+logs, or when receiving warnings that the execution layer client is unavailable.
 
 ### `eth1-endpoint`, `eth1-endpoints`
 
@@ -806,13 +848,22 @@ eth1-endpoint: ["http://localhost:8545","https://mainnet.infura.io/v3/d0e21ccd0b
   </TabItem>
 </Tabs>
 
-A comma-separated list of JSON-RPC URLs of execution layer (Ethereum 1.0) nodes. Each time Teku makes a call, it finds the first provider in the list that is available, on the right chain, and in sync. This option must be specified if running a validator.
+A comma-separated list of JSON-RPC URLs of execution layer clients.
+Each time Teku makes a call, it finds the first provider in the list that is available, on the right
+chain, and in sync.
+This option must be specified if running a validator.
 
-If not specified (that is, you're running a beacon node only), then provide an initial state using the [`--initial-state`](#initial-state) option, or start Teku from an existing database using [`--data-path`](#data-base-path-data-path), which provides the initial state to work from. You do not need to provide an initial state if running a public network which has already started (for example, Mainnet or Holesky).
+If not specified (that is, you're running a beacon node only), then provide an initial state using
+the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
+[`--data-path`](#data-base-path-data-path), which provides the initial state to work from.
+You do not need to provide an initial state if running a public network which has already started
+(for example, Mainnet or Holesky).
 
 :::caution
 
-After [The Merge](../../concepts/node-types.md), you can't use `eth1-endpoint` to specify an external execution layer provider. This option is replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
+After [The Merge](../../concepts/node-types.md), you can't use `eth1-endpoint` to specify an
+external execution layer provider.
+This option is replaced by [`ee-endpoint`](#ee-endpoint) for each beacon node.
 
 :::
 
@@ -849,7 +900,10 @@ exchange-capabilities-monitoring-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables querying the [execution client](../../concepts/node-types.md#execution-clients) periodically for the Engine API methods it supports. If enabled and incompatibility is detected, a warning is raised in the logs. The default is `true`.
+Enables or disables querying the [execution client](../../concepts/node-types.md#execution-clients)
+periodically for the Engine API methods it supports.
+If enabled and incompatibility is detected, a warning is raised in the logs.
+The default is `true`.
 
 ### `exit-when-no-validator-keys-enabled`
 
@@ -893,7 +947,9 @@ The default is `false`.
 
 :::important
 
-If running the validator client and beacon node separately, set this option only on the validator client side. This setting is meant for the client that loads and handles the validator keys.
+If running the validator client and beacon node separately, set this option only on the validator
+client side.
+This setting is meant for the client that loads and handles the validator keys.
 
 :::
 
@@ -930,9 +986,14 @@ genesis-state: "/home/me/genesis.ssz"
   </TabItem>
 </Tabs>
 
-The path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state, or a [recent finalized checkpoint state from which to sync].
+The path or URL to an SSZ-encoded state file.
+The state file can be used to specify the genesis state, or a
+[recent finalized checkpoint state from which to sync].
 
-This option does not need to be specified if the genesis state is provided by the network specified using the [`--network`](#network) option. It also is not required if the Reconstruct Historical States Service is not being utilised.
+This option does not need to be specified if the genesis state is provided by the network specified
+using the [`--network`](#network) option.
+It also is not required if the [`--reconstruct-historic-states`](#reconstruct-historic-states) is
+not used.
 
 :::note
 
@@ -942,7 +1003,8 @@ If overriding the genesis state in a custom network, you must supply the genesis
 
 :::tip
 
-[Infura](https://infura.io/) can be used as the source of initial states with `--genesis-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v2/debug/beacon/states/genesis`
+You can use [Infura](https://infura.io/) as the source of initial states using
+`--genesis-state https://{projectid}:{secret}@eth2-beacon-mainnet.infura.io/eth/v2/debug/beacon/states/genesis`.
 
 :::
 
@@ -987,8 +1049,8 @@ ignore-weak-subjectivity-period-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables ignoring the [weak subjectivity](../../concepts/weak-subjectivity.md) period verification that Teku
-performs at startup.
+Enables or disables ignoring the [weak subjectivity](../../concepts/weak-subjectivity.md) period
+verification that Teku performs at startup.
 The default is `false`.
 
 :::caution
@@ -1028,9 +1090,12 @@ initial-state: "/home/me/genesis.ssz"
   </TabItem>
 </Tabs>
 
-The path or URL to an SSZ-encoded state file. The state file can be used to specify the genesis state, or a [recent finalized checkpoint state from which to sync].
+The path or URL to an SSZ-encoded state file.
+The state file can be used to specify the genesis state, or a
+[recent finalized checkpoint state from which to sync].
 
-This option does not need to be specified if the genesis state is provided by the network specified using the [`--network`](#network) option.
+This option does not need to be specified if the genesis state is provided by the network specified
+using the [`--network`](#network) option.
 
 :::note
 
@@ -1040,7 +1105,8 @@ If overriding the initial state in a custom network, you must supply the initial
 
 :::tip
 
-See [this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
+See
+[this community-maintained list of checkpoint state endpoints](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 
 :::
 
@@ -1077,7 +1143,8 @@ log-color-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables including a console color display code in status and event log messages. The default is `true`.
+Enables or disables including a console color display code in status and event log messages.
+The default is `true`.
 
 ### `log-destination`
 
@@ -1119,13 +1186,19 @@ The location to output log information. Valid options are:
 - `DEFAULT_BOTH`
 - `FILE`
 
-The default is `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain events are displayed on the console, and errors and other information are logged to a file. Specify the log file with the [`--log-file`](#log-file) command-line option.
+The default is `DEFAULT_BOTH`.
+When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain events are displayed on the
+console, and errors and other information are logged to a file.
+Specify the log file with the [`--log-file`](#log-file) command-line option.
 
-For production systems we recommend using the `CONSOLE` or `FILE` options to ensure all log information is available in one place.
+In production environments, we recommend using the `CONSOLE` or `FILE` options to ensure all log
+information is available in one place.
 
 :::note
 
-Use `DEFAULT_BOTH` when using a [custom Log4J2 configuration file](../../how-to/monitor/configure-logging.md#advanced-custom-logging). Any other option applies the custom logging changes on top of its default settings.
+Use `DEFAULT_BOTH` when using a
+[custom Log4J2 configuration file](../../how-to/monitor/configure-logging.md#advanced-custom-logging).
+Any other option applies the custom logging changes on top of its default settings.
 
 :::
 
@@ -1205,7 +1278,8 @@ log-file-name-pattern: "tekuL_%d{yyyy-MM-dd}.log"
   </TabItem>
 </Tabs>
 
-The filename pattern to apply when creating log files. The default pattern is `teku_%d{yyyy-MM-dd}.log`
+The filename pattern to apply when creating log files.
+The default pattern is `teku_%d{yyyy-MM-dd}.log`.
 
 ### `log-include-events-enabled`
 
@@ -1240,7 +1314,9 @@ log-include-events-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables logging frequent update events. For example, every slot event with validators and attestations. The default is `true`.
+Enables or disables logging frequent update events.
+For example, every slot event with validators and attestations.
+The default is `true`.
 
 ### `log-include-validator-duties-enabled`
 
@@ -1275,7 +1351,8 @@ log-include-validator-duties-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables logging details of validator event duties. The default is `true`.
+Enables or disables logging details of validator event duties.
+The default is `true`.
 
 :::note
 
@@ -1316,7 +1393,9 @@ logging: "DEBUG"
   </TabItem>
 </Tabs>
 
-The logging verbosity. Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. Default is `INFO`.
+The logging verbosity.
+Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, and `ALL`.
+The default is `INFO`.
 
 ### `metrics-block-timing-tracking-enabled`
 
@@ -1386,9 +1465,14 @@ metrics-categories: ["BEACON", "JVM", "PROCESS"]
   </TabItem>
 </Tabs>
 
-A comma-separated list of categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`. All but `VALIDATOR_DUTY` categories are enabled by default.
+A comma-separated list of categories for which to track metrics.
+Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`,
+`STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`,
+`VALIDATOR_PERFORMANCE`, and `VALIDATOR_DUTY`.
+All but `VALIDATOR_DUTY` categories are enabled by default.
 
-When `metrics-categories` is used, only the categories specified in this option are enabled (all other categories are disabled).
+When `metrics-categories` is used, only the categories specified in this option are enabled (all
+other categories are disabled).
 
 ### `metrics-enabled`
 
@@ -1458,11 +1542,13 @@ metrics-host-allowlist: ["medomain.com", "meotherdomain.com"]
   </TabItem>
 </Tabs>
 
-A comma-separated list of hostnames to allow access to the [Teku metrics]. By default, Teku accepts access from `localhost` and `127.0.0.1`.
+A comma-separated list of hostnames to allow access to the [Teku metrics].
+By default, Teku accepts access from `localhost` and `127.0.0.1`.
 
 :::tip
 
-To allow all hostnames, use `"*"`. We don't recommend allowing all hostnames for production environments.
+To allow all hostnames, use `"*"`.
+We don't recommend allowing all hostnames for production environments.
 
 :::
 
@@ -1534,7 +1620,8 @@ metrics-port: 6174
   </TabItem>
 </Tabs>
 
-The port (TCP) on which [Prometheus](https://prometheus.io/) accesses Teku metrics. The default is `8008`.
+The port (TCP) on which [Prometheus](https://prometheus.io/) accesses Teku metrics.
+The default is `8008`.
 
 ### `metrics-publish-endpoint`
 
@@ -1569,7 +1656,8 @@ metrics-publish-endpoint: "https://beaconcha.in/api/v1/client/metrics?apikey={ap
   </TabItem>
 </Tabs>
 
-The endpoint URL of an external service such as [beaconcha.in](https://beaconcha.in/) to which Teku publishes metrics for node monitoring.
+The endpoint URL of an external service such as [beaconcha.in](https://beaconcha.in/) to which Teku
+publishes metrics for node monitoring.
 
 ### `metrics-publish-interval`
 
@@ -1604,7 +1692,9 @@ metrics-publish-interval: "60"
   </TabItem>
 </Tabs>
 
-The interval between metric publications to the external service defined in [metrics-publish-endpoint](#metrics-publish-endpoint), measured in seconds. The default is `60`.
+The interval between metric publications to the external service defined in
+[metrics-publish-endpoint](#metrics-publish-endpoint), measured in seconds.
+The default is `60`.
 
 ### `network`
 
@@ -1639,14 +1729,16 @@ network: "mainnet"
   </TabItem>
 </Tabs>
 
-The predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. See the [consensus specification] for examples.
+The predefined network configuration.
+Accepts a predefined network name, or file path or URL to a YAML configuration file.
+See the [consensus specification] for examples.
 
 The default is `mainnet`.
 
 Possible values are:
 
 | Network   | Chain           | Type       | Description                                                             |
-| :-------- | :-------------- | :--------- | :---------------------------------------------------------------------- |
+|:----------|:----------------|:-----------|:------------------------------------------------------------------------|
 | `mainnet` | Consensus layer | Production | Main network                                                            |
 | `minimal` | Consensus layer | Test       | Used for local testing and development networks                         |
 | `gnosis`  | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/)                  |
@@ -1655,7 +1747,8 @@ Possible values are:
 | `chiado`  | Consensus layer | Test       | Gnosis [testnet](https://docs.gnosischain.com/concepts/networks/chiado) |
 | `lukso`   | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/)                   |
 
-Predefined networks can provide defaults such as the initial state of the network, bootnodes, and the address of the deposit contract.
+Predefined networks can provide defaults such as the initial state of the network, bootnodes, and
+the address of the deposit contract.
 
 ### `p2p-advertised-ip`, `p2p-advertised-ips`
 
@@ -1691,7 +1784,8 @@ p2p-advertised-ip: "192.168.1.132"
 </Tabs>
 
 The peer-to-peer IP address(es) to advertise.
-You can define up to two addresses: one IPv4 and one [IPv6](../../how-to/find-and-connect/configure-ipv6.md). 
+You can define up to two addresses: one IPv4 and one
+[IPv6](../../how-to/find-and-connect/configure-ipv6.md). 
 The default address is `127.0.0.1`.
 
 ### `p2p-advertised-port`
@@ -1727,10 +1821,13 @@ p2p-advertised-port: 1789
   </TabItem>
 </Tabs>
 
-The P2P port to advertise. The default is the port specified in [`--p2p-port`](#p2p-port).
+The P2P port to advertise.
+The default is the port specified in [`--p2p-port`](#p2p-port).
 
 The advertised port can differ from the [`--p2p-port`](#p2p-port). 
-For example, you can set the advertised port to `9010`, and the `--p2p-port` value to `9009`, then manually configure the firewall to forward external incoming requests on port `9010` to port `9009` on the Teku node.
+For example, you can set the advertised port to `9010`, and the `--p2p-port` value to `9009`, then
+manually configure the firewall to forward external incoming requests on port `9010` to port `9009`
+on the Teku node.
 
 ### `p2p-advertised-port-ipv6`
 
@@ -1765,7 +1862,8 @@ p2p-advertised-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) port to advertise. Use this port only when advertising both IPv4 and IPv6 addresses. 
+The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) port to advertise.
+Use this port only when advertising both IPv4 and IPv6 addresses. 
 The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `p2p-advertised-udp-port`
@@ -1838,7 +1936,8 @@ p2p-advertised-udp-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port to advertise external peers. This port is only used when advertising both IPv4 and IPv6 addresses. 
+The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port to advertise external peers.
+This port is only used when advertising both IPv4 and IPv6 addresses. 
 The default is the port specified in [`--p2p-advertised-port-ipv6`](#p2p-advertised-port-ipv6) if it is set. 
 Otherwise, the default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
@@ -1876,10 +1975,12 @@ p2p-direct-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
   </TabItem>
 </Tabs>
 
-A comma-separated list of [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers
-with which to establish and maintain connections. Direct peers are static peers with which this node will always
-exchange full messages, regardless of peer scoring mechanisms. Such peers will also need to enable you as direct
-in order to work.
+A comma-separated list of
+[multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers with
+which to establish and maintain connections.
+Direct peers are static peers with which this node will always exchange full messages, regardless of
+peer scoring mechanisms.
+Your direct peers also need to enable your node as direct peer in order to work.
 
 ### `p2p-discovery-bootnodes`
 
@@ -1950,7 +2051,9 @@ p2p-discovery-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables P2P peer discovery. If disabled, [`p2p-static-peers`](#p2p-static-peers) defines the peer connections. The default is `true`.
+Enables or disables P2P peer discovery.
+If disabled, [`p2p-static-peers`](#p2p-static-peers) defines the peer connections.
+The default is `true`.
 
 ### `p2p-discovery-site-local-addresses-enabled`
 
@@ -1985,7 +2088,8 @@ p2p-discovery-site-local-addresses-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables discovery of the following local network (RFC1918) addresses. The default is `false`.
+Enables or disables discovery of the following local network (RFC1918) addresses.
+The default is `false`.
 
 ```text
 10.0.0.0    	-   10.255.255.255  (10/8 prefix)
@@ -1995,7 +2099,9 @@ Enables or disables discovery of the following local network (RFC1918) addresses
 
 Normal Teku operation shouldn't send traffic to these local network addresses.
 
-In test or private networks, operators might need to enable discovery of local addresses. For example, when you run multiple consensus layer nodes in one local network, these nodes are not discovered on the public internet and are advertised with local (RFC1918) addresses.
+In test or private networks, operators might need to enable discovery of local addresses.
+For example, when you run multiple consensus layer nodes in one local network, these nodes are not
+discovered on the public internet and are advertised with local (RFC1918) addresses.
 
 ### `p2p-enabled`
 
@@ -2032,7 +2138,7 @@ p2p-enabled: false
 
 Enables or disables all P2P communication. The default is `true`.
 
-### `--p2p-flood-publish-enabled`
+### `p2p-flood-publish-enabled`
 
 <Tabs>
   <TabItem value="Syntax" label="Syntax" default>
@@ -2065,7 +2171,10 @@ p2p-flood-publish-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables the flood publishing behavior for all p2p subnets. When enabled, the mesh is used when propagating messages from other peers, but a peer's own messages will always be published to all known peers in the topic in. The default is `true`.
+Enables or disables the flood publishing behavior for all P2P subnets.
+When enabled, the mesh is used when propagating messages from other peers, but a peer's own messages
+will always be published to all known peers in the topic in.
+The default is `true`.
 
 ### `p2p-interface`, `p2p-interfaces`
 
@@ -2100,7 +2209,9 @@ p2p-interface: "192.168.1.132"
   </TabItem>
 </Tabs>
 
-The network interface(s) on which the node listens for P2P communication. The default is `0.0.0.0` (all interfaces). You can define up to 2 interfaces, with one being IPv4 and the other IPv6.
+The network interface(s) on which the node listens for P2P communication.
+The default is `0.0.0.0` (all interfaces).
+You can define up to two interfaces, with one being IPv4 and the other IPv6.
 
 ### `p2p-nat-method`
 
@@ -2135,13 +2246,15 @@ p2p-nat-method: "UPNP"
   </TabItem>
 </Tabs>
 
-The method for handling [NAT environments](../../how-to/find-and-connect/specify-nat.md). Valid options are `NONE` and `UPNP`.
+The method for handling [NAT environments](../../how-to/find-and-connect/specify-nat.md).
+Valid options are `NONE` and `UPNP`.
 
 The default is `NONE`, which disables NAT functionality.
 
 :::tip
 
-UPnP support is often disabled by default in networking firmware. If disabled by default, explicitly enable UPnP support.
+UPnP support is often disabled by default in networking firmware.
+If disabled by default, explicitly enable UPnP support.
 
 :::
 
@@ -2178,7 +2291,9 @@ p2p-peer-lower-bound: 25
   </TabItem>
 </Tabs>
 
-The lower bound on the target number of peers. Teku will actively seek new peers if the number of peers falls below this value. The default is `64`.
+The lower bound on the target number of peers.
+Teku actively seeks new peers if the number of peers falls below this value.
+The default is `64`.
 
 ### `p2p-peer-upper-bound`
 
@@ -2213,7 +2328,9 @@ p2p-peer-upper-bound: 40
   </TabItem>
 </Tabs>
 
-The upper bound on the target number of peers. Teku will refuse new peer requests that would cause the number of peers to exceed this value. The default is `100`.
+The upper bound on the target number of peers.
+Teku refuses new peer requests that would cause the number of peers to exceed this value.
+The default is `100`.
 
 ### `p2p-port`
 
@@ -2287,7 +2404,9 @@ p2p-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The P2P listening ports (UDP and TCP) for [IPv6](../../how-to/find-and-connect/configure-ipv6.md) when listening over both IPv4 and IPv6. The default is `9090`.
+The P2P listening ports (UDP and TCP) for [IPv6](../../how-to/find-and-connect/configure-ipv6.md)
+when listening over both IPv4 and IPv6.
+The default is `9090`.
 
 ### `p2p-private-key-file`
 
@@ -2324,7 +2443,7 @@ p2p-private-key-file: "/home/me/me_node/key"
 
 The file containing the [node's private key](../../concepts/p2p-private-key.md).
 
-If a file doesn't exist at the specified path, Teku creates a new file and p2p private key to store inside.
+If a file doesn't exist at the specified path, Teku creates a new file and P2P private key to store inside.
 
 :::important
 
@@ -2366,8 +2485,9 @@ p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
   </TabItem>
 </Tabs>
 
-A comma-separated list of [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers
-with which to establish and maintain connections.
+A comma-separated list of
+[multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers with
+which to establish and maintain connections.
 
 ### `p2p-subscribe-all-subnets-enabled`
 
@@ -2402,15 +2522,21 @@ p2p-subscribe-all-subnets-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables forcing the beacon node to stay subscribed to all subnets regardless of the number of validators. The default is `false`.
+Enables or disables forcing the beacon node to stay subscribed to all subnets regardless of the
+number of validators.
+The default is `false`.
 
-When set to `false`, Teku subscribes to two persistent subnets regardless of the number of validators. Teku also subscribes and unsubscribes from subnets as needed for the running validators.
+When set to `false`, Teku subscribes to two persistent subnets regardless of the number of validators.
+Teku also subscribes and unsubscribes from subnets as needed for the running validators.
 
-This option is primarily for users running an external validator client and load balancing it across multiple beacon nodes. Without this flag, depending on how requests are load balanced, the beacon nodes may not have subscribed to the required subnets and be unable to produce aggregates.
+This option is primarily for users running an external validator client and load balancing it across
+multiple beacon nodes.
+Without this flag, depending on how requests are load balanced, the beacon nodes may not have
+subscribed to the required subnets and be unable to produce aggregates.
 
 :::caution
 
-When set to `true`, Teku uses more CPU and bandwidth, and for most users there’s no need to use this option.
+When set to `true`, Teku uses more CPU and bandwidth, and for most users there's no need to use this option.
 
 :::
 
@@ -2482,7 +2608,8 @@ p2p-udp-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port used for discovery. Use this port only when listening over both IPv4 and IPv6.
+The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port used for discovery.
+Use this port only when listening over both IPv4 and IPv6.
 The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `reconstruct-historic-states`
@@ -2520,7 +2647,8 @@ reconstruct-historic-states: true
 
 Enables or disables [reconstructing historical states](../../how-to/reconstruct-historical-states.md).
 
-When set to `true`, an archive node can reconstruct historical states from genesis up to the current checkpoint, running during start up.
+When set to `true`, an archive node can reconstruct historical states from genesis up to the current
+checkpoint, running during start up.
 When set to `false`, this function is disabled.
 
 ### `rest-api-cors-origins`
@@ -2556,15 +2684,20 @@ rest-api-cors-origins: ["http://medomain.com","https://meotherdomain.com"]
   </TabItem>
 </Tabs>
 
-A list of domain URLs for CORS validation. You must enclose the URLs in double quotes and separate them with commas.
+A list of domain URLs for CORS validation.
+You must enclose the URLs in double quotes and separate them with commas.
 
-Listed domains can access the node using HTTP REST API calls. If your client interacts with Teku using a browser app (such as a block explorer), add the client domain to the list.
+Listed domains can access the node using HTTP REST API calls.
+If your client interacts with Teku using a browser app (such as a block explorer), add the client
+domain to the list.
 
-The default is `none`. If you don't list any domains, browser apps can't interact with your Teku node.
+The default is `none`.
+If you don't list any domains, browser apps can't interact with your Teku node.
 
 :::tip
 
-For testing and development purposes, use `*` to accept requests from any domain. We don’t recommend accepting requests from any domain for production environments.
+For testing and development purposes, use `*` to accept requests from any domain.
+We don't recommend accepting requests from any domain for production environments.
 
 :::
 
@@ -2641,9 +2774,11 @@ rest-api-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables the [REST API service](../rest.md). The default is `false`.
+Enables or disables the [REST API service](../rest.md).
+The default is `false`.
 
-If set to `true`, then use [`--rest-api-host-allowlist`](#rest-api-host-allowlist) to limit access to trusted parties.
+If set to `true`, use [`--rest-api-host-allowlist`](#rest-api-host-allowlist) to limit access to
+trusted parties.
 
 ### `rest-api-host-allowlist`
 
@@ -2678,11 +2813,13 @@ rest-api-host-allowlist: ["medomain.com", "meotherdomain.com"]
   </TabItem>
 </Tabs>
 
-A comma-separated list of hostnames to allow access to the REST API. By default, Teku accepts access from `localhost` and `127.0.0.1`.
+A comma-separated list of hostnames to allow access to the REST API.
+By default, Teku accepts access from `localhost` and `127.0.0.1`.
 
 :::warning
 
-Only trusted parties should access the REST API. Do not directly expose these APIs publicly on production nodes.
+Only trusted parties should access the REST API.
+Do not directly expose these APIs publicly on production nodes.
 
 We don't recommend allowing all hostnames (`"*"`) for production environments.
 
@@ -2793,11 +2930,13 @@ sentry-config-file: "/etc/sentry-node-config.json"
   </TabItem>
 </Tabs>
 
-The path to the [sentry node](../../how-to/use-sentry-nodes.md) configuration file. The default is `none`.
+The path to the [sentry node](../../how-to/use-sentry-nodes.md) configuration file.
+The default is `none`.
 
 :::caution
 
-This option can't be used with [`--beacon-node-api-endpoint`](subcommands/validator-client.md#beacon-node-api-endpoint-beacon-node-api-endpoints).
+You can't use this option with
+[`--beacon-node-api-endpoint`](subcommands/validator-client.md#beacon-node-api-endpoint-beacon-node-api-endpoints).
 
 :::
 
@@ -2834,7 +2973,8 @@ shut-down-when-validator-slashed-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables [validators slashing detection](../../how-to/prevent-slashing/detect-slashing.md). The default is `false`.
+Enables or disables [validators slashing detection](../../how-to/prevent-slashing/detect-slashing.md).
+The default is `false`.
 
 ### `validator-api-cors-origins`
 
@@ -2871,13 +3011,17 @@ validator-api-cors-origins: ["http://medomain.com","https://meotherdomain.com"]
 
 A comma-separated list of domain URLs for CORS validation.
 
-Listed domains can access the node using validator API calls. If your client interacts with Teku using a browser app (such as a block explorer), add the client domain to the list.
+Listed domains can access the node using validator API calls.
+If your client interacts with Teku using a browser app (such as a block explorer), add the client
+domain to the list.
 
-The default is `none`. If you don't list any domains, browser apps can't interact with your Teku node.
+The default is `none`.
+If you don't list any domains, browser apps can't interact with your Teku node.
 
 :::tip
 
-For testing and development purposes, use `*` to accept requests from any domain. We don’t recommend accepting requests from any domain for production environments.
+For testing and development purposes, use `*` to accept requests from any domain.
+We don't recommend accepting requests from any domain for production environments.
 
 :::
 
@@ -2914,7 +3058,8 @@ validator-api-docs-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables the [validator REST API documentation](../rest.md#enable-the-validator-client-api). The default is `false`.
+Enables or disables the [validator REST API documentation](../rest.md#enable-the-validator-client-api).
+The default is `false`.
 
 When enabling the API documentation endpoint, you must also specify:
 
@@ -2954,9 +3099,11 @@ validator-api-enabled: true
   </TabItem>
 </Tabs>
 
-Set to `true` to enable the [validator client API](../rest.md#enable-the-validator-client-api). The default is `false`.
+Set to `true` to enable the [validator client API](../rest.md#enable-the-validator-client-api).
+The default is `false`.
 
-If set to `true`, then use [`--validator-api-host-allowlist`](#validator-api-host-allowlist) to limit access to trusted parties.
+If set to `true`, then use [`--validator-api-host-allowlist`](#validator-api-host-allowlist) to
+limit access to trusted parties.
 
 ### `validator-api-host-allowlist`
 
@@ -2991,11 +3138,14 @@ validator-api-host-allowlist: ["medomain.com", "meotherdomain.com"]
   </TabItem>
 </Tabs>
 
-A comma-separated list of hostnames to allow access to the [validator REST API](../rest.md#enable-the-validator-client-api). By default, Teku accepts access from `localhost` and `127.0.0.1`.
+A comma-separated list of hostnames to allow access to the
+[validator REST API](../rest.md#enable-the-validator-client-api).
+By default, Teku accepts access from `localhost` and `127.0.0.1`.
 
 :::warning
 
-Only trusted parties should access the API. Do not directly expose these APIs publicly on production nodes.
+Only trusted parties should access the API.
+Do not directly expose these APIs publicly on production nodes.
 
 We don't recommend allowing all hostnames (`"*"`) for production environments.
 
@@ -3035,7 +3185,8 @@ validator-api-interface: "0.0.0.0"
   </TabItem>
 </Tabs>
 
-The interface on which the [validator REST API](../rest.md#enable-the-validator-client-api) listens. The default is `127.0.0.1`.
+The interface on which the [validator REST API](../rest.md#enable-the-validator-client-api) listens.
+The default is `127.0.0.1`.
 
 ### `validator-api-keystore-file`
 
@@ -3070,7 +3221,10 @@ validator-api-keystore-file: "validator_keystore.p12"
   </TabItem>
 </Tabs>
 
-The keystore file for the [validator REST API](../rest.md#enable-the-validator-client-api). Teku can use PKCS12 or JKS keystore types. You must [create a keystore](../../how-to/use-external-signer/manage-keys.md#create-a-keystore) to enable access.
+The keystore file for the [validator REST API](../rest.md#enable-the-validator-client-api).
+Teku can use PKCS12 or JKS keystore types.
+You must [create a keystore](../../how-to/use-external-signer/manage-keys.md#create-a-keystore) to
+enable access.
 
 ### `validator-api-keystore-password-file`
 
@@ -3140,7 +3294,8 @@ validator-api-port: 5052
   </TabItem>
 </Tabs>
 
-The [validator REST API](../rest.md#enable-the-validator-client-api) listening port (HTTP). The default is 5052.
+The [validator REST API](../rest.md#enable-the-validator-client-api) listening port (HTTP).
+The default is `5052`.
 
 ### `validators-builder-registration-default-enabled`
 
@@ -3175,7 +3330,8 @@ validators-builder-registration-default-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables registering all validators managed by the validator client to the [builder endpoint](../../how-to/configure/builder-network.md) when proposing a block.
+Enables or disables registering all validators managed by the validator client to the
+[builder endpoint](../../how-to/configure/builder-network.md) when proposing a block.
 
 ### `validators-early-attestations-enabled`
 
@@ -3210,13 +3366,17 @@ validators-early-attestations-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables using Teku's built-in early attestation production, which creates an attestation as soon as a block is received. The default is `true`.
+Enables or disables using Teku's built-in early attestation production, which creates an attestation
+as soon as a block is received.
+The default is `true`.
 
-Set this option to `false` if running a validator client connected to a load balanced beacon node (including most hosted beacon nodes such as [Infura]), and validator effectiveness is poor.
+Set this option to `false` if running a validator client connected to a load balanced beacon node
+(including most hosted beacon nodes such as [Infura]), and validator effectiveness is poor.
 
 :::note
 
-Delaying attestation production increases the chances of generating a correct attestation when using a load balanced beacon node, but it increases the risk of inclusion delays.
+Delaying attestation production increases the chances of generating a correct attestation when using
+a load balanced beacon node, but it increases the risk of inclusion delays.
 
 :::
 
@@ -3253,7 +3413,8 @@ validators-external-signer-keystore: "teku_client_keystore.p12"
   </TabItem>
 </Tabs>
 
-The keystore that Teku presents to the external signer for TLS authentication. Teku can use PKCS12 or JKS keystore types.
+The keystore that Teku presents to the external signer for TLS authentication.
+Teku can use PKCS12 or JKS keystore types.
 
 Use the PKCS12 keystore type if connecting to Web3Signer.
 
@@ -3333,7 +3494,9 @@ Use the URL to load the public keys from a remote service. For example:
 --validators-external-signer-public-keys=http://localhost:9900/api/v1/eth2/publicKeys
 ```
 
-Use the value `external-signer` to load all public keys managed by the external signer. Teku automatically queries the external signer's [public keys endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
+Use the value `external-signer` to load all public keys managed by the external signer.
+Teku automatically queries the external signer's
+[public keys endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
 
 ```bash
 --validators-external-signer-public-keys=external-signer
@@ -3341,7 +3504,8 @@ Use the value `external-signer` to load all public keys managed by the external 
 
 :::tip
 
-You can [load new validators without restarting Teku] if you specify a URL from which to load the public keys.
+You can [load new validators without restarting Teku] if you specify a URL from which to load the
+public keys.
 
 :::
 
@@ -3380,17 +3544,21 @@ validators-external-signer-slashing-protection-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables using Teku's built-in [slashing protection] when using an external signer such as [Web3Signer]. The default is `true`.
+Enables or disables using Teku's built-in [slashing protection] when using an external signer such
+as [Web3Signer].
+The default is `true`.
 
 Set this option to `false` if using the slashing protection implemented by an external signer.
 
 :::warning
 
-Ensure the external signer has slashing protection enabled before disabling Teku slashing protection, otherwise a validator may get slashed.
+Ensure the external signer has slashing protection enabled before disabling Teku slashing
+protection, otherwise a validator may get slashed.
 
 :::
 
-Built-in slashing protection can only be disabled for validators using external signers. Validators using Teku to sign blocks and attestations always uses its built-in slashing protection.
+Built-in slashing protection can only be disabled for validators using external signers.
+Validators using Teku to sign blocks and attestations always uses its built-in slashing protection.
 
 ### `validators-external-signer-timeout`
 
@@ -3460,7 +3628,8 @@ validators-external-signer-truststore: "websigner_truststore.p12"
   </TabItem>
 </Tabs>
 
-The PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate which signs the external signer's certificate.
+The PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate
+which signs the external signer's certificate.
 
 ### `validators-external-signer-truststore-password-file`
 
@@ -3565,7 +3734,8 @@ validators-graffiti: "Teku validator"
   </TabItem>
 </Tabs>
 
-The graffiti to add when creating a block. This is converted to bytes and padded to `Bytes32`.
+The graffiti to add when creating a block.
+This is converted to bytes and padded to `Bytes32`.
 
 The same graffiti is used for all validators started with this beacon node.
 
@@ -3604,7 +3774,9 @@ validators-graffiti-file: "/Users/me/mynode/graffiti.txt"
   </TabItem>
 </Tabs>
 
-The file containing the validator graffiti to add when creating a block. The file contents are converted to bytes and padded to `Bytes32`. The same graffiti is used for all validators started with this beacon node.
+The file containing the validator graffiti to add when creating a block.
+The file contents are converted to bytes and padded to `Bytes32`.
+The same graffiti is used for all validators started with this beacon node.
 
 You can overwrite the file while Teku is running to update the graffiti.
 
@@ -3709,8 +3881,8 @@ validator-is-local-slashing-protection-synchronized-enabled: true
 Enables or disables performing slashing protection checks in a sequential manner.
 
 When set to `true`, Teku performs slashing protection checks sequentially.
-Sequential checks restrict the throughput of duties, and under some scenarios, can improve performance to allow
-more granular in-process locking of slashing protection data.
+Sequential checks restrict the throughput of duties, and under some scenarios, can improve
+performance to allow more granular in-process locking of slashing protection data.
 
 When set to `false`, Teku performs slashing protection checks concurrently.
 The local slashing protection process can check if signing is safe for multiple
@@ -3758,13 +3930,16 @@ validator-keys: "/home/validator/keys:home/validator/passwords"
   </TabItem>
 </Tabs>
 
-The directory or file to load the encrypted keystore file(s) and associated password file(s) from. Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
+The directory or file to load the encrypted keystore file(s) and associated password file(s) from.
+Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
 
-When specifying directories, Teku expects to find identically named keystore and password files. For example `validator_217179e.json` and `validator_217179e.txt`.
+When specifying directories, Teku expects to find identically named keystore and password files.
+For example `validator_217179e.json` and `validator_217179e.txt`.
 
 :::tip
 
-You can [load new validators without restarting Teku] if you specify a directory from which to load the keystore files.
+You can [load new validators without restarting Teku] if you specify a directory from which to load
+the keystore files.
 
 :::
 
@@ -3809,7 +3984,8 @@ validators-keystore-locking-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables locking the keystore files listed in [`--validator-keys`](#validator-keys). The default is `true`.
+Enables or disables locking the keystore files listed in [`--validator-keys`](#validator-keys).
+The default is `true`.
 
 Attempts to lock all keystores in a directory if a directory is specified in [`--validator-keys`](#validator-keys).
 
@@ -3846,9 +4022,13 @@ validators-performance-tracking-mode: LOGGING
   </TabItem>
 </Tabs>
 
-The validator performance tracking strategy. Valid options are `LOGGING`, `METRICS`, `ALL`, and `NONE`. The default is `ALL`.
+The validator performance tracking strategy.
+Valid options are `LOGGING`, `METRICS`, `ALL`, and `NONE`.
+The default is `ALL`.
 
-When set to `LOGGING`, attestation and block performance are reported as log messages. When set to `METRICS`, attestation and block performance are reported using [metrics] in the [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
+When set to `LOGGING`, attestation and block performance are reported as log messages.
+When set to `METRICS`, attestation and block performance are reported using [metrics] in the
+[`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
 
 ### `validators-proposer-blinded-blocks-enabled`
 
@@ -3883,7 +4063,11 @@ validators-proposer-blinded-blocks-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables blinded blocks production, a prerequisite for the [builder network](../../how-to/configure/builder-network.md). When [`--validators-builder-registration-default-enabled`](#validators-builder-registration-default-enabled) is enabled, this option is enabled automatically. The default is `false`.
+Enables or disables blinded blocks production, a prerequisite for the
+[builder network](../../how-to/configure/builder-network.md).
+When [`--validators-builder-registration-default-enabled`](#validators-builder-registration-default-enabled)
+is enabled, this option is enabled automatically.
+The default is `false`.
 
 ### `validators-proposer-config`
 
@@ -3918,7 +4102,8 @@ validators-proposer-config: "/home/me/node/proposerConfig.json"
   </TabItem>
 </Tabs>
 
-The remote URL or local file path to the [proposer configuration file](../../how-to/configure/use-proposer-config-file.md).
+The remote URL or local file path to the
+[proposer configuration file](../../how-to/configure/use-proposer-config-file.md).
 
 ### `validators-proposer-config-refresh-enabled`
 
@@ -3953,7 +4138,10 @@ validators-proposer-config-refresh-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables reloading the [proposer configuration](../../how-to/configure/use-proposer-config-file.md) on every proposer preparation (once per epoch). The default is `false`.
+Enables or disables reloading the
+[proposer configuration](../../how-to/configure/use-proposer-config-file.md) on every proposer
+preparation (once per epoch).
+The default is `false`.
 
 ### `validators-proposer-default-fee-recipient`
 
@@ -3988,13 +4176,16 @@ validators-proposer-default-fee-recipient: "0xFE3B557E8Fb62b89F4916B721be55cEb82
   </TabItem>
 </Tabs>
 
-The default recipient of transaction fees for all validator keys. When running a validator, this is an alternative to the `fee_recipient` in the [default proposer configuration](../../how-to/configure/use-proposer-config-file.md).
+The default recipient of transaction fees for all validator keys.
+When running a validator, this is an alternative to the `fee_recipient` in the
+[default proposer configuration](../../how-to/configure/use-proposer-config-file.md).
 
 :::tip
 
 We recommend using this option when running a beacon node serving APIs to other validator clients.
 
-The specified fee recipient is used in rare cases when a validator requests a block production but its fee recipient is still unknown for the beacon node.
+The specified fee recipient is used in rare cases when a validator requests a block production but
+its fee recipient is still unknown for the beacon node.
 
 :::
 
