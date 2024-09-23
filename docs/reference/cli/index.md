@@ -2032,6 +2032,41 @@ p2p-enabled: false
 
 Enables or disables all P2P communication. The default is `true`.
 
+### `--p2p-flood-publish-enabled`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-flood-publish-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-flood-publish-enabled=false
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_FLOOD_PUBLISH_ENABLED=false
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-flood-publish-enabled: false
+```
+
+  </TabItem>
+</Tabs>
+
+Enables or disables the flood publishing befaviour for all p2p subnets. When enabled, the mesh is used when propagating messages from other peers, but a peer's own messages will always be published to all known peers in the topic in. The default is `true`.
+
 ### `p2p-interface`, `p2p-interfaces`
 
 <Tabs>
