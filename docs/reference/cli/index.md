@@ -408,15 +408,15 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is not set
 :::note
 
 Specifying a higher number of slots has a potentially higher overhead for retrieving finalized
-states, since you might need to regenerate more states to get to the requested state.
+states, since Teku might need to regenerate more states to get to the requested state.
 Specifying a lower number of slots increases the disk space usage.
 
 :::
 
-For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest
-response time for retrieving a finalized state since each slot state is saved, whereas
-`--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the state
-because every 2048th slot state is saved.
+For example, with `--data-storage-archive-frequency=1`, Teku uses maximum disk space but has the
+lowest response time for retrieving a finalized state since it saves every slot state.
+With `--data-storage-archive-frequency=2048`, Teku uses less disk space but might need to
+regenerate the state since it only saves every 2048th slot state.
 
 ### `data-storage-mode`
 
