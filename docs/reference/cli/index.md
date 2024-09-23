@@ -35,7 +35,7 @@ You can specify Teku options:
 
 - In a [YAML configuration file](../../how-to/configure/use-config-file.md).
 
-If an option is specified in multiple places, the order of priority is command line, environment
+If you specify an option in multiple places, the order of priority is command line, environment
 variable, configuration file.
 
 ## Using autocomplete
@@ -401,15 +401,15 @@ data-storage-archive-frequency: 1028
 </Tabs>
 
 The frequency (in slots) at which to store finalized states to disk.
-The default is 2048.
+The default is `2048`.
 
 This option is ignored if [`--data-storage-mode`](#data-storage-mode) is not set to `archive`.
 
 :::note
 
-Specifying a larger number of slots as the archive frequency has a potentially higher overhead for
-retrieving finalized states since more states may need to be regenerated to get to the requested state.
-Specifying a lower number of slots as the frequency increases the disk space usage.
+Specifying a higher number of slots has a potentially higher overhead for retrieving finalized
+states, since you might need to regenerate more states to get to the requested state.
+Specifying a lower number of slots increases the disk space usage.
 
 :::
 
@@ -572,7 +572,7 @@ Teku's binary and persisting the tree after finalization.
 The default is `true`.
 
 Normally, at sync, Teku requests all deposit logs from the execution layer up to the head.
-At each startup, Teku loads all deposits from the disk and replays them to recreate the merkle tree.
+At each startup, Teku loads all deposits from the disk and replays them to recreate the Merkle tree.
 Both operations consume peer resources and delay node availability on restart.
 The feature enabled by this option dramatically decreases the time of both operations by bundling
 deposit tree snapshots in the Teku distribution for all major networks (Mainnet, Gnosis, Holesky,
@@ -1785,7 +1785,7 @@ p2p-advertised-ip: "192.168.1.132"
 
 The peer-to-peer IP address(es) to advertise.
 You can define up to two addresses: one IPv4 and one
-[IPv6](../../how-to/find-and-connect/configure-ipv6.md). 
+[IPv6](../../how-to/find-and-connect/configure-ipv6.md).
 The default address is `127.0.0.1`.
 
 ### `p2p-advertised-port`
@@ -1824,7 +1824,7 @@ p2p-advertised-port: 1789
 The P2P port to advertise.
 The default is the port specified in [`--p2p-port`](#p2p-port).
 
-The advertised port can differ from the [`--p2p-port`](#p2p-port). 
+The advertised port can differ from the [`--p2p-port`](#p2p-port).
 For example, you can set the advertised port to `9010`, and the `--p2p-port` value to `9009`, then
 manually configure the firewall to forward external incoming requests on port `9010` to port `9009`
 on the Teku node.
@@ -1863,7 +1863,7 @@ p2p-advertised-port-ipv6: 1790
 </Tabs>
 
 The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) port to advertise.
-Use this port only when advertising both IPv4 and IPv6 addresses. 
+Use this port only when advertising both IPv4 and IPv6 addresses.
 The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `p2p-advertised-udp-port`
@@ -1899,8 +1899,8 @@ p2p-advertised-udp-port: 1789
   </TabItem>
 </Tabs>
 
-The UDP port to advertise to external peers. 
-The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set. 
+The UDP port to advertise to external peers.
+The default is the port specified in [`--p2p-advertised-port`](#p2p-advertised-port) if it is set.
 Otherwise, the default is the port specified in [`--p2p-port`](#p2p-port).
 
 ### `p2p-advertised-udp-port-ipv6`
@@ -1937,8 +1937,8 @@ p2p-advertised-udp-port-ipv6: 1790
 </Tabs>
 
 The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port to advertise external peers.
-This port is only used when advertising both IPv4 and IPv6 addresses. 
-The default is the port specified in [`--p2p-advertised-port-ipv6`](#p2p-advertised-port-ipv6) if it is set. 
+This port is only used when advertising both IPv4 and IPv6 addresses.
+The default is the port specified in [`--p2p-advertised-port-ipv6`](#p2p-advertised-port-ipv6) if it is set.
 Otherwise, the default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
 ### `p2p-direct-peers`
@@ -2092,9 +2092,9 @@ Enables or disables discovery of the following local network (RFC1918) addresses
 The default is `false`.
 
 ```text
-10.0.0.0    	-   10.255.255.255  (10/8 prefix)
-172.16.0.0  	-   172.31.255.255  (172.16/12 prefix)
-192.168.0.0 	-   192.168.255.255 (192.168/16 prefix)
+10.0.0.0      -   10.255.255.255  (10/8 prefix)
+172.16.0.0    -   172.31.255.255  (172.16/12 prefix)
+192.168.0.0   -   192.168.255.255 (192.168/16 prefix)
 ```
 
 Normal Teku operation shouldn't send traffic to these local network addresses.
@@ -2171,9 +2171,11 @@ p2p-flood-publish-enabled: false
   </TabItem>
 </Tabs>
 
-Enables or disables the flood publishing behavior for all P2P subnets.
-When enabled, the mesh is used when propagating messages from other peers, but a peer's own messages
-will always be published to all known peers in the topic in.
+Enables or disables the
+[flood publishing](https://github.com/libp2p/specs/blob/master/pubsub/gossipsub/gossipsub-v1.1.md#flood-publishing)
+behavior for all P2P subnets.
+When enabled, Teku uses its mesh when propagating messages from other peers, but Teku always
+publishes its own messages to all known peers in the topic.
 The default is `true`.
 
 ### `p2p-interface`, `p2p-interfaces`
@@ -2209,7 +2211,7 @@ p2p-interface: "192.168.1.132"
   </TabItem>
 </Tabs>
 
-The network interface(s) on which the node listens for P2P communication.
+The network interfaces on which the node listens for P2P communication.
 The default is `0.0.0.0` (all interfaces).
 You can define up to two interfaces, with one being IPv4 and the other IPv6.
 
@@ -3930,7 +3932,7 @@ validator-keys: "/home/validator/keys:home/validator/passwords"
   </TabItem>
 </Tabs>
 
-The directory or file to load the encrypted keystore file(s) and associated password file(s) from.
+The directory or file to load the encrypted keystore files and associated password files from.
 Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
 
 When specifying directories, Teku expects to find identically named keystore and password files.
