@@ -2791,7 +2791,7 @@ If you specify values, the server will only respond to requests where the Host h
 
 :::warning
 
-Only trusted parties should access the REST API`
+Only trusted parties should access the REST API.
 Do not directly expose these APIs publicly on production nodes.
 
 We don't recommend allowing all hostnames (`"*"`) for production environments.
