@@ -2757,24 +2757,27 @@ trusted parties.
 ```bash
 --rest-api-host-allowlist=localhost,127.0.0.1,192.168.1.3
 ```
+
   </TabItem>
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
 TEKU_REST_API_HOST_ALLOWLIST=localhost,127.0.0.1,192.168.1.3
 ```
+
   </TabItem>
   <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
 rest-api-host-allowlist: ["localhost", "127.0.0.1", "192.168.1.3"]
 ```
+
   </TabItem>
 </Tabs>
 
 A comma-separated list of hostnames or IP addresses from which the REST API server will respond. This flag restricts the server's responding addresses, but not the client access.
 
-You can listen on all addresses using `--rest-api-listen-address="*"` but restrict responses to specific hosts with this flag.
+You can listen on all addresses using `--rest-api-interface="*"` but restrict responses to specific hosts with this flag.
 
 By default, Teku's REST API server responds only to requests where the Host header matches `localhost` or `127.0.0.1`.
 If you specify values, the server will only respond to requests where the Host header matches one of the specified hosts or IP addresses.
