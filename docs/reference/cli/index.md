@@ -2755,29 +2755,36 @@ trusted parties.
   <TabItem value="Example" label="Example" >
 
 ```bash
---rest-api-host-allowlist=localhost,127.0.0.1,192.168.1.3
+--rest-api-host-allowlist=localhost,127.0.0.1,10.0.0.1
 ```
 
   </TabItem>
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-TEKU_REST_API_HOST_ALLOWLIST=localhost,127.0.0.1,192.168.1.3
+TEKU_REST_API_HOST_ALLOWLIST=localhost,127.0.0.1,10.0.0.1
 ```
 
   </TabItem>
   <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
-rest-api-host-allowlist: ["localhost", "127.0.0.1", "192.168.1.3"]
+rest-api-host-allowlist: ["localhost", "127.0.0.1", "10.0.0.1"]
 ```
 
   </TabItem>
 </Tabs>
 
-A comma-separated list of hostnames or IP addresses from which the REST API server will respond. This flag restricts the server's responding addresses, but not the client access.
+A comma-separated list of hostnames or IP addresses from which the REST API server will respond. 
+This flag restricts the server's responding addresses, but not the client access.
 
 You can listen on all addresses using `--rest-api-interface="*"` but restrict responses to specific hosts with this flag.
+When you configure the interface to listen on all available IPs (`rest-api-interface: "0.0.0.0"`) and allow all hosts 
+(`["*"]`), you enable connections from any address, such as `localhost` (127.0.0.1) or a specific network IP like `10.0.0.1`. 
+If you instead set the API to listen only on a specific IP, like `10.0.0.1`, and still allow all hosts, only that IP can connect, and any attempts from `localhost` will fail.
+
+Configuring the interface to listen on all IPs but restricting the allowlist to `localhost` allows only `localhost` to connect, but other IPs, like `10.0.0.1`, receive a 403 error.
+If the API listens on 10.0.0.1 but only allows `localhost`, neither can connect - `localhost` can't reach the server, and `10.0.0.1` is blocked.
 
 By default, Teku's REST API server responds only to requests where the Host header matches `localhost` or `127.0.0.1`.
 If you specify values, the server will only respond to requests where the Host header matches one of the specified hosts or IP addresses.
