@@ -1,5 +1,5 @@
 name: New Content
-description: Suggest new content or a report documentation needed for a new feature.
+description: Suggest new content or report documentation needed for a new feature.
 labels: ['new-content']
 body:
   - type: textarea
