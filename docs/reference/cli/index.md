@@ -2778,9 +2778,9 @@ rest-api-host-allowlist: ["localhost", "127.0.0.1", "10.0.0.1"]
 A comma-separated list of hostnames or IP addresses from which the REST API server will respond.
 This flag restricts the server's responding addresses, but not the client access.
 
-You can listen on all addresses using `--rest-api-interface="*"` but restrict responses to specific hosts with this flag.
+You can configure the API to listen on all network interfaces using `rest-api-interface="0.0.0.0"` and allow connections from specific addresses by setting `rest-api-host-allowlist`. 
 When you configure the interface to listen on all available IP addresses (`rest-api-interface: "0.0.0.0"`) and allow all hosts
-(`["*"]`), you enable connections from any address, such as `localhost` (127.0.0.1) or a specific network IP such as `10.0.0.1`.
+(`rest-api-host-allowlist: ["*"]`), you enable connections from any address, such as `localhost` (127.0.0.1) or a specific network IP such as `10.0.0.1`.
 If you instead set the API to listen only on a specific IP, such as `10.0.0.1`, and still allow all hosts, only that IP can connect, and any attempts from `localhost` will fail.
 
 Configuring the interface to listen on all IP addresses but restricting the allowlist to `localhost` allows only `localhost` to connect, and other IP addresses, such as  `10.0.0.1`, receive a 403 error.
