@@ -67,6 +67,18 @@ curl -X GET "http://localhost:5051/eth/v1/node/identity"
   </TabItem>
 </Tabs>
 
+### Configure the API for network interfaces and host allowlist
+
+You can use the [`rest-api-host-allowlist`](cli/index.md#rest-api-host-allowlist) and [`rest-api-interface`](cli/index.md#rest-api-interface) options to control which hosts and network interfaces Teku's REST API responds to. Configure the API to listen on specific IP addresses or all interfaces with `rest-api-interface` and control which hosts can connect using `rest-api-host-allowlist`:
+
+
+| Configuration | Interface | Allowlist | Result |
+|---------------|-----------|-----------|--------|
+| Listen on all IP addresses and allow all hosts | `rest-api-interface="0.0.0.0"` | `rest-api-host-allowlist=["*"]` | Enables connections from any address, such as `localhost` (`127.0.0.1`) or `10.0.0.1`. |
+| Listen on a specific IP address (`10.0.0.1`) and allow all hosts | `rest-api-interface="10.0.0.1"` | `rest-api-host-allowlist=["*"]` | Only the specified IP (`10.0.0.1`) can connect, and attempts from `localhost` (`127.0.0.1`) will fail. |
+| Listen on all IP addresses but allow only `localhost` | `rest-api-interface="0.0.0.0"` | `rest-api-host-allowlist=["127.0.0.1"]` | Only `localhost` (`127.0.0.1`) can connect; other IP addresses (e.g., `10.0.0.1`) will receive a 403 error. |
+| Listen on a specific IP address (`10.0.0.1`) but allow only `localhost` (`127.0.0.1`) | `rest-api-interface="10.0.0.1"` | `rest-api-host-allowlist=["127.0.0.1"]` | Neither can connect. `localhost` cannot reach the server, and `10.0.0.1` is blocked. |
+
 ## Enable the validator client API
 
 The [validator client API](../how-to/use-external-signer/manage-keys.md) allows you to call the [key manager API endpoints](https://ethereum.github.io/keymanager-APIs/) and is enabled separately from the REST API methods.

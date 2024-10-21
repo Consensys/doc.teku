@@ -2781,22 +2781,14 @@ This flag restricts the server's responding addresses, but not the client access
 By default, Teku's REST API server responds only to requests where the `Host` header matches `localhost` or `127.0.0.1`.
 If you specify values, the server will only respond to requests where the `Host` header matches one of the specified hosts or IP addresses.
 
-::: tip
+You can configure the API to listen on all network interfaces using [`rest-api-interface="0.0.0.0"`](#rest-api-interface) and allow connections from specific addresses by setting `rest-api-host-allowlist`. See [configure the API for network interfaces and host allowlist](../rest.md#configure-the-api-for-network-interfaces-and-host-allowlist) for more information.
+
+:::tip
 
 To allow all hostnames, use "*". We don't recommend allowing all hostnames for production environments.
 
 :::
 
-You can configure the API to listen on all network interfaces using [`rest-api-interface="0.0.0.0"`](#rest-api-interface) and allow connections from specific addresses by setting `rest-api-host-allowlist`:
-
-- When you configure the interface to listen on all available IP addresses (`rest-api-interface: "0.0.0.0"`) and allow all hosts
-(`rest-api-host-allowlist: ["*"]`), it enables connections from any address, such as `localhost` (127.0.0.1) or a specific network IP such as `10.0.0.1`.
-- If you set the API to listen only on a specific IP address, such as `rest-api-interface="10.0.0.1"`,
-  and still allow all hosts (`rest-api-host-allowlist: ["*"]`), only that IP address can connect, and any attempts from `localhost` will fail.
-- Configuring the interface to listen on all IP addresses (`rest-api-interface: "0.0.0.0"`) but restricting the allowlist to `localhost` (`rest-api-host-allowlist: ["127.0.0.1"]`)
-  allows only `localhost` to connect, and other IP addresses, such as  `10.0.0.1`, will receive a 403 error.
-- If the API listens on `10.0.0.1` (`rest-api-interface: "10.0.0.1"`) but only allows `localhost` (`rest-api-host-allowlist: ["127.0.0.1"]`), neither can connect
-  - `localhost` can't reach the server, and `10.0.0.1` is blocked.
 
 :::warning
 
