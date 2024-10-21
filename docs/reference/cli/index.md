@@ -2781,14 +2781,16 @@ This flag restricts the server's responding addresses, but not the client access
 By default, Teku's REST API server responds only to requests where the `Host` header matches `localhost` or `127.0.0.1`.
 If you specify values, the server will only respond to requests where the `Host` header matches one of the specified hosts or IP addresses.
 
-You can configure the API to listen on all network interfaces using [`rest-api-interface="0.0.0.0"`](#rest-api-interface) and allow connections from specific addresses by setting `rest-api-host-allowlist`. See [configure the API for network interfaces and host allowlist](../rest.md#configure-the-api-for-network-interfaces-and-host-allowlist) for more information.
+You can configure the API to listen on all network interfaces using [`rest-api-interface="0.0.0.0"`](#rest-api-interface)
+and allow connections from specific addresses by setting `rest-api-host-allowlist`. 
+See [configure the API for network interfaces and host allowlist](../rest.md#configure-the-api-for-network-interfaces-and-host-allowlist)
+for more information.
 
 :::tip
 
 To allow all hostnames, use "*". We don't recommend allowing all hostnames for production environments.
 
 :::
-
 
 :::warning
 
