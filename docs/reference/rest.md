@@ -69,7 +69,7 @@ curl -X GET "http://localhost:5051/eth/v1/node/identity"
 ### Configure the API for network interfaces and host allowlist
 
 You can use the [`rest-api-host-allowlist`](cli/index.md#rest-api-host-allowlist) and [`rest-api-interface`](cli/index.md#rest-api-interface)
-options to control which hosts and network interfaces Teku's REST API responds to. 
+options to control which hosts and network interfaces Teku's REST API responds to.
 Configure the API to listen on specific IP addresses or all interfaces with `rest-api-interface` and control
 which hosts can connect using `rest-api-host-allowlist`:
 
@@ -88,7 +88,7 @@ The [validator client API](../how-to/use-external-signer/manage-keys.md) allows 
 Enable the validator client API service from the command line by including the
 [`--validator-api-enabled`](cli/index.md#validator-api-enabled) command line option.
 
-When enabling the validator client API, you must [create a keystore](../how-to/use-external-signer/manage-keys.md#create-a-keystore). 
+When enabling the validator client API, you must [create a keystore](../how-to/use-external-signer/manage-keys.md#create-a-keystore).
 Set the keystore using [`--validator-api-keystore-file`](cli/index.md#validator-api-keystore-file) and the password file for the
 keystore using [`--validator-api-keystore-password-file`](cli/index.md#validator-api-keystore-password-file).
 
@@ -97,7 +97,7 @@ teku --validator-api-enabled --validator-api-keystore-file=validator_keystore.p1
 ```
 
 The [OpenAPI specifications](https://swagger.io/specification/) for the validator client API are available at `/swagger-docs` when
-the [`--validator-api-docs-enabled`](cli/index.md#validator-api-docs-enabled) option is set to `true`. 
+the [`--validator-api-docs-enabled`](cli/index.md#validator-api-docs-enabled) option is set to `true`.
 The `/swagger-docs` endpoint defines the API if code generators are in use.
 
 When enabling the API documentation endpoint, specify:
