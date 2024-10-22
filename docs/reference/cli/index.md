@@ -2782,7 +2782,7 @@ By default, Teku's REST API server responds only to requests where the `Host` he
 If you specify values, the server will only respond to requests where the `Host` header matches one of the specified hosts or IP addresses.
 
 You can configure the API to listen on all network interfaces using [`rest-api-interface="0.0.0.0"`](#rest-api-interface)
-and allow connections from specific addresses by setting `rest-api-host-allowlist`. 
+and allow connections from specific addresses by setting `rest-api-host-allowlist`.
 See [configure the API for network interfaces and host allowlist](../rest.md#configure-the-api-for-network-interfaces-and-host-allowlist)
 for more information.
 
