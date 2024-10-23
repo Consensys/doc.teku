@@ -77,7 +77,7 @@ which hosts can connect using `rest-api-host-allowlist`:
 |---------------|-----------|-----------|--------|
 | Listen on all IP addresses and allow all hosts | `rest-api-interface="0.0.0.0"` | `rest-api-host-allowlist=["*"]` | Enables connections from any address, such as `localhost` (`127.0.0.1`) or `10.0.0.1`. |
 | Listen on a specific IP address (`10.0.0.1`) and allow all hosts | `rest-api-interface="10.0.0.1"` | `rest-api-host-allowlist=["*"]` | Only the specified IP (`10.0.0.1`) can connect, and attempts from `localhost` (`127.0.0.1`) will fail. |
-| Listen on all IP addresses but allow only `localhost` | `rest-api-interface="0.0.0.0"` | `rest-api-host-allowlist=["127.0.0.1"]` | Only `localhost` (`127.0.0.1`) can connect; other IP addresses (e.g., `10.0.0.1`) will receive a 403 error. |
+| Listen on all IP addresses but allow only `localhost` | `rest-api-interface="0.0.0.0"` | `rest-api-host-allowlist=["127.0.0.1"]` | Only `localhost` (`127.0.0.1`) can connect; other IP addresses (for example `10.0.0.1`) will receive a 403 error. |
 | Listen on a specific IP address (`10.0.0.1`) but allow only `localhost` (`127.0.0.1`) | `rest-api-interface="10.0.0.1"` | `rest-api-host-allowlist=["127.0.0.1"]` | Neither can connect. `localhost` can't reach the server, and `10.0.0.1` is blocked. |
 
 ## Enable the validator client API
