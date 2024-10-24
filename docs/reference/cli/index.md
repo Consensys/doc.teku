@@ -2745,7 +2745,7 @@ trusted parties.
 ### `rest-api-host-allowlist`
 
 <Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
+ <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
 --rest-api-host-allowlist=<hostname>[,<hostname>...]... or "*"
@@ -2755,35 +2755,47 @@ trusted parties.
   <TabItem value="Example" label="Example" >
 
 ```bash
---rest-api-host-allowlist=medomain.com,meotherdomain.com
+--rest-api-host-allowlist=localhost,127.0.0.1,10.0.0.1
 ```
 
   </TabItem>
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-TEKU_REST_API_HOST_ALLOWLIST=medomain.com,meotherdomain.com
+TEKU_REST_API_HOST_ALLOWLIST=localhost,127.0.0.1,10.0.0.1
 ```
 
   </TabItem>
   <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
-rest-api-host-allowlist: ["medomain.com", "meotherdomain.com"]
+rest-api-host-allowlist: ["localhost", "127.0.0.1", "10.0.0.1"]
 ```
 
   </TabItem>
 </Tabs>
 
-A comma-separated list of hostnames to allow access to the REST API.
-By default, Teku accepts access from `localhost` and `127.0.0.1`.
+A comma-separated list of hostnames or IP addresses from which the REST API server will respond.
+This flag restricts the server's responding addresses, but not the client access.
+
+By default, Teku's REST API server responds only to requests where the `Host` header matches `localhost` or `127.0.0.1`.
+If you specify values, the server will only respond to requests where the `Host` header matches one of the specified hosts or IP addresses.
+
+You can configure the API to listen on all network interfaces using [`rest-api-interface="0.0.0.0"`](#rest-api-interface)
+and allow connections from specific addresses by setting `rest-api-host-allowlist`.
+See [configure the API for network interfaces and host allowlist](../rest.md#configure-the-api-for-network-interfaces-and-host-allowlist)
+for more information.
+
+:::tip
+
+To allow all hostnames, use "*". We don't recommend allowing all hostnames for production environments.
+
+:::
 
 :::warning
 
 Only trusted parties should access the REST API.
 Do not directly expose these APIs publicly on production nodes.
-
-We don't recommend allowing all hostnames (`"*"`) for production environments.
 
 :::
 

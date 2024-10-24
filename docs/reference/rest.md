@@ -37,7 +37,6 @@ You can also use tools such as [Postman] or [cURL] to interact with Teku APIs.
 <Tabs>
   <TabItem value="cURL request" label="cURL request" default>
 
-
 ```bash
 curl -X GET "http://localhost:5051/eth/v1/node/identity"
 ```
@@ -67,19 +66,39 @@ curl -X GET "http://localhost:5051/eth/v1/node/identity"
   </TabItem>
 </Tabs>
 
+### Configure the API for network interfaces and host allowlist
+
+You can use the [`rest-api-host-allowlist`](cli/index.md#rest-api-host-allowlist) and [`rest-api-interface`](cli/index.md#rest-api-interface)
+options to control which hosts and network interfaces Teku's REST API responds to.
+Configure the API to listen on specific IP addresses or all interfaces with `rest-api-interface` and control
+which hosts can connect using `rest-api-host-allowlist`:
+
+| Configuration | Interface | Allowlist | Result |
+|---------------|-----------|-----------|--------|
+| Listen on all IP addresses and allow all hosts | `rest-api-interface="0.0.0.0"` | `rest-api-host-allowlist=["*"]` | Enables connections from any address, such as `localhost` (`127.0.0.1`) or `10.0.0.1`. |
+| Listen on a specific IP address (`10.0.0.1`) and allow all hosts | `rest-api-interface="10.0.0.1"` | `rest-api-host-allowlist=["*"]` | Only the specified IP (`10.0.0.1`) can connect, and attempts from `localhost` (`127.0.0.1`) will fail. |
+| Listen on all IP addresses but allow only `localhost` | `rest-api-interface="0.0.0.0"` | `rest-api-host-allowlist=["127.0.0.1"]` | Only `localhost` (`127.0.0.1`) can connect; other IP addresses (for example `10.0.0.1`) will receive a 403 error. |
+| Listen on a specific IP address (`10.0.0.1`) but allow only `localhost` (`127.0.0.1`) | `rest-api-interface="10.0.0.1"` | `rest-api-host-allowlist=["127.0.0.1"]` | Neither can connect. `localhost` can't reach the server, and `10.0.0.1` is blocked. |
+
 ## Enable the validator client API
 
-The [validator client API](../how-to/use-external-signer/manage-keys.md) allows you to call the [key manager API endpoints](https://ethereum.github.io/keymanager-APIs/) and is enabled separately from the REST API methods.
+The [validator client API](../how-to/use-external-signer/manage-keys.md) allows you to call the
+[key manager API endpoints](https://ethereum.github.io/keymanager-APIs/) and is enabled separately from the REST API methods.
 
-Enable the validator client API service from the command line by including the [`--validator-api-enabled`](cli/index.md#validator-api-enabled) command line option.
+Enable the validator client API service from the command line by including the
+[`--validator-api-enabled`](cli/index.md#validator-api-enabled) command line option.
 
-When enabling the validator client API, you must [create a keystore](../how-to/use-external-signer/manage-keys.md#create-a-keystore). Set the keystore using [`--validator-api-keystore-file`](cli/index.md#validator-api-keystore-file) and the password file for the keystore using [`--validator-api-keystore-password-file`](cli/index.md#validator-api-keystore-password-file).
+When enabling the validator client API, you must [create a keystore](../how-to/use-external-signer/manage-keys.md#create-a-keystore).
+Set the keystore using [`--validator-api-keystore-file`](cli/index.md#validator-api-keystore-file) and the password file for the
+keystore using [`--validator-api-keystore-password-file`](cli/index.md#validator-api-keystore-password-file).
 
 ```bash title="Example"
 teku --validator-api-enabled --validator-api-keystore-file=validator_keystore.p12 --validator-api-keystore-password-file=validator_keystore_pass.txt
 ```
 
-The [OpenAPI specifications](https://swagger.io/specification/) for the validator client API are available at `/swagger-docs` when the [`--validator-api-docs-enabled`](cli/index.md#validator-api-docs-enabled) option is set to `true`. The `/swagger-docs` endpoint defines the API if code generators are in use.
+The [OpenAPI specifications](https://swagger.io/specification/) for the validator client API are available at `/swagger-docs` when
+the [`--validator-api-docs-enabled`](cli/index.md#validator-api-docs-enabled) option is set to `true`.
+The `/swagger-docs` endpoint defines the API if code generators are in use.
 
 When enabling the API documentation endpoint, specify:
 
