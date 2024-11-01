@@ -4,6 +4,9 @@ description: Configure TLS communication between Teku and Web3Signer.
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configure TLS communication
 
 Configure TLS communication with an external signer such as [Web3Signer] which accepts connections from clients that use trusted CA certificates or self-signed certificates.
@@ -154,8 +157,11 @@ eth2 --slashing-protection-enabled=false
 Start Teku and specify the [keystore](#teku-keystore-and-password-file) and [truststore](#2-create-the-truststore-and-password-file) created earlier, with the accompanying password files.
 
 :::note
-This example connects to the Holesky testnet, and connects to the execution client's JSON-RPC URL at `http://127.0.0.1:8551`.
+This example connects to the Holesky or Ephemery testnet, and connects to the execution client's JSON-RPC URL at `http://127.0.0.1:8551`.
 :::
+
+<Tabs>
+  <TabItem value="Holesky" label="Holesky" default>
 
 ```bash
 teku --network=holesky \
@@ -167,7 +173,22 @@ teku --network=holesky \
 --validators-external-signer-keystore=/Users/me/certs/teku_client_keystore.p12 \
 --validators-external-signer-keystore-password-file=/Users/me/certs/teku_keystore_password.txt
 ```
+  </TabItem>
 
+    <TabItem value="Ephemery" label="Ephemery" default>
+
+```bash
+teku --network=ephemery \
+--ee-endpoint=http://127.0.0.1:8551 \
+--validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
+--validators-external-signer-url=https://localhost:9000 \
+--validators-external-signer-truststore=/Users/me/certs/web3signer_truststore.p12 \
+--validators-external-signer-truststore-password-file=/Users/me/certs/truststore_pass.txt \
+--validators-external-signer-keystore=/Users/me/certs/teku_client_keystore.p12 \
+--validators-external-signer-keystore-password-file=/Users/me/certs/teku_keystore_password.txt
+```
+  </TabItem>
+</Tabs>
 <!-- links -->
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/

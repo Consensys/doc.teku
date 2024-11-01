@@ -4,6 +4,9 @@ description: Configure TLS communication between Teku and Web3Signer.
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configure TLS
 
 You can configure TLS for communication between Teku and an external signer, for example [Web3Signer].
@@ -49,6 +52,9 @@ eth2
 
 Start Teku with the external signer, keystore, and truststore details:
 
+<Tabs>
+  <TabItem value="Holesky" label="Holesky" default>
+
 ```bash
 teku --network=holesky \
 --eth1-endpoint=http://localhost:8545 \
@@ -59,7 +65,22 @@ teku --network=holesky \
 --validators-external-signer-keystore=/Users/me/certs/teku_client_keystore.p12 \
 --validators-external-signer-keystore-password-file=/Users/me/certs/teku_keystore_password.txt
 ```
+  </TabItem>
 
+    <TabItem value="Ephemery" label="Ephemery" default>
+
+```bash
+teku --network=ephemery \
+--eth1-endpoint=http://localhost:8545 \
+--validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
+--validators-external-signer-url=https://localhost:9000 \
+--validators-external-signer-truststore=/Users/me/certs/web3signer_truststore.p12 \
+--validators-external-signer-truststore-password-file=/Users/me/certs/truststore_pass.txt \
+--validators-external-signer-keystore=/Users/me/certs/teku_client_keystore.p12 \
+--validators-external-signer-keystore-password-file=/Users/me/certs/teku_keystore_password.txt
+```
+  </TabItem>
+</Tabs>
 In the command:
 
 - Specify the JSON-RPC URL of the ETH1 node using [`--eth1-endpoint`](../../reference/cli/index.md#eth1-endpoint-eth1-endpoints).

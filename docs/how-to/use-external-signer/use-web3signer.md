@@ -4,6 +4,9 @@ description: Use the Web3Signer external signing client.
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Use Web3Signer
 
 Teku supports the [Web3Signer] external signing client.
@@ -17,12 +20,27 @@ Teku supports the [Web3Signer] external signing client.
 
 Start Teku and specify the external signer options.
 
+<Tabs>
+  <TabItem value="Holesky" label="Holesky" default>
+
 ```bash
 teku --network=holesky \
 --eth1-endpoint=http://localhost:8545 \
 --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
 --validators-external-signer-url=http://localhost:9000
 ```
+  </TabItem>
+
+  <TabItem value="Ephemery" label="Ephemery" default>
+
+```bash
+teku --network=ephemery \
+--eth1-endpoint=http://localhost:8545 \
+--validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
+--validators-external-signer-url=http://localhost:9000
+```
+  </TabItem>
+</Tabs>
 
 The command line specifies the following:
 

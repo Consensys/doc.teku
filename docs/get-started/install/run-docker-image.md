@@ -141,6 +141,66 @@ services:
 ```
 
   </TabItem>
+
+  <TabItem value="Ephemery" label="Ephemery" default>
+
+```yaml
+---
+version: "3.4"
+services:
+  besu_node:
+    image: hyperledger/besu:latest
+    command:
+      [
+        "--network=ephemery",
+        "--data-path=/var/lib/besu/data",
+        "--host-allowlist=*",
+        "--sync-mode=FAST",
+        "--rpc-http-enabled",
+        "--rpc-http-cors-origins=*",
+        "--rpc-http-api=ETH,NET,CLIQUE,DEBUG,MINER,NET,PERM,ADMIN,EEA,TXPOOL,PRIV,WEB3",
+        "--engine-jwt-secret=/var/lib/besu/data/token.txt",
+        "--engine-host-allowlist=*",
+        "--engine-rpc-enabled=true",
+      ]
+    volumes:
+      - ./besu:/var/lib/besu/data
+    ports:
+      # Map the p2p port(30303), RPC HTTP port(8545), and engine port (8551)
+      - "8545:8545"
+      - "8551:8551"
+      - "30303:30303/tcp"
+      - "30303:30303/udp"
+
+  teku_node:
+    environment:
+      - "JAVA_OPTS=-Xmx4g"
+    image: consensys/teku:latest
+    command:
+      [
+        "--network=ephemery",
+        "--data-base-path=/var/lib/teku/data",
+        "--validators-proposer-default-fee-recipient=YOUR_WALLET",
+        "--ee-endpoint=http://besu_node:8551",
+        "--ee-jwt-secret-file=/var/lib/teku/data/token.txt",
+        "--validator-keys=/var/lib/teku/data/validator/keys:/var/lib/teku/data/validator/passwords",
+        "--p2p-port=9000",
+        "--rest-api-enabled=true",
+        "--rest-api-docs-enabled=true",
+      ]
+    depends_on:
+      - besu_node
+    volumes:
+      - ./teku:/var/lib/teku/data
+    ports:
+      # Map the p2p port(9000) and REST API port(5051)
+      - "9000:9000/tcp"
+      - "9000:9000/udp"
+      - "5051:5051"
+```
+
+  </TabItem>
+
   <TabItem value="Mainnet" label="Mainnet" >
 
 ```yaml
