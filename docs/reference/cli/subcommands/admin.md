@@ -318,6 +318,7 @@ Possible values are:
 | `sepolia` | Consensus layer | Test | Multi-client testnet |
 | `chiado` | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
 | `lukso` | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/) |
+| `ephemery` | Consensus layer | Test | Multi-client testnet 
 
 Predefined networks can provide defaults such the initial state of the network, bootnodes, and the address of the deposit contract.
 
@@ -625,5 +626,6 @@ Possible values are:
 | `sepolia` | Consensus layer | Test       | Multi-client testnet |
 | `chiado`  | Consensus layer | Test       | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
 | `lukso`   | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/) |
+| `ephemery` | Consensus layer | Test | Multi-client testnet 
 
 Predefined networks can provide defaults such the initial state of the network, bootnodes, and the address of the deposit contract.
