@@ -16,17 +16,22 @@ Teku supports the [Web3Signer] external signing client.
 ## Start Teku
 
 Start Teku and specify the external signer options.
+For example:
 
 ```bash
-teku --network=holesky \
---eth1-endpoint=http://localhost:8545 \
---validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
---validators-external-signer-url=http://localhost:9000
+teku \
+  --network=holesky                                                    \
+  --eth1-endpoint=http://localhost:8545                                \
+  --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
+  --validators-external-signer-url=http://localhost:9000
 ```
 
 The command line specifies the following:
 
-- The validator public keys for which Web3Signer signs attestations and blocks using [`--validators-external-signer-public-keys`](../../reference/cli/index.md#validators-external-signer-public-keys).
+- The network using [`--network`](../../reference/cli/index.md#network).
+- The JSON-RPC URL of the execution layer client using [`--eth1-endpoint`](../../reference/cli/index.md#eth1-endpoint-eth1-endpoints).
+- The validator public keys for which Web3Signer signs attestations and blocks using
+  [`--validators-external-signer-public-keys`](../../reference/cli/index.md#validators-external-signer-public-keys).
 - The URL of the Web3Signer client using [`--validators-external-signer-url`](../../reference/cli/index.md#validators-external-signer-url).
 
 :::note

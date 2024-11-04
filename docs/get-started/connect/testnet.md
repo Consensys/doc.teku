@@ -9,15 +9,19 @@ import TabItem from '@theme/TabItem';
 
 # Connect to a testnet
 
-Run Teku as a consensus client with any execution client on a testnet (for example [Holesky](https://github.com/eth-clients/holesky) or
-[Sepolia](https://github.com/eth-clients/sepolia)).
+Run Teku as a consensus client with any execution client on a testnet (for example [Holesky](https://github.com/eth-clients/holesky),
+[Ephemery](https://ephemery.dev/), or [Sepolia](https://github.com/eth-clients/sepolia)).
 
 If you're using [Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can follow the
 [Besu and Teku testnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-testnet/).
 
-:::note
+:::note Notes
 
-Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first. 
+- Ephemery is a single network that rolls back to the genesis after a set period of time.
+  Ephemery is focused on short-term and heavy testing use cases.
+  It avoids problems like insufficient testnet funds, inactive validators, state bloat, and similar
+  issues faced by long-running testnets.
+- Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first. 
 You can connect your consensus client using the beacon node only, without any validator duties.
 
 :::
@@ -44,8 +48,8 @@ If you're running a beacon node only, skip to the [next step](#3-start-the-execu
 If you're also running a validator client, create a test Ethereum address
 (you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
 Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet.
-See the list of [Holesky faucets](https://github.com/eth-clients/holesky#metadata) or
-[Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia).
+See the list of [Holesky faucets](https://github.com/eth-clients/holesky#metadata), [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia),
+or [Ephemery faucets](https://ephemery-faucet.pk910.de/).
 
 :::note
 
@@ -53,7 +57,7 @@ If you're unable to get ETH using the faucet, you can ask for help on the [EthSt
 
 :::
 
-Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/).
+Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
 
 Remember the passwords that you use to create the validator keys, because you
 need them to [create the validator password files](#create-a-password-file-for-each-validator-key).
@@ -69,7 +73,6 @@ If specifying directories, password files must have the same name as the keys, b
 
 - If the Launchpad creates a key named `keystore-m_12381_3600_0_0_0-1596485378.json`,
   then the password file must be named `keystore-m_12381_3600_0_0_0-1596485378.txt`.
-
 - The password file format follows
   [`EIP-2335`](https://eips.ethereum.org/EIPS/eip-2335#password-requirements)
   requirements (UTF-8 encoded file, unicode normalization, and control code removal).
@@ -91,33 +94,47 @@ Open a new terminal window.
 To run Teku as a beacon node only (without validator duties), run the following command or [specify the options in a configuration file](../../how-to/configure/use-config-file.md):
 
 <Tabs>
-  <TabItem value="Holesky" label="Holesky" default>
+<TabItem value="Holesky" label="Holesky" default>
 
 ```bash
 teku \
-    --network=holesky                             \
-    --ee-endpoint=http://localhost:8551          \
-    --ee-jwt-secret-file=<path to jwtsecret.hex> \
-    --metrics-enabled=true                       \
-    --rest-api-enabled=true                      \
-    --checkpoint-sync-url=<checkpoint sync URL>
+  --network=holesky                            \
+  --ee-endpoint=http://localhost:8551          \
+  --ee-jwt-secret-file=<path to jwtsecret.hex> \
+  --metrics-enabled=true                       \
+  --rest-api-enabled=true                      \
+  --checkpoint-sync-url=<checkpoint sync URL>
 ```
 
-  </TabItem>
-  <TabItem value="Sepolia" label="Sepolia" >
+</TabItem>
+<TabItem value="Ephemery" label="Ephemery">
 
 ```bash
 teku \
-    --network=sepolia                            \
-    --ee-endpoint=http://localhost:8551          \
-    --ee-jwt-secret-file=<path to jwtsecret.hex> \
-    --metrics-enabled=true                       \
-    --rest-api-enabled=true                      \
-    --checkpoint-sync-url=<checkpoint sync URL>
+  --network=ephemery                           \
+  --ee-endpoint=http://localhost:8551          \
+  --ee-jwt-secret-file=<path to jwtsecret.hex> \
+  --metrics-enabled=true                       \
+  --rest-api-enabled=true                      \
+  --checkpoint-sync-url=<checkpoint sync URL optional>
 ```
 
-  </TabItem>
+</TabItem>
+<TabItem value="Sepolia" label="Sepolia">
+
+```bash
+teku \
+  --network=sepolia                            \
+  --ee-endpoint=http://localhost:8551          \
+  --ee-jwt-secret-file=<path to jwtsecret.hex> \
+  --metrics-enabled=true                       \
+  --rest-api-enabled=true                      \
+  --checkpoint-sync-url=<checkpoint sync URL>
+```
+
+</TabItem>
 </Tabs>
+
 
 Specify:
 
@@ -132,7 +149,7 @@ You can modify the option values and add other [command line options](../../refe
 
 You can run the Teku beacon node and validator client as a [single process](#single-process) or as [separate processes](#separate-processes).
 
-You can check your validator status by searching your Ethereum address on the [Holesky Beacon Chain explorer](https://holesky.beaconcha.in/). 
+You can check your validator status by searching your Ethereum address on the [Holesky Beacon Chain explorer](https://holesky.beaconcha.in/) or [Ephemery Beacon Chain Explorer](https://beaconchain.ephemery.dev). 
 Your validator might take multiple days to activate and start proposing blocks.
 
 You can also use [Prometheus and Grafana](../../how-to/monitor/use-metrics.md) to monitor your nodes.
@@ -143,7 +160,7 @@ To run the Teku beacon node and validator client in a single process, run the fo
 [specify the options in the configuration file](../../how-to/configure/use-config-file.md):
 
 <Tabs>
-  <TabItem value="Holesky" label="Holesky" default>
+<TabItem value="Holesky" label="Holesky" default>
 
 ```bash
 teku \
@@ -157,12 +174,29 @@ teku \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
 
-  </TabItem>
-  <TabItem value="Sepolia" label="Sepolia" >
+</TabItem>
+<TabItem value="Ephemery" label="Ephemery">
 
+```bash
+teku \
+  --network=ephemery                                        \
+  --ee-endpoint=http://localhost:8551                       \
+  --ee-jwt-secret-file=<path to jwtsecret.hex>              \
+  --metrics-enabled=true                                    \
+  --rest-api-enabled=true                                   \
+  --checkpoint-sync-url=<checkpoint sync URL optional>      \
+  --validators-proposer-default-fee-recipient=<ETH address> \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
+
+</TabItem>
+<TabItem value="Sepolia" label="Sepolia" >
+
+:::note
 Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
+:::
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 Specify:
@@ -184,21 +218,30 @@ To run the Teku beacon node and validator client as separate processes, first [s
 On a separate machine, run Teku using the [`validator-client`](../../reference/cli/subcommands/validator-client.md) subcommand:
 
 <Tabs>
-  <TabItem value="Holesky" label="Holesky" default>
+<TabItem value="Holesky" label="Holesky" default>
 
 ```bash
 teku validator-client \
-    --network=holesky                      \
-    --beacon-node-api-endpoint=<endpoint> \
-    --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+  --network=holesky                     \
+  --beacon-node-api-endpoint=<endpoint> \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
 
-  </TabItem>
-  <TabItem value="Sepolia" label="Sepolia" >
+</TabItem>
+<TabItem value="Ephemery">
 
+:::note Coming soon
+Support for starting Teku as a separate validator client on the Ephemery testnet is coming soon.
+:::
+
+</TabItem>
+<TabItem value="Sepolia" label="Sepolia">
+
+:::note
 Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
+:::
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 Specify:
@@ -221,10 +264,10 @@ Syncing the execution client can take several days.
 ## 6. Stake ETH
 
 Stake your testnet ETH for one or more validators using the
-[Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/).
+[Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev).
 
 You can check your validator status by searching your Ethereum address on the
-[Holesky Beacon Chain explorer](https://holesky.beaconcha.in/).
+[Holesky Beacon Chain explorer](https://holesky.beaconcha.in/) or [Ephemery Beacon Chain explorer](https://beaconchain.ephemery.dev).
 It may take up to multiple days for your validator to be activated and start
 proposing blocks.
 

@@ -142,11 +142,12 @@ This example disables [Web3Signer slashing protection], this is not recommended 
 Start Web3Signer using the [keystore and password](#web3signer-keystore-and-password-file), and [known clients file](#3-create-the-known-clients-file) created earlier.
 
 ```bash
-web3signer --key-store-path=/Users/me/keyFiles/ \
---tls-keystore-file=/Users/me/certs/web3signer_keystore.p12 \
---tls-keystore-password-file=/Users/me/certs/web3signer_keystore_password.txt \
---tls-known-clients-file=/Users/me/certs/knownClients.txt \
-eth2 --slashing-protection-enabled=false
+web3signer \
+  --key-store-path=/Users/me/keyFiles/                                          \
+  --tls-keystore-file=/Users/me/certs/web3signer_keystore.p12                   \
+  --tls-keystore-password-file=/Users/me/certs/web3signer_keystore_password.txt \
+  --tls-known-clients-file=/Users/me/certs/knownClients.txt                     \
+  eth2 --slashing-protection-enabled=false
 ```
 
 ## 5. Start Teku
@@ -158,14 +159,15 @@ This example connects to the Holesky testnet, and connects to the execution clie
 :::
 
 ```bash
-teku --network=holesky \
---ee-endpoint=http://127.0.0.1:8551 \
---validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
---validators-external-signer-url=https://localhost:9000 \
---validators-external-signer-truststore=/Users/me/certs/web3signer_truststore.p12 \
---validators-external-signer-truststore-password-file=/Users/me/certs/truststore_pass.txt \
---validators-external-signer-keystore=/Users/me/certs/teku_client_keystore.p12 \
---validators-external-signer-keystore-password-file=/Users/me/certs/teku_keystore_password.txt
+teku \
+  --network=holesky                                                                         \
+  --ee-endpoint=http://127.0.0.1:8551                                                       \
+  --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b                      \
+  --validators-external-signer-url=https://localhost:9000                                   \
+  --validators-external-signer-truststore=/Users/me/certs/web3signer_truststore.p12         \
+  --validators-external-signer-truststore-password-file=/Users/me/certs/truststore_pass.txt \
+  --validators-external-signer-keystore=/Users/me/certs/teku_client_keystore.p12            \
+  --validators-external-signer-keystore-password-file=/Users/me/certs/teku_keystore_password.txt
 ```
 
 <!-- links -->
