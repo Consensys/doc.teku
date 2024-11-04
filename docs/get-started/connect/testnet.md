@@ -235,18 +235,6 @@ teku validator-client \
 
 Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
 
-  </TabItem>
-
-  <TabItem value="Ephemery" label="Ephemery" default>
-
-```bash
-teku validator-client \
-    --network=ephemery                    \
-    --beacon-node-api-endpoint=<endpoint> \
-    --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
-```
-
-  </TabItem>
 </Tabs>
 
 Specify:
