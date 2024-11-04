@@ -4,9 +4,6 @@ description: Configure TLS communication between Teku and Web3Signer.
 sidebar_position: 4
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Configure TLS
 
 You can configure TLS for communication between Teku and an external signer, for example [Web3Signer].
@@ -35,11 +32,12 @@ The [Teku and Web3Signer TLS configuration tutorial] provides instructions to cr
 Start Web3Signer with the TLS configuration options and specify the keystore and known clients file.
 
 ```bash
-web3signer --key-store-path=/Users/me/keyFiles/ \
---tls-keystore-file=/Users/me/certs/web3signer_keystore.p12 \
---tls-keystore-password-file=/Users/me/certs/web3signer_keystore_password.txt \
---tls-known-clients-file=/Users/me/certs/knownClients.txt \
-eth2
+web3signer \
+  --key-store-path=/Users/me/keyFiles/                                          \
+  --tls-keystore-file=/Users/me/certs/web3signer_keystore.p12                   \
+  --tls-keystore-password-file=/Users/me/certs/web3signer_keystore_password.txt \
+  --tls-known-clients-file=/Users/me/certs/knownClients.txt                     \
+  eth2
 ```
 
 :::note
@@ -50,40 +48,25 @@ eth2
 
 ## Start Teku
 
-Start Teku with the external signer, keystore, and truststore details:
-
-<Tabs>
-  <TabItem value="Holesky" label="Holesky" default>
+Start Teku with the external signer, keystore, and truststore details.
+For example:
 
 ```bash
-teku --network=holesky \
---eth1-endpoint=http://localhost:8545 \
---validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
---validators-external-signer-url=https://localhost:9000 \
---validators-external-signer-truststore=/Users/me/certs/web3signer_truststore.p12 \
---validators-external-signer-truststore-password-file=/Users/me/certs/truststore_pass.txt \
---validators-external-signer-keystore=/Users/me/certs/teku_client_keystore.p12 \
---validators-external-signer-keystore-password-file=/Users/me/certs/teku_keystore_password.txt
+teku \
+  --network=holesky                                                                         \
+  --eth1-endpoint=http://localhost:8545                                                     \
+  --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b                      \
+  --validators-external-signer-url=https://localhost:9000                                   \
+  --validators-external-signer-truststore=/Users/me/certs/web3signer_truststore.p12         \
+  --validators-external-signer-truststore-password-file=/Users/me/certs/truststore_pass.txt \
+  --validators-external-signer-keystore=/Users/me/certs/teku_client_keystore.p12            \
+  --validators-external-signer-keystore-password-file=/Users/me/certs/teku_keystore_password.txt
 ```
-  </TabItem>
 
-    <TabItem value="Ephemery" label="Ephemery" default>
-
-```bash
-teku --network=ephemery \
---eth1-endpoint=http://localhost:8545 \
---validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
---validators-external-signer-url=https://localhost:9000 \
---validators-external-signer-truststore=/Users/me/certs/web3signer_truststore.p12 \
---validators-external-signer-truststore-password-file=/Users/me/certs/truststore_pass.txt \
---validators-external-signer-keystore=/Users/me/certs/teku_client_keystore.p12 \
---validators-external-signer-keystore-password-file=/Users/me/certs/teku_keystore_password.txt
-```
-  </TabItem>
-</Tabs>
 In the command:
 
-- Specify the JSON-RPC URL of the ETH1 node using [`--eth1-endpoint`](../../reference/cli/index.md#eth1-endpoint-eth1-endpoints).
+- Specify the network using [`--network`](../../reference/cli/index.md#network).
+- Specify the JSON-RPC URL of the execution layer client using [`--eth1-endpoint`](../../reference/cli/index.md#eth1-endpoint-eth1-endpoints).
 - Specify the validator's public keys using [`--validators-external-signer-public-keys`](../../reference/cli/index.md#validators-external-signer-public-keys).
 - Specify the URL of the running external signer using [`--validators-external-signer-url`](../../reference/cli/index.md#validators-external-signer-url).
 - Specify the truststore and password file using [`validators-external-signer-truststore`](../../reference/cli/index.md#validators-external-signer-truststore) and [`validators-external-signer-truststore-password-file`](../../reference/cli/index.md#validators-external-signer-truststore-password-file).

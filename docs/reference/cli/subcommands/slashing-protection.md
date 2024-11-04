@@ -384,16 +384,16 @@ Predefined network configuration. Accepts a predefined network name, or file pat
 
 Possible values are:
 
-| Network | Chain | Type | Description |
-| --- | --- | --- | --- |
-| `mainnet` | Consensus layer | Production | Main network |
-| `minimal` | Consensus layer | Test | Used for local testing and development networks |
-| `gnosis` | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/) |
-| `holesky` | Consensus layer | Test | Multi-client testnet |
-| `sepolia` | Consensus layer | Test | Multi-client testnet |
-| `chiado` | Consensus layer | Test | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
-| `lukso` | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/) |
-| `ephemery` | Consensus layer | Test | Multi-client testnet |
+| Network    | Chain           | Type       | Description                                                           |
+|------------|-----------------|------------|-----------------------------------------------------------------------|
+| `mainnet`  | Consensus layer | Production | Main network                                                          |
+| `holesky`  | Consensus layer | Test       | Multi-client testnet                                                  |
+| `ephemery` | Consensus layer | Test       | Multi-client testnet                                                  |
+| `sepolia`  | Consensus layer | Test       | Multi-client testnet                                                  |
+| `minimal`  | Consensus layer | Test       | Used for local testing and development networks                       |
+| `gnosis`   | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/)                |
+| `chiado`   | Consensus layer | Test       | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
+| `lukso`    | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/)                 |
 
 Predefined networks can provide defaults such the initial state of the network, bootnodes, and the address of the deposit contract.
 
