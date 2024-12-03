@@ -1,0 +1,45 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/en/latest",
+      "destination": "/development/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/en/latest/",
+      "destination": "/development/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/en/latest/:match(.*)",
+      "destination": "/development/:match(.*)",
+      "permanent": true
+    },
+    {
+      "source": "/en/stable",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en/stable/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en/stable/:match(.*)",
+      "destination": "/:match(.*)",
+      "permanent": true
+    },
+    {
+      "source": "/development",
+      "destination": "/development/introduction",
+      "permanent": true
+    },
+    {
+      "source": "/:path(\\d*\\.\\d*\\.\\d*)",
+      "destination": "/:path*/introduction",
+      "permanent": true
+    }
+  ]
+}

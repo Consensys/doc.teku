@@ -1,0 +1,23 @@
+---
+name: Check for lint errors
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Lint 
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint code
+        uses: ConsenSys/docs-gha/lint@main
+
+      - name: Lint markdown
+        uses: ConsenSys/docs-gha/lint-markdown@main
+
