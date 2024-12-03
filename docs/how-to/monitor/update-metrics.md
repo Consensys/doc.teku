@@ -8,31 +8,28 @@ sidebar_position: 3
 
 Manually update Teku metrics for your custom dashboard.
 
-Teku has introduced changes to metric names, adding the `_total` suffix to counter metrics that previously did not have it.
+Teku has introduced changes to metric names ude to the upgrade of the Prometheus library.
+
+Gauge names are not allowed to end with `total`, therefore metrics as `beacon_proposers_data_total` and `beacon_eth1_current_period_votes_total` are dropping the `_total` suffix
+
+The `_created` timestamps are not returned by default.
+
+Some JVM metrics have changed name to adhere to the OTEL standard (see the table below)
 
 If you are using a custom dashboard, you must update the metric names to reflect these changes.  
 
 The following table lists the name changes for Teku metrics:
 
-| Previous Teku metric name                      | New Teku metric name                                 |
-|------------------------------------------------|------------------------------------------------------|
-| `beacon_block_blobs_trackers_pool_size`        | `beacon_block_blobs_trackers_pool_size_total`        |
-| `beacon_block_blobs_trackers_pool_stats`       | `beacon_block_blobs_trackers_pool_stats_total`       |
-| `beacon_block_import_delay_counter`            | `beacon_block_import_delay_counter_total`            |
-| `beacon_eth1_request_queue_size`               | `beacon_eth1_request_queue_size_total`               |
-| `beacon_execution_payload_source`              | `beacon_execution_payload_source_total`              |
-| `beacon_teku_version`                          | `beacon_teku_version_total`                          |
-| `eventbus_event_consumed_count`                | `eventbus_event_consumed_count_total`                |
-| `eventbus_event_failed_count`                  | `eventbus_event_failed_count_total`                  |
-| `eventbus_event_published_count`               | `eventbus_event_published_count_total`               |
-| `executor_signature_verifications_batch_count` | `executor_signature_verifications_batch_count_total` |
-| `executor_signature_verifications_task_count`  | `executor_signature_verifications_task_count_total`  |
-| `network_peer_chain_validation_attempts`       | `network_peer_chain_validation_attempts_total`       |
-| `network_peer_connection_attempt_count`        | `network_peer_connection_attempt_count_total`        |
-| `storage_finalized_state_branch_nodes`         | `storage_finalized_state_branch_nodes_total`         |
-| `storage_finalized_state_leaf_nodes`           | `storage_finalized_state_leaf_nodes_total`           |
-| `storage_finalized_states_stored`              | `storage_finalized_states_stored_total`              |
-| `validator_attestation_publication_delay`      | `validator_attestation_publication_delay_total`      |
-| `validator_block_publication_delay`            | `validator_block_publication_delay_total`            |
-| `validator_duties_performed`                   | `validator_duties_performed_total`                   |
-| `validator_external_signer_requests`           | `validator_external_signer_requests_total`           |
+| Previous Teku metric name                | New Teku metric name               |
+|------------------------------------------|------------------------------------|
+| `beacon_proposers_data_total`            | `beacon_proposers_data`            |
+| `beacon_eth1_current_period_votes_total` | `beacon_eth1_current_period_votes` |
+| `jvm_memory_bytes_committed`             | `jvm_memory_committed_bytes`       |
+| `jvm_memory_bytes_init`                  | `jvm_memory_init_bytes`            |
+| `jvm_memory_bytes_max`                   | `jvm_memory_max_bytes`             |
+| `jvm_memory_bytes_used`                  | `jvm_memory_used_bytes`            |
+| `jvm_memory_pool_bytes_committed`        | `jvm_memory_pool_committed_bytes`  |
+| `jvm_memory_pool_bytes_init`             | `jvm_memory_pool_init_bytes`       |
+| `jvm_memory_pool_bytes_max`              | `jvm_memory_pool_max_bytes`        |
+| `jvm_memory_pool_bytes_used`             | `jvm_memory_pool_used_bytes`       |
+
