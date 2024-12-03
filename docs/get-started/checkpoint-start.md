@@ -30,9 +30,12 @@ teku --eth1-endpoint=http://localhost:8545 \
 ```
 
 The command uses the [`--checkpoint-sync-url`](../reference/cli/index.md#checkpoint-sync-url) option
-to download the finalized checkpoint state. When using this option, you must delete your existing beacon node database, for example `<data-path>/beacon/db`, to enable Teku to download the new, finalized state for your node.
+to download the finalized checkpoint state.
+When using this option, you must delete your existing beacon node database, for example
+`<data-path>/beacon/db`, to enable Teku to download the new, finalized state for your node.
 
 :::note
+
 You can also download a finalized checkpoint state file, and specify the location using the
 [`--initial-state`](../reference/cli/index.md#initial-state) option.
 To download the file and name it `state.ssz` run:
@@ -57,6 +60,7 @@ teku --eth1-endpoint=http://localhost:8545 \
 --validator-keys=/Users/me/mainnet/validator/keys:/Users/me/mainnet/validator/passwords \
 --initial-state=http://other-node:5051/eth/v2/debug/beacon/states/finalized
 ```
+
 :::
 
 <!--links-->

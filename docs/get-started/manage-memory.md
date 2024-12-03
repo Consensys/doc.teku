@@ -40,7 +40,8 @@ The node uses more RAM to perform better if it’s available, especially during 
 
 ## Manage the heap dump
 
-If an out of memory error occurs, the heap dump file is placed in the directory that Teku runs from. The heap dump file is potentially large (1-2GB), to specify the directory to place the file, set the `-XX:HeapDumpPath` Java option to the required path.
+If an out of memory error occurs, the heap dump file is placed in the directory that Teku runs from.
+The heap dump file is potentially large (1-2 GB), to specify the directory to place the file, set the `-XX:HeapDumpPath` Java option to the required path.
 
 <Tabs>
   <TabItem value="Environment variable" label="Environment variable" default>
