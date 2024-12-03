@@ -1,7 +1,7 @@
 ---
 title: Start Teku
 description: Run Teku as a beacon node and/or validator.
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 import Tabs from '@theme/Tabs';

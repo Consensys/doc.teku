@@ -1,7 +1,7 @@
 ---
 title: Start Teku from a recent state
 description: Start Teku from a recent finalized state using checkpoint sync.
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Start Teku from a recent state

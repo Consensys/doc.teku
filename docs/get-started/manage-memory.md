@@ -1,7 +1,7 @@
 ---
 title: Manage memory
 description: Manage Teku's JVM memory usage.
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 import Tabs from '@theme/Tabs';
