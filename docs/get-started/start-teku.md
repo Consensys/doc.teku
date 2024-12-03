@@ -151,11 +151,12 @@ To correct this, make the appropriate changes to the setup and then restart Teku
 
 The exit codes for Teku are important to understand so that you know how to approach a restart and mitigate the issue.
 
-The **service unit configuration** file is an example of how status codes can be used. `RestartPreventExitStatus=` and `RestartForceExitStatus=` can be used to automatically restart Teku or stop it in case of failure.
+The **service unit configuration** file is an example of how status codes can be used.
+`RestartPreventExitStatus=` and `RestartForceExitStatus=` can be used to automatically restart Teku or stop it in case of failure.
 
 The following is an example of a [`systemd.service`](https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html) file:
 
-```
+```text
 RestartForceExitStatus=1
 RestartPreventExitStatus=2
 ```
@@ -164,7 +165,5 @@ RestartPreventExitStatus=2
 
 [validator clients]: #start-the-validator
 [running beacon node]: #start-the-beacon-node
-[Validator keystores]: connect/testnet.md#generate-the-validators-and-send-the-deposits
-[password files]: connect/testnet.md#create-a-password-file-for-each-validator-key
 [slashable offense]: ../concepts/slashing-protection.md
 [single process]: #start-the-clients-in-a-single-process
