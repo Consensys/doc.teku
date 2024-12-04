@@ -1,7 +1,7 @@
 ---
 title: Migrate to Teku
 description: Migrate to Teku from a different Ethereum consensus client.
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Migrate to Teku

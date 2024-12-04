@@ -1,7 +1,7 @@
 ---
 title: Start Teku
 description: Run Teku as a beacon node and/or validator.
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 import Tabs from '@theme/Tabs';
@@ -67,7 +67,8 @@ Don't pass the validator keys as a command line option to both the beacon node a
 
 :::
 
-By default, [validator clients] can connect to the beacon node at `http://127.0.0.1:5051`. Use the [`--rest-api-interface`](../reference/cli/index.md#rest-api-interface) and [`--rest-api-port`](../reference/cli/index.md#rest-api-port) options to update the address.
+By default, [validator clients] can connect to the beacon node at `http://127.0.0.1:5051`.
+Use the [`--rest-api-interface`](../reference/cli/index.md#rest-api-interface) and [`--rest-api-port`](../reference/cli/index.md#rest-api-port) options to update the address.
 
 You can specify [`--rest-api-host-allowlist`](../reference/cli/index.md#rest-api-host-allowlist) to allow access to the REST API from specific hostnames.
 
@@ -75,7 +76,8 @@ You can specify [`--rest-api-host-allowlist`](../reference/cli/index.md#rest-api
 
 To run a validator, connect to a [running beacon node].
 
-Use the [`validator-client`](../reference/cli/subcommands/validator-client.md#validator-client-vc) or [`vc`](../reference/cli/subcommands/validator-client.md#validator-client-vc) subcommand to run a Teku as a validator.
+Use the [`validator-client`](../reference/cli/subcommands/validator-client.md#validator-client-vc) or
+[`vc`](../reference/cli/subcommands/validator-client.md#validator-client-vc) subcommand to run a Teku as a validator.
 
 ```title="Example"
 teku validator-client \
@@ -125,32 +127,36 @@ Content-Length: 0
   </TabItem>
 </Tabs>
 
-## Exit Codes
+## Exit codes
 
-**Exit Code 1**
+### Exit code 1
 
-This code indicates a scenario where Teku has exited with a fatal error; however, restarting Teku without changes is a logical step in correcting it. This code represents the error is related to something external to Teku.
+This code indicates a scenario where Teku has exited with a fatal error; however, restarting Teku without changes is a logical step in correcting it.
+This code represents the error is related to something external to Teku.
 
 Example: If the beacon chain controller has issues starting P2P services on a particular port, the system will exit with a fatal error code of 1. This could correct itself with a restart.
 
 Example 2: If the migrate database command does not successfully migrate the database, Teku will exit with a code 1 fatal error. Restarting the system could correct this.
 
-**Exit Code 2**
+### Exit code 2
 
 This code indicates a scenario where Teku has exited with a fatal error. Restarting Teku will not correct this.
 
 Note that most user configuration errors fall into this category.
 
-Example: If you specify an invalid database version in the migrate database command, Teku will exit with a code 2 fatal error. To correct this, make the appropriate changes to the setup and then restart Teku.
+Example: If you specify an invalid database version in the migrate database command, Teku will exit with a code 2 fatal error.
+To correct this, make the appropriate changes to the setup and then restart Teku.
 
-**Usages**
+### Usages
 
 The exit codes for Teku are important to understand so that you know how to approach a restart and mitigate the issue.
 
-The **service unit configuration** file is an example of how status codes can be used. `RestartPreventExitStatus=` and `RestartForceExitStatus=` can be used to automatically restart Teku or stop it in case of failure.
+The **service unit configuration** file is an example of how status codes can be used.
+`RestartPreventExitStatus=` and `RestartForceExitStatus=` can be used to automatically restart Teku or stop it in case of failure.
 
-[systemd.service](https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html) File Example
-```
+The following is an example of a [`systemd.service`](https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html) file:
+
+```text
 RestartForceExitStatus=1
 RestartPreventExitStatus=2
 ```
@@ -159,7 +165,5 @@ RestartPreventExitStatus=2
 
 [validator clients]: #start-the-validator
 [running beacon node]: #start-the-beacon-node
-[Validator keystores]: connect/testnet.md#generate-the-validators-and-send-the-deposits
-[password files]: connect/testnet.md#create-a-password-file-for-each-validator-key
 [slashable offense]: ../concepts/slashing-protection.md
 [single process]: #start-the-clients-in-a-single-process
