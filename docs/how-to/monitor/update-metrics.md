@@ -32,4 +32,3 @@ The following table lists the name changes for Teku metrics:
 | `jvm_memory_pool_bytes_init`             | `jvm_memory_pool_init_bytes`       |
 | `jvm_memory_pool_bytes_max`              | `jvm_memory_pool_max_bytes`        |
 | `jvm_memory_pool_bytes_used`             | `jvm_memory_pool_used_bytes`       |
-
