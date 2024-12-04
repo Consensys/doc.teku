@@ -8,7 +8,7 @@ sidebar_position: 3
 
 Manually update Teku metrics for your custom dashboard.
 
-Teku has introduced changes to metric names ude to the upgrade of the Prometheus library.
+Teku has introduced changes to metric names due to the upgrade of the Prometheus library.
 
 Gauge names are not allowed to end with `total`, therefore metrics as `beacon_proposers_data_total` and `beacon_eth1_current_period_votes_total` are dropping the `_total` suffix
 
