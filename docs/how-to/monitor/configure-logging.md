@@ -58,7 +58,7 @@ You can provide your own logging configuration using the standard Log4J2 configu
 
 ```xml title="debug.xml"
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO">
+<Configuration level="INFO">
   <Properties>
     <Property name="root.log.level">INFO</Property>
   </Properties>
