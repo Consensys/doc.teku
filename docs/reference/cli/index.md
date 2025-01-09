@@ -3341,7 +3341,9 @@ validators-builder-registration-default-gas-limit: 40000000
   </TabItem>
 </Tabs>
 
-Change the default gas limit used for the [`validator registrations`](../../how-to/configure/builder-network.md#3-register-the-validator) The default is `36000000`.
+Change the default gas limit used for the [`validator registrations`]
+(../../how-to/configure/builder-network.md#3-register-the-validator). 
+The default is `36000000`.
 
 ### `validators-early-attestations-enabled`
 
