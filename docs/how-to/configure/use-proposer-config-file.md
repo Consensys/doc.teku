@@ -28,7 +28,7 @@ Attributes for each proposer configuration are:
 - `builder` - (optional) The [builder network configuration](builder-network.md), which includes the following attributes:
   - `enabled` - (optional in `proposer_config` but required in `default_config`) Indicates whether to use the [builder endpoint](../../reference/cli/index.md#builder-endpoint) when proposing blocks.
      The default is `false`.
-  - `gas_limit` - (optional) Gas limit for the builder. The default is `36000000`.
+  - `gas_limit` - (optional) Gas limit for the builder. The default is `30000000`.
   - `registration_overrides` - (optional) Dedicated overrides to use during the registration process.
      Useful for distributed validator technology (DVT) and secret shared validator (SSV) technology.
      The override is specified using the following attributes:

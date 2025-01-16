@@ -3321,28 +3321,28 @@ Enables or disables registering all validators managed by the validator client t
   <TabItem value="Example" label="Example" >
 
 ```bash
---validators-builder-registration-default-gas-limit=40000000
+--validators-builder-registration-default-gas-limit=36000000
 ```
 
   </TabItem>
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-TEKU_VALIDATORS_BUILDER_REGISTRATION_DEFAULT_GAS_LIMIT=40000000
+TEKU_VALIDATORS_BUILDER_REGISTRATION_DEFAULT_GAS_LIMIT=36000000
 ```
 
   </TabItem>
   <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
-validators-builder-registration-default-gas-limit: 40000000
+validators-builder-registration-default-gas-limit: 36000000
 ```
 
   </TabItem>
 </Tabs>
 
 The gas limit used for [registering validators to the builder endpoint](../../how-to/configure/builder-network.md#3-register-the-validator).
-The default is `36000000`.
+The default is `30000000`.
 
 ### `validators-early-attestations-enabled`
 
