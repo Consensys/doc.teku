@@ -8,13 +8,11 @@ sidebar_position: 3
 
 Manually update Teku metrics for your custom dashboard.
 
-Teku has introduced changes to metric names due to the upgrade of the Prometheus library.
+With the upgrade of the Prometheus library, Teku introduces the following changes to metric names:
 
-Gauge names are not allowed to end with `total`, therefore metrics as `beacon_proposers_data_total` and `beacon_eth1_current_period_votes_total` are dropping the `_total` suffix
-
-The `_created` timestamps are not returned by default.
-
-Some JVM metrics have changed name to adhere to the OTEL standard (see the table below)
+- Gauge names are not allowed to end with `total`, so metrics such as `beacon_proposers_data_total` and `beacon_eth1_current_period_votes_total` are dropping the `_total` suffix.
+- The `_created` timestamps are not returned by default.
+- Some JVM metric names are changing to adhere to the OTEL standard.
 
 If you are using a custom dashboard, you must update the metric names to reflect these changes.  
 
