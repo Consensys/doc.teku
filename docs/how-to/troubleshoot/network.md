@@ -17,8 +17,8 @@ The [`--initial-state`](../../reference/cli/index.md#initial-state) option is on
 restart an existing sync process with checkpoint sync, do the following:
 
 1. Stop the current Teku sync process.
-1. Delete the `beacon` directory under your [data path](../../reference/cli/index.md#data-base-path-data-path).
-1. Start teku with the [`--initial-state`](../../reference/cli/index.md#initial-state) option .
+2. Delete the `beacon` directory under your [data path](../../reference/cli/index.md#data-base-path-data-path).
+3. Start teku with the [`--initial-state`](../../reference/cli/index.md#initial-state) option.
 
 Teku will sync within a few minutes, and downloads historic blocks in the background, so it can
 help any peers that are syncing from genesis. Teku can run validators and attest while historic blocks are being downloaded.
@@ -147,7 +147,7 @@ Having zero time drift is impossible in practice. The Ethereum protocol has been
 References:
 - [Monitoring a Linux host with Prometheus and node_exporter](https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/prometheus-config-examples/noagent_linuxnode/)
 - [Node Exporter Grafana Dashboard](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)
-- [Using `chrony`` to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp)
+- [Using `chrony` to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp)
 - [Why clock sync matters in Ethereum 2.0](https://hackmd.io/@ericsson49/BJfLjEX-8)
 
 ## Address missing attestations or non-inclusion issues
