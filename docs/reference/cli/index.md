@@ -357,7 +357,7 @@ TEKU_DATA_BEACON_PATH=/home/me/me_beacon
   <TabItem value="Configuration file" label="Configuration file" >
 
 ```bash
-data-beacon-path: "/home/me/me_beaon"
+data-beacon-path: "/home/me/me_beacon"
 ```
 
   </TabItem>
