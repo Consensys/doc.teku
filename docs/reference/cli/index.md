@@ -3690,14 +3690,14 @@ The password file used to decrypt the keystore.
   <TabItem value="Example" label="Example" >
 
 ```bash
---validators-external-signer-url="http://localhost:9000"
+--validators-external-signer-url=http://localhost:9000
 ```
 
   </TabItem>
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-TEKU_VALIDATORS_EXTERNAL_SIGNER_URL="http://localhost:9000"
+TEKU_VALIDATORS_EXTERNAL_SIGNER_URL=http://localhost:9000
 ```
 
   </TabItem>
