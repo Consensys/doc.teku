@@ -388,6 +388,7 @@ Possible values are:
 |------------|-----------------|------------|-----------------------------------------------------------------------|
 | `mainnet`  | Consensus layer | Production | Main network                                                          |
 | `holesky`  | Consensus layer | Test       | Multi-client testnet                                                  |
+| `hoodi`    | Consensus layer | Test       | Multi-client testnet                                                  |
 | `ephemery` | Consensus layer | Test       | Multi-client testnet                                                  |
 | `sepolia`  | Consensus layer | Test       | Multi-client testnet                                                  |
 | `minimal`  | Consensus layer | Test       | Used for local testing and development networks                       |

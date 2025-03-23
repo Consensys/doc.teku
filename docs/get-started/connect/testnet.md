@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 # Connect to a testnet
 
 Run Teku as a consensus client with any execution client on a testnet (for example [Holesky](https://github.com/eth-clients/holesky),
-[Ephemery](https://ephemery.dev/), or [Sepolia](https://github.com/eth-clients/sepolia)).
+[Hoodi](https://github.com/eth-clients/hoodi), [Ephemery](https://ephemery.dev/), or [Sepolia](https://github.com/eth-clients/sepolia)).
 
 If you're using [Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can follow the
 [Besu and Teku testnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-testnet/).
@@ -21,7 +21,7 @@ If you're using [Besu](https://besu.hyperledger.org/en/stable/) as an execution 
   Ephemery is focused on short-term and heavy testing use cases.
   It avoids problems like insufficient testnet funds, inactive validators, state bloat, and similar
   issues faced by long-running testnets.
-- Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first. 
+- Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
 You can connect your consensus client using the beacon node only, without any validator duties.
 
 :::
@@ -46,10 +46,14 @@ You will specify `jwtsecret.hex` when starting Teku and the execution client. Th
 If you're running a beacon node only, skip to the [next step](#3-start-the-execution-client).
 
 If you're also running a validator client, create a test Ethereum address
-(you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
+(you can do this in [MetaMask](https://support.metamask.io/configure/accounts/how-to-add-accounts-in-your-wallet/)).
 Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet.
-See the list of [Holesky faucets](https://github.com/eth-clients/holesky#metadata), [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia),
-or [Ephemery faucets](https://ephemery-faucet.pk910.de/).
+See the faucets for the relevant testnet:
+
+- [Holesky](https://github.com/eth-clients/holesky)
+- [Hoodi](https://github.com/eth-clients/hoodi)
+- [Sepolia](https://github.com/eth-clients/sepolia#meta-data-sepolia)
+- [Ephemery](https://ephemery-faucet.pk910.de/)
 
 :::note
 
@@ -57,7 +61,8 @@ If you're unable to get ETH using the faucet, you can ask for help on the [EthSt
 
 :::
 
-Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
+Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/),
+[Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/), or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
 
 Remember the passwords that you use to create the validator keys, because you
 need them to [create the validator password files](#create-a-password-file-for-each-validator-key).
@@ -107,6 +112,21 @@ teku \
 ```
 
 </TabItem>
+
+<TabItem value="Hoodi" label="Hoodi" default>
+
+```bash
+teku \
+  --network=hoodi                            \
+  --ee-endpoint=http://localhost:8551          \
+  --ee-jwt-secret-file=<path to jwtsecret.hex> \
+  --metrics-enabled=true                       \
+  --rest-api-enabled=true                      \
+  --checkpoint-sync-url=<checkpoint sync URL>
+```
+
+</TabItem>
+
 <TabItem value="Ephemery" label="Ephemery">
 
 ```bash
@@ -175,6 +195,23 @@ teku \
 ```
 
 </TabItem>
+
+<TabItem value="Hoodi" label="Hoodi" default>
+
+```bash
+teku \
+  --network=hoodi                                         \
+  --ee-endpoint=http://localhost:8551                       \
+  --ee-jwt-secret-file=<path to jwtsecret.hex>              \
+  --metrics-enabled=true                                    \
+  --rest-api-enabled=true                                   \
+  --checkpoint-sync-url=<checkpoint sync URL>               \
+  --validators-proposer-default-fee-recipient=<ETH address> \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
+
+</TabItem>
+
 <TabItem value="Ephemery" label="Ephemery">
 
 ```bash
@@ -228,6 +265,18 @@ teku validator-client \
 ```
 
 </TabItem>
+
+<TabItem value="Hoodi" label="Hoodi" default>
+
+```bash
+teku validator-client \
+  --network=hoodi                     \
+  --beacon-node-api-endpoint=<endpoint> \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
+
+</TabItem>
+
 <TabItem value="Ephemery">
 
 :::note Coming soon
@@ -264,12 +313,12 @@ Syncing the execution client can take several days.
 ## 6. Stake ETH
 
 Stake your testnet ETH for one or more validators using the
-[Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev).
+[Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/), [Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/),
+or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev).
 
-You can check your validator status by searching your Ethereum address on the
-[Holesky Beacon Chain explorer](https://holesky.beaconcha.in/) or [Ephemery Beacon Chain explorer](https://beaconlight.ephemery.dev/).
-It may take up to multiple days for your validator to be activated and start
-proposing blocks.
+You can check your validator status by searching your Ethereum address on the [Holesky explorer](https://holesky.beaconcha.in/),
+[Hoodi explorer](https://hoodi.cloud.blockscout.com/), or [Ephemery explorer](https://beaconchain.ephemery.dev/).
+It may take up to multiple days for your validator to be activated and start proposing blocks.
 
 <!-- links -->
 
