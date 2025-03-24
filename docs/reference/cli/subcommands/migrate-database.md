@@ -160,7 +160,8 @@ network: "mainnet"
   </TabItem>
 </Tabs>
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. See the [consensus specification](https://github.com/ethereum/consensus-specs/tree/master/configs) for examples.
+Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration
+file. See the [consensus specification](https://github.com/ethereum/consensus-specs/tree/master/configs) for examples.
 
 The default is `mainnet`.
 
@@ -170,6 +171,7 @@ Possible values are:
 |------------|-----------------|------------|-----------------------------------------------------------------------|
 | `mainnet`  | Consensus layer | Production | Main network                                                          |
 | `holesky`  | Consensus layer | Test       | Multi-client testnet                                                  |
+| `hoodi`    | Consensus layer | Test       | Multi-client testnet                                                  |
 | `ephemery` | Consensus layer | Test       | Multi-client testnet                                                  |
 | `sepolia`  | Consensus layer | Test       | Multi-client testnet                                                  |
 | `minimal`  | Consensus layer | Test       | Used for local testing and development networks                       |

@@ -161,11 +161,15 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is set to 
 
 :::note
 
-Specifying a larger number of slots as the archive frequency has a potentially higher overhead for retrieving finalized states since more states may need to be regenerated to get to the requested state. Specifying a lower number of slots as the frequency increases the disk space usage.
+Specifying a larger number of slots as the archive frequency has a potentially higher overhead for retrieving
+finalized states since more states may need to be regenerated to get to the requested state. Specifying a lower
+number of slots as the frequency increases the disk space usage.
 
 :::
 
-For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest response time for retrieving a finalized state since each slot state is saved, whereas `--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the state because every 2048th slot state is saved.
+For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest response time for
+retrieving a finalized state since each slot state is saved, whereas `--data-storage-archive-frequency=2048` uses
+less disk space, but may need to regenerate the state because every 2048th slot state is saved.
 
 #### `data-storage-mode`
 
@@ -313,6 +317,7 @@ Possible values are:
 |------------|-----------------|------------|-----------------------------------------------------------------------|
 | `mainnet`  | Consensus layer | Production | Main network                                                          |
 | `holesky`  | Consensus layer | Test       | Multi-client testnet                                                  |
+| `hoodi`    | Consensus layer | Test       | Multi-client testnet                                                  |
 | `ephemery` | Consensus layer | Test       | Multi-client testnet                                                  |
 | `sepolia`  | Consensus layer | Test       | Multi-client testnet                                                  |
 | `minimal`  | Consensus layer | Test       | Used for local testing and development networks                       |
@@ -469,11 +474,15 @@ This option is ignored if [`--data-storage-mode`](#data-storage-mode) is not set
 
 :::note
 
-Specifying a larger number of slots as the archive frequency has a potentially higher overhead for retrieving finalized states since more states may need to be regenerated to get to the requested state. Specifying a lower number of slots as the frequency increases the disk space usage.
+Specifying a larger number of slots as the archive frequency has a potentially higher overhead for retrieving
+finalized states since more states may need to be regenerated to get to the requested state. Specifying a lower
+number of slots as the frequency increases the disk space usage.
 
 :::
 
-For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest response time for retrieving a finalized state since each slot state is saved, whereas `--data-storage-archive-frequency=2048` uses less disk space, but may need to regenerate the state because every 2048th slot state is saved.
+For example, `--data-storage-archive-frequency=1` uses maximum disk space but has the lowest response time for
+retrieving a finalized state since each slot state is saved, whereas `--data-storage-archive-frequency=2048` uses
+less disk space, but may need to regenerate the state because every 2048th slot state is saved.
 
 #### `data-storage-mode`
 
@@ -621,6 +630,7 @@ Possible values are:
 |------------|-----------------|------------|-----------------------------------------------------------------------|
 | `mainnet`  | Consensus layer | Production | Main network                                                          |
 | `holesky`  | Consensus layer | Test       | Multi-client testnet                                                  |
+| `hoodi`    | Consensus layer | Test       | Multi-client testnet                                                  |
 | `ephemery` | Consensus layer | Test       | Multi-client testnet                                                  |
 | `sepolia`  | Consensus layer | Test       | Multi-client testnet                                                  |
 | `minimal`  | Consensus layer | Test       | Used for local testing and development networks                       |
