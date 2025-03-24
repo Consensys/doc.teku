@@ -449,4 +449,3 @@ Enables all slashing protection records to be updated. The default is `false`.
 
 [slashing protection data]: ../../../concepts/slashing-protection.md
 [validator client interchange format]: https://eips.ethereum.org/EIPS/eip-3076
-[environment variables or a configuration file]: ../index.md#specifying-options
