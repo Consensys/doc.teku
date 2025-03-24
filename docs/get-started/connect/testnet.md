@@ -52,7 +52,7 @@ See the faucets for the relevant testnet:
 
 - [Holesky](https://github.com/eth-clients/holesky)
 - [Hoodi](https://github.com/eth-clients/hoodi)
-- [Sepolia](https://github.com/eth-clients/sepolia#meta-data-sepolia)
+- [Sepolia](https://github.com/eth-clients/sepolia)
 - [Ephemery](https://ephemery-faucet.pk910.de/)
 
 :::note
@@ -117,7 +117,7 @@ teku \
 
 ```bash
 teku \
-  --network=hoodi                            \
+  --network=hoodi                              \
   --ee-endpoint=http://localhost:8551          \
   --ee-jwt-secret-file=<path to jwtsecret.hex> \
   --metrics-enabled=true                       \
@@ -200,7 +200,7 @@ teku \
 
 ```bash
 teku \
-  --network=hoodi                                         \
+  --network=hoodi                                           \
   --ee-endpoint=http://localhost:8551                       \
   --ee-jwt-secret-file=<path to jwtsecret.hex>              \
   --metrics-enabled=true                                    \
@@ -273,7 +273,7 @@ teku validator-client \
 
 ```bash
 teku validator-client \
-  --network=hoodi                     \
+  --network=hoodi                       \
   --beacon-node-api-endpoint=<endpoint> \
   --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
 ```
