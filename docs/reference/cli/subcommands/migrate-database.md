@@ -160,7 +160,8 @@ network: "mainnet"
   </TabItem>
 </Tabs>
 
-Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration file. See the [consensus specification](https://github.com/ethereum/consensus-specs/tree/master/configs) for examples.
+Predefined network configuration. Accepts a predefined network name, or file path or URL to a YAML configuration
+file. See the [consensus specification](https://github.com/ethereum/consensus-specs/tree/master/configs) for examples.
 
 The default is `mainnet`.
 

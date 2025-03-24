@@ -260,7 +260,6 @@ Teku imports the file to the `<data-path>/validators/slashprotection/` directory
 
 `<data-path>` is defined using [`--data-path`](#data-path).
 
-
 ## `repair`
 
 Repairs corrupted slashing protection data files used by Teku.
@@ -451,4 +450,3 @@ Enables all slashing protection records to be updated. The default is `false`.
 [slashing protection data]: ../../../concepts/slashing-protection.md
 [validator client interchange format]: https://eips.ethereum.org/EIPS/eip-3076
 [environment variables or a configuration file]: ../index.md#specifying-options
-[recent finalized checkpoint state from which to sync]: ../../../get-started/checkpoint-start.md
