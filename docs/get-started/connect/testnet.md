@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 # Connect to a testnet
 
 Run Teku as a consensus client with any execution client on a testnet (for example [Holesky](https://github.com/eth-clients/holesky),
-[Ephemery](https://ephemery.dev/), or [Sepolia](https://github.com/eth-clients/sepolia)).
+[Hoodi](https://github.com/eth-clients/hoodi), [Ephemery](https://ephemery.dev/), or [Sepolia](https://github.com/eth-clients/sepolia)).
 
 If you're using [Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can follow the
 [Besu and Teku testnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-testnet/).
@@ -21,7 +21,7 @@ If you're using [Besu](https://besu.hyperledger.org/en/stable/) as an execution 
   Ephemery is focused on short-term and heavy testing use cases.
   It avoids problems like insufficient testnet funds, inactive validators, state bloat, and similar
   issues faced by long-running testnets.
-- Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first. 
+- Sepolia is a permissioned network and you can't run a validator client on it without [requesting to become a validator](https://notes.ethereum.org/zvkfSmYnT0-uxwwEegbCqg) first.
 You can connect your consensus client using the beacon node only, without any validator duties.
 
 :::
@@ -46,10 +46,14 @@ You will specify `jwtsecret.hex` when starting Teku and the execution client. Th
 If you're running a beacon node only, skip to the [next step](#3-start-the-execution-client).
 
 If you're also running a validator client, create a test Ethereum address
-(you can do this in [MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289452-How-to-create-an-additional-account-in-your-wallet)).
+(you can do this in [MetaMask](https://support.metamask.io/configure/accounts/how-to-add-accounts-in-your-wallet/)).
 Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet.
-See the list of [Holesky faucets](https://github.com/eth-clients/holesky#metadata), [Sepolia faucets](https://github.com/eth-clients/sepolia#meta-data-sepolia),
-or [Ephemery faucets](https://ephemery-faucet.pk910.de/).
+See the faucets for the relevant testnet:
+
+- [Holesky](https://github.com/eth-clients/holesky)
+- [Hoodi](https://github.com/eth-clients/hoodi)
+- [Sepolia](https://github.com/eth-clients/sepolia)
+- [Ephemery](https://ephemery-faucet.pk910.de/)
 
 :::note
 
@@ -57,7 +61,8 @@ If you're unable to get ETH using the faucet, you can ask for help on the [EthSt
 
 :::
 
-Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
+Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/),
+[Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/), or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
 
 Remember the passwords that you use to create the validator keys, because you
 need them to [create the validator password files](#create-a-password-file-for-each-validator-key).
@@ -66,7 +71,7 @@ need them to [create the validator password files](#create-a-password-file-for-e
 
 For each validator key, create a text file containing the password to decrypt the key.
 
-Teku allows you to specify individual keys and passwords in the command line, or you can specify directories from which to load keys and passwords. 
+Teku allows you to specify individual keys and passwords in the command line, or you can specify directories from which to load keys and passwords.
 If specifying directories, password files must have the same name as the keys, but use the `.txt` extension.
 
 :::info
@@ -107,6 +112,21 @@ teku \
 ```
 
 </TabItem>
+
+<TabItem value="Hoodi" label="Hoodi" default>
+
+```bash
+teku \
+  --network=hoodi                              \
+  --ee-endpoint=http://localhost:8551          \
+  --ee-jwt-secret-file=<path to jwtsecret.hex> \
+  --metrics-enabled=true                       \
+  --rest-api-enabled=true                      \
+  --checkpoint-sync-url=<checkpoint sync URL>
+```
+
+</TabItem>
+
 <TabItem value="Ephemery" label="Ephemery">
 
 ```bash
@@ -135,7 +155,6 @@ teku \
 </TabItem>
 </Tabs>
 
-
 Specify:
 
 - The path to the `jwtsecret.hex` file generated in [step 1] using the
@@ -149,8 +168,9 @@ You can modify the option values and add other [command line options](../../refe
 
 You can run the Teku beacon node and validator client as a [single process](#single-process) or as [separate processes](#separate-processes).
 
-You can check your validator status by searching your Ethereum address on the [Holesky Beacon Chain explorer](https://holesky.beaconcha.in/) or [Ephemery Beacon Chain Explorer](https://beaconchain.ephemery.dev). 
-Your validator might take multiple days to activate and start proposing blocks.
+You can check your validator status by searching your Ethereum address on the [Holesky explorer](https://holesky.beaconcha.in/),
+[Hoodi explorer](https://hoodi.cloud.blockscout.com/), or [Ephemery explorer](https://beaconchain.ephemery.dev/).
+It may take up to multiple days for your validator to be activated and start proposing blocks.
 
 You can also use [Prometheus and Grafana](../../how-to/monitor/use-metrics.md) to monitor your nodes.
 
@@ -175,6 +195,23 @@ teku \
 ```
 
 </TabItem>
+
+<TabItem value="Hoodi" label="Hoodi" default>
+
+```bash
+teku \
+  --network=hoodi                                           \
+  --ee-endpoint=http://localhost:8551                       \
+  --ee-jwt-secret-file=<path to jwtsecret.hex>              \
+  --metrics-enabled=true                                    \
+  --rest-api-enabled=true                                   \
+  --checkpoint-sync-url=<checkpoint sync URL>               \
+  --validators-proposer-default-fee-recipient=<ETH address> \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
+
+</TabItem>
+
 <TabItem value="Ephemery" label="Ephemery">
 
 ```bash
@@ -201,13 +238,16 @@ Sepolia is a permissioned network and you can't run a validator client on it wit
 
 Specify:
 
-- The path to the `jwtsecret.hex` file generated in [step 1] using the [`--ee-jwt-secret-file`](../../reference/cli/index.md#ee-jwt-secret-file) option.
+- The path to the `jwtsecret.hex` file generated in [step 1] using the
+    [`--ee-jwt-secret-file`](../../reference/cli/index.md#ee-jwt-secret-file) option.
 - The URL of a checkpoint sync endpoint using the
-  [`--checkpoint-sync-url`](../../reference/cli/index.md#checkpoint-sync-url) option.
-- An Ethereum address you own as the default fee recipient using the [`--validators-proposer-default-fee-recipient`](../../reference/cli/index.md#validators-proposer-default-fee-recipient) option.
-- The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key) for each validator using the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option. 
-Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas. 
-Alternatively, specify paths to directories to load multiple keys and passwords from.
+    [`--checkpoint-sync-url`](../../reference/cli/index.md#checkpoint-sync-url) option.
+- An Ethereum address you own as the default fee recipient using the
+    [`--validators-proposer-default-fee-recipient`](../../reference/cli/index.md#validators-proposer-default-fee-recipient) option.
+- The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key)
+    for each validator using the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option.
+    Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
+    Alternatively, specify paths to directories to load multiple keys and passwords from.
 
 You can modify the option values and add other [command line options](../../reference/cli/index.md) as needed.
 
@@ -228,6 +268,18 @@ teku validator-client \
 ```
 
 </TabItem>
+
+<TabItem value="Hoodi" label="Hoodi" default>
+
+```bash
+teku validator-client \
+  --network=hoodi                       \
+  --beacon-node-api-endpoint=<endpoint> \
+  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
+```
+
+</TabItem>
+
 <TabItem value="Ephemery">
 
 :::note Coming soon
@@ -246,8 +298,10 @@ Sepolia is a permissioned network and you can't run a validator client on it wit
 
 Specify:
 
-- The location of one or more beacon node API endpoints using the [`--beacon-node-api-endpoint`](../../reference/cli/subcommands/validator-client.md#beacon-node-api-endpoint-beacon-node-api-endpoints) option.
-- The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key) for each validator using the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option. 
+- The location of one or more beacon node API endpoints using the
+[`--beacon-node-api-endpoint`](../../reference/cli/subcommands/validator-client.md#beacon-node-api-endpoint-beacon-node-api-endpoints) option.
+- The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key)
+for each validator using the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option.
 Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas
 Alternatively, specify paths to directories to load multiple keys and passwords from.
 
@@ -264,12 +318,12 @@ Syncing the execution client can take several days.
 ## 6. Stake ETH
 
 Stake your testnet ETH for one or more validators using the
-[Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev).
+[Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/), [Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/),
+or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev).
 
-You can check your validator status by searching your Ethereum address on the
-[Holesky Beacon Chain explorer](https://holesky.beaconcha.in/) or [Ephemery Beacon Chain explorer](https://beaconlight.ephemery.dev/).
-It may take up to multiple days for your validator to be activated and start
-proposing blocks.
+You can check your validator status by searching your Ethereum address on the [Holesky explorer](https://holesky.beaconcha.in/),
+[Hoodi explorer](https://hoodi.cloud.blockscout.com/), or [Ephemery explorer](https://beaconchain.ephemery.dev/).
+It may take up to multiple days for your validator to be activated and start proposing blocks.
 
 <!-- links -->
 

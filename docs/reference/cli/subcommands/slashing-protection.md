@@ -260,7 +260,6 @@ Teku imports the file to the `<data-path>/validators/slashprotection/` directory
 
 `<data-path>` is defined using [`--data-path`](#data-path).
 
-
 ## `repair`
 
 Repairs corrupted slashing protection data files used by Teku.
@@ -388,6 +387,7 @@ Possible values are:
 |------------|-----------------|------------|-----------------------------------------------------------------------|
 | `mainnet`  | Consensus layer | Production | Main network                                                          |
 | `holesky`  | Consensus layer | Test       | Multi-client testnet                                                  |
+| `hoodi`    | Consensus layer | Test       | Multi-client testnet                                                  |
 | `ephemery` | Consensus layer | Test       | Multi-client testnet                                                  |
 | `sepolia`  | Consensus layer | Test       | Multi-client testnet                                                  |
 | `minimal`  | Consensus layer | Test       | Used for local testing and development networks                       |
@@ -449,5 +449,3 @@ Enables all slashing protection records to be updated. The default is `false`.
 
 [slashing protection data]: ../../../concepts/slashing-protection.md
 [validator client interchange format]: https://eips.ethereum.org/EIPS/eip-3076
-[environment variables or a configuration file]: ../index.md#specifying-options
-[recent finalized checkpoint state from which to sync]: ../../../get-started/checkpoint-start.md
