@@ -12,7 +12,7 @@ Manage the local [slashing protection data] used by the validator.
 
 ## `export`
 
-Exports the slashing protection database in the [validator client interchange format] format.
+Exports the slashing protection database in the [validator client interchange format].
 
 ### `config-file`
 
@@ -395,7 +395,7 @@ Possible values are:
 | `chiado`   | Consensus layer | Test       | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
 | `lukso`    | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/)                 |
 
-Predefined networks can provide defaults such the initial state of the network, bootnodes, and the address of the deposit contract.
+Predefined networks can provide defaults such as the initial state of the network, bootnodes, and the address of the deposit contract.
 
 ### `slot`
 
