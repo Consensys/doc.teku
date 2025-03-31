@@ -1,7 +1,7 @@
 ---
 title: Development and testing
 description: Teku command line interface subcommands
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Development and testing subcommands

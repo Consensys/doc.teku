@@ -11,12 +11,6 @@ import TabItem from '@theme/TabItem';
 
 This reference describes the syntax of the Teku command line interface (CLI) options.
 
-:::caution
-
-The CLI options are currently under development and may change.
-
-:::
-
 ## Specify options
 
 You can specify Teku options:
