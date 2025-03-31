@@ -38,7 +38,6 @@ In bootnode-only mode, Teku can't:
 
 - Respond to Beacon API queries.
 
-
 To run Teku in bootnode-only mode, start Teku with the subcommand `bootnode`:
 
 ```bash
