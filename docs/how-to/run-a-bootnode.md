@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 ## What is a bootnode?
 
 When a new node joins the Ethereum network, it must connect to other nodes in the same network. This
-process is generally referred to as peering.
+process is referred to as peering.
 
 Ethereum uses the Discovery protocol to find new peers. The process starts with a small set of nodes, known
 as bootnodes, that are hard coded into Ethereum clients. The Discovery protocol allows nodes to locate and

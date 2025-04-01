@@ -16,11 +16,6 @@ Generate a genesis state for a network.
 teku genesis
 ```
 
-<!-- links -->
-
-[environment variables]: ../index.md##teku-environment-variables
-[configuration file]: ../../../how-to/configure/use-config-file.md
-
 ## `peer`
 
 Generate a list of peer IDs, including the private key, public key, and peer ID.

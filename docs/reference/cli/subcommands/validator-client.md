@@ -269,13 +269,17 @@ Specify where to output log information. Valid options are:
 - `DEFAULT_BOTH`
 - `FILE`
 
-The default is `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain events are displayed on the console, and errors and other information are logged to a file. Specify the log file with the [`--log-file`](#log-file) command-line option.
+The default is `DEFAULT_BOTH`. When using `BOTH` or `DEFAULT_BOTH`, system updates such as blockchain events
+are displayed on the console, and errors and other information are logged to a file. Specify the log file
+with the [`--log-file`](#log-file) command-line option.
 
 For production systems we recommend using the `CONSOLE` or `FILE` options to ensure all log information is available in one place.
 
 :::note
 
-Use `DEFAULT_BOTH` when using a [custom Log4J2 configuration file](../../../how-to/monitor/configure-logging.md#advanced-custom-logging). Any other option applies the custom logging changes on top of its default settings.
+Use `DEFAULT_BOTH` when using a
+[custom Log4J2 configuration file](../../../how-to/monitor/configure-logging.md#advanced-custom-logging). Any
+other option applies the custom logging changes on top of its default settings.
 
 :::
 
@@ -466,7 +470,9 @@ metrics-categories: ["BEACON", "JVM", "PROCESS"]
   </TabItem>
 </Tabs>
 
-Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`, `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`.
+Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`,
+`LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`,
+`VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`.
 
 When `metrics-categories` is used, only the categories specified in this option are enabled (all other categories are disabled).
 
@@ -693,9 +699,11 @@ validator-keys: "/home/validator/keys:home/validator/passwords"
   </TabItem>
 </Tabs>
 
-Directory or file to load the encrypted keystore file(s) and associated password file(s) from. Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
+Directory or file to load the encrypted keystore files and associated password files from. Keystore files
+must use the `.json` file extension, and password files must use the `.txt` file extension.
 
-When specifying directories, Teku expects to find identically named keystore and password files. For example `validator_217179e.json` and `validator_217179e.txt`.
+When specifying directories, Teku expects to find identically named keystore and password files. For
+example `validator_217179e.json` and `validator_217179e.txt`.
 
 When specifying file names, Teku expects that the files exist.
 
@@ -738,13 +746,16 @@ validators-early-attestations-enabled: false
   </TabItem>
 </Tabs>
 
-Specify whether to use Teku's built-in early attestation production, which creates an attestation once a block is received. The default is `true`.
+Specify whether to use Teku's built-in early attestation production, which creates an attestation once a block is
+received. The default is `true`.
 
-Set this option to `false` if running a validator client connected to a load balanced beacon node (including most hosted beacon nodes such as [Infura]), and validator effectiveness is poor.
+Set this option to `false` if running a validator client connected to a load balanced beacon node
+(including most hosted beacon nodes such as [Infura]), and validator effectiveness is poor.
 
 :::note
 
-Delaying attestation production increases the chances of generating a correct attestation when using a load balanced beacon node, but it increases the risk of inclusion delays.
+Delaying attestation production increases the chances of generating a correct attestation when using a load
+balanced beacon node, but it increases the risk of inclusion delays.
 
 :::
 
@@ -861,7 +872,8 @@ Use the URL to load the public keys from a remote service. For example:
 --validators-external-signer-public-keys=http://localhost:9900/api/v1/eth2/publicKeys
 ```
 
-Use the value `external-signer` to load all public keys managed by the external signer. Teku automatically queries the external signer's [public keys endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
+Use the value `external-signer` to load all public keys managed by the external signer. Teku automatically
+queries the external signer's [public keys endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
 
 ```bash
 --validators-external-signer-public-keys=external-signer
@@ -906,11 +918,13 @@ Set this option to `false` if using the slashing protection implemented by an ex
 
 :::warning
 
-Ensure the external signer has slashing protection enabled before disabling Teku slashing protection, otherwise a validator may get slashed.
+Ensure the external signer has slashing protection enabled before disabling Teku slashing protection, otherwise
+a validator may get slashed.
 
 :::
 
-Built-in slashing protection can only be disabled for validators using external signers. Validators using Teku to sign blocks and attestations always uses its built-in slashing protection.
+Built-in slashing protection can only be disabled for validators using external signers. Validators using
+Teku to sign blocks and attestations always uses its built-in slashing protection.
 
 ## `validators-external-signer-timeout`
 
@@ -980,7 +994,8 @@ validators-external-signer-truststore: "websigner_truststore.p12"
   </TabItem>
 </Tabs>
 
-PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate which signs the external signer's certificate.
+PKCS12 or JKS keystore used to trust external signer's self-signed certificate or CA certificate which
+signs the external signer's certificate.
 
 ## `validators-external-signer-truststore-password-file`
 
@@ -1122,7 +1137,8 @@ validators-graffiti-file: "/Users/me/mynode/graffiti.txt"
   </TabItem>
 </Tabs>
 
-File containing the validator graffiti to add when creating a block. The file content is converted to `bytes` and padded to `Bytes32`. The same graffiti is used for all validators started with this beacon node.
+File containing the validator graffiti to add when creating a block. The file content is converted to `bytes`
+and padded to `Bytes32`. The same graffiti is used for all validators started with this beacon node.
 
 You can overwrite the file while Teku is running to update the graffiti.
 
@@ -1200,12 +1216,12 @@ validators-performance-tracking-mode: LOGGING
 
 Set the validator performance tracking strategy. Valid options are `LOGGING`, `METRICS`, `ALL`, and `NONE`. The default is `ALL`.
 
-When `LOGGING` is enabled, attestation and block performance is reported as log messages. When `METRICS` is enabled, attestation and block performance is reported using [metrics] in the [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
+When `LOGGING` is enabled, attestation and block performance is reported as log messages. When `METRICS` is
+enabled, attestation and block performance is reported using [metrics] in the [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
 
 <!-- links -->
 
 [environment variables or a configuration file]: ../index.md#specifying-options
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [slashing protection]: ../../../concepts/slashing-protection.md
-[recent finalized checkpoint state from which to sync]: ../../../get-started/checkpoint-start.md
 [metrics]: ../../../how-to/monitor/use-metrics.md
