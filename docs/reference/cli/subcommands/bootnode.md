@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # `bootnode`
 
-Run Teku in bootnode-only mode.
+Run Teku in [bootnode-only](../../../how-to/run-a-bootnode.md) mode.
 
 ## `network`
 
@@ -44,6 +44,20 @@ network: "mainnet"
 </Tabs>
 
 Predefined network configuration. The default is `mainnet`.
+
+Possible values are:
+
+| Network    | Chain           | Type       | Description                                                           |
+|------------|-----------------|------------|-----------------------------------------------------------------------|
+| `mainnet`  | Consensus layer | Production | Main network                                                          |
+| `holesky`  | Consensus layer | Test       | Multi-client testnet                                                  |
+| `hoodi`    | Consensus layer | Test       | Multi-client testnet                                                  |
+| `ephemery` | Consensus layer | Test       | Multi-client testnet                                                  |
+| `sepolia`  | Consensus layer | Test       | Multi-client testnet                                                  |
+| `minimal`  | Consensus layer | Test       | Used for local testing and development networks                       |
+| `gnosis`   | Consensus layer | Production | Network for the [Gnosis chain](https://www.gnosis.io/)                |
+| `chiado`   | Consensus layer | Test       | Gnosis [testnet](https://docs.gnosischain.com/about/networks/chiado/) |
+| `lukso`    | Consensus layer | Production | Network for the [Lukso chain](https://lukso.network/)                 |
 
 ## `p2p-port`
 

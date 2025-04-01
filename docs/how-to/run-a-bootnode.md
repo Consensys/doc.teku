@@ -1,44 +1,46 @@
 ---
-description: Run Teku as a Bootnode.
+description: Run Teku as a bootnode.
 sidebar_position: 13
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Run Teku as a Bootnode
+# Run Teku as a bootnode
 
-## What is a Bootnode?
+## What is a bootnode?
 
-Any new node joining the Ethereum network needs to be able to talk to other Ethereum nodes in the same network.
+When a new node joins the Ethereum network, it must connect to other nodes in the same network. This
+process is generally referred to as peering.
 
-Ethereum uses the Discovery protocol to find new nodes.
+Ethereum uses the Discovery protocol to find new peers. The process starts with a small set of nodes, known
+as bootnodes, that are hard coded into Ethereum clients. The Discovery protocol allows nodes to locate and
+exchange information about active peers, enabling them to dynamically join the network without needing a
+full list of known nodes.
 
-The Discovery process starts with a small set of nodes, known as Bootnodes, that are already coded into the Ethereum clients.
-
-You can also specify other nodes as your initial list of bootnodes using the option [`p2p-discovery-bootnodes`](../reference/cli#p2p-discovery-bootnodes).
+You can specify additional bootnodes using the [`--p2p-discovery-bootnodes`](../reference/cli#p2p-discovery-bootnodes) option.
 
 :::note
-
-Any Teku running as a Beacon Node is already acting running the Discovery protocol and can be used as a bootnode.
-
+Any Teku instance running as a beacon node already participates in the Discovery protocol and can serve
+as a bootnode.
 :::
 
-## Running Teku in Bootnode-only mode
+Most users don’t need to run a bootnode. This mode is primarily useful for client teams, infrastructure
+providers, or others who want to contribute to the health and connectivity of the Ethereum network.
+Running a bootnode helps new nodes discover peers more reliably, but doesn't provide direct benefits to the operator.
 
-You can run Teku in bootnode-only mode if you do not want to have a full beacon node running.
+## Run Teku in bootnode-only mode
 
+You can run Teku in bootnode-only mode when you don't want to operate a full beacon node.
 When running in bootnode-only mode, Teku will only enable its Discovery service.
 
-In bootnode-only mode, Teku can't:
+In this mode, Teku only runs its Discovery service and doesn't:
 
-- Synchronize with the chain.
-
-- Validate or produce blocks.
-
+- Synchronize with the chain
+- Validate or produce blocks
 - Respond to Beacon API queries.
 
-To run Teku in bootnode-only mode, start Teku with the subcommand `bootnode`:
+To run Teku in bootnode-only mode, start Teku with the [`bootnode`](../reference/cli/subcommands/bootnode.md) subcommand:
 
 ```bash
 teku bootnode <extra_options>
@@ -54,9 +56,12 @@ teku bootnode \
   --p2p-private-key-file=/opt/data/node-key.txt
 ```
 
-In the example above, we are setting the bootnode to the Mainnet network, and specifying the IP and Port used for external communication
-with other nodes using [`--p2p-port`](../reference/cli#p2p-port) and [`--p2p-advertised-ip`](../reference/cli#p2p-advertised-ip)
-options.
+This example configures a bootnode for Ethereum mainnet. It sets:
 
-We are also setting the node key to always use the same key using the option [`--p2p-private-key-file`](../reference/cli#p2p-private-key-file).
-This is important to ensure our bootnode will have a stable ENR that we can share with other users so they can communicate with our bootnode.
+- The network to `mainnet`
+- The external communication port using [`--p2p-port`](../reference/cli#p2p-port)
+- The public IP address using [`--p2p-advertised-ip`](../reference/cli#p2p-advertised-ip)
+- A persistent private key file using [`--p2p-private-key-file`](../reference/cli#p2p-private-key-file)
+
+Using a persistent private key ensures the bootnode has a stable Ethereum Node Record (ENR), which others
+can use to connect reliably.
