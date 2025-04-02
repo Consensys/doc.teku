@@ -1,7 +1,7 @@
 ---
 title: Development and testing
 description: Teku command line interface subcommands
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Development and testing subcommands
@@ -15,11 +15,6 @@ Generate a genesis state for a network.
 ```bash
 teku genesis
 ```
-
-<!-- links -->
-
-[environment variables]: ../index.md##teku-environment-variables
-[configuration file]: ../../../how-to/configure/use-config-file.md
 
 ## `peer`
 

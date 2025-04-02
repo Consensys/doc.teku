@@ -11,12 +11,6 @@ import TabItem from '@theme/TabItem';
 
 This reference describes the syntax of the Teku command line interface (CLI) options.
 
-:::caution
-
-The CLI options are currently under development and may change.
-
-:::
-
 ## Specify options
 
 You can specify Teku options:
@@ -1469,7 +1463,6 @@ A comma-separated list of categories for which to track metrics.
 Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`,
 `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`,
 `VALIDATOR_PERFORMANCE`, and `VALIDATOR_DUTY`.
-All but `VALIDATOR_DUTY` categories are enabled by default.
 
 When `metrics-categories` is used, only the categories specified in this option are enabled (all
 other categories are disabled).

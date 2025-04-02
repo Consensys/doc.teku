@@ -1,6 +1,6 @@
 ---
 title: voluntary-exit
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 import Tabs from '@theme/Tabs';
@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # `voluntary-exit`
 
-Create and sign a [voluntary exit] for the specified validator or set of validators.  
+Create and sign a [voluntary exit] for the specified validator or set of validators.
 This subcommand can be run as a separate Teku process.
 
 :::caution
