@@ -1,7 +1,7 @@
 ---
 title: migrate-database
 description: Database migration subcommand options
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 import Tabs from '@theme/Tabs';
