@@ -20,6 +20,7 @@ The available subcommands are:
 
 - [`admin`](admin.md)
 - [`migrate-database`](migrate-database.md)
+- [`bootnode`](bootnode.md)
 - [`slashing-protection`](slashing-protection.md)
 - [`validator-client`](validator-client.md)
 - [`voluntary-exit`](voluntary-exit.md)
