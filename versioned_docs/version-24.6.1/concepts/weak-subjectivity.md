@@ -36,7 +36,7 @@ Teku provides three methods to safely sync a node that is new to the network or 
 We recommend using `--checkpoint-sync-url` on Mainnet.
 
 :::tip
-Use the [`/eth/v2/debug/beacon/states/<state_id>`](https://consensys.github.io/teku/#operation/getEthV2DebugBeaconStatesWithState_id)
+Use the [`/eth/v2/debug/beacon/states/<state_id>`](https://consensys.github.io/teku/#tag/Debug/operation/getStateV2)
 API on an updated node to download a recent finalized state as an SSZ encoded state file.
 :::
 

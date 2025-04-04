@@ -94,7 +94,7 @@ Teku creates a LevelDB2 database, and starts from the specified recent state. Te
 
 <!-- links -->
 
-[Download the latest finalized state]: https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id
+[Download the latest finalized state]: https://consensys.github.io/teku/#tag/Debug/operation/getStateV2
 [prune mode]: ../reference/cli/index.md#data-storage-mode
 [archive mode]: ../reference/cli/index.md#data-storage-mode
 [supply the finalized checkpoint state]: ../get-started/checkpoint-start.md
