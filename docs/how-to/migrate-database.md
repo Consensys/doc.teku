@@ -6,7 +6,7 @@ sidebar_position: 10
 
 # Migrate the database
 
-Teku version 21.5.0 and later use LevelDB2 as the default database for new installations. 
+Teku version 21.5.0 and later use LevelDB2 as the default database for new installations.
 Earlier Teku versions use RocksDB. Teku continues to support RocksDB in all versions.
 
 LevelDB2 databases use less memory and proves to be more stable with Teku.
@@ -19,7 +19,10 @@ We recommend Teku nodes running in [`archive` mode] use the [automatic migration
 
 ## Automatic migration
 
-Teku nodes running in [archive mode] must resynchronize from genesis to migrate from RocksDB to LevelDB2. Use the [`migrate-database`](../reference/cli/subcommands/migrate-database.md) subcommand to migrate the database. Once migration completes there will be two databases in Teku's data folder. Manually verify that Teku starts and has the expected data before you remove the RocksDB database.
+Teku nodes running in [archive mode] must resynchronize from genesis to migrate from RocksDB to LevelDB2.
+Use the [`migrate-database`](../reference/cli/subcommands/migrate-database.md) subcommand to migrate the database.
+Once migration completes there will be two databases in Teku's data folder.
+Manually verify that Teku starts and has the expected data before you remove the RocksDB database.
 
 :::note
 
@@ -27,11 +30,15 @@ You need double the disk space of the existing Teku storage folder for the migra
 
 :::
 
-Ensure that Teku isn't running when using the [`migrate-database`](../reference/cli/subcommands/migrate-database.md) subcommand. The duration of the migration depends on various factors, but principally on the disk speed. Status updates display during the migration process. To migrate the database:
+Ensure that Teku isn't running when using the [`migrate-database`](../reference/cli/subcommands/migrate-database.md) subcommand.
+The duration of the migration depends on various factors, but principally on the disk speed.
+Status updates display during the migration process.
+To migrate the database:
 
-1.  Shut down the local Teku instance.
+1. Shut down the local Teku instance.
 
-2.  Run [`migrate-database`](../reference/cli/subcommands/migrate-database.md) to create a LevelDB2 database. Pass your [configuration file](configure/use-config-file.md) or CLI options so that Teku has the correct paths and context.
+2. Run [`migrate-database`](../reference/cli/subcommands/migrate-database.md) to create a LevelDB2 database.
+    Pass your [configuration file](configure/use-config-file.md) or CLI options so that Teku has the correct paths and context.
 
     ```bash title="Example"
     teku migrate-database --data-path /etc/teku/data/
@@ -45,13 +52,13 @@ Ensure that Teku isn't running when using the [`migrate-database`](../reference/
 
     :::
 
-3.  The migration process informs you if it succeeded, or provides context to errors. If successful, then confirm Teku functions correctly.
+3. The migration process informs you if it succeeded, or provides context to errors. If successful, then confirm Teku functions correctly.
 
     ```bash title="Example"
     teku --data-path /etc/teku/data/
     ```
 
-4.  If Teku is running correctly, remove the `beacon.old` directory from the [`--data-path`](../reference/cli/subcommands/migrate-database.md#network) directory.
+4. If Teku is running correctly, remove the `beacon.old` directory from the [`--data-path`](../reference/cli/subcommands/migrate-database.md#network) directory.
 
 If migration fails, resolve any issues and retry. Contact support on the [Teku Discord channel] if you need help resolving issues.
 
@@ -67,7 +74,7 @@ Teku nodes running in [archive mode] must resynchronize from genesis to migrate.
 
 To migrate a RocksDB database in [`prune` mode] to a LevelDB2 database:
 
-1.  [Download the latest finalized state] from a beacon node:
+1. [Download the latest finalized state] from a beacon node:
 
     ```bash
     curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v2/debug/beacon/states/finalized
@@ -79,9 +86,9 @@ To migrate a RocksDB database in [`prune` mode] to a LevelDB2 database:
 
     :::
 
-2.  Stop the Teku node you intend to migrate.
+2. Stop the Teku node you intend to migrate.
 
-3.  Delete the `beacon` directory in your [data path](../reference/cli/index.md#data-base-path-data-path).
+3. Delete the `beacon` directory in your [data path](../reference/cli/index.md#data-base-path-data-path).
 
     :::warning
 
@@ -89,13 +96,13 @@ To migrate a RocksDB database in [`prune` mode] to a LevelDB2 database:
 
     :::
 
-4.  Restart Teku and specify the downloaded finalized state using the [`--initial-state`](../reference/cli/index.md#initial-state) command.
+4. Restart Teku and specify the downloaded finalized state using the [`--initial-state`](../reference/cli/index.md#initial-state) command.
 
 Teku creates a LevelDB2 database, and starts from the specified recent state. Teku should be in sync and validating within minutes.
 
 <!-- links -->
 
-[Download the latest finalized state]: https://consensys.github.io/teku/#operation/getEthV1DebugBeaconStatesWithState_id
+[Download the latest finalized state]: https://consensys.github.io/teku/#tag/Debug/operation/getStateV2
 [`prune` mode]: ../reference/cli/index.md#data-storage-mode
 [`archive` mode]: ../reference/cli/index.md#data-storage-mode
 [supply the finalized checkpoint state]: ../get-started/checkpoint-start.md
