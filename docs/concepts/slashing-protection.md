@@ -8,7 +8,8 @@ sidebar_position: 7
 
 Teku implements slashing protection to prevent validators from signing blocks or attestations based on what it has already signed.
 
-By default, Teku also locks keystore files listed in the [`--validator-keys`](../reference/cli/index.md#validator-keys) option to prevent other processes from using it. You can enable and disable this functionality using the [`--validators-keystore-locking-enabled`](../reference/cli/index.md#validators-keystore-locking-enabled) option.
+By default, Teku also locks keystore files listed in the [`--validator-keys`](../reference/cli/index.md#validator-keys) option to prevent other processes from using it.
+You can enable and disable this functionality using the [`--validators-keystore-locking-enabled`](../reference/cli/index.md#validators-keystore-locking-enabled) option.
 
 :::warning
 
@@ -16,7 +17,8 @@ Teku's slashing protection does not provide protection if the same validator key
 
 :::
 
-To protect validators from slashable offenses, Teku stores a record of the most recently signed blocks for each validator in the `<data-path>/validator/slashprotection/` directory. One [YAML file is stored per validator] in the format `<validator-pubkey>.yml` (with no `0x` prefix).
+To protect validators from slashable offenses, Teku stores a record of the most recently signed blocks for each validator in the `<data-path>/validator/slashprotection/` directory.
+One [YAML file is stored per validator] in the format `<validator-pubkey>.yml` (with no `0x` prefix).
 
 :::note
 
@@ -51,7 +53,8 @@ The following rules apply to the file:
 
 - A validator signs a block only if the slot number is greater than `lastSignedBlockSlot`.
 - A validator signs an attestation when the source epoch of the attestation is equal to or exceeds `lastSignedAttestationSourceEpoch`, and the target epoch of the attestation is greater than `lastSignedAttestationTargetEpoch`.
-- `genesisValidatorsRoot` is a hash of the validators active at genesis, and is used to differentiate between different chains. Teku does not require this field to be present, but if it is present and differs from the required value, then Teku returns an error.
+- `genesisValidatorsRoot` is a hash of the validators active at genesis, and is used to differentiate between different chains.
+  Teku does not require this field to be present, but if it is present and differs from the required value, then Teku returns an error.
 
 :::info
 
@@ -79,12 +82,16 @@ For example, to manually move the file from node A to node B:
 
 ### From a non-Teku node
 
-If moving a validator from a different client to Teku, you can either:
+If moving a validator from a different client to Teku, you can do either of the following:
 
 - Manually [create a new slashing protection file] by setting the values based on the validator's last signing details.
 - [Import] the slashing protection file.
 
-To manually create the file, stop the other client to ensure it isn't signing, then set `lastSignedBlockSlot` to the current chain head slot + 1, `lastSignedAttestationSourceEpoch` to the current justified checkpoint, and set `lastSignedAttestationTargetEpoch` to the current epoch + 1.
+To manually create the file, stop the other client to ensure it isn't signing, then set the following:
+
+- Set `lastSignedBlockSlot` to the current chain head slot + 1.
+- Set `lastSignedAttestationSourceEpoch` to the current justified checkpoint.
+- Set `lastSignedAttestationTargetEpoch` to the current epoch + 1.
 
 Start the Teku node with the validator key.
 

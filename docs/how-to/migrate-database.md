@@ -6,7 +6,7 @@ sidebar_position: 10
 
 # Migrate the database
 
-Teku version 21.5.0 and later use LevelDB2 as the default database for new installations. 
+Teku version 21.5.0 and later use LevelDB2 as the default database for new installations.
 Earlier Teku versions use RocksDB. Teku continues to support RocksDB in all versions.
 
 LevelDB2 databases use less memory and proves to be more stable with Teku.
@@ -19,7 +19,10 @@ We recommend Teku nodes running in [`archive` mode] use the [automatic migration
 
 ## Automatic migration
 
-Teku nodes running in [archive mode] must resynchronize from genesis to migrate from RocksDB to LevelDB2. Use the [`migrate-database`](../reference/cli/subcommands/migrate-database.md) subcommand to migrate the database. Once migration completes there will be two databases in Teku's data folder. Manually verify that Teku starts and has the expected data before you remove the RocksDB database.
+Teku nodes running in [archive mode] must resynchronize from genesis to migrate from RocksDB to LevelDB2.
+Use the [`migrate-database`](../reference/cli/subcommands/migrate-database.md) subcommand to migrate the database.
+Once migration completes there will be two databases in Teku's data folder.
+Manually verify that Teku starts and has the expected data before you remove the RocksDB database.
 
 :::note
 

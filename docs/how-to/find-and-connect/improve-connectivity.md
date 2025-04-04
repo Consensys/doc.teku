@@ -6,13 +6,16 @@ sidebar_position: 1
 
 # Improve peer-to-peer connectivity
 
-The consensus layer relies on peer-to-peer (P2P) networking. By having a good peer count you increase the performance and health of your node. When a Teku node starts up, it looks for participants on the P2P network by listening for incoming connections, and finds and connects to peers.
+The consensus layer relies on peer-to-peer (P2P) networking.
+By having a good peer count you increase the performance and health of your node.
+When a Teku node starts up, it looks for participants on the P2P network by listening for incoming connections, and finds and connects to peers.
 
 While Teku is good at finding peers, changes to your network configuration can help improve your peer count.
 
 ## Advertise your public IP address
 
-If you are using a NAT, it's easier to get peers by advertising your public address to the network. Use the [`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips) option to advertise the address publicly.
+If you are using a NAT, it's easier to get peers by advertising your public address to the network.
+Use the [`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips) option to advertise the address publicly.
 
 Additionally, if on a home network, [configure port forwarding](#configuring-ports) on your router.
 
@@ -32,7 +35,8 @@ View your router or firewall documentation to configure port-forwarding.
 
 ## Check readiness with a peer count
 
-Check the readiness of your node by using the [`get node readiness` API](https://consensys.github.io/teku/#tag/Teku/operation/readiness). This check helps to prevent a beacon from receiving traffic from validators while the node is not being connected to enough peers.
+Check the readiness of your node by using the [`get node readiness` API](https://consensys.github.io/teku/#tag/Teku/operation/readiness).
+This check helps to prevent a beacon from receiving traffic from validators while the node is not being connected to enough peers.
 
 You can specify a number in the `target_peer_count` parameter to require a minimum number of peers before the node is considered ready.
 

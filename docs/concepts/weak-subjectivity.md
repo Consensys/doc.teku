@@ -23,7 +23,6 @@ chain and trust that it is following the correct chain.
 In practice, the weak subjectivity mechanism tells Teku if the latest checkpoint is too old to
 continue syncing from it (either when starting a new node or after your node has been offline for a while).
 
-
 ## Safely sync your node
 
 Teku provides three methods to safely sync a node that is new to the network or has been offline for an extended period.
