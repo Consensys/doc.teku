@@ -267,7 +267,7 @@ Stake your testnet ETH for one or more validators using the
 [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev).
 
 You can check your validator status by searching your Ethereum address on the
-[Holesky Beacon Chain explorer](https://holesky.beaconcha.in/) or [Ephemery Beacon Chain explorer](https://beaconlight.ephemery.dev/).
+[Holesky Beacon Chain explorer](https://holesky.beaconcha.in/) or [Ephemery Beacon Chain explorer](https://explorer.ephemery.dev/).
 It may take up to multiple days for your validator to be activated and start
 proposing blocks.
 
