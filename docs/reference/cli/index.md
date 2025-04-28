@@ -2484,8 +2484,7 @@ A URL or file that contains a list of
 which to establish and maintain connections. The file should have one peer per line.
 
 :::note
-
-If the URL or file is unable to be loaded, Teku will fail to start up.
+If the URL or file is unable to load, Teku will fail to start up.
 :::
 
 ### `p2p-subscribe-all-subnets-enabled`
