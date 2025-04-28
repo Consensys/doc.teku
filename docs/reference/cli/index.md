@@ -2047,7 +2047,7 @@ p2p-discovery-enabled: false
 </Tabs>
 
 Enables or disables P2P peer discovery.
-If disabled, [`p2p-static-peers`](#p2p-static-peers) defines the peer connections.
+If disabled, [`p2p-static-peers`](#p2p-static-peers) or [`p2p-static-peers-url`](#p2p-static-peers-url) defines the peer connections.
 The default is `true`.
 
 ### `p2p-discovery-site-local-addresses-enabled`
@@ -2445,6 +2445,47 @@ p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
 A comma-separated list of
 [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers with
 which to establish and maintain connections.
+
+### `p2p-static-peers-url`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-static-peers-url=<URL>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-static-peers-url=https://my-peers-url
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_STATIC_PEERS_URL=https://my-peers-url
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-static-peers-url: "https://my-peers-url"
+```
+
+  </TabItem>
+</Tabs>
+
+A URL or file that contains a list of
+[multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers with
+which to establish and maintain connections. The file should have one peer per line.
+
+:::note
+If the URL or file is unable to load, Teku will fail to start up.
+:::
 
 ### `p2p-subscribe-all-subnets-enabled`
 
