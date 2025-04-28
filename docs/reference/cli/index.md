@@ -2479,7 +2479,7 @@ p2p-static-peers-url: "https://my-peers-url"
   </TabItem>
 </Tabs>
 
-A URL or file that contains a list of 
+A URL or file that contains a list of
 [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers with
 which to establish and maintain connections. The file should have one peer per line.
 
