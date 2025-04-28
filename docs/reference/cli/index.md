@@ -2483,6 +2483,11 @@ A URL or file that contains a list of
 [multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers with
 which to establish and maintain connections. The file should have one peer per line.
 
+:::note
+
+If the URL or file is unable to be loaded, teku will fail to start up.
+:::
+
 ### `p2p-subscribe-all-subnets-enabled`
 
 <Tabs>
