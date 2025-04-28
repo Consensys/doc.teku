@@ -2485,7 +2485,7 @@ which to establish and maintain connections. The file should have one peer per l
 
 :::note
 
-If the URL or file is unable to be loaded, teku will fail to start up.
+If the URL or file is unable to be loaded, Teku will fail to start up.
 :::
 
 ### `p2p-subscribe-all-subnets-enabled`
