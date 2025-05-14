@@ -129,7 +129,7 @@ teku slashing-protection export --to=/home/slash/b845...23bed.json
 
 The file to export the slashing protection database to.
 
-Exports the database in the [validator client interchange format] format.
+Exports the database in the [validator client interchange format].
 
 ## `import`
 

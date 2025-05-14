@@ -85,7 +85,7 @@ const config = {
       //   content: "⛔️ This documentation site is still under construction! 🚧",
       //   backgroundColor: "#fafbfc",
       //   textColor: "#091E42",
-      //   isClosable: false,
+      //   isCloseable: false,
       // },
       colorMode: {
         defaultMode: "light",
