@@ -2046,7 +2046,7 @@ p2p-discovery-bootnodes-url: "/etc/bootnodes.txt"
   </TabItem>
 </Tabs>
 
-A URL or file that contains a list of Ethereum Node Records (ENRs) for P2P discovery bootstrap. 
+A URL or file that contains a list of [Ethereum Node Records (ENRs)](https://ethereum.org/en/developers/docs/networking-layer/network-addresses/) for P2P discovery bootstrap.
 The file should have one ENR per line.
 
 :::note
