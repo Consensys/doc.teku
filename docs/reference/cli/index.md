@@ -2013,6 +2013,46 @@ p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
 
 A comma-separated list of Ethereum Node Records (ENRs) for P2P discovery bootstrap.
 
+### `p2p-discovery-bootnodes-url`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-discovery-bootnodes-url=<URL>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-discovery-bootnodes-url=/etc/bootnodes.txt
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_DISCOVERY_BOOTNODES_URL=/etc/bootnodes.txt
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-discovery-bootnodes-url: "/etc/bootnodes.txt"
+```
+
+  </TabItem>
+</Tabs>
+
+A URL or file that contains a list of [Ethereum Node Records (ENRs)](https://ethereum.org/en/developers/docs/networking-layer/network-addresses/) for P2P discovery bootstrap.
+The file should have one ENR per line.
+
+:::note
+If the URL or file is unable to load, Teku will fail to start up.
+:::
+
 ### `p2p-discovery-enabled`
 
 <Tabs>
