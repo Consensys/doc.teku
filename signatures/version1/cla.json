@@ -1,3 +1,12 @@
 {
-   "signedContributors": []
+  "signedContributors": [
+    {
+      "name": "lucassaldanha",
+      "id": 1766440,
+      "comment_id": 3162243589,
+      "created_at": "2025-08-07T02:56:08Z",
+      "repoId": 214424702,
+      "pullRequestNo": 668
+    }
+  ]
 }
