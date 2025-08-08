@@ -4116,45 +4116,6 @@ When set to `LOGGING`, attestation and block performance are reported as log mes
 When set to `METRICS`, attestation and block performance are reported using [metrics] in the
 [`VALIDATOR_PERFORMANCE`](#metrics-categories) metrics category.
 
-### `validators-proposer-blinded-blocks-enabled`
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---validators-proposer-blinded-blocks-enabled[=<BOOLEAN>]
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---validators-proposer-blinded-blocks-enabled=true
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_VALIDATORS_PROPOSER_BLINDED_BLOCKS_ENABLED=true
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-validators-proposer-blinded-blocks-enabled: true
-```
-
-  </TabItem>
-</Tabs>
-
-Enables or disables blinded blocks production, a prerequisite for the
-[builder network](../../how-to/configure/builder-network.md).
-When [`--validators-builder-registration-default-enabled`](#validators-builder-registration-default-enabled)
-is enabled, this option is enabled automatically.
-The default is `false`.
-
 ### `validators-proposer-config`
 
 <Tabs>
