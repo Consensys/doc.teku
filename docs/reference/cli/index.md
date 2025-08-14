@@ -1461,7 +1461,7 @@ metrics-categories: ["BEACON", "JVM", "PROCESS"]
 
 A comma-separated list of categories for which to track metrics.
 Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`,
-`STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`,
+`STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `VALIDATOR`,
 `VALIDATOR_PERFORMANCE`, and `VALIDATOR_DUTY`.
 
 When `metrics-categories` is used, only the categories specified in this option are enabled (all
