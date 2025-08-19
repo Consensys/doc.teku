@@ -471,7 +471,7 @@ metrics-categories: ["BEACON", "JVM", "PROCESS"]
 </Tabs>
 
 Categories for which to track metrics. Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`,
-`LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`,
+`LIBP2P`, `NETWORK`, `STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `VALIDATOR`,
 `VALIDATOR_PERFORMANCE`, `VALIDATOR_DUTY`.
 
 When `metrics-categories` is used, only the categories specified in this option are enabled (all other categories are disabled).
