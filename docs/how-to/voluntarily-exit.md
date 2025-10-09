@@ -56,9 +56,11 @@ Use the [`/eth/v1/beacon/pool/voluntary_exits`](https://consensys.github.io/teku
 
 ## Create but don't submit an exit
 
-The [`voluntary-exit`](../reference/cli/subcommands/voluntary-exit.md) subcommand accepts an option [`--save-exits-path`](../reference/cli/subcommands/voluntary-exit.md#save-exits-path), which creates a signed exit without submitting it to the beacon node.
+The [`voluntary-exit`](../reference/cli/subcommands/voluntary-exit.md) subcommand accepts an option [`--save-exits-path`](../reference/cli/subcommands/voluntary-exit.md#save-exits-path),
+which creates a signed exit without submitting it to the beacon node.
 
-This [`--save-exits-path`](../reference/cli/subcommands/voluntary-exit.md#save-exits-path) parameter allows an operator to create the voluntary exits for validators, and save them for future use. These exit messages (from deneb fork) will be valid for the current or any future hard fork - they do not become invalid at any point in time.
+[`--save-exits-path`](../reference/cli/subcommands/voluntary-exit.md#save-exits-path) allows an operator to create the voluntary exits for validators, and save them for future use.
+These exit messages (from the Deneb fork) will be valid for the current or any future hard fork—they do not become invalid at any point in time.
 
 ```bash title="Example"
 teku voluntary-exit                                \
@@ -81,8 +83,7 @@ for validator `1e9f2a`.
 At a future time when this exit needs to be processed, you can use the beacon API to submit
 this message using a POST request to `/eth/v1/beacon/voluntary_exits`.
 
-The `--beacon-node-api-endpoint` is still required even though the voluntary-exit is not being submitted, as it verifys the status of the validator, and needs network parameters to generate a valid message.
-
+The `--beacon-node-api-endpoint` option is required even though the voluntary exit is not being submitted, as it verifies the status of the validator, and needs network parameters to generate a valid message.
 
 <!-- links -->
 
