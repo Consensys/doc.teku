@@ -17,20 +17,7 @@ If the builder goes down, the local execution client proposes a block instead.
 
 Use the following steps to configure Teku to use a builder network.
 
-## 1. Enable blinded block production
-
-Enable blinded block production using the
-[`--validators-proposer-blinded-blocks-enabled`](../../reference/cli/index.md#validators-proposer-blinded-blocks-enabled)
-command line option.
-
-:::note
-
-If [--validators-builder-registration-default-enabled](../../reference/cli/index.md#validators-builder-registration-default-enabled)
-is set to `true`, then `--validators-proposer-blinded-blocks-enabled` is automatically enabled.
-
-:::
-
-## 2. Specify the builder endpoint
+## 1. Specify the builder endpoint
 
 Specify the builder endpoint using the [`--builder-endpoint`](../../reference/cli/index.md#builder-endpoint)
 command line option.
@@ -50,7 +37,7 @@ For example:
 --builder-endpoint=http://127.0.0.1:18550
 ```
 
-## 3. Register the validator
+## 2. Register the validator
 
 You must register your validator with the builder before proposing a block.
 On the validator client, enable registration for all validators using the
@@ -84,13 +71,6 @@ specify the enabled validators in the `proposer_config` field of the
 
 In this example, validator `0xa057816...` is registered with the builder, but any validator using
 the default configuration isn't.
-
-:::note
-
-If you use a proposer configuration, you must enable blinded block production using
-[`--validators-proposer-blinded-blocks-enabled`](../../reference/cli/index.md#validators-proposer-blinded-blocks-enabled).
-
-:::
 
 ## Example builder configurations
 
@@ -128,7 +108,6 @@ teku \
 
 ```bash
 teku validator-client \
-    --validators-proposer-blinded-blocks-enabled=true \
     --validators-proposer-config="/etc/teku/proposerConfig.json"
 ```
 
@@ -176,7 +155,6 @@ teku \
 
 ```bash
 teku validator-client \
-    --validators-proposer-blinded-blocks-enabled=true      \
     --validators-builder-registration-default-enabled=true \
     --validators-proposer-default-fee-recipient="0x6e35733c5af9B61374A128e6F85f553aF09ff89A"
 ```
