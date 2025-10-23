@@ -1461,7 +1461,7 @@ metrics-categories: ["BEACON", "JVM", "PROCESS"]
 
 A comma-separated list of categories for which to track metrics.
 Options are `JVM`, `PROCESS`, `BEACON`, `DISCOVERY`, `EVENTBUS`, `EXECUTOR`, `LIBP2P`, `NETWORK`,
-`STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `REMOTE_VALIDATOR`, `VALIDATOR`,
+`STORAGE`, `STORAGE_HOT_DB`, `STORAGE_FINALIZED_DB`, `VALIDATOR`,
 `VALIDATOR_PERFORMANCE`, and `VALIDATOR_DUTY`.
 
 When `metrics-categories` is used, only the categories specified in this option are enabled (all
@@ -2012,6 +2012,46 @@ p2p-discovery-bootnodes: ["enr:-Iu4QG...wgiMo",
 </Tabs>
 
 A comma-separated list of Ethereum Node Records (ENRs) for P2P discovery bootstrap.
+
+### `p2p-discovery-bootnodes-url`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-discovery-bootnodes-url=<URL>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-discovery-bootnodes-url=/etc/bootnodes.txt
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_DISCOVERY_BOOTNODES_URL=/etc/bootnodes.txt
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-discovery-bootnodes-url: "/etc/bootnodes.txt"
+```
+
+  </TabItem>
+</Tabs>
+
+A URL or file that contains a list of [Ethereum Node Records (ENRs)](https://ethereum.org/en/developers/docs/networking-layer/network-addresses/) for P2P discovery bootstrap.
+The file should have one ENR per line.
+
+:::note
+If the URL or file is unable to load, Teku will fail to start up.
+:::
 
 ### `p2p-discovery-enabled`
 
@@ -3377,7 +3417,7 @@ validators-builder-registration-default-gas-limit: 40000000
 </Tabs>
 
 The gas limit used for [registering validators to the builder endpoint](../../how-to/configure/builder-network.md#3-register-the-validator).
-The default is `36000000`.
+The default is `60000000`.
 
 ### `validators-early-attestations-enabled`
 
