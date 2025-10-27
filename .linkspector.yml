@@ -12,8 +12,6 @@ ignorePatterns:
 - pattern: "^http(s)?://localhost"
 - pattern: "^http(s)?://127.0.0.1"
 - pattern: "^http(s)?://gitlab.com/ConsenSys/"
-- pattern: "^http(s)?://github.com/ConsenSys/orchestrate"
-- pattern: "^http(s)?://github.com/INFURA/docs(?:/(issues|pulls))?"
 - pattern: "^http(s)?://consensys.net"
 - pattern: "{{[a-zA-Z_\\-\\.\\[\\]\\']+}}"
 - pattern: "^http(s)?://.+.zendesk.com"
@@ -22,12 +20,7 @@ ignorePatterns:
 - pattern: "^http(s)?://metamask.io"
 - pattern: http(s)?://.+\&\#39\;
 - pattern: http(s)?://.+'
-- pattern: "^http(s)?://(?:www\\.)?twitter\\.com/(?:#!/)?(?:[a-zA-Z0-9_]{1,15})/status(?:es)?/(?:\\d+|\\d+/photo/\\d+)"
 - pattern: "\\[.*?\\]\\([^)]+\\)"
-- pattern: "^http(s)?://github.com/Consensys/linea-contracts-audit/commit/99039ebc8d6cb3009cf46286d5de4c484e03bc81"
-- pattern: "^http(s)?://www.hackquest.io/en/hackathon/Linea-Dev-Cook-Off"
-- pattern: "^https?://www\\.hackquest\\.io/en/hackathon/Linea-Dev-Cook-Off"
-- pattern: "^https?://developer\\.android\\.com/(training/dependency-injection/hilt-android|guide/components/(processes-and-threads#IPC|aidl))"
 aliveStatusCodes:
 - 200
 - 206
