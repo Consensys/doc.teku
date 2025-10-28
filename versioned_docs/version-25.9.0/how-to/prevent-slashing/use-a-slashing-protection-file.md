@@ -48,6 +48,6 @@ You can now import the slashing protection file in a Teku, or non-Teku node.
 <!--links -->
 
 [slashing protection]: ../../concepts/slashing-protection.md
-[data path directory when starting Teku]: ../../reference/cli/index.md#data-path
+[data path directory when starting Teku]: ../../reference/cli/index.md#data-base-path-data-path
 [validator client interchange format]: https://eips.ethereum.org/EIPS/eip-3076
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/

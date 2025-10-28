@@ -32,7 +32,7 @@ docker run -d -p 9000:9000/tcp -p 9000:9000/udp -p 5051:5051 -e TEKU_REST_API_EN
 :::tip
 
 - If running Docker in the background, set [`--log-destination`](../../reference/cli/index.md#log-destination) to `console` to send all logs to the console and appear in Docker's log output.
-- Set [`--data-path`](../../reference/cli/index.md#data-path) to a mount point to ensure Teku data is not lost in the Docker filesystem.
+- Set [`--data-path`](../../reference/cli/index.md#data-base-path-data-path) to a mount point to ensure Teku data is not lost in the Docker filesystem.
 - [Set the Docker user to the UID of the normal user](#allow-multiple-users-to-run-the-docker-image) to ensure read/write access to the required files.
 
 :::
