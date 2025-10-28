@@ -18,8 +18,3 @@ jobs:
         with:
           CONFIG_FILE: .linkspector.yml
         continue-on-error: true
-
-      - name: Debug output
-        if: failure()
-        run: |
-          echo "Link check failed - check logs above for details"
