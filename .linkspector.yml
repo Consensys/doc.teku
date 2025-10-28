@@ -1,11 +1,11 @@
 dirs:
   - ./docs
-  - ./versioned_docs
 excludedDirs:
   - ./build
   - ./.vercel
   - ./.docusaurus
   - ./node_modules
+  - ./versioned_docs
 useGitIgnore: true
 
 ignorePatterns:
