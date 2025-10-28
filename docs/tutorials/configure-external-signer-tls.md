@@ -8,7 +8,8 @@ sidebar_position: 1
 
 Configure TLS communication with an external signer such as [Web3Signer] which accepts connections from clients that use trusted CA certificates or self-signed certificates.
 
-This tutorial configures TLS between Teku and Web3Signer, and uses the [`keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html) utility to generate keystores and a truststore that contain self-signed certificates.
+This tutorial configures TLS between Teku and Web3Signer, and uses the [`keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html)
+utility to generate keystores and a truststore that contain self-signed certificates.
 
 :::info
 
@@ -23,9 +24,9 @@ This tutorial configures TLS between Teku and Web3Signer, and uses the [`keytool
 - [Teku Installed](../get-started/install/install-binaries.md).
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
 - A running execution client such as [Besu].
- 
+
  This tutorial connects to the Holesky testnet.
- You can [run a Besu node on Holesky](https://besu.hyperledger.org/development/public-networks/get-started/start-node#run-a-node-on-holesky-testnet).
+ You can [run a Besu node on Holesky](https://besu.hyperledger.org/public-networks/get-started/start-node#run-a-node-on-holesky-testnet).
 
 ## 1. Create keystores
 
@@ -37,19 +38,30 @@ For each keystore you must create a plain text file containing the password to d
 
 ### Web3Signer keystore and password file
 
-1.  Generate the Web3Signer keystore.
+1. Generate the Web3Signer keystore.
 
     ```bash
-    keytool -genkeypair -keystore web3signer_keystore.p12 -storetype PKCS12 -storepass changeit -alias web3signer -keyalg RSA -keysize 2048 -validity 109500 -dname "CN=localhost, OU=PegaSys, O=ConsenSys, L=Brisbane, ST=QLD, C=AU" -ext san=dns:localhost,ip:127.0.0.1
+    keytool \
+      -genkeypair                       \
+      -keystore web3signer_keystore.p12 \
+      -storetype PKCS12                 \
+      -storepass changeit               \
+      -alias web3signer                 \
+      -keyalg RSA                       \
+      -keysize 2048                     \
+      -validity 109500                  \
+      -dname "CN=localhost, OU=PegaSys, O=ConsenSys, L=Brisbane, ST=QLD, C=AU" \
+      -ext san=dns:localhost,ip:127.0.0.1
     ```
 
     :::info
 
-    Common name (`CN`) is generally the fully qualified name of Web3Server, you can use `-ext san` to add additional hostnames or IP addresses. This allows the same certificate to be used for more than one hostname or IP address if Web3Signer is running on a different machine to Teku with multiple hostnames.
+    Common name (`CN`) is generally the fully qualified name of Web3Server, you can use `-ext san` to add additional hostnames or IP addresses.
+    This allows the same certificate to be used for more than one hostname or IP address if Web3Signer is running on a different machine to Teku with multiple hostnames.
 
     :::
 
-2.  Create a plain text file (for example `web3signer_keystore_password.txt`) that stores the password used to create the keystore.
+2. Create a plain text file (for example `web3signer_keystore_password.txt`) that stores the password used to create the keystore.
 
     ```bash title="web3signer_keystore_password.txt"
     changeit
@@ -61,10 +73,19 @@ You now have the `web3signer_keystore.p12` and `web3signer_keystore_password.txt
 
 Teku presents the keystore to Web3Signer for TLS mutual authentication. We recommend using PKCS12.
 
-1.  Generate the Teku keystore.
+1. Generate the Teku keystore.
 
     ```bash
-    keytool -genkeypair -keystore teku_client_keystore.p12 -storetype PKCS12 -storepass changeit -alias teku_client -keyalg RSA -keysize 2048 -validity 109500 -dname "CN=teku, OU=PegaSys, O=ConsenSys, L=Brisbane, ST=QLD, C=AU"
+    keytool \
+      -genkeypair                        \
+      -keystore teku_client_keystore.p12 \
+      -storetype PKCS12                  \
+      -storepass changeit                \
+      -alias teku_client                 \
+      -keyalg RSA                        \
+      -keysize 2048                      \
+      -validity 109500                   \
+      -dname "CN=teku, OU=PegaSys, O=ConsenSys, L=Brisbane, ST=QLD, C=AU"
     ```
 
     :::info
@@ -73,7 +94,7 @@ Teku presents the keystore to Web3Signer for TLS mutual authentication. We recom
 
     :::
 
-2.  Create a plain text file (for example `teku_keystore_password.txt`) that stores the password used to create the keystore.
+2. Create a plain text file (for example `teku_keystore_password.txt`) that stores the password used to create the keystore.
 
     ```bash title="teku_keystore_password.txt"
     changeit
@@ -87,19 +108,19 @@ The truststore contains certificates that you are willing to trust. Create the t
 
 To create the truststore:
 
-1.  Export the Web3Signer public certificate from the Web3Signer keystore to `PEM` format.
+1. Export the Web3Signer public certificate from the Web3Signer keystore to `PEM` format.
 
     ```bash
     keytool -exportcert -keystore ./web3signer_keystore.p12 -alias web3signer -rfc -file web3signer.pem
     ```
 
-2.  Import the public certificate into a truststore to be used by Teku, and type `yes` if asked to trust the certificate.
+2. Import the public certificate into a truststore to be used by Teku, and type `yes` if asked to trust the certificate.
 
     ```bash
     keytool -importcert -storetype PKCS12 -keystore web3signer_truststore.p12 -alias web3signer -trustcacerts -storepass changeit -file ./web3signer.pem
     ```
 
-3.  Create a plain text file (for example `truststore_pass.txt`) that stores the password used to create the keystore.
+3. Create a plain text file (for example `truststore_pass.txt`) that stores the password used to create the keystore.
 
     ```bash title="truststore_pass.txt"
     changeit
@@ -173,5 +194,5 @@ teku \
 <!-- links -->
 
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
-[Besu]: https://besu.hyperledger.org/development/public-networks/get-started/install
+[Besu]: https://besu.hyperledger.org/public-networks/get-started/install
 [Web3Signer slashing protection]: https://docs.web3signer.consensys.net/en/latest/concepts/slashing-protection/

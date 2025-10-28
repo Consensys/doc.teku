@@ -40,7 +40,7 @@ The following limitations apply:
 
 You can change the [`data-storage-mode`](../reference/cli/index.md#data-storage-mode) without re-initializing your database.
 
-You can change the frequency that states are stored by specifying [`data-storage-archive-frequency`](../reference/cli#data-storage-archive-frequency), but it will only affect the state storage from the time that the change has been made. It will also directly impact the amount of disk space required by Teku.
+You can change the frequency that states are stored by specifying [`data-storage-archive-frequency`](../reference/cli/index.md#data-storage-archive-frequency), but it will only affect the state storage from the time that the change has been made. It will also directly impact the amount of disk space required by Teku.
 
 :::
 

@@ -36,7 +36,8 @@ Ensure no other process or clients are using your keys. If they are, you could g
 
 ## Keystore file already in use
 
-If Teku fails to start with a `Keystore file <keystore_file>.lock already in use.` error, this could mean the keystore file is already being used by a validator client, or Teku has exited unexpectedly and did not remove the lock.
+If Teku fails to start with a `Keystore file <keystore_file>.lock already in use.` error,
+this could mean the keystore file is already being used by a validator client, or Teku has exited unexpectedly and did not remove the lock.
 
 Teku uses a file locking mechanism for the keystores to prevent two validator clients using the same keystores at the same time.
 
@@ -63,7 +64,7 @@ The `scrypt` formatted keystores are more secure because they require more resou
 
 If Teku fails to start with the following:
 
-```
+```bash
 Unable to read yaml configuration. Invalid yaml file [config.yaml]:
 java.io.CharConversionException: Invalid UTF-8 start byte 0x93 (at char #11, byte #-1) at [Source: (File); line: 1, column: 1]
 ```
@@ -84,9 +85,10 @@ If all recent attestations are marked as missed, check the following:
 
 - **Did the validators load correctly?**
 
-  Check the logs when Teku started for the line, `teku-status-log | Loaded N Validators: <validator_pubkey>[, <validator_pubkey>]`, where `N` is the number of expected validators. Each validator's truncated public key is also listed.
+  Check the logs when Teku started for the line, `teku-status-log | Loaded N Validators: <validator_pubkey>[, <validator_pubkey>]`, where `N` is the number of expected validators.
+  Each validator's truncated public key is also listed.
 
-  If the validator did not load, check for any errors loading the validator, and that the [`--validators-keys`](../../reference/cli/index.md#validators-keys) option is correct.
+  If the validator did not load, check for any errors loading the validator, and that the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option is correct.
 
 - **Is the beacon node still syncing?**
 
@@ -98,7 +100,8 @@ If all recent attestations are marked as missed, check the following:
 
 - **Is the beacon node reporting attestations?**
 
-  Each validator that you run prints the message, `teku-validator-log | Validator *** Published attestation Count: 1, Slot: 48539, Root: 5e1bf5..cee8` once each epoch. If you do not see this for your validator then check that it loaded correctly.
+  Each validator that you run prints the message, `teku-validator-log | Validator *** Published attestation Count: 1, Slot: 48539, Root: 5e1bf5..cee8` once each epoch.
+  If you do not see this for your validator then check that it loaded correctly.
 
   To see this message, ensure [`log-include-validator-duties-enabled`](../../reference/cli/index.md#log-include-validator-duties-enabled) is `true`.
 

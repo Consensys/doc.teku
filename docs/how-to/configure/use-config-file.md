@@ -10,7 +10,8 @@ To specify command line options in a file, use a YAML configuration file.
 
 To specify the configuration file, use the [`--config-file`](../../reference/cli/index.md#config-file) option.
 
-To override an option specified in the configuration file, either specify the same option on the command line or as an [environment variable](../../reference/cli/index.md#teku-environment-variables). For options specified in more than one place, the order of precedence is command line, environment variable, configuration file.
+To override an option specified in the configuration file, either specify the same option on the command line or as an [environment variable](../../reference/cli/index.md#specify-options).
+For options specified in more than one place, the order of precedence is command line, environment variable, configuration file.
 
 ## YAML specification
 

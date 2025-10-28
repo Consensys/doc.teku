@@ -1221,7 +1221,6 @@ enabled, attestation and block performance is reported using [metrics] in the [`
 
 <!-- links -->
 
-[environment variables or a configuration file]: ../index.md#specifying-options
 [Web3Signer]: https://docs.web3signer.consensys.net/en/latest/
 [slashing protection]: ../../../concepts/slashing-protection.md
 [metrics]: ../../../how-to/monitor/use-metrics.md

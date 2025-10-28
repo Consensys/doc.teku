@@ -20,7 +20,7 @@ proof of work to [proof of stake consensus](proof-of-stake.md).
 
 :::
 
-Execution and consensus clients communicate with each other using the [Engine API](https://besu.hyperledger.org/development/public-networks/how-to/use-engine-api).
+Execution and consensus clients communicate with each other using the [Engine API](https://besu.hyperledger.org/public-networks/how-to/use-engine-api).
 
 ![Ethereum node](../images/execution-consensus-clients.png)
 
@@ -28,7 +28,7 @@ Execution and consensus clients communicate with each other using the [Engine AP
 
 Execution clients, such as [Besu](https://besu.hyperledger.org/), manage the execution layer, including
 executing transactions and updating the world state. Execution clients serve
-[JSON-RPC API](https://besu.hyperledger.org/development/public-networks/reference/api) requests and
+[JSON-RPC API](https://besu.hyperledger.org/public-networks/reference/api) requests and
 communicate with each other in a peer-to-peer network.
 
 ### Consensus clients

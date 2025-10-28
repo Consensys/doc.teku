@@ -14,7 +14,7 @@ To start a Teku node using subcommands, run:
 teku [OPTIONS] [SUBCOMMANDS] [SUBCOMMAND OPTIONS]
 ```
 
-You can also supply the subcommand options using [environment variables or a configuration file](../index.md#specifying-options).
+You can also supply the subcommand options using [environment variables or a configuration file](../index.md#specify-options).
 
 The available subcommands are:
 

@@ -17,7 +17,7 @@ While Teku is good at finding peers, changes to your network configuration can h
 If you are using a NAT, it's easier to get peers by advertising your public address to the network.
 Use the [`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips) option to advertise the address publicly.
 
-Additionally, if on a home network, [configure port forwarding](#configuring-ports) on your router.
+Additionally, if on a home network, [configure port forwarding](#configure-ports) on your router.
 
 :::tip
 

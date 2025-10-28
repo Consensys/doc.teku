@@ -16,7 +16,8 @@ Only [validators executed separately](../get-started/start-teku.md#run-the-clien
 
 :::
 
-When you configure your remote validator to use sentry beacon nodes, each beacon node (or cluster of beacon nodes) can be assigned a role. Each role determines which beacon node the remote validator sends request to when performing a task.
+When you configure your remote validator to use sentry beacon nodes, each beacon node (or cluster of beacon nodes) can be assigned a role.
+Each role determines which beacon node the remote validator sends request to when performing a task.
 
 Sentry nodes support three roles:
 
@@ -30,7 +31,7 @@ Only the `duties_provider` role is mandatory. You can assign multiple beacon nod
 
 :::info
 
-The CLI option `--sentry-config-file=<file_path>` cannot be used with [`--beacon-node-api-endpoint`](../reference/cli/subcommands/validator-client.md#beacon-node-api-endpoint).
+The CLI option `--sentry-config-file=<file_path>` cannot be used with [`--beacon-node-api-endpoint`](../reference/cli/subcommands/validator-client.md#beacon-node-api-endpoint-beacon-node-api-endpoints).
 
 :::
 
