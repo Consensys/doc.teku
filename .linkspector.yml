@@ -9,18 +9,14 @@ excludedDirs:
 useGitIgnore: true
 
 ignorePatterns:
-- pattern: "^http(s)?://localhost"
-- pattern: "^http(s)?://127.0.0.1"
-- pattern: "^http(s)?://gitlab.com/ConsenSys/"
-- pattern: "^http(s)?://consensys.net"
-- pattern: "{{[a-zA-Z_\\-\\.\\[\\]\\']+}}"
-- pattern: "^http(s)?://.+.zendesk.com"
-- pattern: "^http(s)?://.+.etherscan.io"
-- pattern: "^http(s)?://help.figma.com"
-- pattern: "^http(s)?://metamask.io"
-- pattern: http(s)?://.+\&\#39\;
-- pattern: http(s)?://.+'
-- pattern: "\\[.*?\\]\\([^)]+\\)"
+- pattern: '^http(s)?://localhost'
+- pattern: '^http(s)?://127.0.0.1'
+- pattern: '^http(s)?://gitlab.com/ConsenSys/'
+- pattern: '^http(s)?://consensys.net'
+- pattern: '^http(s)?://.+.zendesk.com'
+- pattern: '^http(s)?://.+.etherscan.io'
+- pattern: '^http(s)?://help.figma.com'
+- pattern: '^http(s)?://metamask.io'
 aliveStatusCodes:
 - 200
 - 206

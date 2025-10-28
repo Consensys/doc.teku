@@ -47,7 +47,7 @@ It will also directly impact the amount of disk space required by Teku.
 
 :::
 
-Consider using a beacon node with `archive` mode storage if you frequently call the rewards API on finalized data. 
+Consider using a beacon node with `archive` mode storage if you frequently call the rewards API on finalized data.
 However, this may produce slow results due to having to replay blocks due to the infrequent storage of states on disk (every 2048 slots by default).
 
 You can consider tuning your data storage to access data quicker, by storing more states (at the cost of disk space), for example,
