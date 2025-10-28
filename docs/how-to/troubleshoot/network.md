@@ -113,7 +113,11 @@ four seconds into the current slot. Whenever Teku receives a block after the exp
 the logs that looks like:
 
 ```bash
-2024-03-18 17:32:27.363 WARN  - Late Block Import *** Block: a0ad54151e1e629ac4a3c23d768e100a9f017b229c927c23ea90111f6399cbdf (8659360) proposer 858815 arrival 4083ms, gossip_validation +4ms, pre-state_retrieved +3ms, processed +259ms, execution_payload_result_received +0ms, begin_importing +1ms, transaction_prepared +0ms, transaction_committed +0ms, completed +13ms
+2024-03-18 17:32:27.363 WARN  - Late Block Import ***
+Block: a0ad54151e1e629ac4a3c23d768e100a9f017b229c927c23ea90111f6399cbdf (8659360)
+proposer 858815 arrival 4083ms, gossip_validation +4ms, pre-state_retrieved +3ms,
+processed +259ms, execution_payload_result_received +0ms, begin_importing +1ms,
+transaction_prepared +0ms, transaction_committed +0ms, completed +13ms
 ```
 
 The `arrival` value in the message indicates the time the block was received by the node. In this particular
