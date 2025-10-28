@@ -16,5 +16,5 @@ jobs:
       - name: LinkCheck
         uses: ConsenSys/github-actions/docs-link-check@main
         with:
-          CONFIG_FILE: ${{ github.workspace }}/.linkspector.yml
+          CONFIG_FILE: .github/workflows/.linkspector.yml
         continue-on-error: true
