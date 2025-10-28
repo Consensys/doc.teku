@@ -20,7 +20,8 @@ Enable the rewards API with the [`--rest-api-enabled`](../reference/cli/index.md
 
 :::tip
 
-A [Swagger interface is also available](../reference/rest.md#enable-the-rest-api-service). Use the [`--rest-api-docs-enabled`](../reference/cli/index.md#rest-api-docs-enabled) command line option to enable the web interface.
+A [Swagger interface is also available](../reference/rest.md#enable-the-rest-api-service).
+Use the [`--rest-api-docs-enabled`](../reference/cli/index.md#rest-api-docs-enabled) command line option to enable the web interface.
 
 :::
 
@@ -40,13 +41,17 @@ The following limitations apply:
 
 You can change the [`data-storage-mode`](../reference/cli/index.md#data-storage-mode) without re-initializing your database.
 
-You can change the frequency that states are stored by specifying [`data-storage-archive-frequency`](../reference/cli.md#data-storage-archive-frequency), but it will only affect the state storage from the time that the change has been made. It will also directly impact the amount of disk space required by Teku.
+You can change the frequency that states are stored by specifying [`data-storage-archive-frequency`](../reference/cli/index.md#data-storage-archive-frequency),
+but it will only affect the state storage from the time that the change has been made.
+It will also directly impact the amount of disk space required by Teku.
 
 :::
 
-Consider using a beacon node with `archive` mode storage if you frequently call the rewards API on finalized data. However, this may produce slow results due to having to replay blocks due to the infrequent storage of states on disk (every 2048 slots by default).
+Consider using a beacon node with `archive` mode storage if you frequently call the rewards API on finalized data. 
+However, this may produce slow results due to having to replay blocks due to the infrequent storage of states on disk (every 2048 slots by default).
 
-You can consider tuning your data storage to access data quicker, by storing more states (at the cost of disk space), for example, [setting the archive frequency](../reference/cli/index.md#data-storage-archive-frequency) to `256` or even `64`, and replaying less blocks.
+You can consider tuning your data storage to access data quicker, by storing more states (at the cost of disk space), for example,
+[setting the archive frequency](../reference/cli/index.md#data-storage-archive-frequency) to `256` or even `64`, and replaying fewer blocks.
 
 ## Examples
 
@@ -145,5 +150,6 @@ curl -X POST \
   }
 }
 ```
+
   </TabItem>
 </Tabs>
