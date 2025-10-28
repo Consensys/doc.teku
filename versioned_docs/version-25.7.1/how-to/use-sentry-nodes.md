@@ -30,7 +30,7 @@ Only the `duties_provider` role is mandatory. You can assign multiple beacon nod
 
 :::info
 
-The CLI option `--sentry-config-file=<file_path>` cannot be used with [`--beacon-node-api-endpoint`](../reference/cli/subcommands/validator-client.md#beacon-node-api-endpoint).
+The CLI option `--sentry-config-file=<file_path>` cannot be used with [`--beacon-node-api-endpoint`](../reference/cli/subcommands/validator-client.md#beacon-node-api-endpoint-beacon-node-api-endpoints).
 
 :::
 

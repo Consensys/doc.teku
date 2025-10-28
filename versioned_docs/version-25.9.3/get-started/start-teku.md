@@ -22,8 +22,8 @@ By default, Teku connects to `mainnet`. Use the [`--network`](../reference/cli/i
 ## Prerequisites
 
 - [Teku installed](install/install-binaries.md).
-- [An execution client synced](connect/mainnet.md#2-start-the-execution-client).
-- [Validator keystores and password files](connect/mainnet.md#3-generate-validator-keys-and-stake-eth).
+- [An execution client synced](connect/mainnet.md#3-start-the-execution-client).
+- [Validator keystores and password files](connect/mainnet.md#2-generate-validator-keys).
 
 ## Start the clients in a single process
 

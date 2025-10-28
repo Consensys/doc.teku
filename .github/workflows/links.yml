@@ -17,4 +17,3 @@ jobs:
         uses: ConsenSys/github-actions/docs-link-check@main
         with:
           CONFIG_FILE: .linkspector.yml
-        continue-on-error: true

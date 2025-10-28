@@ -86,7 +86,7 @@ If all recent attestations are marked as missed, check the following:
 
   Check the logs when Teku started for the line, `teku-status-log | Loaded N Validators: <validator_pubkey>[, <validator_pubkey>]`, where `N` is the number of expected validators. Each validator's truncated public key is also listed.
 
-  If the validator did not load, check for any errors loading the validator, and that the [`--validators-keys`](../../reference/cli/index.md#validators-keys) option is correct.
+  If the validator did not load, check for any errors loading the validator, and that the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option is correct.
 
 - **Is the beacon node still syncing?**
 

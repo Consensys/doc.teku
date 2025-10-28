@@ -99,7 +99,7 @@ Common issues include:
 
 * **Time sync on your server is poor**. Ensure `ntpd` or `chrony` is configured correctly.
 
-* **Low numbers of peers, or poor quality peers**. Refer to the [peering troubleshooting topic](#how-many-peers-do-i-need-or-other-peering-issues)
+* **Low numbers of peers, or poor quality peers**. Refer to the [peering troubleshooting topic](#resolve-peering-issues)
     for more information to resolve this.
 
 * **Poor internet speed**. An example is someone was on an ADSL link with only about 2.5 Mbps upstream which led to

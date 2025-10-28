@@ -60,7 +60,7 @@ This example configures a bootnode for Ethereum mainnet. It sets:
 
 - The network to `mainnet`
 - The external communication port using [`--p2p-port`](../reference/cli/index.md#p2p-port)
-- The public IP address using [`--p2p-advertised-ip`](../reference/cli/index.md#p2p-advertised-ip)
+- The public IP address using [`--p2p-advertised-ip`](../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips)
 - A persistent private key file using [`--p2p-private-key-file`](../reference/cli/index.md#p2p-private-key-file)
 
 Using a persistent private key ensures the bootnode has a stable Ethereum Node Record (ENR), which others
