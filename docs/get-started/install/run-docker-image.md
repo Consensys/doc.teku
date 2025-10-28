@@ -26,7 +26,18 @@ docker run consensys/teku:latest --help
 You can specify [Teku environment variables](../../reference/cli/index.md#specify-options) with the docker image instead of the command line options.
 
 ```bash title="Example using Environment variables and CLI options"
-docker run -d -p 9000:9000/tcp -p 9000:9000/udp -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=holesky --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --data-path=/var/lib/teku --log-destination=CONSOLE
+docker run -d                             \
+  -p 9000:9000/tcp                        \
+  -p 9000:9000/udp                        \
+  -p 5051:5051                            \
+  -e TEKU_REST_API_ENABLED=true           \
+  -e TEKU_P2P_PORT=9000                   \
+  --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest \
+  --network=holesky                       \
+  --eth1-endpoint=http://102.10.10.1:8545 \
+  --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords \
+  --data-path=/var/lib/teku               \
+  --log-destination=CONSOLE
 ```
 
 :::tip
@@ -41,10 +52,19 @@ docker run -d -p 9000:9000/tcp -p 9000:9000/udp -p 5051:5051 -e TEKU_REST_API_EN
 
 If using a local volume to mount data, ensure the permissions on the directory allow other users and groups to read/write.
 
-Use the Docker [`--user`](https://docs.docker.com/engine/reference/commandline/run/) option to run the container for the specified user. Use the UID because the username may not exist inside the docker container.
+Use the Docker [`--user`](https://docs.docker.com/engine/reference/commandline/run/) option to run the container for the specified user.
+Use the UID because the username may not exist inside the docker container.
 
 ```bash title="Example"
-docker run -p 9000:9000/tcp -p 9000:9000/udp --user 1001:1001 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --data-base-path=/var/lib/teku --network=holesky --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords
+docker run                                \
+  -p 9000:9000/tcp                        \
+  -p 9000:9000/udp                        \
+  --user 1001:1001                        \
+  --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest \
+  --data-base-path=/var/lib/teku          \
+  --network=holesky                       \
+  --eth1-endpoint=http://102.10.10.1:8545 \
+  --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords
 ```
 
 ## Exposing ports
@@ -59,11 +79,28 @@ Expose ports for P2P peer discovery, metrics, and REST APIs. Expose the default 
 To run Teku exposing local ports for access:
 
 ```bash
-docker run -p <localportP2P>:30303/tcp -p <localportP2P>:30303/udp -p <localportREST>:5051 consensys/teku:latest --network=<NETWORK> --data-base-path=<DATA_DIR> --eth1-endpoint=<URL> --validator-keys=<KEY_DIR>:<PASS_DIR> --rest-api-enabled=true
+docker run                                      \
+  -p <localportP2P>:30303/tcp                   \
+  -p <localportP2P>:30303/udp                   \
+  -p <localportREST>:5051 consensys/teku:latest \
+  --network=<NETWORK>                           \
+  --data-base-path=<DATA_DIR>                   \
+  --eth1-endpoint=<URL>                         \
+  --validator-keys=<KEY_DIR>:<PASS_DIR>         \
+  --rest-api-enabled=true
 ```
 
 ```bash title="Example"
-docker run -p 30303:30303/tcp -p 30303:30303/udp -p 5051:5051 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=holesky --data-base-path=/var/lib/teku --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --rest-api-enabled=true
+docker run                                \
+  -p 30303:30303/tcp                      \
+  -p 30303:30303/udp                      \
+  -p 5051:5051                            \
+  --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest \
+  --network=holesky                       \
+  --data-base-path=/var/lib/teku          \
+  --eth1-endpoint=http://102.10.10.1:8545 \
+  --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords \
+  --rest-api-enabled=true
 ```
 
 ## Run Teku using Docker Compose

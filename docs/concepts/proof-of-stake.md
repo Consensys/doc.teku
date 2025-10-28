@@ -19,11 +19,14 @@ must also run a validator client either [in the same process as the beacon node]
 
 The PoS mechanism randomly chooses validators to propose or validate blocks on the [Beacon Chain](https://ethereum.org/en/upgrades/beacon-chain/) in defined time frames.
 
-Proposers are responsible for proposing new consensus blocks, and non-proposing validators are responsible for validating (attesting to) proposed blocks. Validators are rewarded for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and penalized for malicious behavior. Validators also receive transaction fees for included blocks.
+Proposers are responsible for proposing new consensus blocks, and non-proposing validators are responsible for validating (attesting to) proposed blocks.
+Validators are rewarded for proposing and attesting to consensus blocks eventually included in the Beacon Chain, and penalized for malicious behavior.
+Validators also receive transaction fees for included blocks.
 
 Each consensus block contains an execution payload, which contains a list of transactions and other data required to execute and validate the payload.
 
-When a node validates a consensus block, its [consensus client](node-types.md#consensus-clients) processes the block and sends the execution payload to the [execution client](node-types.md#execution-clients), which:
+When a node validates a consensus block, its [consensus client](node-types.md#consensus-clients) processes the block
+and sends the execution payload to the [execution client](node-types.md#execution-clients), which:
 
 1. Assembles a block on the execution layer.
 1. Verifies pre-conditions.

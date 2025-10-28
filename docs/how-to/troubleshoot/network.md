@@ -44,7 +44,6 @@ Teku's attempt to connect with peers is influenced by two CLI options: [`--p2p-p
 and [`--p2p-peer-upper-bound`](../../reference/cli/index.md#p2p-peer-upper-bound) (default is 100).  If you notice a
 decline in your beacon node's participation after reducing these parameters, consider increasing them to enhance performance.
 
-
 ### Firewall connection issues
 
 To determine the number of inbound and outbound peers via the beacon node's REST API, you can send a request to the peers
@@ -74,7 +73,6 @@ A possible reason for incoming peers being unable to connect could be an incorre
 default, so most users won't need to use this option. If you're experiencing issues with incoming peers despite having
 correct firewall and forwarding settings, this could potentially be the cause.
 
-
 ### Network gateway issues
 
 A potential reason for incoming peers not being able to connect could be the use of a different port on your network
@@ -92,19 +90,21 @@ Troubleshooting poor attestation performance is complicated, and the solution re
 
 Common issues include:
 
-* **The CPU is overloaded and Teku is lagging**. Monitor CPU stats, and watch the terminal for frequent `regenerating state`
-    messages, common during Teku's struggle. In this context, enabling [`--p2p-subscribe-all-subnets`](../../reference/cli/index.md#p2p-subscribe-all-subnets-enabled) can worsen the situation by raising CPU usage. A typical problem arises when JVM lacks adequate heap allocation, causing
-    aggressive garbage collection. Ensure an environment variable like `JAVA_OPTS=-Xmx5g` is set, with
-    `5g` (five gigabytes of heap) as an optimal value; `4g` is acceptable, while anything much lower may lead to problems.
+- **The CPU is overloaded and Teku is lagging**.
+  Monitor CPU stats, and watch the terminal for frequent `regenerating state` messages, common during Teku's struggle.
+  In this context, enabling [`--p2p-subscribe-all-subnets`](../../reference/cli/index.md#p2p-subscribe-all-subnets-enabled) can worsen the situation by raising CPU usage.
+  A typical problem arises when JVM lacks adequate heap allocation, causing aggressive garbage collection.
+  Ensure an environment variable like `JAVA_OPTS=-Xmx5g` is set, with `5g` (five gigabytes of heap) as an optimal value;
+  `4g` is acceptable, while anything much lower may lead to problems.
 
-* **Time sync on your server is poor**. Ensure `ntpd` or `chrony` is configured correctly.
+- **Time sync on your server is poor**.
+  Ensure `ntpd` or `chrony` is configured correctly.
 
-* **Low numbers of peers, or poor quality peers**. Refer to the [peering troubleshooting topic](#resolve-peering-issues)
-    for more information to resolve this.
+- **Low numbers of peers, or poor quality peers**.
+  Refer to the [peering troubleshooting topic](#resolve-peering-issues) for more information to resolve this.
 
-* **Poor internet speed**. An example is someone was on an ADSL link with only about 2.5 Mbps upstream which led to
-    misses, typically anything over 10 Mbps upstream is acceptable.
-
+- **Poor internet speed**.
+  An example is someone was on an ADSL link with only about 2.5 Mbps upstream which led to misses, typically anything over 10 Mbps upstream is acceptable.
 
 ## Excessive late block import warnings due to time skew
 
@@ -112,7 +112,7 @@ In Ethereum, every proposed block is expected to propagate through the network a
 four seconds into the current slot. Whenever Teku receives a block after the expected period, it prints a warning to
 the logs that looks like:
 
-```
+```bash
 2024-03-18 17:32:27.363 WARN  - Late Block Import *** Block: a0ad54151e1e629ac4a3c23d768e100a9f017b229c927c23ea90111f6399cbdf (8659360) proposer 858815 arrival 4083ms, gossip_validation +4ms, pre-state_retrieved +3ms, processed +259ms, execution_payload_result_received +0ms, begin_importing +1ms, transaction_prepared +0ms, transaction_committed +0ms, completed +13ms
 ```
 
@@ -145,6 +145,7 @@ Having zero time drift is impossible in practice. The Ethereum protocol has been
 :::
 
 References:
+
 - [Monitoring a Linux host with Prometheus and node_exporter](https://grafana.com/docs/grafana-cloud/send-data/metrics/metrics-prometheus/prometheus-config-examples/noagent_linuxnode/)
 - [Node Exporter Grafana Dashboard](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)
 - [Using `chrony` to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp)
@@ -152,12 +153,12 @@ References:
 
 ## Address missing attestations or non-inclusion issues
 
-* No peers might have been present on the attestation subnet. Check for a log message when attempting to
-    publish without subscribed peers: `Failed to publish ... for slot ... due to missing peers on the required gossip topic`.
-* Several factors could contribute, such as delayed blocks past your inclusion slot causing ripple effects. Thus, examining
-    epochs where your attestation was scheduled and checking for late block import warnings would be beneficial.
-* Also, consider specific times of day and concurrent network activities. It's possible that message transmission could
-    be hindered by factors like bandwidth limitations.
+- No peers might have been present on the attestation subnet.
+  Check for a log message when attempting to publish without subscribed peers: `Failed to publish ... for slot ... due to missing peers on the required gossip topic`.
+- Several factors could contribute, such as delayed blocks past your inclusion slot causing ripple effects.
+  Thus, examining epochs where your attestation was scheduled and checking for late block import warnings would be beneficial.
+- Also, consider specific times of day and concurrent network activities.
+  It's possible that message transmission could be hindered by factors like bandwidth limitations.
 
 ## Invalid signer public key configuration
 
@@ -173,6 +174,7 @@ in Teku. Previous Teku versions had a YAML parser that didn't perform this conve
 forms functional.
 
 **Incorrect:**
+
 ```yaml
 validators-external-signer-public-keys:
   - 0x8f9335f7d6b19469d5c8880df50bf41c01f476411d5b69a8b121255347f1c0b8400ba31a63010b229080240589ad2423
@@ -183,6 +185,7 @@ validators-external-signer-public-keys:
 ```
 
 **Correct:**
+
 ```yaml
 validators-external-signer-public-keys:
   - "0x8f9335f7d6b19469d5c8880df50bf41c01f476411d5b69a8b121255347f1c0b8400ba31a63010b229080240589ad2423"

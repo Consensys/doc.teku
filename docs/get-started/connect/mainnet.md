@@ -132,9 +132,10 @@ Specify:
 - The URL of a checkpoint sync endpoint using the
   [`--checkpoint-sync-url`](../../reference/cli/index.md#checkpoint-sync-url) option.
 - An Ethereum address you own as the default fee recipient using the [`--validators-proposer-default-fee-recipient`](../../reference/cli/index.md#validators-proposer-default-fee-recipient) option.
-- The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key) for each validator using the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option.
-Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
-Alternatively, specify paths to directories to load multiple keys and passwords from.
+- The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key)
+  for each validator using the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option.
+  Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
+  Alternatively, specify paths to directories to load multiple keys and passwords from.
 
 Also, in the command:
 
@@ -158,10 +159,12 @@ teku validator-client \
 
 Specify:
 
-- The location of one or more beacon node API endpoints using the [`--beacon-node-api-endpoint`](../../reference/cli/subcommands/validator-client.md#beacon-node-api-endpoint-beacon-node-api-endpoints) option.
-- The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key) for each validator using the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option. 
-Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas. 
-Alternatively, specify paths to directories to load multiple keys and passwords from.
+- The location of one or more beacon node API endpoints using the
+  [`--beacon-node-api-endpoint`](../../reference/cli/subcommands/validator-client.md#beacon-node-api-endpoint-beacon-node-api-endpoints) option.
+- The paths to the keystore `.json` file and password `.txt` file created in [step 2](#create-a-password-file-for-each-validator-key)
+  for each validator using the [`--validator-keys`](../../reference/cli/index.md#validator-keys) option.
+  Separate the `.json` and `.txt` files with a colon, and separate entries for multiple validators with commas.
+  Alternatively, specify paths to directories to load multiple keys and passwords from.
 
 ## 5. Wait for the clients to sync
 
