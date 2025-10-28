@@ -22,6 +22,3 @@ aliveStatusCodes:
 - 206
 - 400
 - 403
-timeout: 30
-maxRetries: 2
-maxResponseBodySize: 10485760
