@@ -11,7 +11,11 @@ const config = {
   url: "https://docs.teku.consensys.io",
   baseUrl,
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "throw",
+    }
+  },
   favicon: "img/favicon.svg",
   trailingSlash: false,
 
