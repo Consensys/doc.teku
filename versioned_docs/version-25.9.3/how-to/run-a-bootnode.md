@@ -18,7 +18,7 @@ as bootnodes, that are hard coded into Ethereum clients. The Discovery protocol 
 exchange information about active peers, enabling them to dynamically join the network without needing a
 full list of known nodes.
 
-You can specify additional bootnodes using the [`--p2p-discovery-bootnodes`](../reference/cli#p2p-discovery-bootnodes) option.
+You can specify additional bootnodes using the [`--p2p-discovery-bootnodes`](../reference/cli/index.md#p2p-discovery-bootnodes) option.
 
 :::note
 Any Teku instance running as a beacon node already participates in the Discovery protocol and can serve
@@ -59,9 +59,9 @@ teku bootnode \
 This example configures a bootnode for Ethereum mainnet. It sets:
 
 - The network to `mainnet`
-- The external communication port using [`--p2p-port`](../reference/cli#p2p-port)
-- The public IP address using [`--p2p-advertised-ip`](../reference/cli#p2p-advertised-ip)
-- A persistent private key file using [`--p2p-private-key-file`](../reference/cli#p2p-private-key-file)
+- The external communication port using [`--p2p-port`](../reference/cli/index.md#p2p-port)
+- The public IP address using [`--p2p-advertised-ip`](../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips)
+- A persistent private key file using [`--p2p-private-key-file`](../reference/cli/index.md#p2p-private-key-file)
 
 Using a persistent private key ensures the bootnode has a stable Ethereum Node Record (ENR), which others
 can use to connect reliably.

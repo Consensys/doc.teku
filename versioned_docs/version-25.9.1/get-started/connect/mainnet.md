@@ -9,7 +9,7 @@ sidebar_position: 1
 :::info
 
 Ethereum is a [proof-of-stake](../../concepts/proof-of-stake.md) network, and a full Ethereum node requires
-both [an execution client and a consensus client](../../concepts/node-types.md#execution-and-consensus-clients).
+both [an execution client and a consensus client](../../concepts/node-types.md).
 
 :::
 

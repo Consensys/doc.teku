@@ -23,7 +23,7 @@ Display the Teku command line help using the Docker image
 docker run consensys/teku:latest --help
 ```
 
-You can specify [Teku environment variables](../../reference/cli/index.md#teku-environment-variables) with the docker image instead of the command line options.
+You can specify [Teku environment variables](../../reference/cli/index.md#specify-options) with the docker image instead of the command line options.
 
 ```bash title="Example using Environment variables and CLI options"
 docker run -d -p 9000:9000/tcp -p 9000:9000/udp -p 5051:5051 -e TEKU_REST_API_ENABLED=true -e TEKU_P2P_PORT=9000 --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest --network=holesky --eth1-endpoint=http://102.10.10.1:8545 --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords --data-path=/var/lib/teku --log-destination=CONSOLE
@@ -32,7 +32,7 @@ docker run -d -p 9000:9000/tcp -p 9000:9000/udp -p 5051:5051 -e TEKU_REST_API_EN
 :::tip
 
 - If running Docker in the background, set [`--log-destination`](../../reference/cli/index.md#log-destination) to `console` to send all logs to the console and appear in Docker's log output.
-- Set [`--data-path`](../../reference/cli/index.md#data-path) to a mount point to ensure Teku data is not lost in the Docker filesystem.
+- Set [`--data-path`](../../reference/cli/index.md#data-base-path-data-path) to a mount point to ensure Teku data is not lost in the Docker filesystem.
 - [Set the Docker user to the UID of the normal user](#allow-multiple-users-to-run-the-docker-image) to ensure read/write access to the required files.
 
 :::

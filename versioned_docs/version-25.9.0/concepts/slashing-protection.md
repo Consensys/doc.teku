@@ -22,7 +22,7 @@ One [YAML file is stored per validator] in the format `<validator-pubkey>.yml` (
 
 :::note
 
-Set `<data-path>` using the [`--data-path`](../reference/cli/index.md#data-path) command line option.
+Set `<data-path>` using the [`--data-path`](../reference/cli/index.md#data-base-path-data-path) command line option.
 
 :::
 

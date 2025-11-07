@@ -283,7 +283,7 @@ teku slashing-protection repair --checking-only-enabled=false
   </TabItem>
 </Tabs>
 
-Reads and reports potential slashing protection file problems, but doesn't update any files. You can specify which files are checked using [`--config-file`](#config-file_2), [`--data-base-path`](#data-base-path-data-path).
+Reads and reports potential slashing protection file problems, but doesn't update any files. You can specify which files are checked using [`--config-file`](#config-file-2), [`--data-path`](#data-path-2).
 
 ### `config-file`
 
