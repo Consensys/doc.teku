@@ -2527,6 +2527,63 @@ which to establish and maintain connections. The file should have one peer per l
 If the URL or file is unable to load, Teku will fail to start up.
 :::
 
+### `p2p-subscribe-all-custody-subnets-enabled`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-subscribe-all-custody-subnets-enabled=<BOOLEAN>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-subscribe-all-custody-subnets-enabled=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_SUBSCRIBE_ALL_CUSTODY_SUBNETS_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-subscribe-all-custody-subnets-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+Enables or disables forcing the beacon node to stay subscribed to all custody 
+subnets, storing and providing all custody sidecars regardless of the
+number of validators.
+The default is `false`.
+
+When set to `false`, Teku subscribes to the number of persistent subnets 
+required by the protocol, which is calculated by the number of validators and 
+the balance of consolidated validators: 1 subnet per each 32 ETH of balance, 
+but no less than 8 subnets.
+
+This option is a mostly altruistic feature for a node with an excess of resources 
+that could be dedicated to serving network stability. When enabled, the option turns the node 
+into a [supernode](https://github.com/ethereum/consensus-specs/blob/master/specs/fulu/p2p-interface.md#supernodes).
+If the node is required to provide blob data via the Beacon API, it's required
+to be a supernode; otherwise, the node doesn't have all data for blob 
+reconstruction.
+
+:::caution
+
+When this option is set to `true`, Teku uses significantly more storage, bandwidth and CPU. 
+Most users don't need to use this option. 
+
+:::
+
 ### `p2p-subscribe-all-subnets-enabled`
 
 <Tabs>
@@ -2575,63 +2632,6 @@ subscribed to the required subnets and be unable to produce aggregates.
 :::caution
 
 When set to `true`, Teku uses more CPU and bandwidth, and for most users there's no need to use this option.
-
-:::
-
-### `p2p-subscribe-all-custody-subnets-enabled`
-
-<Tabs>
-  <TabItem value="Syntax" label="Syntax" default>
-
-```bash
---p2p-subscribe-all-custody-subnets-enabled=<BOOLEAN>
-```
-
-  </TabItem>
-  <TabItem value="Example" label="Example" >
-
-```bash
---p2p-subscribe-all-custody-subnets-enabled=true
-```
-
-  </TabItem>
-  <TabItem value="Environment variable" label="Environment variable" >
-
-```bash
-TEKU_P2P_SUBSCRIBE_ALL_CUSTODY_SUBNETS_ENABLED=true
-```
-
-  </TabItem>
-  <TabItem value="Configuration file" label="Configuration file" >
-
-```bash
-p2p-subscribe-all-custody-subnets-enabled: true
-```
-
-  </TabItem>
-</Tabs>
-
-Enables or disables forcing the beacon node to stay subscribed to all custody
-subnets, store and provide all custody sidecars regardless of the
-number of validators.
-The default is `false`.
-
-When set to `false`, Teku subscribes to the number of persistent subnets
-required by the protocol, which is calculated by the number of validators and
-the balance of consolidated validators: 1 subnet per each 32 ETH of balance,
-but no less than 8 subnets.
-
-This option is a mostly altruistic feature for a node with an excess of resources
-that could be dedicated to serving network stability. The flag turns the node
-into a [supernode](https://github.com/ethereum/consensus-specs/blob/master/specs/fulu/p2p-interface.md#supernodes).
-Also, if the node is required to provide blob data via the Beacon API, it's required
-to be a supernode; otherwise, the node doesn't have all data for blob
-reconstruction.
-
-:::caution
-
-When set to `true`, Teku uses significantly more storage, bandwidth and CPU,
-and for most users, there's no need to use this option.
 
 :::
 
