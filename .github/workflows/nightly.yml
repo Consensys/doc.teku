@@ -24,7 +24,7 @@
           with:
             reporter: github-check
             fail_level: error
-            config_file: .github/workflows/link-check.yml
+            config_file: .linkspector.yml
 
     slackNotification:
       needs: linkCheck
