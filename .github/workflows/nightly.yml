@@ -1,15 +1,15 @@
 ---
   name: Nightly check
-  
+
   on:
     schedule:
       - cron: "0 0 * * *"
     workflow_dispatch: {}
-  
+
   concurrency:
     group: nightly-${{ github.ref }}
     cancel-in-progress: true
-  
+
   jobs:
     linkCheck:
       name: Run link check
@@ -20,15 +20,12 @@
         - uses: actions/checkout@v4
         - name: LinkCheck
           id: linkcheck
-          uses: gaurav-nelson/github-action-markdown-link-check@v1
+          uses: umbrelladocs/action-linkspector@v1
           with:
-            use-quiet-mode: 'yes'
-            use-verbose-mode: 'yes'
-            folder-path: './docs'
-            check-modified-files-only: 'no'
-            base-branch: main
-            config-file: './.github/workflows/link-check.json'
-  
+            reporter: github-check
+            fail_level: error
+            config_file: .linkspector.yml
+
     slackNotification:
       needs: linkCheck
       if: ${{ failure() }}
@@ -42,5 +39,3 @@
             SLACK_TITLE: Teku docs nightly build - Failure
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
             MSG_MINIMAL: true
-
-

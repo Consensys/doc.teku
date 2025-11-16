@@ -7,6 +7,7 @@ excludedDirs:
   - ./node_modules
   - ./versioned_docs
 useGitIgnore: true
+followRedirects: true
 
 ignorePatterns:
 - pattern: '^http(s)?://localhost'
