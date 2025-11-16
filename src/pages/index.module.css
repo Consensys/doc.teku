@@ -6,7 +6,7 @@
 @media screen and (max-width: 996px) {
   .introductionBlock {
     padding: 2rem;
-    word-wrap: normal;
+    overflow-wrap: normal;
   }
 }
 
@@ -19,8 +19,8 @@
 .introductionBlock {
   background: linear-gradient(
     152deg,
-    rgba(44 86 221) 30%,
-    rgba(237 119 79) 100%
+    rgb(44 86 221) 30%,
+    rgb(237 119 79) 100%
   );
   padding: 6rem;
   text-align: center;
