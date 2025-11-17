@@ -7,7 +7,7 @@ sidebar_position: 4
 
 Peer Data Availability Sampling (PeerDAS), specified by [EIP-7594](https://eips.ethereum.org/EIPS/eip-7594), is the main feature of the next Ethereum upgrade, Fusaka.
 
-PeerDAS introduces enhanced capacity extension over [proto-danksharding](./proto-danksharding).
+PeerDAS introduces enhanced capacity extension over [proto-danksharding](proto-danksharding.md).
 The goal of this enhancement is to significantly increase the average number of blobs in every slot while keeping moderate network and storage requirements for most node operators.
 
 This is achieved using multiple techniques:
@@ -24,15 +24,17 @@ This is achieved using multiple techniques:
   By splitting blobs data into columns, so that every single node operator is required to get pieces of each blob, it's impossible to lose any whole blob; either all blobs are available or none are.
   Security research has proven that it's enough to download 1/8 of the data (1/16 of the extended data) to prove data availability or confirm its non-availability.
 
-Decreasing the size of required download, store, and share data by 8 for most nodes compared to danksharding makes it possible to schedule a target number of blobs increase of almost 5x compared to the danksharding launch,
+Decreasing the size of required download, store, and share data by 8 for most nodes compared to danksharding
+makes it possible to schedule a target number of blobs increase of almost 5x compared to the danksharding launch,
 with potential room to increase it by another 4x in the future.
 This change significantly increases the blob capacity of the Ethereum network and TPS of Layer 2.
-Moreover, [EIP-7892: Blob Parameters Only Hardforks](https://eips.ethereum.org/EIPS/eip-7892) allows for changing maximum number of blobs and blob target without a hard fork, making future blob capacity changes easier.
+Moreover, [EIP-7892: Blob Parameters Only Hardforks](https://eips.ethereum.org/EIPS/eip-7892) allows for changing maximum number of blobs and blob target without a hard fork,
+making future blob capacity changes easier.
 
 ## Expected implications for node operators
 
 Proto-danksharding was launched with increased network requirements over the previous fork and additional storage required for the data layer of about 50 GB for 3 blobs,
-which was later increased to about 100 GB for 6 blobs in the Pectra fork.    
+which was later increased to about 100 GB for 6 blobs in the Pectra fork.
 
 With PeerDAS, consensus layer clients will use network and storage space for sidecar data according to their roles:
 
@@ -49,7 +51,7 @@ With PeerDAS, consensus layer clients will use network and storage space for sid
 
 - **Supernodes** - These are either nodes running in altruistic mode or those operated by big validator operators with 4096 or more ETH staked.
   This type of node stores and shares all columns data.
-  An operator can enable this mode using the [`--p2p-subscribe-all-custody-subnets-enabled`](../reference/cli#p2p-subscribe-all-custody-subnets-enabled) command line option;
+  An operator can enable this mode using the [`--p2p-subscribe-all-custody-subnets-enabled`](../reference/cli/index.md#p2p-subscribe-all-custody-subnets-enabled) command line option;
   big operators run in this mode as a protocol requirement.
   Storage consumption is increased, taking about 500 GB with 14 blobs of data layer space compared to 100 GB in Pectra.
 
