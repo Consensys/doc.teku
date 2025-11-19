@@ -94,8 +94,8 @@ Common issues include:
   Monitor CPU stats, and watch the terminal for frequent `regenerating state` messages, common during Teku's struggle.
   In this context, enabling [`--p2p-subscribe-all-subnets`](../../reference/cli/index.md#p2p-subscribe-all-subnets-enabled) can worsen the situation by raising CPU usage.
   A typical problem arises when JVM lacks adequate heap allocation, causing aggressive garbage collection.
-  Ensure an environment variable like `JAVA_OPTS=-Xmx5g` is set, with `5g` (five gigabytes of heap) as an optimal value;
-  `4g` is acceptable, while anything much lower may lead to problems.
+  Ensure an environment variable like `JAVA_OPTS=-Xmx8g` is set, with `8g` (five gigabytes of heap) as an optimal value;
+  `7g` is acceptable, while anything much lower may lead to problems.
 
 - **Time sync on your server is poor**.
   Ensure `ntpd` or `chrony` is configured correctly.
