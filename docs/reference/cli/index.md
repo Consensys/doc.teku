@@ -3212,6 +3212,43 @@ The default is `false`.
 If set to `true`, then use [`--validator-api-host-allowlist`](#validator-api-host-allowlist) to
 limit access to trusted parties.
 
+### `validator-api-bearer-file`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--validator-api-bearer-file=<PATH>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--validator-api-bearer-file=/etc/teku/validator-api-bearer-file
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_VALIDATOR_API_BEARER_FILE=/etc/teku/validator-api-bearer-file
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+validator-api-bearer-file: "/etc/teku/validator-api-bearer-file"
+```
+
+  </TabItem>
+</Tabs>
+
+Use a specified path for the validator-api bearer token. If this path is writeable, a bearer token can be generated automatically if the file does not exist, otherwise the password will be loaded from this file.
+
+By default, the bearer-file would be generated as `validator-api-bearer` in the `validator/key-manager` path.
+
 ### `validator-api-host-allowlist`
 
 <Tabs>
