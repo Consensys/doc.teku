@@ -1391,6 +1391,41 @@ The logging verbosity.
 Log levels are `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, and `ALL`.
 The default is `INFO`.
 
+### `metrics-block-production-performance-tracking-enabled`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--metrics-block-production-performance-tracking-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--metrics-block-production-performance-tracking-enabled=false
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_METRICS_BLOCK_PRODUCTION_PERFORMANCE_TRACKING_ENABLED=false
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+metrics-block-production-performance-tracking-enabled: false
+```
+
+  </TabItem>
+</Tabs>
+
+Enables or disables block production performance metrics. The default is `false`.
+
 ### `metrics-block-timing-tracking-enabled`
 
 <Tabs>
