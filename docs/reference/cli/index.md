@@ -2595,27 +2595,27 @@ p2p-subscribe-all-custody-subnets-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables forcing the beacon node to stay subscribed to all custody 
+Enables or disables forcing the beacon node to stay subscribed to all custody
 subnets, storing and providing all custody sidecars regardless of the
 number of validators.
 The default is `false`.
 
-When set to `false`, Teku subscribes to the number of persistent subnets 
-required by the protocol, which is calculated by the number of validators and 
-the balance of consolidated validators: 1 subnet per each 32 ETH of balance, 
+When set to `false`, Teku subscribes to the number of persistent subnets
+required by the protocol, which is calculated by the number of validators and
+the balance of consolidated validators: 1 subnet per each 32 ETH of balance,
 but no less than 8 subnets.
 
-This option is a mostly altruistic feature for a node with an excess of resources 
-that could be dedicated to serving network stability. When enabled, the option turns the node 
+This option is a mostly altruistic feature for a node with an excess of resources
+that could be dedicated to serving network stability. When enabled, the option turns the node
 into a [supernode](https://github.com/ethereum/consensus-specs/blob/master/specs/fulu/p2p-interface.md#supernodes).
 If the node is required to provide blob data via the Beacon API, it's required
-to be a supernode; otherwise, the node doesn't have all data for blob 
+to be a supernode; otherwise, the node doesn't have all data for blob
 reconstruction.
 
 :::caution
 
-When this option is set to `true`, Teku uses significantly more storage, bandwidth and CPU. 
-Most users don't need to use this option. 
+When this option is set to `true`, Teku uses significantly more storage, bandwidth and CPU.
+Most users don't need to use this option.
 
 :::
 
@@ -3118,6 +3118,45 @@ shut-down-when-validator-slashed-enabled: true
 Enables or disables [validators slashing detection](../../how-to/prevent-slashing/detect-slashing.md).
 The default is `false`.
 
+### `validator-api-bearer-file`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--validator-api-bearer-file=<PATH>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--validator-api-bearer-file=/etc/teku/validator-api-bearer-file
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_VALIDATOR_API_BEARER_FILE=/etc/teku/validator-api-bearer-file
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+validator-api-bearer-file: "/etc/teku/validator-api-bearer-file"
+```
+
+  </TabItem>
+</Tabs>
+
+The path to the file containing the [validator client API](../rest.md#enable-the-validator-client-api) bearer token.
+If the file exists, the password is loaded from this file.
+If the file does not exist and the path is writeable, a bearer token is automatically generated.
+
+By default, the bearer file is generated as `validator-api-bearer` in the `validator/key-manager` path.
+
 ### `validator-api-cors-origins`
 
 <Tabs>
@@ -3200,7 +3239,7 @@ validator-api-docs-enabled: true
   </TabItem>
 </Tabs>
 
-Enables or disables the [validator REST API documentation](../rest.md#enable-the-validator-client-api).
+Enables or disables the [validator client API](../rest.md#enable-the-validator-client-api) documentation.
 The default is `false`.
 
 When enabling the API documentation endpoint, you must also specify:
@@ -3281,7 +3320,7 @@ validator-api-host-allowlist: ["medomain.com", "meotherdomain.com"]
 </Tabs>
 
 A comma-separated list of hostnames to allow access to the
-[validator REST API](../rest.md#enable-the-validator-client-api).
+[validator client API](../rest.md#enable-the-validator-client-api).
 By default, Teku accepts access from `localhost` and `127.0.0.1`.
 
 :::warning
@@ -3327,7 +3366,7 @@ validator-api-interface: "0.0.0.0"
   </TabItem>
 </Tabs>
 
-The interface on which the [validator REST API](../rest.md#enable-the-validator-client-api) listens.
+The interface on which the [validator client API](../rest.md#enable-the-validator-client-api) listens.
 The default is `127.0.0.1`.
 
 ### `validator-api-keystore-file`
@@ -3363,7 +3402,7 @@ validator-api-keystore-file: "validator_keystore.p12"
   </TabItem>
 </Tabs>
 
-The keystore file for the [validator REST API](../rest.md#enable-the-validator-client-api).
+The keystore file for the [validator client API](../rest.md#enable-the-validator-client-api).
 Teku can use PKCS12 or JKS keystore types.
 You must [create a keystore](../../how-to/use-external-signer/manage-keys.md#create-a-keystore) to
 enable access.
@@ -3436,7 +3475,7 @@ validator-api-port: 5052
   </TabItem>
 </Tabs>
 
-The [validator REST API](../rest.md#enable-the-validator-client-api) listening port (HTTP).
+The [validator client API](../rest.md#enable-the-validator-client-api) listening port (HTTP).
 The default is `5052`.
 
 ### `validators-builder-registration-default-enabled`
