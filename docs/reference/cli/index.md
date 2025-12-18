@@ -1037,7 +1037,10 @@ et-blobs-api-p2p-sidecars-download-enabled: true
 
 Enables the `getBlobs` REST API to retrieve missing blob sidecars from the P2P network via RPC.
 
-When set to `true`, if requested sidecars are not available locally, the node attempts to fetch them from peers. Successfully retrieved sidecars are persisted to the local database to satisfy subsequent requests. This allows nodes to serve blob data without being configured for full custody, while custody backfill is in progress, or for requests outside the local retention period (provided peers still hold the data).
+When set to `true`, if requested sidecars are not available locally, the node attempts to fetch them from peers.
+Successfully retrieved sidecars are persisted to the local database to satisfy subsequent requests.
+This allows nodes to serve blob data without being configured for full custody, while custody backfill is in progress,
+or for requests outside the local retention period (provided peers still hold the data).
 
 :::note
 
@@ -1082,7 +1085,8 @@ get-blobs-sidecars-download-timeout: 10
 
 Specifies the maximum time in seconds to wait for blob sidecars to be retrieved from the P2P network when serving `getBlobs` requests.
 
-If the timeout is reached before the required sidecars are retrieved, the reconstruction attempt is aborted. This option is only effective when [`--get-blobs-api-p2p-sidecars-download-enabled`](#get-blobs-api-p2p-sidecars-download-enabled) is set to `true`. The default is `5`
+If the timeout is reached before the required sidecars are retrieved, the reconstruction attempt is aborted.
+This option is only effective when [`--get-blobs-api-p2p-sidecars-download-enabled`](#get-blobs-api-p2p-sidecars-download-enabled) is set to `true`. The default is `5`
 
 ### `help`
 
