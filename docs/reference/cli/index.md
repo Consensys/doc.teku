@@ -1002,6 +1002,88 @@ You can use [Infura](https://infura.io/) as the source of initial states using
 
 :::
 
+### `get-blobs-api-p2p-sidecars-download-enabled`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--get-blobs-api-p2p-sidecars-download-enabled=[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--get-blobs-api-p2p-sidecars-download-enabled=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+GET_BLOBS_API_P2P_SIDECARS_DOWNLOAD_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+et-blobs-api-p2p-sidecars-download-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+Enables the `getBlobs` REST API to retrieve missing blob sidecars from the P2P network via RPC.
+
+When set to `true`, if requested sidecars are not available locally, the node attempts to fetch them from peers. Successfully retrieved sidecars are persisted to the local database to satisfy subsequent requests. This allows nodes to serve blob data without being configured for full custody, while custody backfill is in progress, or for requests outside the local retention period (provided peers still hold the data).
+
+:::note
+
+Retrieved sidecars are treated as standard custody data and are subject to the network pruning retention limits (`MIN_EPOCHS_FOR_DATA_COLUMN_SIDECARS_REQUESTS`)
+
+:::
+
+:::
+
+### `get-blobs-sidecars-download-timeout`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--get-blobs-sidecars-download-timeout=[=<INTEGER>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--get-blobs-sidecars-download-timeout=10
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+GET_BLOBS_SIDECARS_DOWNLOAD_TIMEOUT=10
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+get-blobs-sidecars-download-timeout: 10
+```
+
+  </TabItem>
+</Tabs>
+
+Specifies the maximum time in seconds to wait for blob sidecars to be retrieved from the P2P network when serving `getBlobs` requests.
+
+If the timeout is reached before the required sidecars are retrieved, the reconstruction attempt is aborted. This option is only effective when [`--get-blobs-api-p2p-sidecars-download-enabled`](#get-blobs-api-p2p-sidecars-download-enabled) is set to `true`. The default is `5`
+
 ### `help`
 
 ```bash title="Syntax"
