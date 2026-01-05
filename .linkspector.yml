@@ -18,6 +18,7 @@ ignorePatterns:
 - pattern: '^http(s)?://.+.etherscan.io'
 - pattern: '^http(s)?://help.figma.com'
 - pattern: '^http(s)?://metamask.io'
+- pattern: '^http(s)?://(www\.)?freedesktop\.org'
 aliveStatusCodes:
 - 200
 - 206
