@@ -2916,7 +2916,7 @@ trusted parties.
   <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rest-api-getblobs-sidecars-download-enabled=[=<BOOLEAN>]
+--rest-api-getblobs-sidecars-download-enabled[=<BOOLEAN>]
 ```
 
   </TabItem>
