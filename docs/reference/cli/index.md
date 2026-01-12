@@ -2992,7 +2992,7 @@ rest-api-getblobs-sidecars-download-timeout: 10
 Specifies the maximum time in seconds to wait for blob sidecars to be retrieved from the P2P network when serving `getBlobs` requests.
 
 If the timeout is reached before the required sidecars are retrieved, the reconstruction attempt is aborted.
-This option is only effective when [`--rest-api-getblobs-sidecars-download-enabled`](#rest-api-getblobs-sidecars-download-enabled) is set to `true`. The default is `5`
+This option is only effective when [`--rest-api-getblobs-sidecars-download-enabled`](#rest-api-getblobs-sidecars-download-enabled) is set to `true`. The default is `5`.
 
 ### `rest-api-host-allowlist`
 
