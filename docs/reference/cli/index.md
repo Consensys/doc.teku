@@ -2962,7 +2962,7 @@ Retrieved sidecars are treated as standard custody data and are subject to the n
   <TabItem value="Syntax" label="Syntax" default>
 
 ```bash
---rest-api-getblobs-sidecars-download-timeout=[=<INTEGER>]
+--rest-api-getblobs-sidecars-download-timeout=<INTEGER>
 ```
 
   </TabItem>
