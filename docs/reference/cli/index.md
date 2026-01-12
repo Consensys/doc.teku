@@ -2952,7 +2952,7 @@ or for requests outside the local retention period (if peers still hold the data
 
 :::note
 
-Retrieved sidecars are treated as standard custody data and are subject to the network pruning retention limits (`MIN_EPOCHS_FOR_DATA_COLUMN_SIDECARS_REQUESTS`)
+Retrieved sidecars are treated as standard custody data and are subject to the network pruning retention limits (`MIN_EPOCHS_FOR_DATA_COLUMN_SIDECARS_REQUESTS`).
 
 :::
 
