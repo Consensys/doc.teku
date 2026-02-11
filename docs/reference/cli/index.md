@@ -2006,7 +2006,7 @@ p2p-direct-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
 </Tabs>
 
 A comma-separated list of
-[multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers with
+[multiaddresses](https://libp2p.io/guides/addressing/) of direct peers with
 which to establish and maintain connections.
 Direct peers are static peers with which this node will always exchange full messages, regardless of
 peer scoring mechanisms.
@@ -2518,7 +2518,7 @@ p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
 </Tabs>
 
 A comma-separated list of
-[multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers with
+[multiaddresses](https://libp2p.io/guides/addressing/) of static peers with
 which to establish and maintain connections.
 
 ### `p2p-static-peers-url`
@@ -2555,7 +2555,7 @@ p2p-static-peers-url: "https://my-peers-url"
 </Tabs>
 
 A URL or file that contains a list of
-[multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers with
+[multiaddresses](https://libp2p.io/guides/addressing/) of static peers with
 which to establish and maintain connections. The file should have one peer per line.
 
 :::note
@@ -2909,6 +2909,90 @@ The default is `false`.
 
 If set to `true`, use [`--rest-api-host-allowlist`](#rest-api-host-allowlist) to limit access to
 trusted parties.
+
+### `rest-api-getblobs-sidecars-download-enabled`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rest-api-getblobs-sidecars-download-enabled[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--rest-api-getblobs-sidecars-download-enabled=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+REST_API_GETBLOBS_SIDECARS_DOWNLOAD_ENABLED=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+rest-api-getblobs-sidecars-download-enabled: true
+```
+
+  </TabItem>
+</Tabs>
+
+Enables the `getBlobs` REST API to retrieve missing blob sidecars from the P2P network via RPC.
+
+When set to `true`, if required sidecars are not available locally, the node attempts to fetch them from peers.
+Successfully retrieved sidecars are persisted to the local database to satisfy subsequent requests.
+This allows nodes to serve blob data without being configured for full custody, while custody backfill is in progress,
+or for requests outside the local retention period (if peers still hold the data).
+
+:::note
+
+Retrieved sidecars are treated as standard custody data and are subject to the network pruning [retention limits](https://github.com/ethereum/consensus-specs/blob/master/specs/fulu/validator.md#sidecar-retention).
+
+:::
+
+### `rest-api-getblobs-sidecars-download-timeout`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--rest-api-getblobs-sidecars-download-timeout=<INTEGER>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--rest-api-getblobs-sidecars-download-timeout=10
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+REST_API_GETBLOBS_SIDECARS_DOWNLOAD_TIMEOUT=10
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+rest-api-getblobs-sidecars-download-timeout: 10
+```
+
+  </TabItem>
+</Tabs>
+
+Specifies the maximum time in seconds to wait for blob sidecars to be retrieved from the P2P network when serving `getBlobs` requests.
+
+If the timeout is reached before the required sidecars are retrieved, the reconstruction attempt is aborted.
+This option is only effective when [`--rest-api-getblobs-sidecars-download-enabled`](#rest-api-getblobs-sidecars-download-enabled) is set to `true`. The default is `5`.
 
 ### `rest-api-host-allowlist`
 
@@ -3713,7 +3797,7 @@ Use the URL to load the public keys from a remote service. For example:
 
 Use the value `external-signer` to load all public keys managed by the external signer.
 Teku automatically queries the external signer's
-[public keys endpoint](https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Public-Key).
+[public keys endpoint](https://consensys.github.io/web3signer/#tag/Public-Key).
 
 ```bash
 --validators-external-signer-public-keys=external-signer
