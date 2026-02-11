@@ -2006,7 +2006,7 @@ p2p-direct-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
 </Tabs>
 
 A comma-separated list of
-[multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of direct peers with
+[multiaddresses](https://libp2p.io/guides/addressing/) of direct peers with
 which to establish and maintain connections.
 Direct peers are static peers with which this node will always exchange full messages, regardless of
 peer scoring mechanisms.
@@ -2518,7 +2518,7 @@ p2p-static-peers: ["/ip4/151.150.191.80/tcp/9000/p2p/16Ui...aXRz",
 </Tabs>
 
 A comma-separated list of
-[multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers with
+[multiaddresses](https://libp2p.io/guides/addressing/) of static peers with
 which to establish and maintain connections.
 
 ### `p2p-static-peers-url`
@@ -2555,7 +2555,7 @@ p2p-static-peers-url: "https://my-peers-url"
 </Tabs>
 
 A URL or file that contains a list of
-[multiaddresses](https://docs.libp2p.io/concepts/appendix/glossary/#multiaddr) of static peers with
+[multiaddresses](https://libp2p.io/guides/addressing/) of static peers with
 which to establish and maintain connections. The file should have one peer per line.
 
 :::note
