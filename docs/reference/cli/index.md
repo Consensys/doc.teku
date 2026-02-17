@@ -1035,11 +1035,11 @@ get-blobs-api-p2p-sidecars-download-enabled: true
   </TabItem>
 </Tabs>
 
-Enables on-demand P2P download of required sidecars. When enabled, the `getBlobs` endpoint attempts to 
+Enables on-demand P2P download of required sidecars. When enabled, the `getBlobs` endpoint attempts to
 download missing sidecars from the P2P network so that blobs can be reconstructed and returned.
 
-This allows nodes that are not 
-[supernodes](https://github.com/ethereum/consensus-specs/blob/master/specs/fulu/p2p-interface.md#supernodes) 
+This allows nodes that are not
+[supernodes](https://github.com/ethereum/consensus-specs/blob/master/specs/fulu/p2p-interface.md#supernodes)
 to access [blob data via the Beacon API](https://consensys.github.io/teku/#tag/Beacon/operation/getBlobs).
 Successful retrievals are stored so that subsequent requests for the same slot do not trigger P2P download via RPC again.
 The default is `false`.
@@ -1077,8 +1077,8 @@ get-blobs-sidecars-download-timeout: 30
   </TabItem>
 </Tabs>
 
-Timeout in seconds for on-demand P2P sidecar download when serving the Beacon API (getBlobs).
-Only applies when [`--get-blobs-api-p2p-sidecars-download-enabled`](#get-blobs-api-p2p-sidecars-download-enabled) 
+Timeout in seconds for on-demand P2P sidecar download when serving the Beacon API `getBlobs` method.
+Only applies when [`--get-blobs-api-p2p-sidecars-download-enabled`](#get-blobs-api-p2p-sidecars-download-enabled)
 is `true`.
 
 ### `help`
@@ -2687,8 +2687,8 @@ but no less than 8 subnets.
 This option is a mostly altruistic feature for a node with an excess of resources
 that could be dedicated to serving network stability. When enabled, the option turns the node
 into a [supernode](https://github.com/ethereum/consensus-specs/blob/master/specs/fulu/p2p-interface.md#supernodes).
-To provide blob data via the Beacon API's `getBlobs` method, the node must either be a supernode or 
-have [`--get-blobs-api-p2p-sidecars-download-enabled`](#get-blobs-api-p2p-sidecars-download-enabled) set to 
+To provide blob data via the Beacon API's `getBlobs` method, the node must either be a supernode or
+have [`--get-blobs-api-p2p-sidecars-download-enabled`](#get-blobs-api-p2p-sidecars-download-enabled) set to
 `true`, which allows Teku to retrieve required sidecars on demand from the P2P network.
 
 :::caution
