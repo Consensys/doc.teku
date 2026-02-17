@@ -9,19 +9,25 @@ sidebar_position: 15
 
 Use [checkpoint sync](../../get-started/checkpoint-start.md) to sync Teku from a recent finalized checkpoint, bypassing
 the need to sync from genesis and enabling a quick synchronization process within minutes. To do this, use the
-[`--initial-state`](../../reference/cli/index.md#initial-state) CLI option which accepts a URL or file that provides a recent
+[`--initial-state`](../../reference/cli/index.md#initial-state) CLI option which accepts a URL or file that provides a 
+recent
 finalized `BeaconState`. Any synchronized beacon node can provide this from the standard API, and you can view
 [the list of public sources](https://eth-clients.github.io/checkpoint-sync-endpoints/).
 
-The [`--initial-state`](../../reference/cli/index.md#initial-state) option is only used when you first create a database. To
-restart an existing sync process with checkpoint sync, do the following:
+The [`--initial-state`](../../reference/cli/index.md#initial-state) option is only used when you first create a database. 
+To restart an existing sync process with checkpoint sync, do the following:
 
 1. Stop the current Teku sync process.
-2. Delete the `beacon` directory under your [data path](../../reference/cli/index.md#data-base-path-data-path).
+2. Clear the beacon database, either:
+  - Start Teku with
+   [`--force-clear-db`](../../reference/cli/index.md#force-clear-db)
+  - Manually delete the
+   `beacon` directory under your [data path](../../reference/cli/index.md#data-base-path-data-path).
 3. Start Teku with the [`--initial-state`](../../reference/cli/index.md#initial-state) option.
 
 Teku will sync within a few minutes, and downloads historic blocks in the background, so it can
-help any peers that are syncing from genesis. Teku can run validators and attest while historic blocks are being downloaded.
+help any peers that are syncing from genesis. Teku can run validators and attest while historic blocks are being 
+downloaded.
 
 ## Locate the multiaddress and/or ENR of a Teku beacon node
 
@@ -42,7 +48,8 @@ lead to increased network traffic and a higher number of messages requiring vali
 
 Teku's attempt to connect with peers is influenced by two CLI options: [`--p2p-peer-lower-bound`](../../reference/cli/index.md#p2p-peer-lower-bound) (default is 64)
 and [`--p2p-peer-upper-bound`](../../reference/cli/index.md#p2p-peer-upper-bound) (default is 100).  If you notice a
-decline in your beacon node's participation after reducing these parameters, consider increasing them to enhance performance.
+decline in your beacon node's participation after reducing these parameters, consider increasing them to enhance 
+performance.
 
 ### Firewall connection issues
 
@@ -57,42 +64,48 @@ If only outbound peers are displayed, it indicates that peers cannot connect to 
 Networks typically have a firewall at the entry point (router / modem / gateway) that blocks incoming data by default.
 
 To resolve this, update the firewall to include a rule that allows access to the [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default)
-for both `UDP` and `TCP` traffic. Subsequently, forward this port (TCP and UDP) to the internal IP address of the machine running the
-beacon node. Some operating systems also have local firewalls that should be updated to permit communication through this port.
+for both `UDP` and `TCP` traffic. Subsequently, forward this port (TCP and UDP) to the internal IP address of the machine 
+running the beacon node. Some operating systems also have local firewalls that should be updated to permit communication 
+through this port.
 
 :::info
 
-View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic, but you need to substitute  your `--p2p-port` (9000 by default) for the port numbers.
+View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic, 
+but you need to substitute  your `--p2p-port` (9000 by default) for the port numbers.
 
 :::
 
 ### Advertised IP address issues
 
 A possible reason for incoming peers being unable to connect could be an incorrect address specified using the
-[`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips) option. Teku auto-detects the address to use by
-default, so most users won't need to use this option. If you're experiencing issues with incoming peers despite having
+[`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips) option. Teku auto-detects the 
+address to use by default, so most users won't need to use this option. If you're experiencing issues with incoming peers 
+despite having
 correct firewall and forwarding settings, this could potentially be the cause.
 
 ### Network gateway issues
 
 A potential reason for incoming peers not being able to connect could be the use of a different port on your network
 gateway (router or modem).
-This usually happens because only one service can listen on a port. Therefore, if you're running multiple beacon nodes, you'll
-need to open multiple ports on your gateway. The simplest solution is to use the same port on your gateway as specified
-in your [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default). However, if necessary, users can also
-update the advertised port using the [`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port) command.
+This usually happens because only one service can listen on a port. Therefore, if you're running multiple beacon nodes, 
+you'll need to open multiple ports on your gateway. The simplest solution is to use the same port on your gateway as 
+specified in your [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default). However, if necessary, users 
+can also update the advertised port using the [`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port) 
+command.
 
 ## Resolve poor attestation performance
 
 Troubleshooting poor attestation performance is complicated, and the solution requires you to identify the root cause.
 
-[This video](https://www.symphonious.net/2020/09/08/exploring-eth2-attestation-inclusion/), while slightly dated, still provides valuable and applicable insights.
+[This video](https://www.symphonious.net/2020/09/08/exploring-eth2-attestation-inclusion/), while slightly dated, still 
+provides valuable and applicable insights.
 
 Common issues include:
 
 - **The CPU is overloaded and Teku is lagging**.
   Monitor CPU stats, and watch the terminal for frequent `regenerating state` messages, common during Teku's struggle.
-  In this context, enabling [`--p2p-subscribe-all-subnets`](../../reference/cli/index.md#p2p-subscribe-all-subnets-enabled) can worsen the situation by raising CPU usage.
+  In this context, enabling [`--p2p-subscribe-all-subnets`](../../reference/cli/index.md#p2p-subscribe-all-subnets-enabled) 
+  can worsen the situation by raising CPU usage.
   A typical problem arises when JVM lacks adequate heap allocation, causing aggressive garbage collection.
   Ensure an environment variable like `JAVA_OPTS=-Xmx8g` is set, with `8g` (five gigabytes of heap) as an optimal value;
   `7g` is acceptable, while anything much lower may lead to problems.
@@ -104,7 +117,8 @@ Common issues include:
   Refer to the [peering troubleshooting topic](#resolve-peering-issues) for more information to resolve this.
 
 - **Poor internet speed**.
-  An example is someone was on an ADSL link with only about 2.5 Mbps upstream which led to misses, typically anything over 10 Mbps upstream is acceptable.
+  An example is someone was on an ADSL link with only about 2.5 Mbps upstream which led to misses, typically anything over 
+  10 Mbps upstream is acceptable.
 
 ## Excessive late block import warnings due to time skew
 
@@ -158,7 +172,8 @@ References:
 ## Address missing attestations or non-inclusion issues
 
 - No peers might have been present on the attestation subnet.
-  Check for a log message when attempting to publish without subscribed peers: `Failed to publish ... for slot ... due to missing peers on the required gossip topic`.
+  Check for a log message when attempting to publish without subscribed peers: `Failed to publish ... for slot ... due 
+  to missing peers on the required gossip topic`.
 - Several factors could contribute, such as delayed blocks past your inclusion slot causing ripple effects.
   Thus, examining epochs where your attestation was scheduled and checking for late block import warnings would be beneficial.
 - Also, consider specific times of day and concurrent network activities.
@@ -202,8 +217,8 @@ validators-external-signer-public-keys:
 ## Teku crashes with SIGILL
 
 The BLST library might erroneously use the optimized library version instead of the portable one. This could stem from CPU
-auto-detection errors, in which case, obtaining the CPU details from `/proc/cpuinfo` on Linux or `/usr/sbin/sysctl -a` on macOS
-will help us to improve it. Alternatively, users might have intentionally set BLST to optimal.
+auto-detection errors, in which case, obtaining the CPU details from `/proc/cpuinfo` on Linux or `/usr/sbin/sysctl -a` on 
+macOS will help us to improve it. Alternatively, users might have intentionally set BLST to optimal.
 
 You can specifically request the portable version of BLST (overriding CPU detection) with the following:
 

@@ -947,6 +947,51 @@ This setting is meant for the client that loads and handles the validator keys.
 
 :::
 
+### `force-clear-db`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--force-clear-db[=<BOOLEAN>]
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--force-clear-db=true
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_FORCE_CLEAR_DB=true
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+force-clear-db: true
+```
+
+  </TabItem>
+</Tabs>
+
+When enabled, Teku deletes the beacon node's on-disk chain database on startup before loading. Use this  
+when you want to start from a clean chain state (for example, before using  
+[checkpoint sync](../../get-started/checkpoint-start.md) or after a failed migration).
+The default is `false`.
+
+:::caution
+
+This option is destructive. The beacon chain database will be permanently deleted.
+Only use it when you intend to clear the database and resync or load a new state.
+
+:::
+
 ### `genesis-state`
 
 <Tabs>
