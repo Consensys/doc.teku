@@ -29,6 +29,14 @@
   --docusaurus-highlighted-code-line-bg: rgb(66 66 66 / 35%);
 }
 
+/* Target the welcome screen container by its prefix */
+[class*="welcomeScreen_"] p{
+  white-space: pre-wrap !important;
+  font-size: 0.85rem !important;    /* Shrinks the text (approx 13.6px) */
+  line-height: 1.5;             /* Adds a bit of breathing room between lines */
+  color: var(--ifm-color-emphasis-700); /* Optional: softens the text color slightly */
+}
+
 /* github */
 .header-github-link:hover {
   opacity: 0.6;
