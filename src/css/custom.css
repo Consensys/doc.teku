@@ -296,6 +296,19 @@ html[data-theme="dark"] .header-dockerhub-link::before {
   );
 }
 
+/* Search bar customization */
+.navbar__search-input {
+  width: 14rem;
+}
+
+.navbar__search-input::placeholder {
+  color: #5a5a5a;
+}
+
+html[data-theme="dark"] .navbar__search-input::placeholder {
+  color: #b0b0b0;
+}
+
 h1 {
   font-size: 32px;
 }
