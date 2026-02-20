@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 
 /**
  * Triggers the search plugin's lazy loading of the AskAI widget
@@ -27,22 +27,29 @@ function openAskAi() {
 }
 
 export default function AskAiButton() {
+  const pendingRef = useRef(false);
+
   useEffect(() => {
     const timer = setTimeout(loadSearchIndex, 300);
     return () => clearTimeout(timer);
   }, []);
 
   const handleClick = useCallback(() => {
-    if (openAskAi()) return;
+    if (openAskAi() || pendingRef.current) return;
 
+    pendingRef.current = true;
     loadSearchIndex();
     const observer = new MutationObserver(() => {
       if (openAskAi()) {
         observer.disconnect();
+        pendingRef.current = false;
       }
     });
     observer.observe(document.body, { childList: true, subtree: true });
-    setTimeout(() => observer.disconnect(), 5000);
+    setTimeout(() => {
+      observer.disconnect();
+      pendingRef.current = false;
+    }, 5000);
   }, []);
 
   return (

@@ -9,7 +9,7 @@ export default function SearchBarWrapper(props) {
     if (input) {
       input.placeholder = "Search or Ask AI";
     }
-  });
+  }, []);
 
   return (
     <div ref={containerRef}>
