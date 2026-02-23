@@ -53,7 +53,7 @@ With PeerDAS, consensus layer clients will use network and storage space for sid
 
 - **Validator nodes** - Requirements for validator nodes are to custody at least 8 columns, with the number calculated based  
   on the effective balance of active validators, adding a requirement of 1 extra column per every 32 ETH.
-  So, 1 validator requires 8 columns, 8 validators require 8 columns, 20 validators require 20 columns, with a maximum of  
+  Therefore, 1 validator requires 8 columns, 8 validators require 8 columns, 20 validators require 20 columns, with a maximum of  
   128 columns for 128 validators or 4096 ETH in consolidated validators. For 1-8 validators and 14 blobs, a node will  
   take 32 GB of space, which is still less than current requirements. But nodes with a lot of validators will basically  
   become supernodes.
