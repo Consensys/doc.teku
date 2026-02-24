@@ -63,6 +63,14 @@
       "created_at": "2026-01-13T13:10:14Z",
       "repoId": 214424702,
       "pullRequestNo": 697
+    },
+    {
+      "name": "gfukushima",
+      "id": 25556862,
+      "comment_id": 3949073811,
+      "created_at": "2026-02-24T05:04:58Z",
+      "repoId": 214424702,
+      "pullRequestNo": 714
     }
   ]
 }
