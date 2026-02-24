@@ -14,14 +14,14 @@ LevelDB has not had an official release since 2021 therefore we have decided to 
 
 ## Manual migration
 
-Users can manually migrate Teku nodes running a LevelDB database to a RocksDB database if the Teku node runs in `prune` or `minimal` mode
+Users can manually migrate Teku nodes running a LevelDB database to a RocksDB database if the Teku node runs in [`prune` or `minimal` mode]
 :::caution
 
 Teku nodes running in [`archive` mode] must resynchronize from genesis to migrate.
 
 :::
 
-To migrate a LevelDB database in `prune` or `mininal` mode to a RocksDB database:
+To migrate a LevelDB database in [`prune` or `minimal` mode] to a RocksDB database:
 
 1. [Download the latest finalized state] from a beacon node:
 
@@ -55,7 +55,7 @@ Teku creates a RocksDB database, and starts from the specified recent state. Tek
 <!-- links -->
 
 [Download the latest finalized state]: https://consensys.github.io/teku/#tag/Debug/operation/getStateV2
-[`prune` mode]: ../reference/cli/index.md#data-storage-mode
+[`prune` or `minimal` mode]: ../reference/cli/index.md#data-storage-mode
 [`archive` mode]: ../reference/cli/index.md#data-storage-mode
 [supply the finalized checkpoint state]: ../get-started/checkpoint-start.md
 [Teku Discord channel]: https://discord.com/invite/consensys
