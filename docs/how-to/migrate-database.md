@@ -17,7 +17,7 @@ LevelDB has not had an official release since 2021 therefore we have decided to 
 Users can manually migrate Teku nodes running a LevelDB database to a RocksDB database if the Teku node runs in `prune` or `minimal` mode
 :::caution
 
-Teku nodes running in `archive` mode must resynchronize from genesis to migrate.
+Teku nodes running in [`archive` mode] must resynchronize from genesis to migrate.
 
 :::
 
