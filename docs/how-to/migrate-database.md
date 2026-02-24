@@ -1,6 +1,6 @@
 ---
 title: Migrate the database
-description: Migrate a RocksDB database to a LevelDB2 database.
+description: Migrate a LevelDB database to a RocksDB database.
 sidebar_position: 10
 ---
 
@@ -9,20 +9,20 @@ sidebar_position: 10
 Teku version 26.2.0 and later use RocksDB as the default database for new installations.
 Earlier Teku versions use LevelDB. Teku continues to support LevelDB in all versions.
 
-RocksDB databases has proved to be more stable with Teku. 
-LevelDB has not had a official release since 2021 therefore we have decided to migrate to RocksDB as the default database for new installations. 
+RocksDB database has proved to be more stable with Teku. 
+LevelDB has not had an official release since 2021 therefore we have decided to migrate to RocksDB as the default database for new installations. 
 
 ## Manual migration
 
-Users can manually migrate Teku nodes running a LevelDB database to a RocksDB database if the Teku node runs in [`prune` or `minimal` mode].
+Users can manually migrate Teku nodes running a LevelDB database to a RocksDB database if the Teku node runs in `prune` or `minimal` mode.
 
 :::caution
 
-Teku nodes running in [archive mode] must resynchronize from genesis to migrate. 
+Teku nodes running in `archive` mode must resynchronize from genesis to migrate. 
 
 :::
 
-To migrate a LevelDB database in [`prune` or `miminal` mode] to a RocksDB database:
+To migrate a LevelDB database in `prune` or `mininal` mode to a RocksDB database:
 
 1. [Download the latest finalized state] from a beacon node:
 
