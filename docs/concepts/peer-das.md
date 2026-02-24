@@ -66,11 +66,13 @@ With PeerDAS, consensus layer clients will use network and storage space for sid
   Storage consumption is increased, taking about 500 GB with 14 blobs of data layer space compared to 100 GB in Pectra.
 
   :::warning important
+
   If a node operator needs complete blob data through the REST API (for example, the `getBlobs` endpoint),
   they must either run in supernode mode or enable
-  [`--get-blobs-api-p2p-sidecars-download-enabled`](../reference/cli/index.md#get-blobs-api-p2p-sidecars-download-enabled),
+  [`--rest-api-getblobs-sidecars-download-enabled`](../reference/cli/index.md#rest-api-getblobs-sidecars-download-enabled),
   which allows Teku to retrieve required sidecars on demand from the P2P network.
   Other types of nodes store only partial blob data.
+  
   :::
 
 All node space requirements are subject to change proportionally to the target number of blobs, which is currently scheduled  
