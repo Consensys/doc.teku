@@ -987,8 +987,9 @@ The default is `false`.
 
 :::caution
 
-This option is destructive. The beacon chain database will be permanently deleted.
-Only use it when you intend to clear the database and resync or load a new state.
+This option is destructive. The beacon chain database will be permanently deleted. Only use it when you 
+intend to clear the database and resync or load a new state. Avoid setting it in config files or environment 
+variables else the database will be deleted on every startup.
 
 :::
 

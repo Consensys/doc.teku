@@ -20,7 +20,7 @@ To restart an existing sync process with checkpoint sync, do the following:
 1. Stop the current Teku sync process.
 2. Clear the beacon database: either start Teku once with
    [`--force-clear-db`](../../reference/cli/index.md#force-clear-db), or manually delete the
-   `beacon` directory under your [data path](../../reference/cli/index.md#data-base-path-data-path).
+   `beacon/db` directory under your [data path](../../reference/cli/index.md#data-base-path-data-path).
 3. Start Teku with the [`--initial-state`](../../reference/cli/index.md#initial-state) option.
 
 Teku will sync within a few minutes, and downloads historic blocks in the background, so it can
