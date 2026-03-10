@@ -87,7 +87,7 @@ To migrate a LevelDB database in [`minimal` mode] or [`prune` mode] to a RocksDB
 
     :::
 
-3. Specify the downloaded finalized state adding the [`--checkpoint-sync-url`](../reference/cli/index.md#checkpoint-sync-url) option to Teku command line and start Teku.
+3. Add the [`--checkpoint-sync-url`](../reference/cli/index.md#checkpoint-sync-url) option with link to any community state provider to Teku command line and start Teku. Check [Start Teku from a recent state] for more information. 
 
 Teku creates a RocksDB database, and starts from the specified recent state. Teku should be in sync and validating within minutes.
 
@@ -96,5 +96,5 @@ Teku creates a RocksDB database, and starts from the specified recent state. Tek
 [`minimal` mode]: ../reference/cli/index.md#data-storage-mode
 [`prune` mode]: ../reference/cli/index.md#data-storage-mode
 [`archive` mode]: ../reference/cli/index.md#data-storage-mode
-[supply the finalized checkpoint state]: ../get-started/checkpoint-start.md
+[Start Teku from a recent state]: ../get-started/checkpoint-start.md
 [Teku Discord channel]: https://discord.com/invite/consensys
