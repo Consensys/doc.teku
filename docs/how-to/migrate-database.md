@@ -27,11 +27,14 @@ To migrate a LevelDB database in [`prune` or `minimal` mode] to a RocksDB databa
 
 2. Stop the Teku node you intend to migrate.
 
-3. Delete the `beacon` directory in your [data path](../reference/cli/index.md#data-base-path-data-path).
+3. Clear the beacon database, either:
+    - Restart Teku with
+   [`--force-clear-db`](../reference/cli/index.md#force-clear-db)
+    - Manually delete the `beacon/db` directory in your [data path](../reference/cli/index.md#data-base-path-data-path).
 
     :::warning
 
-    Ensure not to delete the `validator` directory if one is present as this contains your slashing protection data.
+    If you manually delete, ensure not to delete the `validator` directory if one is present as this contains your slashing protection data.
 
     :::
 
