@@ -23,7 +23,7 @@ Teku nodes running in [`archive` mode] must resynchronize from genesis to migrat
 
 To migrate a LevelDB database in [`prune` or `minimal` mode] to a RocksDB database:
 
-1. [Supply the finalized checkpoint state] via URL from a beacon chain node or a checkpoint source when restarting Teku in the step below.
+1. [Supply the finalized checkpoint state] via URL from a Beacon chain node or a checkpoint source when restarting Teku in the step below.
 
 2. Stop the Teku node you intend to migrate.
 
