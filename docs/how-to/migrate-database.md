@@ -13,7 +13,8 @@ RocksDB databases use less memory and proves to be more stable with Teku.
 
 :::caution
 
-We recommend Teku nodes running in [`prune` mode] or [`minimal` mode] (default) use the [manual migration](#manual-migration), and Teku nodes running in [`archive` mode] use the [automatic migration](#automatic-migration) method.
+We recommend Teku nodes running in [`prune` mode] or [`minimal` mode] (default) use the [manual migration](#manual-migration), 
+and Teku nodes running in [`archive` mode] use the [automatic migration](#automatic-migration) method.
 
 :::
 
@@ -87,7 +88,8 @@ To migrate a LevelDB database in [`minimal` mode] or [`prune` mode] to a RocksDB
 
     :::
 
-3. Add the [`--checkpoint-sync-url`](../reference/cli/index.md#checkpoint-sync-url) option with link to any community state provider to Teku command line and start Teku. Check [Start Teku from a recent state] for more information. 
+3. Add the [`--checkpoint-sync-url`](../reference/cli/index.md#checkpoint-sync-url) option with link to any community state provider to Teku command line and start Teku. 
+Check [Start Teku from a recent state] for more information.
 
 Teku creates a RocksDB database, and starts from the specified recent state. Teku should be in sync and validating within minutes.
 
