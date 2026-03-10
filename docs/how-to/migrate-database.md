@@ -93,7 +93,6 @@ Teku creates a RocksDB database, and starts from the specified recent state. Tek
 
 <!-- links -->
 
-[Download the latest finalized state]: https://consensys.github.io/teku/#tag/Debug/operation/getStateV2
 [`minimal` mode]: ../reference/cli/index.md#data-storage-mode
 [`prune` mode]: ../reference/cli/index.md#data-storage-mode
 [`archive` mode]: ../reference/cli/index.md#data-storage-mode
