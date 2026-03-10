@@ -125,7 +125,7 @@ data-beacon-path: "/home/me/me_node"
   </TabItem>
 </Tabs>
 
-Path to the Beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
+Path to the beacon node data. The default is `<data-base-path>/beacon` where `<data-base-path>` is specified using [`--data-base-path`](#data-base-path-data-path).
 
 ## `network`
 
