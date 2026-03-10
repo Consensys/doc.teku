@@ -52,4 +52,3 @@ INFO - Created RocksDB V6 Hot and Finalized database (6) at : /path/to/teku/beac
 [`prune` or `minimal` mode]: ../reference/cli/index.md#data-storage-mode
 [`archive` mode]: ../reference/cli/index.md#data-storage-mode
 [supply the finalized checkpoint state]: ../get-started/checkpoint-start.md
-[Teku Discord channel]: https://discord.com/invite/consensys
