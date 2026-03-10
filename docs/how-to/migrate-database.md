@@ -45,7 +45,7 @@ You can confirm the database type in the logs:
 
 ```text
 INFO - Created RocksDB V6 Hot and Finalized database (6) at : /path/to/teku/beacon
-``` 
+```
 
 <!-- links -->
 
