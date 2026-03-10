@@ -9,11 +9,11 @@ import TabItem from '@theme/TabItem';
 
 # `migrate-database`
 
-[Migrate the database to a LevelDB2 database](../../../how-to/migrate-database.md).
+[Migrate the database to a RocksDB database](../../../how-to/migrate-database.md).
 
 :::note
 
-As of v21.5.0, new Teku installations use a LevelDB2 database. Previous Teku versions use RocksDB which continue to be supported.
+As of v26.2.0, new Teku installations use a RocksDB database. Previous Teku versions use LevelDB which has been deprecated and may be removed in a future release.
 
 :::
 
