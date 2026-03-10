@@ -23,17 +23,7 @@ Teku nodes running in [`archive` mode] must resynchronize from genesis to migrat
 
 To migrate a LevelDB database in [`prune` or `minimal` mode] to a RocksDB database:
 
-1. [Download the latest finalized state] from a beacon node:
-
-    ```bash
-    curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v2/debug/beacon/states/finalized
-    ```
-
-    :::note
-
-    This step is optional, you can also [supply the finalized checkpoint state] via URL from a beacon chain node or a checkpoint source when restarting Teku in the step below.
-
-    :::
+1. [Supply the finalized checkpoint state] via URL from a beacon chain node or a checkpoint source when restarting Teku in the step below.
 
 2. Stop the Teku node you intend to migrate.
 
@@ -48,13 +38,17 @@ To migrate a LevelDB database in [`prune` or `minimal` mode] to a RocksDB databa
 
     :::
 
-4. Restart Teku and specify the downloaded finalized state using the [`--initial-state`](../reference/cli/index.md#initial-state) command.
+4. Restart Teku.
 
 Teku creates a RocksDB database, and starts from the specified recent state. Teku should be in sync and validating within minutes.
+You can confirm the database type in the logs:
+
+```text
+INFO - Created RocksDB V6 Hot and Finalized database (6) at : /path/to/teku/beacon
+``` 
 
 <!-- links -->
 
-[Download the latest finalized state]: https://consensys.github.io/teku/#tag/Debug/operation/getStateV2
 [`prune` or `minimal` mode]: ../reference/cli/index.md#data-storage-mode
 [`archive` mode]: ../reference/cli/index.md#data-storage-mode
 [supply the finalized checkpoint state]: ../get-started/checkpoint-start.md
