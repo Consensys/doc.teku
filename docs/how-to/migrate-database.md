@@ -7,7 +7,7 @@ sidebar_position: 10
 # Migrate the database
 
 Teku version 26.2.0 and later use RocksDB as the default database for new installations.
-Earlier Teku versions use LevelDB. Teku continues to support LevelDB in all versions.
+Earlier Teku versions use LevelDB. LevelDB support has been deprecated and may be removed in a future release.
 
 RocksDB database has proved to be more stable with Teku.
 LevelDB has not had an official release since 2021 therefore we have decided to migrate to RocksDB as the default database for new installations.
