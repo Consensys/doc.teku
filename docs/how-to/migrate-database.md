@@ -17,7 +17,7 @@ LevelDB has not had an official release since 2021 therefore we have decided to 
 Users can manually migrate Teku nodes running a LevelDB database to a RocksDB database if the Teku node runs in [`prune` or `minimal` mode]
 :::caution
 
-Teku nodes running in [`archive` mode] must resynchronize from genesis to migrate.
+Teku nodes running in [archive mode] must resynchronize from genesis to migrate. Use the [automatic migration](#automatic-migration) to migrate Teku nodes running in [archive mode]
 
 :::
 
@@ -30,7 +30,7 @@ To migrate a LevelDB database in [`prune` or `minimal` mode] to a RocksDB databa
 3. Clear the beacon database, either:
     - Restart Teku with
    [`--force-clear-db`](../reference/cli/index.md#force-clear-db)
-    - Manually delete the `beacon/db` directory in your [data path](../reference/cli/index.md#data-base-path-data-path).
+    - Manually delete the `beacon` directory in your [data path](../reference/cli/index.md#data-base-path-data-path).
 
     :::warning
 
@@ -38,7 +38,9 @@ To migrate a LevelDB database in [`prune` or `minimal` mode] to a RocksDB databa
 
     :::
 
-4. Restart Teku.
+4. Check if you were not setting `Xdata-storage-create-db-version` in your previous configuration. If you prefer explicitly set the option then you can use `Xdata-storage-create-db-version=6`.
+
+5. Restart Teku.
 
 Teku creates a RocksDB database, and starts from the specified recent state. Teku should be in sync and validating within minutes.
 You can confirm the database type in the logs:
