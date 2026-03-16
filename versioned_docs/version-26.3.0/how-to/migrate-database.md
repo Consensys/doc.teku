@@ -1,33 +1,32 @@
 ---
 title: Migrate the database
-description: Migrate a LevelDB database to a RocksDB database.
+description: Migrate a RocksDB database to a LevelDB2 database.
 sidebar_position: 10
 ---
 
 # Migrate the database
 
-Teku version 26.2.0 and later use RocksDB as the default database for new installations.
-Earlier Teku versions use LevelDB. LevelDB support has been deprecated and may be removed in a future release.
+Teku version 21.5.0 and later use LevelDB2 as the default database for new installations.
+Earlier Teku versions use RocksDB. Teku continues to support RocksDB in all versions.
 
-RocksDB databases use less memory and proves to be more stable with Teku.
+LevelDB2 databases use less memory and proves to be more stable with Teku.
 
 :::caution
 
-We recommend Teku nodes running in [`prune` mode] or [`minimal` mode] (default) use the [manual migration](#manual-migration),
- and Teku nodes running in [`archive` mode] use the [automatic migration](#automatic-migration) method.
+We recommend Teku nodes running in [`archive` mode] use the [automatic migration](#automatic-migration) method, and Teku nodes running in [`prune` mode] use the [manual migration](#manual-migration).
 
 :::
 
 ## Automatic migration
 
-Teku nodes running in [archive mode] must resynchronize from genesis to migrate from LevelDB to RocksDB.
+Teku nodes running in [archive mode] must resynchronize from genesis to migrate from RocksDB to LevelDB2.
 Use the [`migrate-database`](../reference/cli/subcommands/migrate-database.md) subcommand to migrate the database.
 Once migration completes there will be two databases in Teku's data folder.
-Manually verify that Teku starts and has the expected data before you remove old LevelDB database.
+Manually verify that Teku starts and has the expected data before you remove the RocksDB database.
 
 :::note
 
-You need double the disk space of the existing Teku storage folder for the migration process. Once you are satisfied with the migration then you can delete the LevelDB to free up space.
+You need double the disk space of the existing Teku storage folder for the migration process. Once you are satisfied with the migration then you can delete the RocksDB to free up space.
 
 :::
 
@@ -38,7 +37,7 @@ To migrate the database:
 
 1. Shut down the local Teku instance.
 
-2. Run [`migrate-database`](../reference/cli/subcommands/migrate-database.md) to create a RocksDB database.
+2. Run [`migrate-database`](../reference/cli/subcommands/migrate-database.md) to create a LevelDB2 database.
     Pass your [configuration file](configure/use-config-file.md) or CLI options so that Teku has the correct paths and context.
 
     ```bash title="Example"
@@ -65,7 +64,7 @@ If migration fails, resolve any issues and retry. Contact support on the [Teku D
 
 ## Manual migration
 
-Users can manually migrate Teku nodes running a LevelDB database to a RocksDB database if the Teku node runs in [`prune` mode] or [`minimal` mode] (default).
+Users can manually migrate Teku nodes running a RocksDB database to a LevelDB2 database if the Teku node runs in [`prune` mode].
 
 :::caution
 
@@ -73,14 +72,26 @@ Teku nodes running in [archive mode] must resynchronize from genesis to migrate.
 
 :::
 
-To migrate a LevelDB database in [`minimal` mode] or [`prune` mode] to a RocksDB database:
+To migrate a RocksDB database in [`prune` mode] to a LevelDB2 database:
 
-1. Stop the Teku node you intend to migrate.
+1. [Download the latest finalized state] from a beacon node:
 
-2. Clear the beacon database, either:
+    ```bash
+    curl -o state.ssz -H 'Accept: application/octet-stream' http://other-node:5051/eth/v2/debug/beacon/states/finalized
+    ```
+
+    :::note
+
+    This step is optional, you can also [supply the finalized checkpoint state] via URL from a beacon chain node or Infura when restarting Teku in the step below.
+
+    :::
+
+2. Stop the Teku node you intend to migrate.
+
+3. Clear the beacon database, either:
     - Restart Teku with
    [`--force-clear-db`](../reference/cli/index.md#force-clear-db)
-    - Manually delete the `beacon/db` directory in your [data path](../reference/cli/index.md#data-base-path-data-path) and `beacon/db.version` file.
+    - Manually delete the `beacon/db` directory in your [data path](../reference/cli/index.md#data-base-path-data-path).
 
     :::warning
 
@@ -88,15 +99,14 @@ To migrate a LevelDB database in [`minimal` mode] or [`prune` mode] to a RocksDB
 
     :::
 
-3. Add the [`--checkpoint-sync-url`](../reference/cli/index.md#checkpoint-sync-url) option with link to any community state provider to Teku command line and start Teku.
- Check [Start Teku from a recent state] for more information.
+4. Restart Teku and specify the downloaded finalized state using the [`--initial-state`](../reference/cli/index.md#initial-state) command.
 
-Teku creates a RocksDB database, and starts from the specified recent state. Teku should be in sync and validating within minutes.
+Teku creates a LevelDB2 database, and starts from the specified recent state. Teku should be in sync and validating within minutes.
 
 <!-- links -->
 
-[`minimal` mode]: ../reference/cli/index.md#data-storage-mode
+[Download the latest finalized state]: https://consensys.github.io/teku/#tag/Debug/operation/getStateV2
 [`prune` mode]: ../reference/cli/index.md#data-storage-mode
 [`archive` mode]: ../reference/cli/index.md#data-storage-mode
-[Start Teku from a recent state]: ../get-started/checkpoint-start.md
+[supply the finalized checkpoint state]: ../get-started/checkpoint-start.md
 [Teku Discord channel]: https://discord.com/invite/consensys
