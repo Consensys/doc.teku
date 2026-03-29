@@ -13,11 +13,11 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Lint code
-        uses: ConsenSys/github-actions/docs-lint-all@main
+        uses: ConsenSys/github-actions/docs-lint-all@60d442d6d385b414c8e00eb049a85f56f9fd7be7 # main
 
       - name: Lint markdown
-        uses: ConsenSys/github-actions/docs-lint-markdown@main
+        uses: ConsenSys/github-actions/docs-lint-markdown@60d442d6d385b414c8e00eb049a85f56f9fd7be7 # main
 

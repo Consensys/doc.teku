@@ -16,10 +16,10 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Case check action
-        uses: ConsenSys/github-actions/docs-case-check@main
+        uses: ConsenSys/github-actions/docs-case-check@60d442d6d385b414c8e00eb049a85f56f9fd7be7 # main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOC_DIR: ${{ matrix.folder }}
