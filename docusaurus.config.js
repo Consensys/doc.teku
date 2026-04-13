@@ -2,14 +2,11 @@ const fs = require("fs");
 const lightCodeTheme = require("prism-react-renderer").themes.github;
 const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 
-const isDev = process.env.NODE_ENV === "development";
-const baseUrl = isDev ? "/" : "/";
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Teku documentation",
   url: "https://docs.teku.consensys.io",
-  baseUrl,
+  baseUrl: "/",
   onBrokenLinks: "throw",
   markdown: {
     hooks: {
