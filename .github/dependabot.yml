@@ -8,9 +8,9 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "09:00"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
+    # wait 7 days for stability      
+    cooldown:
+      default-days: 7
     groups:
       docusaurus:
         patterns:
@@ -21,9 +21,6 @@ updates:
       others:
         patterns:
           - "*"
-
-  # GitHub Actions updates
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
