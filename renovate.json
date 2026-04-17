@@ -3,7 +3,7 @@
   "extends": [
     "config:recommended"
   ],
-  "enabledManagers": ["github-actions"],
+  "enabledManagers": ["github-actions", "npm"],
   "dependencyDashboard": false,
   "packageRules": [
     {
@@ -12,6 +12,12 @@
       "pinDigests": true,
       "minimumReleaseAge": "7 days",
       "groupName": "Renovatebot GHA Updates"
+    },
+    {
+      "description": "Group npm dependency updates",
+      "matchManagers": ["npm"],
+      "minimumReleaseAge": "7 days",
+      "groupName": "npm dependencies"
     }
   ]
 }
