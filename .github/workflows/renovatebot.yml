@@ -1,12 +1,17 @@
 name: renovatebot
 
 on:
+  schedule:
+    - cron: "15 3 14,28 * *"
+
   push:
     branches:
       - main
     paths:
       - '.github/workflows/**'
   workflow_dispatch:
+
+permissions: {}
 
 jobs:
   renovatebot-check:
