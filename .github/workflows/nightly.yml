@@ -20,7 +20,7 @@
         - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         - name: LinkCheck
           id: linkcheck
-          uses: umbrelladocs/action-linkspector@37c85bcde51b30bf929936502bac6bfb7e8f0a4d # v1
+          uses: umbrelladocs/action-linkspector@963b6264d7de32c904942a70b488d3407453049e # v1
           with:
             reporter: github-check
             fail_level: error
@@ -32,7 +32,7 @@
       runs-on: ubuntu-latest
       steps:
         - name: Slack Notification
-          uses: ConsenSys/github-actions/slack-notify@7256f3d39c7bb71ec4ca9fc6078991302d4c8650 # main
+          uses: ConsenSys/github-actions/slack-notify@0fd1cb88921d5907ff2e348c5aa759196a053380 # main
           with:
             SLACK_CHANNEL: doc-ci-alerts
             SLACK_COLOR: danger

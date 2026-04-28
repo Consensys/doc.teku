@@ -17,4 +17,4 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Build
-        uses: ConsenSys/github-actions/docs-build@7256f3d39c7bb71ec4ca9fc6078991302d4c8650 # main
+        uses: ConsenSys/github-actions/docs-build@0fd1cb88921d5907ff2e348c5aa759196a053380 # main
