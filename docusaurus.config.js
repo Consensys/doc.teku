@@ -257,6 +257,28 @@ const config = {
       },
     ],
     [
+      "docusaurus-plugin-llms",
+      {
+        docsDir: "docs",
+        generateLLMsTxt: true,
+        generateLLMsFullTxt: true,
+        title: "Teku documentation",
+        description:
+          "Official Teku documentation: Ethereum consensus client, installation, configuration, staking, and operations.",
+        excludeImports: true,
+        removeDuplicateHeadings: true,
+        logLevel: process.env.CI ? "quiet" : "normal",
+        ignoreFiles: ["images/**"],
+        includeOrder: [
+          "get-started/**/*",
+          "concepts/**/*",
+          "how-to/**/*",
+          "tutorials/**/*",
+          "reference/**/*",
+        ],
+      },
+    ],
+    [
       "@docusaurus/plugin-client-redirects",
       {
         redirects: [

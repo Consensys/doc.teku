@@ -34,10 +34,11 @@
     "@easyops-cn/docusaurus-search-local": "^0.55.0",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
+    "docusaurus-plugin-llms": "^0.4.0",
+    "open-ask-ai": "^0.7.3",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "open-ask-ai": "^0.7.3"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4",
