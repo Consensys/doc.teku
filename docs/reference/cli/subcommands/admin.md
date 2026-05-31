@@ -316,7 +316,6 @@ Possible values are:
 | Network    | Chain           | Type       | Description                                                           |
 |------------|-----------------|------------|-----------------------------------------------------------------------|
 | `mainnet`  | Consensus layer | Production | Main network                                                          |
-| `holesky`  | Consensus layer | Test       | Multi-client testnet                                                  |
 | `hoodi`    | Consensus layer | Test       | Multi-client testnet                                                  |
 | `ephemery` | Consensus layer | Test       | Multi-client testnet                                                  |
 | `sepolia`  | Consensus layer | Test       | Multi-client testnet                                                  |
@@ -629,7 +628,6 @@ Possible values are:
 | Network    | Chain           | Type       | Description                                                           |
 |------------|-----------------|------------|-----------------------------------------------------------------------|
 | `mainnet`  | Consensus layer | Production | Main network                                                          |
-| `holesky`  | Consensus layer | Test       | Multi-client testnet                                                  |
 | `hoodi`    | Consensus layer | Test       | Multi-client testnet                                                  |
 | `ephemery` | Consensus layer | Test       | Multi-client testnet                                                  |
 | `sepolia`  | Consensus layer | Test       | Multi-client testnet                                                  |

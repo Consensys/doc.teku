@@ -20,7 +20,7 @@ For example:
 
 ```bash
 teku \
-  --network=holesky                                                    \
+  --network=hoodi                                                      \
   --eth1-endpoint=http://localhost:8545                                \
   --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b \
   --validators-external-signer-url=http://localhost:9000

@@ -9,8 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # Connect to a testnet
 
-Run Teku as a consensus client with any execution client on a testnet (for example [Holesky](https://github.com/eth-clients/holesky),
-[Hoodi](https://github.com/eth-clients/hoodi), [Ephemery](https://ephemery.dev/), or [Sepolia](https://github.com/eth-clients/sepolia)).
+Run Teku as a consensus client with any execution client on a testnet (for example [Hoodi](https://github.com/eth-clients/hoodi), [Ephemery](https://ephemery.dev/), or [Sepolia](https://github.com/eth-clients/sepolia)).
 
 If you're using [Besu](https://besu.hyperledger.org/en/stable/) as an execution client, you can follow the
 [Besu and Teku testnet tutorial](https://besu.hyperledger.org/en/latest/public-networks/tutorials/besu-teku-testnet/).
@@ -50,7 +49,6 @@ If you're also running a validator client, create a test Ethereum address
 Fund this address with testnet ETH (32 ETH and gas fees for each validator) using a faucet.
 See the faucets for the relevant testnet:
 
-- [Holesky](https://github.com/eth-clients/holesky)
 - [Hoodi](https://github.com/eth-clients/hoodi)
 - [Sepolia](https://github.com/eth-clients/sepolia)
 - [Ephemery](https://ephemery-faucet.pk910.de/)
@@ -61,8 +59,7 @@ If you're unable to get ETH using the faucet, you can ask for help on the [EthSt
 
 :::
 
-Generate validator keys for one or more validators using the [Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/),
-[Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/), or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
+Generate validator keys for one or more validators using the [Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev/).
 
 Remember the passwords that you use to create the validator keys, because you
 need them to [create the validator password files](#create-a-password-file-for-each-validator-key).
@@ -99,20 +96,6 @@ Open a new terminal window.
 To run Teku as a beacon node only (without validator duties), run the following command or [specify the options in a configuration file](../../how-to/configure/use-config-file.md):
 
 <Tabs>
-<TabItem value="Holesky" label="Holesky" default>
-
-```bash
-teku \
-  --network=holesky                            \
-  --ee-endpoint=http://localhost:8551          \
-  --ee-jwt-secret-file=<path to jwtsecret.hex> \
-  --metrics-enabled=true                       \
-  --rest-api-enabled=true                      \
-  --checkpoint-sync-url=<checkpoint sync URL>
-```
-
-</TabItem>
-
 <TabItem value="Hoodi" label="Hoodi" default>
 
 ```bash
@@ -168,8 +151,7 @@ You can modify the option values and add other [command line options](../../refe
 
 You can run the Teku beacon node and validator client as a [single process](#single-process) or as [separate processes](#separate-processes).
 
-You can check your validator status by searching your Ethereum address on the [Holesky explorer](https://holesky.beaconcha.in/),
-[Hoodi explorer](https://hoodi.etherscan.io/), or [Ephemery explorer](https://explorer.ephemery.dev/).
+You can check your validator status by searching your Ethereum address on the [Hoodi explorer](https://hoodi.etherscan.io/) or [Ephemery explorer](https://explorer.ephemery.dev/).
 It may take up to multiple days for your validator to be activated and start proposing blocks.
 
 You can also use [Prometheus and Grafana](../../how-to/monitor/use-metrics.md) to monitor your nodes.
@@ -180,22 +162,6 @@ To run the Teku beacon node and validator client in a single process, run the fo
 [specify the options in the configuration file](../../how-to/configure/use-config-file.md):
 
 <Tabs>
-<TabItem value="Holesky" label="Holesky" default>
-
-```bash
-teku \
-  --network=holesky                                         \
-  --ee-endpoint=http://localhost:8551                       \
-  --ee-jwt-secret-file=<path to jwtsecret.hex>              \
-  --metrics-enabled=true                                    \
-  --rest-api-enabled=true                                   \
-  --checkpoint-sync-url=<checkpoint sync URL>               \
-  --validators-proposer-default-fee-recipient=<ETH address> \
-  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
-```
-
-</TabItem>
-
 <TabItem value="Hoodi" label="Hoodi" default>
 
 ```bash
@@ -258,17 +224,6 @@ To run the Teku beacon node and validator client as separate processes, first [s
 On a separate machine, run Teku using the [`validator-client`](../../reference/cli/subcommands/validator-client.md) subcommand:
 
 <Tabs>
-<TabItem value="Holesky" label="Holesky" default>
-
-```bash
-teku validator-client \
-  --network=holesky                     \
-  --beacon-node-api-endpoint=<endpoint> \
-  --validator-keys=<path to key file>:<path to password file>[,<path to key file>:<path to password file>,...]
-```
-
-</TabItem>
-
 <TabItem value="Hoodi" label="Hoodi" default>
 
 ```bash
@@ -317,12 +272,9 @@ Syncing the execution client can take several days.
 
 ## 6. Stake ETH
 
-Stake your testnet ETH for one or more validators using the
-[Holesky Staking Launchpad](https://holesky.launchpad.ethereum.org/), [Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/),
-or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev).
+Stake your testnet ETH for one or more validators using the [Hoodi Staking Launchpad](https://hoodi.launchpad.ethereum.org/) or [Ephemery Staking Launchpad](https://launchpad.ephemery.dev).
 
-You can check your validator status by searching your Ethereum address on the [Holesky explorer](https://holesky.beaconcha.in/),
-[Hoodi explorer](https://hoodi.etherscan.io/), or [Ephemery explorer](https://explorer.ephemery.dev/).
+You can check your validator status by searching your Ethereum address on the [Hoodi explorer](https://hoodi.etherscan.io/) or [Ephemery explorer](https://explorer.ephemery.dev/).
 It may take up to multiple days for your validator to be activated and start proposing blocks.
 
 <!-- links -->

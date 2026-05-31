@@ -33,7 +33,7 @@ docker run -d                             \
   -e TEKU_REST_API_ENABLED=true           \
   -e TEKU_P2P_PORT=9000                   \
   --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest \
-  --network=holesky                       \
+  --network=hoodi                         \
   --eth1-endpoint=http://102.10.10.1:8545 \
   --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords \
   --data-path=/var/lib/teku               \
@@ -62,7 +62,7 @@ docker run                                \
   --user 1001:1001                        \
   --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest \
   --data-base-path=/var/lib/teku          \
-  --network=holesky                       \
+  --network=hoodi                         \
   --eth1-endpoint=http://102.10.10.1:8545 \
   --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords
 ```
@@ -96,7 +96,7 @@ docker run                                \
   -p 30303:30303/udp                      \
   -p 5051:5051                            \
   --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest \
-  --network=holesky                       \
+  --network=hoodi                         \
   --data-base-path=/var/lib/teku          \
   --eth1-endpoint=http://102.10.10.1:8545 \
   --validator-keys=/var/lib/teku/validator/keys:/var/lib/teku/validator/passwords \
@@ -120,7 +120,7 @@ The example assumes the validators specified in [`--validator-keys`](../../refer
 Run `docker-compose up` in the directory containing the `docker-compose.yml` file to start the container.
 
 <Tabs>
-  <TabItem value="Holesky" label="Holesky" default>
+  <TabItem value="Hoodi" label="Hoodi" default>
 
 ```yaml
 ---
@@ -130,7 +130,7 @@ services:
     image: hyperledger/besu:latest
     command:
       [
-        "--network=holesky",
+        "--network=hoodi",
         "--data-path=/var/lib/besu/data",
         "--host-allowlist=*",
         "--sync-mode=FAST",
@@ -156,7 +156,7 @@ services:
     image: consensys/teku:latest
     command:
       [
-        "--network=holesky",
+        "--network=hoodi",
         "--data-base-path=/var/lib/teku/data",
         "--validators-proposer-default-fee-recipient=YOUR_WALLET",
         "--ee-endpoint=http://besu_node:8551",
@@ -179,7 +179,7 @@ services:
 
   </TabItem>
 
-  <TabItem value="Ephemery" label="Ephemery" default>
+  <TabItem value="Ephemery" label="Ephemery">
 
 ```yaml
 ---
