@@ -26,7 +26,7 @@ utility to generate keystores and a truststore that contain self-signed certific
 - A running execution client such as [Besu].
 
  This tutorial connects to the Hoodi testnet.
- You can [run a Besu node on Hoodi](https://besu.hyperledger.org/public-networks/get-started/start-node#run-a-node-on-hoodi-testnet).
+ You can [run a Besu node on Hoodi](https://besu.hyperledger.org/public-networks/get-started/start-node#run-a-node-on-an-ethereum-testnet).
 
 ## 1. Create keystores
 
