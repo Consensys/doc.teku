@@ -8,7 +8,7 @@ sidebar_position: 1
 
 The following diagram outlines the Teku high-level architecture.
 
-![Architecture](../images/architecture.png)
+![Architecture](/img/architecture.png)
 
 Teku contains both a beacon node and validator client implementation.
 The beacon node is the primary link to the Beacon Chain.
