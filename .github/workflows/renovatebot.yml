@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "15 3 14,28 * *"
 
-  push:
+  # push:
     # branches:
     #   - main
     # paths:

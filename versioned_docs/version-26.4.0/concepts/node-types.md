@@ -22,7 +22,7 @@ proof of work to [proof of stake consensus](proof-of-stake.md).
 
 Execution and consensus clients communicate with each other using the [Engine API](https://besu.hyperledger.org/public-networks/how-to/use-engine-api).
 
-![Ethereum node](../images/execution-consensus-clients.png)
+![Ethereum node](/img/execution-consensus-clients.png)
 
 ### Execution clients
 
