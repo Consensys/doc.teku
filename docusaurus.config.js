@@ -264,11 +264,11 @@ const config = {
         generateLLMsFullTxt: true,
         title: "Teku documentation",
         description:
-          "Official Teku documentation: Ethereum consensus client, installation, configuration, staking, and operations.",
+          "Official Teku documentation: Ethereum consensus client, installation, configuration, staking and operations.",
         excludeImports: true,
         removeDuplicateHeadings: true,
         logLevel: process.env.CI ? "quiet" : "normal",
-        ignoreFiles: ["images/**"],
+        ignoreFiles: ["img/**"],
         includeOrder: [
           "get-started/**/*",
           "concepts/**/*",
