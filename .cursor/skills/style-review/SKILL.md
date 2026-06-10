@@ -27,6 +27,7 @@ If unavailable, continue with manual review and note the limitation.
 
 Use these files as source of truth:
 
+- `.cursor/rules/product-teku.mdc`
 - `.cursor/rules/editorial-voice.mdc`
 - `.cursor/rules/terminology.mdc`
 - `.cursor/rules/markdown-formatting.mdc`
@@ -38,7 +39,7 @@ Use these files as source of truth:
 For each issue, provide:
 
 1. Approximate location.
-2. Category (Voice, Terminology, Formatting, Content type, Frontmatter, Workflow).
+2. Category (Product-specific, Voice, Terminology, Formatting, Content type, Frontmatter, Workflow).
 3. Issue description.
 4. Suggested fix.
 
