@@ -6,9 +6,8 @@
 # - ai-input=yes allows use as model input for retrieval and grounding.
 # - ai-train=yes allows use for training or fine-tuning AI models.
 
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
-
 User-agent: *
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 
 User-agent: GPTBot
