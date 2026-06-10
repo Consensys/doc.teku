@@ -139,7 +139,7 @@ your system clock and other nodes, potentially causing issues for Teku.
 Here is an image that shows the **Time Synchronized Drift** chart before and after the server clock being
 adjusted using Chrony:
 
-![Time Synchronized Drift](../../images/time_synchronized_drift_chart.png)
+![Time Synchronized Drift](/img/time_synchronized_drift_chart.png)
 
 :::note
 
