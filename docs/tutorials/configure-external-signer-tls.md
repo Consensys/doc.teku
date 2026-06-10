@@ -25,8 +25,8 @@ utility to generate keystores and a truststore that contain self-signed certific
 - [Java `keytool`](https://docs.oracle.com/en/java/javase/12/tools/keytool.html).
 - A running execution client such as [Besu].
 
- This tutorial connects to the Holesky testnet.
- You can [run a Besu node on Holesky](https://besu.hyperledger.org/public-networks/get-started/start-node#run-a-node-on-holesky-testnet).
+ This tutorial connects to the Hoodi testnet.
+ You can [run a Besu node on Hoodi](https://besu.hyperledger.org/public-networks/get-started/start-node#run-a-node-on-an-ethereum-testnet).
 
 ## 1. Create keystores
 
@@ -176,12 +176,12 @@ web3signer \
 Start Teku and specify the [keystore](#teku-keystore-and-password-file) and [truststore](#2-create-the-truststore-and-password-file) created earlier, with the accompanying password files.
 
 :::note
-This example connects to the Holesky testnet, and connects to the execution client's JSON-RPC URL at `http://127.0.0.1:8551`.
+This example connects to the Hoodi testnet, and connects to the execution client's JSON-RPC URL at `http://127.0.0.1:8551`.
 :::
 
 ```bash
 teku \
-  --network=holesky                                                                         \
+  --network=hoodi                                                                           \
   --ee-endpoint=http://127.0.0.1:8551                                                       \
   --validators-external-signer-public-keys=0xa99a...e44c,0xb89b...4a0b                      \
   --validators-external-signer-url=https://localhost:9000                                   \

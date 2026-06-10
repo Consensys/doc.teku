@@ -569,7 +569,7 @@ Normally, at sync, Teku requests all deposit logs from the execution layer up to
 At each startup, Teku loads all deposits from the disk and replays them to recreate the Merkle tree.
 Both operations consume peer resources and delay node availability on restart.
 The feature enabled by this option dramatically decreases the time of both operations by bundling
-deposit tree snapshots in the Teku distribution for all major networks (Mainnet, Gnosis, Holesky,
+deposit tree snapshots in the Teku distribution for all major networks (Mainnet, Gnosis, Hoodi,
 and Sepolia) and persisting the current tree after finalization.
 Instead of replaying thousands of deposits on startup, Teku loads the bundled tree or a saved one.
 
@@ -851,7 +851,7 @@ If not specified (that is, you're running a beacon node only), then provide an i
 the [`--initial-state`](#initial-state) option, or start Teku from an existing database using
 [`--data-path`](#data-base-path-data-path), which provides the initial state to work from.
 You do not need to provide an initial state if running a public network which has already started
-(for example, Mainnet or Holesky).
+(for example, Mainnet or Hoodi).
 
 :::caution
 
@@ -987,8 +987,8 @@ The default is `false`.
 
 :::caution
 
-This option is destructive. The beacon chain database will be permanently deleted. Only use it when you 
-intend to clear the database and resync or load a new state. Avoid setting it in config files or environment 
+This option is destructive. The beacon chain database will be permanently deleted. Only use it when you
+intend to clear the database and resync or load a new state. Avoid setting it in config files or environment
 variables else the database will be deleted on every startup.
 
 :::
@@ -1814,7 +1814,6 @@ Possible values are:
 | Network    | Chain           | Type       | Description                                                             |
 |:-----------|:----------------|:-----------|:------------------------------------------------------------------------|
 | `mainnet`  | Consensus layer | Production | Main network                                                            |
-| `holesky`  | Consensus layer | Test       | Multi-client testnet                                                    |
 | `hoodi`    | Consensus layer | Test       | Multi-client testnet                                                    |
 | `ephemery` | Consensus layer | Test       | Multi-client testnet                                                    |
 | `sepolia`  | Consensus layer | Test       | Multi-client testnet                                                    |
