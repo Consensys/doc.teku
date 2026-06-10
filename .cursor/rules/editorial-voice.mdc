@@ -1,0 +1,57 @@
+---
+description: Editorial voice and tone rules aligned with Microsoft Writing Style Guide and Consensys documentation standards.
+globs: ["**/*.md", "**/*.mdx"]
+alwaysApply: false
+---
+
+# Editorial voice
+
+Follow the [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/)
+and the [Consensys documentation style guide](https://docs-template.consensys.net/contribute/style-guide).
+
+## Voice and tone
+
+- Use active voice and present tense.
+- Write in second person and address the reader as "you."
+- Use contractions naturally.
+- Refer to the reader's setup as "your node," "your validator client," or "your deployment."
+
+## Clarity
+
+- Lead with the most important point in each section.
+- Use short, direct sentences.
+- Break up long sections with headings, lists, code, or admonitions.
+- Keep docs instructional and factual, not promotional.
+
+## Sentence construction
+
+- Front-load important words for scanning.
+- Start with verbs when possible.
+- Use the Oxford comma.
+- Avoid filler intros like "you can" when unnecessary.
+
+## Lists
+
+- Use between two and seven items where practical.
+- Keep list item structure parallel.
+
+## Punctuation and formatting
+
+- Do not use em dashes or en dashes.
+- Use sentence case for headings.
+- Do not end headings with periods.
+- Use backticks for inline code, paths, and URLs.
+- Use bold only for UI labels.
+
+## Developer content
+
+- List prerequisites before procedural steps.
+- Provide runnable, copy-paste-friendly examples.
+- Use placeholders in angle brackets for user-supplied values.
+
+## What to avoid
+
+- Marketing language and superlatives.
+- Slang or idioms.
+- Undefined jargon.
+- Run-on sentences.

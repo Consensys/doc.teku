@@ -1,0 +1,39 @@
+---
+description: Required spelling and casing for Teku product names, Ethereum consensus terms, and standards used across this repository.
+globs: ["**/*.md", "**/*.mdx"]
+alwaysApply: false
+---
+
+# Terminology
+
+Use the following terms consistently.
+Do not use listed variants unless they appear in code, URLs, or direct quotations.
+
+| Required term                         | Do not use                                              |
+|---------------------------------------|---------------------------------------------------------|
+| Teku                                  | teku, TEKU (except in code/URLs/CLI)                   |
+| ConsenSys Teku                        | Consensys Teku                                          |
+| beacon node                           | beacon chain node                                       |
+| validator client                      | validator node (unless explicitly discussing nodes)     |
+| execution client                      | EL client (spell out on first use)                      |
+| consensus client                      | CL client (spell out on first use)                      |
+| proof of stake                        | Proof of Stake, PoS (spell out on first use)            |
+| checkpoint sync                       | check point sync                                        |
+| weak subjectivity                     | weak-subjectivity (except in CLI option names)          |
+| slashing protection                   | slash protection                                        |
+| fee recipient                         | feeRecipient                                            |
+| builder API                           | mev-boost API (unless specifically about mev-boost)     |
+| JSON-RPC                              | json-rpc, Json-RPC, JSONRPC                             |
+| REST API                              | rest api, REST endpoints API                            |
+
+## Standards and specifications
+
+On first mention in a page, spell out standards with identifier in parentheses.
+Use the short form after first use.
+
+Examples:
+
+- First use: "Ethereum Improvement Proposal 4788 (EIP-4788)"
+- Subsequent: "EIP-4788"
+- First use: "Engine API specification"
+- Subsequent: "Engine API"

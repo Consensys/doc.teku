@@ -1,0 +1,53 @@
+---
+description: Maps folder conventions to Diataxis content types so AI tools produce the right structure for Teku docs.
+globs: ["**/*.md", "**/*.mdx"]
+alwaysApply: false
+---
+
+# Content types (Diataxis)
+
+This repository follows the [Diataxis framework](https://diataxis.fr/).
+The folder a file lives in determines the expected structure and writing style.
+
+## Folder-to-type mapping
+
+### `concepts/` - Explanation
+
+- Explain why something exists and how it works.
+- Provide context, trade-offs, and relationships.
+- Do not include step-by-step procedures.
+- Example: `docs/concepts/architecture.md`
+
+### `how-to/` - How-to
+
+- Focus on a specific operational goal.
+- State the goal early.
+- List prerequisites before the first step.
+- Use numbered steps for action sequences.
+- Avoid long conceptual digressions.
+- Example: `docs/how-to/configure/use-config-file.md`
+
+### `get-started/` - Onboarding
+
+- Cover first-run essentials such as install, connect, and start-up.
+- Match the local structure used by neighboring pages.
+- Example: `docs/get-started/start-teku.md`
+
+### `reference/` - Reference
+
+- Present precise, neutral, structured technical facts.
+- Mirror CLI or API structure closely.
+- Minimize explanatory prose.
+- Example: `docs/reference/cli/index.md`
+
+### `tutorials/` - Tutorial
+
+- Provide end-to-end learning walkthroughs.
+- State what readers will accomplish at the start.
+- Include expected output at key checkpoints.
+- Keep the reader on one clear path.
+- Example: `docs/tutorials/configure-external-signer-tls.md`
+
+## Frontmatter
+
+For frontmatter requirements, use `markdown-formatting.mdc` as the source of truth.
