@@ -1,0 +1,54 @@
+---
+description: Markdown formatting conventions for Teku documentation (Docusaurus).
+globs: ["**/*.md", "**/*.mdx"]
+alwaysApply: false
+---
+
+# Markdown formatting
+
+Follow the [Consensys Markdown formatting guide](https://docs-template.consensys.net/contribute/format-markdown)
+for full details.
+The rules below cover common conventions in this repository.
+
+## Line length and sentence breaks
+
+- Wrap lines at roughly 80 columns.
+- Start each new sentence on a new line to keep diffs readable.
+
+## Links
+
+- Use relative links for pages.
+- Use descriptive link text.
+
+## Code blocks
+
+- Always add language tags to fenced code blocks.
+- Keep examples copy-paste ready.
+- Do not include shell prompts in commands.
+- Use angle-bracket placeholders for user-provided values.
+
+## Tabs
+
+- Use Docusaurus `<Tabs>` and `<TabItem>` for parallel examples.
+- Import `Tabs` and `TabItem` when required by the page.
+
+## Admonitions
+
+- Use Docusaurus admonitions (`:::note`, `:::tip`, `:::warning`, and related types).
+- Add a custom title only when it improves scanability.
+- Do not nest admonitions.
+
+## Frontmatter
+
+- Required: `description` (single sentence).
+- Recommended: `keywords`.
+- `sidebar_label` is optional and should only be used when the default nav label is too long.
+- If frontmatter includes a `title`, avoid adding a duplicate H1 in page content.
+
+## File and folder names
+
+- Use lowercase and dashes only.
+
+## Diagrams
+
+- Use Mermaid where diagrams are needed and the page already follows that pattern.

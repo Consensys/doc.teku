@@ -17,3 +17,9 @@ jobs:
 
       - name: Vale
         uses: Consensys/github-actions/docs-spelling-check@979fb3e168f8f7af5e59378a02420c8f6fc4a6a9 # main
+        with:
+          FILEPATHS: |
+            docs/**/*.md
+            docs/**/*.mdx
+            versioned_docs/**/*.md
+            versioned_docs/**/*.mdx
