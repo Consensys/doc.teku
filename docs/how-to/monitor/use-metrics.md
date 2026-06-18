@@ -10,7 +10,7 @@ Enable the [Prometheus](https://prometheus.io/) monitoring and alerting service 
 
 ## Install Prometheus
 
-To use Prometheus with Teku, install the [Prometheus main component](https://prometheus.io/download/). On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus):
+To use Prometheus with Teku, install the [Prometheus main component](https://prometheus.io/download/). On macOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus):
 
 ```bash
 brew install prometheus

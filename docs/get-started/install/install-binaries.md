@@ -8,7 +8,8 @@ sidebar_position: 1
 
 :::caution Windows is not supported
 
-Teku no longer supports Windows.
+Teku does not support Windows. Windows users may switch to using Docker, Windows Subsystem for
+Linux, or other supported operating systems.
 
 :::
 
