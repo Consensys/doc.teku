@@ -288,7 +288,8 @@ validator-keys: "/home/validator/keys:home/validator/passwords"
   </TabItem>
 </Tabs>
 
-Directory or file to load the encrypted keystores and passwords of the validators that you wish to exit. Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
+Directory or file to load the encrypted keystores and passwords of the validators that you wish to exit.
+Keystore files must use the `.json` file extension, and password files must use the `.txt` file extension.
 
 When specifying directories, Teku expects to find identically named keystore and password files. For example `validator_217179e.json` and `validator_217179e.txt`.
 
