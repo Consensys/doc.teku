@@ -294,12 +294,6 @@ When specifying directories, Teku expects to find identically named keystore and
 
 When specifying file names, Teku expects that the files exist.
 
-:::note
-
-The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
-
-:::
-
 ## `validator-public-keys`
 
 <Tabs>

@@ -11,8 +11,14 @@ The following are the minimum system requirements for running a full node, with 
 - CPU: 4 cores at 2.8 GHz
 - Memory: 16 GB RAM
 - Storage: SSD with 2 TB free space
-- Operating system: 64-bit Linux, Mac OS X, or Windows
+- Operating system: 64-bit Linux or Mac OS X
 - Internet: Broadband internet connection (10 Mbps)
+
+:::caution Windows is not supported
+
+Teku no longer supports Windows.
+
+:::
 
 :::note
 We also recommend that you have an uninterrupted power supply (UPS) to ensure your node is always available.
