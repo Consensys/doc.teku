@@ -6,6 +6,13 @@ sidebar_position: 2
 
 # Build from source
 
+:::caution Windows is not supported
+
+Teku does not support Windows. Windows users may switch to using Docker, Windows Subsystem for
+Linux, or other supported operating systems.
+
+:::
+
 :::caution
 
 If you want to use the latest development version of Teku or a specific commit, build from source. Otherwise, use the [binary] or [Docker image] for more stable versions.

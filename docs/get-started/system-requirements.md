@@ -16,7 +16,8 @@ The following are the minimum system requirements for running a full node, with 
 
 :::caution Windows is not supported
 
-Teku no longer supports Windows.
+Teku does not support Windows. Windows users may switch to using Docker, Windows Subsystem for
+Linux, or other supported operating systems.
 
 :::
 
