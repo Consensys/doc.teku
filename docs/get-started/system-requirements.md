@@ -11,7 +11,7 @@ The following are the minimum system requirements for running a full node, with 
 - CPU: 4 cores at 2.8 GHz
 - Memory: 16 GB RAM
 - Storage: SSD with 2 TB free space
-- Operating system: 64-bit Linux or Mac OS X
+- Operating system: 64-bit Linux or macOS
 - Internet: Broadband internet connection (10 Mbps)
 
 :::caution Windows is not supported
