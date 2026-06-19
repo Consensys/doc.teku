@@ -6,13 +6,6 @@ sidebar_position: 1
 
 # Install binary distribution
 
-:::caution Windows is not supported
-
-Teku does not support Windows. Windows users may switch to using Docker, Windows Subsystem for
-Linux, or other supported operating systems.
-
-:::
-
 ## Linux / Unix / macOS
 
 ### Prerequisites
