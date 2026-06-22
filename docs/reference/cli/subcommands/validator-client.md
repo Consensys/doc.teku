@@ -155,7 +155,6 @@ Path to the Teku base directory for storage. The default directory is OS-depende
 
 - macOS: `~/Library/teku`
 - Unix/Linux: `$XDG_DATA_HOME/teku` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku`
-- Windows: `%localappdata%\teku`.
 
 The default Docker image location is `/root/.local/share/teku`.
 
@@ -322,7 +321,6 @@ The default directory is OS-dependent:
 
 - macOS: `~/Library/teku/logs`
 - Unix/Linux: `$XDG_DATA_HOME/teku/logs` if `$XDG_DATA_HOME` is set; otherwise `~/.local/share/teku/logs`
-- Windows: `%localappdata%\teku\logs`
 
 The default Docker image location is `/root/.local/share/teku/logs`.
 
@@ -706,12 +704,6 @@ When specifying directories, Teku expects to find identically named keystore and
 example `validator_217179e.json` and `validator_217179e.txt`.
 
 When specifying file names, Teku expects that the files exist.
-
-:::note
-
-The path separator is operating system dependent, and should be `;` in Windows rather than `:`.
-
-:::
 
 ## `validators-early-attestations-enabled`
 
