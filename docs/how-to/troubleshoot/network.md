@@ -51,25 +51,54 @@ performance.
 
 ### Firewall connection issues
 
-To determine the number of inbound and outbound peers via the beacon node's REST API, you can send a request to the peers
-endpoint. This gathers data and organizes it based on the direction, either inbound or outbound.
+To determine the number of inbound and outbound peers via the beacon node's
+REST API, send a request to the peers endpoint.
+This command groups peers by direction and counts peer addresses that include
+`/tcp/` or `/quic`.
 
 ```bash
-curl http://127.0.0.1:5051/eth/v1/node/peers |jq '.data | group_by(.direction)[] | {direction: .[0].direction, count: length}'
+curl -s http://127.0.0.1:5051/eth/v1/node/peers | jq '
+  .data
+  | group_by(.direction)[]
+  | {
+      direction: .[0].direction,
+      tcp: (
+        map(select((.last_seen_p2p_address // "") | contains("/tcp/")))
+        | length
+      ),
+      quic: (
+        map(select((.last_seen_p2p_address // "") | contains("/quic")))
+        | length
+      )
+    }
+'
 ```
 
-If only outbound peers are displayed, it indicates that peers cannot connect to your infrastructure from the outside.
-Networks typically have a firewall at the entry point (router / modem / gateway) that blocks incoming data by default.
+Interpret the output by transport:
 
-To resolve this, update the firewall to include a rule that allows access to the [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default)
-for both `UDP` and `TCP` traffic. Subsequently, forward this port (TCP and UDP) to the internal IP address of the machine
-running the beacon node. Some operating systems also have local firewalls that should be updated to permit communication
-through this port.
+- If the output shows outbound TCP peers, but no inbound TCP peers, inbound TCP
+  traffic might be blocked.
+  Allow and forward `TCP` traffic on the
+  [`--p2p-port`](../../reference/cli/index.md#p2p-port), which defaults to
+  `9000`.
+- If the output shows outbound QUIC peers, but no inbound QUIC peers, inbound
+  QUIC traffic might be blocked.
+  Allow and forward `UDP` traffic on the port configured with
+  `--Xp2p-quic-port`, which defaults to `9001`.
+
+Networks typically have a firewall at the entry point (router, modem, or
+gateway) that blocks incoming data by default.
+Forward the required TCP and QUIC ports to the internal IP address of the
+machine running the beacon node.
+Some operating systems also have local firewalls that should be updated to
+permit communication through these ports.
 
 :::info
 
-View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic,
-but you need to substitute  your `--p2p-port` (9000 by default) for the port numbers.
+View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/)
+for more information on this topic, but use your Teku ports for the firewall
+rules: `--p2p-port` for TCP traffic and `--Xp2p-quic-port` for QUIC over UDP
+traffic.
 
 :::
 
