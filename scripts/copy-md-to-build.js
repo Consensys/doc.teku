@@ -14,6 +14,11 @@
  *   versioned_docs/version-<stable>/path/to/page.md       → build/path/to/page.md
  *   versioned_docs/version-<stable>/path/to/dir/index.md  → build/path/to/dir.md
  *
+ * A page's `slug` frontmatter overrides the file path. For example the stable
+ * index.md uses `slug: introduction`, so it maps to build/introduction.md, and
+ * the site root (build/index.md) is left to static/index.md (the agent landing
+ * page served for `Accept: text/markdown` at /).
+ *
  * This lets agents request, e.g.:
  *   https://docs.teku.consensys.io/get-started/install/install-binaries.md
  *
@@ -79,6 +84,45 @@ function addDirective(content) {
   return AGENT_DIRECTIVE + content;
 }
 
+/**
+ * Extract the `slug` frontmatter value, if present, so the output path matches
+ * the page's published URL (Docusaurus honors `slug` over the file path).
+ */
+function getSlug(content) {
+  if (!(content.startsWith("---\n") || content.startsWith("---\r\n"))) {
+    return null;
+  }
+  const closingIdx = content.indexOf("\n---\n", 3);
+  if (closingIdx === -1) {
+    return null;
+  }
+  const frontmatter = content.slice(0, closingIdx);
+  const match = frontmatter.match(/^slug:\s*(.+?)\s*$/m);
+  if (!match) {
+    return null;
+  }
+  return match[1].trim().replace(/^["']|["']$/g, "");
+}
+
+/**
+ * Compute the route path (no leading slash, no extension) for a doc, honoring
+ * `slug` frontmatter. Returns "" for docs that resolve to the site root.
+ */
+function getRoutePath(rel, fileName, slug) {
+  if (slug) {
+    if (slug.startsWith("/")) {
+      return slug.replace(/^\/+/, "");
+    }
+    const dir = path.dirname(rel).split(path.sep).join("/");
+    return dir === "." ? slug : `${dir}/${slug}`;
+  }
+  if (fileName === "index.md") {
+    const parentRel = path.dirname(rel).split(path.sep).join("/");
+    return parentRel === "." ? "" : parentRel;
+  }
+  return rel.split(path.sep).join("/").replace(/\.md$/, "");
+}
+
 function walk(dir, sourceRoot) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const fullPath = path.join(dir, entry.name);
@@ -92,17 +136,18 @@ function walk(dir, sourceRoot) {
         continue;
       }
 
-      let destRel;
-      if (entry.name === "index.md") {
-        const parentRel = path.dirname(rel);
-        destRel = parentRel === "." ? "index.md" : `${parentRel}.md`;
-      } else {
-        destRel = rel;
+      const content = fs.readFileSync(fullPath, "utf8");
+      const routePath = getRoutePath(rel, entry.name, getSlug(content));
+
+      // The site root is reserved for static/index.md (the agent landing page),
+      // so never overwrite build/index.md from the docs tree.
+      if (routePath === "") {
+        skipped++;
+        continue;
       }
 
-      const destPath = path.join(BUILD_DIR, destRel);
+      const destPath = path.join(BUILD_DIR, ...`${routePath}.md`.split("/"));
       fs.mkdirSync(path.dirname(destPath), { recursive: true });
-      const content = fs.readFileSync(fullPath, "utf8");
       fs.writeFileSync(destPath, addDirective(content), "utf8");
       copied++;
     }

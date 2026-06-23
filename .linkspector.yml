@@ -19,6 +19,10 @@ ignorePatterns:
 - pattern: '^http(s)?://help.figma.com'
 - pattern: '^http(s)?://metamask.io'
 - pattern: '^http(s)?://(www\.)?freedesktop\.org'
+# Root-absolute static asset paths (served from static/ by Docusaurus). These
+# are resolved and validated at build time, but the link checker resolves them
+# against the repo root rather than the static/ web root.
+- pattern: '^/img/'
 aliveStatusCodes:
 - 200
 - 206
