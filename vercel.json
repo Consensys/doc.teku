@@ -91,7 +91,7 @@
       "destination": "/index.md"
     },
     {
-      "source": "/:path+",
+      "source": "/:path((?!.*\\.).*)",
       "has": [
         {
           "type": "header",
@@ -99,7 +99,7 @@
           "value": ".*text/markdown.*"
         }
       ],
-      "destination": "/:path+.md"
+      "destination": "/:path.md"
     }
   ]
 }
