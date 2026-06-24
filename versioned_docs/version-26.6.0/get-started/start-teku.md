@@ -76,8 +76,8 @@ You can specify [`--rest-api-host-allowlist`](../reference/cli/index.md#rest-api
 
 To run a validator, connect to a [running beacon node].
 
-Use the [`validator-client`](../reference/cli/subcommands/validator-client.md#validator-client-vc) or
-[`vc`](../reference/cli/subcommands/validator-client.md#validator-client-vc) subcommand to run a Teku as a validator.
+Use the [`validator-client`](../reference/cli/subcommands/validator-client.md) or
+[`vc`](../reference/cli/subcommands/validator-client.md) subcommand to run a Teku as a validator.
 
 ```title="Example"
 teku validator-client \
