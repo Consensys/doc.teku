@@ -44,6 +44,22 @@ The canonical Teku REST API documentation is hosted at
 Use `docs/reference/rest.md` as local guidance and linking context, not as the primary source for
 complete endpoint definitions.
 
+## Agent readiness
+
+The site is configured so AI agents and LLM tools can discover, read, and cite it:
+
+| Feature | Where | Notes |
+|---------|-------|-------|
+| `llms.txt` / `llms-full.txt` | `docusaurus-plugin-llms` in `docusaurus.config.js` | Generated at build time. |
+| Raw Markdown at `.md` URLs | `scripts/copy-md-to-build.js` (chained in `npm run build`) | Exports the stable (root) version only; appending `.md` to a root doc URL returns its Markdown source. |
+| Copy page button | `docusaurus-plugin-copy-page-button` via swizzled `src/theme/DocItem/Layout` | Copy as Markdown / open in an AI assistant. |
+| Content negotiation | `vercel.json` `headers` and `rewrites` | Advertises `llms.txt`/`sitemap.xml` and serves Markdown for `Accept: text/markdown`. |
+| Crawler permissions | `static/robots.txt` | Content signals and AI crawler allow rules. |
+| Agent landing page | `static/index.md` | Served at the root for `Accept: text/markdown`. |
+
+When moving, renaming, or deleting stable pages, remember the raw `.md` pipeline mirrors the
+stable version served at the root.
+
 ## AI guidance
 
 Detailed editorial, formatting, and product-specific rules are in `.cursor/rules/`.

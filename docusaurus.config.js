@@ -53,7 +53,7 @@ const config = {
             "**/__tests__/**",
           ],
           showLastUpdateAuthor: false,
-          showLastUpdateTime: true,
+          showLastUpdateTime: false,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
