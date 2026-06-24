@@ -14,7 +14,7 @@ Teku provides multiple mechanisms to connect to specific peers:
 
 - [Static peers](#static-peers) - Peers that Teku maintains a connection to, configured at startup.
 - [Direct peers](#direct-peers) - Static peers that always exchange full messages, configured reciprocally.
-- [The `/add_peer` API](#add-a-static-peer-at-runtime) - Add a static peer at runtime without restarting Teku.
+- [The `add_peer` API](#add-a-static-peer-at-runtime) - Add a static peer at runtime without restarting Teku.
 
 :::info Use the TCP address
 
@@ -22,7 +22,7 @@ Teku connects to peers over TCP.
 When you specify a peer, use its TCP [multiaddress](https://libp2p.io/concepts/fundamentals/addressing/),
 not its UDP discovery address.
 Get a node's TCP multiaddress from the `p2p_addresses` field of the
-[`/identity`](https://consensys.github.io/teku/#tag/Node/operation/getNetworkIdentity) API endpoint.
+[`/eth/v1/node/identity`](https://consensys.github.io/teku/#tag/Node/operation/getNetworkIdentity) API endpoint.
 
 :::
 
@@ -67,10 +67,9 @@ This is the recommended way to maintain a persistent connection between two node
 
 ## Add a static peer at runtime
 
-Use the [`/add_peer`](https://consensys.github.io/teku/#tag/Teku/operation/AddPeer) API endpoint to add a
+Use the [`/teku/v1/admin/add_peer`](https://consensys.github.io/teku/#tag/Teku/operation/AddPeer) API endpoint to add a
 static peer at runtime, without restarting Teku.
-Send a `POST` request to `/teku/v1/admin/add_peer` with the peer's multiaddress as a JSON string in the
-request body.
+Send a `POST` request to the endpoint with the peer's multiaddress as a JSON string in the request body.
 
 ```bash title="Example"
 curl -X POST "http://127.0.0.1:5051/teku/v1/admin/add_peer" \
@@ -102,7 +101,7 @@ To make the connection persistent, use [`--p2p-direct-peers`](#direct-peers) on 
 
 ## Verify a peer is connected
 
-Use the [`/peers/{peer_id}`](https://consensys.github.io/teku/#tag/Node/operation/getPeer) API
+Use the [`/eth/v1/node/peers/{peer_id}`](https://consensys.github.io/teku/#tag/Node/operation/getPeer) API
 endpoint to look up a single peer by its ID:
 
 ```bash title="Example"
