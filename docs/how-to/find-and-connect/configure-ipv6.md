@@ -5,29 +5,36 @@ sidebar_position: 3
 
 # Configure IPv6
 
-You can configure Teku to listen over IPv4, [IPv6](#listen-over-only-ipv6), or
+In [peer-to-peer (P2P) networking](../../concepts/p2p-networking.md), Teku listens over IPv4 by default.
+You can configure it to listen over [IPv6](#listen-over-only-ipv6) or
 [both (dual-stack)](#listen-over-both-ipv4-and-ipv6-dual-stack).
 
 ## Listen over only IPv6
 
 To configure Teku to listen only on IPv6, set the
 [`--p2p-interface`](../../reference/cli/index.md#p2p-interface-p2p-interfaces) CLI option to `::`.
-The [`--p2p-port`](../../reference/cli/index.md#p2p-port) and
-[`--p2p-udp-port`](../../reference/cli/index.md#p2p-udp-port) CLI options are used for the P2P and
-discovery ports, similar to listening over IPv4 only.
+The [`--p2p-port`](../../reference/cli/index.md#p2p-port), [`--p2p-udp-port`](../../reference/cli/index.md#p2p-udp-port),
+and [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port) CLI options are used for the TCP 
+transport, discovery, and QUIC transport ports.
+
+In single-stack mode, Teku uses port `9000` for TCP and UDP, and `9001` for QUIC by default.
 
 ## Listen over both IPv4 and IPv6 (dual-stack)
 
 To configure Teku to listen over both IPv4 and IPv6, also known as dual-stack support, set the
 [`--p2p-interface`](../../reference/cli/index.md#p2p-interface-p2p-interfaces) CLI option to
 `0.0.0.0,::` for both IPv4 and IPv6 listening addresses. 
-In this setup, the [`--p2p-port`](../../reference/cli/index.md#p2p-port) and
-[`--p2p-udp-port`](../../reference/cli/index.md#p2p-udp-port) options apply to the IPv4 address.
-The [`--p2p-port-ipv6`](../../reference/cli/index.md#p2p-port-ipv6) and
-[`--p2p-udp-port-ipv6`](../../reference/cli/index.md#p2p-udp-port-ipv6) options apply to the IPv6 address.
+In this setup, the [`--p2p-port`](../../reference/cli/index.md#p2p-port),
+[`--p2p-udp-port`](../../reference/cli/index.md#p2p-udp-port), and
+[`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port) options apply to the IPv4 address.
+The [`--p2p-port-ipv6`](../../reference/cli/index.md#p2p-port-ipv6),
+[`--p2p-udp-port-ipv6`](../../reference/cli/index.md#p2p-udp-port-ipv6), and
+[`--p2p-quic-port-ipv6`](../../reference/cli/index.md#p2p-quic-port-ipv6) options apply to the IPv6 address.
 
-After dual-stack support is enabled, Teku uses port `9000` for both TCP and UDP on IPv4, and port
-`9090` for both TCP and UDP on IPv6 by default.
+After dual-stack support is enabled, Teku uses the following ports by default:
+
+- On IPv4: `9000` for TCP and UDP, and `9001` for QUIC
+- On IPv6: `9090` for TCP and UDP, and `9091` for QUIC
 
 ## Advertise only the IPv6 address
 

@@ -1,0 +1,91 @@
+---
+title: Peer-to-peer networking
+description: Learn how Teku connects to the consensus-layer P2P network using the TCP and QUIC transports, peer discovery, ports, IPv6, advertised addresses, and multiaddresses.
+sidebar_position: 7
+---
+
+# Peer-to-peer networking
+
+Teku connects to the consensus-layer peer-to-peer (P2P) network using two transports to exchange data
+and a discovery protocol to find peers.
+This page explains how the transports, discovery, ports, and address configuration fit together.
+
+## Transports
+
+Teku supports two P2P transports, both enabled by default:
+
+- **TCP** - The original libp2p transport.
+- **QUIC** - A transport that runs over UDP.
+
+When QUIC is enabled, Teku advertises both its TCP and QUIC addresses to the network, and remote
+peers can connect over either transport.
+When Teku dials a peer, it uses QUIC if both the local node and the peer support it, and otherwise
+falls back to TCP.
+
+## Peer discovery and ENR
+
+Teku uses [discovery v5](https://github.com/ethereum/devp2p/tree/master/discv5) over UDP to find
+peers on the network.
+Discovery starts from a set of [bootnodes](../how-to/find-and-connect/run-a-bootnode.md) and lets nodes 
+locate each other dynamically.
+
+Teku identifies itself on the discovery network using an
+[Ethereum Node Record (ENR)](https://eips.ethereum.org/EIPS/eip-778), which advertises the node's IP
+address and ports, including the QUIC port when QUIC is enabled.
+The UDP discovery address is used only to find peers; it is not a connectable transport address.
+
+## Node identity and private key
+
+The P2P private key identifies the beacon node on the network and secures the communication channel
+between nodes.
+Teku generates a key automatically on first startup, or you can supply your own using the
+[`--p2p-private-key-file`](../reference/cli/index.md#p2p-private-key-file) option.
+
+Using a persistent private key file gives the node a stable ENR, which is useful for
+[bootnodes](../how-to/find-and-connect/run-a-bootnode.md) and other nodes that you want peers to
+reconnect to reliably.
+
+## P2P options
+
+Teku uses a primary set of P2P port options and a parallel set of `ipv6` options:
+
+| Purpose | Protocol | Primary option | IPv6 option |
+| --- | --- | --- | --- |
+| TCP transport | TCP | [`--p2p-port`](../reference/cli/index.md#p2p-port) | [`--p2p-port-ipv6`](../reference/cli/index.md#p2p-port-ipv6) |
+| Peer discovery | UDP | [`--p2p-udp-port`](../reference/cli/index.md#p2p-udp-port) | [`--p2p-udp-port-ipv6`](../reference/cli/index.md#p2p-udp-port-ipv6) |
+| QUIC transport | UDP | [`--p2p-quic-port`](../reference/cli/index.md#p2p-quic-port) | [`--p2p-quic-port-ipv6`](../reference/cli/index.md#p2p-quic-port-ipv6) |
+
+The primary options configure the node's main address family, IPv4 or IPv6.
+The `ipv6` options are IPv6-specific and add a second address family for dual-stack operation.
+
+The listening mode (IPv4, IPv6, or dual-stack) depends on how you combine these options with the
+[`--p2p-interface`](../reference/cli/index.md#p2p-interface-p2p-interfaces) option.
+By default, Teku listens over IPv4.
+For IPv6 or dual-stack, see [Configure IPv6](../how-to/find-and-connect/configure-ipv6.md).
+
+## Advertised address and NAT
+
+The address Teku advertises to peers can differ from the address it listens on, which matters when
+the node is behind a NAT or router.
+Teku autodetects the address to advertise by default, and the
+[`--p2p-nat-method`](../reference/cli/index.md#p2p-nat-method) option controls whether Teku forwards
+ports automatically through a UPnP gateway or relies on a manually configured address and firewall.
+
+For steps, see [specify NAT methods](../how-to/find-and-connect/specify-nat.md),
+[improve peer-to-peer connectivity](../how-to/find-and-connect/improve-connectivity.md), and
+[configure IPv6](../how-to/find-and-connect/configure-ipv6.md).
+
+## Multiaddresses
+
+Teku identifies peers using [multiaddresses](https://libp2p.io/concepts/fundamentals/addressing/).
+A multiaddress includes the transport and port, so the TCP and QUIC addresses for the same node
+differ:
+
+- TCP - `/ip4/<ip>/tcp/9000/p2p/<peer_id>`
+- QUIC - `/ip4/<ip>/udp/9001/quic-v1/p2p/<peer_id>`
+
+The `p2p_addresses` field of the
+[`/eth/v1/node/identity`](https://consensys.github.io/teku/#tag/Node/operation/getNetworkIdentity)
+API endpoint lists the connectable transport addresses (TCP and, when enabled, QUIC).
+The `discovery_addresses` field lists the UDP discovery address, which is not a connectable
+transport address.

@@ -29,6 +29,7 @@ You can specify [Teku environment variables](../../reference/cli/index.md#specif
 docker run -d                             \
   -p 9000:9000/tcp                        \
   -p 9000:9000/udp                        \
+  -p 9001:9001/udp                        \
   -p 5051:5051                            \
   -e TEKU_REST_API_ENABLED=true           \
   -e TEKU_P2P_PORT=9000                   \
@@ -59,6 +60,7 @@ Use the UID because the username may not exist inside the docker container.
 docker run                                \
   -p 9000:9000/tcp                        \
   -p 9000:9000/udp                        \
+  -p 9001:9001/udp                        \
   --user 1001:1001                        \
   --mount type=bind,source=/Users/user1/teku/,target=/var/lib/teku consensys/teku:latest \
   --data-base-path=/var/lib/teku          \
@@ -73,8 +75,11 @@ Expose ports for P2P peer discovery, metrics, and REST APIs. Expose the default 
 
 - [`--metrics-port`](../../reference/cli/index.md#metrics-port)
 - [`--p2p-port`](../../reference/cli/index.md#p2p-port)
+- [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port)
 - [`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port)
 - [`--rest-api-port`](../../reference/cli/index.md#rest-api-port).
+
+Teku uses the [QUIC transport](../../concepts/p2p-networking.md) on `9001/udp` by default, so expose this port in addition to the TCP transport and discovery ports.
 
 To run Teku exposing local ports for access:
 
@@ -171,9 +176,10 @@ services:
     volumes:
       - ./teku:/var/lib/teku/data
     ports:
-      # Map the p2p port(9000) and REST API port(5051)
+      # Map the TCP transport and discovery port(9000), QUIC transport port(9001), and REST API port(5051)
       - "9000:9000/tcp"
       - "9000:9000/udp"
+      - "9001:9001/udp"
       - "5051:5051"
 ```
 
@@ -230,9 +236,10 @@ services:
     volumes:
       - ./teku:/var/lib/teku/data
     ports:
-      # Map the p2p port(9000) and REST API port(5051)
+      # Map the TCP transport and discovery port(9000), QUIC transport port(9001), and REST API port(5051)
       - "9000:9000/tcp"
       - "9000:9000/udp"
+      - "9001:9001/udp"
       - "5051:5051"
 ```
 
@@ -286,9 +293,10 @@ services:
     volumes:
       - ./teku:/var/lib/teku/data
     ports:
-      # Map the p2p port(9000) and REST API port(5051)
+      # Map the TCP transport and discovery port(9000), QUIC transport port(9001), and REST API port(5051)
       - "9000:9000/tcp"
       - "9000:9000/udp"
+      - "9001:9001/udp"
       - "5051:5051"
 ```
 

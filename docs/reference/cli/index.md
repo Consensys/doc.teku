@@ -2442,7 +2442,11 @@ p2p-port: 1789
   </TabItem>
 </Tabs>
 
-The P2P listening ports (UDP and TCP). The default is `9000`.
+The TCP transport port.
+This is also the default UDP port used for [peer discovery](../../concepts/p2p-networking.md).
+The default is `9000`.
+The [QUIC transport](../../concepts/p2p-networking.md) uses a separate UDP port, configured with
+[`--p2p-quic-port`](#p2p-quic-port) (`9001` by default).
 
 ### `p2p-port-ipv6`
 
@@ -2479,9 +2483,11 @@ p2p-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The P2P listening ports (UDP and TCP) for [IPv6](../../how-to/find-and-connect/configure-ipv6.md)
-when listening over both IPv4 and IPv6.
+The TCP transport port, and the default UDP discovery port, for
+[IPv6](../../how-to/find-and-connect/configure-ipv6.md) when listening over both IPv4 and IPv6.
 The default is `9090`.
+The [QUIC transport](../../concepts/p2p-networking.md) uses a separate IPv6 UDP port, configured with
+[`--p2p-quic-port-ipv6`](#p2p-quic-port-ipv6) (`9091` by default).
 
 ### `p2p-private-key-file`
 
@@ -2516,15 +2522,99 @@ p2p-private-key-file: "/home/me/me_node/key"
   </TabItem>
 </Tabs>
 
-The file containing the [node's private key](../../concepts/p2p-private-key.md).
+The file containing the [node's private key](../../concepts/p2p-networking.md#node-identity-and-private-key).
 
 If a file doesn't exist at the specified path, Teku creates a new file and P2P private key to store inside.
+
+If you don't specify this option, Teku looks for a `generated-node-key.dat` file in the
+`<data-beacon-path>/kvstore` directory, where `<data-beacon-path>` is set using the
+[`--data-beacon-path`](#data-beacon-path) option.
+If the file doesn't exist, Teku generates a P2P private key and writes it to that file.
+If the file already exists, Teku uses the stored key.
 
 :::important
 
 Ensure you specify the complete file path, including the file name, and not only the directory location.
 
 :::
+
+### `p2p-quic-port`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-quic-port=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+# to use port 1801
+--p2p-quic-port=1801
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+# to use port 1801
+TEKU_P2P_QUIC_PORT=1801
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-quic-port: 1801
+```
+
+  </TabItem>
+</Tabs>
+
+The UDP port used for the [QUIC transport](../../concepts/p2p-networking.md).
+The default is `9001`.
+
+### `p2p-quic-port-ipv6`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-quic-port-ipv6=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+# to use port 1802
+--p2p-quic-port-ipv6=1802
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+# to use port 1802
+TEKU_P2P_QUIC_PORT_IPV6=1802
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-quic-port-ipv6: 1802
+```
+
+  </TabItem>
+</Tabs>
+
+The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port used for the
+[QUIC transport](../../concepts/p2p-networking.md).
+Use this port only when listening over both IPv4 and IPv6.
+The default is `9091`.
 
 ### `p2p-static-peers`
 
@@ -2746,7 +2836,10 @@ p2p-udp-port: 1789
   </TabItem>
 </Tabs>
 
-The UDP port used for discovery. The default is the port specified in [`--p2p-port`](#p2p-port).
+The UDP port used for [peer discovery](../../concepts/p2p-networking.md).
+The default is the port specified in [`--p2p-port`](#p2p-port).
+This is distinct from the [QUIC transport](../../concepts/p2p-networking.md) UDP port, configured with
+[`--p2p-quic-port`](#p2p-quic-port) (`9001` by default).
 
 ### `p2p-udp-port-ipv6`
 

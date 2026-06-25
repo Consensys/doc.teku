@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # `bootnode`
 
-Run Teku in [bootnode-only](../../../how-to/run-a-bootnode.md) mode.
+Run Teku in [bootnode-only](../../../how-to/find-and-connect/run-a-bootnode.md) mode.
 
 ## `network`
 
@@ -161,7 +161,7 @@ p2p-private-key-file: "/home/me/me_node/key"
   </TabItem>
 </Tabs>
 
-The file containing the [node's private key](../../../concepts/p2p-private-key.md).
+The file containing the [node's private key](../../../concepts/p2p-networking.md#node-identity-and-private-key).
 
 If a file doesn't exist at the specified path, Teku creates a new file and P2P private key to store inside.
 

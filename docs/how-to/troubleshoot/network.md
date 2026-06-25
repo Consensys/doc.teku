@@ -61,10 +61,13 @@ curl http://127.0.0.1:5051/eth/v1/node/peers |jq '.data | group_by(.direction)[]
 If only outbound peers are displayed, it indicates that peers cannot connect to your infrastructure from the outside.
 Networks typically have a firewall at the entry point (router / modem / gateway) that blocks incoming data by default.
 
-To resolve this, update the firewall to include a rule that allows access to the [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default)
-for both `UDP` and `TCP` traffic. Subsequently, forward this port (TCP and UDP) to the internal IP address of the machine
-running the beacon node. Some operating systems also have local firewalls that should be updated to permit communication
-through this port.
+To resolve this, update the firewall to include rules that allow access to the [P2P ports](../../concepts/p2p-networking.md#p2p-options):
+
+- `9000/tcp` and `9000/udp` for the TCP transport and peer discovery (configurable with [`--p2p-port`](../../reference/cli/index.md#p2p-port)).
+- `9001/udp` for the QUIC transport (configurable with [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port)).
+
+Subsequently, forward these ports to the internal IP address of the machine running the beacon node.
+Some operating systems also have local firewalls that should be updated to permit communication through these ports.
 
 :::info
 

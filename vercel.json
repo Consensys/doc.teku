@@ -73,6 +73,16 @@
       "permanent": true
     },
     {
+      "source": "/development/how-to/run-a-bootnode",
+      "destination": "/development/how-to/find-and-connect/run-a-bootnode",
+      "permanent": true
+    },
+    {
+      "source": "/development/concepts/p2p-private-key",
+      "destination": "/development/concepts/p2p-networking#node-identity-and-private-key",
+      "permanent": true
+    },
+    {
       "source": "/:path(\\d*\\.\\d*\\.\\d*)",
       "destination": "/:path*/introduction",
       "permanent": true
