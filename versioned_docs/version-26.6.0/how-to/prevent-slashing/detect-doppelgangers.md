@@ -9,7 +9,7 @@ Doppelganger detection checks if the validators' keys are already active before 
 
 When enabled, doppelganger detection is triggered from two entry points:
 
-1. At [validator client startup](../../get-started/start-teku.md#start-teku): If at least one
+1. At [validator client startup](../../get-started/start-teku.md): If at least one
     doppelganger is detected, the Teku validator client shuts down after it finishes the check with
     exit code `2`.
     When this happens, you should not restart Teku by default because validators will likely be slashed.

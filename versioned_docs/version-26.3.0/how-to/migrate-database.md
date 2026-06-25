@@ -109,4 +109,4 @@ Teku creates a LevelDB2 database, and starts from the specified recent state. Te
 [`prune` mode]: ../reference/cli/index.md#data-storage-mode
 [`archive` mode]: ../reference/cli/index.md#data-storage-mode
 [supply the finalized checkpoint state]: ../get-started/checkpoint-start.md
-[Teku Discord channel]: https://discord.com/invite/consensys
+[Teku Discord channel]: https://discord.gg/teku

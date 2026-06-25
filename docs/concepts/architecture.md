@@ -16,4 +16,4 @@ The validator client performs [validator duties](proof-of-stake.md).
 
 You can [run the beacon node only](../get-started/start-teku.md#start-the-beacon-node), or [run the beacon node and validator client](../get-started/start-teku.md#start-the-clients-in-a-single-process).
 
-Read more about the [Ethereum consensus client architecture](https://ethereum.org/en/developers/docs/nodes-and-clients/). For more information about the Teku architecture, contact us on [Teku Discord channel](https://discord.com/invite/consensys).
+Read more about the [Ethereum consensus client architecture](https://ethereum.org/en/developers/docs/nodes-and-clients/). For more information about the Teku architecture, contact us on [Teku Discord channel](https://discord.gg/teku).

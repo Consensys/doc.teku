@@ -6,26 +6,23 @@ sidebar_position: 2
 
 # Build from source
 
-:::caution
-
-If you want to use the latest development version of Teku or a specific commit, build from source. Otherwise, use the [binary] or [Docker image] for more stable versions.
-
-:::
+If you want to use the latest development version of Teku or a specific commit, build from source.
+Otherwise, use the [binary] or [Docker image] for more stable versions.
 
 ## Prerequisites
 
 - [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 
-:::caution
+  :::caution
 
-Teku requires Java 25+; earlier versions are not supported.
+  Teku requires Java 25+; earlier versions are not supported.
 
-:::
+  :::
 
 - [Git](https://git-scm.com/downloads) or [GitHub Desktop](https://desktop.github.com/)
 - [Gradle build tool](https://gradle.org/)
 
-## Installation on Linux / Unix / MacOS X
+## Installation on Linux / Unix / macOS
 
 ### Clone the Teku repository
 

@@ -10,7 +10,7 @@ Enable the [Prometheus](https://prometheus.io/) monitoring and alerting service 
 
 ## Install Prometheus
 
-To use Prometheus with Teku, install the [Prometheus main component](https://prometheus.io/download/). On MacOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus):
+To use Prometheus with Teku, install the [Prometheus main component](https://prometheus.io/download/). On macOS, install with [Homebrew](https://formulae.brew.sh/formula/prometheus):
 
 ```bash
 brew install prometheus
@@ -20,7 +20,7 @@ brew install prometheus
 
 To configure Prometheus and run with Teku:
 
-1.  Configure Prometheus to poll Teku. For example, add the following YAML fragment to the `scrape_configs` block of the `prometheus.yml` file:
+1. Configure Prometheus to poll Teku. For example, add the following YAML fragment to the `scrape_configs` block of the `prometheus.yml` file:
 
     ```yaml title="Example configuration"
     global:
@@ -37,7 +37,7 @@ To configure Prometheus and run with Teku:
           - targets: ["localhost:8008"]
     ```
 
-2.  Start Teku with the [`--metrics-enabled`](../../reference/cli/index.md#metrics-enabled) option. To start a node for testing with metrics enabled:
+2. Start Teku with the [`--metrics-enabled`](../../reference/cli/index.md#metrics-enabled) option. To start a node for testing with metrics enabled:
 
     ```bash
     teku --eth1-deposit-contract-address=dddddddddddddddddddddddddddddddddddddddd \
@@ -48,21 +48,26 @@ To configure Prometheus and run with Teku:
 
     :::warning
 
-    To avoid DNS rebinding attacks, if running Prometheus on a different host to your Teku node (any host other than `localhost`), ensure you add the hostname that Prometheus uses to connect to Teku to [`--metrics-host-allowlist`](../../reference/cli/index.md#metrics-host-allowlist).
+    To avoid DNS rebinding attacks, if running Prometheus on a different host to your Teku node
+    (any host other than `localhost`), ensure you add the hostname that Prometheus uses to connect
+    to Teku to [`--metrics-host-allowlist`](../../reference/cli/index.md#metrics-host-allowlist).
 
     For example, if Prometheus is configured to get metrics from `http://teku.local:8008/metrics` then `teku.local` has to be in `--metrics-host-allowlist`.
 
     :::
 
-    To specify the host and port on which Prometheus accesses Teku, use the [`--metrics-interface`](../../reference/cli/index.md#metrics-interface) and [`--metrics-port`](../../reference/cli/index.md#metrics-port) options. The default host and port are 127.0.0.1 and 8008.
+    To specify the host and port on which Prometheus accesses Teku, use the
+    [`--metrics-interface`](../../reference/cli/index.md#metrics-interface) and
+    [`--metrics-port`](../../reference/cli/index.md#metrics-port) options.
+    The default host and port are 127.0.0.1 and 8008.
 
-3.  In another terminal, run Prometheus specifying the `prometheus.yml` file:
+3. In another terminal, run Prometheus specifying the `prometheus.yml` file:
 
     ```bash
     prometheus --config.file=prometheus.yml
     ```
 
-4.  View the [Prometheus graphical interface](#view-prometheus-graphical-interface).
+4. View the [Prometheus graphical interface](#view-prometheus-graphical-interface).
 
 :::tip
 
@@ -72,11 +77,11 @@ Use a log ingestion tool, such as Logstash, to parse the logs and alert you to c
 
 ## View Prometheus graphical interface
 
-1.  Open a web browser to `http://localhost:9090` to view the Prometheus graphical interface.
+1. Open a web browser to `http://localhost:9090` to view the Prometheus graphical interface.
 
-2.  Choose **Graph** from the menu bar and click the **Console** tab below.
+2. Choose **Graph** from the menu bar and click the **Console** tab below.
 
-3.  From the **Insert metric at cursor** drop-down, select a metric such as `libp2p_peers` or `beacon_finalized_epoch` and click **Execute**. The values display.
+3. From the **Insert metric at cursor** drop-down, select a metric such as `libp2p_peers` or `beacon_finalized_epoch` and click **Execute**. The values display.
 
     :::note
 

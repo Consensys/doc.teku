@@ -53,7 +53,7 @@ const config = {
             "**/__tests__/**",
           ],
           showLastUpdateAuthor: false,
-          showLastUpdateTime: true,
+          showLastUpdateTime: false,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -142,7 +142,7 @@ const config = {
             position: "right",
           },
           {
-            href: "https://discord.com/invite/consensys",
+            href: "https://discord.gg/teku",
             className: "header-discord-link",
             position: "right",
           },
@@ -194,8 +194,8 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "ConsenSys Discord",
-                href: "https://discord.com/invite/consensys",
+                label: "Teku Discord",
+                href: "https://discord.gg/teku",
               },
               {
                 label: "Teku GitHub",
