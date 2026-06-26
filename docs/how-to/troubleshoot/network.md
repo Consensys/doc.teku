@@ -52,7 +52,7 @@ performance.
 ### Firewall connection issues
 
 To determine the number of inbound and outbound peers via the beacon node's
-REST API, send a request to the peers endpoint.
+REST API, send a request to the peer's endpoint.
 This command groups peers by direction and counts peer addresses that include
 `/tcp/` or `/quic`.
 
@@ -79,11 +79,11 @@ Interpret the output by transport:
 - If the output shows outbound TCP peers, but no inbound TCP peers, inbound TCP
   traffic might be blocked.
   Allow and forward `TCP` traffic on the
-  [`--p2p-port`](../../reference/cli/index.md#p2p-port), (9000 by default).
+  [`--p2p-port`](../../reference/cli/index.md#p2p-port), (`9000`` by default).
 - If the output shows outbound QUIC peers, but no inbound QUIC peers, inbound
   QUIC traffic might be blocked.
   Allow and forward `UDP` traffic on the port configured with
-  `--p2p-quic-port`, (9001 by default).
+  `--p2p-quic-port`, (`9001` by default).
 
 Networks typically have a firewall at the entry point (router, modem, or
 gateway) that blocks incoming data by default.
@@ -115,12 +115,12 @@ A potential reason for incoming peers not being able to connect could be the use
 gateway (router or modem).
 This usually happens because only one service can listen on a port. Therefore, if you're running multiple beacon nodes,
 you'll need to open multiple ports on your gateway. The simplest solution is to use the same port on your gateway as
-specified in your [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default). However, if necessary, users
+specified in your [`--p2p-port`](../../reference/cli/index.md#p2p-port) (`9000` by default). However, if necessary, users
 can also update the advertised port using the [`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port)
 command.
 
-Similarly for [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port) (9001 by default),
-an advertised port can be set for quic using the 
+Similarly for [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port) (`9001` by default),
+an advertised port can be set for QUIC using the 
 [`--p2p-advertised-quic-port`](../../reference/cli/index.md#p2p-advertised-quic-port) command.
 
 ## Resolve poor attestation performance

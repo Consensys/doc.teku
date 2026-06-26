@@ -1972,11 +1972,11 @@ p2p-advertised-quic-port: 1789
   </TabItem>
 </Tabs>
 
-The P2P Quic port to advertise.
-The default is the port specified in [`--p2p-quic-port`](#p2-quic-port).
+The P2P QUIC port to advertise.
+The default is the port specified in [`--p2p-quic-port`](#p2p-quic-port).
 
 The advertised port can differ from the [`--p2p-quic-port`](#p2p-quic-port).
-For example, you can set the advertised quic port to `9010`, and the `--p2p-quic-port` value to `9009`, then
+For example, you can set the advertised QUIC port to `9010`, and the `--p2p-quic-port` value to `9009`, then
 manually configure the firewall to forward external incoming requests on port `9010` to port `9009`
 on the Teku node.
 
@@ -2013,7 +2013,7 @@ p2p-advertised-quic-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) quic port to advertise.
+The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) QUIC port to advertise.
 Use this port only when advertising both IPv4 and IPv6 addresses.
 The default is the port specified in [`--p2p-quic-port-ipv6`](#p2p-port-quic-ipv6).
 
