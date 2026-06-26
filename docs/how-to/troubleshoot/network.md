@@ -120,7 +120,7 @@ can also update the advertised port using the [`--p2p-advertised-port`](../../re
 command.
 
 Similarly for [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port) (`9001` by default),
-an advertised port can be set for QUIC using the 
+an advertised port can be set for QUIC using the
 [`--p2p-advertised-quic-port`](../../reference/cli/index.md#p2p-advertised-quic-port) command.
 
 ## Resolve poor attestation performance

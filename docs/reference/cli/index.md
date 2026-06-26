@@ -2015,7 +2015,7 @@ p2p-advertised-quic-port-ipv6: 1790
 
 The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) QUIC port to advertise.
 Use this port only when advertising both IPv4 and IPv6 addresses.
-The default is the port specified in [`--p2p-quic-port-ipv6`](#p2p-port-quic-ipv6).
+The default is the port specified in [`--p2p-quic-port-ipv6`](#p2p-quic-port-ipv6).
 
 ### `p2p-advertised-udp-port`
 
