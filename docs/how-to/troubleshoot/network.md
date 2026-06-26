@@ -79,12 +79,11 @@ Interpret the output by transport:
 - If the output shows outbound TCP peers, but no inbound TCP peers, inbound TCP
   traffic might be blocked.
   Allow and forward `TCP` traffic on the
-  [`--p2p-port`](../../reference/cli/index.md#p2p-port), which defaults to
-  `9000`.
+  [`--p2p-port`](../../reference/cli/index.md#p2p-port), (9000 by default).
 - If the output shows outbound QUIC peers, but no inbound QUIC peers, inbound
   QUIC traffic might be blocked.
   Allow and forward `UDP` traffic on the port configured with
-  `--Xp2p-quic-port`, which defaults to `9001`.
+  `--p2p-quic-port`, (9001 by default).
 
 Networks typically have a firewall at the entry point (router, modem, or
 gateway) that blocks incoming data by default.
@@ -97,7 +96,7 @@ permit communication through these ports.
 
 View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/)
 for more information on this topic, but use your Teku ports for the firewall
-rules: `--p2p-port` for TCP traffic and `--Xp2p-quic-port` for QUIC over UDP
+rules: `--p2p-port` for TCP traffic and `--p2p-quic-port` for QUIC over UDP
 traffic.
 
 :::
@@ -119,6 +118,10 @@ you'll need to open multiple ports on your gateway. The simplest solution is to 
 specified in your [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default). However, if necessary, users
 can also update the advertised port using the [`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port)
 command.
+
+Similarly for [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port) (9001 by default),
+an advertised port can be set for quic using the 
+[`--p2p-advertised-quic-port`](../../reference/cli/index.md#p2p-advertised-quic-port) command.
 
 ## Resolve poor attestation performance
 

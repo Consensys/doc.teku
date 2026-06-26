@@ -1939,6 +1939,84 @@ The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) port to advertis
 Use this port only when advertising both IPv4 and IPv6 addresses.
 The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
+### `p2p-advertised-quic-port`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-advertised-quic-port=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-advertised-quic-port=1789
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_ADVERTISED_QUIC_PORT=1789
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-advertised-quic-port: 1789
+```
+
+  </TabItem>
+</Tabs>
+
+The P2P Quic port to advertise.
+The default is the port specified in [`--p2p-quic-port`](#p2-quic-port).
+
+The advertised port can differ from the [`--p2p-quic-port`](#p2p-quic-port).
+For example, you can set the advertised quic port to `9010`, and the `--p2p-quic-port` value to `9009`, then
+manually configure the firewall to forward external incoming requests on port `9010` to port `9009`
+on the Teku node.
+
+### `p2p-advertised-quic-port-ipv6`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-advertised-quic-port-ipv6=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-advertised-quic-port-ipv6=1790
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_ADVERTISED_QUIC_PORT_IPV6=1790
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-advertised-quic-port-ipv6: 1790
+```
+
+  </TabItem>
+</Tabs>
+
+The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) quic port to advertise.
+Use this port only when advertising both IPv4 and IPv6 addresses.
+The default is the port specified in [`--p2p-quic-port-ipv6`](#p2p-port-quic-ipv6).
+
 ### `p2p-advertised-udp-port`
 
 <Tabs>
@@ -2482,6 +2560,82 @@ p2p-port-ipv6: 1790
 The P2P listening ports (UDP and TCP) for [IPv6](../../how-to/find-and-connect/configure-ipv6.md)
 when listening over both IPv4 and IPv6.
 The default is `9090`.
+
+### `p2p-quic-port`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-quic-port=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+# to listen on port 1789
+--p2p-quic-port=1789
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+# to listen on port 1789
+TEKU_P2P_QUIC_PORT=1789
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-quic-port: 1789
+```
+
+  </TabItem>
+</Tabs>
+
+The P2P QUIC listening port (UDP). The default is `9001`.
+
+### `p2p-quic-port-ipv6`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-quic-port-ipv6=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+# to listen on port 1790
+--p2p-quic-port-ipv6=1790
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+# to listen on port 1790
+TEKU_P2P_QUIC_PORT_IPV6=1790
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-quic-port-ipv6: 1790
+```
+
+  </TabItem>
+</Tabs>
+
+The P2P QUIC listening port (UDP) for [IPv6](../../how-to/find-and-connect/configure-ipv6.md)
+when listening over both IPv4 and IPv6.
+The default is `9091`.
 
 ### `p2p-private-key-file`
 
