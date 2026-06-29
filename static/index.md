@@ -36,5 +36,5 @@ The canonical Teku REST API reference is hosted at
 
 ## Questions
 
-For questions about Teku, ask on the Consensys Discord or open an issue in the
+For questions about Teku, ask on the [Teku Discord](https://discord.gg/teku) or open an issue in the
 [Teku repository](https://github.com/Consensys/teku).
