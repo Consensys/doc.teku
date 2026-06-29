@@ -26,12 +26,12 @@ falls back to TCP.
 
 Teku uses [discovery v5](https://github.com/ethereum/devp2p/tree/master/discv5) over UDP to find
 peers on the network.
-Discovery starts from a set of [bootnodes](../how-to/find-and-connect/run-a-bootnode.md) and lets nodes 
+Discovery starts from a set of [bootnodes](../how-to/find-and-connect/run-a-bootnode.md) and lets nodes
 locate each other dynamically.
 
 Teku identifies itself on the discovery network using an
 [Ethereum Node Record (ENR)](https://eips.ethereum.org/EIPS/eip-778), which advertises the node's IP
-address and ports, including the QUIC port when QUIC is enabled.
+address and ports.
 The UDP discovery address is used only to find peers; it is not a connectable transport address.
 
 ## Node identity and private key
@@ -45,35 +45,30 @@ Using a persistent private key file gives the node a stable ENR, which is useful
 [bootnodes](../how-to/find-and-connect/run-a-bootnode.md) and other nodes that you want peers to
 reconnect to reliably.
 
-## P2P options
+## P2P port options
 
-Teku uses a primary set of P2P port options and a parallel set of `ipv6` options:
+Teku exposes a listening port and an advertised port for each transport and for peer discovery:
 
-| Purpose | Protocol | Primary option | IPv6 option |
+| Purpose | Protocol | Listening option | Advertised option |
 | --- | --- | --- | --- |
-| TCP transport | TCP | [`--p2p-port`](../reference/cli/index.md#p2p-port) | [`--p2p-port-ipv6`](../reference/cli/index.md#p2p-port-ipv6) |
-| Peer discovery | UDP | [`--p2p-udp-port`](../reference/cli/index.md#p2p-udp-port) | [`--p2p-udp-port-ipv6`](../reference/cli/index.md#p2p-udp-port-ipv6) |
-| QUIC transport | UDP | [`--p2p-quic-port`](../reference/cli/index.md#p2p-quic-port) | [`--p2p-quic-port-ipv6`](../reference/cli/index.md#p2p-quic-port-ipv6) |
+| TCP transport | TCP | [`--p2p-port`](../reference/cli/index.md#p2p-port) | [`--p2p-advertised-port`](../reference/cli/index.md#p2p-advertised-port) |
+| Peer discovery | UDP | [`--p2p-udp-port`](../reference/cli/index.md#p2p-udp-port) | [`--p2p-advertised-udp-port`](../reference/cli/index.md#p2p-advertised-udp-port) |
+| QUIC transport | UDP | [`--p2p-quic-port`](../reference/cli/index.md#p2p-quic-port) | [`--p2p-advertised-quic-port`](../reference/cli/index.md#p2p-advertised-quic-port) |
 
-The primary options configure the node's main address family, IPv4 or IPv6.
-The `ipv6` options are IPv6-specific and add a second address family for dual-stack operation.
-
+Each option has an `-ipv6` counterpart (for example,
+[`--p2p-quic-port-ipv6`](../reference/cli/index.md#p2p-quic-port-ipv6) and
+[`--p2p-advertised-quic-port-ipv6`](../reference/cli/index.md#p2p-advertised-quic-port-ipv6)) that
+adds a second address family for dual-stack operation.
 The listening mode (IPv4, IPv6, or dual-stack) depends on how you combine these options with the
 [`--p2p-interface`](../reference/cli/index.md#p2p-interface-p2p-interfaces) option.
 By default, Teku listens over IPv4.
 For IPv6 or dual-stack, see [Configure IPv6](../how-to/find-and-connect/configure-ipv6.md).
 
-## Advertised address and NAT
-
 The address Teku advertises to peers can differ from the address it listens on, which matters when
 the node is behind a NAT or router.
-Teku autodetects the address to advertise by default, and the
-[`--p2p-nat-method`](../reference/cli/index.md#p2p-nat-method) option controls whether Teku forwards
-ports automatically through a UPnP gateway or relies on a manually configured address and firewall.
-
-For steps, see [specify NAT methods](../how-to/find-and-connect/specify-nat.md),
-[improve peer-to-peer connectivity](../how-to/find-and-connect/improve-connectivity.md), and
-[configure IPv6](../how-to/find-and-connect/configure-ipv6.md).
+Teku autodetects the advertised address by default; you can configure it with
+[`--p2p-advertised-ip`](../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips).
+You can also [specify NAT methods](../how-to/find-and-connect/specify-nat.md).
 
 ## Multiaddresses
 
@@ -84,8 +79,7 @@ differ:
 - TCP - `/ip4/<ip>/tcp/9000/p2p/<peer_id>`
 - QUIC - `/ip4/<ip>/udp/9001/quic-v1/p2p/<peer_id>`
 
-The `p2p_addresses` field of the
+The `p2p_addresses` field returned by the
 [`/eth/v1/node/identity`](https://consensys.github.io/teku/#tag/Node/operation/getNetworkIdentity)
-API endpoint lists the connectable transport addresses (TCP and, when enabled, QUIC).
-The `discovery_addresses` field lists the UDP discovery address, which is not a connectable
-transport address.
+API endpoint lists the TCP and QUIC transport addresses.
+The `discovery_addresses` field lists the UDP discovery address.

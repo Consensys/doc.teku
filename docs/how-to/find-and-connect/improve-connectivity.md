@@ -27,7 +27,9 @@ Check the [`ip4.me`](http://ip4.me/) website to view your public IP address.
 
 ## Configure ports
 
-Teku uses three [P2P ports](../../concepts/p2p-networking.md#p2p-options) by default: the TCP transport and discovery ports (`9000`, configured with [`--p2p-port`](../../reference/cli/index.md#p2p-port)) and the QUIC transport port (`9001`, configured with [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port)).
+Teku uses three [P2P ports](../../concepts/p2p-networking.md#p2p-port-options) by default: the TCP transport 
+and discovery ports (`9000`, configured with [`--p2p-port`](../../reference/cli/index.md#p2p-port)) and 
+the QUIC transport port (`9001`, configured with [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port)).
 
 Configure port forwarding on your router and firewall to allow incoming and outgoing connections on all three ports for the TCP and UDP protocols.
 

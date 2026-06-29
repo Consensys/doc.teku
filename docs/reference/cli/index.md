@@ -1939,6 +1939,84 @@ The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) port to advertis
 Use this port only when advertising both IPv4 and IPv6 addresses.
 The default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
 
+### `p2p-advertised-quic-port`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-advertised-quic-port=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-advertised-quic-port=1789
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_ADVERTISED_QUIC_PORT=1789
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-advertised-quic-port: 1789
+```
+
+  </TabItem>
+</Tabs>
+
+The P2P QUIC port to advertise.
+The default is the port specified in [`--p2p-quic-port`](#p2p-quic-port).
+
+The advertised port can differ from the [`--p2p-quic-port`](#p2p-quic-port).
+For example, you can set the advertised QUIC port to `9010`, and the `--p2p-quic-port` value to `9009`, then
+manually configure the firewall to forward external incoming requests on port `9010` to port `9009`
+on the Teku node.
+
+### `p2p-advertised-quic-port-ipv6`
+
+<Tabs>
+  <TabItem value="Syntax" label="Syntax" default>
+
+```bash
+--p2p-advertised-quic-port-ipv6=<PORT>
+```
+
+  </TabItem>
+  <TabItem value="Example" label="Example" >
+
+```bash
+--p2p-advertised-quic-port-ipv6=1790
+```
+
+  </TabItem>
+  <TabItem value="Environment variable" label="Environment variable" >
+
+```bash
+TEKU_P2P_ADVERTISED_QUIC_PORT_IPV6=1790
+```
+
+  </TabItem>
+  <TabItem value="Configuration file" label="Configuration file" >
+
+```bash
+p2p-advertised-quic-port-ipv6: 1790
+```
+
+  </TabItem>
+</Tabs>
+
+The P2P [IPv6](../../how-to/find-and-connect/configure-ipv6.md) QUIC port to advertise.
+Use this port only when advertising both IPv4 and IPv6 addresses.
+The default is the port specified in [`--p2p-quic-port-ipv6`](#p2p-quic-port-ipv6).
+
 ### `p2p-advertised-udp-port`
 
 <Tabs>
@@ -2009,7 +2087,7 @@ p2p-advertised-udp-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port to advertise external peers.
+The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port to advertise to external peers.
 This port is only used when advertising both IPv4 and IPv6 addresses.
 The default is the port specified in [`--p2p-advertised-port-ipv6`](#p2p-advertised-port-ipv6) if it is set.
 Otherwise, the default is the port specified in [`--p2p-port-ipv6`](#p2p-port-ipv6).
@@ -2420,7 +2498,6 @@ The default is `100`.
   <TabItem value="Example" label="Example" >
 
 ```bash
-# to listen on port 1789
 --p2p-port=1789
 ```
 
@@ -2428,7 +2505,6 @@ The default is `100`.
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-# to listen on port 1789
 TEKU_P2P_PORT=1789
 ```
 
@@ -2442,11 +2518,7 @@ p2p-port: 1789
   </TabItem>
 </Tabs>
 
-The TCP transport port.
-This is also the default UDP port used for [peer discovery](../../concepts/p2p-networking.md).
-The default is `9000`.
-The [QUIC transport](../../concepts/p2p-networking.md) uses a separate UDP port, configured with
-[`--p2p-quic-port`](#p2p-quic-port) (`9001` by default).
+The P2P listening ports (UDP and TCP). The default is `9000`.
 
 ### `p2p-port-ipv6`
 
@@ -2461,7 +2533,6 @@ The [QUIC transport](../../concepts/p2p-networking.md) uses a separate UDP port,
   <TabItem value="Example" label="Example" >
 
 ```bash
-# to listen on port 1790
 --p2p-port-ipv6=1790
 ```
 
@@ -2469,7 +2540,6 @@ The [QUIC transport](../../concepts/p2p-networking.md) uses a separate UDP port,
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-# to listen on port 1790
 TEKU_P2P_PORT_IPV6=1790
 ```
 
@@ -2483,11 +2553,9 @@ p2p-port-ipv6: 1790
   </TabItem>
 </Tabs>
 
-The TCP transport port, and the default UDP discovery port, for
-[IPv6](../../how-to/find-and-connect/configure-ipv6.md) when listening over both IPv4 and IPv6.
+The P2P listening ports (UDP and TCP) for [IPv6](../../how-to/find-and-connect/configure-ipv6.md)
+when listening over both IPv4 and IPv6.
 The default is `9090`.
-The [QUIC transport](../../concepts/p2p-networking.md) uses a separate IPv6 UDP port, configured with
-[`--p2p-quic-port-ipv6`](#p2p-quic-port-ipv6) (`9091` by default).
 
 ### `p2p-private-key-file`
 
@@ -2551,7 +2619,6 @@ Ensure you specify the complete file path, including the file name, and not only
   <TabItem value="Example" label="Example" >
 
 ```bash
-# to use port 1801
 --p2p-quic-port=1801
 ```
 
@@ -2559,7 +2626,6 @@ Ensure you specify the complete file path, including the file name, and not only
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-# to use port 1801
 TEKU_P2P_QUIC_PORT=1801
 ```
 
@@ -2573,7 +2639,7 @@ p2p-quic-port: 1801
   </TabItem>
 </Tabs>
 
-The UDP port used for the [QUIC transport](../../concepts/p2p-networking.md).
+The P2P QUIC listening port (UDP).
 The default is `9001`.
 
 ### `p2p-quic-port-ipv6`
@@ -2589,7 +2655,6 @@ The default is `9001`.
   <TabItem value="Example" label="Example" >
 
 ```bash
-# to use port 1802
 --p2p-quic-port-ipv6=1802
 ```
 
@@ -2597,7 +2662,6 @@ The default is `9001`.
   <TabItem value="Environment variable" label="Environment variable" >
 
 ```bash
-# to use port 1802
 TEKU_P2P_QUIC_PORT_IPV6=1802
 ```
 
@@ -2611,9 +2675,8 @@ p2p-quic-port-ipv6: 1802
   </TabItem>
 </Tabs>
 
-The [IPv6](../../how-to/find-and-connect/configure-ipv6.md) UDP port used for the
-[QUIC transport](../../concepts/p2p-networking.md).
-Use this port only when listening over both IPv4 and IPv6.
+The P2P QUIC listening port (UDP) for [IPv6](../../how-to/find-and-connect/configure-ipv6.md) when
+listening over both IPv4 and IPv6.
 The default is `9091`.
 
 ### `p2p-static-peers`
@@ -2836,10 +2899,7 @@ p2p-udp-port: 1789
   </TabItem>
 </Tabs>
 
-The UDP port used for [peer discovery](../../concepts/p2p-networking.md).
-The default is the port specified in [`--p2p-port`](#p2p-port).
-This is distinct from the [QUIC transport](../../concepts/p2p-networking.md) UDP port, configured with
-[`--p2p-quic-port`](#p2p-quic-port) (`9001` by default).
+The UDP port used for discovery. The default is the port specified in [`--p2p-port`](#p2p-port).
 
 ### `p2p-udp-port-ipv6`
 

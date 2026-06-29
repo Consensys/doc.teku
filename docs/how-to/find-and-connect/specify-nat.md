@@ -26,5 +26,4 @@ UPnP support is often disabled by default in networking firmware. If disabled by
 
 Specify `NONE` to explicitly configure the external IP address and ports advertised using [`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips) and [`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port) for the P2P service.
 
-Manually configure your firewall to allow external hosts to create inbound connections to Teku on all
-[P2P ports](../../concepts/p2p-networking.md#p2p-options), including the QUIC transport UDP port.
+Manually configure your firewall to allow external hosts to create inbound connections to Teku.

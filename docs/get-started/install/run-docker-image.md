@@ -77,6 +77,7 @@ Expose ports for P2P peer discovery, metrics, and REST APIs. Expose the default 
 - [`--p2p-port`](../../reference/cli/index.md#p2p-port)
 - [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port)
 - [`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port)
+- [`--p2p-advertised-quic-port`](../../reference/cli/index.md#p2p-advertised-quic-port)
 - [`--rest-api-port`](../../reference/cli/index.md#rest-api-port).
 
 Teku uses the [QUIC transport](../../concepts/p2p-networking.md) on `9001/udp` by default, so expose this port in addition to the TCP transport and discovery ports.

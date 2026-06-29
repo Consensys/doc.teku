@@ -6,7 +6,7 @@ sidebar_position: 4
 
 # Connect to specific peers
 
-By default, Teku uses [discovery](run-a-bootnode.md) to find and connect to peers automatically.
+By default, Teku uses [discovery](../../concepts/p2p-networking.md#peer-discovery-and-enr) to find and connect to peers automatically.
 In some cases, you might want Teku to connect to specific peers, such as nodes you operate across different
 regions.
 
@@ -16,17 +16,12 @@ Teku provides multiple mechanisms to connect to specific peers:
 - [Direct peers](#direct-peers) - Static peers that always exchange full messages, configured reciprocally.
 - [The `add_peer` API](#add-a-static-peer-at-runtime) - Add a static peer at runtime without restarting Teku.
 
-:::info Use a connectable transport address
+:::info
 
-When you specify a peer, use one of its connectable transport
+When you specify a peer, use one of its transport
 [multiaddresses](https://libp2p.io/concepts/fundamentals/addressing/) from the `p2p_addresses` field
 of the [`/eth/v1/node/identity`](https://consensys.github.io/teku/#tag/Node/operation/getNetworkIdentity)
 API endpoint.
-This field lists the peer's [TCP and QUIC transport addresses](../../concepts/p2p-networking.md), for
-example `/ip4/192.0.2.10/tcp/9000/p2p/16Uiu2HA...aXRz` (TCP) or
-`/ip4/192.0.2.10/udp/9001/quic-v1/p2p/16Uiu2HA...aXRz` (QUIC).
-Do not use the peer's UDP discovery address from the `discovery_addresses` field, which is not a
-connectable transport address.
 
 :::
 
