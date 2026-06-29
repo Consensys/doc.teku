@@ -51,7 +51,7 @@ performance.
 
 ### Firewall connection issues
 
-To determine the number of inbound and outbound peers via the beacon node's REST API, send a request to 
+To determine the number of inbound and outbound peers via the beacon node's REST API, send a request to
 the `/peers` endpoint.
 This command groups peers by direction and counts peer addresses that include `/tcp/` or `/quic`:
 
@@ -82,7 +82,7 @@ Interpret the output by transport:
   Allow and forward UDP traffic on the port specified in
   [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port) (`9001` by default).
 
-Networks typically have a firewall at the entry point (router, modem, or gateway) that blocks incoming 
+Networks typically have a firewall at the entry point (router, modem, or gateway) that blocks incoming
 data by default.
 Forward the required TCP and QUIC ports to the internal IP address of the machine running the beacon node.
 Some operating systems also have local firewalls that should be updated to permit communication through these ports.
@@ -107,7 +107,7 @@ correct firewall and forwarding settings, this could be the cause.
 
 If incoming peers can't connect, you might be using a different port on your network gateway (router or modem).
 This usually happens because only one service can listen on a port.
-Therefore, if you're running multiple beacon nodes, you need to open multiple ports on your gateway. 
+Therefore, if you're running multiple beacon nodes, you need to open multiple ports on your gateway.
 
 We recommend using the same port on your gateway as specified in
 [`--p2p-port`](../../reference/cli/index.md#p2p-port) (`9000` by default).
