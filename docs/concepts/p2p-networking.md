@@ -10,6 +10,10 @@ Teku connects to the consensus-layer peer-to-peer (P2P) network using two transp
 and a discovery protocol to find peers.
 This page explains how the transports, discovery, ports, and address configuration fit together.
 
+:::note
+If you encounter peering issues, see the [network troubleshooting guide](../how-to/troubleshoot/network.md#resolve-peering-issues).
+:::
+
 ## Transports
 
 Teku supports two P2P transports, both enabled by default:
