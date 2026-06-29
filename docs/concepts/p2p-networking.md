@@ -34,6 +34,12 @@ Teku identifies itself on the discovery network using an
 address and ports.
 The UDP discovery address is used only to find peers; it is not a connectable transport address.
 
+:::note
+Instead of relying on automatic discovery, you can also
+[connect Teku to specific peers](../how-to/find-and-connect/connect-to-specific-peers.md), such as nodes 
+you operate, using static or direct peers.
+:::
+
 ## Node identity and private key
 
 The P2P private key identifies the beacon node on the network and secures the communication channel

@@ -84,14 +84,19 @@ Interpret the output by transport:
 
 Networks typically have a firewall at the entry point (router, modem, or gateway) that blocks incoming
 data by default.
-Forward the required TCP and QUIC ports to the internal IP address of the machine running the beacon node.
+To resolve this, update the firewall to include rules that allow access to the [P2P ports](../../concepts/p2p-networking.md#p2p-port-options):
+
+- `9000/tcp` and `9000/udp` for the TCP transport and peer discovery (configurable with [`--p2p-port`](../../reference/cli/index.md#p2p-port)).
+- `9001/udp` for the QUIC transport (configurable with [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port)).
+
+Forward these ports to the internal IP address of the machine running the beacon node.
 Some operating systems also have local firewalls that should be updated to permit communication through these ports.
 
 :::info
 
 View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic.
-Use your Teku ports for the firewall rules: `--p2p-port` for TCP traffic and `--p2p-quic-port` for QUIC
-over UDP traffic.
+Use your Teku ports for the firewall rules: `--p2p-port` for TCP (transport) and UDP (discovery)
+traffic, and `--p2p-quic-port` for QUIC over UDP traffic.
 
 :::
 
