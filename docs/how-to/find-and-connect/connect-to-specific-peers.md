@@ -6,7 +6,7 @@ sidebar_position: 4
 
 # Connect to specific peers
 
-By default, Teku uses [discovery](../run-a-bootnode.md) to find and connect to peers automatically.
+By default, Teku uses [discovery](../../concepts/p2p-networking.md#peer-discovery-and-enr) to find and connect to peers automatically.
 In some cases, you might want Teku to connect to specific peers, such as nodes you operate across different
 regions.
 
@@ -16,13 +16,12 @@ Teku provides multiple mechanisms to connect to specific peers:
 - [Direct peers](#direct-peers) - Static peers that always exchange full messages, configured reciprocally.
 - [The `add_peer` API](#add-a-static-peer-at-runtime) - Add a static peer at runtime without restarting Teku.
 
-:::info Use the TCP address
+:::info
 
-Teku connects to peers over TCP.
-When you specify a peer, use its TCP [multiaddress](https://libp2p.io/concepts/fundamentals/addressing/),
-not its UDP discovery address.
-Get a node's TCP multiaddress from the `p2p_addresses` field of the
-[`/eth/v1/node/identity`](https://consensys.github.io/teku/#tag/Node/operation/getNetworkIdentity) API endpoint.
+When you specify a peer, use one of its transport
+[multiaddresses](https://libp2p.io/concepts/fundamentals/addressing/) from the `p2p_addresses` field
+of the [`/eth/v1/node/identity`](https://consensys.github.io/teku/#tag/Node/operation/getNetworkIdentity)
+API endpoint.
 
 :::
 

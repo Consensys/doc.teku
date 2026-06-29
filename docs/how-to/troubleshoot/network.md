@@ -51,31 +51,58 @@ performance.
 
 ### Firewall connection issues
 
-To determine the number of inbound and outbound peers via the beacon node's REST API, you can send a request to the peers
-endpoint. This gathers data and organizes it based on the direction, either inbound or outbound.
+To determine the number of inbound and outbound peers via the beacon node's REST API, send a request to
+the `/peers` endpoint.
+This command groups peers by direction and counts peer addresses that include `/tcp/` or `/quic`:
 
 ```bash
-curl http://127.0.0.1:5051/eth/v1/node/peers |jq '.data | group_by(.direction)[] | {direction: .[0].direction, count: length}'
+curl -s http://127.0.0.1:5051/eth/v1/node/peers | jq '
+  .data
+  | group_by(.direction)[]
+  | {
+      direction: .[0].direction,
+      tcp: (
+        map(select((.last_seen_p2p_address // "") | contains("/tcp/")))
+        | length
+      ),
+      quic: (
+        map(select((.last_seen_p2p_address // "") | contains("/quic")))
+        | length
+      )
+    }
+'
 ```
 
-If only outbound peers are displayed, it indicates that peers cannot connect to your infrastructure from the outside.
-Networks typically have a firewall at the entry point (router / modem / gateway) that blocks incoming data by default.
+Interpret the output by transport:
 
-To resolve this, update the firewall to include a rule that allows access to the [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default)
-for both `UDP` and `TCP` traffic. Subsequently, forward this port (TCP and UDP) to the internal IP address of the machine
-running the beacon node. Some operating systems also have local firewalls that should be updated to permit communication
-through this port.
+- If the output shows outbound TCP peers, but no inbound TCP peers, inbound TCP traffic might be blocked.
+  Allow and forward TCP traffic on the port specified in
+  [`--p2p-port`](../../reference/cli/index.md#p2p-port) (`9000` by default).
+- If the output shows outbound QUIC peers, but no inbound QUIC peers, inbound QUIC traffic might be blocked.
+  Allow and forward UDP traffic on the port specified in
+  [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port) (`9001` by default).
+
+Networks typically have a firewall at the entry point (router, modem, or gateway) that blocks incoming
+data by default.
+To resolve this, update the firewall to include rules that allow access to the [P2P ports](../../concepts/p2p-networking.md#p2p-port-options):
+
+- `9000/tcp` and `9000/udp` for the TCP transport and peer discovery (configurable with [`--p2p-port`](../../reference/cli/index.md#p2p-port)).
+- `9001/udp` for the QUIC transport (configurable with [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port)).
+
+Forward these ports to the internal IP address of the machine running the beacon node.
+Some operating systems also have local firewalls that should be updated to permit communication through these ports.
 
 :::info
 
-View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic,
-but you need to substitute  your `--p2p-port` (9000 by default) for the port numbers.
+View the [Prysm guide](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/) for more information on this topic.
+Use your Teku ports for the firewall rules: `--p2p-port` for TCP (transport) and UDP (discovery)
+traffic, and `--p2p-quic-port` for QUIC over UDP traffic.
 
 :::
 
 ### Advertised IP address issues
 
-A possible reason for incoming peers being unable to connect could be an incorrect address specified using the
+If incoming peers can't connect, you might have specified an incorrect address using the
 [`--p2p-advertised-ip`](../../reference/cli/index.md#p2p-advertised-ip-p2p-advertised-ips) option. Teku autodetects the
 address to use by default, so most users won't need to use this option. If you're experiencing issues with incoming peers
 despite having
@@ -83,13 +110,18 @@ correct firewall and forwarding settings, this could be the cause.
 
 ### Network gateway issues
 
-A potential reason for incoming peers not being able to connect could be the use of a different port on your network
-gateway (router or modem).
-This usually happens because only one service can listen on a port. Therefore, if you're running multiple beacon nodes,
-you'll need to open multiple ports on your gateway. The simplest solution is to use the same port on your gateway as
-specified in your [`--p2p-port`](../../reference/cli/index.md#p2p-port) (9000 by default). However, if necessary, users
-can also update the advertised port using the [`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port)
-command.
+If incoming peers can't connect, you might be using a different port on your network gateway (router or modem).
+This usually happens because only one service can listen on a port.
+Therefore, if you're running multiple beacon nodes, you need to open multiple ports on your gateway.
+
+We recommend using the same port on your gateway as specified in
+[`--p2p-port`](../../reference/cli/index.md#p2p-port) (`9000` by default).
+However, you can also set the advertised port using
+[`--p2p-advertised-port`](../../reference/cli/index.md#p2p-advertised-port).
+
+Similarly, for [`--p2p-quic-port`](../../reference/cli/index.md#p2p-quic-port) (`9001` by default),
+you can set the advertised port for QUIC using
+[`--p2p-advertised-quic-port`](../../reference/cli/index.md#p2p-advertised-quic-port).
 
 ## Resolve poor attestation performance
 
