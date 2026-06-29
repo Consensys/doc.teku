@@ -36,7 +36,7 @@ The UDP discovery address is used only to find peers; it is not a connectable tr
 
 :::note
 Instead of relying on automatic discovery, you can also
-[connect Teku to specific peers](../how-to/find-and-connect/connect-to-specific-peers.md), such as nodes 
+[connect Teku to specific peers](../how-to/find-and-connect/connect-to-specific-peers.md), such as nodes
 you operate, using static or direct peers.
 :::
 
